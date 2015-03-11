@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="ThemisComponentsApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Themis Dev Tools</title>
+    <%= stylesheet_link_tag "themis_components/index" %>
+    <%= stylesheet_link_tag "themis_components_app/stylesheets/main" %>
+  </head>
+  <body ng-controller="AppController">
+    <header><h2>Themis Dev Tools</h2></header>
+
+    <div class="content-view ng-cloak">
+      <div
+        class="component-list-view {{ viewType }}"
+        ng-controller="ComponentListController"
+        ><a
+          ng-cloak
+          ng-repeat="component in components"
+          ng-class="{selected:selectedComponent == component}"
+          ng-click="chooseComponent(component)"
+          >{{ component }}</a></div>
+
+      <div class="component-details-view" ng-controller="ComponentDetailsController">
+        <div th-bind-markdown="readme"></div>
+
+        <h2 ng-if="examples.length > 0">Examples</h2>
+        <th-component-example
+          ng-repeat="example in examples"
+          component-name="name"
+          component-example="example"
+          ></th-component-example>
+      </div>
+    </div>
+
+    <%= javascript_include_tag "themis_components_app/app" %>
+  </body>
+</html>

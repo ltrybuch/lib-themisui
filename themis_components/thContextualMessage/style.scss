@@ -1,0 +1,31 @@
+.thContextualMessage {
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+  margin-top: 10px;
+  padding: 1rem;
+
+  color: $grey-95;
+
+  border-radius: $border-radius;
+  background-color: rgba($grey, 0.9);
+
+  &:before {
+    $width: 16px;
+    $height: 8px;
+
+    content: "";
+    display: block;
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    margin-left: -$width/2;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 $width/2 $height $width/2;
+    border-color: transparent transparent rgba($grey, 0.9) transparent;
+  }
+}
