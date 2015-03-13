@@ -2,12 +2,11 @@
 <html ng-app="ThemisComponentsApp">
   <head>
     <meta charset="utf-8">
-    <title>Themis Dev Tools</title>
-    <%= stylesheet_link_tag "themis_components/index" %>
-    <%= stylesheet_link_tag "themis_components_app/stylesheets/main" %>
+    <title>ThemisUI</title>
+    <!-- <link rel="stylesheet" type="text/css" href="main.css"> -->
   </head>
   <body ng-controller="AppController">
-    <header><h2>Themis Dev Tools</h2></header>
+    <header><h2>ThemisUI</h2></header>
 
     <div class="content-view ng-cloak">
       <div
@@ -32,6 +31,6 @@
       </div>
     </div>
 
-    <%= javascript_include_tag "themis_components_app/app" %>
+    <script src="build/docs.js"></script>
   </body>
 </html>
