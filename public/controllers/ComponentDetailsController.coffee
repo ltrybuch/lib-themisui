@@ -10,7 +10,7 @@ angular.module('ThemisComponentsApp')
     $scope.examples = []
 
     $scope.$on 'selectedComponent', (event, component) ->
-      $http.get "/build/components/#{component}.json"
+      $http.get "/components/#{component}.json"
       .then (response) ->
         $scope.name = component
         $scope.readme = response.data.readme

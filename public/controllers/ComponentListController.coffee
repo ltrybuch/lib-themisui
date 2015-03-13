@@ -11,6 +11,6 @@ angular.module('ThemisComponentsApp')
     $scope.$on 'selectedComponent', (event, component) ->
       $scope.selectedComponent = component
 
-    $http.get '/build/components.json'
+    $http.get '/components.json'
     .then (response) ->
       $scope.components = response.data
