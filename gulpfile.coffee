@@ -1,5 +1,7 @@
 gulp = require 'gulp'
 path = require 'path'
+sass = require 'gulp-sass'
+rename = require 'gulp-rename'
 
 gulp.task 'default', ->
   console.log """
@@ -19,8 +21,31 @@ gulp.task 'default', ->
 
 gulp.task 'docs', ['docs-server', 'docs-watch']
 
+# creates gulp.task 'docs-server'
 require './gulp/tasks/docsServer'
 
-gulp.task 'docs-watch', ->
-  # gulp.watch path.join('themis_components', '*'), ['docs-build-componentsList']
+# creates gulp.task 'docs-browserify'
+# creates gulp.task 'docs-watchify'
+require './gulp/tasks/docsBrowserify'
 
+gulp.task 'docs-style', ->
+  console.log "app.css is building"
+
+  gulp
+    .src path.join('public', 'stylesheets', 'index.scss')
+    .pipe sass(includePaths: require('node-bourbon').includePaths)
+    .pipe rename('app.css')
+    .pipe gulp.dest path.join('public', 'build')
+
+gulp.task 'docs-examples-style', ->
+  console.log "examples.css is building"
+
+  gulp
+    .src path.join('themis_components', 'examples.scss')
+    .pipe sass(includePaths: require('node-bourbon').includePaths)
+    .pipe rename('examples.css')
+    .pipe gulp.dest path.join('public', 'build')
+
+gulp.task 'docs-watch', ['docs-watchify', 'docs-style', 'docs-examples-style'], ->
+  gulp.watch 'themis_components/**/*.scss', ['docs-style', 'docs-examples-style']
+  gulp.watch 'public/**/*.scss', ['docs-style']

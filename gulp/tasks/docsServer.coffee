@@ -2,6 +2,7 @@ gulp = require 'gulp'
 glob = require 'glob'
 path = require 'path'
 fs = require 'fs'
+coffeescript = require 'coffee-script'
 
 componentsRoot = path.join 'themis_components'
 componentDirectories = glob.sync path.join componentsRoot, '!(theme)', '/'
@@ -30,6 +31,14 @@ gulp.task 'docs-server', ->
         examples: examplesForComponent componentName
     else
       response.status(404).send error: "No such component."
+
+  app.get '/components/:component/examples/:example.js', (request, response) ->
+    componentName = request.params.component
+    exampleName = request.params.example
+
+    exampleCoffeeFile = path.join componentsRoot, componentName, 'examples', exampleName, 'coffee.coffee'
+    exampleCoffee = fs.readFileSync exampleCoffeeFile, 'utf8'
+    response.set('Content-Type', 'application/javascript').send coffeescript.compile exampleCoffee
 
   server = app.listen 3042, ->
     host = server.address().address
