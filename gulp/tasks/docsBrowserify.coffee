@@ -73,11 +73,6 @@ createBundle = (options) ->
 createBundles = (bundles) ->
   bundles.forEach (bundle) ->
     createBundle bundle
-      # input      : bundle.input
-      # output     : bundle.output
-      # extensions : bundle.extensions
-      # transform  : bundle.transform
-      # destination: bundle.destination
 
 gulp.task 'docs-browserify', ->
   createBundles files
