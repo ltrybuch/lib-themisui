@@ -42,10 +42,11 @@ angular.module('ThemisComponents')
       example = $scope.example
 
       includeBase = "#{$location.protocol()}://#{$location.host()}:#{$location.port()}"
-      includeJS  = ["#{includeBase}/assets/themis_components/index.js"]
+      includeJS  = [
+        "#{includeBase}/build/examples.js"
+      ]
       includeCSS = [
-        "#{includeBase}/assets/themis_components/examples.css"
-        "#{includeBase}/assets/themis_components/index.css"
+        "#{includeBase}/build/examples.css"
       ]
 
       exampleInitialized = no
@@ -62,7 +63,7 @@ angular.module('ThemisComponents')
           html = html.replace '</body>', "#{styles.join('')}</body>"
 
           js = includeJS[..]
-          js.push "http://localhost:3000/dev_tools/components/#{$scope.componentName}/examples/#{example.name}.js"
+          js.push "#{includeBase}/components/#{$scope.componentName}/examples/#{example.name}.js"
           scripts = for scriptSrc in js
             "<script src=\"#{scriptSrc}\"></script>"
           html = html.replace '</body>', "#{scripts.join('')}</body>"
