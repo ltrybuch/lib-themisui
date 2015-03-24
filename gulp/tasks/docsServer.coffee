@@ -5,8 +5,8 @@ fs = require 'fs'
 coffeescript = require 'coffee-script'
 
 componentsRoot = path.join 'themis_components'
-componentDirectories = glob.sync path.join componentsRoot, '!(theme)', '/'
-availableComponentNames = ( path.basename(item) for item in componentDirectories )
+componentDirectories = -> glob.sync path.join componentsRoot, '!(theme)', '/'
+availableComponentNames = -> ( path.basename(item) for item in componentDirectories() )
 
 gulp.task 'docs-server', ->
   express = require 'express'
@@ -18,13 +18,13 @@ gulp.task 'docs-server', ->
     response.sendFile path.join 'public', 'index.html'
 
   app.get '/components.json', (request, response) ->
-    componentList = availableComponentNames
+    componentList = availableComponentNames()
     response.send componentList
 
   app.get '/components/:component.json', (request, response) ->
     componentName = request.params.component
 
-    if componentName? and componentName in availableComponentNames
+    if componentName? and componentName in availableComponentNames()
       {markdown, html} = readmeForComponent componentName
 
       response.send
