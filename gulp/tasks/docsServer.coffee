@@ -25,9 +25,12 @@ gulp.task 'docs-server', ->
     componentName = request.params.component
 
     if componentName? and componentName in availableComponentNames
+      {markdown, html} = readmeForComponent componentName
+
       response.send
         name: componentName
-        readme: readmeForComponent componentName
+        readme: markdown
+        readmeHTML: html
         examples: examplesForComponent componentName
     else
       response.status(404).send error: "No such component."
@@ -54,15 +57,21 @@ gulp.task 'docs-server', ->
     """, host, port
 
 readmeForComponent = (componentName) ->
-  readme = """
-    # #{componentName} does not have a Readme
+  readme =
+    markdown: """
+      # #{componentName} does not have a Readme
 
-    You should really make one.
-  """
+      You should really make one.
+    """
+    html: ""
 
   readmePath = path.join componentsRoot, componentName, 'readme.md'
   if fs.existsSync readmePath
-    readme = fs.readFileSync readmePath, 'utf8'
+    readme.markdown = fs.readFileSync readmePath, 'utf8'
+
+  readmePath = path.join componentsRoot, componentName, 'readme.html'
+  if fs.existsSync readmePath
+    readme.html = fs.readFileSync readmePath, 'utf8'
 
   return readme
 

@@ -1,7 +1,7 @@
 angular = require 'angular'
 
 angular.module('ThemisComponentsApp')
-  .controller 'ComponentDetailsController', ($scope, $http) ->
+  .controller 'ComponentDetailsController', ($scope, $http, $sce) ->
     $scope.name = ""
     $scope.readme = """
       # Welcome to the Themis Component Library
@@ -13,7 +13,9 @@ angular.module('ThemisComponentsApp')
       $http.get "/components/#{component}.json"
       .then (response) ->
         $scope.name = component
-        $scope.readme = response.data.readme
+        $scope.readme =
+          markdown: response.data.readme
+          html: $sce.trustAsHtml response.data.readmeHTML
         $scope.examples = response.data.examples
 
     $scope.penData = (name, example) ->

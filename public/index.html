@@ -20,7 +20,8 @@
           >{{ component }}</a></div>
 
       <div class="component-details-view" ng-controller="ComponentDetailsController">
-        <div th-bind-markdown="readme"></div>
+        <div th-bind-markdown="readme.markdown"></div>
+        <div ng-bind-html="readme.html"></div>
 
         <h2 ng-if="examples.length > 0">Examples</h2>
         <th-component-example
