@@ -1,0 +1,73 @@
+.th-switch,
+*[th-switch] {
+  $size: 24px;
+  $inset: 2px;
+  $border: 0px;
+  $handleSize: $size - $border*2 - $inset*2;
+
+  display: inline-block;
+  position: relative;
+  width: $size * 1.5;
+  height: $size;
+  box-sizing: border-box;
+  vertical-align: top;
+  font-size: 12px;
+  border-radius: $size / 2 + $border;
+  border: solid $border $grey;
+  box-shadow: inset 0px 0px 1px $grey;
+  background-color: $grey-40;
+  overflow: hidden;
+
+  i {
+    $size: $handleSize;
+    display: block;
+    position: absolute;
+    top: $inset;
+    left: $inset;
+    width: $size;
+    height: $size;
+    font-style: normal;
+    @include animated;
+    border-radius: $size / 2;
+    box-shadow: 0px 0px 2px $grey;
+    background-color: white;
+
+    &:before,
+    &:after {
+      content: "|";
+      display: block;
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      width: $size - $inset;
+      @extend .fa;
+      line-height: $size;
+      font-size: 9px;
+      text-align: center;
+      color: #fff;
+    }
+
+    &:before {
+      left: -$size + $inset + 3;
+      font-weight: 900;
+    }
+
+    &:after {
+      content: "\f10c";
+      right: -$size + $inset + 2;
+    }
+  }
+
+  &.active {
+    background-color: $green-3;
+
+    i {
+      left: $size*1.5 - $handleSize + $inset*2;
+
+      &:before,
+      &:after {
+        color: #fff;
+      }
+    }
+  }
+}

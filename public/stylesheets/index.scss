@@ -1,0 +1,123 @@
+@import "theme/index";
+@import "../../themis_components/index";
+
+$header-height: 40px;
+$list-view-width: 120px * 2;
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: $sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+
+  overflow: hidden;
+
+  > header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: $header-height;
+
+    padding-left: 12px;
+    padding-right: 12px;
+
+    color: #fff;
+    line-height: $header-height;
+
+    background-color: $blue;
+
+    h1, h2, h3 {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+h1, h2, h3, p {
+  margin: 0;
+  margin-bottom: 1.2rem;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  @include gibson-semibold;
+}
+
+.content-view {
+  position: absolute;
+  top: $header-height;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  .component-list-view {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    width: $list-view-width;
+
+    padding: 0.6rem 0px;
+
+    color: $grey-90;
+    background-color: $grey;
+
+    a {
+      box-sizing: border-box;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $grey-10;
+      }
+
+      &.selected {
+        background-color: $grey-20;
+      }
+    }
+
+    &.as-icons {
+      a {
+        $size: $list-view-width/2;
+
+        display: inline-block;
+        width: $size;
+        height: $size;
+
+        text-align: center;
+        line-height: $size;
+
+        &:nth-child(odd) {
+          border-right: 1px solid $grey-70;
+        }
+      }
+    }
+
+    &.as-list {
+      a {
+        $size: 3.8rem;
+
+        display: block;
+        height: $size;
+        padding-left: 1.2rem;
+
+        line-height: $size;
+      }
+    }
+  }
+
+  .component-details-view {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: $list-view-width;
+    right: 0;
+
+    padding: 2.4rem;
+
+    overflow: auto;
+  }
+}

@@ -1,0 +1,63 @@
+th-component-example,
+*.th-component-example {
+  margin-bottom: 3rem;
+
+  form {
+    border: solid 2px $blue;
+  }
+
+  header {
+    $header-height: 30px;
+
+    height: $header-height;
+    border-bottom: solid 2px $blue;
+    background-color: $blue;
+
+    h3,
+    input {
+      display: inline-block;
+      height: $header-height;
+      margin: 0px;
+      padding: 1rem;
+      vertical-align: top;
+    }
+
+    a,
+    input[type="submit"] {
+      display: inline-block;
+      padding: 0rem 2rem;
+
+      color: #fff;
+      text-decoration: none;
+      font-size: inherit;
+      line-height: $header-height;
+
+      border-right: solid 1px $light-blue;
+
+      cursor: pointer
+    }
+
+    input[type="submit"] {
+      float: right;
+      border: none;
+      border-left: solid 1px $light-blue;
+      background-color: transparent;
+    }
+  }
+
+  pre {
+    margin: 0px;
+    padding: 2rem;
+  }
+
+  .loading {
+    padding: 2rem;
+  }
+
+  iframe {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 2rem 0;
+    padding: 0 2rem;
+  }
+}

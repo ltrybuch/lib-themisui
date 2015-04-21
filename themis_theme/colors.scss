@@ -1,0 +1,313 @@
+/*--------------------------------------------------
+* Variables
+*--------------------------------------------------*/
+$base-unit: 1.231em;
+$sprite-size: 4.23em 3.423em;
+$yellow: #FEC902;
+$blue: #3D7BBA;
+$light-blue: #5AB1E7;
+$red: #BF1E2E;
+$green: #58B028;
+$grey: #d0d0d0;
+$dark-grey: #333333;
+$medium-grey: #666666;
+$link-blue: #3a7abd;
+/*--------------------------------------------------
+* COLOURS
+  Values increase lightest to darkest (1 = lightest,
+  3 = base colour, 5 = darkest).
+*--------------------------------------------------*/
+$yellow-1: #f4e5a0;
+$yellow-2: #f1dd80;
+$yellow-3: #edd460;
+$yellow-4: #c8b457;
+$yellow-5: #a3944e;
+
+$blue-1: #89afd7;
+$blue-2: #6195ca;
+$blue-3: #3a7abd;
+$blue-4: #396ca1;
+$blue-5: #375e86;
+
+$green-1: #74c88c;
+$green-2: #46b666;
+$green-3: #18A440;
+$green-4: #1d8d3d;
+$green-5: #23773b;
+
+$orange-1: #f8a28a;
+$orange-2: #f58363;
+$orange-3: #f3643c;
+$orange-4: #cd5a3a;
+$orange-5: #a65038;
+
+$red-1: #e88e89;
+$red-2: #e06962;
+$red-3: #d8433b;
+$red-4: #b74039;
+$red-5: #963d38;
+
+$dark-grey-1: #858585;
+$dark-grey-2: #717171;
+$dark-grey-3: #5c5c5c;
+$dark-grey-4: #484848;
+$dark-grey-5: #333333;
+
+$light-grey-1: #ebebeb;
+$light-grey-2: #d6d6d6;
+$light-grey-3: #c2c2c2;
+$light-grey-4: #adadad;
+$light-grey-5: #999999;
+
+/*--------------------------------------------------
+* TYPOGRAPHY
+*--------------------------------------------------*/
+$base-font-size: 10px; //used in the rem mixin and for declaring the root font-size on the html element.
+$sans-serif: "Helvetica Neue",Helvetica,Arial,sans-serif;
+$gibson-semibold: 'GibsonSemiBold',Geneva,Tahoma,Verdana,sans-serif;
+$gibson-regular: 'GibsonRegular',Geneva,Tahoma,Verdana,sans-serif;
+
+@mixin gibson-semibold {
+  font-family: $gibson-semibold;
+  font-weight: normal;
+  @extend .antialiased;
+}
+@mixin gibson-regular {
+  font-family: $gibson-regular;
+  font-weight: normal;
+  @extend .antialiased;
+}
+
+//--------------------------------------------------
+// COLOURS
+//--------------------------------------------------
+$yellow: #f6d654;
+$yellow-tint: tint($yellow, 10%);
+$yellow-shade: shade($yellow, 10%);
+
+$blue: #4891dc;
+$blue-tint: tint($blue, 10%);
+$blue-shade: shade($blue, 10%);
+
+$red: #c9282d;
+$red-tint: tint($red, 10%);
+$red-shade: shade($red, 10%);
+
+$green: #55a51c;
+$green-tint: tint($green, 10%);
+$green-shade: shade($green, 10%);
+
+$white: #ffffff;
+$white-shade: shade($white, 10%);
+
+//We tint our darkest grey to get an equally incremented value scale. grey-90 has a 90% tint, grey-80 80%, etc. You can do things like tint($grey-40, 5%) if you need a smaller increment.
+$grey: #3a3d3f;
+$grey-10: tint($grey, 10%);
+$grey-20: tint($grey, 20%);
+$grey-30: tint($grey, 30%);
+$grey-40: tint($grey, 40%);
+$grey-50: tint($grey, 50%);
+$grey-60: tint($grey, 60%);
+$grey-70: tint($grey, 70%);
+$grey-80: tint($grey, 80%);
+$grey-90: tint($grey, 90%);
+$grey-95: tint($grey, 95%);
+/*--------------------------------------------------
+* GLOBAL VARIABLES
+*--------------------------------------------------*/
+$rem: 6px;
+$border-radius: 2px;
+$border-color: $grey-70;
+$border: 1px solid $border-color;
+$base-line-height: 18px;
+$button-height: 36px;
+$content-padding: 20px;
+$trial-flash-height: 36px;
+$header-height: 54px;
+$nav-height: 54px;
+$sidebar-width: 300px;
+$global-search-width: 200px;
+$global-search-height: 30px;
+$subnav-top: $header-height * 2;
+$content-top: $header-height + $nav-height;
+$header-1-size: 18px;
+$border: 1px solid $border-color;
+$modal-padding: 24px;
+/*--------------------------------------------------
+* BREAKPOINT VARIABLES
+*--------------------------------------------------*/
+$min-width: 1060px;
+$firm-name-width-large: 1300px;
+$firm-name-width-medium: 800px;
+$firm-name-width-small: 340px;
+$firm-name-width-xsmall: 300px;
+/*--------------------------------------------------
+* CSS3 Mixins
+*--------------------------------------------------*/
+@mixin box-sizing($border-box: border-box) {
+  -webkit-box-sizing: $border-box;
+  -moz-box-sizing: $border-box;
+  -ms-box-sizing: $border-box;
+  box-sizing: $border-box;
+}
+@mixin box-shadow($boxshadow) {
+  box-shadow: $boxshadow;
+  -webkit-box-shadow: $boxshadow;
+  -moz-box-shadow: $boxshadow;
+}
+@mixin border-radius($topleft: 0.308em, $topright: $topleft, $bottomright: $topleft, $bottomleft: $topleft) {
+  -ms-border-radius: $topleft;
+  -moz-border-radius: $topleft;
+  -webkit-border-radius: $topleft $topright $bottomright $bottomleft;
+  border-radius: $topleft $topright $bottomright $bottomleft;
+}
+@mixin lineheight($basefont: 13, $total-line-height: 16, $new-font-size: 13 ) {
+  font-size: ($new-font-size/$basefont)em;
+}
+@mixin background-clip($bgclip) {
+  -moz-background-clip: $bgclip;
+  -webkit-background-clip: $bgclip;
+  background-clip: $bgclip;
+}
+@mixin transition($transition: all 0.25s ease-out) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  transition: $transition;
+}
+@mixin -vendor-transition($transition) {
+  -webkit-transition: -webkit-$transition;
+  -moz-transition: -moz-$transition;
+  transition: $transition;
+}
+@mixin transform($transform) {
+  -webkit-transform: $transform;
+  -moz-transform: $transform;
+  -ms-transform: $transform;
+  -o-transform: $transform;
+  transform: $transform;
+}
+@mixin transform-origin($transform-origin) {
+  -webkit-transform-origin: $transform-origin;
+  -moz-transform-origin: $transform-origin;
+  -ms-transform-origin: $transform-origin;
+  -o-transform-origin: $transform-origin;
+  transform-origin: $transform-origin;
+}
+@mixin user-select($user-select) {
+  -webkit-touch-callout: $user-select;
+  -webkit-user-select: $user-select;
+  -khtml-user-select: $user-select;
+  -moz-user-select: $user-select;
+  -ms-user-select: $user-select;
+  user-select: $user-select;
+}
+@mixin animation-duration($animation-duration) {
+  -webkit-animation-duration: $animation-duration;
+  -moz-animation-duration: $animation-duration;
+  -ms-animation-duration: $animation-duration;
+  -o-animation-duration: $animation-duration;
+  animation-duration: $animation-duration;
+}
+@mixin animation-timing-function($animation-timing-function) {
+  -webkit-animation-timing-function: $animation-timing-function;
+  -moz-animation-timing-function: $animation-timing-function;
+  -ms-animation-timing-function: $animation-timing-function;
+  -o-animation-timing-function: $animation-timing-function;
+  animation-timing-function: $animation-timing-function;
+}
+@mixin animation-fill-mode($animation-fill-mode) {
+  -webkit-animation-fill-mode: $animation-fill-mode;
+  -moz-animation-fill-mode: $animation-fill-mode;
+  -ms-animation-fill-mode: $animation-fill-mode;
+  -o-animation-fill-mode: $animation-fill-mode;
+  animation-fill-mode: $animation-fill-mode;
+}
+@mixin animation-name($animation-name) {
+  -webkit-animation-name: $animation-name;
+  -moz-animation-name: $animation-name;
+  -o-animation-name: $animation-name;
+  animation-name: $animation-name;
+}
+@mixin animation-iteration-count($animation-iteration-count) {
+  -webkit-animation-iteration-count: $animation-iteration-count;
+  -moz-animation-iteration-count: $animation-iteration-count;
+  -o-animation-iteration-count: $animation-iteration-count;
+  animation-iteration-count: $animation-iteration-count;
+}
+@mixin animation-delay($animation-delay) {
+  -webkit-animation-delay: $animation-delay;
+  -moz-animation-delay: $animation-delay;
+  -o-animation-delay: $animation-delay;
+  animation-delay: $animation-delay;
+}
+
+//Use this mixin to automatically output px fallback values for your rems.
+//Mixin taken from http://davidensinger.com/2013/03/using-rems-with-sass/
+@mixin rem($property, $values) {
+  // Create a couple of empty lists as output buffers.
+  $font-size: $base-font-size;
+  $px-values: ();
+  $rem-values: ();
+  // Loop through the $values list
+  @each $value in $values {
+    // For each property value, if it's in rem or px, derive both rem and
+    // px values for it and add those to the end of the appropriate buffer.
+    // Ensure all pixel values are rounded to the nearest pixel.
+    @if $value == 0 or $value == 0px {
+      // 0 -- use it without a unit
+      $px-values: join($px-values, 0);
+      $rem-values: join($rem-values, 0);
+    } @else if type-of($value) == number and not unitless($value) and (unit($value) == px) {
+      // px value given - calculate rem value from font-size
+      $new-rem-value: $value / $font-size;
+      $px-values: join($px-values, round($value));
+      $rem-values: join($rem-values, #{$new-rem-value}rem);
+    } @else if type-of($value) == number and not unitless($value) and (unit($value) == "%") {
+      // % value given - don't add px or rem
+      $px-values: join($px-values, #{$value});
+      $rem-values: join($rem-values, #{$value});
+    } @else if $value == auto {
+      // auto - don't add px or rem
+      $px-values: join($px-values, auto);
+      $rem-values: join($rem-values, auto);
+    } @else {
+      // unitless value - use those directly as rem and calculate the px-fallback
+      $px-values: join($px-values, round($value * $font-size));
+      $rem-values: join($rem-values, #{$value}rem);
+    }
+  }
+  // output the converted rules
+  #{$property}: $px-values;
+  #{$property}: $rem-values;
+}
+@mixin fixed-block() {
+  position: absolute;
+  right: 0;
+  left: 0;
+  @include rem(min-width, $min-width);
+  @include box-sizing;
+  @include rem(padding, 0 $content-padding);
+}
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  @include transform(translateY(-50%));
+}
+
+@mixin animated($time: 300ms) {
+  -webkit-transition-property: all;
+  -webkit-transition-duration: $time;
+  -webkit-transition-timing-function: ease;
+
+  -moz-transition-property: all;
+  -moz-transition-duration: $time;
+  -moz-transition-timing-function: ease;
+
+  -ms-transition-property: all;
+  -ms-transition-duration: $time;
+  -ms-transition-timing-function: ease;
+
+  transition-property: all;
+  transition-duration: $time;
+  transition-timing-function: ease;
+}
