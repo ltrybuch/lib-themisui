@@ -6,7 +6,6 @@ ddescribe 'ThemisComponent: Directive: thSwitch', ->
     scope.state = state ? defaultState
 
     element = compile(template ? validTemplate)(scope)
-    debugger
     scope.$apply()
 
     return element
