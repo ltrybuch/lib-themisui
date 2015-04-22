@@ -30,14 +30,14 @@ module.exports = (config) ->
     # available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
         'index.coffee' : ['browserify']
-        'themis_components/**/*.spec.coffee' : ['coffee']
+        'themis_components/**/*.spec.coffee' : ['coffee', 'coverage']
     }
 
 
     # test results reporter to use
     # possible values: 'dots', 'progress'
     # available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress']
+    reporters: ['progress', 'coverage']
 
 
     # web server port
@@ -77,6 +77,6 @@ module.exports = (config) ->
         extensions: ['.coffee']
         transform: ['coffeeify']
 
-    # coverageReporter:
-    #   type : 'html',
-    #   dir : 'coverage/'
+        coverageReporter:
+          type : 'html',
+          dir : 'coverage/'
