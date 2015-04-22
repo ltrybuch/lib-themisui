@@ -1,5 +1,4 @@
-# Karma configuration
-# Generated on Tue Apr 21 2015 16:33:47 GMT-0600 (MDT)
+coverage = require 'browserify-istanbul'
 
 module.exports = (config) ->
   config.set
@@ -18,6 +17,12 @@ module.exports = (config) ->
         'index.coffee'
         'node_modules/angular-mocks/angular-mocks.js'
         'themis_components/**/*.spec.coffee'
+        {
+            pattern: 'themis_components/**/*.{directive,service}.coffee'
+            watched: true
+            included: false
+            served: false
+        }
     ]
 
 
@@ -30,7 +35,7 @@ module.exports = (config) ->
     # available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
         'index.coffee' : ['browserify']
-        'themis_components/**/*.spec.coffee' : ['coffee', 'coverage']
+        'themis_components/**/*.spec.coffee' : ['coffee']
     }
 
 
@@ -76,7 +81,10 @@ module.exports = (config) ->
         watch: true
         extensions: ['.coffee']
         transform: ['coffeeify']
+        configure: (bundle) ->
+            bundle.transform coverage
+                ignore: ['themis_components/**/*.spec.coffee']
+                defaultIgnore: true
 
-        coverageReporter:
-          type : 'html',
-          dir : 'coverage/'
+    coverageReporter:
+      type : 'text'
