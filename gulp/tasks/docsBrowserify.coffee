@@ -21,14 +21,6 @@ files = [
     transform  : ['coffeeify']
     destination: './public/build/'
   }
-  {
-    input      : ['./themis_components/index.coffee']
-    output     : 'ThemisUI.js'
-    extensions : ['.coffee']
-    transform  : ['coffeeify']
-    destination: './lib/'
-    standalone : 'ThemisComponents'
-  }
 ]
 
 createBundle = (options) ->

@@ -1,25 +1,25 @@
-@import "theme/index";
+@import "../../themis_theme/index";
 @import "../../themis_components/index";
 
 $header-height: 40px;
 $list-view-width: 120px * 2;
 
 html {
-  font-size: 6px;
+  font-size: 10px;
 }
 
 body {
   font-family: $sans-serif;
   font-weight: 300;
-  font-size: 14px;
+  font-size: 13px;
 
   overflow: hidden;
 
   > header {
     position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
+    top: 0;
+    left: 0;
+    right: 0;
     height: $header-height;
 
     padding-left: 12px;
@@ -31,16 +31,16 @@ body {
     background-color: $blue;
 
     h1, h2, h3 {
-      margin: 0px;
-      padding: 0px;
+      margin: 0;
+      padding: 0;
     }
   }
 }
 
 h1, h2, h3, p {
-  margin: 0px;
-  margin-bottom: 2rem;
-  padding: 0px;
+  margin: 0;
+  margin-bottom: 1.2rem;
+  padding: 0;
 }
 
 h1, h2, h3 {
@@ -50,9 +50,9 @@ h1, h2, h3 {
 .content-view {
   position: absolute;
   top: $header-height;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
+  bottom: 0;
+  left: 0;
+  right: 0;
 
   .component-list-view {
     position: absolute;
@@ -61,7 +61,7 @@ h1, h2, h3 {
     left: 0px;
     width: $list-view-width;
 
-    padding: 1rem 0px;
+    padding: 0.6rem 0px;
 
     color: $grey-90;
     background-color: $grey;
@@ -98,11 +98,11 @@ h1, h2, h3 {
 
     &.as-list {
       a {
-        $size: 38px;
+        $size: 3.8rem;
 
         display: block;
         height: $size;
-        padding-left: 2rem;
+        padding-left: 1.2rem;
 
         line-height: $size;
       }
@@ -111,12 +111,12 @@ h1, h2, h3 {
 
   .component-details-view {
     position: absolute;
-    top: 0px;
-    bottom: 0px;
+    top: 0;
+    bottom: 0;
     left: $list-view-width;
-    right: 0px;
+    right: 0;
 
-    padding: 4rem;
+    padding: 2.4rem;
 
     overflow: auto;
   }
