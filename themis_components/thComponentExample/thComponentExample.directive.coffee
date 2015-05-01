@@ -73,13 +73,14 @@ angular.module('ThemisComponents')
           exampleFrame.contentWindow.document.close()
 
           exampleFrame.contentWindow.document.addEventListener "DOMSubtreeModified", ->
-            exampleFrame.style.height = '0px'
-            exampleFrame.style.height = exampleFrame.contentWindow.document.body.scrollHeight + 'px'
+            $timeout ->
+              exampleFrame.style.height = '0px'
+              exampleFrame.style.height = exampleFrame.contentWindow.document.body.scrollHeight + 10 + 'px'
 
           exampleFrame.style.height = '0px'
           $timeout ->
             $scope.mode = 'example'
-            exampleFrame.style.height = exampleFrame.contentWindow.document.body.scrollHeight + 'px'
+            exampleFrame.style.height = exampleFrame.contentWindow.document.body.scrollHeight + 10 + 'px'
           , 1500
 
       $scope.penData = JSON.stringify
