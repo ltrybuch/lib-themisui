@@ -13,7 +13,7 @@ template = """
 """
 
 angular.module('ThemisComponents')
-  .directive "thPopover", ($compile, $timeout, PopoverManager) ->
+  .directive "thPopover", ($compile, $rootScope, $timeout, PopoverManager) ->
     restrict: "A"
     scope:
       templateURL: '=thPopover'
@@ -63,8 +63,8 @@ angular.module('ThemisComponents')
           left: "#{ anchorRect.left - viewLeft + anchorRect.width/2 }px"
 
       $scope.$on 'thPopover.dismiss', ->
-        overlay.remove()
-        view.remove()
+        overlay?.remove()
+        view?.remove()
 
       element.on 'click', -> $scope.$apply ->
         view = angular.element template unless view?

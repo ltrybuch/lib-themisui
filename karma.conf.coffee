@@ -16,6 +16,7 @@ module.exports = (config) ->
     files: [
         'index.coffee'
         'node_modules/angular-mocks/angular-mocks.js'
+        'themis_components/**/*.mock.coffee'
         'themis_components/**/*.spec.coffee'
         {
             pattern: 'themis_components/**/*.{directive,service}.coffee'
@@ -35,6 +36,7 @@ module.exports = (config) ->
     # available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
         'index.coffee' : ['browserify']
+        'themis_components/**/*.mock.coffee' : ['coffee']
         'themis_components/**/*.spec.coffee' : ['coffee']
     }
 
@@ -42,7 +44,7 @@ module.exports = (config) ->
     # test results reporter to use
     # possible values: 'dots', 'progress'
     # available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage']
+    reporters: ['progress', 'coverage', 'notify']
 
 
     # web server port
@@ -83,7 +85,10 @@ module.exports = (config) ->
         transform: ['coffeeify']
         configure: (bundle) ->
             bundle.transform coverage
-                ignore: ['themis_components/**/*.spec.coffee']
+                ignore: [
+                  'themis_components/**/*.mock.coffee'
+                  'themis_components/**/*.spec.coffee'
+                ]
                 defaultIgnore: true
 
     coverageReporter:
