@@ -5,8 +5,10 @@ angular.module 'ThemisComponents', [
 ]
 
 require './thBindMarkdown'
+require './thCompile'
 require './thComponentExample'
 require './thContextualMessage'
+require './thPopover'
 require './thSwitch'
 
 module.exports = 'ThemisComponents'
