@@ -11,14 +11,14 @@ files = [
     input      : ['./public/javascript/index.coffee']
     output     : 'app.js'
     extensions : ['.coffee']
-    transform  : ['coffeeify']
+    transform  : []
     destination: './public/build/'
   }
   {
     input      : ['./themis_components/index.coffee']
     output     : 'examples.js'
     extensions : ['.coffee']
-    transform  : ['coffeeify']
+    transform  : []
     destination: './public/build/'
   }
 ]
