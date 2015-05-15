@@ -1,6 +1,6 @@
 {
   "name": "lib-ThemisUI",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A Baseline of style and components used by Clio's web applications.",
   "author": "Sean Healy <sean.healy@clio.com>, Geoff Thierman <geoff.thierman@clio.com>",
   "main": "index.js",
