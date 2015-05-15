@@ -3,7 +3,10 @@ overlayTemplate = """
 """
 
 template = """
-  <div class="th-popover-view">
+  <div
+    class="th-popover-view"
+    ng-class="{ loading: !loaded }"
+    >
     <i></i>
     <div
       class="th-popover-content"
@@ -39,7 +42,7 @@ angular.module('ThemisComponents')
 
         # Setup our width. If we are loading set a sensible default.
         maxWidth = window.innerWidth - minInset*3
-        viewWidth = if $scope.loaded then Math.min maxWidth, viewRect.width else 256
+        viewWidth = if $scope.loaded then Math.min maxWidth, viewRect.width else 200
 
         # Assuming no window bounds where would we like to be?
         viewGoalLeft = anchorRect.left + anchorRect.width/2 - viewWidth/2

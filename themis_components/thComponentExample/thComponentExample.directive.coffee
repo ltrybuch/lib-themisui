@@ -76,6 +76,7 @@ angular.module('ThemisComponents')
             $timeout ->
               exampleFrame.style.height = '0px'
               exampleFrame.style.height = exampleFrame.contentWindow.document.body.scrollHeight + 10 + 'px'
+            , 100
 
           exampleFrame.style.height = '0px'
           $timeout ->
