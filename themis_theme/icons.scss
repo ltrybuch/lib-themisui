@@ -1,122 +1,26 @@
 /*--------------------------------------------------------------
-* Old Icon Font - Needs to be upgraded to font-awesome
+* Vendor Overrides
 *--------------------------------------------------------------*/
-/* Visit http://www.justbenicestudio.com/studio/websymbols/ for the correct key mappings - Note that case is important */
 .autocomplete_icon[data-icon]:before {
-  font-family: "icons";
-  content: attr(data-icon);
   speak: none;
   font-weight: normal;
-  -webkit-font-smoothing: antialiased;
+  color: $light-grey-5;
+  @extend .antialiased;
+  @extend .fa;
+  @extend .fa-caret-down:before;
+  /* Contact Autocompleter */
+  &[data-icon="U"]:before,
+  &[data-icon="M"]:before {
+    @extend .fa-user:before;
+  }
+  /* Matter Autocompleter */
+  &[data-icon=""]:before {
+    @extend .fa-briefcase:before;
+  }
 }
-.icon:before,
-.ui-icon:before,
 .ui-dialog-titlebar-close:before {
-  font-family:"icons";
-  font-style: normal;
-  speak: none;
-  font-weight: normal;
-  -webkit-font-smoothing: antialiased;
-}
-.add-stuff .icon:before,
-.add-stuff .fa:before {
-  margin-right: $base-unit*.25;
-}
-.icon-delete:before,
-.icon-close:before,
-.icon-remove:before,
-.ui-dialog-titlebar-close:before {
-  content: "'";
-}
-.icon-next:before,
-.ui-icon-circle-triangle-e:before/*Hijacking a class provided by the vendor plugin*/ {
-  content: ")";
-}
-.icon-prev:before,
-.ui-icon-circle-triangle-w:before/*Hijacking a class provided by the vendor plugin*/ {
-  content: "(";
-}
-.icon-plus:before,
-.icon-add:before {
-  content: "+";
-}
-.icon-user:before {
-  content: "U";
-}
-.icon-time:before {
-  content: "P";
-}
-.icon-checkmark:before {
-  content: "."
-}
-.icon-briefcase:before {
-  content: "\e002";
-}
-.icon-locked:before {
-  content: "x";
-}
-.icon-dropdown:before {
-  content: "[";
-}
-.icon-warning:before {
-  content: "W";/*triangle with exclamation mark*/
-}
-.icon-link:before {
-  content: "K";/*two interlocking link*/
-}
-.icon-linkedin:before {
-  content: "l";
-}
-.icon-twitter:before {
-  content: "t";
-}
-.icon-facebook:before {
-  content: "f";
-}
-.icon-play:before {
-  content: "$";
-}
-.icon-pause:before {
-  content: "9";
-}
-.icon-caret-right:before {
-  content: ">";
-}
-.icon-caret-left:before {
-  content: "<";
-}
-.icon-plus-no-circle:before {
-  content: "8";
-}
-.icon-calendar:before {
-  content: "\22";
-}
-.icon-pencil:before {
-  content: "=";
-}
-.icon-new-window:before {
-  content: "\44";
-}
-.icon-minus:before {
-  content: "\5e";
-}
-.icon-prohibited:before {
-  content: "\5c";
-}
-.icon-checkmark-circle:before {
-  content: "\2f";
-}
-.icon-sync:before {
-  content: "\56";
-}
-.icon-question-mark-circle:before {
-  content: "\e005";
-}
-.icon-minus-circle:before {
-  content: "\e006";
-}
-.icon-minus:before {
-  content: "\e001";
+  @extend .fa;
+  @extend .fa-times:before;
 }
 /*--------------------------------------------------
 * Font Awesome
