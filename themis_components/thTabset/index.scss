@@ -1,0 +1,24 @@
+.th-tabset {
+  display: block;
+
+  .th-tab-bar {
+    border-bottom: solid 1px $grey-70;
+    padding: 0 2rem;
+
+    a {
+      display: inline-block;
+      margin-right: 0.6rem;
+      line-height: 28px;
+
+      color: $grey-40;
+      @include gibson-regular;
+      text-decoration: none;
+
+      &.active {
+        color: $grey;
+        @include gibson-semibold;
+        border-bottom: solid 3px $blue;
+      }
+    }
+  }
+}
