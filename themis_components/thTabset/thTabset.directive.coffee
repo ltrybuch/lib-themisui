@@ -26,8 +26,8 @@ angular.module('ThemisComponents')
       tabs = $scope.tabs = []
 
       $scope.activateTab = (tabToSelect) ->
-        tab.active = no for tab in tabs when tab isnt tabToSelect
         tabToSelect.active = yes
+        tab.active = no for tab in tabs when tab isnt tabToSelect
 
       @addTab = (tab) ->
         $scope.activateTab tab if tabs.length is 0

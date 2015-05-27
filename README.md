@@ -4,6 +4,8 @@ ThemisUI is a shareable suite of components and brand assets to be shared across
 
 ## Getting started.
 
+Whilst inside the `lib-ThemisUI` directory.
+
 1. Ensure you have npm installed.
 2. Do a `npm install` to get dependencies.
 3. Run `npm run docs` to start all the tasks we need and launch the server.
@@ -24,4 +26,3 @@ ThemisUI is a shareable suite of components and brand assets to be shared across
 
 1. Run `brew update` to ensure that the brew formulae are up to date.
 2. Install node with `brew install node`.
-
