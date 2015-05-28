@@ -7,7 +7,7 @@ template = """
 
 angular.module('ThemisComponents')
   .directive "thLazy", ->
-    restrict: "E"
+    restrict: "EA"
     template: template
     scope:
       src: "@src"
