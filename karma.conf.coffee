@@ -14,6 +14,7 @@ module.exports = (config) ->
 
     # list of files / patterns to load in the browser
     files: [
+        'http://code.jquery.com/jquery-2.1.4.js'
         'index.coffee'
         'node_modules/angular-mocks/angular-mocks.js'
         'themis_components/**/*.mock.coffee'

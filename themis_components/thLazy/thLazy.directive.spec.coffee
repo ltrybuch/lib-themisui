@@ -1,4 +1,4 @@
-describe 'ThemisComponents: Directive: thSwitch', ->
+describe 'ThemisComponents: Directive: thLazy', ->
   element = httpBackend = scope = compile = null
   mockResponse = "<h1>Popover</h1>"
   validTemplate = '<div th-lazy src="/template.html"></div>'
@@ -30,6 +30,6 @@ describe 'ThemisComponents: Directive: thSwitch', ->
     expect(element.find('i').length).toBe 1
 
   it 'should request template', ->
-    httpBackend.expectGET '/template.html'
     httpBackend.flush()
+    httpBackend.expectGET '/template.html'
 

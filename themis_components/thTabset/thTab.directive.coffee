@@ -9,7 +9,7 @@ template = """
 angular.module('ThemisComponents')
   .directive "thTab", ->
     require: "^thTabset"
-    restrict: "E"
+    restrict: "EA"
     template: template
     transclude: true
     scope:

@@ -17,7 +17,7 @@ template = """
 
 angular.module('ThemisComponents')
   .directive "thTabset", ->
-    restrict: "E"
+    restrict: "EA"
     replace: true
     template: template
     transclude: true
