@@ -84,16 +84,17 @@ angular.module('ThemisComponents')
         $compile(view)($scope)
         positionPopover()
 
-        $http.get templateURL
-        .then (response) ->
-          $scope.loaded = yes
-          $scope.content = response.data
-          $timeout ->
-            positionPopover()
-            view.find('a').on 'click', -> $scope.$apply ->
-              $scope.dismiss()
-        , ->
-          $scope.dismiss()
+        unless $scope.loaded
+          $http.get templateURL
+          .then (response) ->
+            $scope.loaded = yes
+            $scope.content = response.data
+            $timeout ->
+              positionPopover()
+              view.find('a').on 'click', -> $scope.$apply ->
+                $scope.dismiss()
+          , ->
+            $scope.dismiss()
 
 
       $scope.dismiss = ->
