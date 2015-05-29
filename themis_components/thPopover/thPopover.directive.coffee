@@ -18,13 +18,13 @@ template = """
 angular.module('ThemisComponents')
   .directive "thPopover", ($compile, $rootScope, $timeout, PopoverManager) ->
     restrict: "A"
-    scope:
-      templateURL: '=thPopover'
+    scope: true
     link: ($scope, element, attributes) ->
       view = null
       arrow = null
       overlay = null
 
+      $scope.templateURL = attributes.thPopover
       $scope.loaded = no
       $scope.content = ""
 

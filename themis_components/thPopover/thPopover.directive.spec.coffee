@@ -1,7 +1,7 @@
 describe 'ThemisComponents: Directive: thPopover', ->
   element = scope = compile = defaultState = null
   validTemplate = """
-    <a href="" th-popover="'/template.html'">Popover</a>
+    <a href="" th-popover="/template.html">Popover</a>
   """
 
   compileDirective = (state, template) ->
