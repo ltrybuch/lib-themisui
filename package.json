@@ -42,5 +42,8 @@
   "scripts": {
     "docs": "gulp docs",
     "karma": "karma start"
+  },
+  "browserify": {
+    "transform": "coffeeify"
   }
 }
