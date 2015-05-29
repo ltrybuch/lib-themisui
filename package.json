@@ -27,6 +27,7 @@
     "gulp-util": "^3.0.4",
     "karma": "^0.12.31",
     "karma-browserify": "^4.1.2",
+    "karma-cli": "0.0.4",
     "karma-coffee-preprocessor": "^0.2.1",
     "karma-coverage": "^0.3.1",
     "karma-jasmine": "^0.3.5",
@@ -41,8 +42,5 @@
   "scripts": {
     "docs": "gulp docs",
     "karma": "karma start"
-  },
-  "browserify": {
-    "transform": "coffeeify"
   }
 }

@@ -1,36 +1,37 @@
 describe 'ThemisComponents: Directive: thPopover', ->
-  element = scope = compile = defaultState = null
+  element = httpBackend = scope = compile = defaultState = null
   validTemplate = """
     <a href="" th-popover="/template.html">Popover</a>
   """
+  mockResponse = "<h1>Popover</h1>"
 
   compileDirective = (state, template) ->
     template = template ? validTemplate
-
     element = compile(template)(scope)
-
     scope.$digest()
 
     return element
 
-  beforeEach ->
-    module 'ThemisComponents'
-
-    module ($provide) ->
-      $provide.value 'PopoverManager', new PopoverManagerMock
-      return
+  beforeEach module 'ThemisComponents'
 
   beforeEach inject ($injector) ->
+    httpBackend = $injector.get '$httpBackend'
     scope = $injector.get('$rootScope').$new()
     compile = $injector.get '$compile'
 
   beforeEach ->
+    httpBackend.when('GET', '/template.html').respond mockResponse
     element = compileDirective()
 
   afterEach ->
     # Cleanup any popovers we may leave open after tests run.
     for overlay in document.querySelectorAll('.th-popover-overlay')
       angular.element(overlay).triggerHandler 'click'
+
+  it 'should request a template', ->
+    element.triggerHandler 'click'
+    httpBackend.flush()
+    httpBackend.expectGET '/template.html'
 
   it 'should open popover', ->
     element.triggerHandler 'click'
