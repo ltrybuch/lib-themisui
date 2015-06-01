@@ -16,15 +16,15 @@ template = """
 """
 
 angular.module('ThemisComponents')
-  .directive "thPopover", ($compile, $rootScope, $timeout, PopoverManager) ->
+  .directive "thPopover", ($compile, $rootScope, $timeout, $http) ->
     restrict: "A"
-    scope:
-      templateURL: '=thPopover'
+    scope: true
     link: ($scope, element, attributes) ->
       view = null
       arrow = null
       overlay = null
 
+      templateURL = attributes.thPopover
       $scope.loaded = no
       $scope.content = ""
 
@@ -81,17 +81,18 @@ angular.module('ThemisComponents')
         overlay.on 'click', ->
           $scope.dismiss()
 
-        $scope.loaded = no
-        $scope.content = ""
-
         $compile(view)($scope)
         positionPopover()
 
-        PopoverManager.templateFromURL $scope.templateURL
-          .then (template) ->
+        unless $scope.loaded
+          $http.get templateURL
+          .then (response) ->
             $scope.loaded = yes
-            $scope.content = template
-            $timeout -> positionPopover()
+            $scope.content = response.data
+            $timeout ->
+              positionPopover()
+              view.find('a').on 'click', -> $scope.$apply ->
+                $scope.dismiss()
           , ->
             $scope.dismiss()
 
