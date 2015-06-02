@@ -47,6 +47,7 @@ angular.module('ThemisComponents')
       ]
       includeCSS = [
         "#{includeBase}/build/examples.css"
+        "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
       ]
 
       exampleInitialized = no
