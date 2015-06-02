@@ -32,3 +32,5 @@ angular.module('ThemisComponents')
       @addTab = (tab) ->
         $scope.activateTab tab if tabs.length is 0
         tabs.push tab
+
+      return

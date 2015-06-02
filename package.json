@@ -1,6 +1,6 @@
 {
   "name": "lib-ThemisUI",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A Baseline of style and components used by Clio's web applications.",
   "author": "Sean Healy <sean.healy@clio.com>, Geoff Thierman <geoff.thierman@clio.com>",
   "main": "index.js",
@@ -40,8 +40,9 @@
     "watchify": "^3.2.1"
   },
   "scripts": {
-    "docs": "npm outdated --depth 0 && gulp docs",
-    "karma": "npm outdated --depth 0 && karma start"
+    "versionCheck": "npm outdated --depth 0",
+    "docs": "gulp docs",
+    "karma": "karma start"
   },
   "browserify": {
     "transform": "coffeeify"
