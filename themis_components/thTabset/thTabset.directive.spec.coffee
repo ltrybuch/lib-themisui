@@ -15,15 +15,12 @@ describe 'ThemisComponents: Directive: thTabset', ->
 
   compileDirective = (state, template) ->
     template = template ? validTemplate
-
     element = compile(template)(scope)
-
     scope.$digest()
 
     return element
 
-  beforeEach ->
-    module 'ThemisComponents'
+  beforeEach module 'ThemisComponents'
 
   beforeEach inject ($injector) ->
     scope = $injector.get('$rootScope').$new()
