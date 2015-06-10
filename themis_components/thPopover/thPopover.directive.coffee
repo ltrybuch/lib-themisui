@@ -84,6 +84,19 @@ angular.module('ThemisComponents')
         $compile(view)($scope)
         positionPopover()
 
+        view.on 'click', (event) ->
+          # When an A tag in a popover and is clicked the popover should normally
+          # close. However, we do have components that will live in popovers that
+          # will be exceptions to this rule.
+          whitelist = [
+            '.chzn-container *'
+            '.th-switch *'
+          ]
+          whitelistSelector = whitelist.join ', '
+
+          unless event.target.matches whitelistSelector
+            $scope.$apply -> $scope.dismiss()
+
         unless $scope.loaded
           $http.get templateURL
           .then (response) ->
@@ -91,8 +104,6 @@ angular.module('ThemisComponents')
             $scope.content = response.data
             $timeout ->
               positionPopover()
-              view.find('a').on 'click', -> $scope.$apply ->
-                $scope.dismiss()
           , ->
             $scope.dismiss()
 
