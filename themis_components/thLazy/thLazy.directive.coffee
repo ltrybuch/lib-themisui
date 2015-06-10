@@ -1,6 +1,6 @@
 template = """
-  <ng-include onload="loadingComplete()" src="src" ></ng-include>
-  <div ng-if="!loaded">
+  <ng-include onload="loadingComplete()" src="src"></ng-include>
+  <div class="th-lazy-loader" ng-if="!loaded">
     <i class="fa fa-spin fa-refresh"></i> Loading&#8230;
   </div>
 """
