@@ -1,5 +1,6 @@
 this.Element && function(ElementPrototype) {
-	ElementPrototype.matches = ElementPrototype.matchesSelector ||
+	ElementPrototype.matches = ElementPrototype.matches ||
+	  ElementPrototype.matchesSelector ||
 		ElementPrototype.mozMatchesSelector ||
 		ElementPrototype.msMatchesSelector ||
 		ElementPrototype.oMatchesSelector ||
