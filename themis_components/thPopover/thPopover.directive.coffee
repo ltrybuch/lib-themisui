@@ -94,7 +94,7 @@ angular.module('ThemisComponents')
           ]
           whitelistSelector = whitelist.join ', '
 
-          unless event.target.matches whitelistSelector
+          if !event.target.matches(whitelistSelector) and event.target.matches("a, a *")
             $scope.$apply -> $scope.dismiss()
 
         unless $scope.loaded
