@@ -1,4 +1,4 @@
-this.Element && function(ElementPrototype) {
+(function(ElementPrototype) {
 	ElementPrototype.matches = ElementPrototype.matches ||
 		ElementPrototype.matchesSelector ||
 		ElementPrototype.mozMatchesSelector ||
@@ -16,4 +16,4 @@ this.Element && function(ElementPrototype) {
 
 			return matches[i] ? true : false;
 		}
-}(Element.prototype);
+})(Element.prototype);
