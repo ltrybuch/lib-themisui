@@ -82,7 +82,9 @@ angular.module('ThemisComponents')
           $scope.dismiss()
 
         $compile(view)($scope)
-        positionPopover()
+
+        $timeout ->
+          positionPopover()
 
         view.on 'click', (event) ->
           # When an A tag in a popover and is clicked the popover should normally
