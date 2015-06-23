@@ -78,7 +78,6 @@ angular.module('ThemisComponents')
         body.append overlay
         body.append view
 
-        overlay.addClass 'visible'
         overlay.on 'click', ->
           $scope.dismiss()
 
