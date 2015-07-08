@@ -45,5 +45,6 @@
     "karma": "karma start"
   },
   "browserify": {
+    "transform": "coffeeify"
   }
 }
