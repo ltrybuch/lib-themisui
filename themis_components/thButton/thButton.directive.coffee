@@ -1,7 +1,6 @@
 template = """
   <button
     class="th-button"
-    type="{{ buttonCtrl.type }}"
     >
     {{ buttonCtrl.text }}
   </button>
@@ -17,6 +16,8 @@ angular.module('ThemisComponents')
       text:     '@text'
     link: (scope, element, attrs) ->
       element.attr('disabled','disabled') if attrs.disabled?
+      element.attr('type', 'button') unless attrs.type?
+      element.removeAttr('text');
       element.on 'click', ->
         if attrs.href?
           scope.$apply -> 
@@ -24,5 +25,4 @@ angular.module('ThemisComponents')
     bindToController: true
     controllerAs: 'buttonCtrl'
     controller: ->
-      @type = @type ? 'button'
       return
