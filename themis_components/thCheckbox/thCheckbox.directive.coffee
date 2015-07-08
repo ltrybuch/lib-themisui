@@ -15,8 +15,10 @@ angular.module('ThemisComponents')
       state: '=ngModel'
     bindToController: true
     controllerAs: 'checkbox'
-    controller: ->
-      @checked = @checked ? false
-      @toggle = -> @checked = not @checked
+    controller: checkboxController
 
-      return
+checkboxController = ->
+  @checked = @checked ? false
+  @toggle = -> @checked = not @checked
+
+  return
