@@ -5,6 +5,7 @@ angular.module 'ThemisComponents', [
 ]
 
 require './thBindMarkdown/'
+require './thButton/'
 require './thCompile/'
 require './thComponentExample/'
 require './thContextualMessage/'

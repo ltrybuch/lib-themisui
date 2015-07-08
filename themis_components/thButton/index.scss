@@ -1,0 +1,58 @@
+.th-button,
+*[th-button] {
+  @extend .antialiased;
+
+  padding: 0px 12px;
+  line-height: 36px;
+  height: 36px;
+  vertical-align: middle;
+
+  font-size: 12px;
+  font-weight: bold;
+  
+  border: none;
+  border-radius: $border-radius;
+  outline: none;
+
+  color: $grey!important;
+  background-color: $grey-80;
+
+  text-transform: uppercase;
+  text-decoration: none !important;
+
+  cursor: pointer;
+
+  &:hover {
+    background: $grey-60;
+  }
+  &[disabled] {
+    pointer-events: none;
+    cursor: default;
+  }
+
+  &.creation {
+    color: $white!important;
+    background-color: $green;
+
+    &:hover {
+      background: $green-shade;
+    }
+    &[disabled] {
+      background: tint($green, 60%);
+    }
+  }
+  &.action { 
+    background: $blue;
+    color: $white!important;
+    &:hover {
+      background: $blue-shade;
+    }
+    &[disabled] {
+      background: tint($blue, 60%);
+    }
+  }
+  &.destructive {
+    background-color: $red;
+    color: $white!important;
+  }
+}
