@@ -1,7 +1,7 @@
 .th-switch,
 *[th-switch] {
   $size: 24px;
-  $inset: $size / 2;
+  $inset: $size / 12;
   $border: 0px;
   $handleSize: $size - $border*2 - $inset*2;
 
@@ -17,6 +17,7 @@
   box-shadow: inset 0px 0px $inset $grey;
   background-color: $grey-40;
   overflow: hidden;
+  cursor: pointer;
 
   i {
     $size: $handleSize;

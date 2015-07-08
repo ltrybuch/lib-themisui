@@ -6,7 +6,6 @@ angular.module('ThemisComponents')
       <span
         class="th-switch"
         ng-class="{active: switch.state}"
-        href=""
         ng-click="switch.toggle()"
         >
         <i></i>
