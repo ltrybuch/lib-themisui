@@ -1,0 +1,1 @@
+require './thCheckbox.directive'
