@@ -1,7 +1,7 @@
 .th-switch,
 *[th-switch] {
   $size: 24px;
-  $inset: $size / 12;
+  $inset: 2px;
   $border: 0px;
   $handleSize: $size - $border*2 - $inset*2;
 
@@ -14,7 +14,7 @@
   font-size: 12px;
   border-radius: $size / 2 + $border;
   border: solid $border $grey;
-  box-shadow: inset 0px 0px $inset $grey;
+  box-shadow: inset 0px 0px 1px $grey;
   background-color: $grey-40;
   overflow: hidden;
   cursor: pointer;
@@ -30,7 +30,7 @@
     font-style: normal;
     @include animated;
     border-radius: $size / 2;
-    box-shadow: 0px 0px 2px $grey;
+    box-shadow: 0px 0px 1px $grey;
     background-color: white;
 
     &:before,
@@ -43,7 +43,7 @@
       width: $size - $inset;
       @extend .fa;
       line-height: $size;
-      font-size: $size / 3;
+      font-size: 9px;
       text-align: center;
       color: #fff;
     }
