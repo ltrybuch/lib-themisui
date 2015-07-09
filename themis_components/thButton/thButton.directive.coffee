@@ -2,7 +2,7 @@ template = """
   <button
     class="th-button"
     >
-    {{ buttonCtrl.text }}
+    {{buttonCtrl.text}}
   </button>
 """
 
@@ -12,8 +12,7 @@ angular.module('ThemisComponents')
     template: template
     replace: true
     scope:
-      type:     '@type'
-      text:     '@text'
+      text: '@'
     link: (scope, element, attrs) ->
       element.attr('disabled','disabled') if attrs.disabled?
       element.attr('type', 'button') unless attrs.type?
@@ -21,7 +20,7 @@ angular.module('ThemisComponents')
       element.on 'click', ->
         if attrs.href?
           scope.$apply -> 
-            $window.location = attrs.href
+            $window.location.replace(attrs.href)
     bindToController: true
     controllerAs: 'buttonCtrl'
     controller: ->
