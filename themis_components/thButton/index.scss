@@ -41,7 +41,7 @@
       background: tint($green, 60%);
     }
   }
-  &.action { 
+  &.default { 
     background: $blue;
     color: $white!important;
     &:hover {
