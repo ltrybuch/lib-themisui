@@ -6,6 +6,7 @@ angular.module 'ThemisComponents', [
 
 require './thBindMarkdown/'
 require './thButton/'
+require './thCheckbox/'
 require './thCompile/'
 require './thComponentExample/'
 require './thContextualMessage/'

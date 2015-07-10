@@ -1,3 +1,3 @@
 angular.module('thDemo', ['ThemisComponents'])
-  .controller 'DemoController', ($scope) ->
-    $scope.state = off
+  .controller 'DemoController', ->
+    @state = off
