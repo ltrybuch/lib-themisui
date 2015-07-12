@@ -1,12 +1,11 @@
 angular = require 'angular'
 
 angular.module('ThemisComponentsApp')
-  .controller 'ComponentDetailsController', ($scope, $http, $sce) ->
+  .controller 'ComponentDetailsController', ($scope, $http, $sce, $browser, $timeout) ->
+    # Set blank state
     $scope.name = ""
-    $scope.readme = """
-      # Welcome to the Themis Component Library
-      Select a Component on the left to Begin.
-    """
+    $scope.readme =
+        markdown: "**Select a Component**"
     $scope.examples = []
 
     $scope.$on 'selectedComponent', (event, component) ->
