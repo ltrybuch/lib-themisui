@@ -38,15 +38,15 @@ angular.module('ThemisComponents')
         </form>
         </div>
     """
-    controller: ($scope, $element, $timeout) ->
+    controller: ($scope, $element, $timeout, $browser) ->
       example = $scope.example
 
-      includeBase = "#{$location.protocol()}://#{$location.host()}:#{$location.port()}"
+      includeBase = "#{$location.protocol()}://#{$location.host()}:#{$location.port()}#{$browser.baseHref()}"
       includeJS  = [
-        "#{includeBase}/build/examples.js"
+        "#{includeBase}build/examples.js"
       ]
       includeCSS = [
-        "#{includeBase}/build/examples.css"
+        "#{includeBase}build/examples.css"
         "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
       ]
 
@@ -64,7 +64,7 @@ angular.module('ThemisComponents')
           html = html.replace '</body>', "#{styles.join('')}</body>"
 
           js = includeJS[..]
-          js.push "#{includeBase}/components/#{$scope.componentName}/examples/#{example.name}.js"
+          js.push "#{includeBase}components/#{$scope.componentName}/examples/#{example.name}.js"
           scripts = for scriptSrc in js
             "<script src=\"#{scriptSrc}\"></script>"
           html = html.replace '</body>', "#{scripts.join('')}</body>"

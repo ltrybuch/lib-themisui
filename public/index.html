@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>ThemisUI</title>
-    <link rel="stylesheet" type="text/css" href="/build/app.css">
+    <link rel="stylesheet" type="text/css" href="__BASE_PATH__/build/app.css">
+    <base href="__BASE_PATH__/">
   </head>
   <body ng-controller="AppController">
     <header><h2>ThemisUI</h2></header>
@@ -27,11 +28,10 @@
         <th-component-example
           ng-repeat="example in examples"
           component-name="name"
-          component-example="example"
-          ></th-component-example>
+          component-example="example"/>
       </div>
     </div>
 
-    <script src="/build/app.js"></script>
+    <script src="__BASE_PATH__/build/app.js"></script>
   </body>
 </html>

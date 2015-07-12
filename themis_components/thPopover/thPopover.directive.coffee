@@ -20,6 +20,8 @@ angular.module('ThemisComponents')
     restrict: "A"
     scope: true
     link: ($scope, element, attributes) ->
+      element.attr('href', '')
+
       view = null
       arrow = null
       overlay = null
