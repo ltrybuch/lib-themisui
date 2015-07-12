@@ -29,7 +29,7 @@ module Ui
     end
 
     def call(env)
-      path = env["REQUEST_PATH"].sub(/^#{Regexp.escape(base)}\/*/, '')
+      path = env["ORIGINAL_FULLPATH"].sub(/^#{Regexp.escape(base)}\/*/, '')
       handle_request(env, path)
     end
 

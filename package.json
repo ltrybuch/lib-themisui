@@ -43,6 +43,7 @@
   "scripts": {
     "versionCheck": "npm outdated --depth 0",
     "docs": "gulp docs",
+    "build": "gulp docs-browserify docs-style docs-examples-style",
     "karma": "karma start"
   },
   "browserify": {
