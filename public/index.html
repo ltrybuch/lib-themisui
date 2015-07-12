@@ -16,7 +16,7 @@
           ng-cloak
           ng-repeat="component in components"
           ng-class="{selected:selectedComponent == component}"
-          ng-click="chooseComponent(component)"
+          ng-href="{{component}}"
           >{{ component }}</a></div>
 
       <div class="component-details-view" ng-controller="ComponentDetailsController">
