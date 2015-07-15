@@ -1,0 +1,45 @@
+.th-checkbox,
+*[th-checkbox] {
+  $size: 18px;
+  $inset: 1px;
+  $border: $size / 9;
+  $font-size: 12px;
+
+  display: inline-block;
+  width: $size;
+  height: $size;
+  box-sizing: border-box;
+  font-weight: 100;
+  border-radius: $border;
+  background: #fff;
+  border: solid $border $dark-grey-4;
+  position: relative;
+  cursor: pointer;
+
+  &.checked {
+    i {
+      &:before {
+        max-width: $size;
+        opacity: 1;
+      }
+    }
+  }
+
+  i {
+    position: absolute;
+    top: $inset;
+    left: $inset;
+    font-style: normal;
+
+    &:before {
+      @extend .fa;
+      content: '\f00c';
+      max-width: 0;
+      overflow: hidden;
+      opacity: 0.5;
+      transition: all 0.2s;
+      font-size: $font-size;
+      color: $dark-grey-4;
+    }
+  }
+}
