@@ -8,6 +8,7 @@ angular.module('ThemisComponents')
     bindToController: true
     controller: ->
       @text = @loadingText ? "Loading..."
+      return
     template: """
       <div class="th-loader">
         <div class="sk-spinner sk-spinner-three-bounce">
