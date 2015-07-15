@@ -1,6 +1,6 @@
 template = """
   <button
-    class="th-button"
+    class="th-button {{buttonCtrl.thType}}"
     >
     {{buttonCtrl.text}}
   </button>
@@ -12,7 +12,8 @@ angular.module('ThemisComponents')
     template: template
     replace: true
     scope:
-      text: '@'
+      text: '@text'
+      thType: '@thType'
     link: (scope, element, attrs) ->
       element.attr('disabled','disabled') if attrs.disabled?
       element.attr('type', 'button') unless attrs.type?

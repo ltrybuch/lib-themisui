@@ -1,4 +1,6 @@
 angular.module('thDemo', ['ThemisComponents'])
-  .controller 'DemoController', ->
+  .controller 'TestButtonController', ->
     @action = ->
       console.log 'JS Action clicked!'
+
+    return
