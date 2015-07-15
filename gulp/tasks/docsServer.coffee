@@ -12,6 +12,11 @@ gulp.task 'docs-server', ->
   express = require 'express'
   app = express()
 
+  app.use express.static 'public'
+
+  app.get '/', (request, response) ->
+    response.sendFile path.join 'public', 'index.html'
+
   app.get '/components.json', (request, response) ->
     componentList = availableComponentNames()
     response.send componentList
@@ -37,18 +42,6 @@ gulp.task 'docs-server', ->
     exampleCoffeeFile = path.join componentsRoot, componentName, 'examples', exampleName, 'coffee.coffee'
     exampleCoffee = fs.readFileSync exampleCoffeeFile, 'utf8'
     response.set('Content-Type', 'application/javascript').send coffeescript.compile exampleCoffee
-
-  # Read index.html into memory and replace __BASE_PATH__ with correct value, then send as response.
-  serveIndex = (request, response) ->
-    indexPath = __dirname + '/../../public/index.html'
-    fs.readFile path.normalize(indexPath), {encoding: "UTF-8"}, (err, data) ->
-      throw err if err?
-      response.send(data.replace(/__BASE_PATH__/g, ""))
-
-  app.get '', serveIndex
-  app.get '/:componentName', serveIndex
-
-  app.use express.static 'public'
 
   server = app.listen 3042, ->
     host = server.address().address

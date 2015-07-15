@@ -1,7 +1,7 @@
 angular = require 'angular'
 
 angular.module('ThemisComponentsApp')
-  .controller 'ComponentDetailsController', ($scope, $http, $sce, $browser, $timeout) ->
+  .controller 'ComponentDetailsController', ($scope, $http, $sce) ->
     # Set blank state
     $scope.name = ""
     $scope.readme =
@@ -9,7 +9,7 @@ angular.module('ThemisComponentsApp')
     $scope.examples = []
 
     $scope.$on 'selectedComponent', (event, component) ->
-      $http.get "#{$browser.baseHref()}components/#{component}.json"
+      $http.get "/components/#{component}.json"
       .then (response) ->
         $scope.name = component
         $scope.readme =

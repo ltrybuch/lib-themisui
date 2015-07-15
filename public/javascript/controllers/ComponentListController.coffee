@@ -1,7 +1,7 @@
 angular = require 'angular'
 
 angular.module('ThemisComponentsApp')
-  .controller 'ComponentListController', ($rootScope, $scope, $http, $location, $browser) ->
+  .controller 'ComponentListController', ($rootScope, $scope, $http, $location) ->
     $scope.components = []
     $scope.viewType = 'as-list'
 
@@ -11,6 +11,6 @@ angular.module('ThemisComponentsApp')
     $scope.$on 'selectedComponent', (event, component) ->
       $scope.selectedComponent = component
 
-    $http.get "#{$browser.baseHref()}components.json"
+    $http.get "/components.json"
     .then (response) ->
       $scope.components = response.data
