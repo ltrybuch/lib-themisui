@@ -4,13 +4,21 @@ path = require 'path'
 fs = require 'fs'
 coffeescript = require 'coffee-script'
 
+express = require 'express'
+expressWs = require 'express-ws'
+
 componentsRoot = path.join 'themis_components'
 componentDirectories = -> glob.sync path.join componentsRoot, '!(theme)', '/'
 availableComponentNames = -> ( path.basename(item) for item in componentDirectories() )
+app = express()
+
+# Restart app when there are open web sockets (triggers browser reload)
+gulp.task 'docs-restart', ->
+  if app.wsClients().length > 0
+    app.restart()
 
 gulp.task 'docs-server', ->
-  express = require 'express'
-  app = express()
+  gulp.watch ['themis_components/**/*', 'public/**/*'], ['docs-restart']
 
   app.get '/components.json', (request, response) ->
     componentList = availableComponentNames()
@@ -46,19 +54,34 @@ gulp.task 'docs-server', ->
 
   app.use express.static 'public'
 
+  # WebSocket
+  webSocketApp = expressWs(app)
+  app.ws '/channel', -> # no-op
 
-  server = app.listen 3042, ->
-    host = server.address().address
-    port = server.address().port
+  # Start server on port 3042
+  server = null
+  startServer = ->
+    server = app.listen 3042, ->
+      host = server.address().address
+      port = server.address().port
 
-    console.log """
-      ####################
+      console.log """
+        ####################
 
-      Running ThemisUI Docs on port #{port}.
-        http://%s:%s
+        Running ThemisUI Docs on port #{port}.
+          http://%s:%s
 
-      ####################
-    """, host, port
+        ####################
+      """, host, port
+
+  startServer()
+
+  app.wsClients = -> webSocketApp.getWss('/channel').clients
+
+  app.restart = ->
+    @wsClients().forEach (client) -> client.close()
+    server.close()
+    server = startServer()
 
 readmeForComponent = (componentName) ->
   readme =

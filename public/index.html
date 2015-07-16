@@ -33,5 +33,15 @@
     </div>
 
     <script src="/build/app.js"></script>
+
+    <script>
+      var host = location.hostname + ":" + location.port;
+      var websocket = new WebSocket("ws://" + host + "/channel");
+
+      // Reload page when socket closes
+      websocket.onclose = function() {
+        setTimeout(function() { location.reload() }, 1000);
+      };
+    </script>
   </body>
 </html>
