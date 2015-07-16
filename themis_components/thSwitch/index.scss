@@ -17,6 +17,7 @@
   box-shadow: inset 0px 0px 1px $grey;
   background-color: $grey-40;
   overflow: hidden;
+  cursor: pointer;
 
   i {
     $size: $handleSize;
@@ -29,7 +30,7 @@
     font-style: normal;
     @include animated;
     border-radius: $size / 2;
-    box-shadow: 0px 0px 2px $grey;
+    box-shadow: 0px 0px 1px $grey;
     background-color: white;
 
     &:before,
