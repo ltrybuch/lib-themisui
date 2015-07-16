@@ -1,20 +1,18 @@
 describe 'ThemisComponents: Directive: thButton', ->
-  element = compile = scope = httpBackend = null
+  element = compile = scope = null
 
-  validTemplate = '<div th-button ng-click="action()" text="js"></div>'
-  disabledTemplate = '<div th-button ng-click="action()" text="js" disabled></div>'
-  submitTemplate = '<div th-button type="submit" text="href"></div>'
-  hrefTemplate = '<div th-button href="https://example.com" text="href"></div>'
-
-  window =
-    location:
-      replace: (value) ->
-        true
+  validTemplate = '<th-button ng-click="action()" text="some text"></th-button>'
+  disabledTemplate = '<th-button ng-click="action()" text="some text" disabled></th-button>'
+  submitTemplate = '<th-button type="submit" text="submit text"></th-button>'
+  hrefTemplate = '<th-button href="https://google.com" text="submit text"></th-button>'
 
   compileDirective = (template) ->
-    template = template ? validTemplate
-    element = compile(template)(scope)
+    console.log template
+    element = angular.element(template)
+    console.log element
+    compile(element)(scope)
     scope.$digest()
+    console.log element
     return element
 
   beforeEach ->
@@ -25,13 +23,12 @@ describe 'ThemisComponents: Directive: thButton', ->
       scope = $rootScope.$new()
       scope.text = 'correct'
       compile = $compile
-      $window = window
 
   beforeEach ->
     element = compileDirective(validTemplate)
 
   it 'has the button text set correctly', ->
-    expect(element.text().trim()).toBe 'js'
+    expect(element.find('.th-button').text()).toBe 'some text'
 
   it 'one way binds the text attribute', ->
     isolateScope = element.isolateScope()
