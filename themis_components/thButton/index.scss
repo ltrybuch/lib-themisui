@@ -1,10 +1,25 @@
 .th-button,
 *[th-button] {
+  @mixin generate-button($background-color, $hover-color, $color: $white) {
+    color: $color;
+    background-color: $background-color;
+
+    &:hover {
+      background-color: $hover-color;
+    }
+    &[disabled] {
+      background-color: $background-color;
+      opacity: 0.6;
+    }
+  }
+
   @extend .antialiased;
 
+  display: inline-block;
+
+  height: 36px;
   padding: 0px 12px;
   line-height: 36px;
-  height: 36px;
   vertical-align: middle;
 
   font-size: 12px;
@@ -14,45 +29,27 @@
   border-radius: $border-radius;
   outline: none;
 
-  color: $grey!important;
-  background-color: $grey-80;
+  color: $grey;
 
   text-transform: uppercase;
-  text-decoration: none !important;
+  text-decoration: none;
 
   cursor: pointer;
 
-  &:hover {
-    background: $grey-60;
-  }
   &[disabled] {
     pointer-events: none;
     cursor: default;
   }
 
-  &.creation {
-    color: $white!important;
-    background-color: $green;
+  @include generate-button($grey-80, $grey-70, $grey);
 
-    &:hover {
-      background: $green-shade;
-    }
-    &[disabled] {
-      background: tint($green, 60%);
-    }
+  &.creation {
+    @include generate-button($green, $green-shade);
   }
-  &.default { 
-    background: $blue;
-    color: $white!important;
-    &:hover {
-      background: $blue-shade;
-    }
-    &[disabled] {
-      background: tint($blue, 60%);
-    }
+  &.default {
+    @include generate-button($blue, $blue-shade);
   }
   &.destructive {
-    background-color: $red;
-    color: $white!important;
+    @include generate-button($red, $red-shade);
   }
 }

@@ -1,28 +1,48 @@
-template = """
-  <button
-    class="th-button {{buttonCtrl.thType}}"
+anchorTemplate = """
+  <a 
+    class="th-button {{button.thType}}"
+    href="{{button.href}}"
     >
-    {{buttonCtrl.text}}
+    {{button.text}}
+  </a>
+"""
+buttonTemplate = """
+  <button class="th-button {{button.thType}}">
+    {{button.text}}
   </button>
 """
 
 angular.module('ThemisComponents')
-  .directive "thButton", ($window) ->
+  .directive "thButton", ($compile) ->
+    getTemplate = (type) ->
+      template = null
+      switch type
+        when 'href' then template = anchorTemplate
+        else template = buttonTemplate
+      return template
+
+    linker = (scope, element, attrs) ->
+      # Dynamically set our template based on the existance of an href
+      templateType = if attrs.href? then 'href' else 'button'
+      html = angular.element(getTemplate(templateType))
+      element.replaceWith(html)
+      # Set attributes on the dynamic element
+      buttonType = if attrs.type? then attrs.type else 'button'
+      html.attr('type', buttonType)
+      html.attr('disabled','disabled') if attrs.disabled?
+      html.attr('ng-click', 'button.action()') if attrs.ngClick
+      html.removeAttr('text')
+      # Compile it all
+      $compile(html)(scope)
+
     restrict: "EA"
-    template: template
-    replace: true
     scope:
-      text: '@text'
+      text:   '@text'
       thType: '@thType'
-    link: (scope, element, attrs) ->
-      element.attr('disabled','disabled') if attrs.disabled?
-      element.attr('type', 'button') unless attrs.type?
-      element.removeAttr('text');
-      element.on 'click', ->
-        if attrs.href?
-          scope.$apply -> 
-            $window.location.replace(attrs.href)
+      href:   '@href'
+      action: '&ngClick'
+    link: linker
     bindToController: true
-    controllerAs: 'buttonCtrl'
+    controllerAs: 'button'
     controller: ->
       return
