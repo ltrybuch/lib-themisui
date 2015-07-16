@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>ThemisUI</title>
     <link rel="stylesheet" type="text/css" href="/build/app.css">
+    <base href="/">
   </head>
   <body ng-controller="AppController">
     <header><h2>ThemisUI</h2></header>
@@ -16,7 +17,7 @@
           ng-cloak
           ng-repeat="component in components"
           ng-class="{selected:selectedComponent == component}"
-          ng-click="chooseComponent(component)"
+          ng-href="{{component}}"
           >{{ component }}</a></div>
 
       <div class="component-details-view" ng-controller="ComponentDetailsController">
@@ -27,11 +28,20 @@
         <th-component-example
           ng-repeat="example in examples"
           component-name="name"
-          component-example="example"
-          ></th-component-example>
+          component-example="example"/>
       </div>
     </div>
 
     <script src="/build/app.js"></script>
+
+    <script>
+      var host = location.hostname + ":" + location.port;
+      var websocket = new WebSocket("ws://" + host + "/channel");
+
+      // Reload page when socket closes
+      websocket.onclose = function() {
+        setTimeout(function() { location.reload() }, 1000);
+      };
+    </script>
   </body>
 </html>

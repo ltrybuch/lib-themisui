@@ -5,7 +5,7 @@ The `thBindMarkdown` component evaluates a Markdown string and binds it to the c
 ## Usage
 
 ### Controller
-```
+```coffeescript
 $scope.markdownText = """
     - one
     - two
@@ -13,12 +13,12 @@ $scope.markdownText = """
 ```
 
 ### Markup
-```
+```html
 <span th-bind-markdown="markdownText"></span>
 ```
 
 ### Result
-```
+```html
 <ul>
     <li>one</li>
     <li>two</li>
