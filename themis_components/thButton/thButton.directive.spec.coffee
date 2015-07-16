@@ -1,18 +1,13 @@
 describe 'ThemisComponents: Directive: thButton', ->
   element = compile = scope = null
 
-  validTemplate = '<th-button ng-click="action()" text="some text"></th-button>'
-  disabledTemplate = '<th-button ng-click="action()" text="some text" disabled></th-button>'
-  submitTemplate = '<th-button type="submit" text="submit text"></th-button>'
-  hrefTemplate = '<th-button href="https://google.com" text="submit text"></th-button>'
+  validTemplate    = '<div th-button ng-click="action()" text="some text"></div>'
+  disabledTemplate = '<div th-button ng-click="action()" text="some text" disabled></div>'
+  submitTemplate   = '<div th-button type="submit" text="submit text"></div>'
 
   compileDirective = (template) ->
-    console.log template
-    element = angular.element(template)
-    console.log element
-    compile(element)(scope)
+    element = compile(template)(scope)
     scope.$digest()
-    console.log element
     return element
 
   beforeEach ->
@@ -28,15 +23,12 @@ describe 'ThemisComponents: Directive: thButton', ->
     element = compileDirective(validTemplate)
 
   it 'has the button text set correctly', ->
-    expect(element.find('.th-button').text()).toBe 'some text'
+    expect(element.text().trim()).toBe 'some text'
 
   it 'one way binds the text attribute', ->
     isolateScope = element.isolateScope()
     isolateScope.text = 'wrong'
     expect(scope.text).toBe 'correct'
-
-  it 'no longer has the text attribute', ->
-    expect(element[0].hasAttribute('text')).toBe false
 
   it 'has a default type of button', ->
     expect(element.attr('type')).toBe 'button'
