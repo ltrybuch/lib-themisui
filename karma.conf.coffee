@@ -83,6 +83,12 @@ module.exports = (config) ->
         debug: true
         watch: true
         extensions: ['.coffee']
+        # fix for dbl karma compiling of coffeescript
+        # https://github.com/nikku/karma-browserify/issues/130
+        postFilter: (id, file, pkg) ->
+            if pkg.name == "lib-ThemisUI"
+                pkg.browserify.transform = []
+            true
         transform: ['coffeeify']
         configure: (bundle) ->
             bundle.transform coverage
