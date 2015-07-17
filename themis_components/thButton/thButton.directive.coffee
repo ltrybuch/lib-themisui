@@ -8,17 +8,18 @@ buttonTemplate = """
 
 angular.module('ThemisComponents')
   .directive "thButton", ($compile) ->
-    restrict: "E"
+    restrict: "EA"
     scope:
       type: '@'
-      href:   '@'
+      href: '@'
     replace: true
     transclude: true
     template: (element, attrs) ->
-      if attrs.href?
-        anchorTemplate
-      else
-        buttonTemplate
+      switch
+        when attrs.href?
+          anchorTemplate
+        else
+          buttonTemplate
     bindToController: true
     controllerAs: 'button'
     controller: ($element, $attrs) ->
