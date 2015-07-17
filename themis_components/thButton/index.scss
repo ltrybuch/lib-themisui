@@ -6,7 +6,12 @@
 
     &:hover {
       background-color: $hover-color;
+
+      &:active {
+        background-color: mix($hover-color, #000, 85%);
+      }
     }
+
     &[disabled] {
       background-color: $background-color;
       opacity: 0.6;
@@ -24,7 +29,7 @@
 
   font-size: 12px;
   font-weight: bold;
-  
+
   border: none;
   border-radius: $border-radius;
   outline: none;
@@ -43,13 +48,13 @@
 
   @include generate-button($grey-80, $grey-70, $grey);
 
-  &.creation {
-    @include generate-button($green, $green-shade);
-  }
   &.default {
     @include generate-button($blue, $blue-shade);
   }
-  &.destructive {
+  &.create {
+    @include generate-button($green, $green-shade);
+  }
+  &.destroy {
     @include generate-button($red, $red-shade);
   }
 }
