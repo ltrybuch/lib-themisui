@@ -48,13 +48,13 @@
 
   @include generate-button($grey-80, $grey-70, $grey);
 
-  &.creation {
-    @include generate-button($green, $green-shade);
-  }
   &.default {
     @include generate-button($blue, $blue-shade);
   }
-  &.destructive {
+  &.create {
+    @include generate-button($green, $green-shade);
+  }
+  &.destroy {
     @include generate-button($red, $red-shade);
   }
 }
