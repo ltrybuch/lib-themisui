@@ -1,8 +1,8 @@
 describe 'ThemisComponents: Directive: thButton', ->
   element = compile = scope = null
 
-  validTemplate    = '<div th-button ng-click="action()" text="some text"></div>'
-  disabledTemplate = '<div th-button ng-click="action()" text="some text" disabled></div>'
+  validTemplate    = '<div th-button ng-click="action()">some text</div>'
+  disabledTemplate = '<div th-button ng-click="action()" disabled>some text</div>'
   submitTemplate   = '<div th-button type="submit" text="submit text"></div>'
 
   compileDirective = (template) ->
@@ -25,13 +25,8 @@ describe 'ThemisComponents: Directive: thButton', ->
   it 'has the button text set correctly', ->
     expect(element.text().trim()).toBe 'some text'
 
-  it 'one way binds the text attribute', ->
-    isolateScope = element.isolateScope()
-    isolateScope.text = 'wrong'
-    expect(scope.text).toBe 'correct'
-
-  it 'has a default type of button', ->
-    expect(element.attr('type')).toBe 'button'
+  it 'has no button type', ->
+    expect(element.attr('type')).toBe undefined
 
   it 'creates the correct DOM element', ->
     buttonElement = element.find('button')
