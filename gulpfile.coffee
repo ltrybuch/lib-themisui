@@ -21,8 +21,8 @@ gulp.task 'default', ->
 
 gulp.task 'docs', ['docs-server', 'docs-watch']
 
-# creates gulp.task 'docs-server'
-require './gulp/tasks/docsServer'
+# creates gulp.task 'docs-server' and 'docs-restart'
+require('./gulp/tasks/docsServer')
 
 # creates gulp.task 'docs-browserify'
 # creates gulp.task 'docs-watchify'
