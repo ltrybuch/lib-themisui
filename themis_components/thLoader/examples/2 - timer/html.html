@@ -1,0 +1,24 @@
+<style type="text/css">
+  .wrapper {
+    border: 2px solid grey;
+    padding: 5px 20px;
+    margin: 10px 0;
+  }
+</style>
+<html ng-app="thDemo">
+  <body ng-controller="DemoController as demo">
+
+    <div class="wrapper" ng-if="demo.counter > 0">
+      <div>timeout: {{demo.counter}} secs. (custom message)</div>
+      <th-loader timeout="demo.delay">
+        Checking into this...
+      </th-loader>
+    </div>
+
+    <div class="wrapper" ng-if="demo.counter > 0">
+      <div>timeout: {{demo.counter}} secs. (default message)</div>
+      <th-loader timeout="demo.delay"></th-loader>
+    </div>
+
+  </body>
+</html>

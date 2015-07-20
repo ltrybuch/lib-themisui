@@ -4,20 +4,27 @@
 
 `thLoader` can be used while in a state of loading data or rendering new elements to the dom.
 
-Using `ng-if` or `ng-show` to show / hide when needed.
+Will default the loading message to `Loading...` if no text is given.
 
-Will default inner text to `Loading...` if nothing is passed.
+Will accept time in `millisecs`, a `promise` to be resolved, or a `boolean` as a trigger to hide loader.
+
+
+
 
 ## Usage
 
 ### Markup
 
+Custom text with timer:
+
 ```
-<th-loader loading-text="'Loading. Hang tight...'"></th-switch>
+<th-loader timeout="6000">Loading. Hang tight...</th-loader>
 ```
 
 or
 
+Default text with a promise:
+
 ```
-<th-loader></th-switch>
+<th-loader promise="promise"></th-loader>
 ```

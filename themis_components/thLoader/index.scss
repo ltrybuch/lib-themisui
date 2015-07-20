@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.loading-text {
+  color: $grey;
+  @include gibson-semibold;
+}
+
 //===============================================//
 // Spinkit - github.com/tobiasahlin/SpinKit      //
 //===============================================//
