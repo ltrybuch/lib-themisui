@@ -32,8 +32,8 @@ angular.module('ThemisComponents')
             scrolling="no"
             >
           </iframe>
-          <pre ng-show="mode == 'html'">{{ example.html }}</pre>
-          <pre ng-show="mode == 'coffee'">{{ example.coffee }}</pre>
+          <pre ng-show="mode == 'html'"><code class="language-markup">{{ example.html }}</code></pre>
+          <pre ng-show="mode == 'coffee'"><code class="language-coffeescript">{{ example.coffee }}</code></pre>
           <div class="loading" ng-show="mode == ''">Loading…</div>
         </form>
         </div>
@@ -84,6 +84,8 @@ angular.module('ThemisComponents')
             $scope.mode = 'example'
             exampleFrame.style.height = exampleFrame.contentWindow.document.body.scrollHeight + 10 + 'px'
           , 1500
+
+          $timeout -> Prism.highlightAll()
 
       $scope.penData = JSON.stringify
         title: "#{$scope.componentName} - #{example.name}"

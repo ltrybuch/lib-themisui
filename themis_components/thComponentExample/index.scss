@@ -48,6 +48,10 @@ th-component-example,
   pre {
     margin: 0px;
     padding: 2rem;
+
+    &[class*="language-"] {
+      margin: 0;
+    }
   }
 
   .loading {
