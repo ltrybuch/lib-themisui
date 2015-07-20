@@ -24,7 +24,7 @@ angular.module('ThemisComponents')
       timeout: "="
 
     link: (scope, element) ->
-      defaultMessage = "Loading...."
+      defaultMessage = "Loading..."
       msgElement = element.find("span")
       # check to see if a message is passed in
       if msgElement.length > 0 then message = msgElement[0].innerHTML

@@ -1,7 +1,7 @@
 angular.module('thDemo', ['ThemisComponents'])
   .controller 'DemoController', ($q, $timeout, $interval) ->
 
-    @delay = 10000
+    @delay = 7000
     @counter = @delay / 1000
 
     @deferred = $q.defer()
