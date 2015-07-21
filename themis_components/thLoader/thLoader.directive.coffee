@@ -1,14 +1,14 @@
 template = """
-      <div class="th-loader" ng-show="loader.visible">
-        <div class="sk-spinner sk-spinner-three-bounce">
-          <div class="sk-bounce1"></div>
-          <div class="sk-bounce2"></div>
-          <div class="sk-bounce3"></div>
-        </div>
-        <p class="loading-text" ng-transclude>
-        </p>
-      </div>
-    """
+  <div class="th-loader" ng-show="loader.visible">
+    <div class="sk-spinner sk-spinner-three-bounce">
+      <div class="sk-bounce1"></div>
+      <div class="sk-bounce2"></div>
+      <div class="sk-bounce3"></div>
+    </div>
+    <p class="loading-text" ng-transclude>
+    </p>
+  </div>
+"""
 
 angular.module('ThemisComponents')
   .directive "thLoader", ->
