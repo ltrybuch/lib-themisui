@@ -3,7 +3,7 @@
 }
 
 .loading-text {
-  color: $grey;
+  color: $dark-grey-3;
   @include gibson-semibold;
 }
 
@@ -13,20 +13,20 @@
 .sk-spinner-three-bounce.sk-spinner {
   margin: 0 auto;
   width: 70px;
-  text-align: center;
 }
 
 .sk-spinner-three-bounce div {
   width: 18px;
   height: 18px;
-  background-color: #333;
+  background-color: $dark-grey-3;
   border-radius: 100%;
   display: inline-block;
   -webkit-animation: sk-threeBounceDelay 1.4s infinite ease-in-out;
   animation: sk-threeBounceDelay 1.4s infinite ease-in-out;
   /* Prevent first frame from flickering when animation starts */
   -webkit-animation-fill-mode: both;
-    animation-fill-mode: both; }
+    animation-fill-mode: both;
+}
 
 .sk-spinner-three-bounce .sk-bounce1 {
   -webkit-animation-delay: -0.32s;
@@ -59,3 +59,4 @@
       transform: scale(1);
   }
 }
+

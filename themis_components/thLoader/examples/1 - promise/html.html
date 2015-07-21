@@ -1,24 +1,8 @@
-<style type="text/css">
-  .wrapper {
-    border: 2px solid grey;
-    padding: 5px 20px;
-    margin: 10px 0;
-  }
-</style>
 <html ng-app="thDemo">
   <body ng-controller='DemoController as demo'>
 
-    <div class="wrapper" ng-if="demo.counter > 0">
-      <div>promise: resolved in {{demo.counter}} secs. (custom message)</div>
-      <th-loader promise="demo.promise">
-        Processing, hold tight...
-      </th-loader>
-    </div>
-
-    <div class="wrapper" ng-if="demo.counter > 0">
-      <div>promise: resolved in {{demo.counter}} secs. (default message)</div>
-      <th-loader promise="demo.promise"></th-loader>
-    </div>
+    <button ng-click="demo.startTimer()">Resolve promise in {{demo.seconds}} secs.</button>
+    <th-loader promise="demo.promise"></th-loader>
 
   </body>
 </html>
