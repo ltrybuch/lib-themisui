@@ -24,27 +24,19 @@ angular.module('ThemisComponents')
       timeout: "="
 
     link: (scope, element) ->
-      defaultMessage = "Loading..."
-      msgElement = element.find("span")
-      # check to see if a message is passed in
-      if msgElement.length > 0 then message = msgElement[0].innerHTML
+      messageEl = element[0].querySelector(".loading-text")
 
-      # add our default if needed
-      if !message then element.find("p").replaceWith(
-        "<p class='loading-text'>#{defaultMessage}</p>")
+      # replace a blank message with default message
+      if messageEl.innerHTML == ""
+        messageEl.innerHTML = "Loading..."
 
     controller: ($timeout) ->
       @visible = @visible ? yes
 
-      startTimer = =>
-        $timeout =>
-          @visible = no
-        , parseInt @timeout
-
       switch
         # if millisecs is passed
         when @timeout?
-          startTimer()
+          $timeout => @visible = no, @timeout
 
         # if promise is passed
         when @promise?
