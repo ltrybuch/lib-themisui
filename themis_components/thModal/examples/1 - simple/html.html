@@ -1,0 +1,30 @@
+<html ng-app="thDemo">
+  <body ng-controller="DemoController as demo" style="height: 350px;">
+
+    <th-modal name="demo.modalName1" path="demo.templateSrc1"></th-modal>
+
+    <th-modal name="demo.modalName2" path="demo.templateSrc2"></th-modal>
+
+    <th-modal name="'inlineModal'">
+      <h1>Modal Title: Transcluded</h1>
+      <p>
+        labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis
+        nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi
+        consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam
+        nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+        <br>
+        <a href="http://www.google.com" target="_blank">see more here</a>
+      </p>
+      <div class='actions'>
+        <button>take some action</button>
+      </div>
+    </th-modal>
+
+    <button ng-click="demo.displayModal(demo.modalName1)">display first modal</button>
+
+    <button ng-click="demo.displayModal(demo.modalName2)">display second modal</button>
+
+    <button ng-click="demo.displayModal('inlineModal')">display inline modal</button>
+
+  </body>
+</html>
