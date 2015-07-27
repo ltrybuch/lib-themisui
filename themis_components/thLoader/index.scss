@@ -1,3 +1,4 @@
+// $size: 16px;
 .th-loader {
   text-align: center;
 }
@@ -12,7 +13,7 @@
 //===============================================//
 .sk-spinner-three-bounce.sk-spinner {
   margin: 0 auto;
-  width: 70px;
+  width: 105px;
 }
 
 .sk-spinner-three-bounce div {
@@ -26,6 +27,11 @@
   /* Prevent first frame from flickering when animation starts */
   -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
+
+}
+.icon-lg.sk-spinner-three-bounce div {
+  width: 32px;
+  height: 32px;
 }
 
 .sk-spinner-three-bounce .sk-bounce1 {

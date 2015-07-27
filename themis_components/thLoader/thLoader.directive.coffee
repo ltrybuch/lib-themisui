@@ -23,12 +23,17 @@ angular.module('ThemisComponents')
       promise: "="
       timeout: "="
 
-    link: (scope, element) ->
+    link: (scope, element, attrs) ->
       messageEl = element[0].querySelector(".loading-text")
 
       # replace a blank message with default message
-      if messageEl.innerHTML == ""
-        messageEl.innerHTML = "Loading..."
+      if messageEl.innerText == ""
+        messageEl.innerText = "Loading..."
+
+      # adjust size of icon if needed
+      if attrs.size == 'lg'
+        element[0].querySelector(".sk-spinner").classList.add("icon-lg")
+
 
     controller: ($timeout) ->
       @visible = @visible ? yes

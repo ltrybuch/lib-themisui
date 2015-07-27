@@ -7,3 +7,5 @@
 Will default the loading message to `Loading...` if no text is given.
 
 Will accept time in `millisecs`, a `promise` to be resolved, or a `boolean` as a trigger to hide loader.
+
+Accepts a `size` attribute to adjust icons size. `'sm'` == `18px` and `'lg'` == `32px`. Defaults to `sm`.
