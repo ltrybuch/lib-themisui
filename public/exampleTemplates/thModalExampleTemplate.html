@@ -9,9 +9,8 @@
   <a href="http://www.google.com" target="_blank">see more here</a>
 </p>
 <div class='actions'>
-  <button>take some action</button>
-  <div class="pull-right">
     <th-switch ng-model="state"></th-switch>
-     {{ state }}
+  <div class="pull-right">
+  <button ng-click="modal.dismiss()">dismiss</button>
   </div>
 </div>

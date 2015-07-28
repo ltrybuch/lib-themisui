@@ -1,30 +1,25 @@
 angular.module('ThemisComponents')
   .factory 'ModalManager', ($http) ->
     modals = []
-    queue = []
 
-    showModal = (name) ->
-      index = queue.findIndex (element) -> element.name is name
-      modals.push queue[index] unless index is -1
+    showModal = (path, params, name) ->
+      modalPromise = $http(url: path, method: "GET", params: params)
+      modalPromise.then (response) ->
+        addModal
+          content: response.data
+          name: name ? path
 
     removeModal = (name) ->
       index = modals.findIndex (element) -> element.name is name
       modals.splice index, 1 unless index is -1
 
-    add = (path, params, name) ->
-      $http(url: path, method: "GET", params: params).then (response) ->
-        addToQueue
+    addModal = ({content, name}) ->
+      if name isnt modals[0]?.name
+        modals.push
           name: name
-          content: response.data
-
-    addToQueue = ({name, content}) ->
-      if name isnt queue[0]?.name
-        queue.push
-          name: name ? path
           content: content
+
     return {
-      add
-      addToQueue
       showModal
       removeModal
       modals
