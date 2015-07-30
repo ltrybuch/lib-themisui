@@ -16,6 +16,7 @@ angular.module('ThemisComponents')
     controller: (ModalManager) ->
       @name = @modalData.name
       @content = @modalData.content
+      @size = @modalData.size
 
       @dismiss = ->
         ModalManager.dismiss @name

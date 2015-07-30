@@ -8,11 +8,18 @@ Creating a simple modal for your content is easy!
 
 2. You must inject the `ModalManager` service into your controller in order to push your modal into the queue of modals
 
-3. Add the content source `path` to scope
+3. Use `ModalManager.showModal({path: path, params: params, name: name})` to add your modal and show it.
+Both `name` & `params` are optional. `path` is **not** optional.
 
-4. The modal accepts a `name` and `params` object
+---
 
-5. Use `ModalManager.showModal(path, params, name)` to add your modal and show it
+### Notes
 
-Use `modal.dismiss()` to dismiss.
+- `showModal()` will return a promise [?](http://andyshora.com/promises-angularjs-explained-as-cartoon.html "Learn about promises")
 
+- Use `modal.dismiss()` in your template to dismiss the modal with a `defer.reject()`
+
+- Use `modal.confirm(response)` in your template to dismiss the modal with a `defer.resolve(response)`
+The `response` will be available in the success function.
+
+- Passing a `name` option will add that name as a class to the modal. Style according to what you need.

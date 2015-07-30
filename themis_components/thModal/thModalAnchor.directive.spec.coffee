@@ -24,9 +24,9 @@ describe "ThemisComponents: Directive: thModalAnchor", ->
       it 'returns an empty array', ->
         expect(ctrl.modals.length).toBe 0
 
-  context "with a modal to show", ->
+  context "with a modal", ->
     beforeEach ->
-      ModalManager.show("example.html")
+      ModalManager.showModal({path:"example.html"})
       backend.expect('GET', 'example.html').respond("<h3>example</h3>")
       backend.flush()
 

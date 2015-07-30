@@ -1,14 +1,8 @@
-angular.module('thDemo', ['ThemisComponents'])
-  .controller 'DemoController', (ModalManager) ->
-    @state = off
-    @modal =
-      path: "exampleTemplates/thModalExampleTemplate.html"
-      name: "first-template"
+angular.module("thDemo", ["ThemisComponents"])
+  .controller "DemoController", (ModalManager) ->
+    @path = 'exampleTemplates/thModalExampleTemplate.html'
 
     @displayModal = =>
-      ModalManager.show(@modal.path, {}, @modal.name, {size: 'sm'})
-      .then (response) =>
-        @state = on
-      , => @state = off
+      ModalManager.showModal(path: @path)
 
     return
