@@ -7,7 +7,9 @@ angular.module('ThemisComponents')
     scope:
       modalData: "="
     template: """
-      <div class="th-modal {{ modal.name }}">
+      <div class="th-modal {{ modal.name }}"
+        ng-class="{'modal-sm': modal.size == 'sm'}"
+        >
         <div th-compile="modal.content"></div>
       </div>
     """
@@ -16,7 +18,10 @@ angular.module('ThemisComponents')
       @content = @modalData.content
 
       @dismiss = ->
-        ModalManager.removeModal @name
+        ModalManager.dismiss @name
+
+      @confirm = (args) ->
+        ModalManager.confirm @name, args
 
       return
 

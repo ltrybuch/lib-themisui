@@ -14,7 +14,7 @@ angular.module("ThemisComponents")
       </div>
     """
     controller: (ModalManager) ->
-      @modals = ModalManager.modals
+      @modals = ModalManager._modals
 
       return
 

@@ -1,6 +1,6 @@
 context = describe
 describe 'ThemisComponents: Service: thModalManager', ->
-  ModalManager = httpBackend = null
+  ModalManager = httpBackend = promise = null
 
   beforeEach ->
     module 'ThemisComponents'
@@ -13,59 +13,96 @@ describe 'ThemisComponents: Service: thModalManager', ->
     httpBackend.verifyNoOutstandingExpectation()
     httpBackend.verifyNoOutstandingRequest()
 
-  performAction = (template, name, valid) ->
-    ModalManager.showModal(template, {}, name || template)
-    if valid
+  performAction = (template, name) ->
+    promise = ModalManager.show(template, {}, name || template)
+    if template == "validTemplate.html"
       httpBackend.expect('GET', template).respond(200, "<h3>Hello World</h3>")
     else
       httpBackend.expect('GET', template).respond(404, '')
     httpBackend.flush()
+    promise
 
   it 'should exist', ->
     expect(!!ModalManager).toBe true
 
-  describe '#showModal()', ->
+  describe '#show()', ->
 
     context "with valid template", ->
       beforeEach ->
-        performAction("validTemplate.html", "valid", true)
+        promise = performAction("validTemplate.html", "valid")
+
+      it "returns a promise", ->
+        expect(promise).toBeDefined
+        expect(promise.then instanceof Function).toBe true
 
       it 'add modal to modals array', ->
-        expect(ModalManager.modals.length).toBe 1
+        expect(ModalManager._modals.length).toBe 1
 
       it 'has correct content', ->
-        expect(ModalManager.modals[0].content).toBe "<h3>Hello World</h3>"
+        expect(ModalManager._modals[0].content).toBe "<h3>Hello World</h3>"
 
       it 'has correct name', ->
-        expect(ModalManager.modals[0].name).toBe "valid"
+        expect(ModalManager._modals[0].name).toBe "valid"
 
     context 'with no name', ->
 
       it "defaults name to template string", ->
-        performAction("validTemplate.html", "", true )
-        expect(ModalManager.modals[0].name).toBe "validTemplate.html"
+        performAction("validTemplate.html", "")
+        expect(ModalManager._modals[0].name).toBe "validTemplate.html"
 
     context "with invalid template", ->
 
       it 'rejects template silently', ->
-        performAction("invalidTemplate.html", 'invalid', false)
-        expect(ModalManager.modals.length).toBe 0
+        performAction("invalidTemplate.html", 'invalid')
+        expect(ModalManager._modals.length).toBe 0
 
-  describe '#removeModal()', ->
+  describe '#dismiss()', ->
 
     beforeEach ->
-      performAction("validTemplate.html", "valid", true)
+      promise = performAction("validTemplate.html", "valid")
 
     it 'removes modal if it exists in array', ->
-      ModalManager.removeModal("valid")
-      expect(ModalManager.modals.length).toBe 0
+      ModalManager.dismiss("valid")
+      expect(ModalManager._modals.length).toBe 0
 
     it "no change if it doesn't exist", ->
-      ModalManager.removeModal("invalid")
-      expect(ModalManager.modals.length).toBe 1
+      ModalManager.dismiss("invalid")
+      expect(ModalManager._modals.length).toBe 1
 
-  describe "modals", ->
+    it "rejects deferred", ->
+      rejected = 2; pending = 0
 
+      expect(promise.$$state.status).toEqual pending
+      ModalManager.dismiss("valid")
+      expect(promise.$$state.status).toEqual rejected
+
+  describe '#confirm()', ->
+
+    beforeEach ->
+      promise = performAction("validTemplate.html", "valid")
+
+    it 'removes modal if it exists in array', ->
+      ModalManager.confirm("valid")
+      expect(ModalManager._modals.length).toBe 0
+
+    it "no change if it doesn't exist", ->
+      ModalManager.confirm("invalid")
+      expect(ModalManager._modals.length).toBe 1
+
+    it "resolves deferred", ->
+      resolved = 1; pending = 0
+
+      expect(promise.$$state.status).toEqual pending
+      ModalManager.confirm("valid")
+      expect(promise.$$state.status).toEqual resolved
+
+    it "resolves deferred with optional response", ->
+      ModalManager.confirm("valid", "response!")
+      promise.then (data) ->
+        expect(data).toEqual "response!"
+
+
+  describe "_modals", ->
     it "returns an array", ->
-      modals = ModalManager.modals
+      modals = ModalManager._modals
       expect(modals instanceof Array).toBe true

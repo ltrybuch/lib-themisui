@@ -3,6 +3,14 @@
 
     <th-modal-anchor></th-modal-anchor>
 
+    <p>The status is
+      <span ng-switch on="demo.state">
+        <strong ng-switch-when="true" style="color: green">ON</strong>
+        <strong ng-switch-when="false" style="color: red">OFF</strong>
+      </span>
+    </p>
+    <p>Open and modal and change.</p>
+
     <button ng-click="demo.displayModal()">display modal</button>
 
   </body>
