@@ -31,8 +31,8 @@ angular.module('ThemisComponents')
         messageEl.innerText = "Loading..."
 
       # adjust size of icon if needed
-      if attrs.size == 'lg'
-        element[0].querySelector(".sk-spinner").classList.add("icon-lg")
+      if attrs.size == 'large'
+        element[0].querySelector(".sk-spinner").classList.add("icon-large")
 
 
     controller: ($timeout) ->
@@ -41,7 +41,9 @@ angular.module('ThemisComponents')
       switch
         # if millisecs is passed
         when @timeout?
-          $timeout => @visible = no, @timeout
+          $timeout =>
+            @visible = no
+          , @timeout
 
         # if promise is passed
         when @promise?

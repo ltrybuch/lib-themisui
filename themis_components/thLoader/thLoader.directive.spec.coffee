@@ -43,7 +43,7 @@ describe 'ThemisComponents: Directive: thLoader', ->
       element = directive.element
       scope = directive.scope
 
-      inject ($timeout, $q) -> timeout = $timeout
+      inject ($timeout) -> timeout = $timeout
       timeout (-> scope.deferred.resolve()), 10
 
     it 'hide after promise is resolved', ->
@@ -54,16 +54,16 @@ describe 'ThemisComponents: Directive: thLoader', ->
       timeout.flush(9)
       expect(element.hasClass('ng-hide')).toBe false
 
-  context "with size 'lg' attribute", ->
+  context "with size 'large' attribute", ->
     beforeEach ->
-      element = compileDirective('<div th-loader size="lg"></div>').element
+      element = compileDirective('<div th-loader size="large"></div>').element
 
-    it "has class 'icon-lg'", ->
-      expect(element.find("div.sk-spinner").hasClass("icon-lg")).toBe true
+    it "has class 'icon-large'", ->
+      expect(element.find("div.sk-spinner").hasClass("icon-large")).toBe true
 
-  context "with size 'sm' attribute", ->
+  context "with size 'small' attribute", ->
     beforeEach ->
-      element = compileDirective('<div th-loader size="sm"></div>').element
+      element = compileDirective('<div th-loader size="small"></div>').element
 
-    it "has should not have class 'icon-lg'", ->
-      expect(element.find("div.sk-spinner").hasClass("icon-lg")).toBe false
+    it "has should not have class 'icon-large'", ->
+      expect(element.find("div.sk-spinner").hasClass("icon-large")).toBe false
