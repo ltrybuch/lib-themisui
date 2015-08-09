@@ -15,11 +15,10 @@ Both `name` & `params` are optional. `path` is **not** optional.
 
 ### Notes
 
-- `showModal()` will return a promise [?](http://andyshora.com/promises-angularjs-explained-as-cartoon.html "Learn about promises")
+`showModal()` will return a promise [?](http://andyshora.com/promises-angularjs-explained-as-cartoon.html "Learn about promises")
 
-- Use `modal.dismiss()` in your template to dismiss the modal with a `defer.reject()`
+Use `modal.dismiss(reason)` in your template to dismiss the modal with a `defer.reject(reason)`
 
-- Use `modal.confirm(response)` in your template to dismiss the modal with a `defer.resolve(response)`
-The `response` will be available in the success function.
+Use `modal.confirm(response)` in your template to dismiss the modal with a `defer.resolve(response)`
 
-- Passing a `name` option will add that name as a class to the modal. Style according to what you need.
+Passing a `name` option will add that name as a class to the modal. Style according to what you need.

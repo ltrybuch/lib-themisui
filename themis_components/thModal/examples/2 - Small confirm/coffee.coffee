@@ -9,6 +9,8 @@ angular.module('thDemo', ['ThemisComponents'])
       ModalManager.showModal(path: @modal.path, name: @modal.name)
       .then (response) =>
         @state = on
-      , => @state = off
+      , (response) =>
+        @state = off
+        console.log response
 
     return

@@ -7,22 +7,19 @@ angular.module('ThemisComponents')
     scope:
       modalData: "="
     template: """
-      <div class="th-modal {{ modal.name }}"
-        ng-class="{'modal-sm': modal.size == 'sm'}"
-        >
+      <div class="th-modal {{ modal.name }}">
         <div th-compile="modal.content"></div>
       </div>
     """
     controller: (ModalManager) ->
       @name = @modalData.name
       @content = @modalData.content
-      @size = @modalData.size
 
-      @dismiss = ->
-        ModalManager.dismiss @name
+      @dismiss = (response) ->
+        ModalManager.dismiss @name, response
 
-      @confirm = (args) ->
-        ModalManager.confirm @name, args
+      @confirm = (response) ->
+        ModalManager.confirm @name, response
 
       return
 
