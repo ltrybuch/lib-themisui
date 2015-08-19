@@ -8,7 +8,6 @@ Add small overlays of content, like those on the iPad, to any element for housin
 
 ## Usage
 
+
 ### Markup
-```
-<a href="" th-popover="/templatePath.html">Trigger</a>
-```
+`<a href="" th-popover="/templatePath.html">Trigger</a>`
