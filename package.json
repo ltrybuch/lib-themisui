@@ -1,8 +1,15 @@
 {
   "name": "lib-ThemisUI",
   "version": "0.1.5",
+  "license": "BSD 3-clause 'New' or 'Revised' License",
   "description": "A Baseline of style and components used by Clio's web applications.",
-  "author": "Sean Healy <sean.healy@clio.com>, Geoff Thierman <geoff.thierman@clio.com>",
+  "repository": "https://github.com/clio/lib-themisui.git",
+  "author": "Sean Healy <sean.healy@clio.com>",
+  "contributors": [
+      "Sean Healy <sean.healy@clio.com>",
+      "Terry White <terry.white@goclio.com>",
+      "Jef Curtis <jef.curtis@clio.com>"
+    ],
   "main": "index.js",
   "private": true,
   "dependencies": {
