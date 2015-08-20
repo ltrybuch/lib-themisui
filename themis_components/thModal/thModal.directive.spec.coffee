@@ -3,17 +3,6 @@ describe "ThemisComponents: Directive: thModal", ->
   directive = element = scope = ModalManager = null
   beforeEach ->
 
-  context "modal.size = 'sm'", ->
-    beforeEach ->
-      t = """<th-modal modal-data="{name: 'test', content: '<p>testing</p>', size: 'sm'}"></th-modal>"""
-      directive = compileDirective(t)
-
-    it "adds 'modal-sm' to the template", ->
-      expect(directive.element.hasClass("modal-sm")).toBe true
-
-    it "scope.size == 'sm'", ->
-      expect(directive.scope.$$childHead.modal.size).toEqual "sm"
-
   describe "#dismiss", ->
 
     it "calls ModalManager.dismiss", ->

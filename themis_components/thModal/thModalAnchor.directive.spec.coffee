@@ -1,6 +1,6 @@
 context = describe
 describe "ThemisComponents: Directive: thModalAnchor", ->
-  element = directive = ctrl = ModalManager = backend = null
+  element = directive = ctrl = ModalManager = httpBackend = null
   beforeEach ->
     directive = compileDirective("<th-modal-anchor></th-modal-anchor>")
     element = directive.element
@@ -8,7 +8,7 @@ describe "ThemisComponents: Directive: thModalAnchor", ->
 
     inject (_ModalManager_, $httpBackend) ->
       ModalManager = _ModalManager_
-      backend = $httpBackend
+      httpBackend = $httpBackend
 
   context "with no modals in queue", ->
     it 'inner content is hidden', ->
@@ -27,12 +27,12 @@ describe "ThemisComponents: Directive: thModalAnchor", ->
   context "with a modal", ->
     beforeEach ->
       ModalManager.showModal({path:"example.html"})
-      backend.expect('GET', 'example.html').respond("<h3>example</h3>")
-      backend.flush()
+      httpBackend.expect('GET', 'example.html').respond("<h3>example</h3>")
+      httpBackend.flush()
 
     afterEach ->
-      backend.verifyNoOutstandingExpectation()
-      backend.verifyNoOutstandingRequest()
+      httpBackend.verifyNoOutstandingExpectation()
+      httpBackend.verifyNoOutstandingRequest()
 
     it "inner content exists", ->
       expect(element.find("div").length).not.toBe 0
