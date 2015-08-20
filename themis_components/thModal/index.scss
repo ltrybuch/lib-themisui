@@ -52,22 +52,6 @@
   .cell {
     display: table-cell;
     vertical-align: middle;
-
-    .ui-close {
-      position: relative;
-      float: right;
-      right: 4px;
-      top: 4px;
-      font-size: 2.1em;
-      color: $dark-grey-3;
-      background-color: #fff;
-    }
-    .ui-close:after {
-      @extend .fa;
-      content: "\f057";
-      border-radius: 50%;
-      z-index: 2147483647;
-    }
   }
 }
 
