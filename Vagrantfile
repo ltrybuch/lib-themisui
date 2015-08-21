@@ -82,7 +82,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", inline: "apt-get install -y git"
   config.vm.provision "shell", inline: "apt-get install -y ack-grep curl dstat fping ifstat iftop keychain mtr-tiny nmap pv realpath rsync screen strace tcpdump unzip zip"
   config.vm.provision "shell", inline: "apt-get install -y python-software-properties xvfb"
-  # config.vm.provision "shell", inline: "apt-get install -y nodejs nodejs-legacy"
+  config.vm.provision "shell", inline: "apt-get install -y nodejs nodejs-legacy"
 
   # install NPM manually
   config.vm.provision "shell", inline: "curl -L --insecure https://www.npmjs.org/install.sh | bash"
