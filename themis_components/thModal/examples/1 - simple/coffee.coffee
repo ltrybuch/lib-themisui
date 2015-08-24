@@ -3,6 +3,6 @@ angular.module("thDemo", ["ThemisComponents"])
     @path = 'exampleTemplates/thModalExampleTemplate.html'
 
     @displayModal = =>
-      ModalManager.showModal(path: @path)
+      ModalManager.show(path: @path)
 
     return

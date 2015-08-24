@@ -2,7 +2,7 @@ angular.module('ThemisComponents')
   .factory 'ModalManager', ($http, $q) ->
     modals = []
 
-    showModal = ({path, name, params} = {}) ->
+    show = ({path, name, params} = {}) ->
       path ?= ""; name ?= path; params ?= "" # set defaults
 
       deferred = $q.defer()
@@ -17,18 +17,18 @@ angular.module('ThemisComponents')
     confirm = (name, response) ->
       modal = findByName(name)
       modal.deferred.resolve(response) if modal isnt undefined
-      removeModal(name)
+      remove(name)
 
     dismiss = (name, response) ->
       modal = findByName(name)
       modal.deferred.reject(response) if modal isnt undefined
-      removeModal(name)
+      remove(name)
 
     findByName = (name) ->
       index = modals.findIndex (element) -> element.name is name
       modals[index]
 
-    removeModal = (name) ->
+    remove = (name) ->
       index = modals.findIndex (element) -> element.name is name
       modals.splice index, 1 unless index is -1
 
@@ -40,7 +40,7 @@ angular.module('ThemisComponents')
           deferred: deferred
 
     return {
-      showModal
+      show
       dismiss
       confirm
       _modals: modals
