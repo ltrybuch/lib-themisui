@@ -1,8 +1,8 @@
-<div style="text-align: center;">
+<div style="text-align: center;" ng-controller="ConfirmModalController as confirm">
   <h1>Change status?</h1>
     <div class='actions'>
-      <button ng-click="modal.confirm()">ON</button>
-      <button ng-click="modal.dismiss('note')">OFF</button>
+      <button ng-click="confirm.yes()">ON</button>
+      <button ng-click="confirm.no()">OFF</button>
     </div>
   </div>
 </div>

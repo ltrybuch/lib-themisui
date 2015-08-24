@@ -22,3 +22,12 @@ Use `modal.dismiss(reason)` in your template to dismiss the modal with a `defer.
 Use `modal.confirm(response)` in your template to dismiss the modal with a `defer.resolve(response)`
 
 Passing a `name` option will add that name as a class to the modal. Style according to what you need.
+
+Use `$scope.modal.dimiss()` or `$scope.modal.confirm()` inside your modal controller to perform your own actions before resolving the promise.
+
+```
+  $scope.confirmModal = ->
+    #do stuff...
+    $scope.modal.confirm("yes!")
+```
+
