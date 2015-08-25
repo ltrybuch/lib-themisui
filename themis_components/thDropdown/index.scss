@@ -82,10 +82,21 @@
       text-align: left;
       border-bottom: $border;
       padding: 0.6rem;
-      &.without-icon {
+      &.iconless-padding {
         a {
           padding-left: 3.5rem;
         }
+      }
+
+      &.divider-container {
+        padding: 0;
+      }
+
+      .divider {
+        height: 2px;
+        background-color: $grey-70;
+        padding: 0;
+        margin: 0;
       }
 
       a {
