@@ -6,7 +6,7 @@ angular.module('thDemo', ['ThemisComponents'])
       name: "first-template"
 
     @displayModal = =>
-      ModalManager.show(path: @modal.path, name: @modal.name)
+      ModalManager.show path: @modal.path, name: @modal.name
       .then (response) =>
         @state = on
       , (response) =>

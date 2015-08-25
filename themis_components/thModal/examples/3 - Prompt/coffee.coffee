@@ -5,7 +5,8 @@ angular.module("thDemo", ["ThemisComponents"])
       name: "stranger"
 
     @displayModal = ->
-      ModalManager.show(path: @path, name: "prompt").then (response) =>
-        @user.name = response
+      ModalManager.show path: @path, name: "prompt"
+        .then (response) =>
+          @user.name = response
 
     return

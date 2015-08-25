@@ -26,7 +26,7 @@ describe "ThemisComponents: Directive: thModalAnchor", ->
 
   context "with a modal", ->
     beforeEach ->
-      ModalManager.show({path:"example.html"})
+      ModalManager.show path:"example.html"
       httpBackend.expect('GET', 'example.html').respond("<h3>example</h3>")
       httpBackend.flush()
 
