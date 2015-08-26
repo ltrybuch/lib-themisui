@@ -44,7 +44,3 @@ describe 'ThemisComponents: Directive: thSwitch', ->
     element.triggerHandler 'click'
     expect(element.hasClass('active')).toBe false
     expect(scope.state).toBe off
-
-  it 'should fail', ->
-    expect(true).toBe false
-
