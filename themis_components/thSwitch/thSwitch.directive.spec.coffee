@@ -45,3 +45,6 @@ describe 'ThemisComponents: Directive: thSwitch', ->
     expect(element.hasClass('active')).toBe false
     expect(scope.state).toBe off
 
+  it 'should fail', ->
+    expect(true).toBe false
+
