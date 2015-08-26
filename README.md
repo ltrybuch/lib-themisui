@@ -2,6 +2,8 @@
 
 ThemisUI is a shareable suite of components and brand assets to be shared across Themis projects. ThemisUI also contains a docs viewer to allow for simple consumption of components and brand assets.
 
+[![Build Status](https://travis-ci.org/clio/lib-themisui.svg)](https://travis-ci.org/clio/lib-themisui)
+
 ## Getting started.
 
 Whilst inside the `lib-ThemisUI` directory.
