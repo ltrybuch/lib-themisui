@@ -1,8 +1,10 @@
 # ThemisUI
 
-ThemisUI is a shareable suite of components and brand assets to be shared across Themis projects. ThemisUI also contains a docs viewer to allow for simple consumption of components and brand assets.
-
 [![Build Status](https://travis-ci.org/clio/lib-themisui.svg)](https://travis-ci.org/clio/lib-themisui)
+
+ThemisUI is a shareable suite of components and brand assets to be shared across Themis projects. ThemisUI also contains a docs viewer to allow for simple consumption of components.
+
+[Docs Viewer](http://themisui-docs.clio.com/)
 
 ## Getting started.
 
@@ -38,4 +40,4 @@ Whilst inside the `lib-ThemisUI` directory.
 ## Deploying Docs viewer
 
 1. Open a pull request from `master` against `edge` branch.
-2. When your pull request is approved and merged it will automatically deploy and be visibile at themis-ui.docs.clio.com.
+2. When your pull request is approved and merged it will automatically deploy and be visibile at http://themisui-docs.clio.com/.
