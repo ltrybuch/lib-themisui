@@ -31,8 +31,7 @@ i.th-popover-arrow {
     display: block;
     position: absolute;
     margin-top: 12px;
-    margin-left: -6px;
-  
+
     z-index: 2147483647;
 
     &:before {
@@ -57,7 +56,7 @@ i.th-popover-arrow {
   left: 0px;
   right: 0px;
 
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0,0,0,0);
 
   z-index: 2147483647;
 }
