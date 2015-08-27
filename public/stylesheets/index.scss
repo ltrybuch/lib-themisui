@@ -56,10 +56,38 @@ h1, h2, h3 {
   left: 0px;
   width: $list-view-width;
 
+  .github-link {
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: $header-height;
+
+    color: $grey;
+    line-height: $header-height;
+    text-align: center;
+    text-decoration: none;
+
+    border-top: solid 1px $grey-70;
+    border-right: solid 1px $grey-70;
+    background-color: $grey-90;
+
+    &:hover {
+      background-color: $grey-80;
+    }
+
+    i {
+      margin-top: -3px;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+  }
+
   .component-list-view {
     position: absolute;
     top: $header-height;
-    bottom: 0px;
+    bottom: $header-height;
     left: 0px;
     right: 0px;
 
