@@ -10,10 +10,16 @@ Whilst inside the `lib-ThemisUI` directory.
 
 1. Ensure you have npm installed.
 2. Do a `npm install` to get dependencies.
-3. Run `npm run docs` to start all the tasks we need and launch the server.
+3. Run `npm start` to start all the tasks we need and launch the server.
 4. Visit http://localhost:3042
 5. ???
 6. Profit
+
+## Tests
+
+1. Ensure you have npm installed.
+2. Do a `npm install` to get dependencies.
+3. Run `npm test` to start karma.
 
 ## Contents
 
