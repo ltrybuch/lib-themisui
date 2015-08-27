@@ -32,6 +32,8 @@ angular.module('ThemisComponents')
       $scope.content = ""
 
       positionPopover = ->
+        return if view is null # We don't want to try positioning views that no longer exist.
+
         $timeout -> # Wait for the tick after any other dom manipulation is happening.
           # Reset our width so we can measure without being effected
           # by the loading restrictions.
@@ -40,6 +42,7 @@ angular.module('ThemisComponents')
             bottom: "auto"
 
           minInset = 12
+          arrowOffset = 6
 
           # Get some sizes we need.
           anchorRect = element[0].getBoundingClientRect()
@@ -50,7 +53,7 @@ angular.module('ThemisComponents')
           viewWidth = if $scope.loaded then Math.min maxWidth, viewRect.width else 200
 
           # Assuming no window bounds where would we like to be?
-          viewGoalLeft = anchorRect.left + anchorRect.width/2 - viewWidth/2
+          viewGoalLeft = anchorRect.left + anchorRect.width/2 - viewWidth/2 - arrowOffset
 
           # Top boundry
           top = anchorRect.top + anchorRect.height + 10
@@ -80,7 +83,7 @@ angular.module('ThemisComponents')
           # Position the arrow
           arrow.css
             top: "#{ top }px"
-            left: "#{ anchorRect.left + anchorRect.width/2 }px"
+            left: "#{ anchorRect.left + anchorRect.width/2 - arrowOffset }px"
 
       $scope.$on 'thPopover.dismiss', ->
         overlay?.remove()
