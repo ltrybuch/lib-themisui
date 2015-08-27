@@ -1,6 +1,6 @@
 template = """
   <div class="button-dropdown">
-    <div class="th-dropdown-overlay" ng-click="dropdown.toggle()" ng-if="dropdown.visible"></div>
+    <div class="dd-overlay" ng-click="dropdown.toggle()" ng-if="dropdown.visible"></div>
     <a href="#" ng-class="dropdown.color" ng-click="dropdown.toggle()">
       {{dropdown.name}}
       <i class="fa" ng-class="dropdown.toggleCaret()"></i>
@@ -19,7 +19,7 @@ template = """
             <i ng-if="item.icon" class="fa fa-{{item.icon}}"></i>
             {{item.name}}
           </a>
-          <div ng-if="item.type == 'divider'" class="divider"></div>
+          <div ng-if="item.type == 'divider'" class="dd-divider"></div>
         </li>
       </ul>
   </div>
@@ -37,6 +37,7 @@ angular.module("ThemisComponents")
       color: "@"
     controller: ->
       @links = []
+      @list = @list ? []
       @visible = false
       @withIcons = no
 
@@ -44,9 +45,9 @@ angular.module("ThemisComponents")
         @visible = !@visible
 
       @noIconPadding = (icon) ->
-        # if some li include icons line up text
+        # if some list items include icons line up text
         if !icon && @withIcons
-          "iconless-padding"
+          "dd-iconless-padding"
 
       @addDividerClass = (type) ->
         "divider-container" if type == "divider"
@@ -57,6 +58,7 @@ angular.module("ThemisComponents")
       processList = =>
         for item in @list
           if item.url? && item.action?
+            # throw an error of some kind?
             console.log "Broken link"
           else
             if item.url? && typeof item.url == "string"
