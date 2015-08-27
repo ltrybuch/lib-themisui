@@ -34,3 +34,8 @@ Whilst inside the `lib-ThemisUI` directory.
 
 1. Run `brew update` to ensure that the brew formulae are up to date.
 2. Install node with `brew install node`.
+
+## Deploying Docs viewer
+
+1. Open a pull request from `master` against `edge` branch.
+2. When your pull request is approved and merged it will automatically deploy and be visibile at themis-ui.docs.clio.com.
