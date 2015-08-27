@@ -1,1 +1,1 @@
-web: npm run docs
+web: npm install && npm run docs
