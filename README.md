@@ -1,10 +1,6 @@
-# ThemisUI
-
-[![Build Status](https://travis-ci.org/clio/lib-themisui.svg)](https://travis-ci.org/clio/lib-themisui)
+# ThemisUI [![Usage Docs](http://dabuttonfactory.com/button.png?t=Usage+Docs&f=Calibri&ts=15&tc=fff&tshs=1&tshc=444&w=110&h=18&c=3&bgt=gradient&bgc=69adf1&ebgc=4891dc&bs=1&bc=236ab4)](http://themisui-docs.clio.com/) [![Build Status](https://travis-ci.org/clio/lib-themisui.svg)](https://travis-ci.org/clio/lib-themisui)
 
 ThemisUI is a shareable suite of components and brand assets to be shared across Themis projects. ThemisUI also contains a docs viewer to allow for simple consumption of components.
-
-[Docs Viewer](http://themisui-docs.clio.com/)
 
 ## Getting started.
 
