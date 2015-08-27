@@ -7,29 +7,37 @@
     <base href="/">
   </head>
   <body ng-controller="AppController">
-    <header><h2>ThemisUI</h2></header>
-
-    <div class="content-view ng-cloak">
+    <div class="sidebar">
+      <header class="main">
+        <!-- <i class="logo"></i> -->
+        <h1>ThemisUI</h1>
+      </header>
       <div
         class="component-list-view {{ viewType }}"
         ng-controller="ComponentListController"
-        ><a
+        ng-cloak
+        >
+        <a
           ng-cloak
           ng-repeat="component in components"
           ng-class="{selected:selectedComponent == component}"
           ng-href="{{component}}"
-          >{{ component }}</a></div>
-
-      <div class="component-details-view" ng-controller="ComponentDetailsController">
-        <div th-bind-markdown="readme.markdown"></div>
-        <div ng-bind-html="readme.html"></div>
-
-        <h2 ng-if="examples.length > 0">Examples</h2>
-        <th-component-example
-          ng-repeat="example in examples"
-          component-name="name"
-          component-example="example"/>
+          >{{ component }}</a>
       </div>
+    </div>
+
+    <div class="component-details-view"
+      ng-controller="ComponentDetailsController"
+      ng-cloak
+      >
+      <div th-bind-markdown="readme.markdown"></div>
+      <div ng-bind-html="readme.html"></div>
+
+      <h2 ng-if="examples.length > 0">Examples</h2>
+      <th-component-example
+        ng-repeat="example in examples"
+        component-name="name"
+        component-example="example"/>
     </div>
 
     <script src="/build/app.js"></script>
