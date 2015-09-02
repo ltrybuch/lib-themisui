@@ -13,6 +13,7 @@ require './thContextualMessage/'
 require './thLazy/'
 require './thModal/'
 require './thPopover/'
+require './thSelect/'
 require './thSwitch/'
 require './thTabset/'
 
