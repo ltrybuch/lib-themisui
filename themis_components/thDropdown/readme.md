@@ -4,7 +4,7 @@
 
 Add a button that when clicked displays a dropdown list.
 
-`thDropdown` will accept a array of object that when created correctly will display each as list items
+`thDropdown` will accept an array of objects that when created correctly will display each as list items
 
 ---
 
