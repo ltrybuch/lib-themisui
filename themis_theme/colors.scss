@@ -98,6 +98,7 @@ $green-tint: tint($green, 10%);
 $green-shade: shade($green, 10%);
 
 $white: #ffffff;
+$off-white: shade($white, 1%);
 $white-shade: shade($white, 10%);
 
 //We tint our darkest grey to get an equally incremented value scale. grey-90 has a 90% tint, grey-80 80%, etc. You can do things like tint($grey-40, 5%) if you need a smaller increment.
