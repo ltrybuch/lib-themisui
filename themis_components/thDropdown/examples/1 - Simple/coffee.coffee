@@ -1,8 +1,13 @@
 angular.module('thDemo', ['ThemisComponents'])
   .controller "DemoController", ->
-    @links = [
-      { name: "Link One", url: "#" }
-      { name: "Link Two", url: "#" }
-      { name: "Link Three", url: "#" }
+    @genres = [
+      { name: "Action", url: "#" }
+      { name: "Science Fiction", url: "#" }
+      { name: "Drama", url: "#" }
+    ]
+    @settings = [
+      { name: "Name", url: "#" }
+      { name: "Avatar", url: "#" }
+      { name: "Address", url: "#" }
     ]
     return

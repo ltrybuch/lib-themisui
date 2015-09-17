@@ -4,32 +4,49 @@
 
 Add a button that when clicked displays a dropdown list.
 
-`thDropdown` will accept an array of objects that when created correctly will display each as list items
+`thDropdown` will accept an array of objects that when created correctly will display each as list items.
+
+Acceptable attributes include `url`, `action`, `type`, `divider`, `name`, `icon`. Examples below.
 
 ---
+### Usage
+```
+<th-dropdown name="click me" list="listItems"></th-dropdown>
+```
 
-### Markup
+-------- and / or ---------
 
-`<th-dropdown name="click me" list="listItems"></th-dropdown>`
-
+`thDropdown` will transclude anything passed in and append to the end of the button menu. The `thItem` component, as an example, is avaiable to populate your shiny new menu.
+```
+<th-dropdown name="click me">
+  <th-item name="Item One" url="#"></th-item>
+  <th-item name="Item Two" url="#"></th-item>
+</th-dropdown>
+```
 ---
-
 ### Notes
 
-The colors grey, red, and green can be passed to style the button accordingly. Blue is set by default.
+- The types `standard`, `destroy`, and `create` are accepted to color the button.If a type is not given it will set the button color to blue.
 
-ex. `[{name: "first", url: "/link", color: "red"}]`
-
-Icons can be passed as a property of your objects and will be added before the corresponding list name.
+  ```
+  <th-dropdown name="New" type="create" list="menuItems"></th-dropdown>
+  ```
+- An `icon` type is accepted. The icon will be added before the corresponding list name.
 You can choose from any of the icons from the [Font Awesome](https://fortawesome.github.io/Font-Awesome/icons/ "icons!") collection.
-Include only the relevant name of the icon you want and we'll fill in the rest.
+Include only the relevant name of the icon.
+  ```
+  [{name: "first", url: "/link", icon: "thumbs-o-up"}]
+  ```
+- Use the `th-divider` component or include `{divider:"true"}` in your array to add a styled divider.
+  ```
+  <th-dropdown name="Btn">
+    <th-item name="#1" url="#"></th-item>
+    <th-divider></th-divider>
+    <th-item name="#2" url="#"></th-item>
+  </th-dropdown>
+  ```
+- An `action` attribute can be used to replace the `url` attribute. When the corresponding menu item is clicked that `action` will be invoked.
+- If multiple action attributes are included the menu item will select `url` first, `action` next, and divider last. If nothing is passed in it will set the menu item to a `th-divider`.
 
-ex. `[{name: "first", url: "/link", icon: "thumbs-o-up"}]`
-
-Dividers - styled divider can be added by just including it as an object in your array
-
-ex. `[{name: "first", url: "/link"}, {type: "divider"}, {name: "second", url: "/link"}]`
-
-Pass a function to be invoked on click instead of a url. Take a look at some of the examples to see this in action.
 
 ---

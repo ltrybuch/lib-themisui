@@ -1,29 +1,39 @@
 template = """
   <div class="button-dropdown">
     <div class="dd-overlay" ng-click="dropdown.toggle()" ng-if="dropdown.visible"></div>
-    <a href="#" ng-class="dropdown.color" ng-click="dropdown.toggle()">
+    <a href="#"
+      ng-class="dropdown.type"
+      ng-click="dropdown.toggle()">
       {{dropdown.name}}
       <i class="fa" ng-class="dropdown.toggleCaret()"></i>
     </a>
-      <ul ng-if="dropdown.visible" class="dd-list-container">
-        <li
-          ng-repeat="item in dropdown.links"
-          ng-click="dropdown.toggle()"
-          class="{{dropdown.addDividerClass(item.type)}} {{dropdown.noIconPadding(item.icon)}}"
+    <div
+      ng-click="dropdown.toggle()"
+      ng-if="dropdown.visible"
+      class="dropdown-menu"
+      >
+      <span ng-repeat-start="item in dropdown.processedItems"></span>
+        <th-item
+          ng-if="item.type == 'link'"
+          name="{{item.name}}"
+          url="{{item.url}}"
+          icon="{{item.icon}}"
         >
-          <a ng-if="item.type == 'link'" href="{{item.url}}">
-            <i ng-if="item.icon" class="fa fa-{{item.icon}}"></i>
-            {{item.name}}
-          </a>
-          <a ng-if="item.type == 'action'" href="#" ng-click="item.action()">
-            <i ng-if="item.icon" class="fa fa-{{item.icon}}"></i>
-            {{item.name}}
-          </a>
-          <div ng-if="item.type == 'divider'" class="dd-divider"></div>
-        </li>
-      </ul>
+        </th-item>
+        <th-item
+          ng-if="item.type == 'action'"
+          name="{{item.name}}"
+          action="item.action"
+          icon="{{item.icon}}"
+        >
+        </th-item>
+        <th-divider ng-if="item.type == 'divider'"></th-divider>
+      <span ng-repeat-end=""></span>
+      <ng-transclude></ng-transclude>
+    </div>
   </div>
 """
+
 angular.module("ThemisComponents")
   .directive "thDropdown", ->
     restrict: "E"
@@ -31,82 +41,64 @@ angular.module("ThemisComponents")
     replace: true
     controllerAs: "dropdown"
     bindToController: true
+    transclude: true
     scope:
       name: "@"
       list: "="
-      color: "@"
-    controller: ->
-      @links = []
+      type: "@"
+      disabled: "@"
+    controller: ($element, $attrs) ->
+      @processedItems = []
       @list = @list ? []
       @visible = false
-      @withIcons = no
 
       @toggle = ->
         @visible = !@visible
-
-      @noIconPadding = (icon) ->
-        # if some list items include icons line up text
-        if !icon && @withIcons
-          "dd-iconless-padding"
-
-      @addDividerClass = (type) ->
-        "divider-container" if type == "divider"
 
       @toggleCaret = ->
         if @visible then 'fa-caret-up' else 'fa-caret-down'
 
       processList = =>
         for item in @list
-          if item.url? && item.action?
-            # throw an error of some kind?
-            console.log "Broken link"
+          if item.url?
+            item.type = "link"
+            @processedItems.push item
+          else if item.action?
+            item.type = "action"
+            @processedItems.push item
           else
-            if item.url? && typeof item.url == "string"
-              handleLink(item)
-            else if item.action? && typeof item.action == "function"
-              handleAction(item)
-            else if item.type == "divider"
-              handleDivider(item)
-
-      handleDivider = (item) =>
-        link = {}
-        link.type = item.type
-        @links.push link
-
-      handleLink = (item) =>
-        link = {}
-        link.name = item.name
-        link.url = item.url
-        link.type = "link"
-        if item.icon
-          link.icon = item.icon
-          @withIcons = yes
-        @links.push link
-
-      handleAction = (item) =>
-        link = {}
-        link.name = item.name
-        link.action = item.action
-        link.type = "action"
-        if item.icon
-          link.icon = item.icon
-          @withIcons = yes
-        @links.push link
+            item.type = "divider"
+            @processedItems.push item
 
       processList()
       return
 
     link: (scope, elem, attr) ->
-      elem.on 'click', (event) ->
-        # sizes needed to check location
-        listSize = elem.find("ul")[0]?.offsetWidth
-        bodyLeftPosition = document.body.getBoundingClientRect().left
-        elementLeftPosition = elem[0].getBoundingClientRect().left
+      # set button to disabled if attr passed
+      elem.find("a").attr('disabled', 'disabled') if attr.disabled?
 
-        # dropdown ul defaults to right alignment
-        # if our dropdown is left aligned let move ul left aligned
-        elementDistanceFromLeftEdge = elementLeftPosition - bodyLeftPosition
-        if (elementDistanceFromLeftEdge < listSize)
-          elem.find("ul").css
-            left: "0"
+      elem.on 'click', (event) ->
+        menu = elem[0].getElementsByClassName("dropdown-menu")[0]
+         # if menu hidden. no need to adjust
+        return if menu == undefined
+
+        # sizes needed to check location
+        menuWidth = menu?.offsetWidth
+        bodyRightPosition = document.body.getBoundingClientRect().right
+        buttonRect = elem[0].getBoundingClientRect()
+
+        # adjusted positions
+        adjustedTop = buttonRect.top + buttonRect.height + 2
+        adjustedRight = bodyRightPosition - buttonRect.right
+
+        # dropdown menu list defaults to right alignment to button
+        # if the button is left aligned let's set menu left align
+        if (menuWidth > buttonRect.right)
+          angular.element(menu).css
+            top: adjustedTop
+            right: "inherit"
+        else
+          angular.element(menu).css
+            top: adjustedTop
+            right: adjustedRight
 

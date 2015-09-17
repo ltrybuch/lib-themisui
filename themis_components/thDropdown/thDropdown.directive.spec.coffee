@@ -26,10 +26,10 @@ describe "ThemisComponents: Directive: thDropdown", ->
           element.find(".dd-overlay").triggerHandler 'click'
           expect(element.find("ul").length).toEqual 0
 
-  context "with color", ->
-    it "adds color name as a class to button", ->
-      element = compileDirective("""<th-dropdown name="button" color="grey"></th-dropdown>""").element
-      expect(element.find("a").first().hasClass("grey")).toBe true
+  context "with type", ->
+    it "adds type name as a class to button", ->
+      element = compileDirective("""<th-dropdown name="button" type="standard"></th-dropdown>""").element
+      expect(element.find("a").first().hasClass("standard")).toBe true
 
   context "with link", ->
     beforeEach ->
@@ -39,15 +39,15 @@ describe "ThemisComponents: Directive: thDropdown", ->
       beforeEach ->
         element.find('a').first().triggerHandler 'click'
 
-      it "displays a ul with li", ->
-        expect(element.find("ul")).not.toBe null
-        expect(element.find("li").length).toEqual 1
+      it "displays a menu with items", ->
+        expect(element.find(".dropdown-menu")).not.toBe null
+        expect(element.find(".dropdown-item").length).toEqual 1
 
       it "icon caret inits with class 'fa fa-caret-up'", ->
         expect(element.find("i").hasClass("fa fa-caret-up")).toBe true
 
-      it "adds a anchor tag to the li", ->
-        a = element.find("li > a")
+      it "adds a anchor tag to the dropdown item", ->
+        a = element.find(".dropdown-item > a")
         expect(a).not.toBe null
         expect(a.attr("href")).toEqual "/example/link"
         expect(a.text()).toMatch "link"
@@ -58,8 +58,8 @@ describe "ThemisComponents: Directive: thDropdown", ->
     context "when button is clicked", ->
       beforeEach ->
         element.find('a').first().triggerHandler 'click'
-      it "li has icon with class 'fa fa-users'", ->
-        expect(element.find("li > a > i").hasClass("fa fa-users")).toBe true
+      it "anchor has i element with class 'fa fa-users'", ->
+        expect(element.find(".dropdown-item > a > i").hasClass("fa fa-users")).toBe true
 
   context "with action", ->
     beforeEach ->
@@ -71,16 +71,16 @@ describe "ThemisComponents: Directive: thDropdown", ->
         element.find('a').first().triggerHandler 'click'
 
       it "adds an anchor tag with 'ng-click' set to action attr", ->
-        expect(element.find("li > a").attr('ng-click')).toEqual "item.action()"
+        expect(element.find(".dropdown-item > a").attr('ng-click')).toEqual "action()"
 
-      it "displays a ul with li", ->
-        expect(element.find("ul")).not.toBe null
-        expect(element.find("li").length).toEqual 1
+      it "displays a menu with items", ->
+        expect(element.find(".dropdown-menu")).not.toBe null
+        expect(element.find(".dropdown-item").length).toEqual 1
 
-      context "and when li is clicked", ->
+      context "and when dropdown item is clicked", ->
         it "invokes the action", ->
           spyOn(window, 'alert')
-          element.find('li > a').triggerHandler 'click'
+          element.find('.dropdown-item > a').triggerHandler 'click'
           expect(window.alert).toHaveBeenCalledWith 'response'
 
   context "action with an icon", ->
@@ -90,19 +90,16 @@ describe "ThemisComponents: Directive: thDropdown", ->
     context "when button is clicked", ->
       beforeEach ->
         element.find('a').first().triggerHandler 'click'
-      it "li has icon with class 'fa fa-users'", ->
-        expect(element.find("li > a > i").hasClass("fa fa-users")).toBe true
+      it "anchor has i element with class 'fa fa-users'", ->
+        expect(element.find(".dropdown-item > a > i").hasClass("fa fa-users")).toBe true
 
   context "when divider is passed in", ->
     beforeEach ->
-      element = compileDirective("""<th-dropdown name="Button" list="[{type:'divider'}]"></th-dropdown>""").element
+      element = compileDirective("""<th-dropdown name="Button" list="[{divider:true}]"></th-dropdown>""").element
       element.find('a').first().triggerHandler 'click'
 
-      it "displays a ul with li", ->
-        expect(element.find("ul")).not.toBe null
-        expect(element.find("li").length).toEqual 1
-
-      it "li has class 'divider'", ->
-        expect(element.find("li").hasClass("divider")).toBe true
+    it "displays a menu with items", ->
+      expect(element.find(".dropdown-menu")).not.toBe null
+      expect(element.find("hr.th-divider").length).toEqual 1
 
 

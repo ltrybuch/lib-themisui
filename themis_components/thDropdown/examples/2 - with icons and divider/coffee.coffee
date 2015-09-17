@@ -5,8 +5,8 @@ angular.module('thDemo', ['ThemisComponents'])
 
     @links = [
       { name: "Link One", url: "#", icon: "anchor" }
-      { name: "Link Two", url: "#" }
-      { type: 'divider' }
+      { name: "Link Two", url: "#", icon: "car"}
+      { divider: 'true' }
       { name: "Action One", action: @foo, icon: "star" }
       { name: "Action Two", action: @foo, icon: "star-o" }
     ]

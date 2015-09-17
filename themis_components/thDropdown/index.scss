@@ -6,7 +6,6 @@
   -moz-border-radius: 0.2rem;
   height: 3.6rem;
   vertical-align: middle;
-
   > a {
     @extend .antialiased;
     @include transition(none);
@@ -26,58 +25,42 @@
     -webkit-appearance: none; // iOS Fix
     background: $blue;
     color: #fff;
-
     &[disabled] {
       pointer-events: none;
       cursor: default;
-    }
-
-    &:hover {
-      background: $blue-shade;
+      opacity: 0.6;
     }
   }
-  .green {
+  .create {
     background: $green;
-    &:hover {
-      background: $green-shade;
-    }
-    + ul li a:hover {
+    + .dropdown-menu .dropdown-item a:hover {
       background: $green;
     }
   }
-  .grey {
+  .standard {
     color: $grey;
     background: $grey-70;
-    &:hover {
-      background: $grey-60;
-    }
-    + ul li a:hover {
+    + .dropdown-menu .dropdown-item a:hover {
       background: $grey-70;
     }
   }
-  .red {
+  .destroy {
     background-color: $red;
-    &:hover {
-      background-color: $red-shade;
-    }
-    + ul li a:hover {
+    + .dropdown-menu .dropdown-item a:hover {
       background: $red;
     }
   }
-
-  ul {
-    position: absolute;
+  .dropdown-menu {
+    position: fixed;
     z-index: 2147483647;
     border-radius: .2rem;
-    top: 3.8rem;
-    right: 0;
     border: $border;
     margin: 0;
     background: #fff;
     min-width: 16rem;
     padding-left: 0;
 
-    li {
+    .dropdown-item {
       list-style-type: none;
       text-align: left;
       border-bottom: $border;
@@ -87,18 +70,6 @@
           padding-left: 3.5rem;
         }
       }
-
-      &.divider-container {
-        padding: 0;
-      }
-
-      .dd-divider {
-        height: 2px;
-        background-color: $grey-70;
-        padding: 0;
-        margin: 0;
-      }
-
       a {
         box-sizing: border-box;
         border-radius: .2rem;
@@ -110,7 +81,6 @@
           margin-right: .5rem;
         }
 
-
         &:not(.warning-message) {
           color: $grey;
         }
@@ -120,14 +90,12 @@
           color: #fff;
         }
       }
-
-      &:last-child {
-        border-bottom: none;
-      }
+    }
+    &:last-child {
+      border-bottom: none;
     }
   }
 }
-
 .dd-overlay {
   display: block;
   position: fixed;
@@ -137,5 +105,10 @@
   right: 0px;
   z-index: 2147483646;
   background-color: rgba(0,0,0,0);
+}
+hr.th-divider {
+  padding: 0;
+  margin: 0;
+  border: 1px solid $grey-70;
 }
 
