@@ -11,24 +11,21 @@ template = """
       ng-click="dropdown.toggle()"
       ng-if="dropdown.visible"
       class="dropdown-menu"
+      ng-class="dropdown.type"
       >
-      <span ng-repeat-start="item in dropdown.processedItems"></span>
-        <th-item
-          ng-if="item.type == 'link'"
+      <ng-switch on="item.type" ng-repeat="item in dropdown.processedItems">
+        <th-item ng-switch-when='link'
           name="{{item.name}}"
-          url="{{item.url}}"
-          icon="{{item.icon}}"
-        >
+          href="{{item.href}}"
+          icon="{{item.icon}}">
         </th-item>
-        <th-item
-          ng-if="item.type == 'action'"
+        <th-item ng-switch-when='action'
           name="{{item.name}}"
           action="item.action"
-          icon="{{item.icon}}"
-        >
+          icon="{{item.icon}}">
         </th-item>
-        <th-divider ng-if="item.type == 'divider'"></th-divider>
-      <span ng-repeat-end=""></span>
+        <th-divider ng-switch-default></th-divider>
+      </ng-switch>
       <ng-transclude></ng-transclude>
     </div>
   </div>
@@ -60,14 +57,13 @@ angular.module("ThemisComponents")
 
       processList = =>
         for item in @list
-          if item.url?
+          if item.href?
             item.type = "link"
             @processedItems.push item
           else if item.action?
             item.type = "action"
             @processedItems.push item
           else
-            item.type = "divider"
             @processedItems.push item
 
       processList()
@@ -79,8 +75,11 @@ angular.module("ThemisComponents")
 
       elem.on 'click', (event) ->
         menu = elem[0].getElementsByClassName("dropdown-menu")[0]
-         # if menu hidden. no need to adjust
+        # if menu hidden. no need to adjust
         return if menu == undefined
+        # append to the body to avoid overflow issues with parent element
+        body = angular.element(document.body)
+        body.append(menu)
 
         # sizes needed to check location
         menuWidth = menu?.offsetWidth

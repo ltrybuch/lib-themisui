@@ -33,7 +33,7 @@ describe "ThemisComponents: Directive: thDropdown", ->
 
   context "with link", ->
     beforeEach ->
-      element = compileDirective("""<th-dropdown list="[{name:'link', url:'/example/link'}]"></th-dropdown>""").element
+      element = compileDirective("""<th-dropdown list="[{name:'link', href:'/example/link'}]"></th-dropdown>""").element
 
     context "when button is clicked", ->
       beforeEach ->
@@ -54,7 +54,7 @@ describe "ThemisComponents: Directive: thDropdown", ->
 
   context "link with an icon", ->
     beforeEach ->
-      element = compileDirective("""<th-dropdown list="[{name:'link', url:'/example/link', icon: 'users'}]"></th-dropdown>""").element
+      element = compileDirective("""<th-dropdown list="[{name:'link', href:'/example/link', icon: 'users'}]"></th-dropdown>""").element
     context "when button is clicked", ->
       beforeEach ->
         element.find('a').first().triggerHandler 'click'

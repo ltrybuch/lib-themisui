@@ -1,6 +1,6 @@
 linkTemplate = """
   <div class="dropdown-item">
-    <a href="{{url}}">
+    <a href="{{href}}">
       <i ng-if="icon" class="fa fa-{{icon}}"></i>
       {{name}}
     </a>
@@ -22,13 +22,13 @@ angular.module("ThemisComponents")
     replace: true
     require: "^thDropdown"
     scope:
-      url: "@"
+      href: "@"
       name: "@"
       icon: "@"
       action: "="
     template: (element, attrs) ->
       switch
-        when attrs.url?
+        when attrs.href?
           linkTemplate
         else
           actionTemplate

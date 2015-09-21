@@ -33,66 +33,72 @@
   }
   .create {
     background: $green;
-    + .dropdown-menu .dropdown-item a:hover {
-      background: $green;
-    }
   }
   .standard {
     color: $grey;
     background: $grey-70;
-    + .dropdown-menu .dropdown-item a:hover {
-      background: $grey-70;
-    }
   }
   .destroy {
     background-color: $red;
-    + .dropdown-menu .dropdown-item a:hover {
-      background: $red;
+  }
+}
+.dropdown-menu {
+  position: absolute;
+  z-index: 2147483647;
+  border-radius: .2rem;
+  border: $border;
+  margin: 0;
+  background: #fff;
+  min-width: 16rem;
+  padding-left: 0;
+
+  .dropdown-item {
+    list-style-type: none;
+    text-align: left;
+    border-bottom: $border;
+    padding: 0.6rem;
+    &.iconless-padding {
+      a {
+        padding-left: 3.5rem;
+      }
+    }
+    a {
+      box-sizing: border-box;
+      border-radius: .2rem;
+      width: 100%;
+      display: inline-block;
+      text-decoration: none;
+      padding: 0.6rem 1.2rem;
+      i {
+        margin-right: .5rem;
+      }
+
+      &:not(.warning-message) {
+        color: $grey;
+      }
+
+      &:hover {
+        background: $blue;
+        color: #fff;
+      }
     }
   }
-  .dropdown-menu {
-    position: fixed;
-    z-index: 2147483647;
-    border-radius: .2rem;
-    border: $border;
-    margin: 0;
-    background: #fff;
-    min-width: 16rem;
-    padding-left: 0;
-
-    .dropdown-item {
-      list-style-type: none;
-      text-align: left;
-      border-bottom: $border;
-      padding: 0.6rem;
-      &.iconless-padding {
-        a {
-          padding-left: 3.5rem;
-        }
-      }
-      a {
-        box-sizing: border-box;
-        border-radius: .2rem;
-        width: 100%;
-        display: inline-block;
-        text-decoration: none;
-        padding: 0.6rem 1.2rem;
-        i {
-          margin-right: .5rem;
-        }
-
-        &:not(.warning-message) {
-          color: $grey;
-        }
-
-        &:hover {
-          background: $blue;
-          color: #fff;
-        }
-      }
+  &:last-child {
+    border-bottom: none;
+  }
+  &.standard {
+    .dropdown-item a:hover {
+      background: $grey-70;
     }
-    &:last-child {
-      border-bottom: none;
+  }
+  &.create {
+    .dropdown-item a:hover {
+      background: $green;
+    }
+  }
+  &.destroy {
+    .dropdown-item a:hover {
+      background: $red;
     }
   }
 }
