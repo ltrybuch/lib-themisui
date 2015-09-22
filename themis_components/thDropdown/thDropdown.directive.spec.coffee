@@ -47,9 +47,9 @@ describe "ThemisComponents: Directive: thDropdown", ->
         expect(element.find("i").hasClass("fa fa-caret-up")).toBe true
 
       it "adds a anchor tag to the dropdown item", ->
-        a = element.find(".dropdown-item > a")
+        a = element.find("a.dropdown-item")
         expect(a).not.toBe null
-        expect(a.attr("href")).toEqual "/example/link"
+        expect(a.attr("href")).toMatch "/example/link"
         expect(a.text()).toMatch "link"
 
   context "link with an icon", ->
@@ -59,19 +59,16 @@ describe "ThemisComponents: Directive: thDropdown", ->
       beforeEach ->
         element.find('a').first().triggerHandler 'click'
       it "anchor has i element with class 'fa fa-users'", ->
-        expect(element.find(".dropdown-item > a > i").hasClass("fa fa-users")).toBe true
+        expect(element.find(".dropdown-item > i").hasClass("fa fa-users")).toBe true
 
-  context "with action", ->
+  context "with ng-click", ->
     beforeEach ->
-      template = """<th-dropdown name="Button" list="[{name:'action', action: action}]"></th-dropdown>"""
+      template = """<th-dropdown name="Button" list="[{name:'action', ngClick: action}]"></th-dropdown>"""
       element = compileDirective(template, {action: -> alert 'response'}).element
 
     context "when button is clicked", ->
       beforeEach ->
         element.find('a').first().triggerHandler 'click'
-
-      it "adds an anchor tag with 'ng-click' set to action attr", ->
-        expect(element.find(".dropdown-item > a").attr('ng-click')).toEqual "action()"
 
       it "displays a menu with items", ->
         expect(element.find(".dropdown-menu")).not.toBe null
@@ -80,18 +77,18 @@ describe "ThemisComponents: Directive: thDropdown", ->
       context "and when dropdown item is clicked", ->
         it "invokes the action", ->
           spyOn(window, 'alert')
-          element.find('.dropdown-item > a').triggerHandler 'click'
+          element.find('a.dropdown-item').triggerHandler 'click'
           expect(window.alert).toHaveBeenCalledWith 'response'
 
   context "action with an icon", ->
     beforeEach ->
-      template = """<th-dropdown name="Button" list="[{name:'action', action: action, icon: 'users'}]"></th-dropdown>"""
+      template = """<th-dropdown name="Button" list="[{name:'action', ngClick: action, icon: 'users'}]"></th-dropdown>"""
       element = compileDirective(template, {action: -> alert 'response'}).element
     context "when button is clicked", ->
       beforeEach ->
         element.find('a').first().triggerHandler 'click'
       it "anchor has i element with class 'fa fa-users'", ->
-        expect(element.find(".dropdown-item > a > i").hasClass("fa fa-users")).toBe true
+        expect(element.find("a.dropdown-item > i").hasClass("fa fa-users")).toBe true
 
   context "when divider is passed in", ->
     beforeEach ->
