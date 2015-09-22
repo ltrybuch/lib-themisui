@@ -7,8 +7,8 @@ angular.module('thDemo', ['ThemisComponents'])
       { name: "Link One", href: "#", icon: "anchor" }
       { name: "Link Two", href: "#", icon: "car"}
       { divider: 'true' }
-      { name: "Action One", action: @foo, icon: "star" }
-      { name: "Action Two", action: @foo, icon: "star-o" }
+      { name: "Action One", ngClick: @foo, icon: "star" }
+      { name: "Action Two", ngClick: @foo, icon: "star-o" }
     ]
 
     return

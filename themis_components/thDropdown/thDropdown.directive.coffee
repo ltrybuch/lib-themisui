@@ -21,7 +21,7 @@ template = """
         </th-item>
         <th-item ng-switch-when='action'
           name="{{item.name}}"
-          action="item.action"
+          ng-click="item.ngClick()"
           icon="{{item.icon}}">
         </th-item>
         <th-divider ng-switch-default></th-divider>
@@ -60,7 +60,7 @@ angular.module("ThemisComponents")
           if item.href?
             item.type = "link"
             @processedItems.push item
-          else if item.action?
+          else if item.ngClick?
             item.type = "action"
             @processedItems.push item
           else

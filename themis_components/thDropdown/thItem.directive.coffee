@@ -1,19 +1,15 @@
 linkTemplate = """
-  <div class="dropdown-item">
-    <a href="{{href}}">
-      <i ng-if="icon" class="fa fa-{{icon}}"></i>
-      {{name}}
-    </a>
-  </div>
+  <a class="dropdown-item" href="{{href}}">
+    <i ng-if="icon" class="fa fa-{{icon}}"></i>
+    {{name}}
+  </a>
 """
 
 actionTemplate = """
-  <div class="dropdown-item">
-    <a href="#" ng-click="action()">
-      <i ng-if="icon" class="fa fa-{{icon}}"></i>
-      {{name}}
-    </a>
-  </div>
+  <a class="dropdown-item" href="#">
+    <i ng-if="icon" class="fa fa-{{icon}}"></i>
+    {{name}}
+  </a>
 """
 
 angular.module("ThemisComponents")
@@ -25,7 +21,6 @@ angular.module("ThemisComponents")
       href: "@"
       name: "@"
       icon: "@"
-      action: "="
     template: (element, attrs) ->
       switch
         when attrs.href?

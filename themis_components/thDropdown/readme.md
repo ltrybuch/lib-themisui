@@ -6,7 +6,7 @@ Add a button that when clicked displays a dropdown list.
 
 `thDropdown` will accept an array of objects that when created correctly will display each as list items.
 
-Acceptable attributes include `url`, `action`, `type`, `divider`, `name`, `icon`. Examples below.
+Acceptable attributes include `url`, `type`, `divider`, `name`, `icon`. Examples below.
 
 ---
 ### Usage
@@ -20,7 +20,7 @@ Acceptable attributes include `url`, `action`, `type`, `divider`, `name`, `icon`
 ```
 <th-dropdown name="click me">
   <th-item name="Item One" url="#"></th-item>
-  <th-item name="Item Two" url="#"></th-item>
+  <th-item name="Item Two" ng-click="someAction()"></th-item>
 </th-dropdown>
 ```
 ---
@@ -45,7 +45,7 @@ Include only the relevant name of the icon.
     <th-item name="#2" url="#"></th-item>
   </th-dropdown>
   ```
-- An `action` attribute can be used to replace the `url` attribute. When the corresponding menu item is clicked that `action` will be invoked.
+- ng-click can be used instead of the `href` attribute. When the corresponding menu item is clicked that `ng-click` will be invoked. If both are added the `href` attr will override.
 - If multiple action attributes are included the menu item will select `url` first, `action` next, and divider last. If nothing is passed in it will set the menu item to a `th-divider`.
 
 
