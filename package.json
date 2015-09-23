@@ -1,6 +1,6 @@
 {
   "name": "lib-ThemisUI",
-  "version": "0.1.5",
+  "version": "0.2.1",
   "license": "BSD 3-clause 'New' or 'Revised' License",
   "description": "A Baseline of style and components used by Clio's web applications.",
   "repository": "https://github.com/clio/lib-themisui.git",
@@ -50,9 +50,9 @@
   },
   "scripts": {
     "versionCheck": "npm outdated --depth 0",
-    "docs": "gulp docs",
+    "start": "gulp docs",
     "build": "gulp docs-browserify docs-style docs-examples-style",
-    "karma": "karma start"
+    "test": "karma start"
   },
   "browserify": {
     "transform": "coffeeify"
