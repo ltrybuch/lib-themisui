@@ -17,34 +17,21 @@ inputTemplate = """
   </span>
 """
 
-labelTemplate = """
-  <label class="th-label">
-    {{input.label}}
-    #{inputTemplate}
-  </label>
-"""
-
 angular.module('ThemisComponents').directive "thInput", ->
   restrict: "E"
   bindToController: true
   controllerAs: 'input'
   replace: true
   scope:
-    label: '@'
     type: '@'
     name: '@'
     value: '@'
     icon: '@'
     prefix: '@'
     postfix: '@'
-  template: (element, attrs) ->
-    if attrs.label?
-      labelTemplate
-    else
-      inputTemplate
+  template: inputTemplate
   controller: ($attrs) ->
     @placeholder = $attrs.placeholder
-    @placeholder = @label if @placeholder == ""
 
   link: (scope, element) ->
     # add box shadow on entire element when in focus

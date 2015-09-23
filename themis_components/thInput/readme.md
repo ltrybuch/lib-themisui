@@ -6,9 +6,8 @@ Add your input fields with a little style.
 
 - Unlike `<input>`, `<th-input>` must be explictly closed. This is a browser enforced limitation of custom elements.
 
-- Plenty of options can be passed into your input including..labels, Icons, Postfix, Prefix
+- Plenty of options can be passed into your input including.. Icons, Postfix, Prefix
 
-  - labels
   - icons
   - postfix
   - prefix

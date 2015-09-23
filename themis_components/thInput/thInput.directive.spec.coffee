@@ -6,13 +6,8 @@ describe 'thInput', ->
   context 'with complete example', ->
     beforeEach ->
       element = compileDirective("""
-        <th-input type="text" label="Nickname" name="nickname" value="Steve-o" placeholder="Enter your nickname"></th-input>
+        <th-input type="text" name="nickname" value="Steve-o" placeholder="Enter your nickname"></th-input>
       """).element
-
-    it 'is wrapped in a <label>', ->
-      firstChild = element[0]
-      expect(firstChild.tagName).toBe "LABEL"
-      expect(angular.element(firstChild).text()).toMatch "Nickname"
 
     it "removes the icon element when the icon attribute is not specified", ->
       expect(element.find("i").length).toBe 0
@@ -27,13 +22,13 @@ describe 'thInput', ->
 
     it "gains class 'has-focus' when input is in focus", ->
       element.find("input").triggerHandler 'focus'
-      expect(element.find(".th-input-wrapper").hasClass("has-focus")).toBe true
+      expect(element.hasClass("has-focus")).toBe true
 
     it "loses class 'has-focus' when input loses focus", ->
       element.find("input").triggerHandler 'focus'
-      expect(element.find(".th-input-wrapper").hasClass("has-focus")).toBe true
+      expect(element.hasClass("has-focus")).toBe true
       element.find("input").triggerHandler 'blur'
-      expect(element.find(".th-input-wrapper").hasClass("has-focus")).toBe false
+      expect(element.hasClass("has-focus")).toBe false
 
     describe 'input', ->
       it 'has appropriate attributes set', ->
@@ -43,18 +38,6 @@ describe 'thInput', ->
         expect(input.attr("name")).toBe 'nickname'
         expect(input.attr("value")).toBe 'Steve-o'
         expect(input.attr("placeholder")).toBe 'Enter your nickname'
-
-  it 'uses the label when `placeholder` is present but is empty', ->
-    input = compileDirective('<th-input label="Nickname" placeholder></th-input>').element.find("input")
-
-    expect(input.attr("placeholder")).toBe "Nickname"
-
-  it "doesn't wrap <input> with a label when no label text is specified", ->
-    element = compileDirective('<th-input name="something"></th-input>').element
-
-    expect(element[0].tagName).not.toBe "LABEL"
-    expect(element.find("input")).toBeDefined()
-    expect(element.find("input").attr("name")).toBe "something"
 
   ["text", "password"].forEach (type) ->
     it "supports #{type}", ->
