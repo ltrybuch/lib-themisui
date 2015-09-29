@@ -11,7 +11,7 @@ ThemisUI is a shareable suite of components and brand assets to be shared across
 We're running in stealth mode for now meaning we don't yet want to list on NPM. So to install run:
 
 ```bash
-npm install git+ssh://git@github.com/clio/lib-themisui.git#v0.2.1
+npm install git+ssh://git@github.com/clio/lib-themisui.git
 ```
 
 You can specify [any other release](https://github.com/clio/lib-themisui/releases) as well.
