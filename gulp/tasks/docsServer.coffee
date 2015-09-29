@@ -37,6 +37,9 @@ gulp.task 'docs-restart', ->
 gulp.task 'docs-server', ->
   gulp.watch ['themis_components/**/*', 'public/**/*'], ['docs-restart']
 
+  app.get '/readme.md', (request, response) ->
+    response.sendFile path.resolve(path.join('README.md'))
+
   app.get '/components.json', (request, response) ->
     componentList = availableComponentNames()
     response.send componentList
