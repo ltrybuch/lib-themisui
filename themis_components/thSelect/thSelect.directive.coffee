@@ -1,39 +1,69 @@
-selectTemplate = """
-  <div>
-  <select ng-transclude></select>
-  <div class="th-select-wrapper">
+template = (select) ->  """
+  <div class="select-wrapper">
+    #{select}
     <div class="selected-text">
-      {{select.selected}}
+      {{select.selectedText}}
       <i class="fa fa-caret-down"></i>
     </div>
   </div>
-  </div>
 """
+
+selectTemplate = """
+  <select
+    name="{{select.name}}"
+    ng-model="select.ngModel"
+    ng-options="option.name for option in select.options track by option.value">
+  </select>
+"""
+
+transcludeTemplate = """
+  <select ng-transclude></select>
+"""
+
 angular.module('ThemisComponents')
   .directive "thSelect", ->
     restrict: "EA"
-    template: selectTemplate
+    template: (element, attrs) ->
+      if attrs.options?
+        template(selectTemplate)
+      else
+        template(transcludeTemplate)
     controllerAs: "select"
     replace: true
     bindToController: true
     transclude: true
     scope:
       options: "="
-    controller: ->
-      @options = [] ? @options
-      @selected = "Select one..."
+      ngModel: "="
+      name: "@"
+    controller: ($scope, $element) ->
+      @selectedText = @ngModel?.name ? "Choose..."
       @open = no
+
       @toggle = ->
         @open = !@open
-      @setSelected = (option) ->
-        # @selected = option if option.selected
+
+      # when a new option is selected we want to capture the name
+      # and add it to our styled select replacement.
+      $element.on 'change', (event) =>
+        $scope.$apply =>
+          @selectedText = event.target.selectedOptions[0].text
       return
-    link: (scope, element) ->
-      debugger
+
+    link: (scope, element, attributes) ->
+      options = element.find("option")
+      # grab the initially selected option and add it's name to our styled replacement select
+      # this will only be applicable to if we are not passing in an array of options so we check for that first.
+      if !attributes.options
+        for option in options
+          if option.hasAttribute("selected")
+            scope.select.selectedText = option.text
+
       # add box shadow on entire element when in focus
-      element.find("select").on "focus", ->
-        angular.element(this.parentElement).addClass("has-focus")
-      element.find("select").on "blur", ->
-        angular.element(this.parentElement).removeClass("has-focus")
+      select = element.find("select")
+      select.on "focus", ->
+        angular.element(this).next().addClass("has-focus")
+      select.on "blur", ->
+        angular.element(this).next().removeClass("has-focus")
       return
 

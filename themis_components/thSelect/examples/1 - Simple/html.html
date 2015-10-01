@@ -1,13 +1,20 @@
 <html ng-app="thDemo">
   <body ng-controller="DemoController as demo" style="height: 200px;">
-    <th-select>
-      <th-option value="112020309" text="First"></th-option>
-      <th-option value="1202020" text="Second"></th-option>
-      <th-option value="1202020" text="Third"></th-option>
-      <th-option value="1202020" text="Fourth"></th-option>
-      <th-option value="1202020" text="Fifth" selected="selected"></th-option>
-      <th-option value="1202020" text="Sixth"></th-option>
-      <th-option value="3" text="Seventh"></th-option>
-    </th-select>
+    <div style="width:250px;">
+
+      <th-select name="practice_area">
+        <option value="4">Corporate</option>
+        <option value="5">Criminal</option>
+        <option value="6">Employment</option>
+        <option value="7">Family</option>
+        <option value="8">Immigration</option>
+        <option value="9">Insurance</option>
+      </th-select>
+    </div>
+
+    <div style="width: 300px; margin-top:30px;">
+      <th-select name="practice_area" options="demo.data.options" ng-model="demo.data.model"></th-select>
+    </div>
+    <div>value selected: {{demo.data.model}}</div>
   </body>
 </html>

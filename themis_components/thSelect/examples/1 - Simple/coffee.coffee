@@ -1,8 +1,12 @@
 angular.module('thDemo', ['ThemisComponents'])
   .controller "DemoController", ->
-    @options = [
-      { text: "One", value: 1 }
-      { text: "Two", value: 2 }
-      { text: "Three", value: 3 }
+    @data = {}
+    @data.options = [
+      { name: "placeholder...", value: "" }
+      { name: "Corporate", value: 1 }
+      { name: "Criminal", value: 2 }
+      { name: "Employment", value: 3 }
+      { name: "Family", value: 4 }
     ]
+    @data.model = @data.options[1]
     return
