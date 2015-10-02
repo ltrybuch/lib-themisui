@@ -1,19 +1,18 @@
 <html ng-app="thDemo">
-  <body style="width: 200px;">
+  <body style="width: 400px;">
     <form action="/echo" method="POST">
       Name:
-      <input type="text" name="name">
-      <br><br>
-      <th-select name="practice_area">
-        <option value="4">Corporate</option>
-        <option value="5" selected>Criminal</option>
-        <option value="6">Employment</option>
-        <option value="7">Family</option>
-        <option value="8">Immigration</option>
-        <option value="9">Insurance</option>
+      <th-input type="text" name="name" icon="user"></th-input>
+      <br>
+      Favorite Movie:
+      <th-select name="movie">
+        <option value="star_wars">Star Wars: A New Hope</option>
+        <option value="godfather_1" selected>The Godfather</option>
+        <option value="shawshank_redemption">Shawshank Redemption</option>
+        <option value="forest_gump">Forest Gump</option>
       </th-select>
-      <br><br>
-      <input type="submit" value="Submit">
+      <br>
+      <th-button submit>Submit</th-button>
     </form>
   </body>
 </html>

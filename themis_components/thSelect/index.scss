@@ -1,4 +1,5 @@
 .select-wrapper {
+  margin-top: 0.8rem;
   position: relative;
 
   .has-focus {
@@ -13,7 +14,7 @@
     margin: 0;
     padding: 1.2rem;
     background: $off-white;
-    border: 1px solid $light-grey-1;
+    border: 1px solid $grey-70;
     border-radius: 0.4rem;
     position: relative;
     box-sizing: border-box;
