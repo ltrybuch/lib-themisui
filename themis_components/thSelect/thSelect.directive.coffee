@@ -10,14 +10,19 @@ template = (select) ->  """
 
 selectTemplate = """
   <select
-    name="{{select.name}}"
+    ng-disabled="{{select.disabled == ''}}"
+    ng-attr-name="{{select.name || undefined}}"
     ng-model="select.ngModel"
     ng-options="option.name for option in select.options track by option.value">
   </select>
 """
 
 transcludeTemplate = """
-  <select ng-transclude></select>
+  <select
+    ng-attr-name="{{select.name || undefined}}"
+    ng-disabled="{{select.disabled == ''}}"
+    ng-transclude>
+  </select>
 """
 
 angular.module('ThemisComponents')
@@ -36,12 +41,9 @@ angular.module('ThemisComponents')
       options: "="
       ngModel: "="
       name: "@"
+      disabled: "@"
     controller: ($scope, $element) ->
       @selectedText = @ngModel?.name ? "Choose..."
-      @open = no
-
-      @toggle = ->
-        @open = !@open
 
       # when a new option is selected we want to capture the name
       # and add it to our styled select replacement.
@@ -51,9 +53,9 @@ angular.module('ThemisComponents')
       return
 
     link: (scope, element, attributes) ->
-      options = element.find("option")
       # grab the initially selected option and add it's name to our styled replacement select
       # this will only be applicable to if we are not passing in an array of options so we check for that first.
+      options = element.find("option")
       if !attributes.options
         for option in options
           if option.hasAttribute("selected")

@@ -1,5 +1,9 @@
 <html ng-app="thDemo">
   <body style="width: 200px;">
+    <form action="/echo" method="POST">
+      Name:
+      <input type="text" name="name">
+      <br><br>
       <th-select name="practice_area">
         <option value="4">Corporate</option>
         <option value="5" selected>Criminal</option>
@@ -8,5 +12,8 @@
         <option value="8">Immigration</option>
         <option value="9">Insurance</option>
       </th-select>
+      <br><br>
+      <input type="submit" value="Submit">
+    </form>
   </body>
 </html>

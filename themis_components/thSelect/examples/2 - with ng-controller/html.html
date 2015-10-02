@@ -1,0 +1,6 @@
+<html ng-app="thDemo">
+  <body ng-controller="DemoController  as demo">
+    <th-select name="practice_area" options="demo.data.options" ng-model="demo.data.model"></th-select>
+    <div>Value selected: {{demo.data.model}}</div>
+  </body>
+</html>
