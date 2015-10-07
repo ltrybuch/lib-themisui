@@ -5,11 +5,11 @@ describe "ThemisComponents: Directive: thSelect", ->
   context "using an array of options", ->
     context "when enabled", ->
       beforeEach ->
-        scope = {}
-        scope.options = [{name: "Darth", value: "Sith Lord"}, {name: "Luke", value: "Jedi Knight"}]
-        scope.choice = scope.options[0]
+        scopeAdditions = {}
+        scopeAdditions.options = [{name: "Darth", value: "Sith Lord"}, {name: "Luke", value: "Jedi Knight"}]
+        scopeAdditions.choice = scopeAdditions.options[0]
         template = """<th-select name="faction" options="options" ng-model="choice"></th-select>"""
-        element = compileDirective(template, scope).element
+        element = compileDirective(template, scopeAdditions).element
 
       it "has the correct number option elements", ->
         ctrl = element.scope().$$childHead.select
@@ -34,11 +34,11 @@ describe "ThemisComponents: Directive: thSelect", ->
 
     context "when disabled", ->
       beforeEach ->
-        scope = {}
-        scope.options = [{name: "Darth", value: "Sith Lord"}, {name: "Luke", value: "Jedi Knight"}]
-        scope.choice = scope.options[0]
+        scopeAdditions = {}
+        scopeAdditions.options = [{name: "Darth", value: "Sith Lord"}, {name: "Luke", value: "Jedi Knight"}]
+        scopeAdditions.choice = scopeAdditions.options[0]
         disabled = """<th-select name="faction" options="options" disabled ng-model="choice"></th-select>"""
-        element = compileDirective(disabled, scope).element
+        element = compileDirective(disabled, scopeAdditions).element
 
       it "disables select", ->
         expect(element.find("select").attr("disabled")).toEqual "disabled"

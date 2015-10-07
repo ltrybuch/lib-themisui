@@ -22,4 +22,4 @@ window.compileDirective = (template, scopeAdditions) ->
   wrappedTemplate = "<html ng-app>#{template}</html>"
   compiledElement = compile(wrappedTemplate)(scope)
   scope.$digest()
-  {element: jQuery(compiledElement), scope: scope}
+  return element: jQuery(compiledElement), scope: scope
