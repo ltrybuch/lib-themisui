@@ -67,7 +67,7 @@ angular.module('ThemisComponents')
         console.warn(
           "#{counter} options are set on a non-multiple select (name: #{attributes.name}).
            The last selected option will be used."
-        ) when counter > 1
+        ) if counter > 1
 
       # add box shadow on entire element when in focus
       select = element.find "select"
