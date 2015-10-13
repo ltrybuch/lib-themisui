@@ -118,6 +118,7 @@ angular.module('ThemisComponents')
           whitelist = [
             '.chzn-container *'
             '.th-switch *'
+            '.ui-select-choices-row-inner *' # Select 2 autocompleter
           ]
           whitelistSelector = whitelist.join ', '
 
