@@ -2,7 +2,7 @@
 
 ## Description
 
-A simple replacement for the standard select visuals. This component only replaces the `select` HTML element and allows for the native `option` to be used.
+A simple replacement for the standard select visuals. This component only replaces the `select` HTML element and allows for the native `option` to be used. This that W3 specs also apply for the Themis version. For example, only one `option` can selected at a time and the `select` value will always default to the last selected `option`.
 
 The componenet can be used in two ways:
 

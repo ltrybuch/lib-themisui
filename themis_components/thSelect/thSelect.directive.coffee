@@ -64,10 +64,11 @@ angular.module('ThemisComponents')
         for option in options when option.hasAttribute "selected"
           scope.select.selectedText = option.text
           counter++
-        console.warn(
-          "#{counter} options are set on a non-multiple select (name: #{attributes.name}).
-           The last selected option will be used."
-        ) if counter > 1
+        if counter > 1
+          console.warn(
+            "#{counter} options are set on a non-multiple select (name: #{attributes.name}).
+             The last selected option will be used."
+          )
 
       # add box shadow on entire element when in focus
       select = element.find "select"
