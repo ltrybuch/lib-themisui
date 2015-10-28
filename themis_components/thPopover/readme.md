@@ -6,6 +6,11 @@ Add small overlays of content, like those on the iPad, to any element for housin
 
 `th-popover` accepts a URL of where it will fetch its inner content from.
 
+`th-popover` also accepts a overflow param that will apply a styling class. Valid options:
+
+  - visible
+  - hidden
+
 ## Usage
 
 
