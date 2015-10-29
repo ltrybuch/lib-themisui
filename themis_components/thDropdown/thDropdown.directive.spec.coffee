@@ -63,8 +63,9 @@ describe "ThemisComponents: Directive: thDropdown", ->
 
   context "with ng-click", ->
     beforeEach ->
+      scope = {}; scope.action = -> alert 'response'
       template = """<th-dropdown name="Button" list="[{name:'action', ngClick: action}]"></th-dropdown>"""
-      element = compileDirective(template, {action: -> alert 'response'}).element
+      element = compileDirective(template, scope).element
 
     context "when button is clicked", ->
       beforeEach ->
@@ -82,8 +83,9 @@ describe "ThemisComponents: Directive: thDropdown", ->
 
   context "action with an icon", ->
     beforeEach ->
+      scope = {}; scope.action = -> alert 'reponse'
       template = """<th-dropdown name="Button" list="[{name:'action', ngClick: action, icon: 'users'}]"></th-dropdown>"""
-      element = compileDirective(template, {action: -> alert 'response'}).element
+      element = compileDirective(template, scope).element
     context "when button is clicked", ->
       beforeEach ->
         element.find('a').first().triggerHandler 'click'

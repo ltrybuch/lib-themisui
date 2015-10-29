@@ -6,6 +6,7 @@ coffeescript = require 'coffee-script'
 
 express = require 'express'
 expressWs = require 'express-ws'
+bodyParser = require 'body-parser'
 
 componentsRoot = path.join 'themis_components'
 
@@ -28,6 +29,10 @@ availableComponentNames = ->
     path.basename(item)
 
 app = express()
+
+
+app.use bodyParser.json() # support json encoded bodies
+app.use bodyParser.urlencoded extended: true # support encoded bodies
 
 # Restart app when there are open web sockets (triggers browser reload)
 gulp.task 'docs-restart', ->
@@ -57,6 +62,9 @@ gulp.task 'docs-server', ->
         examples: examplesForComponent componentName
     else
       response.status(404).send error: "No such component."
+
+  app.post '/echo', (request, response) ->
+    response.send JSON.stringify request.body
 
   app.get '/components/:component/examples/:example.js', (request, response) ->
     componentName = request.params.component

@@ -1,4 +1,4 @@
-template = """
+nativeTemplate = """
   <div class="th-tabset">
     <div class="th-tab-bar">
         <a
@@ -19,7 +19,7 @@ angular.module('ThemisComponents')
   .directive "thTabset", ->
     restrict: "EA"
     replace: true
-    template: template
+    template: nativeTemplate
     transclude: true
     scope: {}
     controller: ($scope) ->

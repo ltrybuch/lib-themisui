@@ -1,0 +1,41 @@
+.select-wrapper {
+  margin-top: 0.8rem;
+  position: relative;
+
+  .has-focus {
+    border: 1px solid $blue-1 !important;
+    outline: none;
+    @include box-shadow(0 0 0.5em rgba(97, 179, 227, .7));
+    transition: border-color .3s ease-out;
+    transition: box-shadow .3s ease-out;
+  }
+
+  .selected-text {
+    margin: 0;
+    padding: 1.2rem;
+    background: $off-white;
+    border: 1px solid $grey-70;
+    border-radius: 0.4rem;
+    position: relative;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    font-size: 1.4rem;
+    z-index: 9;
+    width: 100%;
+    min-height: 4.3rem;
+
+    .fa-caret-down {
+      float: right;
+      color: $dark-grey;
+      line-height: 2rem;
+    }
+  }
+  select {
+    width: 100%;
+    opacity: 0;
+    z-index: 10;
+    position: absolute;
+    background: none;
+    height: 4.3rem;
+  }
+}

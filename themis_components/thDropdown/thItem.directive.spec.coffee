@@ -24,8 +24,9 @@ describe "ThemisComponents: Directive: thItem", ->
 
   context "with action", ->
     beforeEach ->
+      scope = {}; scope.action = -> alert "response"
       template = """<th-item name="First" ng-click="action()"></th-item>"""
-      element = compileDirective(template, {action: -> alert 'response'}).element
+      element = compileDirective(template, scope).element
     it "adds attr 'ng-click' set to anchor tag", ->
       expect(element.attr('ng-click')).toMatch "action()"
     it "adds attr 'href' with value of '#'", ->
