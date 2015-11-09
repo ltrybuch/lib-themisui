@@ -39,7 +39,9 @@ describe 'ThemisComponents: Directive: thLoader', ->
 
   context "with promise", ->
     beforeEach ->
-      directive = compileDirective('<div th-loader promise="promise"></div>', {promise: true})
+      scopeAdditions = {}
+      scopeAdditions.promise = true
+      directive = compileDirective('<div th-loader promise="promise"></div>', scopeAdditions)
       element = directive.element
       scope = directive.scope
 

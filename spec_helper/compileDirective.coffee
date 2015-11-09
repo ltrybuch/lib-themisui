@@ -12,11 +12,16 @@ window.compileDirective = (template, scopeAdditions) ->
       scope[key] = value
 
   # Inject
-  inject ($rootScope, $compile) ->
+  inject ($rootScope, $compile, $q, $timeout) ->
     scope = $rootScope.$new()
     compile = $compile
+    q = $q
 
   importScope() if scopeAdditions?
+
+  if scopeAdditions?.promise
+    scope.deferred = q.defer()
+    scope.promise = scope.deferred.promise
 
   # Compile template
   wrappedTemplate = "<html ng-app>#{template}</html>"
