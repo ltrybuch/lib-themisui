@@ -5,13 +5,18 @@ angular.module 'ThemisComponents', [
 ]
 
 require './thBindMarkdown/'
+require './thButton/'
 require './thCheckbox/'
 require './thCompile/'
 require './thComponentExample/'
 require './thContextualMessage/'
+require './thDropdown/'
+require './thInput/'
 require './thLazy/'
 require './thLoader/'
+require './thModal/'
 require './thPopover/'
+require './thSelect/'
 require './thSwitch/'
 require './thTabset/'
 

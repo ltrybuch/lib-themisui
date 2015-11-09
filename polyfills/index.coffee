@@ -1,1 +1,2 @@
 require './Element.matches.polyfill'
+require './Array.findIndex.polyfill'

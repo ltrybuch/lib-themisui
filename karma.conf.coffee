@@ -16,10 +16,11 @@ module.exports = (config) ->
     files: [
         'http://code.jquery.com/jquery-2.1.4.js'
         'index.coffee'
-        'compileDirective.coffee'
+        'spec_helper/compileDirective.coffee'
         'node_modules/angular-mocks/angular-mocks.js'
         'themis_components/**/*.mock.coffee'
         'themis_components/**/*.spec.coffee'
+        'spec_helper/compileDirective.coffee'
         {
             pattern: 'themis_components/**/*.{directive,service}.coffee'
             watched: true
@@ -41,6 +42,7 @@ module.exports = (config) ->
         'compileDirective.coffee' : ['coffee']
         'themis_components/**/*.mock.coffee' : ['coffee']
         'themis_components/**/*.spec.coffee' : ['coffee']
+        'spec_helper/*.coffee' : ['coffee']
     }
 
 

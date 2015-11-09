@@ -6,11 +6,33 @@ coffeescript = require 'coffee-script'
 
 express = require 'express'
 expressWs = require 'express-ws'
+bodyParser = require 'body-parser'
 
 componentsRoot = path.join 'themis_components'
-componentDirectories = -> glob.sync path.join componentsRoot, '!(theme)', '/'
-availableComponentNames = -> ( path.basename(item) for item in componentDirectories() )
+
+metaFor = (componentPath) ->
+  try
+    JSON.parse fs.readFileSync(path.join(componentPath, 'meta.json'), 'utf8')
+  catch
+    {}
+
+componentDirectories = ->
+  directories = {}
+  allDirectories = glob.sync path.join componentsRoot, '!(theme)', '/'
+  for directory in allDirectories
+    directories[directory] = metaFor directory
+
+  return directories
+
+availableComponentNames = ->
+  for item, meta of componentDirectories() when meta.private isnt true
+    path.basename(item)
+
 app = express()
+
+
+app.use bodyParser.json() # support json encoded bodies
+app.use bodyParser.urlencoded extended: true # support encoded bodies
 
 # Restart app when there are open web sockets (triggers browser reload)
 gulp.task 'docs-restart', ->
@@ -19,6 +41,9 @@ gulp.task 'docs-restart', ->
 
 gulp.task 'docs-server', ->
   gulp.watch ['themis_components/**/*', 'public/**/*'], ['docs-restart']
+
+  app.get '/readme.md', (request, response) ->
+    response.sendFile path.resolve(path.join('README.md'))
 
   app.get '/components.json', (request, response) ->
     componentList = availableComponentNames()
@@ -37,6 +62,9 @@ gulp.task 'docs-server', ->
         examples: examplesForComponent componentName
     else
       response.status(404).send error: "No such component."
+
+  app.post '/echo', (request, response) ->
+    response.send JSON.stringify request.body
 
   app.get '/components/:component/examples/:example.js', (request, response) ->
     componentName = request.params.component
@@ -61,7 +89,9 @@ gulp.task 'docs-server', ->
   # Start server on port 3042
   server = null
   startServer = ->
-    server = app.listen 3042, ->
+    port = process.env.PORT ? 3042
+
+    server = app.listen port, ->
       host = server.address().address
       port = server.address().port
 
