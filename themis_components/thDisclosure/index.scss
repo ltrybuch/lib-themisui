@@ -4,12 +4,12 @@
 }
 
 .th-disclosure-toggle {
-  .fa-caret-left {
+  .fa-caret-right {
     transform: none;
     transition: transform 0.3s;
   }
 
-  .fa-caret-left-rotated {
-    transform: rotate(-90deg);
+  .fa-caret-right-rotated {
+    transform: rotate(90deg);
   }
 }
