@@ -6,10 +6,10 @@ Add small overlays of content, like those on the iPad, to any element for housin
 
 `th-popover` accepts a URL of where it will fetch its inner content from.
 
-`th-popover` also accepts a overflow param that will apply a styling class. Valid options:
+`th-popover` also accepts an `overflow` param that will apply a styling class. This should only be used when dealing with legacy components that have elements that are positioned absolutely (such as datepickers). The overflow property is set to `auto` by default. Valid options:
 
-  - visible
-  - hidden
+  - `visible`
+  - `hidden`
 
 ## Usage
 
