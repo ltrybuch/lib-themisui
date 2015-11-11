@@ -1,0 +1,15 @@
+.th-disclosure-content {
+  overflow: hidden;
+  height: 0;
+}
+
+.th-disclosure-toggle {
+  .fa-caret-left {
+    transform: none;
+    transition: transform 0.3s;
+  }
+
+  .fa-caret-left-rotated {
+    transform: rotate(-90deg);
+  }
+}
