@@ -1,0 +1,1 @@
+require './thSelect.directive'
