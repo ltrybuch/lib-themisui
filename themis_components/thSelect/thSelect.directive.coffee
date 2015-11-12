@@ -13,6 +13,7 @@ selectTemplate = """
     ng-disabled="{{select.disabled == ''}}"
     ng-attr-name="{{select.name || undefined}}"
     ng-model="select.ngModel"
+    ng-change="select.ngChange"
     ng-options="option.name for option in select.options track by option.value">
   </select>
 """
@@ -42,6 +43,8 @@ angular.module('ThemisComponents')
       ngModel: "="
       name: "@"
       disabled: "@"
+      ngChange: "=?"
+
     controller: ($scope, $element) ->
       @selectedText = @ngModel?.name ? "Choose…"
 

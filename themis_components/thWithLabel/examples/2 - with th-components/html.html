@@ -1,0 +1,23 @@
+<html ng-app="thDemo">
+  <body ng-controller="DemoController  as demo">
+    <form name="subscriptionForm" style="width:300px" novalidate>
+      <th-input with-label="Name" ng-model="demo.subscription.name"></th-input>
+      <th-input
+        with-label="Email"
+        name="email"
+        icon="email"
+        ng-model="demo.subscription.email">
+      </th-input>
+      <th-select
+        with-label="Which JS library interests you?"
+        name="library"
+        ng-model="demo.subscription.library"
+        options="demo.options">
+      </th-select>
+      <th-checkbox with-label="Agree to receive emails" ng-model="demo.subscription.agree"></th-checkbox>
+      <th-button type="submit" ng-click="demo.submit(demo.subscription)">Subscribe</th-button>
+      <pre>subscribed with: {{demo.completed | json}}</pre>
+    </form>
+  </body>
+</html>
+
