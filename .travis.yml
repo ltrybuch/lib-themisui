@@ -1,4 +1,4 @@
 language: node_js
 node_js:
-  - "0.12"
-script: ./node_modules/.bin/karma start --single-run
+  - "0.10.40"
+script: npm run test-once
