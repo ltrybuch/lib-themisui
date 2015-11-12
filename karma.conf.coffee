@@ -22,7 +22,7 @@ module.exports = (config) ->
         'themis_components/**/*.spec.coffee'
         'spec_helper/compileDirective.coffee'
         {
-            pattern: 'themis_components/**/*.{directive,service}.coffee'
+            pattern: 'themis_components/**/*.{directive|service}.coffee'
             watched: true
             included: false
             served: false
@@ -48,7 +48,7 @@ module.exports = (config) ->
     # test results reporter to use
     # possible values: 'dots', 'progress'
     # available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage', 'notify']
+    reporters: ['progress', 'notify', 'coverage', 'coveralls']
 
 
     # web server port
@@ -92,14 +92,18 @@ module.exports = (config) ->
             if pkg.name == "lib-ThemisUI"
                 pkg.browserify.transform = []
             true
-        transform: ['coffeeify']
-        configure: (bundle) ->
-            bundle.transform coverage
-                ignore: [
-                  'themis_components/**/*.mock.coffee'
-                  'themis_components/**/*.spec.coffee'
-                ]
-                defaultIgnore: true
+        transform: [
+          'coffeeify'
+          coverage
+            ignore: [
+              '**/*.mock.coffee'
+              '**/*.spec.coffee'
+            ]
+        ]
 
     coverageReporter:
-      type : 'text'
+      dir: 'coverage/'
+      reporters: [
+        { type: 'lcovonly', subdir: 'report-lcov' }
+        { type: 'text', subdir: '.', file: 'text.txt' }
+      ]
