@@ -59,7 +59,8 @@
     "versionCheck": "npm outdated --depth 0",
     "start": "gulp docs",
     "build": "gulp docs-browserify docs-style docs-examples-style",
-    "test": "karma start"
+    "test": "karma start",
+    "test-once": "karma start --single-run"
   },
   "browserify": {
     "transform": "coffeeify"
