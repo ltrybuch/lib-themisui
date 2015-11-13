@@ -25,9 +25,12 @@ describe "ThemisComponents: Directive: thDisclosureContent", ->
         </div>
       """).element
 
-    it "has real height", ->
+    it "has real height", (done) ->
       element.find('a').first().triggerHandler 'click'
-      expect(element.find('div.th-disclosure-content').css("height")).not.toEqual "0px"
+      setTimeout ->
+        expect(element.find('div.th-disclosure-content').css("height")).not.toEqual "0px"
+        done()
+      , 500
 
     it "animates", ->
       ctrl = element.find('div.th-disclosure-content').scope().$$childTail.thDisclosureContent

@@ -38,3 +38,5 @@ angular.module 'ThemisComponents'
           }, 300
 
       DisclosureManager.onToggle @name, @animateToggle
+
+      @
