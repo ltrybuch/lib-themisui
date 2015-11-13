@@ -10,8 +10,8 @@ angular.module 'ThemisComponents'
     controllerAs: 'thDisclosureToggle'
     controller: ($element) ->
       @expanded = false
-      @toggleExpanded = =>
+      @toggle = =>
         @expanded = not @expanded
-        DisclosureManager.toggleExpanded @name
+        DisclosureManager.toggle @name
         return # TODO: Why do I need to return?
       return # TODO: Do I need to return?

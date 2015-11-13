@@ -92,7 +92,7 @@ module.exports = (config) ->
             if pkg.name == "lib-ThemisUI"
                 pkg.browserify.transform = []
             true
-        transform: ['coffeeify']
+        transform: ['coffeeify', 'stringify']
         configure: (bundle) ->
             bundle.transform coverage
                 ignore: [

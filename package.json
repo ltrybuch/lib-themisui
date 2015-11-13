@@ -58,6 +58,6 @@
     "test": "karma start"
   },
   "browserify": {
-    "transform": "coffeeify"
+    "transform": ["coffeeify", "stringify"]
   }
 }

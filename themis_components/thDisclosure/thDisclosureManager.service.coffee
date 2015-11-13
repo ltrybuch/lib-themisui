@@ -6,10 +6,10 @@ angular.module 'ThemisComponents'
       handlerMap[name] = handler
       return # TODO: Why do I need to return?
 
-    toggleExpanded = (name) ->
+    toggle = (name) ->
       (handlerMap[name] ? ->)()
 
     return {
       onToggle
-      toggleExpanded
+      toggle
     }
