@@ -23,7 +23,8 @@ angular.module 'ThemisComponents'
     controllerAs: 'thDisclosureContent'
     controller: ($element) ->
       @expanded = false
-      DisclosureManager.onToggle @name, =>
+
+      @animateToggle = =>
         @expanded = not @expanded
         height = getActualHeight $element
         if @expanded
@@ -35,3 +36,5 @@ angular.module 'ThemisComponents'
           $($element).animate {
             height: "0"
           }, 300
+
+      DisclosureManager.onToggle @name, @animateToggle

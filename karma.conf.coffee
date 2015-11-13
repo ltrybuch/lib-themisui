@@ -20,9 +20,8 @@ module.exports = (config) ->
         'node_modules/angular-mocks/angular-mocks.js'
         'themis_components/**/*.mock.coffee'
         'themis_components/**/*.spec.coffee'
-        'spec_helper/compileDirective.coffee'
         {
-            pattern: 'themis_components/**/*.{directive,service}.coffee'
+            pattern: 'themis_components/**/*.{directive|service}.coffee'
             watched: true
             included: false
             served: false
