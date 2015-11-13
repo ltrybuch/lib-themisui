@@ -46,6 +46,7 @@
     "karma-cli": "^0.1.1",
     "karma-coffee-preprocessor": "^0.3.0",
     "karma-coverage": "^0.5.3",
+    "karma-coveralls": "^1.1.2",
     "karma-jasmine": "^0.3.5",
     "karma-notify-reporter": "^0.1.1",
     "karma-phantomjs-launcher": "^0.2.1",
@@ -60,7 +61,8 @@
     "versionCheck": "npm outdated --depth 0",
     "start": "gulp docs",
     "build": "gulp docs-browserify docs-style docs-examples-style",
-    "test": "karma start"
+    "test": "karma start",
+    "test-once": "karma start --single-run"
   },
   "browserify": {
     "transform": ["coffeeify", "stringify"]
