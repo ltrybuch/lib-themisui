@@ -21,7 +21,7 @@ describe 'withLabel', ->
       element = compileDirective("""<th-switch with-label="switch name"></th-switch>""").element
 
     it "appends inline label instead of prepends label", ->
-      expect(element.next().is("span.inline-label-text")).toBe true
+      expect(element.next().is("span.inline.label-text")).toBe true
 
     it "adds 'with-label' value to label", ->
       expect(element.next().text()).toMatch "switch name"
@@ -31,7 +31,7 @@ describe 'withLabel', ->
       element = compileDirective("""<th-checkbox with-label="checkbox name"></th-checkbox>""").element
 
     it "appends inline label instead of prepends label", ->
-      expect(element.next().is("span.inline-label-text")).toBe true
+      expect(element.next().is("span.inline.label-text")).toBe true
 
     it "adds 'with-label' value to label", ->
       expect(element.next().text()).toMatch "checkbox name"
@@ -41,7 +41,7 @@ describe 'withLabel', ->
       element = compileDirective("""<input type="checkbox" with-label="HTML checkbox">""").element
 
     it "appends inline label instead of prepends label", ->
-      expect(element.next().is("span.inline-label-text")).toBe true
+      expect(element.next().is("span.inline.label-text")).toBe true
 
     it "adds 'with-label' value to label", ->
       expect(element.next().text()).toMatch "HTML checkbox"
@@ -51,7 +51,7 @@ describe 'withLabel', ->
       element = compileDirective("""<input type="radio" with-label="HTML radio">""").element
 
     it "appends inline label instead of prepends label", ->
-      expect(element.next().is("span.inline-label-text")).toBe true
+      expect(element.next().is("span.inline.label-text")).toBe true
 
     it "adds 'with-label' value to label", ->
       expect(element.next().text()).toMatch "HTML radio"

@@ -1,17 +1,17 @@
 <html ng-app="thDemo">
   <body>
-    <div style="width: 300px;">
-    <input type="checkbox" with-label="checkbox" name="test" value="false">
-      <th-input with-label="Label with th-input" type="text"></th-input>
-      <th-switch with-label="Label is inline when using a th-switch"></th-switch>
-      <th-checkbox with-label="Label is also inline with th-checkboxes"></th-checkbox>
-      <th-select with-label="Works great with th-select as well" name="color">
+    <div style="width: 400px;">
+      <input type="checkbox" with-label="Agree to terms (Label with type='checkbox')" name="test" checked>
+      <input type="text" with-label="First name: (Label with type='text')">
+      <th-input with-label="Email: (Label with th-input)" type="text"></th-input>
+      <th-switch with-label="Display image (Label is inline when using a th-switch)"></th-switch>
+      <th-checkbox with-label="Save settings (Label is also inline with th-checkboxes)"></th-checkbox>
+      <th-select with-label="Favourite Color: (Works great with th-select)" name="color">
         <option value="4">Red</option>
         <option value="5" selected>Yellow</option>
         <option value="6">Green</option>
       </th-select>
-      <h3 class="th-label">Working inline with radio buttons</h3>
-      <input type="radio" value="male" id="male" name="gender" with-label="Male">
+      <input type="radio" value="male" id="male" name="gender" with-label="Male (Label with type='radio')">
       <input type="radio" value="female" id="female" name="gender" with-label="Female">
     </div>
  </body>

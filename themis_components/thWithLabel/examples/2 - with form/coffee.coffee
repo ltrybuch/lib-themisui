@@ -18,4 +18,4 @@ angular.module('thDemo', ['ThemisComponents'])
           @completed.statusText = data.statusText
         , (error) ->
           console.log error
-
+    return
