@@ -37,6 +37,6 @@ angular.module 'ThemisComponents'
             height: "0"
           }, 300
 
-      DisclosureManager.onToggle @name, @animateToggle
+      DisclosureManager.onToggle @name, => @animateToggle()
 
       @

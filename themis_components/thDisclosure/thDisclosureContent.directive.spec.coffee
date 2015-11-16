@@ -24,6 +24,10 @@ describe "ThemisComponents: Directive: thDisclosureContent", ->
           <div th-disclosure-content="unique-id">Content</div>
         </div>
       """).element
+      angular.element('body').append element
+
+    afterEach ->
+      element.remove()
 
     it "has real height", (done) ->
       element.find('a').first().triggerHandler 'click'
