@@ -1,9 +1,10 @@
-.th-disclosure-content {
+th-disclosure-content {
   overflow: hidden;
   height: 0;
+  display: block;
 }
 
-.th-disclosure-toggle {
+th-disclosure-toggle {
   .fa-caret-right {
     transform: none;
     transition: transform 0.3s;

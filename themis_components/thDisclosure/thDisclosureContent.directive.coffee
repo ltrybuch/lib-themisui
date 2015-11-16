@@ -13,11 +13,10 @@ getActualHeight = (element) ->
 
 angular.module 'ThemisComponents'
   .directive 'thDisclosureContent', (DisclosureManager) ->
-    restrict: 'A'
-    replace: true
+    restrict: 'E'
     transclude: true
     scope:
-      name: '@thDisclosureContent'
+      name: '@'
     template: require './thDisclosureContent.template.html'
     bindToController: true
     controllerAs: 'thDisclosureContent'
@@ -39,4 +38,4 @@ angular.module 'ThemisComponents'
 
       DisclosureManager.onToggle @name, => @animateToggle()
 
-      @
+      return

@@ -2,13 +2,15 @@ context = describe
 describe "ThemisComponents: Directive: thDisclosureContent", ->
   DisclosureManager = element = null
 
+  getFirstChild = (element) -> angular.element element.children()[0]
+
   context "when in default state (hidden)", ->
     beforeEach ->
-      element = compileDirective("""<div th-disclosure-content="unique-id">Content</div>""").element
+      element = compileDirective("""<th-disclosure-content name="unique-id">Content</th-disclosure-content>""").element
 
-    it "is wrapped in a <div> with class 'th-disclosure-content'", ->
-      expect(element.is('div')).toBe true
-      expect(element.hasClass("th-disclosure-content")).toBe true
+    it "renders a <ng-transclude> component", ->
+      firstChild = getFirstChild element
+      expect(firstChild.is('ng-transclude')).toBe true
 
     it "has height 0", ->
       expect(element.css("height")).toEqual "0px"
@@ -20,8 +22,8 @@ describe "ThemisComponents: Directive: thDisclosureContent", ->
     beforeEach ->
       element = compileDirective("""
         <div>
-          <div th-disclosure-toggle="unique-id">Toggle</div>
-          <div th-disclosure-content="unique-id">Content</div>
+          <th-disclosure-toggle name="unique-id">Toggle</th-disclosure-toggle>
+          <th-disclosure-content name="unique-id">Content</th-disclosure-content>
         </div>
       """).element
       angular.element('body').append element
@@ -34,10 +36,10 @@ describe "ThemisComponents: Directive: thDisclosureContent", ->
       setTimeout ->
         expect(element.find('div.th-disclosure-content').css("height")).not.toEqual "0px"
         done()
-      , 500
+      , 301 # The animation duration is 300ms
 
     it "animates", ->
-      ctrl = element.find('div.th-disclosure-content').scope().$$childTail.thDisclosureContent
+      ctrl = element.find('th-disclosure-content ng-transclude').scope().thDisclosureContent
       spyOn ctrl, "animateToggle"
       element.find('a').first().triggerHandler 'click'
       expect(ctrl.animateToggle).toHaveBeenCalled()

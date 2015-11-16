@@ -10,14 +10,16 @@ A disclosure has 2 parts:
 
 ## Usage
 
-Both components must be used as attributes on html elements.
+Both components have a mandatory, unique attribute called `name`.
+
+You are free to put anything inside the component tags - everything will be transcluded.
 
 ```
-<any-html-element th-disclosure-toggle="unique-string-id">Text for the toggle button</any-html-element>
+<th-disclosure-toggle name="unique-string-id">Text for the toggle button</th-disclosure-toggle>
 ```
 
 ```
-<another-html-element th-disclosure-content="unique-string-id">Content to display or hide</another-html-element>
+<th-disclosure-content name="unique-string-id">Content to display or hide</th-disclosure-content>
 ```
 
-They may be placed on elements far apart from each other on the page. The only requirement is that they are connected through the same unique string id, which is given as the value for both attributes.
+They may be placed far apart from each other on the page. The only requirement is that they are connected through the same unique string id, which is given for the `name` attribute of both components.

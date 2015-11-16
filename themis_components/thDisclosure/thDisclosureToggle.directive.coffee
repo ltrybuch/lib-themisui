@@ -1,10 +1,9 @@
 angular.module 'ThemisComponents'
   .directive 'thDisclosureToggle', (DisclosureManager) ->
-    restrict: 'A'
-    replace: true
+    restrict: 'E'
     transclude: true
     scope:
-      name: '@thDisclosureToggle'
+      name: '@'
     template: require './thDisclosureToggle.template.html'
     bindToController: true
     controllerAs: 'thDisclosureToggle'
@@ -16,4 +15,4 @@ angular.module 'ThemisComponents'
         DisclosureManager.toggle @name
         return
 
-      @
+      return
