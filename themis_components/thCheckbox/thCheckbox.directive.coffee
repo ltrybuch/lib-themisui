@@ -12,7 +12,7 @@ angular.module('ThemisComponents')
       </span>
     """
     scope:
-      checked: '=?ngModel'
+      checked: '=ngModel'
     bindToController: true
     controllerAs: 'checkbox'
     controller: checkboxController

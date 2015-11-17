@@ -12,7 +12,7 @@ angular.module('ThemisComponents')
       </span>
     """
     scope:
-      state: '=?ngModel'
+      state: '=ngModel'
     bindToController: true
     controllerAs: 'switch'
     controller: ->

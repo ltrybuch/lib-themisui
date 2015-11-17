@@ -1,10 +1,8 @@
 <html ng-app="thDemo">
   <body>
     <div style="width: 400px;">
-      <input type="checkbox" with-label="Agree to terms (Label with type='checkbox')" name="test" checked>
       <input type="text" with-label="First name: (Label with type='text')">
       <th-input with-label="Email: (Label with th-input)" type="text"></th-input>
-      <th-switch with-label="Display image (Label is inline when using a th-switch)"></th-switch>
       <th-checkbox with-label="Save settings (Label is also inline with th-checkboxes)"></th-checkbox>
       <th-select with-label="Favourite Color: (Works great with th-select)" name="color">
         <option value="4">Red</option>
@@ -13,6 +11,8 @@
       </th-select>
       <input type="radio" value="male" id="male" name="gender" with-label="Male (Label with type='radio')">
       <input type="radio" value="female" id="female" name="gender" with-label="Female">
+      <input type="checkbox" with-label="Agree to terms (Label with type='checkbox')" name="test" checked>
+      <th-switch with-label="Display image (Label is inline when using a th-switch)"></th-switch>
     </div>
  </body>
 </html>

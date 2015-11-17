@@ -1,33 +1,43 @@
 angular.module('ThemisComponents')
-    .directive "withLabel", ->
-      restrict: "A"
-      link: (scope, element, attrs) ->
-        # only add if element found
-        Array.prototype.insert = (element) ->
-          if element.el
-            @.push element
+  .directive "withLabel", ->
+    restrict: "A"
+    link: (scope, element, attrs) ->
 
-        # wrap our input in a label
-        element.wrap '<label class="th-label">'
-        label = element.parent()
+      # wrap our input in a label
+      element.wrap '<label class="th-label">'
+      label = element.parent()
 
-        # check for 'inline' input elements that should have a label inline
-        inlineComponents = []
-        inlineComponents.insert el: label[0].getElementsByClassName("th-checkbox")[0], type: "themis"
-        inlineComponents.insert el: label[0].getElementsByClassName("th-switch")[0], type: "themis"
-        inlineComponents.insert el: label[0].querySelectorAll("input[type=checkbox]")[0], type: "native"
-        inlineComponents.insert el: label[0].querySelectorAll("input[type=radio]")[0], type: "native"
+      findInlineInputElement = (themisComponents, htmlComponents) =>
+        # find themis ui components by class name
+        findByClassName = (className) ->
+          label[0].getElementsByClassName(className)[0]
 
-        # if element is deemed 'inline' the append the label else prepend the label
-        if inlineComponents.length > 0
-          textSpan = angular.element "<span class='inline label-text'>#{attrs.withLabel}</span>"
-          label.append textSpan
+        # find inline inputs by type
+        findByInputType = (type) ->
+          label[0].querySelectorAll("input[type=#{type}]")[0]
 
-          # if element is not a native input we need to extend the click over to our styled faux input.
-          textSpan.on "click", =>
-            if inlineComponents[0].type == "themis"
-              element[0].click()
+        html = (findByInputType(comp) for comp in htmlComponents when findByInputType(comp) isnt undefined)
+        themis = (findByClassName(comp) for comp in themisComponents when findByClassName(comp) isnt undefined)
+
+        if themis[0]
+          el: themis[0], type: "themis"
         else
-          label.prepend "<div class='label-text'>#{attrs.withLabel}</div>"
+          el: html[0], type: "html"
+
+      inlineElement = findInlineInputElement(
+        ["th-switch", "th-checkbox"]
+        ["radio", "checkbox"]
+      )
+
+      # if element is deemed 'inline' the append the label else prepend the label
+      if inlineElement.el
+        textSpan = angular.element "<span class='inline label-text'>#{attrs.withLabel}</span>"
+        label.append textSpan
+
+        # if element is not a native input we need to extend the click over to our styled faux input.
+        textSpan.on "click", =>
+          element[0].click() if inlineElement.type == "themis"
+      else
+        label.prepend "<div class='label-text'>#{attrs.withLabel}</div>"
 
 
