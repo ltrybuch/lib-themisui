@@ -7,7 +7,7 @@ angular.module 'ThemisComponents'
     template: require './thDisclosureToggle.template.html'
     bindToController: true
     controllerAs: 'thDisclosureToggle'
-    controller: ($element) ->
+    controller: ->
       @expanded = false
 
       @toggle = =>
