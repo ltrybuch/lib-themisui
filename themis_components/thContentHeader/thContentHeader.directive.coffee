@@ -4,6 +4,7 @@ angular.module('ThemisComponents')
     scope:
       title: "@"
     transclude: true
+    controllerAs: 'thContentHeader'
     template: """
       <h1 class="th-header-title th-header-flex-item">{{ title }}</h1>
       <div class="th-header-flex-item"></div>
