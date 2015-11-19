@@ -3,7 +3,7 @@ context = describe
 describe 'withLabel', ->
   element = null
 
-  context 'with input type text example', ->
+  context 'with th-input example', ->
     beforeEach ->
       element = compileDirective("""<th-input with-label="name"></th-input>""").element
 
