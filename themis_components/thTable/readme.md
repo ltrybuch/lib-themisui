@@ -2,7 +2,7 @@
 
 ### Description
 
-This component replaces all DataTables used in Clio right now.
+This component can replace all DataTables used in Clio right now.
 
 ### Usage
 
@@ -18,7 +18,7 @@ This component replaces all DataTables used in Clio right now.
           [on-sort="(field, order) ->"]>
 
   <!-- First define all <th-table-cell>s that you want to display on
-       a table row.
+       each table row.
     -->
 
   <th-table-cell [header-title="title for the entire column"]
@@ -34,17 +34,18 @@ This component replaces all DataTables used in Clio right now.
 
   <th-table-cell ...> ... </th-table-cell>
 
-  <!-- After defining all cells you can define an optional row extension for
-       things like action buttons.
+
+
+  <!-- After defining all cells you can define an optional row extension. This
+       will be displayed on each row, below the set of cells.
+
+       This must be defined at the end of the table definition, not before or
+       between <th-table-cell>s. Otherwise, <th-table> will throw an error.
     -->
 
   [<th-table-row-extension>
-    You can add an optional row extension that is displayed below each set of
-    cells. This is where you would add action buttons for the current {{item}}
-    in the row.
-
-    This extension must be defined at the end of the table definition, not before
-    or between table cells. Otherwise the component will throw an error.
+    This is where you would add action buttons for the current {{item}} in the row.
+    The contents of this component will get transcluded.
   </th-table-row-extension>]
 
 </th-table>
