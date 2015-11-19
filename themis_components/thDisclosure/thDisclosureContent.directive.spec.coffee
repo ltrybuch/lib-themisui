@@ -15,9 +15,6 @@ describe "ThemisComponents: Directive: thDisclosureContent", ->
     it "has height 0", ->
       expect(element.css("height")).toEqual "0px"
 
-    it "transcludes its children", ->
-      expect(element.find('ng-transclude').text()).toEqual "Content"
-
   context "when expanded", ->
     beforeEach ->
       element = compileDirective("""
