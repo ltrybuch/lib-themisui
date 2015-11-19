@@ -36,6 +36,9 @@ This component replaces all DataTables used in Clio right now.
     You can add an optional row extension that is displayed below or above each
     set of cells. This is where you would add action buttons for the current
     {{item}} in the row.
+
+    This extension must be defined at the end of the table definition, not before
+    or between table cells. Otherwise the component will throw an error.
   </th-table-row-extension>
 
 </th-table>
