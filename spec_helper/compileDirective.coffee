@@ -1,10 +1,10 @@
+# inport the themis components before each test
+beforeEach -> angular.mock.module "ThemisComponents"
 # Setup everything required to convert an HTML string into a compiled angular element
 # Returns an object with element and scope.
 # accepts an object to extend scope before compiling the component.
 window.compileDirective = (template, scopeAdditions) ->
-  compile = scope = q = null
-  # Import components
-  angular.mock.module 'ThemisComponents'
+  compile = scope = null
 
   # include scope properties before compile
   importScope = ->
@@ -15,13 +15,8 @@ window.compileDirective = (template, scopeAdditions) ->
   inject ($rootScope, $compile, $q, $timeout) ->
     scope = $rootScope.$new()
     compile = $compile
-    q = $q
 
   importScope() if scopeAdditions?
-
-  if scopeAdditions?.promise
-    scope.deferred = q.defer()
-    scope.promise = scope.deferred.promise
 
   # Compile template
   wrappedTemplate = "<html ng-app>#{template}</html>"

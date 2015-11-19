@@ -16,7 +16,6 @@ module.exports = (config) ->
     files: [
         'http://code.jquery.com/jquery-2.1.4.js'
         'index.coffee'
-        'spec_helper/compileDirective.coffee'
         'node_modules/angular-mocks/angular-mocks.js'
         'themis_components/**/*.mock.coffee'
         'themis_components/**/*.spec.coffee'
@@ -39,7 +38,6 @@ module.exports = (config) ->
     # available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
         'index.coffee' : ['browserify']
-        'compileDirective.coffee' : ['coffee']
         'themis_components/**/*.mock.coffee' : ['coffee']
         'themis_components/**/*.spec.coffee' : ['coffee']
         'spec_helper/*.coffee' : ['coffee']

@@ -1,12 +1,7 @@
 template = """
   <div class="th-loader" ng-show="loader.visible">
-    <div class="sk-spinner sk-spinner-three-bounce">
-      <div class="sk-bounce1"></div>
-      <div class="sk-bounce2"></div>
-      <div class="sk-bounce3"></div>
-    </div>
-    <p class="loading-text" ng-transclude>
-    </p>
+    <div class="progress {{loader.size}}"><div>Loading…</div></div>
+    <p class="loading-text" ng-transclude></p>
   </div>
 """
 
@@ -22,18 +17,14 @@ angular.module('ThemisComponents')
       visible: "=trigger"
       promise: "="
       timeout: "="
+      size: "@"
 
     link: (scope, element, attrs) ->
-      messageEl = element[0].querySelector(".loading-text")
+      messageElement = element[0].querySelector(".loading-text")
 
       # replace a blank message with default message
-      if messageEl.innerText == ""
-        messageEl.innerText = "Loading..."
-
-      # adjust size of icon if needed
-      if attrs.size == 'large'
-        element[0].querySelector(".sk-spinner").classList.add("icon-large")
-
+      if messageElement.innerText == ""
+        messageElement.innerText = "Loading..."
 
     controller: ($timeout) ->
       @visible = @visible ? yes
@@ -49,6 +40,7 @@ angular.module('ThemisComponents')
         when @promise?
           @promise.finally =>
             @visible = no
+
       return
 
 
