@@ -12,7 +12,7 @@ window.compileDirective = (template, scopeAdditions) ->
       scope[key] = value
 
   # Inject
-  inject ($rootScope, $compile, $q, $timeout) ->
+  inject ($rootScope, $compile) ->
     scope = $rootScope.$new()
     compile = $compile
 
