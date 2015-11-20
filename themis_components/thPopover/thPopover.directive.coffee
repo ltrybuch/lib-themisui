@@ -7,7 +7,11 @@ arrowTemplate = """<i class="th-popover-arrow"></i>"""
 template = """
   <div
     class="th-popover-view"
-    ng-class="{ loading: !loaded }"
+    ng-class="{
+                loading: !loaded,
+                'overflow-visible': overflow == 'visible',
+                'overflow-hidden': overflow == 'hidden'
+              }"
     >
     <div
       class="th-popover-content"
@@ -28,6 +32,7 @@ angular.module('ThemisComponents')
       overlay = null
 
       templateURL = attributes.thPopover
+      $scope.overflow = attributes.overflow
       $scope.loaded = no
       $scope.content = ""
 
@@ -118,6 +123,7 @@ angular.module('ThemisComponents')
           whitelist = [
             '.chzn-container *'
             '.th-switch *'
+            '.ui-select-choices-row-inner *' # Select 2 autocompleter
           ]
           whitelistSelector = whitelist.join ', '
 

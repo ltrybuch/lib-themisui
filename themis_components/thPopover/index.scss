@@ -25,6 +25,12 @@
       background-position: center center;
     }
   }
+  &.overflow-visible {
+    overflow: visible;
+  }
+  &.overflow-hidden {
+    overflow: hidden;
+  }
 }
 
 i.th-popover-arrow {
