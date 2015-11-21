@@ -19,6 +19,7 @@ require './thModal/'
 require './thPopover/'
 require './thSelect/'
 require './thSwitch/'
+require './thTable/'
 require './thTabset/'
 
 module.exports = 'ThemisComponents'

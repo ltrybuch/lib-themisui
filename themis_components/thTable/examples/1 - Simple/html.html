@@ -1,0 +1,16 @@
+<html ng-app="thDemo" style="height: 200px;">
+  <body ng-controller="DemoController as demo">
+    <th-table objects="demo.people">
+      <th-table-cell header-title="Name">
+        {{item.name}}
+      </th-table-cell>
+
+      <th-table-cell header-title="Twitter">
+        <a target="_blank" href="{{item.twitter}}">{{item.twitter}}</a>
+      </th-table-cell>
+    </th-table>
+
+    <th-table-cell header-title="Twitter">
+    </th-table-cell>
+  </body>
+</html>
