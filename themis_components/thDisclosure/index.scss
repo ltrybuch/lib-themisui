@@ -7,10 +7,14 @@ th-disclosure-content {
 th-disclosure-toggle {
   .fa-caret-right {
     transform: none;
+    -ms-transform: none;
+    -webkit-transform: none;
     transition: transform 0.3s;
   }
 
   .fa-caret-right-rotated {
     transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
   }
 }
