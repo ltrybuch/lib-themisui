@@ -9,7 +9,10 @@ th-disclosure-toggle {
     transform: none;
     -ms-transform: none;
     -webkit-transform: none;
+
     transition: transform 0.3s;
+    transition: -webkit-transform 0.3s;
+    transition: transform 0.3s, -webkit-transform 0.3s;
   }
 
   .fa-caret-right-rotated {
