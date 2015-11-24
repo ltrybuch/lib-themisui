@@ -3,6 +3,7 @@ inputTemplate = """
   <span class="th-input-wrapper">
     <span ng-if="input.prefix" class="th-input-prefix">{{input.prefix}}</span>
     <input
+      ng-model="input.model"
       class="th-input"
       ng-class="[{'with-icon': input.icon}, {'with-prefix': input.prefix}, {'with-postfix': input.postfix}]"
       id="{{input.id}}"
@@ -29,6 +30,7 @@ angular.module('ThemisComponents').directive "thInput", ->
     icon: '@'
     prefix: '@'
     postfix: '@'
+    model: '=?ngModel'
   template: inputTemplate
   controller: ($attrs) ->
     @placeholder = $attrs.placeholder
