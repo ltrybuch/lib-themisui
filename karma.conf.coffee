@@ -16,7 +16,6 @@ module.exports = (config) ->
     files: [
         'http://code.jquery.com/jquery-2.1.4.js'
         'index.coffee'
-        'spec_helper/compileDirective.coffee'
         'node_modules/angular-mocks/angular-mocks.js'
         'themis_components/**/*.mock.coffee'
         'themis_components/**/*.spec.coffee'
