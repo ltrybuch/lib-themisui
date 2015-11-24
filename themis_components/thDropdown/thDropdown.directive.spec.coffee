@@ -100,5 +100,3 @@ describe "ThemisComponents: Directive: thDropdown", ->
     it "displays a menu with items", ->
       expect(element.find(".dropdown-menu")).not.toBe null
       expect(element.find("hr.th-divider").length).toEqual 1
-
-

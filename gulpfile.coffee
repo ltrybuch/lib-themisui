@@ -1,3 +1,4 @@
+require('es6-promise').polyfill()
 gulp = require 'gulp'
 path = require 'path'
 sass = require 'gulp-sass'

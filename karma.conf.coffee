@@ -93,6 +93,7 @@ module.exports = (config) ->
             true
         transform: [
           'coffeeify'
+          'stringify'
           coverage
             ignore: [
               '**/*.mock.coffee'

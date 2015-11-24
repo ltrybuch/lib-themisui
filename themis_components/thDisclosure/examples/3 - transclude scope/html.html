@@ -1,0 +1,17 @@
+<html ng-app="thDemo">
+  <body style="height: 200px;" ng-controller="DisclosureDemoController as demoController">
+    <div>Flag: {{demoController.flag}}</div>
+
+    <th-disclosure-toggle name="unique-name-1">Toggle 1</th-disclosure-toggle>
+    <th-disclosure-content name="unique-name-1">
+      <h1>Content 1</h1>
+      <th-switch ng-model="demoController.flag"></th-switch>
+    </th-disclosure-content>
+
+    <th-disclosure-toggle name="unique-name-2">Toggle 2</th-disclosure-toggle>
+    <th-disclosure-content name="unique-name-2">
+      <h1>Content 2</h1>
+      <th-switch ng-model="demoController.flag"></th-switch>
+    </th-disclosure-content>
+  </body>
+</html>

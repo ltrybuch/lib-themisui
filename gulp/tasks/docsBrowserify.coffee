@@ -3,6 +3,8 @@ gulp = require 'gulp'
 browserify = require 'browserify'
 watchify = require 'watchify'
 source = require 'vinyl-source-stream'
+stringify = require 'stringify'
+templates = stringify ['html']
 
 isWatching = no
 
@@ -10,15 +12,15 @@ files = [
   {
     input      : ['./public/javascript/index.coffee']
     output     : 'app.js'
-    extensions : ['.coffee']
-    transform  : []
+    extensions : ['.coffee', '.html']
+    transform  : [templates]
     destination: './public/build/'
   }
   {
     input      : ['./index.coffee']
     output     : 'examples.js'
-    extensions : ['.coffee']
-    transform  : []
+    extensions : ['.coffee', '.html']
+    transform  : [templates]
     destination: './public/build/'
   }
 ]
