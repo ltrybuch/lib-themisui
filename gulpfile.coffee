@@ -1,8 +1,8 @@
+require('es6-promise').polyfill()
 gulp = require 'gulp'
 path = require 'path'
 sass = require 'gulp-sass'
 rename = require 'gulp-rename'
-autoprefixer = require 'gulp-autoprefixer'
 
 gulp.task 'default', ->
   console.log """
@@ -35,9 +35,6 @@ gulp.task 'docs-style', ->
   gulp
     .src path.join('public', 'stylesheets', 'index.scss')
     .pipe sass(includePaths: require('node-bourbon').includePaths)
-    .pipe autoprefixer
-      browsers: ['last 2 versions']
-      cascade: false
     .pipe rename('app.css')
     .pipe gulp.dest path.join('public', 'build')
 
@@ -47,9 +44,6 @@ gulp.task 'docs-examples-style', ->
   gulp
     .src path.join('themis_components', 'examples.scss')
     .pipe sass(includePaths: require('node-bourbon').includePaths)
-    .pipe autoprefixer
-      browsers: ['last 2 versions']
-      cascade: false
     .pipe rename('examples.css')
     .pipe gulp.dest path.join('public', 'build')
 
