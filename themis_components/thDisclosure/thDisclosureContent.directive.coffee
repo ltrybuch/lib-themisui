@@ -37,7 +37,7 @@ angular.module 'ThemisComponents'
           $($element).animate {
             height: "0"
           }, 300, ->
-            $($element).css 'overflow', 'hidden'
+            $($element).css overflow: 'hidden'
 
       DisclosureManager.onToggle @name, => @animateToggle()
 
