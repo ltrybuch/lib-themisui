@@ -1,9 +1,9 @@
 angular.module 'ThemisComponents'
-  .directive 'thTableCell', ->
+  .directive 'thTableRow', ->
     restrict: 'E'
-    require: '^thTableRow'
+    require: '^thTable'
     bindToController: true
-    controllerAs: 'thTableCell'
+    controllerAs: 'thTableRow'
     controller: ->
       return
     link: (scope, element, attrs, thTable) ->

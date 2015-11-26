@@ -1,2 +1,5 @@
 require './thTable.directive'
-require './thTableCell.directive'
+
+require './thTable.service'
+require './thTableDelegate.service'
+require './thSimpleTableDelegate.service'

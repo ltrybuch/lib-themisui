@@ -30,11 +30,11 @@ For convenience, there are already a few delegates and row types defined and rea
 to use for the most common datatables in Clio. You can see examples of their usage
 below:
 
-## Normal table (example: `/matters`)
+## Simple table (example: `/matters`)
 
 ```coffeescript
 controller: ->
-  @tableDelegate = new NormalTableDelegate
+  @tableDelegate = new SimpleTableDelegate
     data: mattersArray
 
     # If these are defined, the table displays pagination at the bottom.
@@ -76,11 +76,7 @@ controller: ->
 </th-table>
 ```
 
-
---------------------------------------------------------------------------------
-
-
-## Example table with subheadings (example: `/tasks`)
+## Table with subheadings (example: `/tasks`)
 
 This is work in progress - it has not yet been released in ThemisUI.
 
@@ -132,17 +128,13 @@ controller: ->
 </th-table>
 ```
 
-
---------------------------------------------------------------------------------
-
-
-## Example table with groups (example: `/bills` -> Billable Clients)
+## Table with groups (example: `/bills` -> Billable Clients)
 
 This is work in progress - it has not yet been released in ThemisUI.
 
 ```coffeescript
 controller: ->
-  @tableDelegate = new BillTableDelegate
+  @tableDelegate = new GroupTableDelegate
     # Format of the individual objects in the array:
     # {
     #  header: contactObject
@@ -188,10 +180,6 @@ controller: ->
   </th-table-row>
 </th-table>
 ```
-
-
---------------------------------------------------------------------------------
-
 
 ## Old design
 
@@ -247,3 +235,8 @@ not flexible enough for all datatables in Clio.
 
 </th-table>
 ```
+
+## TODO
+
+* How do we style columns? How do we set widths for them?
+* Rename normal to simple
