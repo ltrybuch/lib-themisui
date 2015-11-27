@@ -1,11 +1,3 @@
-anchorTemplate = """
-  <a class="th-button" href="{{button.href}}" ng-transclude></a>
-"""
-
-buttonTemplate = """
-  <button class="th-button {{button.type}}" ng-transclude></button>
-"""
-
 angular.module('ThemisComponents')
   .directive "thButton", ($compile) ->
     restrict: "EA"
@@ -17,9 +9,9 @@ angular.module('ThemisComponents')
     template: (element, attrs) ->
       switch
         when attrs.href?
-          anchorTemplate
+          require './thButton.anchor.template.html'
         else
-          buttonTemplate
+          require './thButton.button.template.html'
     bindToController: true
     controllerAs: 'button'
     controller: ($element, $attrs) ->

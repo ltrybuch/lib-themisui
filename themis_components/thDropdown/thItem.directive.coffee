@@ -1,17 +1,3 @@
-linkTemplate = """
-  <a class="dropdown-item" href="{{href}}">
-    <i ng-if="icon" class="fa fa-{{icon}}"></i>
-    {{name}}
-  </a>
-"""
-
-actionTemplate = """
-  <a class="dropdown-item" href="#">
-    <i ng-if="icon" class="fa fa-{{icon}}"></i>
-    {{name}}
-  </a>
-"""
-
 angular.module("ThemisComponents")
   .directive "thItem", ->
     restrict: "E"
@@ -24,9 +10,9 @@ angular.module("ThemisComponents")
     template: (element, attrs) ->
       switch
         when attrs.href?
-          linkTemplate
+          require './thItem.link.template.html'
         else
-          actionTemplate
+          require './thItem.action.template.html'
 
 
 

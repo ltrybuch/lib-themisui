@@ -6,11 +6,7 @@ angular.module('ThemisComponents')
     bindToController: true
     scope:
       modalData: "="
-    template: """
-      <div class="th-modal {{ modal.name }}">
-        <div th-compile="modal.content"></div>
-      </div>
-    """
+    template: require './thModal.template.html'
     controller: (ModalManager) ->
       @name = @modalData.name
       @content = @modalData.content
