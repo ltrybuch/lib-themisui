@@ -75,8 +75,11 @@ angular.module('ThemisComponents')
 
           exampleFrame.contentWindow.document.addEventListener "DOMSubtreeModified", ->
             $timeout ->
+              scrollingElement = exampleFrame.ownerDocument.scrollingElement.getElementsByClassName('component-details-view')[0]
+              scroll = scrollingElement.scrollTop
               exampleFrame.style.height = '0px'
               exampleFrame.style.height = exampleFrame.contentWindow.document.body.scrollHeight + 10 + 'px'
+              scrollingElement.scrollTop = scroll
             , 100
 
           exampleFrame.style.height = '0px'
