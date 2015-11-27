@@ -1,5 +1,5 @@
 angular.module 'thDemo', ['ThemisComponents']
-  .controller "DemoController", (SimpleTableDelegate) ->
+  .controller "DemoController", (SimpleTableDelegate, TableHeader) ->
     @tableDelegate = new SimpleTableDelegate
       data: [
         { name: "Jose Valim",  twitter: "twitter.com/josevalim" }
@@ -9,10 +9,10 @@ angular.module 'thDemo', ['ThemisComponents']
       ]
 
       headers: [
-        new Object
+        new TableHeader
           name: 'Name'
 
-        new Object
+        new TableHeader
           name: 'Twitter'
       ]
 

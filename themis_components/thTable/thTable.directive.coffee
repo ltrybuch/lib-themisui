@@ -1,5 +1,5 @@
 angular.module 'ThemisComponents'
-  .directive 'thTable', (Table) ->
+  .directive 'thTable', ($compile, Table) ->
     restrict: 'E'
     scope:
       delegate: '='
@@ -8,6 +8,9 @@ angular.module 'ThemisComponents'
     controller: ->
     compile: (element, attrs, transclude) ->
       table = new Table element
-      table.compile()
+      table.clear()
       post: (scope, element, attrs, thTable) ->
-        table.post thTable.delegate
+        delegate = thTable.delegate
+        template = table.post delegate
+        compiledTemplate = $compile(template)(scope)
+        element.append compiledTemplate

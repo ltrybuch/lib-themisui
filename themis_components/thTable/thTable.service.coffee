@@ -6,15 +6,10 @@ angular.module 'ThemisComponents'
         throw new Error "<th-table> not properly configured!" unless @isProperlyDefined()
         @rows = @getRows()
 
-      compile: ->
-        @clearTable()
-        template = require './thSimpleTable.template.html'
-        @element.append template
-
       post: (delegate) ->
         delegate.post @rows
 
-      clearTable: ->
+      clear: ->
         child.remove() for child in @element.children()
 
       getRows: ->

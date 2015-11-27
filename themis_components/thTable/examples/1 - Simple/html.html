@@ -1,6 +1,7 @@
 <html ng-app="thDemo" style="height: 200px;">
   <body ng-controller="DemoController as demo">
     <th-table delegate="demo.tableDelegate">
+
       <th-table-row type="cells">
         <th-table-cell>
           {{item.name}}
@@ -11,9 +12,12 @@
         </th-table-cell>
       </th-table-row>
 
+
+
       <th-table-row type="actions">
         Actions for {{item.name}}
       </th-table-row>
+
     </th-table>
   </body>
 </html>
