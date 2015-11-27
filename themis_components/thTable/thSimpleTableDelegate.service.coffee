@@ -2,6 +2,7 @@ angular.module 'ThemisComponents'
   .factory 'SimpleTableDelegate', (TableDelegate, $interpolate) ->
     class SimpleTableDelegate extends TableDelegate
       post: (rows) ->
+        @checkValidRows rows
         template = "<table> {{thead}} {{tbody}} </table>"
         $interpolate(template)
           thead: @generateHeaders()
@@ -26,7 +27,7 @@ angular.module 'ThemisComponents'
 
       generateCellsRow: (cellsRow) ->
         template = """<tr ng-repeat-start="{{objectReference}} in thTable.delegate.data"> {{cells}} </tr>"""
-        objectReference = cellsRow.getAttribute('object-reference') || 'item'
+        objectReference = @getObjectReference cellsRow
         cells = @childrenArray(cellsRow).map((cell) => @generateCell cell).join ''
         $interpolate(template) { objectReference, cells }
 
@@ -37,7 +38,7 @@ angular.module 'ThemisComponents'
 
       generateActionsRow: (actionsRow) ->
         template = "<tr ng-repeat-end> {{actions}} </tr>"
-        objectReference = actionsRow.getAttribute('object-reference') || 'item'
+        objectReference = @getObjectReference actionsRow
         startColumn = parseInt(actionsRow.getAttribute('start-column')) || 1
         actions = ""
         while startColumn > 1
@@ -50,3 +51,13 @@ angular.module 'ThemisComponents'
         arr = []
         arr.push(child) for child in node.children
         arr
+
+      checkValidRows: (rows) ->
+        throw new Error "A simple table needs a cells row." unless rows["cells"]?
+        cellsRow = rows['cellsRow']
+        actionsRow = rows['actionsRow']
+        if actionsRow? and @getObjectReference(actionsRow) != @getObjectReference(cellsRow)
+          throw new Error "The object reference for the actions and cells rows must match."
+
+      getObjectReference: (row) ->
+        row.getAttribute('object-reference') || 'item'
