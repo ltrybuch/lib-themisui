@@ -14,6 +14,7 @@ angular.module('ThemisComponents')
     controller: (ModalManager) ->
       @name = @modalData.name
       @content = @modalData.content
+      @context = @modalData.context
 
       @dismiss = (response) ->
         ModalManager.dismiss @name, response
@@ -22,4 +23,3 @@ angular.module('ThemisComponents')
         ModalManager.confirm @name, response
 
       return
-
