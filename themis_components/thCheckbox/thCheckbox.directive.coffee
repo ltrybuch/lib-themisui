@@ -8,6 +8,7 @@ angular.module('ThemisComponents')
         class="th-checkbox"
         ng-click="checkbox.toggle()"
         >
+        <input type="checkbox" style="display=none;">
         <i></i>
       </span>
     """
