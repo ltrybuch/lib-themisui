@@ -1,0 +1,31 @@
+<div class="th-component-example">
+<h3>{{ example.name }}</h3>
+<form
+  action="http://codepen.io/pen/define"
+  method="POST"
+  target="_blank"
+  >
+
+  <input type="hidden" name="data" value='{{ penData }}'>
+  <header>
+    <a href="" ng-click="showTab('example')">Example
+    </a><a href="" ng-click="showTab('html')">HTML
+    </a><a href="" ng-click="showTab('coffee')">CoffeeScript
+    </a>
+
+    <!--<input type="submit" value="Run in CodePen">-->
+  </header>
+  <iframe
+    ng-show="mode == 'example'"
+    scrolling="auto"
+    frameborder="0"
+    marginheight="0"
+    marginwidth="0"
+    scrolling="no"
+    >
+  </iframe>
+  <pre ng-show="mode == 'html'"><code class="language-markup">{{ example.html }}</code></pre>
+  <pre ng-show="mode == 'coffee'"><code class="language-coffeescript">{{ example.coffee }}</code></pre>
+  <div class="loading" ng-show="mode == ''">Loading…</div>
+</form>
+</div>

@@ -2,15 +2,7 @@ angular.module('ThemisComponents')
   .directive "thCheckbox", ->
     restrict: "EA"
     replace: true
-    template: """
-      <span
-        ng-class="{checked: checkbox.checked}"
-        class="th-checkbox"
-        ng-click="checkbox.toggle()"
-        >
-        <i></i>
-      </span>
-    """
+    template: require './thCheckbox.template.html'
     scope:
       checked: '=ngModel'
     bindToController: true
