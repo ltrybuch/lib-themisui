@@ -10,29 +10,34 @@ Creating a simple modal for your content is easy!
 
 3. Use `ModalManager.show(path: "/template-path", params: {optional: params}, name: "class-name", context: {id: 100})` to add your modal and show it.
 
-`name`, `context` & `params` are all optional. `path` is **not** optional.
+  - **`path`**: path to the template to be used.
+  - **`name` [optional]**: will add that name as a class to the modal
+  - **`context` [optional]**: pass local data into the modal
+  - **`params` [optional]**: any required params for your template.
 
 ---
 
-### Notes
+## Promise
 
-- `show()` will return a promise [?](http://andyshora.com/promises-angularjs-explained-as-cartoon.html "Learn about promises")
+`show()` will return a promise [?](http://andyshora.com/promises-angularjs-explained-as-cartoon.html "Learn about promises") which you can use to grab data from the just closed modal.
 
-- Use `modal.dismiss(reason)` in your template to dismiss the modal rejecting the promise.
+  - Use `modal.dismiss(reason)` in your template to dismiss the modal rejecting the promise.
 
-- Use `modal.confirm(response)` in your template to dismiss the modal resolving the promise.
+  - Use `modal.confirm(response)` in your template to dismiss the modal resolving the promise.
 
-- If you are not using the modal as a confirm action or something else that requires a promise it's probably best to use `dismiss`.
+  - Use `$scope.modal.dimiss()` or `$scope.modal.confirm()` inside your modal controller to perform your own actions before resolving the promise.
 
-- Passing a `name` option will add that name as a class to the modal.
+      ```coffeescript
+        $scope.confirmModal = ->
+          #do stuff...
+          $scope.modal.confirm("yes!")
+      ```
 
-- Use `$scope.modal.dimiss()` or `$scope.modal.confirm()` inside your modal controller to perform your own actions before resolving the promise.
+- If you are not using the modal as a confirm action or something else that requires a promise it's probably easiest to just use `dismiss`.
 
-    ```coffeescript
-      $scope.confirmModal = ->
-        #do stuff...
-        $scope.modal.confirm("yes!")
-    ```
+---
+
+## Context
 
 - Access the context passed into the modal either in the template itself or through the associated modal controller.
 
@@ -47,3 +52,5 @@ Creating a simple modal for your content is easy!
         <h3>You are editing Item # {{modal.context}}</h3>
       </body>
     ```
+
+---
