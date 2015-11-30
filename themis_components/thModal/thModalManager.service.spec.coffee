@@ -14,7 +14,7 @@ describe 'ThemisComponents: Service: thModalManager', ->
     httpBackend.verifyNoOutstandingRequest()
 
   performAction = (template, name) ->
-    promise = ModalManager.show path: template, name: name || template
+    promise = ModalManager.show path: template, context: {itemId:100}, name: name || template
     if template == "validTemplate.html"
       httpBackend.expect('GET', template).respond(200, "<h3>Hello World</h3>")
     else
@@ -43,6 +43,9 @@ describe 'ThemisComponents: Service: thModalManager', ->
 
       it 'has correct name', ->
         expect(ModalManager._modals[0].name).toBe "valid"
+
+      it 'has correct context', ->
+        expect(ModalManager._modals[0].context).toEqual {itemId:100}
 
     context 'with no name', ->
 

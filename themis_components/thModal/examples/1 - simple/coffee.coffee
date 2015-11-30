@@ -4,5 +4,4 @@ angular.module("thDemo", ["ThemisComponents"])
 
     @displayModal = =>
       ModalManager.show path: @path
-
     return
