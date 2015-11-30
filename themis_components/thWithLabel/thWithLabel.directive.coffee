@@ -7,7 +7,7 @@ angular.module('ThemisComponents')
       element.wrap '<label class="th-label">'
       label = element.parent()
 
-      findInlineInputElement = (themisComponents, htmlComponents) =>
+      findInlineInputElement = (themisComponents, htmlComponents) ->
         # find themis ui components by class name
         findByClassName = (className) ->
           label[0].getElementsByClassName(className)[0]
@@ -35,9 +35,7 @@ angular.module('ThemisComponents')
         label.append textSpan
 
         # if element is not a native input we need to extend the click over to our styled faux input.
-        textSpan.on "click", =>
+        textSpan.on "click", ->
           element[0].click() if inlineElement.type == "themis"
       else
         label.prepend "<div class='label-text'>#{attrs.withLabel}</div>"
-
-
