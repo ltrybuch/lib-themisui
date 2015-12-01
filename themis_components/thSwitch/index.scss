@@ -19,6 +19,10 @@
   overflow: hidden;
   cursor: pointer;
 
+  input {
+    display: none;
+  }
+
   i {
     $size: $handleSize;
     display: block;

@@ -4,13 +4,14 @@ angular.module('ThemisComponents')
     replace: true
     template: """
       <span
-        ng-class="{checked: checkbox.checked}"
         class="th-checkbox"
+        ng-class="{checked: checkbox.checked}"
         >
         <input
           type="checkbox"
           name="{{checkbox.name}}"
-          ng-model="checkbox.checked">
+          ng-model="checkbox.checked"
+          >
         <i></i>
       </span>
     """

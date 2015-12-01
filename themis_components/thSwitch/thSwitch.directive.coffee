@@ -6,17 +6,30 @@ angular.module('ThemisComponents')
       <span
         class="th-switch"
         ng-class="{active: switch.state}"
-        ng-click="switch.toggle()"
         >
+        <input
+          type="checkbox"
+          name="{{switch.name}}"
+          ng-model="switch.state"
+          >
         <i></i>
       </span>
     """
     scope:
+      name: '@'
+      change: '&ngChange'
       state: '=ngModel'
     bindToController: true
     controllerAs: 'switch'
-    controller: ->
+    controller: ($scope, $element) ->
       @state = @state ? off
-      @toggle = -> @state = not @state
+
+      @toggle = ->
+        $scope.$apply =>
+          @state = not @state
+        @change() if @change?
+
+      $element.on 'click', =>
+        @toggle()
 
       return

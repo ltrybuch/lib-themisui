@@ -1,14 +1,14 @@
 describe 'ThemisComponents: Directive: thCheckbox', ->
   element = scope = compile = defaultState = null
-  validTemplate = '<div th-checkbox ng-model="checked" ng-change="changeCallback()"></div>'
+  validTemplate = '<div th-checkbox ng-model="checked" ng-change="callback()"></div>'
 
   beforeEach ->
     module 'ThemisComponents'
 
-  compileCheckboxDirective = (template, checked, changeCallback) ->
+  compileCheckboxDirective = (template, checked, callback) ->
     scopeAdditions =
       checked: checked
-      changeCallback: changeCallback
+      callback: callback
 
     directive = compileDirective(template, scopeAdditions)
     element = directive.element
@@ -41,7 +41,7 @@ describe 'ThemisComponents: Directive: thCheckbox', ->
       expect(element.hasClass('checked')).toBe false
       expect(scope.checked).toBe false
 
-  describe 'when template specifies ng-change', ->
+  describe 'when template specifies callback', ->
     beforeEach ->
       compileCheckboxDirective(
         validTemplate, 
@@ -49,7 +49,7 @@ describe 'ThemisComponents: Directive: thCheckbox', ->
         () ->
         )
 
-    it 'should trigger change callback', ->
-      spyOn scope, "changeCallback"
+    it 'should trigger callback', ->
+      spyOn scope, 'callback'
       element.triggerHandler 'click'
-      expect(scope.changeCallback).toHaveBeenCalled()
+      expect(scope.callback).toHaveBeenCalled()
