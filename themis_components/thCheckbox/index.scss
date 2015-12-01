@@ -25,6 +25,10 @@
       }
     }
   }
+  
+  input[type="checkbox"] {
+    display: none;
+  }
 
   i {
     position: absolute;
@@ -42,9 +46,5 @@
       font-size: $font-size;
       color: $dark-grey-4;
     }
-  }
-
-  input {
-    display: none;
   }
 }

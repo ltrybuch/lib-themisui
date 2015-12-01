@@ -18,7 +18,7 @@ describe 'ThemisComponents: Directive: thCheckbox', ->
     beforeEach ->
       compileCheckboxDirective(validTemplate)
 
-    it 'should have an i element', ->
+    it 'should have an indicator', ->
       expect(element.find('i').length).toBe 1
 
     it 'should toggle to checked', ->
