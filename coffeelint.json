@@ -1,7 +1,11 @@
 {
-  // Error
-
   "arrow_spacing": {
+    "level": "error"
+  },
+
+  "braces_spacing": {
+    "empty_object_spaces": 0,
+    "spaces": 0,
     "level": "error"
   },
 
@@ -13,21 +17,19 @@
     "level": "error"
   },
 
+  "line_endings": {
+    "value": "unix",
+    "level": "error"
+  },
+
+  "max_line_length": {
+    "name": "max_line_length",
+    "value": 100,
+    "level": "warn",
+    "limitComments": true
+  },
+
   "no_empty_param_list": {
-    "level": "error"
-  },
-
-  "spacing_after_comma": {
-    "level": "error"
-  },
-
-  "no_this": {
-    "level": "error"
-  },
-
-  "braces_spacing": {
-    "empty_object_spaces": 0,
-    "spaces": 0,
     "level": "error"
   },
 
@@ -35,46 +37,19 @@
     "level": "error"
   },
 
-  "space_operators": {
-    "level": "error"
-  },
-
-  "line_endings": {
-    "value": "unix",
-    "level": "error"
-  },
-
-  // Warn
-
-  "cyclomatic_complexity": {
-    "value": 5,
-    "level": "warn"
-  },
-
   "no_stand_alone_at": {
     "level": "warn"
   },
 
-  // We should consider enabling these.
-
-  "no_implicit_braces": {
-    "level": "ignore"
+  "no_this": {
+    "level": "error"
   },
 
-  "prefer_english_operator": {
-    "level": "ignore"
+  "space_operators": {
+    "level": "error"
   },
 
-  "eol_last": {
-    "level": "ignore"
-  },
-
-  // Ignore
-
-  "max_line_length": {
-    "name": "max_line_length",
-    "value": 80,
-    "level": "ignore",
-    "limitComments": true
+  "spacing_after_comma": {
+    "level": "error"
   }
 }
