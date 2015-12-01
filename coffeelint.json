@@ -39,6 +39,11 @@
     "level": "error"
   },
 
+  "line_endings": {
+    "value": "unix",
+    "level": "error"
+  },
+
   // Warn
 
   "cyclomatic_complexity": {
@@ -57,6 +62,10 @@
   },
 
   "prefer_english_operator": {
+    "level": "ignore"
+  },
+
+  "eol_last": {
     "level": "ignore"
   },
 
