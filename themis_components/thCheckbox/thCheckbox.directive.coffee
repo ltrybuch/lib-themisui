@@ -21,17 +21,15 @@ angular.module('ThemisComponents')
       checked: '=ngModel'
     bindToController: true
     controllerAs: 'checkbox'
-    controller: checkboxController
+    controller: ($scope, $element) ->
+      @checked = @checked ? false
 
-checkboxController = ($scope, $element) ->
-  @checked = @checked ? false
+      @toggle = ->
+        $scope.$apply =>
+          @checked = not @checked
+        @change() if @change?
 
-  @toggle = ->
-    $scope.$apply =>
-      @checked = not @checked
-    @change() if @change?
+      $element.on 'click', =>
+        @toggle()
 
-  $element.on 'click', =>
-    @toggle()
-
-  return
+      return

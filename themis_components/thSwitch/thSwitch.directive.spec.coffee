@@ -2,6 +2,9 @@ describe 'ThemisComponents: Directive: thSwitch', ->
   element = scope = compile = defaultState = null
   validTemplate = '<div th-switch ng-model="state" ng-change="callback()"></div>'
 
+  beforeEach ->
+    module 'ThemisComponents'
+
   compileSwitchDirective = (template, state, callback) ->
     scopeAdditions =
       state: state ? off
@@ -10,9 +13,6 @@ describe 'ThemisComponents: Directive: thSwitch', ->
     directive = compileDirective(template, scopeAdditions)
     element = directive.element
     scope = directive.scope
-
-  beforeEach ->
-    module 'ThemisComponents'
 
   describe 'when switch is off', ->
     beforeEach ->

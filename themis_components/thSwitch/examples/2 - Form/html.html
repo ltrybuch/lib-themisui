@@ -1,11 +1,11 @@
 <html ng-app="thDemo">
-  <body ng-controller="DemoCtrl as demo" style="width: 400px;">
+  <body ng-controller="DemoController as demo" style="width: 400px;">
     <form action="/echo" method="POST">
       Name:
       <th-input type="text" name="name" icon="user"></th-input>
       <br>
       Active:
-      <th-switch name="isActive" ng-model="demo.active" ng-change="demo.changeHandler()"></th-switch>
+      <th-switch name="state" ng-model="demo.state"></th-switch>
       <br><br>
       <th-button submit>Submit</th-button>
     </form>
