@@ -8,5 +8,5 @@ You use `thCheck` create and manage checkboxes used, for example, in forms. This
 
 ### Markup
 ```
-<th-checkbox ng-model="state"></th-checkbox>
+<th-checkbox ng-model="state" ng-change="someAction()"></th-checkbox>
 ```

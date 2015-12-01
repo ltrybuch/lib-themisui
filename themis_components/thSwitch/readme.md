@@ -8,5 +8,5 @@ You use `thSwitch` create and manage the On/Off buttons used, for example, in th
 
 ### Markup
 ```
-<th-switch ng-model="state"></th-switch>
+<th-switch ng-model="state" ng-change="someAction()"></th-switch>
 ```
