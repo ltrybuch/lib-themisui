@@ -25,7 +25,7 @@
   "max_line_length": {
     "name": "max_line_length",
     "value": 100,
-    "level": "warn",
+    "level": "error",
     "limitComments": true
   },
 
@@ -38,7 +38,7 @@
   },
 
   "no_stand_alone_at": {
-    "level": "warn"
+    "level": "error"
   },
 
   "no_this": {

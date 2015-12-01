@@ -6,9 +6,17 @@ describe "ThemisComponents: Directive: thSelect", ->
     context "when enabled", ->
       beforeEach ->
         scopeAdditions = {}
-        scopeAdditions.options = [{name: "Darth", value: "Sith Lord"}, {name: "Luke", value: "Jedi Knight"}]
+        scopeAdditions.options = [
+          {name: "Darth", value: "Sith Lord"}
+          {name: "Luke", value: "Jedi Knight"}
+        ]
         scopeAdditions.choice = scopeAdditions.options[0]
-        template = """<th-select name="faction" options="options" ng-model="choice"></th-select>"""
+        template = """
+          <th-select name="faction"
+                     options="options"
+                     ng-model="choice">
+          </th-select>
+        """
         element = compileDirective(template, scopeAdditions).element
 
       it "has the correct number option elements", ->
@@ -35,9 +43,18 @@ describe "ThemisComponents: Directive: thSelect", ->
     context "when disabled", ->
       beforeEach ->
         scopeAdditions = {}
-        scopeAdditions.options = [{name: "Darth", value: "Sith Lord"}, {name: "Luke", value: "Jedi Knight"}]
+        scopeAdditions.options = [
+          {name: "Darth", value: "Sith Lord"}
+          {name: "Luke", value: "Jedi Knight"}
+        ]
         scopeAdditions.choice = scopeAdditions.options[0]
-        disabled = """<th-select name="faction" options="options" disabled ng-model="choice"></th-select>"""
+        disabled = """
+          <th-select name="faction"
+                     options="options"
+                     disabled
+                     ng-model="choice">
+          </th-select>
+        """
         element = compileDirective(disabled, scopeAdditions).element
 
       it "disables select", ->
@@ -99,7 +116,11 @@ describe "ThemisComponents: Directive: thSelect", ->
 
     context "when disabled", ->
       beforeEach ->
-        template = """<th-select disabled name="lightsaber"><option value="1">Green</option></th-select>"""
+        template = """
+          <th-select disabled name="lightsaber">
+            <option value="1">Green</option>
+          </th-select>
+        """
         element = compileDirective(template).element
 
       it "disables the select element", ->

@@ -6,7 +6,11 @@ describe "ThemisComponents: Directive: thDisclosureContent", ->
 
   context "when in default state (hidden)", ->
     beforeEach ->
-      element = compileDirective("""<th-disclosure-content name="unique-id">Content</th-disclosure-content>""").element
+      element = compileDirective("""
+        <th-disclosure-content name="unique-id">
+          Content
+        </th-disclosure-content>
+      """).element
 
     it "renders a <ng-transclude> component", ->
       firstChild = getFirstChild element

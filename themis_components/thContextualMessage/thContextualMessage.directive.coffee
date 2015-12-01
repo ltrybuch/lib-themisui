@@ -20,8 +20,12 @@ angular.module('ThemisComponents')
             messageElement.addClass "thContextualMessage"
             messageElement.addClass "context-#{messageContext}"
             $document.find('body').append messageElement
+            top = anchorRect.top + anchorRect.height
+            left = anchorRect.left \
+                     + anchorRect.width / 2 \
+                     - messageElement[0].clientWidth / 2
             messageElement.css
-              top: "#{ anchorRect.top + anchorRect.height }px"
-              left: "#{ anchorRect.left + anchorRect.width / 2 - messageElement[0].clientWidth / 2 }px"
+              top: "#{top}px"
+              left: "#{left}px"
 
             ContextualMessageManager.showedMessageForContext messageContext
