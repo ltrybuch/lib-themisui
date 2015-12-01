@@ -1,16 +1,8 @@
-template = """
-  <div
-    class="th-tab"
-    ng-if="active"
-    ng-transclude
-    ></div>
-"""
-
 angular.module('ThemisComponents')
   .directive "thTab", ->
     require: "^thTabset"
     restrict: "EA"
-    template: template
+    template: require './thTab.template.html'
     transclude: true
     scope:
       name: "@name"

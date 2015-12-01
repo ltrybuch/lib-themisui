@@ -2,19 +2,7 @@ angular.module('ThemisComponents')
   .directive "thSwitch", ->
     restrict: "EA"
     replace: true
-    template: """
-      <span
-        class="th-switch"
-        ng-class="{active: switch.state}"
-        >
-        <input
-          type="checkbox"
-          name="{{switch.name}}"
-          ng-model="switch.state"
-          >
-        <i></i>
-      </span>
-    """
+    template: require('./thSwitch.template.html')
     scope:
       name: '@'
       change: '&ngChange'

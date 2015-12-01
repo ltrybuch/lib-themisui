@@ -1,25 +1,3 @@
-overlayTemplate = """
-  <div class="th-popover-overlay"></div>
-"""
-
-arrowTemplate = """<i class="th-popover-arrow"></i>"""
-
-template = """
-  <div
-    class="th-popover-view"
-    ng-class="{
-                loading: !loaded,
-                'overflow-visible': overflow == 'visible',
-                'overflow-hidden': overflow == 'hidden'
-              }"
-    >
-    <div
-      class="th-popover-content"
-      th-compile="content"
-      ></div>
-  </div>
-"""
-
 angular.module('ThemisComponents')
   .directive "thPopover", ($compile, $rootScope, $timeout, $http) ->
     restrict: "A"
@@ -100,9 +78,9 @@ angular.module('ThemisComponents')
           positionPopover()
 
       element.on 'click', -> $scope.$apply ->
-        view = angular.element template unless view?
-        overlay = angular.element overlayTemplate unless overlay?
-        arrow = angular.element arrowTemplate unless arrow?
+        view = angular.element require './thPopover.template.html' unless view?
+        overlay = angular.element require './thPopover.overlay.template.html' unless overlay?
+        arrow = angular.element require './thPopover.arrow.template.html' unless arrow?
 
         body = angular.element(document.body)
         body.append overlay

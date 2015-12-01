@@ -3,8 +3,6 @@ angular.module("ThemisComponents")
     restrict: "E"
     replace: true
     scope: {}
-    template: """
-      <hr class="th-divider"></hr>
-    """
+    template: require('./thDivider.template.html')
 
 

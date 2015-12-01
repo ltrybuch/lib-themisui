@@ -1,0 +1,13 @@
+<div
+  class="th-popover-view"
+  ng-class="{
+              loading: !loaded,
+              'overflow-visible': overflow == 'visible',
+              'overflow-hidden': overflow == 'hidden'
+            }"
+  >
+  <div
+    class="th-popover-content"
+    th-compile="content"
+    ></div>
+</div>

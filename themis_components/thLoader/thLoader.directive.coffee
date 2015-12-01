@@ -1,14 +1,7 @@
-template = """
-  <div class="th-loader" ng-show="loader.visible">
-    <div class="progress {{loader.size}}"><div>Loading…</div></div>
-    <p class="loading-text" ng-transclude></p>
-  </div>
-"""
-
 angular.module('ThemisComponents')
   .directive "thLoader", ->
     restrict: "EA"
-    template: template
+    template: require './thLoader.template.html'
     transclude: true
     replace: true
     controllerAs: 'loader'
