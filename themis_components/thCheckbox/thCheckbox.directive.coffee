@@ -6,20 +6,31 @@ angular.module('ThemisComponents')
       <span
         ng-class="{checked: checkbox.checked}"
         class="th-checkbox"
-        ng-click="checkbox.toggle()"
         >
-        <input type="checkbox" style="display=none;">
+        <input
+          type="checkbox"
+          name="{{checkbox.name}}"
+          ng-model="checkbox.checked">
         <i></i>
       </span>
     """
     scope:
+      name: '@'
+      change: '&ngChange'
       checked: '=ngModel'
     bindToController: true
     controllerAs: 'checkbox'
     controller: checkboxController
 
-checkboxController = ->
+checkboxController = ($scope, $element) ->
   @checked = @checked ? false
-  @toggle = -> @checked = not @checked
+
+  @toggle = ->
+    $scope.$apply =>
+      @checked = not @checked
+    @change() if @change?
+
+  $element.on 'click', =>
+    @toggle()
 
   return
