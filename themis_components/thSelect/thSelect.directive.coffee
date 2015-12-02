@@ -33,7 +33,7 @@ angular.module('ThemisComponents')
     controller: ($scope, $element) ->
       @selectedText = @ngModel?.name ? "Choose…"
 
-      $element.find("select").on 'click', (event) ->
+      $element.find("select").on 'click', (event) -> undefined
       # when a new option is selected we want to capture the name
       # and add it to our styled select replacement.
       $element.on 'change', (event) =>
@@ -65,4 +65,3 @@ angular.module('ThemisComponents')
       select.on "blur", ->
         angular.element(this).next().removeClass "has-focus"
       return
-

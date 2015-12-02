@@ -1,4 +1,4 @@
 angular = require 'angular'
 
 angular.module('ThemisComponentsApp')
-  .controller 'AppController', ->
+  .controller 'AppController', -> undefined
