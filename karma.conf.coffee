@@ -36,8 +36,8 @@ module.exports = (config) ->
     # preprocess matching files before serving them to the browser
     # available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'themis_components/index.coffee': ['browserify']
       'themis_components/**/*.coffee': ['coffeelint']
+      'themis_components/index.coffee': ['browserify']
       'themis_components/**/*.mock.coffee': ['coffee']
       'themis_components/**/*.spec.coffee': ['coffee']
       'spec_helper/*.coffee': ['coffee']
