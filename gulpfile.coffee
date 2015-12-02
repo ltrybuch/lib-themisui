@@ -59,16 +59,6 @@ gulp.task 'lib-themisui-style', ->
     .pipe gulp.dest path.join('public', 'build')
 
 
-gulp.task 'themis-theme-style', ->
-  console.log "themis-theme.scss is building"
-
-  gulp
-    .src path.join('public', 'stylesheets', 'index.scss')
-    .pipe sass(includePaths: require('node-bourbon').includePaths)
-    .pipe rename('themis-theme.scss') # TODO: keep it scss
-    .pipe gulp.dest path.join('public', 'build')
-
-
 gulp.task 'docs-lint', ->
   console.log "Running coffeelint"
 

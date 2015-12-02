@@ -61,7 +61,7 @@
     "watchify": "^3.2.1"
   },
   "scripts": {
-    "build": "gulp docs-browserify docs-style docs-examples-style",
+    "build": "gulp docs-browserify lib-themisui-style",
     "clean": "rm -rf public/build",
     "prepublish": "npm run clean && npm run build",
     "start": "gulp docs",
