@@ -27,6 +27,11 @@ angular.module 'YourApp', [
 ];
 ```
 
+You must include the stylesheets as well:
+
+* `lib-ThemisUI/public/build/lib-temisui.css`: the entire CSS
+* `lib-ThemisUI/themis_theme/index.scss`: optional, SCSS variables defined for the Themis theme
+
 You can now use any of our components in your application. The APIs for each component explain their usage.
 
 
