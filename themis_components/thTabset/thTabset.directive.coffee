@@ -1,25 +1,8 @@
-nativeTemplate = """
-  <div class="th-tabset">
-    <div class="th-tab-bar">
-        <a
-          href=""
-          ng-click="activateTab(tab)"
-          ng-repeat="tab in tabs"
-          ng-class="{active:tab.active}"
-          >{{ tab.name }}</a>
-    </div>
-    <div
-      class="th-tabset-content"
-      ng-transclude
-      ></div>
-  </div>
-"""
-
 angular.module('ThemisComponents')
   .directive "thTabset", ->
     restrict: "EA"
     replace: true
-    template: nativeTemplate
+    template: require './thTabset.native.template.html'
     transclude: true
     scope: {}
     controller: ($scope) ->

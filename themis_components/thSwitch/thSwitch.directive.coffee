@@ -2,15 +2,7 @@ angular.module('ThemisComponents')
   .directive "thSwitch", ->
     restrict: "EA"
     replace: true
-    template: """
-      <span
-        class="th-switch"
-        ng-class="{active: switch.state}"
-        ng-click="switch.toggle()"
-        >
-        <i></i>
-      </span>
-    """
+    template: require('./thSwitch.template.html')
     scope:
       state: '=ngModel'
     bindToController: true

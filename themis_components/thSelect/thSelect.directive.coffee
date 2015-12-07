@@ -8,23 +8,8 @@ template = (select) ->  """
   </div>
 """
 
-selectTemplate = """
-  <select
-    ng-disabled="{{select.disabled == ''}}"
-    ng-attr-name="{{select.name || undefined}}"
-    ng-model="select.ngModel"
-    ng-change="select.ngChange"
-    ng-options="option.name for option in select.options track by option.value">
-  </select>
-"""
-
-transcludeTemplate = """
-  <select
-    ng-attr-name="{{select.name || undefined}}"
-    ng-disabled="{{select.disabled == ''}}"
-    ng-transclude>
-  </select>
-"""
+selectTemplate = require './thSelect.select.template.html'
+transcludeTemplate = require './thSelect.transclude.template.html'
 
 angular.module('ThemisComponents')
   .directive "thSelect", ->

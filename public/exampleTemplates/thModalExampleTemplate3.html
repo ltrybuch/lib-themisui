@@ -1,9 +1,6 @@
-<div style="text-align: center">
-  <div class="actions">
-    <label for="name">Username: </label>
-    <input type="text" name="name" ng-model="userName">
-    <br>
-    <button ng-click="modal.confirm(userName)">Submit</button>
-    <button ng-click="modal.dismiss()">Cancel</button>
-
+<div class="actions">
+  <th-input with-label="Name:" type="text" name="name" ng-model="name">
+  </th-input>
+  <th-button type="default" ng-click="modal.confirm(name)">Submit</th-button>
+  <th-button ng-click="modal.dismiss()">Cancel</th-button>
 </div>

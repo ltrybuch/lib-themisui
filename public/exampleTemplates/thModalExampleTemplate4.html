@@ -1,0 +1,10 @@
+  <div class="actions">
+    <th-input ng-model="modal.context.user.firstName" with-label="First Name">
+    </th-input>
+    <th-input ng-model="modal.context.user.lastName" with-label="Last Name">
+    </th-input>
+    <th-input ng-model="modal.context.user.email" with-label="Email">
+    </th-input>
+    <th-button type="create" ng-click="modal.confirm(modal.context.user)">Submit</th-button>
+    <th-button type="cancel" ng-click="modal.dismiss()">Cancel</th-button>
+  </div>

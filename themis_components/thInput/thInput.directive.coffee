@@ -1,23 +1,3 @@
-# <input> wrapped in a <span> to avoid automatic copying of
-inputTemplate = """
-  <span class="th-input-wrapper">
-    <span ng-if="input.prefix" class="th-input-prefix">{{input.prefix}}</span>
-    <input
-      ng-model="input.model"
-      class="th-input"
-      ng-class="[{'with-icon': input.icon}, {'with-prefix': input.prefix}, {'with-postfix': input.postfix}]"
-      id="{{input.id}}"
-      type="{{input.type}}"
-      name="{{input.name}}"
-      value="{{input.value}}"
-      placeholder="{{input.placeholder}}">
-
-    <i ng-if="input.icon" class="th-input-icon fa fa-{{input.icon}}"></i>
-
-    <span ng-if="input.postfix" class="th-input-postfix">{{input.postfix}}</span>
-  </span>
-"""
-
 angular.module('ThemisComponents').directive "thInput", ->
   restrict: "E"
   bindToController: true
@@ -31,7 +11,7 @@ angular.module('ThemisComponents').directive "thInput", ->
     prefix: '@'
     postfix: '@'
     model: '=?ngModel'
-  template: inputTemplate
+  template: require './thInput.template.html'
   controller: ($attrs) ->
     @placeholder = $attrs.placeholder
 
