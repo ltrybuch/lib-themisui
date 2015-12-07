@@ -51,7 +51,7 @@ controller: ->
       new TableHeader
         name: 'Column title'
         sortField: 'fieldName'
-        sortEnabled: 'false(default)|ascending|descending'
+        sortEnabled: 'ascending|descending'
         align: 'left(default)|right|center'
 
       # ...

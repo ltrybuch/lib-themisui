@@ -1,6 +1,18 @@
 angular.module 'ThemisComponents'
   .factory 'SimpleTableDelegate', (TableDelegate, $interpolate) ->
     class SimpleTableDelegate extends TableDelegate
+      onSort: (header) ->
+        @updateHeaderSorting header
+
+      updateHeaderSorting: (header) ->
+        if header.sortEnabled
+          opposite = ascending: "descending", descending: "ascending"
+          header.sortEnabled = opposite[header.sortEnabled]
+        else
+          currentSortHeader = @headers.find (header) -> header.sortEnabled
+          currentSortHeader.sortEnabled = undefined
+          header.sortEnabled = "ascending"
+
       post: (rows) ->
         @checkValidRows rows
         template = "<table>{{thead}}{{tbody}}</table>"
@@ -9,15 +21,20 @@ angular.module 'ThemisComponents'
           tbody: @generateBody rows
 
       generateHeaders: ->
-        return "" unless (@headers || []).length > 0
-        template = "<thead><tr>{{headers}}</tr></thead>"
-        $interpolate(template)
-          headers: @headers.map((header) => @generateHeader header).join ''
+        return "" unless (@headers or []).length > 0
 
-      generateHeader: (header) ->
-        template = "<th>{{name}}</th>"
-        $interpolate(template)
-          name: header.name
+        return """
+          <thead>
+            <tr>
+              <th ng-repeat="header in thTable.delegate.headers"
+                  ng-class="header.cssClasses()"
+                  ng-click="thTable.delegate.onSort(header)">
+                {{header.name}}
+                <span class="th-table-sort-icon" aria-hidden="true"></span>
+              </th>
+            </tr>
+          </thead>
+        """
 
       generateBody: (rows) ->
         template = "<tbody>{{cellsRow}}{{actionsRow}}</tbody>"

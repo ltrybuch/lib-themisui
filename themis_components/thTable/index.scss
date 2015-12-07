@@ -3,13 +3,13 @@ th-table {
     background: #fff;
     border-collapse: collapse;
     width: 100%;
+    font-size: inherit;
   }
 
   th, td {
     max-width: 255px;
     word-wrap: break-word;
     padding: 9px;
-    text-align: left;
   }
 
   th {
@@ -17,15 +17,42 @@ th-table {
     border-left: none;
     border-right: none;
 
-    cursor: pointer;
     font-weight: bold;
     position: relative;
-    text-decoration: none;
     white-space: nowrap;
     background: $grey-90;
 
-    &.right {
+    &.th-table-align-right {
       text-align: right;
+    }
+
+    &.th-table-align-center {
+      text-align: center;
+    }
+
+    &.th-table-align-left {
+      text-align: left;
+    }
+
+    &.th-table-sortable {
+      cursor: pointer;
+    }
+
+    &.th-table-sortable.th-table-sort-ascending .th-table-sort-icon {
+      @extend .fa;
+      @extend .fa-caret-down;
+      color: #b8b8b6;
+    }
+
+    &.th-table-sortable.th-table-sort-descending .th-table-sort-icon {
+      @extend .fa;
+      @extend .fa-caret-up;
+      color: #b8b8b6;
+    }
+
+    &.th-table-sortable.th-table-sort-none:hover .th-table-sort-icon {
+      @extend .fa;
+      @extend .fa-caret-down;
     }
   }
 
