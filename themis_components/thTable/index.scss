@@ -1,0 +1,42 @@
+th-table {
+  table {
+    background: #fff;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    max-width: 255px;
+    word-wrap: break-word;
+    padding: 9px;
+    text-align: left;
+  }
+
+  th {
+    border: 1px solid $border-color;
+    border-left: none;
+    border-right: none;
+
+    cursor: pointer;
+    font-weight: bold;
+    position: relative;
+    text-decoration: none;
+    white-space: nowrap;
+    background: $grey-90;
+
+    &.right {
+      text-align: right;
+    }
+  }
+
+  td {
+    border: 0 none;
+    color: $light-grey;
+    margin: 0;
+    vertical-align: top;
+
+    &.th-table-actions-cell {
+      border-bottom: 1px solid #d9dada;
+    }
+  }
+}

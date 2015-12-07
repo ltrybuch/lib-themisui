@@ -8,14 +8,14 @@
         </th-table-cell>
 
         <th-table-cell>
-          <a target="_blank" href="{{item.twitter}}">{{item.twitter}}</a>
+          <a target="_blank" href="{{item.twitterProfile}}">{{item.twitter}}</a>
         </th-table-cell>
       </th-table-row>
 
-
-
       <th-table-row type="actions" start-column="2">
-        Actions for {{item.name}}
+        <a target="_blank" href="{{item.twitterFollowing}}">Following</a>
+        <a target="_blank" href="{{item.twitterFollowers}}">Followers</a>
+        <a target="_blank" href="{{item.twitterLikes}}">Likes</a>
       </th-table-row>
 
     </th-table>
