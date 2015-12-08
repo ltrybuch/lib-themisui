@@ -10,3 +10,7 @@ You use `thSwitch` create and manage the On/Off buttons used, for example, in th
 ```
 <th-switch ng-model="state"></th-switch>
 ```
+Specify an optional expression to evaluate using `ng-change` and/or `ng-click`.
+```
+<th-switch ng-model="state" ng-change="someAction()"></th-switch>
+```
