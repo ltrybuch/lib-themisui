@@ -1,7 +1,7 @@
 context = describe
 describe "ThemisComponents: Directive: thModal", ->
   directive = element = scope = ModalManager = null
-  beforeEach -> undefined
+  beforeEach -> return
 
   describe "#dismiss", ->
 
