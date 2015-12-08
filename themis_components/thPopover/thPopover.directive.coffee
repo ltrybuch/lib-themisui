@@ -32,11 +32,11 @@ angular.module('ThemisComponents')
           viewRect = view[0].getBoundingClientRect()
 
           # Setup our width. If we are loading set a sensible default.
-          maxWidth = window.innerWidth - minInset*3
+          maxWidth = window.innerWidth - minInset * 3
           viewWidth = if $scope.loaded then Math.min maxWidth, viewRect.width else 200
 
           # Assuming no window bounds where would we like to be?
-          viewGoalLeft = anchorRect.left + anchorRect.width/2 - viewWidth/2 - arrowOffset
+          viewGoalLeft = anchorRect.left + anchorRect.width / 2 - viewWidth / 2 - arrowOffset
 
           # Top boundry
           top = anchorRect.top + anchorRect.height + 10
@@ -46,7 +46,7 @@ angular.module('ThemisComponents')
           viewLeft = Math.max minLeft, viewGoalLeft
 
           # Enforce right boundary.
-          minRight = window.innerWidth - viewWidth - minInset*3
+          minRight = window.innerWidth - viewWidth - minInset * 3
           viewLeft = Math.min minRight, viewGoalLeft if viewGoalLeft > 0
 
           # Get height of the view, as set by user, if set
@@ -66,7 +66,7 @@ angular.module('ThemisComponents')
           # Position the arrow
           arrow.css
             top: "#{ top }px"
-            left: "#{ anchorRect.left + anchorRect.width/2 - arrowOffset }px"
+            left: "#{ anchorRect.left + anchorRect.width / 2 - arrowOffset }px"
 
       $scope.$on 'thPopover.dismiss', ->
         overlay?.remove()

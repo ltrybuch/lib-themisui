@@ -32,4 +32,3 @@ describe 'ThemisComponents: Directive: thLazy', ->
   it 'should request template', ->
     httpBackend.flush()
     httpBackend.expectGET '/template.html'
-

@@ -3,7 +3,7 @@ angular.module('ThemisComponents')
     modals = []
 
     show = ({path, name, params, context} = {}) ->
-      path ?= ""; name ?= path; params ?= ""; context ?= {}; # set defaults
+      path ?= ""; name ?= path; params ?= ""; context ?= {} # set defaults
 
       deferred = $q.defer()
       modalPromise = $http(url: path, method: "GET", params: params)

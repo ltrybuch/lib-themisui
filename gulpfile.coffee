@@ -3,6 +3,7 @@ gulp = require 'gulp'
 path = require 'path'
 sass = require 'gulp-sass'
 rename = require 'gulp-rename'
+coffeelint = require 'gulp-coffeelint'
 
 gulp.task 'default', ->
   console.log """
@@ -47,6 +48,14 @@ gulp.task 'docs-examples-style', ->
     .pipe rename('examples.css')
     .pipe gulp.dest path.join('public', 'build')
 
-gulp.task 'docs-watch', ['docs-watchify', 'docs-style', 'docs-examples-style'], ->
+gulp.task 'docs-lint', ->
+  gulp
+    .src ['./themis_components/**/*.coffee', './public/javascript/**/*.coffee']
+    .pipe coffeelint()
+    .pipe coffeelint.reporter()
+
+gulp.task 'docs-watch', ['docs-watchify', 'docs-style', 'docs-examples-style', 'docs-lint'], ->
+  gulp.watch ['public/javascript/**/*.coffee', 'themis_components/**/*.coffee'], ['docs-lint']
   gulp.watch 'themis_components/**/*.scss', ['docs-style', 'docs-examples-style']
   gulp.watch 'public/**/*.scss', ['docs-style']
+

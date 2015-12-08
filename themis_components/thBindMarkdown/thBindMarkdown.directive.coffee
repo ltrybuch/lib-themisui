@@ -29,13 +29,13 @@ marked.setOptions
     Prism.highlight(code, prismHelper.grammar(language))
 
 angular.module('ThemisComponents')
-    .directive "thBindMarkdown", ->
-        restrict: "A"
-        link: ($scope, element, attributes) ->
-            $scope.$watch attributes.thBindMarkdown, (newMarkdownText) ->
-                return unless newMarkdownText?
+  .directive "thBindMarkdown", ->
+    restrict: "A"
+    link: ($scope, element, attributes) ->
+      $scope.$watch attributes.thBindMarkdown, (newMarkdownText) ->
+        return unless newMarkdownText?
 
-                markdownHtml = marked(newMarkdownText)
-                markdownHtml = prismHelper.prepareCodeBlocks(markdownHtml)
-                element.html(markdownHtml)
-                Prism.highlightAll()
+        markdownHtml = marked(newMarkdownText)
+        markdownHtml = prismHelper.prepareCodeBlocks(markdownHtml)
+        element.html(markdownHtml)
+        Prism.highlightAll()

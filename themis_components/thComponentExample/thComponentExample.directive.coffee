@@ -43,17 +43,28 @@ angular.module('ThemisComponents')
 
           exampleFrame.contentWindow.document.addEventListener "DOMSubtreeModified", ->
             $timeout ->
-              scrollingElement = exampleFrame.ownerDocument.scrollingElement.querySelector '.component-details-view'
+              scrollingElement = exampleFrame
+                                  .ownerDocument
+                                  .scrollingElement
+                                  .querySelector '.component-details-view'
               scroll = scrollingElement.scrollTop
               exampleFrame.style.height = '0px'
-              exampleFrame.style.height = exampleFrame.contentWindow.document.body.scrollHeight + 10 + 'px'
+              exampleFrame.style.height = exampleFrame
+                                            .contentWindow
+                                            .document
+                                            .body
+                                            .scrollHeight + 10 + 'px'
               scrollingElement.scrollTop = scroll
             , 100
 
           exampleFrame.style.height = '0px'
           $timeout ->
             $scope.mode = 'example'
-            exampleFrame.style.height = exampleFrame.contentWindow.document.body.scrollHeight + 10 + 'px'
+            exampleFrame.style.height = exampleFrame
+                                          .contentWindow
+                                          .document
+                                          .body
+                                          .scrollHeight + 10 + 'px'
           , 1500
 
           $timeout -> Prism.highlightAll()
