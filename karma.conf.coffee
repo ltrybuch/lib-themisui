@@ -17,11 +17,10 @@ module.exports = (config) ->
         'http://code.jquery.com/jquery-2.1.4.js'
         'index.coffee'
         'node_modules/angular-mocks/angular-mocks.js'
-        'themis_components/**/*.mock.coffee'
         'themis_components/**/*.spec.coffee'
         'spec_helper/compileDirective.coffee'
         {
-            pattern: 'themis_components/**/*.{directive|service}.coffee'
+            pattern: 'themis_components/**/*.+(directive|service).coffee'
             watched: true
             included: false
             served: false
@@ -38,6 +37,7 @@ module.exports = (config) ->
     # available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
         'index.coffee' : ['browserify']
+        'themis_components/**/*.coffee': ['coffeelint']
         'themis_components/**/*.mock.coffee' : ['coffee']
         'themis_components/**/*.spec.coffee' : ['coffee']
         'spec_helper/*.coffee' : ['coffee']
@@ -107,3 +107,12 @@ module.exports = (config) ->
         { type: 'lcovonly', subdir: 'report-lcov' }
         { type: 'text', subdir: '.', file: 'text.txt' }
       ]
+
+    coffeelint:
+      onStart: true
+      onChange: true
+      options: './coffeelint.json'
+      reporter:
+        type: 'default'
+        options:
+          colorize: true

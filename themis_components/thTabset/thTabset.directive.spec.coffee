@@ -4,11 +4,13 @@ describe 'ThemisComponents: Directive: thTabset', ->
     <div th-tabset>
       <div th-tab name="Tab One">
         <h4>Tab One</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+           eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       </div>
       <div th-tab name="Tab One">
         <h4>Tab One</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+           eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       </div>
     </div>
   """
@@ -43,4 +45,3 @@ describe 'ThemisComponents: Directive: thTabset', ->
     element.find('.th-tab-bar a').last().click()
     expect(element.find('.th-tab-bar a').first().hasClass('active')).toBe false
     expect(element.find('.th-tab-bar a').last().hasClass('active')).toBe true
-

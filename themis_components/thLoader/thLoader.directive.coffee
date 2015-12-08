@@ -35,5 +35,3 @@ angular.module('ThemisComponents')
             @visible = no
 
       return
-
-

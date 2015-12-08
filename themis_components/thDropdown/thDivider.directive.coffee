@@ -4,5 +4,3 @@ angular.module("ThemisComponents")
     replace: true
     scope: {}
     template: require('./thDivider.template.html')
-
-

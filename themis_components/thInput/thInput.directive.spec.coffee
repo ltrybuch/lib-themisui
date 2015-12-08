@@ -6,7 +6,11 @@ describe 'thInput', ->
   context 'with complete example', ->
     beforeEach ->
       element = compileDirective("""
-        <th-input type="text" name="nickname" value="Steve-o" placeholder="Enter your nickname"></th-input>
+        <th-input type="text"
+                  name="nickname"
+                  value="Steve-o"
+                  placeholder="Enter your nickname">
+        </th-input>
       """).element
 
     it "removes the icon element when the icon attribute is not specified", ->

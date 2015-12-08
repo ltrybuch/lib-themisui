@@ -1,7 +1,7 @@
 # https://www.foo.com:3030/some/deep/page?foo=bar => /some/deep/page
 pathFromUrl = (url) ->
-  parser = document.createElement('a');
-  parser.href = url;
+  parser = document.createElement('a')
+  parser.href = url
   parser.pathname
 
 # Retrieve component name from URL, taking the base path into consideration

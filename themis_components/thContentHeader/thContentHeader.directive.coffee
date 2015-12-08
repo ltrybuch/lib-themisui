@@ -5,4 +5,4 @@ angular.module('ThemisComponents')
       title: "@"
     transclude: true
     controllerAs: 'thContentHeader'
-    template: require './thContentHeader.template.html' 
+    template: require './thContentHeader.template.html'

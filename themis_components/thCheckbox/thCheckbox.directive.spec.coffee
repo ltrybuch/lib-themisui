@@ -44,4 +44,3 @@ describe 'ThemisComponents: Directive: thCheckbox', ->
     element.triggerHandler 'click'
     expect(element.hasClass('checked')).toBe false
     expect(scope.checked).toBe false
-
