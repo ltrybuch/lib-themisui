@@ -13,8 +13,3 @@ angular.module("ThemisComponents")
           require './thItem.link.template.html'
         else
           require './thItem.action.template.html'
-
-
-
-
-

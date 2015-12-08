@@ -1,7 +1,7 @@
 context = describe
 describe "ThemisComponents: Directive: thModal", ->
   directive = element = scope = ModalManager = null
-  beforeEach ->
+  beforeEach -> return
 
   describe "#dismiss", ->
 
@@ -26,5 +26,3 @@ describe "ThemisComponents: Directive: thModal", ->
       spyOn(ModalManager, "confirm")
       ctrl.confirm()
       expect(ModalManager.confirm).toHaveBeenCalled()
-
-
