@@ -1,10 +1,18 @@
 <html ng-app="thDemo" style="height: 200px">
-  <body ng-controller="DemoController as demo" style="font-size: 13px;">
+  <body ng-controller="DemoController as demo" style="font-size: 13px; padding-right: 0; padding-left: 0;">
     <th-table delegate="demo.tableDelegate">
 
       <th-table-row type="cells">
         <th-table-cell>
+          1
+        </th-table-cell>
+
+        <th-table-cell>
           {{item.name}}
+        </th-table-cell>
+
+        <th-table-cell>
+          <div style="text-align: right">$123,553.70</div>
         </th-table-cell>
 
         <th-table-cell>

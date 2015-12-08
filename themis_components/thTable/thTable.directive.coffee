@@ -5,7 +5,7 @@ angular.module 'ThemisComponents'
       delegate: '='
     bindToController: true
     controllerAs: 'thTable'
-    controller: ->
+    controller: -> return
     compile: (element, attrs, transclude) ->
       table = new Table element
       table.clear()

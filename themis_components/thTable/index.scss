@@ -70,4 +70,28 @@ th-table {
   tr.th-table-hover-row {
     background: #fafdff;
   }
+
+  .th-table-pagination {
+    float: right;
+    font-weight: bold;
+    padding: 6px 20px 6px 0px;
+
+    .th-table-pagination-link {
+      margin: 16px 8px;
+      cursor: pointer;
+    }
+
+    .th-table-pagination-inactive-link {
+      color: $light-grey;
+      cursor: initial;
+    }
+
+    .th-table-pagination-icon-right {
+      margin-left: 6px;
+    }
+
+    .th-table-pagination-icon-left {
+      margin-right: 6px;
+    }
+  }
 }
