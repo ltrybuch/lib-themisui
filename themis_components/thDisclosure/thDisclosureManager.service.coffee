@@ -4,7 +4,9 @@ angular.module 'ThemisComponents'
 
     onToggle = (name, handler) -> handlerMap[name] = handler
 
-    toggle = (name) -> (handlerMap[name] ? ->)()
+    toggle = (name) -> (handlerMap[name] ? -> return)()
+
+    v = !2
 
     return {
       onToggle

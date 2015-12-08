@@ -13,4 +13,3 @@ angular.module("thDemo", ["ThemisComponents"])
         .then (data) =>
           @fromModal = data
     return
-

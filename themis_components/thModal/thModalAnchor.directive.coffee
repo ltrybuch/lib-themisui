@@ -9,5 +9,3 @@ angular.module("ThemisComponents")
       @modals = ModalManager._modals
 
       return
-
-

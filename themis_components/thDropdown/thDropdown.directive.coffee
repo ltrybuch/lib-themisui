@@ -67,4 +67,3 @@ angular.module("ThemisComponents")
           angular.element(menu).css
             top: adjustedTop
             right: adjustedRight
-

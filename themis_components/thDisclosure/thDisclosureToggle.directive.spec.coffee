@@ -5,7 +5,11 @@ describe "ThemisComponents: Directive: thDisclosureToggle", ->
   getFirstChild = (element) -> angular.element element.children()[0]
 
   beforeEach ->
-    element = compileDirective("""<th-disclosure-toggle name="unique-id">Toggle</th-disclosure-toggle>""").element
+    element = compileDirective("""
+      <th-disclosure-toggle name="unique-id">
+        Toggle
+      </th-disclosure-toggle>
+    """).element
 
   context "when in default state (disabled)", ->
     it "renders an <a> element", ->
@@ -16,7 +20,7 @@ describe "ThemisComponents: Directive: thDisclosureToggle", ->
       expect(element.find('a span').hasClass("fa fa-caret-right")).toBe true
 
     it "transcludes its children", ->
-      expect(element.find('a ng-transclude').text()).toEqual "Toggle"
+      expect(element.find('a ng-transclude').text().trim()).toEqual "Toggle"
 
   context "when enabled", ->
     beforeEach ->

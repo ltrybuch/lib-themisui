@@ -2,11 +2,11 @@ angular.module('thDemo', ['ThemisComponents'])
   .controller "DemoController", ($http) ->
     @subscription = {}
     @options = [
-      { name: "Angular", value: "angular" }
-      { name: "React", value: "react" }
-      { name: "Ember", value: "ember" }
-      { name: "jQuery", value: "jquery" }
-      { name: "All", value: "all" }
+      {name: "Angular", value: "angular"}
+      {name: "React", value: "react"}
+      {name: "Ember", value: "ember"}
+      {name: "jQuery", value: "jquery"}
+      {name: "All", value: "all"}
     ]
     @completed = {}
     @submit = (submission) ->

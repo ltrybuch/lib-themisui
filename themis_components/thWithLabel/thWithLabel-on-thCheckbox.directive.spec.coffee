@@ -5,7 +5,9 @@ describe 'withLabel', ->
 
   context "with th-checkbox", ->
     beforeEach ->
-      element = compileDirective("""<th-checkbox with-label="checkbox name"></th-checkbox>""").element
+      element = compileDirective("""
+        <th-checkbox with-label="checkbox name"></th-checkbox>
+      """).element
 
     it "appends inline label instead of prepends label", ->
       expect(element.next().is("span.inline.label-text")).toBe true

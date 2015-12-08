@@ -4,7 +4,9 @@ describe "ThemisComponents: Directive: thDropdown", ->
 
   context "with default example", ->
     beforeEach ->
-      element = compileDirective("""<th-dropdown name="button"></th-dropdown>""").element
+      element = compileDirective("""
+        <th-dropdown name="button"></th-dropdown>
+      """).element
 
     it "is wrapped in a <div> with class 'button-dropdown'", ->
       expect(element.hasClass("button-dropdown")).toBe true
@@ -28,12 +30,16 @@ describe "ThemisComponents: Directive: thDropdown", ->
 
   context "with type", ->
     it "adds type name as a class to button", ->
-      element = compileDirective("""<th-dropdown name="button" type="standard"></th-dropdown>""").element
+      element = compileDirective("""
+        <th-dropdown name="button" type="standard"></th-dropdown>
+      """).element
       expect(element.find("a").first().hasClass("standard")).toBe true
 
   context "with link", ->
     beforeEach ->
-      element = compileDirective("""<th-dropdown list="[{name:'link', href:'/example/link'}]"></th-dropdown>""").element
+      element = compileDirective("""
+        <th-dropdown list="[{name:'link', href:'/example/link'}]"></th-dropdown>
+      """).element
 
     context "when button is clicked", ->
       beforeEach ->
@@ -54,7 +60,10 @@ describe "ThemisComponents: Directive: thDropdown", ->
 
   context "link with an icon", ->
     beforeEach ->
-      element = compileDirective("""<th-dropdown list="[{name:'link', href:'/example/link', icon: 'users'}]"></th-dropdown>""").element
+      element = compileDirective("""
+        <th-dropdown list="[{name:'link', href:'/example/link', icon: 'users'}]">
+        </th-dropdown>
+      """).element
     context "when button is clicked", ->
       beforeEach ->
         element.find('a').first().triggerHandler 'click'
@@ -64,7 +73,10 @@ describe "ThemisComponents: Directive: thDropdown", ->
   context "with ng-click", ->
     beforeEach ->
       scope = {}; scope.action = -> alert 'response'
-      template = """<th-dropdown name="Button" list="[{name:'action', ngClick: action}]"></th-dropdown>"""
+      template = """
+        <th-dropdown name="Button" list="[{name:'action', ngClick: action}]">
+        </th-dropdown>
+      """
       element = compileDirective(template, scope).element
 
     context "when button is clicked", ->
@@ -84,7 +96,10 @@ describe "ThemisComponents: Directive: thDropdown", ->
   context "action with an icon", ->
     beforeEach ->
       scope = {}; scope.action = -> alert 'reponse'
-      template = """<th-dropdown name="Button" list="[{name:'action', ngClick: action, icon: 'users'}]"></th-dropdown>"""
+      template = """
+        <th-dropdown name="Button" list="[{name:'action', ngClick: action, icon: 'users'}]">
+        </th-dropdown>
+      """
       element = compileDirective(template, scope).element
     context "when button is clicked", ->
       beforeEach ->
@@ -94,7 +109,9 @@ describe "ThemisComponents: Directive: thDropdown", ->
 
   context "when divider is passed in", ->
     beforeEach ->
-      element = compileDirective("""<th-dropdown name="Button" list="[{divider:true}]"></th-dropdown>""").element
+      element = compileDirective("""
+        <th-dropdown name="Button" list="[{divider:true}]"></th-dropdown>
+      """).element
       element.find('a').first().triggerHandler 'click'
 
     it "displays a menu with items", ->

@@ -5,7 +5,7 @@ angular.module('ThemisComponents')
     initializeMessagesForContext = (context) ->
       messages[context] = [] unless messages[context]?
 
-    showMessage = (context, message, timeout=2000) ->
+    showMessage = (context, message, timeout = 2000) ->
       initializeMessagesForContext context
 
       messages[context].push
