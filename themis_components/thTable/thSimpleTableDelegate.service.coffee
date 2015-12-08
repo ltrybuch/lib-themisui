@@ -44,7 +44,11 @@ angular.module 'ThemisComponents'
 
       generateCellsRow: (cellsRow) ->
         template = """
-          <tr ng-repeat-start="{{objectReference}} in thTable.delegate.data">
+          <tr class="th-table-cells-row"
+              ng-repeat-start="{{objectReference}} in thTable.delegate.data"
+              ng-mouseover="hover = true"
+              ng-mouseleave="hover = false"
+              ng-class="{'th-table-hover-row': hover}">
             {{cells}}
           </tr>
         """
@@ -60,7 +64,15 @@ angular.module 'ThemisComponents'
           cell: cell.innerHTML
 
       generateActionsRow: (actionsRow) ->
-        template = "<tr ng-repeat-end>{{actions}}</tr>"
+        template = """
+          <tr class="th-table-actions-row"
+              ng-repeat-end
+              ng-mouseover="hover = true"
+              ng-mouseleave="hover = false"
+              ng-class="{'th-table-hover-row': hover}">
+            {{actions}}
+          </tr>
+        """
         objectReference = @getObjectReference actionsRow
         startColumn = parseInt(actionsRow.getAttribute('start-column')) || 1
         actions = ""
