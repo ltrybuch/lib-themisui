@@ -44,9 +44,10 @@ describe 'ThemisComponents: Directive: thCheckbox', ->
   describe 'when template specifies callback', ->
     beforeEach ->
       compileCheckboxDirective(
-        validTemplate, 
-        false, 
-        () ->
+        validTemplate,
+        false,
+        ->
+          return
         )
 
     it 'should trigger callback', ->

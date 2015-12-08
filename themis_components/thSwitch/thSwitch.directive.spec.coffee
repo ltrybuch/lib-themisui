@@ -46,7 +46,8 @@ describe 'ThemisComponents: Directive: thSwitch', ->
       compileSwitchDirective(
         validTemplate,
         off,
-        () ->
+        ->
+          return
         )
 
     it 'should trigger callback', ->
