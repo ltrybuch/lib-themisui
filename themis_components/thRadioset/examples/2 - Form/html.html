@@ -1,0 +1,17 @@
+<html ng-app="thDemo">
+  <body ng-controller="DemoCtrl as demo" style="width: 400px;">
+    <form action="/echo" method="POST">
+      Name:
+      <th-input type="text" name="name" icon="user"></th-input>
+      <br>
+      Favorite Pet:
+
+      <th-radio-button-set name="pet" ng-model="demo.pet">
+        <th-radio-button name="blah" value="watson">Watty</th-radio-button>
+        <th-radio-button value="willy">Willy</th-radio-button>
+      </th-radio-button-set>
+      <br><br>
+      <th-button submit>Submit</th-button>
+    </form>
+  </body>
+</html>
