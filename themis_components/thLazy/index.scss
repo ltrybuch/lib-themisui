@@ -1,4 +1,19 @@
-.th-lazy-loader {
-  padding: 1rem;
+.th-error-container {
+  padding: 15px 0;
   text-align: center;
+  width: 100%;
+  vertical-align: middle;
+  font-size: 17px;
+  color: $medium-grey;
+
+  .th-error-message {
+    padding: 5px 15px 7px 15px;
+    border-bottom: 3px solid $red;
+    display: inline-block;
+  }
+
+  i {
+    color: $medium-grey;
+    display: block;
+  }
 }

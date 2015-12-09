@@ -1,4 +1,6 @@
 <ng-include onload="loadingComplete()" src="src"></ng-include>
-<div class="th-lazy-loader" ng-if="!loaded">
-  <i class="fa fa-spin fa-refresh"></i> Loading&#8230;
+<th-loader trigger="!loadError && !loaded" size="small"></th-loader>
+<div class="th-error-container" ng-if="loadError">
+  <i class="fa fa-exclamation-triangle fa-3x"></i>
+  <span class="th-error-message" ng-show="loadError">{{errorMessage}}</span>
 </div>
