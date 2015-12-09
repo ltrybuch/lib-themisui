@@ -6,7 +6,7 @@ If you want to lazy load some content `th-lazy` is the directive for you. It is 
 
 `th-lazy` accepts a:
 - `src` URL of where it will fetch its inner content from.
-- `error-message` a message to be displayed if there is an error loading the template. _if_ nothing is passed in then defaults to "There was a problem loading your page"
+- `error-message` a message to be displayed if there is an error loading the template. _if_ nothing is passed in then defaults to "Missing View. Try reloading or, contact support."
 
 
 ## Usage
