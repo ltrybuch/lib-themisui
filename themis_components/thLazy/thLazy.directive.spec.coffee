@@ -59,7 +59,7 @@ describe 'ThemisComponents: Directive: thLazy', ->
 
     it "shows the default error message", ->
       expect(element.find(".th-error-message").text()).toMatch(
-        "There was a problem loading your page"
+        "Missing View. Try reloading or, contact support."
       )
 
     it "hides the loader component", ->
