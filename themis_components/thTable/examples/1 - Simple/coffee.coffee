@@ -25,28 +25,17 @@ angular.module 'thDemo', ['ThemisComponents']
         twitterLikes
       }
 
-    data = celebrities.map twitterUser
+    data = celebrities
+            .map twitterUser
+            .sort (a, b) -> a.name.localeCompare b.name
 
     @tableDelegate = new SimpleTableDelegate
-      data: data.sort (a, b) -> a.name.localeCompare b.name
-
-      onSort: (header) ->
-        SimpleTableDelegate.prototype.onSort.call this, header
-
-        applySortOrder = (compareResult) ->
-          if header.sortEnabled is "ascending"
-            compareResult
-          else
-            -compareResult
-
-        @data = data.sort (a, b) ->
-          applySortOrder a[header.sortField].localeCompare b[header.sortField]
+      data: data
 
       page: 1
       pageSize: 2
       totalItems: data.length
       onChangePage: (page) ->
-        SimpleTableDelegate.prototype.onChangePage.call this, page
         console.log 'Change to page ', page
 
       headers: [

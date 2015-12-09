@@ -3,8 +3,6 @@ angular.module 'ThemisComponents'
     class SimpleTableDelegate extends TableDelegate
       constructor: (options) ->
         super options
-        if @hasValidPagination()
-          @pages
 
       pages: ->
         numPages = Math.ceil @totalItems / @pageSize
@@ -26,17 +24,38 @@ angular.module 'ThemisComponents'
 
       nextPage: ->
         if @page < @pages().length
-          @onChangePage @page + 1
+          @changePage @page + 1
 
       prevPage: ->
         if @page > 1
-          @onChangePage @page - 1
+          @changePage @page - 1
 
-      onChangePage: (page) ->
+      changePage: (page) ->
         @page = page
+        (@onChangePage or (-> return)) page
 
-      onSort: (header) ->
+      sort: (header) ->
+        return if not header.sortField
         @updateHeaderSorting header
+        (@onSort or @applyDefaultSort.bind this) header
+
+      applyDefaultSort: (header) ->
+        applySortOrder = (compareResult) ->
+          if header.sortEnabled is "ascending"
+            compareResult
+          else
+            -compareResult
+
+        compare = (a, b) ->
+          if typeof a is "number"
+            a - b
+          else
+            a.localeCompare b
+
+        @data.sort (obj1, obj2) ->
+          field1 = obj1[header.sortField]
+          field2 = obj2[header.sortField]
+          applySortOrder compare(field1, field2)
 
       updateHeaderSorting: (header) ->
         if header.sortEnabled
@@ -63,7 +82,7 @@ angular.module 'ThemisComponents'
             <tr>
               <th ng-repeat="header in thTable.delegate.headers"
                   ng-class="header.cssClasses()"
-                  ng-click="thTable.delegate.onSort(header)">
+                  ng-click="thTable.delegate.sort(header)">
                 {{header.name}}
                 <span class="th-table-sort-icon" aria-hidden="true"></span>
               </th>
@@ -144,7 +163,7 @@ angular.module 'ThemisComponents'
 
             <a class="th-table-pagination-link"
                ng-repeat="page in thTable.delegate.pages()"
-               ng-click="thTable.delegate.onChangePage(page)"
+               ng-click="thTable.delegate.changePage(page)"
                ng-class="{'th-table-pagination-inactive-link':
                             thTable.delegate.isCurrentPage(page)}">
               {{page}}
