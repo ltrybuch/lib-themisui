@@ -4,13 +4,20 @@ angular.module('ThemisComponents')
     replace: true
     template: require './thCheckbox.template.html'
     scope:
+      name: '@'
+      change: '&ngChange'
       checked: '=ngModel'
     bindToController: true
     controllerAs: 'checkbox'
-    controller: checkboxController
+    controller: ($scope, $element) ->
+      @checked = @checked ? false
 
-checkboxController = ->
-  @checked = @checked ? false
-  @toggle = -> @checked = not @checked
+      @toggle = ->
+        $scope.$apply =>
+          @checked = not @checked
+        @change() if @change?
 
-  return
+      $element.on 'click', =>
+        @toggle()
+
+      return

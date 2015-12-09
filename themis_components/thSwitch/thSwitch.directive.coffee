@@ -4,11 +4,20 @@ angular.module('ThemisComponents')
     replace: true
     template: require('./thSwitch.template.html')
     scope:
+      name: '@'
+      change: '&ngChange'
       state: '=ngModel'
     bindToController: true
     controllerAs: 'switch'
-    controller: ->
+    controller: ($scope, $element) ->
       @state = @state ? off
-      @toggle = -> @state = not @state
+
+      @toggle = ->
+        $scope.$apply =>
+          @state = not @state
+        @change() if @change?
+
+      $element.on 'click', =>
+        @toggle()
 
       return
