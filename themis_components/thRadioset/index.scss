@@ -1,49 +1,49 @@
-.th-radio-button,
-*[th-radio-button] {
-  input[type="radio"] {
-    display: none;
+.th-radio-group {
+  line-height: 2rem;
+  margin-bottom: 1.2rem;
+  
+  .th-label {
+    display: inline;
   }
-  $size: 18px;
-  $inset: 1px;
-  $border: $size / 9;
-  $font-size: 12px;
 
-  display: inline-block;
-  vertical-align: sub;
-  width: $size;
-  height: $size;
-  box-sizing: border-box;
-  font-weight: 100;
-  border-radius: $border;
-  background: #fff;
-  border: solid $border $dark-grey-4;
-  position: relative;
-  cursor: pointer;
+  .th-radio-button {
+    // text-decoration: none;
+    vertical-align: middle;
 
-  &.checked {
+    &:not(:last-child) {
+      // margin-right: 0.6rem;
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+
     i {
-      &:before {
-        max-width: $size;
-        opacity: 1;
+      @extend .fa;
+      @extend .fa-circle-o;
+      font-size: 2rem;
+      color: $grey-40;
+
+      &.checked {
+        @extend .fa-dot-circle-o;
+        color: $blue;
       }
     }
   }
+}
 
-  i {
-    position: absolute;
-    top: $inset;
-    left: $inset;
-    font-style: normal;
+.th-vertical-radio-group {
+  @extend .th-radio-group;
 
-    &:before {
-      @extend .fa;
-      content: '\f00c';
-      max-width: 0;
-      overflow: hidden;
-      opacity: 0.5;
-      transition: all 0.2s;
-      font-size: $font-size;
-      color: $dark-grey-4;
+  .th-label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .th-radio-button {
+
+    i {
+      // margin-right: 1.2rem;
     }
   }
 }

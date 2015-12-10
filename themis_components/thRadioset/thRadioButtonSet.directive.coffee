@@ -6,13 +6,17 @@ angular.module('ThemisComponents')
     controllerAs: "radioButtonSet"
     transclude: true
     template: """
-      <div>
-        {{radioButtonSet.name}}
-        <div ng-transclude></div>
-      </div>
+        <div
+          ng-class="{
+            'th-radio-group': radioButtonSet.type == 'horizontal',
+            'th-vertical-radio-group': radioButtonSet.type != 'horizontal'
+          }"
+          ng-transclude
+          ></div>
     """
     scope:
       name: '@'
+      type: '@'
       model: '=ngModel'
-    controller: ->
+    controller: ($scope) ->
       return

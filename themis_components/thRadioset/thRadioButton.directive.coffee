@@ -5,15 +5,19 @@ angular.module('ThemisComponents')
     replace: true
 
     template: """
-      <div class="th-radio-button">
+      <span class="th-radio-button">
         <input
           type="radio"
           name="{{parent.name}}"
           value="{{value}}"
           ng-model="parent.model"
           >
-        <i ng-class="{checked: {{parent.model == value}}}"></i>
-      </div>
+        <i
+          ng-class="{
+            checked: parent.model == value
+            }"
+          ></i>
+      </span>
     """
 
     scope:
@@ -22,8 +26,8 @@ angular.module('ThemisComponents')
     link: (scope, element, attrs, controller) ->
       scope.parent = controller
 
-      element.on 'click', =>
-        scope.$apply =>
-          controller.model = scope.value
+      element.on 'click', ->
+        scope.$apply ->
+          scope.parent.model = scope.value
 
       return
