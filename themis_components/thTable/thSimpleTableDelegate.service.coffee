@@ -22,10 +22,12 @@ angular.module 'ThemisComponents'
           end = @page + Math.floor maxConsecutivePages / 2
 
         if start < 3
-          return [1 .. maxConsecutivePages].concat ['...', totalPages]
+          end = Math.max maxConsecutivePages, end
+          return [1 .. end].concat ['...', totalPages]
 
         if end > totalPages - 2
-          return [1, '...'].concat [totalPages - maxConsecutivePages + 1 .. totalPages]
+          start = Math.min totalPages - maxConsecutivePages + 1, start
+          return [1, '...'].concat [start .. totalPages]
 
         return [1, '...']
                   .concat [start .. end]
