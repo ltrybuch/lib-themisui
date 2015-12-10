@@ -1,9 +1,9 @@
 angular.module('ThemisComponents')
-  .directive 'thRadioButtonSet', ->
+  .directive 'thRadioGroup', ->
     restrict: 'EA'
     replace: true
     bindToController: true
-    controllerAs: "radioButtonSet"
+    controllerAs: "radioGroup"
     transclude: true
     template: """
         <div

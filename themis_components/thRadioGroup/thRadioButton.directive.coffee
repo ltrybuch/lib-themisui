@@ -1,6 +1,6 @@
 angular.module('ThemisComponents')
   .directive "thRadioButton", ->
-    require: '^thRadioButtonSet'
+    require: '^thRadioGroup'
     restrict: "EA"
     replace: true
 
