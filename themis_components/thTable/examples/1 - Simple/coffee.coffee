@@ -8,6 +8,12 @@ angular.module 'thDemo', ['ThemisComponents']
       {name: "Paul Graham", twitter: "paulg"}
     ]
 
+    repeat = (array, times) ->
+      if times is 1
+        array
+      else
+        array.concat repeat(array, times - 1)
+
     twitterUser = (spec) ->
       {name, twitter} = spec
 
@@ -25,26 +31,55 @@ angular.module 'thDemo', ['ThemisComponents']
         twitterLikes
       }
 
-    data = celebrities
-            .map twitterUser
-            .sort (a, b) -> a.name.localeCompare b.name
+    viewObject = (object) ->
+      return {
+        selected: isSelected object
+        object
+      }
+
+    @selectedObjects = []
+
+    isSelected = (object) =>
+      if @selectedObjects.find((o) -> o is object) then true else false
+
+    @toggleSelected = (viewObject) =>
+      idx = @selectedObjects.indexOf viewObject.object
+      if idx isnt -1
+        @selectedObjects.splice idx, 1
+      else
+        @selectedObjects.push viewObject.object
+
+    data = repeat(celebrities, 5).map twitterUser
+
+    pageSize = 2
+    initialData = data
+                    .map viewObject
+                    .sort (a, b) -> a.object.name.localeCompare b.object.name
+                    .slice 0, pageSize
 
     @tableDelegate = new SimpleTableDelegate
-      data: data
+      data: initialData
 
       page: 1
-      pageSize: 2
+      pageSize: pageSize
       totalItems: data.length
-      onChangePage: (page) ->
-        console.log 'Change to page ', page
+      onChangePage: (page, next) ->
+        skip = (page - 1) * pageSize
+        next(data
+              .slice skip, skip + pageSize
+              .map viewObject
+              )
 
       headers: [
+        new TableHeader
+          name: ''
+
         new TableHeader
           name: 'Id'
 
         new TableHeader
           name: 'Name'
-          sortField: 'name'
+          sortField: 'object.name'
           sortEnabled: 'ascending'
 
         new TableHeader
@@ -53,7 +88,7 @@ angular.module 'thDemo', ['ThemisComponents']
 
         new TableHeader
           name: 'Twitter'
-          sortField: 'twitter'
+          sortField: 'object.twitter'
       ]
 
     return

@@ -4,26 +4,44 @@ angular.module 'ThemisComponents'
       constructor: (options) ->
         super options
 
+      totalPages: ->
+        Math.ceil @totalItems / @pageSize
+
       pages: ->
-        numPages = Math.ceil @totalItems / @pageSize
-        pagesArray = []
-        page = 1
-        while page <= numPages
-          pagesArray.push page
-          page++
-        pagesArray
+        maxConsecutivePages = 5
+        totalPages = @totalPages()
+
+        if totalPages <= maxConsecutivePages + 4
+          return [1 .. totalPages]
+
+        if maxConsecutivePages % 2 is 0
+          start = @page - maxConsecutivePages / 2 + 1
+          end = @page + maxConsecutivePages / 2
+        else
+          start = @page - Math.floor maxConsecutivePages / 2
+          end = @page + Math.floor maxConsecutivePages / 2
+
+        if start < 3
+          return [1 .. maxConsecutivePages].concat ['...', totalPages]
+
+        if end > totalPages - 2
+          return [1, '...'].concat [totalPages - maxConsecutivePages + 1 .. totalPages]
+
+        return [1, '...']
+                  .concat [start .. end]
+                  .concat ['...', totalPages]
 
       isLastPage: ->
-        @page is @pages().length
+        @page is @totalPages()
 
       isFirstPage: ->
         @page is 1
 
-      isCurrentPage: (page) ->
-        @page is page
+      inactivePageLink: (page) ->
+        page in [@page, '...']
 
       nextPage: ->
-        if @page < @pages().length
+        if @page < @totalPages()
           @changePage @page + 1
 
       prevPage: ->
@@ -31,8 +49,12 @@ angular.module 'ThemisComponents'
           @changePage @page - 1
 
       changePage: (page) ->
+        return if page is '...'
         @page = page
-        (@onChangePage or (-> return)) page
+        @onChangePage page, (data) =>
+          if data? then @data = data
+
+      onChangePage: (page, next) -> next()
 
       sort: (header) ->
         return if not header.sortField
@@ -52,9 +74,14 @@ angular.module 'ThemisComponents'
           else
             a.localeCompare b
 
+        getField = (object, field) ->
+          result = object
+          field.split('.').forEach (key) -> result = result[key]
+          result
+
         @data.sort (obj1, obj2) ->
-          field1 = obj1[header.sortField]
-          field2 = obj2[header.sortField]
+          field1 = getField obj1, header.sortField
+          field2 = getField obj2, header.sortField
           applySortOrder compare(field1, field2)
 
       updateHeaderSorting: (header) ->
@@ -162,10 +189,10 @@ angular.module 'ThemisComponents'
             </a>
 
             <a class="th-table-pagination-link"
-               ng-repeat="page in thTable.delegate.pages()"
+               ng-repeat="page in thTable.delegate.pages() track by $index"
                ng-click="thTable.delegate.changePage(page)"
                ng-class="{'th-table-pagination-inactive-link':
-                            thTable.delegate.isCurrentPage(page)}">
+                            thTable.delegate.inactivePageLink(page)}">
               {{page}}
             </a>
 

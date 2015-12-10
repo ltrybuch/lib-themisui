@@ -6,11 +6,14 @@ angular.module 'ThemisComponents'
     bindToController: true
     controllerAs: 'thTable'
     controller: -> return
-    compile: (element, attrs, transclude) ->
+    compile: (element, attrs) ->
       table = new Table element
       table.clear()
+
       post: (scope, element, attrs, thTable) ->
         delegate = thTable.delegate
         template = table.post delegate
-        compiledTemplate = $compile(template)(scope)
+        childScope = scope.$parent.$new false, scope
+        childScope.thTable = scope.thTable
+        compiledTemplate = $compile(template) childScope
         element.append compiledTemplate
