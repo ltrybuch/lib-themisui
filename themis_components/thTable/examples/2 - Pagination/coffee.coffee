@@ -25,7 +25,7 @@ angular.module 'thDemo', ['ThemisComponents']
     data = fixtures 102
     initialData = data.slice 0, pageSize
 
-    @tableDelegate = new SimpleTableDelegate
+    @tableDelegate = SimpleTableDelegate {
       data: initialData
 
       currentPage: 1
@@ -43,5 +43,6 @@ angular.module 'thDemo', ['ThemisComponents']
         new TableHeader
           name: 'Last Name'
       ]
+    }
 
     return

@@ -86,7 +86,7 @@ angular.module 'thDemo', ['ThemisComponents']
 
     initialData = getDataPage sortByHeader(getCurrentSortHeader()), 1
 
-    @tableDelegate = new SimpleTableDelegate {
+    @tableDelegate = SimpleTableDelegate {
       data: initialData
       headers
       onSort

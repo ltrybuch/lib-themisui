@@ -32,7 +32,7 @@ angular.module 'thDemo', ['ThemisComponents']
   .controller "DemoController", (SimpleTableDelegate, TableHeader) ->
     data = fixtures().sort (a, b) -> a.name.localeCompare b.name
 
-    @tableDelegate = new SimpleTableDelegate
+    @tableDelegate = SimpleTableDelegate {
       data: data
 
       headers: [
@@ -49,5 +49,6 @@ angular.module 'thDemo', ['ThemisComponents']
           name: 'Twitter'
           sortField: 'twitter'
       ]
+    }
 
     return
