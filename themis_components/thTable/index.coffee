@@ -4,7 +4,6 @@ require './thTableRow.directive'
 
 require './thSimpleTableDelegate.service'
 require './thTable.service'
-require './thTableDelegate.service'
 require './thTableHeader.service'
 require './thTablePagination.service'
 require './thTableSort.service'

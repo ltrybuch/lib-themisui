@@ -1,5 +1,5 @@
 angular.module 'ThemisComponents'
-.factory 'SimpleTableDelegate', (TableDelegate, TablePagination, TableSort, $interpolate) ->
+.factory 'SimpleTableDelegate', (TablePagination, TableSort) ->
   SimpleTableDelegate = (options) ->
     {
       data
@@ -46,11 +46,17 @@ angular.module 'ThemisComponents'
 
     post = (rows) ->
       checkValidRows rows
-      template = "<table>{{thead}}{{tbody}}</table>{{pagination}}"
-      $interpolate(template)
-        thead: generateHeaders()
-        tbody: generateBody rows
-        pagination: generatePagination()
+      thead = generateHeaders()
+      tbody = generateBody rows
+      pagination = generatePagination()
+      template = """
+        <table>
+          #{thead}
+          #{tbody}
+        </table>
+
+        #{pagination}
+      """
 
     generateHeaders = ->
       return "" unless (headers or []).length > 0
@@ -68,77 +74,79 @@ angular.module 'ThemisComponents'
       """
 
     generateBody = (rows) ->
-      template = "<tbody>{{cellsRow}}{{actionsRow}}</tbody>"
       numColumns = childrenArray(rows['cells']).length
-      $interpolate(template)
-        cellsRow: generateCellsRow rows['cells'], rows['actions']?
-        actionsRow: generateActionsRow rows['actions'], numColumns
+      cellsRow = generateCellsRow rows['cells'], rows['actions']?
+      actionsRow = generateActionsRow rows['actions'], numColumns
+      template = """
+        <tbody>
+          #{cellsRow}
+          #{actionsRow}
+        </tbody>
+      """
 
     generateCellsRow = (cellsRow, hasActionsRow) ->
-      template = """
-        <tr class="th-table-cells-row"
-            {{ngRepeat}}="{{objectReference}} in thTable.delegate.getData()"
-            ng-mouseover="hover = true"
-            ng-mouseleave="hover = false"
-            ng-class="{'th-table-hover-row': hover}">
-          {{cells}}
-        </tr>
-      """
       ngRepeat = if hasActionsRow then "ng-repeat-start" else "ng-repeat"
       objectReference = getObjectReference cellsRow
       cells = childrenArray(cellsRow)
                 .map (cell) -> generateCell cell
                 .join ''
-      $interpolate(template) {objectReference, cells, ngRepeat}
+      template = """
+        <tr class="th-table-cells-row"
+            #{ngRepeat}="#{objectReference} in thTable.delegate.getData()"
+            ng-mouseover="hover = true"
+            ng-mouseleave="hover = false"
+            ng-class="{'th-table-hover-row': hover}">
+          #{cells}
+        </tr>
+      """
 
     generateCell = (cell) ->
-      template = "<td>{{cell}}</td>"
-      $interpolate(template)
-        cell: cell.innerHTML
+      template = """
+        <td>#{cell.innerHTML}</td>
+      """
 
     generateActionsRow = (actionsRow, numColumns) ->
       return "" unless actionsRow?
+
+      startColumn = parseInt(actionsRow.getAttribute('start-column')) || 1
+      colspan = numColumns - startColumn + 1
+      actions = [1 ... startColumn]
+                  .map -> """<td class="th-table-actions-cell"></td>"""
+                  .join ''
+                  .concat """
+                    <td class="th-table-actions-cell" colspan=#{colspan}>
+                      #{actionsRow.innerHTML}
+                    </td>
+                  """
+
       template = """
         <tr class="th-table-actions-row"
             ng-repeat-end
             ng-mouseover="hover = true"
             ng-mouseleave="hover = false"
             ng-class="{'th-table-hover-row': hover}">
-          {{actions}}
+          #{actions}
         </tr>
       """
-      objectReference = getObjectReference actionsRow
-
-      startColumn = parseInt(actionsRow.getAttribute('start-column')) || 1
-      if startColumn > numColumns
-        throw new Error "start-column cannot be bigger " + \
-                        "than the number of cells"
-
-      colspan = numColumns - startColumn + 1
-
-      actions = ""
-      while startColumn > 1
-        actions += """<td class="th-table-actions-cell"></td>"""
-        startColumn--
-      actions += """
-        <td class="th-table-actions-cell" colspan=#{colspan}>
-          #{actionsRow.innerHTML}
-        </td>
-      """
-
-      $interpolate(template) {objectReference, actions}
 
     checkValidRows = (rows) ->
       if not rows["cells"]?
         throw new Error "A simple table needs a cells row."
 
-      cellsRow = rows['cellsRow']
-      actionsRow = rows['actionsRow']
+      cellsRow = rows['cells']
+      actionsRow = rows['actions']
 
       if actionsRow? and
          getObjectReference(actionsRow) != getObjectReference(cellsRow)
         throw new Error "object-reference must be the same" + \
                         "for the actions and cells rows."
+
+      if actionsRow?
+        startColumn = parseInt(actionsRow.getAttribute('start-column')) || 1
+        numColumns = childrenArray(cellsRow).length
+        if startColumn > numColumns
+          throw new Error "start-column cannot be bigger " + \
+                          "than the number of cells"
 
     childrenArray = (node) ->
       arr = []
