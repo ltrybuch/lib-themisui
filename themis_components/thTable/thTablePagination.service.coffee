@@ -5,17 +5,18 @@ TablePagination = (options) ->
   {
     currentPage
     pageSize
-    totalItems
     onChangePage
-    updateData
   } = options
 
+  totalItems = 0
   dotdotdot = '...'
   maxConsecutivePages = 5
 
   totalPages = -> Math.ceil totalItems / pageSize
 
   pages = ->
+    return [] unless totalItems > 0
+
     lastPage = totalPages()
     if totalPages <= maxConsecutivePages + 4
       return [1 .. lastPage]
@@ -56,17 +57,15 @@ TablePagination = (options) ->
     if currentPage > 1
       goToPage currentPage - 1
 
-  onChangePage = onChangePage ? -> return
-
   goToPage = (page) ->
     return if page is dotdotdot
     currentPage = page
-    onChangePage currentPage, updateData, pageSize
+    onChangePage currentPage, pageSize
 
   generatePagination = ->
     return "" unless hasValidPagination options
     template = """
-      <div class="th-table-pagination">
+      <div class="th-table-pagination" ng-if="thTable.delegate.pages().length > 0">
         <a class="th-table-pagination-link"
            ng-class="{'th-table-pagination-inactive-link': thTable.delegate.isFirstPage()}"
            ng-click="thTable.delegate.goToPrevPage()">
@@ -92,11 +91,14 @@ TablePagination = (options) ->
     """
 
   hasValidPagination = ->
-    options.currentPage? and options.pageSize? and options.totalItems?
+    options.currentPage? and options.pageSize?
 
   updatePagination = (options) ->
     totalItems = options.totalItems ? totalItems
     currentPage = options.currentPage ? currentPage
+
+  getCurrentPage = -> currentPage
+  getPageSize = -> pageSize
 
   return Object.freeze {
     pages
@@ -108,4 +110,6 @@ TablePagination = (options) ->
     goToPage
     generatePagination
     updatePagination
+    getCurrentPage
+    getPageSize
   }

@@ -1,15 +1,32 @@
 angular.module 'ThemisComponents'
-.factory 'SimpleTableDelegate', (TablePagination, TableSort) ->
+.factory 'SimpleTableDelegate', (TablePagination) ->
   SimpleTableDelegate = (options) ->
     {
-      data
       headers
-      onSort
-      currentPage, pageSize, totalItems, onChangePage
+      currentPage
+      pageSize
+      fetchData
     } = options
 
-    updateDataFromPagination = (options) ->
-      data = options.data ? data
+    data = []
+    loading = false
+    error = false
+
+    currentSortHeader = (headers ? []).find (header) -> header.isSortActive()
+
+    triggerFetchData = (currentPage, pageSize, currentSortHeader) ->
+      loading = true
+      error = false
+      fetchData currentPage, pageSize, currentSortHeader, (err, newData, totalItems) ->
+        loading = false
+        if err
+          error = err
+        else
+          data = newData
+          updatePagination {totalItems} if totalItems?
+
+    onChangePage = (newCurrentPage, newPageSize) ->
+      triggerFetchData newCurrentPage, newPageSize, currentSortHeader
 
     {
       pages
@@ -21,29 +38,31 @@ angular.module 'ThemisComponents'
       goToPage
       generatePagination
       updatePagination
+      getCurrentPage
+      getPageSize
     } = TablePagination {
       currentPage
       pageSize
-      totalItems
       onChangePage
-      updateData: updateDataFromPagination
-    }
-
-    updateDataFromSort = (options) ->
-      data = options.data ? data
-      updatePagination {totalItems: options.totalItems} if options.totalItems?
-
-    {sort} = TableSort {
-      data
-      headers
-      onSort
-      updateData: updateDataFromSort
     }
 
     sortData = (header) ->
+      return if not header.sortField
       updatePagination {currentPage: 1}
-      sort data, header
+      updateHeaderSorting header
+      triggerFetchData getCurrentPage(), getPageSize(), currentSortHeader
 
+    updateHeaderSorting = (newSortHeader) ->
+      if newSortHeader.isSortActive()
+        newSortHeader.toggleSortDirection()
+      else
+        newSortHeader.activateSort()
+        currentSortHeader.deactivateSort()
+        currentSortHeader = newSortHeader
+
+    ###
+    # This does blah
+    ###
     post = (rows) ->
       checkValidRows rows
       thead = generateHeaders()
@@ -63,7 +82,7 @@ angular.module 'ThemisComponents'
       template = """
         <thead>
           <tr>
-            <th ng-repeat="header in thTable.delegate.headers"
+            <th ng-repeat="header in thTable.delegate.headers track by $index"
                 ng-class="header.cssClasses()"
                 ng-click="thTable.delegate.sortData(header)">
               {{header.name}}
@@ -157,6 +176,10 @@ angular.module 'ThemisComponents'
       row.getAttribute('object-reference') || 'item'
 
     getData = -> data
+    getError = -> error
+    isLoading = -> loading
+
+    triggerFetchData getCurrentPage(), getPageSize(), currentSortHeader
 
     return Object.freeze {
       post
@@ -170,4 +193,6 @@ angular.module 'ThemisComponents'
       goToNextPage
       goToPrevPage
       goToPage
+      getError
+      isLoading
     }

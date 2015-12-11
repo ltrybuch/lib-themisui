@@ -4,7 +4,7 @@ fixtures = ->
     {id: 2, name: "Dan Abramov", twitter: "dan_abramov"}
     {id: 3, name: "Todd Motto",  twitter: "toddmotto"}
     {id: 4, name: "Yehuda Katz", twitter: "wycats"}
-    {id: 5, name: "Paul Graham", twitter: "paulg"}
+    {id: 10, name: "Paul Graham", twitter: "paulg"}
   ]
 
   twitterUser = (spec) ->
@@ -29,26 +29,30 @@ fixtures = ->
 
 
 angular.module 'thDemo', ['ThemisComponents']
-  .controller "DemoController", (SimpleTableDelegate, TableHeader) ->
-    data = fixtures().sort (a, b) -> a.name.localeCompare b.name
+  .controller "DemoController", (SimpleTableDelegate, TableHeader, TableSort) ->
+    data = fixtures()
+    {sort} = TableSort
 
     @tableDelegate = SimpleTableDelegate {
-      data: data
-
       headers: [
-        new TableHeader
+        TableHeader
           name: 'Id'
           sortField: 'id'
 
-        new TableHeader
+        TableHeader
           name: 'Name'
           sortField: 'name'
-          sortEnabled: 'ascending'
+          sortActive: true
+          sortDirection: 'ascending'
 
-        new TableHeader
+        TableHeader
           name: 'Twitter'
           sortField: 'twitter'
       ]
+
+      fetchData: (page, pageSize, sortHeader, updateData) ->
+        sortedData = sort data, sortHeader
+        updateData undefined, sortedData, sortedData.length
     }
 
     return

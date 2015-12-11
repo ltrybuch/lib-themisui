@@ -1,29 +1,67 @@
 angular.module 'ThemisComponents'
-  .factory 'TableHeader', ->
-    class TableHeader
-      constructor: (options) ->
-        @name = options.name or ""
-        @sortField = options.sortField if options.sortField?
-        @sortEnabled = options.sortEnabled
-        @align = options.align or "left"
+  .factory 'TableHeader', -> TableHeader
 
-        if @sortEnabled and @sortEnabled not in ["ascending", "descending"]
-          throw new Error "sortEnabled can be either ascending or descending"
+TableHeader = (options) ->
+  {
+    name
+    sortField
+    sortActive
+    sortDirection
+    align
+  } = options
 
-        if @align not in ["left", "center", "right"]
-          throw new Error "align can be one of: left, center or right"
+  align = align ? "left"
 
-      cssClasses: ->
-        classes = []
+  if sortActive and not sortDirection?
+    throw new Error "sortDirection must be set for the active sort header"
 
-        if @sortField?
-          classes.push 'th-table-sortable'
+  if sortDirection? and sortDirection not in ["ascending", "descending"]
+    throw new Error "sortDirection can be either ascending or descending"
 
-        if @sortEnabled
-          classes.push "th-table-sort-" + @sortEnabled
-        else if @sortField?
-          classes.push "th-table-sort-none"
+  if align not in ["left", "center", "right"]
+    throw new Error "align can be one of: left, center or right"
 
-        classes.push "th-table-align-" + @align
+  cssClasses = ->
+    classes = []
 
-        classes.join ' '
+    if sortField?
+      classes.push 'th-table-sortable'
+
+    if sortActive
+      classes.push "th-table-sort-" + sortDirection
+    else
+      classes.push "th-table-sort-none"
+
+    classes.push "th-table-align-" + align
+
+    classes.join ' '
+
+  activateSort = ->
+    sortActive = true
+    sortDirection = "ascending"
+
+  deactivateSort = ->
+    sortActive = false
+    sortDirection = undefined
+
+  isSortActive = ->
+    sortActive
+
+  getSortDirection = ->
+    sortDirection
+
+  opposite = ascending: "descending", descending: "ascending"
+
+  toggleSortDirection = ->
+    sortDirection = opposite[sortDirection]
+
+  return Object.freeze {
+    name
+    sortField
+    cssClasses
+    isSortActive
+    activateSort
+    deactivateSort
+    toggleSortDirection
+    getSortDirection
+  }

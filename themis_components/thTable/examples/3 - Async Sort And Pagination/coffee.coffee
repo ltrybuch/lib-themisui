@@ -20,8 +20,9 @@ fixtures = (length) ->
 
 
 angular.module 'thDemo', ['ThemisComponents']
-  .controller "DemoController", (SimpleTableDelegate, TableHeader) ->
+  .controller "DemoController", (SimpleTableDelegate, TableHeader, TableSort, $scope) ->
     data = fixtures 102
+    {sort} = TableSort
 
     getDataPage = (data, page, pageSize) ->
       start = (page - 1) * pageSize
@@ -30,19 +31,29 @@ angular.module 'thDemo', ['ThemisComponents']
 
     @tableDelegate = SimpleTableDelegate {
       headers: [
-        new TableHeader
+        TableHeader
           name: 'First Name'
+          sortField: 'firstName'
+          sortActive: true
+          sortDirection: 'ascending'
 
-        new TableHeader
+        TableHeader
           name: 'Last Name'
+          sortField: 'lastName'
       ]
 
       currentPage: 1
       pageSize: 5
 
       fetchData: (page, pageSize, sortHeader, updateData) ->
-        paginatedData = getDataPage data, page, pageSize
-        updateData undefined, paginatedData, data.length
+        delay = 1000
+        sortedData = sort data, sortHeader
+        paginatedSortedData = getDataPage sortedData, page, pageSize
+        totalItems = data.length
+        setTimeout ->
+          updateData undefined, paginatedSortedData, totalItems
+          $scope.$apply()
+        , delay
     }
 
     return

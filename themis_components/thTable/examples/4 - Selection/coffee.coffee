@@ -20,7 +20,7 @@ fixtures = (length) ->
 
 
 angular.module 'thDemo', ['ThemisComponents']
-  .controller "DemoController", (SimpleTableDelegate, TableHeader) ->
+  .controller "DemoController", (SimpleTableDelegate, TableHeader, TableSort) ->
     viewObject = (object) ->
       return {
         selected: isSelected object
@@ -40,62 +40,37 @@ angular.module 'thDemo', ['ThemisComponents']
         @selectedObjects.push viewObject.object
 
     data = fixtures(102).map viewObject
+    {sort} = TableSort
 
-    pageSize = 5
-
-    headers = [
-      new TableHeader
-        name: ''
-
-      new TableHeader
-        name: 'First Name'
-        sortField: 'firstName'
-        sortEnabled: 'ascending'
-
-      new TableHeader
-        name: 'Last Name'
-        sortField: 'lastName'
-    ]
-
-    sortByHeader = (header) ->
-      data.sort (a, b) ->
-        result = a.object[header.sortField].localeCompare b.object[header.sortField]
-        result = -result if header.sortEnabled is "descending"
-        result
-
-    getDataPage = (data, page) ->
+    getDataPage = (data, page, pageSize) ->
       start = (page - 1) * pageSize
       end = start + pageSize
       data[start ... end]
 
-    getCurrentSortHeader = ->
-      headers.find (header) -> header.sortEnabled
-
-    onSort = (header, updateData) ->
-      updateData {
-        data: getDataPage sortByHeader(header), 1
-      }
-
-    onChangePage = (page, updateData, pageSize) ->
-      header = getCurrentSortHeader()
-      start = (page - 1) * pageSize
-      end = start + pageSize
-      updateData {
-        data: getDataPage sortByHeader(header), page
-      }
-
-    initialData = getDataPage sortByHeader(getCurrentSortHeader()), 1
-
     @tableDelegate = SimpleTableDelegate {
-      data: initialData
-      headers
-      onSort
+      headers: [
+        TableHeader
+          name: ''
+
+        TableHeader
+          name: 'First Name'
+          sortField: 'object.firstName'
+          sortActive: true
+          sortDirection: 'ascending'
+
+        TableHeader
+          name: 'Last Name'
+          sortField: 'object.lastName'
+      ]
 
       currentPage: 1
-      pageSize
-      totalItems: data.length
+      pageSize: 5
 
-      onChangePage
+      fetchData: (page, pageSize, sortHeader, updateData) ->
+        sortedData = sort data, sortHeader
+        paginatedSortedData = getDataPage sortedData, page, pageSize
+        totalItems = data.length
+        updateData undefined, paginatedSortedData, totalItems
     }
 
     return
