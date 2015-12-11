@@ -1,35 +1,16 @@
 <html ng-app="thDemo">
-  <head>
-    <style type="text/css">
-      .image-label {
-        display: inline-block;
-        text-align: center;
-      }
-    </style>
-  </head>
   <body ng-controller="DemoCtrl as demo" style="width: 400px;">
     <form action="/echo" method="POST">
-      Name:
-      <th-input type="text" name="name" icon="user"></th-input>
-      <br>
-      Favorite Pet:
-
-      <th-radio-group name="pet" ng-model="demo.pet">
-        <label class="image-label">
-          <img src="http://placehold.it/150x150?text=One">
-          <br>
-          <th-radio-button value="one"></th-radio-button>
-        </label>
-        <label class="image-label">
-          <img src="http://placehold.it/150x150?text=Two">
-          <br>
-          <th-radio-button value="two"></th-radio-button>
-        </label>
-      </th-radio-group>
-
       
+      <th-input type="text" name="name" with-label="Username" icon="user"></th-input>
+      <th-radio-group name="colour" ng-model="demo.colour">
+        <th-radio-button with-label="Red" value="red"></th-radio-button>
+        <th-radio-button with-label="Green" value="green"></th-radio-button>
+        <th-radio-button with-label="Blue" value="blue"></th-radio-button> 
+      </th-radio-group>
       <br><br>
       <th-button submit>Submit</th-button>
+
     </form>
   </body>
 </html>

@@ -1,19 +1,13 @@
 <html ng-app="thDemo">
   <body ng-controller="DemoCtrl as demo">
 
-    <th-radio-group ng-model="demo.value" name="dog">
-      <th-radio-button with-label="Whee" value="watty"></th-radio-button>
-      <th-radio-button with-label="One" value="willy"></th-radio-button>
+    <th-radio-group ng-model="demo.value" name="number">
+      <th-radio-button with-label="One" value="one"></th-radio-button>
       <th-radio-button with-label="Two" value="two"></th-radio-button>
+      <th-radio-button with-label="Three" value="three"></th-radio-button>
     </th-radio-group>
 
-    <th-radio-group ng-model="demo.value" name="dog">
-      <label>
-        <th-radio-button value="watty"></th-radio-button>
-        Local
-        <span>$0.20 per minute</span>
-      </label>
-    </th-radio-group>
+    <p>Radio group value: {{demo.value}}</p>
 
   </body>
 </html>

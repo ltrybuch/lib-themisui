@@ -3,26 +3,9 @@ angular.module('ThemisComponents')
     require: '^thRadioGroup'
     restrict: "EA"
     replace: true
-
-    template: """
-      <span class="th-radio-button">
-        <input
-          type="radio"
-          name="{{parent.name}}"
-          value="{{value}}"
-          ng-model="parent.model"
-          >
-        <i
-          ng-class="{
-            checked: parent.model == value
-            }"
-          ></i>
-      </span>
-    """
-
+    template: require './thRadioButton.template.html'
     scope:
       value: '@'
-
     link: (scope, element, attrs, controller) ->
       scope.parent = controller
 

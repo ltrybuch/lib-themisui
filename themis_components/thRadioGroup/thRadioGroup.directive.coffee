@@ -2,18 +2,10 @@ angular.module('ThemisComponents')
   .directive 'thRadioGroup', ->
     restrict: 'EA'
     replace: true
+    transclude: true
     bindToController: true
     controllerAs: "radioGroup"
-    transclude: true
-    template: """
-        <div
-          ng-class="{
-            'th-radio-group': radioButtonSet.type == 'horizontal',
-            'th-vertical-radio-group': radioButtonSet.type != 'horizontal'
-          }"
-          ng-transclude
-          ></div>
-    """
+    template: require './thRadioGroup.template.html'
     scope:
       name: '@'
       type: '@'

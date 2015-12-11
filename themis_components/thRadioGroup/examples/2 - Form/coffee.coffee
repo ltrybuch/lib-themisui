@@ -1,3 +1,3 @@
 angular.module('thDemo', ['ThemisComponents'])
   .controller 'DemoCtrl', ->
-    @pet = 'watson'
+    @colour = 'blue'

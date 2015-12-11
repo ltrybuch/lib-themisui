@@ -1,0 +1,13 @@
+<span class="th-radio-button">
+  <input
+    type="radio"
+    name="{{parent.name}}"
+    value="{{value}}"
+    ng-model="parent.model"
+    >
+  <i
+    ng-class="{
+      checked: parent.model == value
+      }"
+    ></i>
+</span>

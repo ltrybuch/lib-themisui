@@ -1,45 +1,18 @@
-.th-radio-group {
-  line-height: 2rem;
-  margin-bottom: 1.2rem;
 
-  .th-radio-button {
-    // text-decoration: none;
-    vertical-align: middle;
-
-    &:not(:last-child) {
-      // margin-right: 0.6rem;
-    }
-
-    input[type="radio"] {
-      display: none;
-    }
-
-    i {
-      @extend .fa;
-      @extend .fa-circle-o;
-      font-size: 2rem;
-      color: $grey-40;
-
-      &.checked {
-        @extend .fa-dot-circle-o;
-        color: $blue;
-      }
-    }
+.th-radio-button {
+  input[type="radio"] {
+    display: none;
   }
-}
 
-.th-vertical-radio-group {
-  @extend .th-radio-group;
+  i {
+    @extend .fa;
+    @extend .fa-circle-o;
+    font-size: 2rem;
+    color: $grey-40;
 
-  .th-label {
-    display: block;
-    margin-bottom: 8px;
-  }
-  
-  .th-radio-button {
-
-    i {
-      // margin-right: 1.2rem;
+    &.checked {
+      @extend .fa-dot-circle-o;
+      color: $blue;
     }
   }
 }
