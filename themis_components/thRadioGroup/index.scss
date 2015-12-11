@@ -1,4 +1,3 @@
-
 .th-radio-button {
   input[type="radio"] {
     display: none;
@@ -9,10 +8,17 @@
     @extend .fa-circle-o;
     font-size: 2rem;
     color: $grey-40;
+  }
 
-    &.checked {
+  &.checked {
+    i {
       @extend .fa-dot-circle-o;
       color: $blue;
+  
+      // &:after {
+      //   content: "*";
+      // }
     }
   }
 }
+
