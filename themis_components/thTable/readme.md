@@ -38,7 +38,7 @@ controller: ->
     data: mattersArray
 
     # If these are defined, the table displays pagination at the bottom.
-    page: 1
+    currentPage: 1
     pageSize: 20
     totalItems: 223
     onChangePage: (page) ->
@@ -91,7 +91,7 @@ controller: ->
     data: sectionsArray
 
     # If these are defined, the table displays pagination at the bottom.
-    page: 1
+    currentPage: 1
     pageSize: 20
     totalItems: 223
     onChangePage: (page) ->
@@ -142,7 +142,7 @@ controller: ->
     # }
     data: arrayOfGroups
 
-    page: 1
+    currentPage: 1
     pageSize: 20
     totalItems: 223
     onChangePage: (page) ->

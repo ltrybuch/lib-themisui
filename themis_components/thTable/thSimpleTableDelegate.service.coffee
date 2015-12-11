@@ -1,231 +1,165 @@
 angular.module 'ThemisComponents'
-  .factory 'SimpleTableDelegate', (TableDelegate, $interpolate) ->
-    class SimpleTableDelegate extends TableDelegate
-      constructor: (options) ->
-        super options
+.factory 'SimpleTableDelegate', (TableDelegate, TablePagination, TableSort, $interpolate) ->
+  SimpleTableDelegate = (options) ->
+    {
+      data
+      headers
+      onSort
+      currentPage, pageSize, totalItems, onChangePage
+    } = options
 
-      totalPages: ->
-        Math.ceil @totalItems / @pageSize
+    updateDataFromPagination = (options) ->
+      data = options.data ? data
 
-      pages: ->
-        maxConsecutivePages = 5
-        totalPages = @totalPages()
+    {
+      pages
+      isLastPage
+      isFirstPage
+      inactivePageLink
+      goToNextPage
+      goToPrevPage
+      goToPage
+      generatePagination
+      updatePagination
+    } = TablePagination {
+      currentPage
+      pageSize
+      totalItems
+      onChangePage
+      updateData: updateDataFromPagination
+    }
 
-        if totalPages <= maxConsecutivePages + 4
-          return [1 .. totalPages]
+    updateDataFromSort = (options) ->
+      data = options.data ? data
+      updatePagination {totalItems: options.totalItems} if options.totalItems?
 
-        if maxConsecutivePages % 2 is 0
-          start = @page - maxConsecutivePages / 2 + 1
-          end = @page + maxConsecutivePages / 2
-        else
-          start = @page - Math.floor maxConsecutivePages / 2
-          end = @page + Math.floor maxConsecutivePages / 2
+    {sort} = TableSort {
+      data
+      headers
+      onSort
+      updateData: updateDataFromSort
+    }
 
-        if start < 3
-          end = Math.max maxConsecutivePages, end
-          return [1 .. end].concat ['...', totalPages]
+    sortData = (header) ->
+      updatePagination {currentPage: 1}
+      sort data, header
 
-        if end > totalPages - 2
-          start = Math.min totalPages - maxConsecutivePages + 1, start
-          return [1, '...'].concat [start .. totalPages]
+    post = (rows) ->
+      checkValidRows rows
+      template = "<table>{{thead}}{{tbody}}</table>{{pagination}}"
+      $interpolate(template)
+        thead: generateHeaders()
+        tbody: generateBody rows
+        pagination: generatePagination()
 
-        return [1, '...']
-                  .concat [start .. end]
-                  .concat ['...', totalPages]
-
-      isLastPage: ->
-        @page is @totalPages()
-
-      isFirstPage: ->
-        @page is 1
-
-      inactivePageLink: (page) ->
-        page in [@page, '...']
-
-      nextPage: ->
-        if @page < @totalPages()
-          @changePage @page + 1
-
-      prevPage: ->
-        if @page > 1
-          @changePage @page - 1
-
-      changePage: (page) ->
-        return if page is '...'
-        @page = page
-        @onChangePage page, (data) =>
-          if data? then @data = data
-
-      onChangePage: (page, next) -> next()
-
-      sort: (header) ->
-        return if not header.sortField
-        @updateHeaderSorting header
-        (@onSort or @applyDefaultSort.bind this) header
-
-      applyDefaultSort: (header) ->
-        applySortOrder = (compareResult) ->
-          if header.sortEnabled is "ascending"
-            compareResult
-          else
-            -compareResult
-
-        compare = (a, b) ->
-          if typeof a is "number"
-            a - b
-          else
-            a.localeCompare b
-
-        getField = (object, field) ->
-          result = object
-          field.split('.').forEach (key) -> result = result[key]
-          result
-
-        @data.sort (obj1, obj2) ->
-          field1 = getField obj1, header.sortField
-          field2 = getField obj2, header.sortField
-          applySortOrder compare(field1, field2)
-
-      updateHeaderSorting: (header) ->
-        if header.sortEnabled
-          opposite = ascending: "descending", descending: "ascending"
-          header.sortEnabled = opposite[header.sortEnabled]
-        else
-          currentSortHeader = @headers.find (header) -> header.sortEnabled
-          currentSortHeader.sortEnabled = undefined
-          header.sortEnabled = "ascending"
-
-      post: (rows) ->
-        @checkValidRows rows
-        template = "<table>{{thead}}{{tbody}}</table>{{pagination}}"
-        $interpolate(template)
-          thead: @generateHeaders()
-          tbody: @generateBody rows
-          pagination: @generatePagination()
-
-      generateHeaders: ->
-        return "" unless (@headers or []).length > 0
-
-        template = """
-          <thead>
-            <tr>
-              <th ng-repeat="header in thTable.delegate.headers"
-                  ng-class="header.cssClasses()"
-                  ng-click="thTable.delegate.sort(header)">
-                {{header.name}}
-                <span class="th-table-sort-icon" aria-hidden="true"></span>
-              </th>
-            </tr>
-          </thead>
-        """
-
-      generateBody: (rows) ->
-        template = "<tbody>{{cellsRow}}{{actionsRow}}</tbody>"
-        numColumns = @childrenArray(rows['cells']).length
-        $interpolate(template)
-          cellsRow: @generateCellsRow rows['cells']
-          actionsRow: @generateActionsRow rows['actions'], numColumns
-
-      generateCellsRow: (cellsRow) ->
-        template = """
-          <tr class="th-table-cells-row"
-              ng-repeat-start="{{objectReference}} in thTable.delegate.data"
-              ng-mouseover="hover = true"
-              ng-mouseleave="hover = false"
-              ng-class="{'th-table-hover-row': hover}">
-            {{cells}}
+    generateHeaders = ->
+      return "" unless (headers or []).length > 0
+      template = """
+        <thead>
+          <tr>
+            <th ng-repeat="header in thTable.delegate.headers"
+                ng-class="header.cssClasses()"
+                ng-click="thTable.delegate.sortData(header)">
+              {{header.name}}
+              <span class="th-table-sort-icon" aria-hidden="true"></span>
+            </th>
           </tr>
-        """
-        objectReference = @getObjectReference cellsRow
-        cells = @childrenArray(cellsRow)
-                  .map (cell) => @generateCell cell
-                  .join ''
-        $interpolate(template) {objectReference, cells}
+        </thead>
+      """
 
-      generateCell: (cell) ->
-        template = "<td>{{cell}}</td>"
-        $interpolate(template)
-          cell: cell.innerHTML
+    generateBody = (rows) ->
+      template = "<tbody>{{cellsRow}}{{actionsRow}}</tbody>"
+      numColumns = childrenArray(rows['cells']).length
+      $interpolate(template)
+        cellsRow: generateCellsRow rows['cells'], rows['actions']?
+        actionsRow: generateActionsRow rows['actions'], numColumns
 
-      generateActionsRow: (actionsRow, numColumns) ->
-        template = """
-          <tr class="th-table-actions-row"
-              ng-repeat-end
-              ng-mouseover="hover = true"
-              ng-mouseleave="hover = false"
-              ng-class="{'th-table-hover-row': hover}">
-            {{actions}}
-          </tr>
-        """
-        objectReference = @getObjectReference actionsRow
+    generateCellsRow = (cellsRow, hasActionsRow) ->
+      template = """
+        <tr class="th-table-cells-row"
+            {{ngRepeat}}="{{objectReference}} in thTable.delegate.getData()"
+            ng-mouseover="hover = true"
+            ng-mouseleave="hover = false"
+            ng-class="{'th-table-hover-row': hover}">
+          {{cells}}
+        </tr>
+      """
+      ngRepeat = if hasActionsRow then "ng-repeat-start" else "ng-repeat"
+      objectReference = getObjectReference cellsRow
+      cells = childrenArray(cellsRow)
+                .map (cell) -> generateCell cell
+                .join ''
+      $interpolate(template) {objectReference, cells, ngRepeat}
 
-        startColumn = parseInt(actionsRow.getAttribute('start-column')) || 1
-        if startColumn > numColumns
-          throw new Error "start-column cannot be bigger " + \
-                          "than the number of cells"
+    generateCell = (cell) ->
+      template = "<td>{{cell}}</td>"
+      $interpolate(template)
+        cell: cell.innerHTML
 
-        colspan = numColumns - startColumn + 1
+    generateActionsRow = (actionsRow, numColumns) ->
+      return "" unless actionsRow?
+      template = """
+        <tr class="th-table-actions-row"
+            ng-repeat-end
+            ng-mouseover="hover = true"
+            ng-mouseleave="hover = false"
+            ng-class="{'th-table-hover-row': hover}">
+          {{actions}}
+        </tr>
+      """
+      objectReference = getObjectReference actionsRow
 
-        actions = ""
-        while startColumn > 1
-          actions += """<td class="th-table-actions-cell"></td>"""
-          startColumn--
-        actions += """
-          <td class="th-table-actions-cell" colspan=#{colspan}>
-            #{actionsRow.innerHTML}
-          </td>
-        """
+      startColumn = parseInt(actionsRow.getAttribute('start-column')) || 1
+      if startColumn > numColumns
+        throw new Error "start-column cannot be bigger " + \
+                        "than the number of cells"
 
-        $interpolate(template) {objectReference, actions}
+      colspan = numColumns - startColumn + 1
 
-      generatePagination: ->
-        return "" unless @hasValidPagination()
+      actions = ""
+      while startColumn > 1
+        actions += """<td class="th-table-actions-cell"></td>"""
+        startColumn--
+      actions += """
+        <td class="th-table-actions-cell" colspan=#{colspan}>
+          #{actionsRow.innerHTML}
+        </td>
+      """
 
-        template = """
-          <div class="th-table-pagination">
-            <a class="th-table-pagination-link"
-               ng-class="{'th-table-pagination-inactive-link': thTable.delegate.isFirstPage()}"
-               ng-click="thTable.delegate.prevPage()">
-              <div class="fa fa-chevron-left th-table-pagination-icon-left"></div>
-              Previous
-            </a>
+      $interpolate(template) {objectReference, actions}
 
-            <a class="th-table-pagination-link"
-               ng-repeat="page in thTable.delegate.pages() track by $index"
-               ng-click="thTable.delegate.changePage(page)"
-               ng-class="{'th-table-pagination-inactive-link':
-                            thTable.delegate.inactivePageLink(page)}">
-              {{page}}
-            </a>
+    checkValidRows = (rows) ->
+      if not rows["cells"]?
+        throw new Error "A simple table needs a cells row."
 
-            <a class="th-table-pagination-link"
-               ng-class="{'th-table-pagination-inactive-link': thTable.delegate.isLastPage()}"
-               ng-click="thTable.delegate.nextPage()">
-              Next
-              <div class="fa fa-chevron-right th-table-pagination-icon-right"></div>
-            </a>
-          </div>
-        """
+      cellsRow = rows['cellsRow']
+      actionsRow = rows['actionsRow']
 
-      childrenArray: (node) ->
-        arr = []
-        arr.push(child) for child in node.children
-        arr
+      if actionsRow? and
+         getObjectReference(actionsRow) != getObjectReference(cellsRow)
+        throw new Error "object-reference must be the same" + \
+                        "for the actions and cells rows."
 
-      checkValidRows: (rows) ->
-        if not rows["cells"]?
-          throw new Error "A simple table needs a cells row."
+    childrenArray = (node) ->
+      arr = []
+      arr.push(child) for child in node.children
+      arr
 
-        cellsRow = rows['cellsRow']
-        actionsRow = rows['actionsRow']
+    getObjectReference = (row) ->
+      row.getAttribute('object-reference') || 'item'
 
-        if actionsRow? and
-           @getObjectReference(actionsRow) != @getObjectReference(cellsRow)
-          throw new Error "object-reference must be the same" + \
-                          "for the actions and cells rows."
+    getData = -> data
 
-      hasValidPagination: ->
-        @page? and @pageSize? and @totalItems?
-
-      getObjectReference: (row) ->
-        row.getAttribute('object-reference') || 'item'
+    return Object.freeze {
+      post
+      getData
+      headers
+      sortData
+      pages
+      isLastPage
+      isFirstPage
+      inactivePageLink
+      goToNextPage
+      goToPrevPage
+      goToPage
+    }
