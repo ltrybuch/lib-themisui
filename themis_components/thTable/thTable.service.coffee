@@ -1,30 +1,43 @@
 angular.module 'ThemisComponents'
-  .factory 'Table', ->
-    class Table
-      constructor: (element) ->
-        @element = element
-        throw new Error "<th-table> not properly configured!" unless @isProperlyDefined()
-        @rows = @getRows()
+  .factory 'Table', -> Table
 
-      post: (delegate) ->
-        delegate.post @rows
+Table = (options) ->
+  {
+    element
+  } = options
 
-      clear: ->
-        child.remove() for child in @element.children()
+  isProperlyDefinedRow = (node) ->
+    node.tagName == 'TH-TABLE-ROW' and node.hasAttribute 'type'
 
-      getRows: ->
-        rows = {}
-        for row in @element.children()
-          type = row.getAttribute 'type'
-          rows[type] = row
-        rows
+  isProperlyDefined = ->
+    for child in element.children()
+      return false if not isProperlyDefinedRow child
+    true
 
-      isProperlyDefinedRow: (node) ->
-        node.tagName == 'TH-TABLE-ROW' and node.hasAttribute 'type'
+  throw new Error "<th-table> not properly configured!" unless isProperlyDefined()
 
-      isProperlyDefined: ->
-        children = @element.children()
-        idx = 0
-        while idx < children.length and @isProperlyDefinedRow children[idx]
-          idx++
-        return idx == children.length
+  delegate = undefined
+  setDelegate = (newDelegate) ->
+    delegate = newDelegate
+
+  getRows = ->
+    rows = {}
+    for row in element.children()
+      type = row.getAttribute 'type'
+      rows[type] = row
+    rows
+
+  rows = getRows()
+
+  generateTableTemplate = ->
+    throw new Error "You cannot generate template before setting a delegate!" unless delegate
+    delegate.generateTableTemplate rows
+
+  clear = ->
+    child.remove() for child in element.children()
+
+  return Object.freeze {
+    clear
+    setDelegate
+    generateTableTemplate
+  }

@@ -1,69 +1,26 @@
 angular.module 'ThemisComponents'
-.factory 'SimpleTableDelegate', (TablePagination) ->
+.factory 'SimpleTableDelegate', (TableDelegate) ->
   SimpleTableDelegate = (options) ->
-    {
-      headers
-      currentPage
-      pageSize
-      fetchData
-    } = options
-
-    data = []
-    loading = false
-    error = false
-
-    currentSortHeader = (headers ? []).find (header) -> header.isSortActive()
-
-    triggerFetchData = (currentPage, pageSize, currentSortHeader) ->
-      loading = true
-      error = false
-      fetchData currentPage, pageSize, currentSortHeader, (err, newData, totalItems) ->
-        loading = false
-        if err
-          error = err
-        else
-          data = newData
-          updatePagination {totalItems} if totalItems?
-
-    onChangePage = (newCurrentPage, newPageSize) ->
-      triggerFetchData newCurrentPage, newPageSize, currentSortHeader
+    delegate = TableDelegate options
 
     {
-      pages
-      isLastPage
-      isFirstPage
-      inactivePageLink
-      goToNextPage
-      goToPrevPage
-      goToPage
       generatePagination
-      updatePagination
-      getCurrentPage
-      getPageSize
-    } = TablePagination {
-      currentPage
-      pageSize
-      onChangePage
-    }
-
-    sortData = (header) ->
-      return if not header.sortField
-      updatePagination {currentPage: 1}
-      updateHeaderSorting header
-      triggerFetchData getCurrentPage(), getPageSize(), currentSortHeader
-
-    updateHeaderSorting = (newSortHeader) ->
-      if newSortHeader.isSortActive()
-        newSortHeader.toggleSortDirection()
-      else
-        newSortHeader.activateSort()
-        currentSortHeader.deactivateSort()
-        currentSortHeader = newSortHeader
+      headers
+    } = delegate
 
     ###
-    # This does blah
+    # This is the single required method that a custom delegate must implement.
+    # The rest of the interface is inherited from TableDelegate.
+    #
+    # It receives as input a list of <th-table-row> DOM elements that you can
+    # use to build out your custom table template.
+    #
+    # It must return the final table template that gets compiled in th-table's
+    # parent scope, extended with the thTable key, which stores this table's
+    # controller. This means you can use thTable.delegate in your template to
+    # access the delegate's interface.
     ###
-    post = (rows) ->
+    generateTableTemplate = (rows) ->
       checkValidRows rows
       thead = generateHeaders()
       tbody = generateBody rows
@@ -175,24 +132,6 @@ angular.module 'ThemisComponents'
     getObjectReference = (row) ->
       row.getAttribute('object-reference') || 'item'
 
-    getData = -> data
-    getError = -> error
-    isLoading = -> loading
-
-    triggerFetchData getCurrentPage(), getPageSize(), currentSortHeader
-
-    return Object.freeze {
-      post
-      getData
-      headers
-      sortData
-      pages
-      isLastPage
-      isFirstPage
-      inactivePageLink
-      goToNextPage
-      goToPrevPage
-      goToPage
-      getError
-      isLoading
-    }
+    return Object.freeze Object.assign {
+      generateTableTemplate
+    }, delegate

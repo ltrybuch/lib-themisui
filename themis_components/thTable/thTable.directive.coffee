@@ -7,12 +7,12 @@ angular.module 'ThemisComponents'
     controllerAs: 'thTable'
     controller: -> return
     compile: (element, attrs) ->
-      table = new Table element
+      table = Table {element}
       table.clear()
 
-      post: (scope, element, attrs, thTable) ->
-        delegate = thTable.delegate
-        template = table.post delegate
+      post: (scope, element, attrs, controller) ->
+        table.setDelegate controller.delegate
+        template = table.generateTableTemplate()
         childScope = scope.$parent.$new false, scope
         childScope.thTable = scope.thTable
         compiledTemplate = $compile(template) childScope

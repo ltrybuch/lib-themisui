@@ -2,6 +2,7 @@ require './thTable.directive'
 require './thTableCell.directive'
 require './thTableRow.directive'
 
+require './thTableDelegate.service'
 require './thSimpleTableDelegate.service'
 require './thTable.service'
 require './thTableHeader.service'
