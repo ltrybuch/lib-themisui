@@ -18,7 +18,6 @@ th-table {
     border-right: none;
 
     font-weight: bold;
-    position: relative;
     white-space: nowrap;
     background: $grey-90;
 
@@ -38,21 +37,25 @@ th-table {
       cursor: pointer;
     }
 
-    &.th-table-sortable.th-table-sort-ascending .th-table-sort-icon {
+    .th-table-sort-icon {
       @extend .fa;
       @extend .fa-caret-down;
+      visibility: hidden;
+    }
+
+    &.th-table-sortable.th-table-sort-ascending .th-table-sort-icon {
       color: #b8b8b6;
+      visibility: visible;
     }
 
     &.th-table-sortable.th-table-sort-descending .th-table-sort-icon {
-      @extend .fa;
       @extend .fa-caret-up;
       color: #b8b8b6;
+      visibility: visible;
     }
 
     &.th-table-sortable.th-table-sort-none:hover .th-table-sort-icon {
-      @extend .fa;
-      @extend .fa-caret-down;
+      visibility: visible;
     }
   }
 

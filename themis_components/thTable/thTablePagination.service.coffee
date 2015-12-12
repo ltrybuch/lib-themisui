@@ -65,7 +65,7 @@ TablePagination = (options) ->
   generatePagination = ->
     return "" unless hasValidPagination options
     template = """
-      <div class="th-table-pagination" ng-if="thTable.delegate.pages().length > 0">
+      <div class="th-table-pagination" ng-if="thTable.delegate.pages().length > 1">
         <a class="th-table-pagination-link"
            ng-class="{'th-table-pagination-inactive-link': thTable.delegate.isFirstPage()}"
            ng-click="thTable.delegate.goToPrevPage()">
