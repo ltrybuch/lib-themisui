@@ -20,7 +20,7 @@ angular.module 'ThemisComponents'
       return [] unless totalItems > 0
 
       lastPage = totalPages()
-      if totalPages <= maxConsecutivePages + 4
+      if lastPage <= maxConsecutivePages + 4
         return [1 .. lastPage]
 
       if maxConsecutivePages % 2 is 0
