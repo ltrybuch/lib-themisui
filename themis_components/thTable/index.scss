@@ -12,79 +12,79 @@ th-table {
     clear: both;
   }
 
-  table {
+  table.th-table {
     background: #fff;
     border-collapse: collapse;
     width: 100%;
     font-size: inherit;
-  }
 
-  th, td {
-    max-width: 255px;
-    word-wrap: break-word;
-    padding: 9px;
-  }
-
-  th {
-    border: 1px solid $border-color;
-    border-left: none;
-    border-right: none;
-
-    font-weight: bold;
-    white-space: nowrap;
-    background: $grey-90;
-
-    &.th-table-align-right {
-      text-align: right;
+    th, td {
+      max-width: 255px;
+      word-wrap: break-word;
+      padding: 9px;
     }
 
-    &.th-table-align-center {
-      text-align: center;
+    th {
+      border: 1px solid $border-color;
+      border-left: none;
+      border-right: none;
+
+      font-weight: bold;
+      white-space: nowrap;
+      background: $light-grey-1;
+
+      &.th-table-align-right {
+        text-align: right;
+      }
+
+      &.th-table-align-center {
+        text-align: center;
+      }
+
+      &.th-table-align-left {
+        text-align: left;
+      }
+
+      &.th-table-sortable {
+        cursor: pointer;
+      }
+
+      .th-table-sort-icon {
+        @extend .fa;
+        @extend .fa-caret-down;
+        visibility: hidden;
+      }
+
+      &.th-table-sortable.th-table-sort-ascending .th-table-sort-icon {
+        color: #b8b8b6;
+        visibility: visible;
+      }
+
+      &.th-table-sortable.th-table-sort-descending .th-table-sort-icon {
+        @extend .fa-caret-up;
+        color: #b8b8b6;
+        visibility: visible;
+      }
+
+      &.th-table-sortable.th-table-sort-none:hover .th-table-sort-icon {
+        visibility: visible;
+      }
     }
 
-    &.th-table-align-left {
-      text-align: left;
+    td {
+      border: 0 none;
+      color: $light-grey;
+      margin: 0;
+      vertical-align: top;
+
+      &.th-table-actions-cell {
+        border-bottom: 1px solid #d9dada;
+      }
     }
 
-    &.th-table-sortable {
-      cursor: pointer;
+    tr.th-table-hover-row {
+      background: #fafdff;
     }
-
-    .th-table-sort-icon {
-      @extend .fa;
-      @extend .fa-caret-down;
-      visibility: hidden;
-    }
-
-    &.th-table-sortable.th-table-sort-ascending .th-table-sort-icon {
-      color: #b8b8b6;
-      visibility: visible;
-    }
-
-    &.th-table-sortable.th-table-sort-descending .th-table-sort-icon {
-      @extend .fa-caret-up;
-      color: #b8b8b6;
-      visibility: visible;
-    }
-
-    &.th-table-sortable.th-table-sort-none:hover .th-table-sort-icon {
-      visibility: visible;
-    }
-  }
-
-  td {
-    border: 0 none;
-    color: $light-grey;
-    margin: 0;
-    vertical-align: top;
-
-    &.th-table-actions-cell {
-      border-bottom: 1px solid #d9dada;
-    }
-  }
-
-  tr.th-table-hover-row {
-    background: #fafdff;
   }
 
   .th-table-pagination {

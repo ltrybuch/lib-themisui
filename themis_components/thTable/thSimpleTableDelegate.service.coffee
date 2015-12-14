@@ -30,7 +30,7 @@ angular.module 'ThemisComponents'
       pagination = generatePagination()
       template = """
         <div ng-class="{'th-table-loading': thTable.delegate.isLoading()}">
-          <table>
+          <table class="th-table">
             #{thead}
             #{tbody}
           </table>
