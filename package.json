@@ -10,7 +10,7 @@
     "Terry White <terry.white@clio.com>",
     "Jef Curtis <jef.curtis@clio.com>"
   ],
-  "main": "index.js",
+  "main": "public/build/lib-themisui.js",
   "private": true,
   "engines": {
     "node": "^0.10.40",
@@ -21,20 +21,14 @@
     "angular-animate": "1.4.7",
     "angular-route": "1.4.7",
     "angular-sanitize": "1.4.7",
-    "express-ws": "^0.2.6",
-    "jquery": "^2.1.4",
-    "marked": "^0.3.3"
-  },
-  "devDependencies": {
-    "angular-mocks": "1.4.7",
     "body-parser": "^1.14.1",
-    "brfs": "^1.4.0",
     "browserify": "^12.0.1",
     "browserify-istanbul": "^0.2.1",
     "coffee-script": "^1.9.3",
     "coffeeify": "^1.1.0",
     "es6-promise": "~3.0.2",
     "express": "^4.12.4",
+    "express-ws": "^0.2.6",
     "glob": "^6.0.1",
     "gulp": "^3.8.11",
     "gulp-browserify": "^0.5.1",
@@ -42,6 +36,17 @@
     "gulp-rename": "^1.2.0",
     "gulp-sass": "^2.1.0",
     "gulp-util": "^3.0.4",
+    "jquery": "^2.1.4",
+    "marked": "^0.3.3",
+    "node-bourbon": "^4.2.1-beta1",
+    "stringify": "^3.1.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.2.1"
+  },
+  "devDependencies": {
+    "angular-mocks": "1.4.7",
+    "brfs": "^1.4.0",
     "jasmine-core": "^2.3.4",
     "karma": "^0.13.15",
     "karma-browserify": "^4.1.2",
@@ -53,19 +58,16 @@
     "karma-jasmine": "^0.3.5",
     "karma-notify-reporter": "^0.1.1",
     "karma-phantomjs-launcher": "^0.2.1",
-    "node-bourbon": "^4.2.1-beta1",
-    "phantomjs": "^1.9.16",
-    "stringify": "^3.1.0",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.2.1"
+    "phantomjs": "^1.9.16"
   },
   "scripts": {
-    "versionCheck": "npm outdated --depth 0",
+    "build": "gulp docs-browserify lib-themisui-style",
+    "clean": "rm -rf public/build",
+    "postinstall": "npm run clean && npm run build",
     "start": "gulp docs",
-    "build": "gulp docs-browserify docs-style docs-examples-style",
     "test": "karma start",
-    "test-once": "karma start --single-run"
+    "test-once": "karma start --single-run",
+    "versionCheck": "npm outdated --depth 0"
   },
   "browserify": {
     "transform": [

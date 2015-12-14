@@ -1,7 +1,11 @@
 <span
   class="th-switch"
   ng-class="{active: switch.state}"
-  ng-click="switch.toggle()"
   >
+  <input
+    type="checkbox"
+    name="{{switch.name}}"
+    ng-model="switch.state"
+    >
   <i></i>
 </span>

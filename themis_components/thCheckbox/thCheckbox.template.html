@@ -1,7 +1,11 @@
 <span
-  ng-class="{checked: checkbox.checked}"
   class="th-checkbox"
-  ng-click="checkbox.toggle()"
+  ng-class="{checked: checkbox.checked}"
   >
+  <input
+    type="checkbox"
+    name="{{checkbox.name}}"
+    ng-model="checkbox.checked"
+    >
   <i></i>
 </span>

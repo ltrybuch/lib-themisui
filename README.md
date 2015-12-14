@@ -27,6 +27,11 @@ angular.module 'YourApp', [
 ];
 ```
 
+You must include the stylesheets as well:
+
+* `lib-ThemisUI/public/build/lib-temisui.css`: the entire CSS
+* `lib-ThemisUI/themis_theme/index.scss`: optional, SCSS variables defined for the Themis theme
+
 You can now use any of our components in your application. The APIs for each component explain their usage.
 
 
@@ -69,3 +74,16 @@ Whilst inside the `lib-ThemisUI` directory.
 
 1. Open a pull request from `master` against `edge` branch.
 2. When your pull request is approved and merged it will automatically deploy and be visibile at http://themisui-docs.clio.com/.
+
+## Development
+
+To adhere to our style guide we recommend using a linter addon for your code
+editor, which will enforce the rules defined under `coffeelint.json`:
+
+* Atom:
+ * https://atom.io/packages/linter
+ * https://atom.io/packages/linter-coffeelint
+
+* SublimeText:
+ * http://sublimelinter.readthedocs.org
+ * https://github.com/SublimeLinter/SublimeLinter-coffeelint

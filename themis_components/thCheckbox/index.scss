@@ -25,6 +25,10 @@
       }
     }
   }
+  
+  input[type="checkbox"] {
+    display: none;
+  }
 
   i {
     position: absolute;

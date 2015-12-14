@@ -11,7 +11,7 @@ angular.module('ThemisComponents')
 
       includeBase = "#{$location.protocol()}://#{$location.host()}:#{$location.port()}"
       includeJS  = [
-        "#{includeBase}/build/examples.js"
+        "#{includeBase}/build/lib-themisui.js"
       ]
       includeCSS = [
         "#{includeBase}/build/examples.css"
