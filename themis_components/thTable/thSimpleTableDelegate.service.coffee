@@ -1,5 +1,8 @@
 angular.module 'ThemisComponents'
-.factory 'SimpleTableDelegate', (TableDelegate) ->
+.factory 'SimpleTableDelegate', (TableDelegate, $interpolate) ->
+  interpolateStart = $interpolate.startSymbol()
+  interpolateEnd = $interpolate.endSymbol()
+
   SimpleTableDelegate = (options) ->
     delegate = TableDelegate options
 
@@ -48,7 +51,7 @@ angular.module 'ThemisComponents'
             <th ng-repeat="header in thTable.delegate.headers track by $index"
                 ng-class="header.cssClasses()"
                 ng-click="thTable.delegate.sortData(header)">
-              {{header.name}}
+              #{interpolateStart}header.name#{interpolateEnd}
               <span class="th-table-sort-icon" aria-hidden="true"></span>
             </th>
           </tr>
