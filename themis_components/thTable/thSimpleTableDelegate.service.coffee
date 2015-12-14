@@ -26,12 +26,18 @@ angular.module 'ThemisComponents'
       tbody = generateBody rows
       pagination = generatePagination()
       template = """
-        <table>
-          #{thead}
-          #{tbody}
-        </table>
+        <div ng-class="{'th-table-loading': thTable.delegate.isLoading()}">
+          <table>
+            #{thead}
+            #{tbody}
+          </table>
 
-        #{pagination}
+          #{pagination}
+
+          <div class="th-table-overlay" ng-if="thTable.delegate.isLoading()">
+            <th-loader class="th-table-loader" size="small">&nbsp;</th-loader>
+          </div>
+        </div>
       """
 
     generateHeaders = ->

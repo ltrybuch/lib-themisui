@@ -1,4 +1,17 @@
 th-table {
+  display: block;
+  position: relative;
+
+  .th-table-loading {
+    opacity: 0.5;
+  }
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
   table {
     background: #fff;
     border-collapse: collapse;
@@ -95,6 +108,20 @@ th-table {
 
     .th-table-pagination-icon-left {
       margin-right: 6px;
+    }
+  }
+
+  .th-table-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+
+    .th-table-loader {
+      margin-top: 50px;
+      position: relative;
     }
   }
 }
