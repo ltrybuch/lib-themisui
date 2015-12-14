@@ -1,19 +1,23 @@
-.th-error-container {
-  padding: 15px 0;
-  text-align: center;
-  width: 100%;
-  vertical-align: middle;
-  font-size: 17px;
-  color: $medium-grey;
-
-  .th-error-message {
-    padding: 5px 15px 7px 15px;
-    border-bottom: 3px solid $red;
-    display: inline-block;
-  }
-
-  i {
+.th-lazy {
+  .th-error-container {
+    padding: 60px 0;
+    text-align: center;
+    width: 100%;
+    vertical-align: middle;
+    font-size: 13px;
+    font-weight: 400;
     color: $medium-grey;
-    display: block;
+
+    .th-error-message {
+      padding: 0px 15px 7px 15px;
+      display: inline-block;
+    }
+
+    i {
+      color: $light-grey-5;
+      display: block;
+      margin-bottom: 12px;
+      font-size: 32px;
+    }
   }
 }

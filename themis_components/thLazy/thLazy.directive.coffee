@@ -8,9 +8,7 @@ angular.module('ThemisComponents')
     controller: ($scope) ->
       $scope.loaded = no
       $scope.loadError = no
-      $scope.errorMessage =
-        $scope.errorMessage ? "Missing View. Try reloading or, contact support."
-
+      $scope.messageOverride = $scope.errorMessage?
       $scope.loadingComplete = ->
         $scope.loaded = yes
 

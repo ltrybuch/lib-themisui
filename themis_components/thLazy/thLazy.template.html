@@ -1,6 +1,13 @@
-<ng-include onload="loadingComplete()" src="src"></ng-include>
-<th-loader trigger="!loadError && !loaded" size="small"></th-loader>
-<div class="th-error-container" ng-if="loadError">
-  <i class="fa fa-exclamation-triangle fa-3x"></i>
-  <span class="th-error-message" ng-show="loadError">{{errorMessage}}</span>
+<div class="th-lazy">
+  <ng-include onload="loadingComplete()" src="src"></ng-include>
+  <th-loader trigger="!loadError && !loaded" size="small"></th-loader>
+  <div class="th-error-container" ng-if="loadError">
+    <i class="fa fa-exclamation-triangle"></i>
+    <span class="th-error-message" ng-show="loadError && !messageOverride">
+      We had trouble loading your content.<br>Try reloading the page.
+    </span>
+    <span class="th-error-message" ng-show="loadError && messageOverride">
+      {{errorMessage}}
+    </span>
+  </div>
 </div>
