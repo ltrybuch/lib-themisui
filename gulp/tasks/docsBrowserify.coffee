@@ -10,63 +10,55 @@ isWatching = no
 
 files = [
   {
-    input      : ['./public/javascript/index.coffee']
-    output     : 'app.js'
-    extensions : ['.coffee', '.html']
-    transform  : [templates]
+    input: ['./public/javascript/index.coffee']
+    output: 'docs-app.js'
+    extensions: ['.coffee', '.html']
+    transform: [templates]
     destination: './public/build/'
   }
   {
-    input      : ['./index.coffee']
-    output     : 'examples.js'
-    extensions : ['.coffee', '.html']
-    transform  : [templates]
+    input: ['./themis_components/index.coffee']
+    output: 'lib-themisui.js'
+    extensions: ['.coffee', '.html']
+    transform: [templates]
     destination: './public/build/'
   }
 ]
 
 createBundle = (options) ->
-  bundler = null
+  browserifyOptions =
+    cache: {}
+    packageCache: {}
+    fullPaths: true
+    entries: options.input
+    transform: options.transform
+    extensions: options.extensions
 
   if options.standalone?
-    bundler = browserify
-      cache: {}
-      packageCache: {}
-      fullPaths: true
-      entries   : options.input
-      transform : options.transform
-      extensions: options.extensions
-      standalone: options.standalone
-  else
-    bundler = browserify
-      cache: {}
-      packageCache: {}
-      fullPaths: true
-      entries   : options.input
-      transform : options.transform
-      extensions: options.extensions
+    browserifyOptions.standalone = options.standalone
 
-  bundler = watchify bundler if isWatching
+  bundler = browserify browserifyOptions
 
   rebundle = ->
     startTime = new Date().getTime()
-    bundler.bundle()
-    .on 'error', ->
-      console.log arguments
-    .pipe(source(options.output))
-    .pipe gulp.dest(options.destination)
-    .on 'end', ->
-      time = (new Date().getTime() - startTime) / 1000
-      console.log "#{options.output} was browserified: #{time}s"
+
+    bundler
+      .bundle()
+      .on 'error', -> console.log arguments
+      .pipe source(options.output)
+      .pipe gulp.dest(options.destination)
+      .on 'end', ->
+        time = (new Date().getTime() - startTime) / 1000
+        console.log "#{options.output} was browserified: #{time}s"
 
   if isWatching
+    bundler = watchify bundler
     bundler.on 'update', rebundle
 
   rebundle()
 
 createBundles = (bundles) ->
-  bundles.forEach (bundle) ->
-    createBundle bundle
+  bundles.forEach (bundle) -> createBundle bundle
 
 gulp.task 'docs-browserify', ->
   createBundles files
