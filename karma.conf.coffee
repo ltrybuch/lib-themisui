@@ -14,17 +14,17 @@ module.exports = (config) ->
 
     # list of files / patterns to load in the browser
     files: [
-        'http://code.jquery.com/jquery-2.1.4.js'
-        'index.coffee'
-        'node_modules/angular-mocks/angular-mocks.js'
-        'themis_components/**/*.spec.coffee'
-        'spec_helper/compileDirective.coffee'
-        {
-            pattern: 'themis_components/**/*.+(directive|service).coffee'
-            watched: true
-            included: false
-            served: false
-        }
+      'http://code.jquery.com/jquery-2.1.4.js'
+      'themis_components/index.coffee'
+      'node_modules/angular-mocks/angular-mocks.js'
+      'themis_components/**/*.spec.coffee'
+      'spec_helper/compileDirective.coffee'
+      {
+        pattern: 'themis_components/**/*.+(directive|service).coffee'
+        watched: true
+        included: false
+        served: false
+      }
     ]
 
 
@@ -36,11 +36,11 @@ module.exports = (config) ->
     # preprocess matching files before serving them to the browser
     # available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-        'index.coffee' : ['browserify']
-        'themis_components/**/*.coffee': ['coffeelint']
-        'themis_components/**/*.mock.coffee' : ['coffee']
-        'themis_components/**/*.spec.coffee' : ['coffee']
-        'spec_helper/*.coffee' : ['coffee']
+      'themis_components/**/*.coffee': ['coffeelint']
+      'themis_components/index.coffee': ['browserify']
+      'themis_components/**/*.mock.coffee': ['coffee']
+      'themis_components/**/*.spec.coffee': ['coffee']
+      'spec_helper/*.coffee': ['coffee']
     }
 
 
@@ -82,30 +82,30 @@ module.exports = (config) ->
     singleRun: false
 
     browserify:
-        debug: true
-        watch: true
-        extensions: ['.coffee']
-        # fix for dbl karma compiling of coffeescript
-        # https://github.com/nikku/karma-browserify/issues/130
-        postFilter: (id, file, pkg) ->
-            if pkg.name == "lib-ThemisUI"
-                pkg.browserify.transform = []
-            true
-        transform: [
-          'coffeeify'
-          'stringify'
-          coverage
-            ignore: [
-              '**/*.mock.coffee'
-              '**/*.spec.coffee'
-            ]
-        ]
+      debug: true
+      watch: true
+      extensions: ['.coffee']
+      # fix for dbl karma compiling of coffeescript
+      # https://github.com/nikku/karma-browserify/issues/130
+      postFilter: (id, file, pkg) ->
+        if pkg.name == "lib-ThemisUI"
+          pkg.browserify.transform = []
+        true
+      transform: [
+        'coffeeify'
+        'stringify'
+        coverage
+          ignore: [
+            '**/*.mock.coffee'
+            '**/*.spec.coffee'
+          ]
+      ]
 
     coverageReporter:
       dir: 'coverage/'
       reporters: [
-        { type: 'lcovonly', subdir: 'report-lcov' }
-        { type: 'text', subdir: '.', file: 'text.txt' }
+        {type: 'lcovonly', subdir: 'report-lcov'}
+        {type: 'text', subdir: '.', file: 'text.txt'}
       ]
 
     coffeelint:
