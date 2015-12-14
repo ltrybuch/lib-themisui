@@ -79,3 +79,17 @@ describe 'ThemisComponents: Directive: thRadioGroup', ->
         expect(element.find('.th-radio-button').first().hasClass('checked')).toBe false
         expect(element.find('.th-radio-button').last().hasClass('checked')).toBe true
 
+  describe 'when element is in a form', ->
+    beforeEach ->
+      formTemplate = """
+        <form>
+          <th-radio-group name='colour' ng-model='value'>
+            <th-radio-button value='red'></th-radio-button>
+            <th-radio-button value='green'></th-radio-button>
+          </th-radio-group>
+        </form>
+        """
+      compileRadioGroupDirective(formTemplate, 'green')
+
+    it 'should have a form element with correct value', ->
+      expect(element[0].elements['colour'].value).toMatch 'green'

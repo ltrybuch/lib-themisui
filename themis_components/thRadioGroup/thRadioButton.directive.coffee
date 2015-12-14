@@ -6,11 +6,11 @@ angular.module('ThemisComponents')
     template: require './thRadioButton.template.html'
     scope:
       value: '@'
+      change: '&ngChange'
     link: (scope, element, attrs, controller) ->
-      scope.parent = controller
+      scope.group = controller
 
-      element.on 'click', ->
-        scope.$apply ->
-          scope.parent.model = scope.value
+      element.on 'click', (event) ->
+        scope.group.selectButton scope
 
       return

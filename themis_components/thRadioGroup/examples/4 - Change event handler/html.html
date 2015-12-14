@@ -1,0 +1,12 @@
+<html ng-app="thDemo">
+  <body ng-controller="DemoCtrl as demo">
+
+    <th-radio-group ng-model="demo.value" ng-change="demo.changeHandler()">
+      <th-radio-button with-label="One" value="one"></th-radio-button>
+      <th-radio-button with-label="Two" ng-click="demo.buttonClicked()" value="two"></th-radio-button>
+    </th-radio-group>
+
+    <p>Radio group value: {{demo.value}}</p>
+
+  </body>
+</html>
