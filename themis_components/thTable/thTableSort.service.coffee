@@ -9,7 +9,7 @@ TableSort = ->
       -compareResult
 
   compare = (a, b) ->
-    if typeof a is "number"
+    if typeof a in ["number", "boolean"]
       a - b
     else
       a.localeCompare b
