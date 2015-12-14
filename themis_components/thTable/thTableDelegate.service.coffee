@@ -14,19 +14,18 @@ angular.module 'ThemisComponents'
 
     currentSortHeader = (headers ? []).find (header) -> header.isSortActive()
 
-    triggerFetchData = (currentPage, pageSize, currentSortHeader) ->
+    triggerFetchData = ->
       loading = true
       error = false
+      currentPage = getCurrentPage()
+      pageSize = getPageSize()
       fetchData currentPage, pageSize, currentSortHeader, (err, newData, totalItems) ->
         loading = false
         if err
           error = err
         else
-          data = newData
+          data = newData or []
           updatePagination {totalItems} if totalItems?
-
-    onChangePage = (newCurrentPage, newPageSize) ->
-      triggerFetchData newCurrentPage, newPageSize, currentSortHeader
 
     {
       pages
@@ -43,14 +42,14 @@ angular.module 'ThemisComponents'
     } = TablePagination {
       currentPage
       pageSize
-      onChangePage
+      onChangePage: triggerFetchData
     }
 
     sortData = (header) ->
       return if not header.sortField
       updatePagination {currentPage: 1}
       updateHeaderSorting header
-      triggerFetchData getCurrentPage(), getPageSize(), currentSortHeader
+      triggerFetchData()
 
     updateHeaderSorting = (newSortHeader) ->
       if newSortHeader.isSortActive()
@@ -64,7 +63,7 @@ angular.module 'ThemisComponents'
     getError = -> error
     isLoading = -> loading
 
-    triggerFetchData getCurrentPage(), getPageSize(), currentSortHeader
+    triggerFetchData()
 
     return Object.freeze {
       getData
@@ -80,4 +79,5 @@ angular.module 'ThemisComponents'
       getError
       isLoading
       generatePagination
+      triggerFetchData
     }

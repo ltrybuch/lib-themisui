@@ -62,8 +62,10 @@ angular.module 'ThemisComponents'
       numColumns = childrenArray(rows['cells']).length
       cellsRow = generateCellsRow rows['cells'], rows['actions']?
       actionsRow = generateActionsRow rows['actions'], numColumns
+      noDataRow = generateNoDataRow rows['no-data'], numColumns
       template = """
         <tbody>
+          #{noDataRow}
           #{cellsRow}
           #{actionsRow}
         </tbody>
@@ -92,7 +94,6 @@ angular.module 'ThemisComponents'
 
     generateActionsRow = (actionsRow, numColumns) ->
       return "" unless actionsRow?
-
       startColumn = parseInt(actionsRow.getAttribute('start-column')) || 1
       colspan = numColumns - startColumn + 1
       actions = [1 ... startColumn]
@@ -111,6 +112,17 @@ angular.module 'ThemisComponents'
             ng-mouseleave="hover = false"
             ng-class="{'th-table-hover-row': hover}">
           #{actions}
+        </tr>
+      """
+
+    generateNoDataRow = (noDataRow, numColumns) ->
+      return "" unless noDataRow?
+      template = """
+        <tr class="th-table-no-data"
+            ng-if="thTable.delegate.getData().length === 0">
+          <td colspan="#{numColumns}">
+            #{noDataRow.innerHTML}
+          </td>
         </tr>
       """
 

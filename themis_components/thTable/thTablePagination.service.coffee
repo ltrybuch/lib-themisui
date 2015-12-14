@@ -62,7 +62,7 @@ angular.module 'ThemisComponents'
     goToPage = (page) ->
       return if page is dotdotdot
       currentPage = page
-      onChangePage currentPage, pageSize
+      onChangePage()
 
     generatePagination = ->
       return "" unless hasValidPagination options
