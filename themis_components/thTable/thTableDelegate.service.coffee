@@ -62,6 +62,7 @@ angular.module 'ThemisComponents'
     getData = -> data
     getError = -> error
     isLoading = -> loading
+    isEmpty = -> data.length is 0 and !isLoading() and !getError()
 
     triggerFetchData()
 
@@ -78,6 +79,7 @@ angular.module 'ThemisComponents'
       goToPage
       getError
       isLoading
+      isEmpty
       generatePagination
       triggerFetchData
     }
