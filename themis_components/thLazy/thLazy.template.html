@@ -1,4 +1,11 @@
 <ng-include onload="loadingComplete()" src="src"></ng-include>
-<div class="th-lazy-loader" ng-if="!loaded">
-  <i class="fa fa-spin fa-refresh"></i> Loading&#8230;
+<th-loader trigger="!loadError && !loaded" size="small"></th-loader>
+<div class="th-error-container" ng-if="loadError">
+  <i class="fa fa-exclamation-triangle"></i>
+  <span class="th-error-message" ng-show="loadError && !messageOverride">
+    We had trouble loading your content.<br>Try reloading the page.
+  </span>
+  <span class="th-error-message" ng-show="loadError && messageOverride">
+    {{errorMessage}}
+  </span>
 </div>
