@@ -1,14 +1,17 @@
 angular.module 'ThemisComponents'
   .factory 'TableHeader', -> TableHeader
 
-TableHeader = (options) ->
+TableHeader = (options = {}) ->
   {
-    name
+    name = ''
     sortField
     sortActive
     sortDirection
     align = "left"
   } = options
+
+  if sortActive? and not sortField?
+    throw new Error "you need to define sortField to enable sorting"
 
   if sortActive and not sortDirection?
     throw new Error "sortDirection must be set for the active sort header"
@@ -36,7 +39,9 @@ TableHeader = (options) ->
       classes.push "th-table-align-" + align
       classes.join ' '
 
-    isSortActive: -> sortActive
+    isSortActive: -> sortActive or false
+
+    getSortDirection: -> sortDirection
 
     activateSort: ->
       sortActive = true
@@ -47,6 +52,4 @@ TableHeader = (options) ->
       sortDirection = undefined
 
     toggleSortDirection: -> sortDirection = opposite[sortDirection]
-
-    getSortDirection: -> sortDirection
   }
