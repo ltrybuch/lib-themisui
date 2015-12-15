@@ -16,11 +16,11 @@ Use radio buttons to display a set of choices from which the user can only choos
 </th-radio-group>
 ```
 
-Specify an optional expression to evaluate using ng-change and/or ng-click on the `thRadioGroup` / `thRadioButton` elements.
+Specify an optional expression to evaluate using ng-change on the `thRadioGroup` / `thRadioButton` elements.
 
 ```
 <th-radio-group ng-model="colour" ng-change="colourChanged()">
-  <th-radio-button value="red" ng-click="redClicked()"></th-radio-button>
+  <th-radio-button value="red"></th-radio-button>
 </th-radio-group>
 ```
 

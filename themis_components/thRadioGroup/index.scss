@@ -26,28 +26,30 @@
     right: $inset;
 
     border-radius: 50%;
-    background-color: $blue;
     
     &:not(.animate_inward) {
+      background-color: $blue;
       opacity: 0;
       transform: scale(0);
     }
 
     &.animate_inward {
+      background-color: $white;
       opacity: 0;
-      border: solid $bordersize $blue;
+      border: solid 2px $blue;
     }
   }
 
   &.checked {
     i {
+      @include animated(250ms);
+      opacity: 1;
       &:not(.animate_inward) {
-        opacity: 1;
         transform: scale(1);
       }
 
       &.animate_inward {
-        opacity: 1;
+        -webkit-transition-timing-function: linear;
         border: solid $innersize $blue;
       }
     }

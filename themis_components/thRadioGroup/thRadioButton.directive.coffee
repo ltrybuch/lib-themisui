@@ -7,10 +7,12 @@ angular.module('ThemisComponents')
     scope:
       value: '@'
       change: '&ngChange'
-    link: (scope, element, attrs, controller) ->
-      scope.group = controller
+    link: (scope, element, attrs, radioGroup) ->
+      if radioGroup.value == scope.value
+        radioGroup.selectedButton = scope
 
-      element.on 'click', (event) ->
+      scope.group = radioGroup
+      element.on 'click', ->
         scope.group.selectButton scope
 
       return
