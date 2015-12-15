@@ -44,6 +44,7 @@
     i {
       @include animated(250ms);
       opacity: 1;
+      
       &:not(.animate_inward) {
         transform: scale(1);
       }
