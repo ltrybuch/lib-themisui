@@ -11,9 +11,10 @@ Table = (options) ->
 
   isProperlyDefined = ->
     for child in element.children()
-      return false if not isProperlyDefinedRow child
+      return false unless isProperlyDefinedRow child
     true
 
+  throw new Error "You must pass a DOM element to Table." unless element?
   throw new Error "<th-table> not properly configured!" unless isProperlyDefined()
 
   delegate = undefined
@@ -30,7 +31,7 @@ Table = (options) ->
   rows = getRows()
 
   generateTableTemplate = ->
-    throw new Error "You cannot generate template before setting a delegate!" unless delegate
+    throw new Error "You cannot generate template before setting a delegate!" unless delegate?
     delegate.generateTableTemplate rows
 
   clear = ->

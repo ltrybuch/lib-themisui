@@ -50,9 +50,10 @@ angular.module 'thDemo', ['ThemisComponents']
           sortField: 'twitter'
       ]
 
-      fetchData: (page, pageSize, sortHeader, updateData) ->
+      fetchData: (options, updateData) ->
+        {sortHeader} = options
         sortedData = sort data, sortHeader
-        updateData undefined, sortedData, sortedData.length
+        updateData {data: sortedData, totalItems: sortedData.length}
     }
 
     return

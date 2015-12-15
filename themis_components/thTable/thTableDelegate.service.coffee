@@ -2,7 +2,7 @@ angular.module 'ThemisComponents'
 .factory 'TableDelegate', (TablePagination) ->
   SimpleTableDelegate = (options) ->
     {
-      headers
+      headers = []
       currentPage
       pageSize
       fetchData
@@ -11,45 +11,38 @@ angular.module 'ThemisComponents'
     data = []
     loading = false
     error = false
-
-    currentSortHeader = (headers ? []).find (header) -> header.isSortActive()
+    currentSortHeader = headers.find (header) -> header.isSortActive()
 
     triggerFetchData = ->
       loading = true
       error = false
-      currentPage = getCurrentPage()
-      pageSize = getPageSize()
-      fetchData currentPage, pageSize, currentSortHeader, (err, newData, totalItems) ->
+
+      updateData = (options) ->
+        newError = options.error
+        newData = options.data ? []
+        totalItems = options.totalItems
+
         loading = false
-        if err
-          error = err
+
+        if newError?
+          error = newError
         else
-          data = newData or []
+          data = newData
           updatePagination {totalItems} if totalItems?
 
+      fetchData {
+        currentPage: getCurrentPage()
+        pageSize: getPageSize()
+        sortHeader: currentSortHeader
+      }, updateData
+
+    tablePagination = TablePagination {currentPage, pageSize, triggerFetchData}
+
     {
-      pages
-      isLastPage
-      isFirstPage
-      inactivePageLink
-      goToNextPage
-      goToPrevPage
-      goToPage
-      generatePagination
       updatePagination
       getCurrentPage
       getPageSize
-    } = TablePagination {
-      currentPage
-      pageSize
-      onChangePage: triggerFetchData
-    }
-
-    sortData = (header) ->
-      return if not header.sortField
-      updatePagination {currentPage: 1}
-      updateHeaderSorting header
-      triggerFetchData()
+    } = tablePagination
 
     updateHeaderSorting = (newSortHeader) ->
       if newSortHeader.isSortActive()
@@ -59,27 +52,33 @@ angular.module 'ThemisComponents'
         currentSortHeader.deactivateSort()
         currentSortHeader = newSortHeader
 
-    getData = -> data
-    getError = -> error
-    isLoading = -> loading
-    isEmpty = -> data.length is 0 and !isLoading() and !getError()
-
     triggerFetchData()
 
     return Object.freeze {
-      getData
       headers
-      sortData
-      pages
-      isLastPage
-      isFirstPage
-      inactivePageLink
-      goToNextPage
-      goToPrevPage
-      goToPage
-      getError
-      isLoading
-      isEmpty
-      generatePagination
+
       triggerFetchData
+
+      getData: -> data
+
+      getError: -> error
+
+      isLoading: -> loading
+
+      hasNoData: -> data.length is 0 and not loading and not error
+
+      sortData: (header) ->
+        return unless header.sortField?
+        updatePagination {currentPage: 1}
+        updateHeaderSorting header
+        triggerFetchData()
+
+      pages: tablePagination.pages
+      isLastPage: tablePagination.isLastPage
+      isFirstPage: tablePagination.isFirstPage
+      inactivePageLink: tablePagination.inactivePageLink
+      goToNextPage: tablePagination.goToNextPage
+      goToPrevPage: tablePagination.goToPrevPage
+      goToPage: tablePagination.goToPage
+      generatePagination: tablePagination.generatePagination
     }

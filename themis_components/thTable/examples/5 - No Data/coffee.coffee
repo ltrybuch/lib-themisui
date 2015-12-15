@@ -23,8 +23,8 @@ angular.module 'thDemo', ['ThemisComponents']
           name: 'Name'
       ]
 
-      fetchData: (page, pageSize, sortHeader, updateData) ->
-        updateData undefined, getData()
+      fetchData: (options, updateData) ->
+        updateData {data: getData()}
     }
 
     return

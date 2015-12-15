@@ -6,6 +6,11 @@ sass = require 'gulp-sass'
 rename = require 'gulp-rename'
 coffeelint = require 'gulp-coffeelint'
 
+autoprefixer = require 'gulp-autoprefixer'
+autoprefixerOptions =
+  browsers: ['last 2 versions']
+  cascade: false
+
 # creates gulp.task 'docs-server' and 'docs-restart'
 require('./gulp/tasks/docsServer')
 
@@ -35,6 +40,8 @@ gulp.task 'docs-style', ->
   gulp
     .src path.join('public', 'stylesheets', 'docs-app.scss')
     .pipe sass(includePaths: require('node-bourbon').includePaths)
+    .pipe autoprefixer autoprefixerOptions
+
     .pipe rename('docs-app.css')
     .pipe gulp.dest path.join('public', 'build')
 
@@ -45,6 +52,7 @@ gulp.task 'docs-examples-style', ->
   gulp
     .src path.join('public', 'stylesheets', 'examples.scss')
     .pipe sass(includePaths: require('node-bourbon').includePaths)
+    .pipe autoprefixer autoprefixerOptions
     .pipe rename('examples.css')
     .pipe gulp.dest path.join('public', 'build')
 
@@ -55,6 +63,7 @@ gulp.task 'lib-themisui-style', ->
   gulp
     .src path.join('themis_components', 'index.scss')
     .pipe sass(includePaths: require('node-bourbon').includePaths)
+    .pipe autoprefixer autoprefixerOptions
     .pipe rename('lib-themisui.css')
     .pipe gulp.dest path.join('public', 'build')
 

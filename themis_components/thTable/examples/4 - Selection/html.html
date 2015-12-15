@@ -1,6 +1,9 @@
 <html ng-app="thDemo" style="height: 200px">
   <body ng-controller="DemoController as demo" style="font-size: 13px; padding-right: 0; padding-left: 0;">
-    <div>Selected items: {{demo.selectedObjects.length}}</div>
+    <div style="margin-bottom: 20px;">
+      Selected items: {{demo.selectedObjects.length}}
+    </div>
+
     <th-table delegate="demo.tableDelegate">
       <th-table-row type="cells">
         <th-table-cell>

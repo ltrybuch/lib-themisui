@@ -45,15 +45,14 @@ angular.module 'thDemo', ['ThemisComponents']
       currentPage: 1
       pageSize: 5
 
-      fetchData: (page, pageSize, sortHeader, updateData) ->
-        delay = 1000
+      fetchData: (options, updateData) ->
+        {currentPage, pageSize, sortHeader} = options
         sortedData = sort data, sortHeader
-        paginatedSortedData = getDataPage sortedData, page, pageSize
-        totalItems = data.length
+        paginatedSortedData = getDataPage sortedData, currentPage, pageSize
         setTimeout ->
-          updateData undefined, paginatedSortedData, totalItems
+          updateData {data: paginatedSortedData, totalItems: data.length}
           $scope.$apply()
-        , delay
+        , 1000
     }
 
     return

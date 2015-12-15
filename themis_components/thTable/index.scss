@@ -6,12 +6,6 @@ th-table {
     opacity: 0.5;
   }
 
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-
   table.th-table {
     background: #fff;
     border-collapse: collapse;
@@ -88,7 +82,9 @@ th-table {
   }
 
   .th-table-pagination {
-    float: right;
+    display: flex;
+    justify-content: flex-end;
+
     font-weight: bold;
     padding: 6px 20px 6px 0px;
 

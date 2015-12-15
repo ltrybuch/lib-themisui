@@ -238,5 +238,6 @@ not flexible enough for all datatables in Clio.
 
 ## TODO
 
-* How do we style columns? How do we set widths for them?
-* Rename normal to simple
+* Custom cell/column widths
+* Add optional selectable mixin
+* Add delegates for bills and tasks types of tables

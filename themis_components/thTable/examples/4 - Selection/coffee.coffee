@@ -66,11 +66,11 @@ angular.module 'thDemo', ['ThemisComponents']
       currentPage: 1
       pageSize: 5
 
-      fetchData: (page, pageSize, sortHeader, updateData) ->
+      fetchData: (options, updateData) ->
+        {currentPage, pageSize, sortHeader} = options
         sortedData = sort data, sortHeader
-        paginatedSortedData = getDataPage sortedData, page, pageSize
-        totalItems = data.length
-        updateData undefined, paginatedSortedData, totalItems
+        paginatedSortedData = getDataPage sortedData, currentPage, pageSize
+        updateData {data: paginatedSortedData, totalItems: data.length}
     }
 
     return
