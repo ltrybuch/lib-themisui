@@ -9,7 +9,7 @@ describe 'ThemisComponents: Service: thTableSort', ->
       TableSort = _TableSort_
       TableHeader = _TableHeader_
 
-  it 'should exist', ->
+  it 'exists', ->
     expect(TableSort?).toBe true
 
   describe '#sort', ->

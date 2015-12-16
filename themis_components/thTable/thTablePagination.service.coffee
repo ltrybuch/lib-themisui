@@ -3,7 +3,7 @@ angular.module 'ThemisComponents'
   interpolateStart = $interpolate.startSymbol()
   interpolateEnd = $interpolate.endSymbol()
 
-  TablePagination = (options) ->
+  TablePagination = (options = {}) ->
     {
       currentPage
       pageSize
@@ -19,7 +19,9 @@ angular.module 'ThemisComponents'
     hasValidPagination = -> options.currentPage? and options.pageSize?
 
     goToPage = (page) ->
-      return if page is ellipsis
+      return if page is ellipsis or \
+                page not in [1 .. totalPages()] or \
+                page is currentPage
       currentPage = page
       triggerFetchData()
 
@@ -74,9 +76,9 @@ angular.module 'ThemisComponents'
 
       goToPage
 
-      generatePagination: ->
+      generatePaginationTemplate: ->
         return "" unless hasValidPagination options
-        template = """
+        return """
           <div class="th-table-pagination" ng-if="thTable.delegate.pages().length > 1">
             <a class="th-table-pagination-link"
                ng-class="{'th-table-pagination-inactive-link': thTable.delegate.isFirstPage()}"

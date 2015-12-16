@@ -8,32 +8,32 @@ describe 'ThemisComponents: Service: thTableHeader', ->
     inject (_TableHeader_) ->
       TableHeader = _TableHeader_
 
-  it 'should exist', ->
+  it 'exists', ->
     expect(TableHeader?).toBe true
 
   describe '#constructor', ->
     name = 'A name'
     sortField = 'aField'
 
-    it 'should throw if incorrect align is provided', ->
+    it 'throws if incorrect align is provided', ->
       align = 'wrong'
       expect(-> TableHeader {align}).toThrow()
 
-    it 'should throw if sortActive and no sortField provided', ->
+    it 'throws if sortActive and no sortField provided', ->
       sortDirection = 'ascending'
       sortActive = true
       expect(-> TableHeader {sortActive, sortDirection}).toThrow()
 
-    it 'should throw if sortActive and no sortDirection provided', ->
+    it 'throws if sortActive and no sortDirection provided', ->
       sortActive = true
       expect(-> TableHeader {sortField, sortActive}).toThrow()
 
-    it 'should throw if incorrect sortDirection is provided', ->
+    it 'throws if incorrect sortDirection is provided', ->
       sortDirection = 'wrong'
       sortActive = true
       expect(-> TableHeader {sortActive, sortDirection, sortField}).toThrow()
 
-    it 'should expose name and sortField', ->
+    it 'exposes name and sortField', ->
       header = TableHeader {name, sortField}
       expect(header.name).toEqual name
       expect(header.sortField).toEqual sortField
@@ -42,7 +42,7 @@ describe 'ThemisComponents: Service: thTableHeader', ->
     sortField = 'aField'
 
     context 'sorting disabled', ->
-      it 'should have proper sort and align classes', ->
+      it 'has proper sort and align classes', ->
         header = TableHeader()
         classes = header.cssClasses()
         expect(classes.includes(klass)).toBe true for klass in [
@@ -51,7 +51,7 @@ describe 'ThemisComponents: Service: thTableHeader', ->
         ]
 
     context 'sorting enabled, inactive', ->
-      it 'should have proper sort and align classes', ->
+      it 'has proper sort and align classes', ->
         header = TableHeader {sortField}
         classes = header.cssClasses()
         expect(classes.includes(klass)).toBe true for klass in [
@@ -64,7 +64,7 @@ describe 'ThemisComponents: Service: thTableHeader', ->
       sortActive = true
       sortDirection = 'ascending'
 
-      it 'should have proper sort and align classes', ->
+      it 'has proper sort and align classes', ->
         header = TableHeader {sortField, sortActive, sortDirection}
         classes = header.cssClasses()
         expect(classes.includes(klass)).toBe true for klass in [

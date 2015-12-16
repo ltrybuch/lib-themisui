@@ -80,5 +80,5 @@ angular.module 'ThemisComponents'
       goToNextPage: tablePagination.goToNextPage
       goToPrevPage: tablePagination.goToPrevPage
       goToPage: tablePagination.goToPage
-      generatePagination: tablePagination.generatePagination
+      generatePaginationTemplate: tablePagination.generatePaginationTemplate
     }

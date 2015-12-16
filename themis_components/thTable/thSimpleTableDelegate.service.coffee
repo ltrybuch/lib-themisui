@@ -8,12 +8,12 @@ angular.module 'ThemisComponents'
 
     {
       headers = []
-      generatePagination
+      generatePaginationTemplate
     } = delegate
 
-    generateHeaders = ->
+    generateHeadersTemplate = ->
       return "" unless headers.length > 0
-      template = """
+      return """
         <thead>
           <tr>
             <th ng-repeat="header in thTable.delegate.headers track by $index"
@@ -26,13 +26,13 @@ angular.module 'ThemisComponents'
         </thead>
       """
 
-    generateBody = (rows) ->
+    generateBodyTemplate = (rows) ->
       numColumns = childrenArray(rows['cells']).length
-      cellsRow = generateCellsRow rows['cells'], rows['actions']?
-      actionsRow = generateActionsRow rows['actions'], numColumns
-      noDataRow = generateNoDataRow rows['no-data'], numColumns
-      errorRow = generateErrorRow numColumns
-      template = """
+      cellsRow = generateCellsRowTemplate rows['cells'], rows['actions']?
+      actionsRow = generateActionsRowTemplate rows['actions'], numColumns
+      noDataRow = generateNoDataRowTemplate rows['no-data'], numColumns
+      errorRow = generateErrorRowTemplate numColumns
+      return """
         <tbody>
           #{noDataRow}
           #{errorRow}
@@ -41,13 +41,13 @@ angular.module 'ThemisComponents'
         </tbody>
       """
 
-    generateCellsRow = (cellsRow, hasActionsRow) ->
+    generateCellsRowTemplate = (cellsRow, hasActionsRow) ->
       ngRepeat = if hasActionsRow then "ng-repeat-start" else "ng-repeat"
       objectReference = getObjectReference cellsRow
       cells = childrenArray(cellsRow)
-                .map (cell) -> generateCell cell
+                .map (cell) -> generateCellTemplate cell
                 .join ''
-      template = """
+      return """
         <tr class="th-table-cells-row"
             #{ngRepeat}="#{objectReference} in thTable.delegate.getData()"
             ng-mouseover="hover = true"
@@ -57,12 +57,12 @@ angular.module 'ThemisComponents'
         </tr>
       """
 
-    generateCell = (cell) ->
-      template = """
+    generateCellTemplate = (cell) ->
+      return """
         <td>#{cell.innerHTML}</td>
       """
 
-    generateActionsRow = (actionsRow, numColumns) ->
+    generateActionsRowTemplate = (actionsRow, numColumns) ->
       return "" unless actionsRow?
       startColumn = parseInt(actionsRow.getAttribute('start-column')) || 1
       colspan = numColumns - startColumn + 1
@@ -75,7 +75,7 @@ angular.module 'ThemisComponents'
                     </td>
                   """
 
-      template = """
+      return """
         <tr class="th-table-actions-row"
             ng-repeat-end
             ng-mouseover="hover = true"
@@ -85,9 +85,9 @@ angular.module 'ThemisComponents'
         </tr>
       """
 
-    generateNoDataRow = (noDataRow, numColumns) ->
+    generateNoDataRowTemplate = (noDataRow, numColumns) ->
       return "" unless noDataRow?
-      template = """
+      return """
         <tr class="th-table-no-data"
             ng-if="thTable.delegate.hasNoData()">
           <td colspan="#{numColumns}">
@@ -96,8 +96,8 @@ angular.module 'ThemisComponents'
         </tr>
       """
 
-    generateErrorRow = (numColumns) ->
-      template = """
+    generateErrorRowTemplate = (numColumns) ->
+      return """
         <tr class="th-table-error"
             ng-if="thTable.delegate.getError()">
           <td colspan="#{numColumns}">
@@ -153,10 +153,10 @@ angular.module 'ThemisComponents'
       ###
       generateTableTemplate: (rows) ->
         checkValidRows rows
-        thead = generateHeaders()
-        tbody = generateBody rows
-        pagination = generatePagination()
-        template = """
+        thead = generateHeadersTemplate()
+        tbody = generateBodyTemplate rows
+        pagination = generatePaginationTemplate()
+        return """
           <div ng-class="{'th-table-loading': thTable.delegate.isLoading()}">
             <table class="th-table">
               #{thead}
