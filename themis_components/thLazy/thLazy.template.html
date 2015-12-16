@@ -1,4 +1,4 @@
 <ng-include onload="loadingComplete()" src="src"></ng-include>
-<th-loader trigger="!loadError && !loaded" size="small"></th-loader>
+<th-loader trigger="loading" size="small"></th-loader>
 <th-error ng-if="loadError && errorMessage">{{errorMessage}}</th-error>
 <th-error ng-if="loadError && !errorMessage"></th-error>
