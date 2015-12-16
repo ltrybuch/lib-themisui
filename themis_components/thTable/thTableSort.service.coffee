@@ -15,14 +15,17 @@ TableSort = ->
       a.localeCompare b
 
   getField = (object, field) ->
+    return object if field is ''
     result = object
     field.split('.').forEach (key) -> result = result[key]
     result
 
   return Object.freeze {
     sort: (data, header) ->
+      return data unless header.isSortActive()
       data.sort (obj1, obj2) ->
         field1 = getField obj1, header.sortField
         field2 = getField obj2, header.sortField
-        applySortOrder header.getSortDirection(), compare(field1, field2)
+        result = compare field1, field2
+        applySortOrder header.getSortDirection(), result
   }
