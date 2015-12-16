@@ -8,8 +8,7 @@ angular.module('ThemisComponents')
       value: '@'
       change: '&ngChange'
     link: (scope, element, attrs, radioGroup) ->
-      if radioGroup.value == scope.value
-        radioGroup.selectedButton = scope
+      radioGroup.addButton scope, attrs['checked']?
 
       scope.group = radioGroup
       element.on 'click', ->

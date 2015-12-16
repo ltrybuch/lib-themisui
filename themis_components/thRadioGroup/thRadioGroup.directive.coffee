@@ -10,23 +10,32 @@ angular.module('ThemisComponents')
       name: '@'
       change: '&ngChange'
       value: '=ngModel'
-    controller: ($scope) ->
-      @selectedButton = null
+    controller: ($scope, $attrs) ->
+      buttons = []
 
-      @selectButton = (button) ->
-        if @value != button.value
+      @addButton = (button, checked) ->
+        # Compare to ng-model by default; otherwise 'checked' attribute
+        button.checked = if $attrs['ngModel']? then @value == button.value else checked
+        buttons.push button
 
-          lastSelectedButton = @selectedButton
-          @selectedButton = button
-
+      @selectButton = (buttonToSelect) ->
+        if not buttonToSelect.checked
+          # Update ng-model
           $scope.$apply =>
-            @value = @selectedButton.value
+            @value = buttonToSelect.value if $attrs['ngModel']?
 
           # Evaluate ng-change expression on group
           @change() if @change?
-          # Evaluate ng-change expression on last selected button
-          lastSelectedButton.change() if lastSelectedButton and lastSelectedButton.change?
+
+          # Evaluate ng-change expression on last checked button
+          button.change() for button in buttons when button.checked is true
+
           # Evaluate ng-change expression on selected button
-          @selectedButton.change() if @selectedButton and @selectedButton.change?
+          buttonToSelect.change()
+
+          # Update internal button state
+          $scope.$apply ->
+            buttonToSelect.checked = yes
+            button.checked = no for button in buttons when button isnt buttonToSelect
 
       return

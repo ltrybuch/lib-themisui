@@ -1,7 +1,7 @@
 <span 
   class="th-radio-button"
   ng-class="{
-    checked: group.value == value
+    checked: checked
     }"
   ng-model="group.value"
   >
@@ -9,7 +9,9 @@
     type="radio"
     name="{{group.name}}"
     value="{{value}}"
-    ng-model="group.value"
+    ng-class="{
+      checked: checked  
+    }"
     >
   <i></i>
 </span>
