@@ -3,7 +3,7 @@ angular.module 'ThemisComponents'
   interpolateStart = $interpolate.startSymbol()
   interpolateEnd = $interpolate.endSymbol()
 
-  SimpleTableDelegate = (options) ->
+  SimpleTableDelegate = (options = {}) ->
     delegate = TableDelegate options
 
     {
@@ -85,13 +85,13 @@ angular.module 'ThemisComponents'
         </tr>
       """
 
-    generateNoDataRowTemplate = (noDataRow, numColumns) ->
-      return "" unless noDataRow?
+    generateNoDataRowTemplate = (noDataRow = {}, numColumns) ->
+      contents = noDataRow.innerHTML or "No Results"
       return """
         <tr class="th-table-no-data"
             ng-if="thTable.delegate.hasNoData()">
           <td colspan="#{numColumns}">
-            #{noDataRow.innerHTML}
+            #{contents}
           </td>
         </tr>
       """
@@ -143,15 +143,16 @@ angular.module 'ThemisComponents'
       # This is the single required method that a custom delegate must implement.
       # The rest of the interface is inherited from TableDelegate.
       #
-      # It receives as input a list of <th-table-row> DOM elements that you can
-      # use to build out your custom table template.
+      # It receives as input a dictionary of {type: row} pairs, where the value,
+      # row, is a <th-table-row type="...">...</th-table-row> DOM element
+      # defined inside the <th-table> element.
       #
       # It must return the final table template that gets compiled in th-table's
       # parent scope, extended with the thTable key, which stores this table's
       # controller. This means you can use thTable.delegate in your template to
       # access the delegate's interface.
       ###
-      generateTableTemplate: (rows) ->
+      generateTableTemplate: (rows = {}) ->
         checkValidRows rows
         thead = generateHeadersTemplate()
         tbody = generateBodyTemplate rows
