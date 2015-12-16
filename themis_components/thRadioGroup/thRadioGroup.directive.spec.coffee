@@ -6,9 +6,20 @@ describe 'ThemisComponents: Directive: thRadioGroup', ->
       <th-radio-button value='blue'></th-radio-button>
     </th-radio-group>
   """
+  click = document.createEvent('MouseEvent')
+  click.initEvent('click')
 
   beforeEach ->
     module 'ThemisComponents'
+
+  queryRadioButtonSelector = (position) ->
+    selector = '.th-radio-button'
+    selector += ':' + position + '-child' if position
+    element[0].querySelector(selector)
+
+  queryRadioButtonChecked = (position) ->
+    button = queryRadioButtonSelector(position)
+    button.matches('.checked')
 
   compileRadioGroupDirective = (template, value, callback) ->
     scopeAdditions =
@@ -21,63 +32,63 @@ describe 'ThemisComponents: Directive: thRadioGroup', ->
 
   describe 'when value is undefined', ->
     beforeEach ->
-      compileRadioGroupDirective(validTemplate, undefined)
+      compileRadioGroupDirective(validTemplate)
 
     it 'should have an indicator for each button', ->
-      expect(element.find('i').length).toBe 2
+      expect(queryRadioButtonSelector().querySelector('i')).toExist
 
     it 'should be unchecked', ->
-      expect(element.find('.th-radio-button').first().hasClass('checked')).toBe false
-      expect(element.find('.th-radio-button').last().hasClass('checked')).toBe false
+      expect(queryRadioButtonChecked('first')).toBe false
+      expect(queryRadioButtonChecked('last')).toBe false
 
     describe 'when first element is clicked', ->
       beforeEach ->
-        element.find('.th-radio-button').first().triggerHandler 'click'
+        queryRadioButtonSelector('first').dispatchEvent click
 
-      it 'should have second element checked only', ->
-        expect(element.find('.th-radio-button').first().hasClass('checked')).toBe true
-        expect(element.find('.th-radio-button').last().hasClass('checked')).toBe false
+      it 'should have first element checked only', ->
+        expect(queryRadioButtonChecked('first')).toBe true
+        expect(queryRadioButtonChecked('last')).toBe false
 
     describe 'when second element is clicked', ->
       beforeEach ->
-        element.find('.th-radio-button').last().triggerHandler 'click'
+        queryRadioButtonSelector('last').dispatchEvent click
 
       it 'should have second element checked only', ->
-        expect(element.find('.th-radio-button').first().hasClass('checked')).toBe false
-        expect(element.find('.th-radio-button').last().hasClass('checked')).toBe true
+        expect(queryRadioButtonChecked('first')).toBe false
+        expect(queryRadioButtonChecked('last')).toBe true
 
   describe 'when value is initialized to second element', ->
     beforeEach ->
       compileRadioGroupDirective(validTemplate, 'blue')
 
     it 'should have second element checked only', ->
-      expect(element.find('.th-radio-button').first().hasClass('checked')).toBe false
-      expect(element.find('.th-radio-button').last().hasClass('checked')).toBe true
+      expect(queryRadioButtonChecked('first')).toBe false
+      expect(queryRadioButtonChecked('last')).toBe true
 
     describe 'when first element is clicked', ->
       beforeEach ->
-        element.find('.th-radio-button').first().triggerHandler 'click'
+        queryRadioButtonSelector('first').dispatchEvent click
 
       it 'should have first element checked only', ->
-        expect(element.find('.th-radio-button').first().hasClass('checked')).toBe true
-        expect(element.find('.th-radio-button').last().hasClass('checked')).toBe false
+        expect(queryRadioButtonChecked('first')).toBe true
+        expect(queryRadioButtonChecked('last')).toBe false
 
     describe 'when first element is clicked then second element is clicked', ->
       beforeEach ->
-        element.find('.th-radio-button').first().triggerHandler 'click'
-        element.find('.th-radio-button').last().triggerHandler 'click'
+        queryRadioButtonSelector('first').dispatchEvent click
+        queryRadioButtonSelector('last').dispatchEvent click
 
       it 'should have second element checked only', ->
-        expect(element.find('.th-radio-button').first().hasClass('checked')).toBe false
-        expect(element.find('.th-radio-button').last().hasClass('checked')).toBe true
+        expect(queryRadioButtonChecked('first')).toBe false
+        expect(queryRadioButtonChecked('last')).toBe true
 
     describe 'when second element is clicked', ->
       beforeEach ->
-        element.find('.th-radio-button').last().triggerHandler 'click'
+        queryRadioButtonSelector('last').dispatchEvent click
 
       it 'should have second element checked only', ->
-        expect(element.find('.th-radio-button').first().hasClass('checked')).toBe false
-        expect(element.find('.th-radio-button').last().hasClass('checked')).toBe true
+        expect(queryRadioButtonChecked('first')).toBe false
+        expect(queryRadioButtonChecked('last')).toBe true
 
   describe 'when template specifies ng-change callback on radio group ', ->
     beforeEach ->
@@ -97,14 +108,14 @@ describe 'ThemisComponents: Directive: thRadioGroup', ->
 
     describe 'when user clicks on unselected element', ->
       beforeEach ->
-        element.find('.th-radio-button').last().triggerHandler 'click'
+        queryRadioButtonSelector('last').dispatchEvent click
 
       it 'should trigger callback', ->
         expect(scope.callback).toHaveBeenCalled()
 
     describe 'when user clicks on selected element', ->
       beforeEach ->
-        element.find('.th-radio-button').first().triggerHandler 'click'
+        queryRadioButtonSelector('first').dispatchEvent click
       it 'should not trigger callback', ->
         expect(scope.callback).not.toHaveBeenCalled()
 
@@ -126,13 +137,13 @@ describe 'ThemisComponents: Directive: thRadioGroup', ->
 
     describe 'when user clicks on unselected element', ->
       beforeEach ->
-        element.find('.th-radio-button').last().triggerHandler 'click'
+        queryRadioButtonSelector('last').dispatchEvent click
 
       it 'should trigger callback', ->
         expect(scope.callback).toHaveBeenCalled()
 
     describe 'when user clicks on selected element', ->
       beforeEach ->
-        element.find('.th-radio-button').first().triggerHandler 'click'
+        queryRadioButtonSelector('first').dispatchEvent click
       it 'should not trigger callback', ->
         expect(scope.callback).not.toHaveBeenCalled()
