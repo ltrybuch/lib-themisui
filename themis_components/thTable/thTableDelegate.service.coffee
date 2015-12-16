@@ -1,12 +1,14 @@
 angular.module 'ThemisComponents'
 .factory 'TableDelegate', (TablePagination) ->
-  SimpleTableDelegate = (options) ->
+  TableDelegate = (options = {}) ->
     {
       headers = []
       currentPage
       pageSize
       fetchData
     } = options
+
+    throw new Error "TableDelegate needs a fetchData property" unless fetchData?
 
     data = []
     loading = false
@@ -17,7 +19,7 @@ angular.module 'ThemisComponents'
       loading = true
       error = false
 
-      updateData = (options) ->
+      updateData = (options = {}) ->
         newError = options.error
         newData = options.data ? []
         totalItems = options.totalItems
@@ -49,7 +51,7 @@ angular.module 'ThemisComponents'
         newSortHeader.toggleSortDirection()
       else
         newSortHeader.activateSort()
-        currentSortHeader.deactivateSort()
+        currentSortHeader.deactivateSort() if currentSortHeader?
         currentSortHeader = newSortHeader
 
     triggerFetchData()

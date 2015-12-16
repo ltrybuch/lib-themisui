@@ -19,8 +19,7 @@ describe 'ThemisComponents: Service: thTableSort', ->
       sortActive = true
 
       it 'sorts ascending', ->
-        sortDirection = 'ascending'
-        header = TableHeader {sortField, sortActive, sortDirection}
+        header = TableHeader {sortField, sortActive}
         {sort} = TableSort
         sortedArray = sort array, header
         expect(sortedArray).toEqual [1, 2, 3, 4, 5]
@@ -38,8 +37,7 @@ describe 'ThemisComponents: Service: thTableSort', ->
         array = [1, 5, 3, 4, 2].map convertToNestedObject
         sortField = 'deeply.nested.field'
         sortActive = true
-        sortDirection = 'ascending'
-        header = TableHeader {sortField, sortActive, sortDirection}
+        header = TableHeader {sortField, sortActive}
         {sort} = TableSort
         sortedArray = sort array, header
         expect(sortedArray).toEqual [1, 2, 3, 4, 5].map convertToNestedObject
@@ -50,8 +48,7 @@ describe 'ThemisComponents: Service: thTableSort', ->
         array = [true, false, true].map convertToNestedObject
         sortField = 'val'
         sortActive = true
-        sortDirection = 'ascending'
-        header = TableHeader {sortField, sortActive, sortDirection}
+        header = TableHeader {sortField, sortActive}
         {sort} = TableSort
         sortedArray = sort array, header
         expect(sortedArray).toEqual [false, true, true].map convertToNestedObject
@@ -62,8 +59,7 @@ describe 'ThemisComponents: Service: thTableSort', ->
         array = ["a", "c", "b"].map convertToNestedObject
         sortField = 'val'
         sortActive = true
-        sortDirection = 'ascending'
-        header = TableHeader {sortField, sortActive, sortDirection}
+        header = TableHeader {sortField, sortActive}
         {sort} = TableSort
         sortedArray = sort array, header
         expect(sortedArray).toEqual ["a", "b", "c"].map convertToNestedObject

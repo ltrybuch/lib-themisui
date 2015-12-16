@@ -5,7 +5,7 @@ angular.module 'ThemisComponents'
 
   TablePagination = (options = {}) ->
     {
-      currentPage
+      currentPage = 1
       pageSize
       triggerFetchData
     } = options
@@ -16,7 +16,7 @@ angular.module 'ThemisComponents'
 
     totalPages = -> Math.ceil totalItems / pageSize
 
-    hasValidPagination = -> options.currentPage? and options.pageSize?
+    paginationEnabled = -> options.pageSize?
 
     goToPage = (page) ->
       return if page is ellipsis or \
@@ -77,7 +77,7 @@ angular.module 'ThemisComponents'
       goToPage
 
       generatePaginationTemplate: ->
-        return "" unless hasValidPagination options
+        return "" unless paginationEnabled options
         return """
           <div class="th-table-pagination" ng-if="thTable.delegate.pages().length > 1">
             <a class="th-table-pagination-link"

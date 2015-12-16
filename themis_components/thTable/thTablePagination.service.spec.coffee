@@ -6,7 +6,7 @@ describe 'ThemisComponents: Service: thTablePagination', ->
   beforeEach ->
     module 'ThemisComponents'
 
-    inject (_TablePagination_, _TableHeader_) ->
+    inject (_TablePagination_) ->
       TablePagination = _TablePagination_
 
   it 'exists', ->
@@ -14,11 +14,16 @@ describe 'ThemisComponents: Service: thTablePagination', ->
 
   describe '#constructor', ->
     it 'exposes currentPage and pageSize', ->
-      currentPage = 1
+      currentPage = 2
       pageSize = 5
       pagination = TablePagination {currentPage, pageSize}
       expect(pagination.getCurrentPage()).toBe currentPage
       expect(pagination.getPageSize()).toBe pageSize
+
+    it 'sets currentPage to default value 1 if undefined', ->
+      pageSize = 5
+      pagination = TablePagination {pageSize}
+      expect(pagination.getCurrentPage()).toBe 1
 
   describe '#pages', ->
     it 'always shows first and last page and 2 pages around the current page', ->
@@ -43,13 +48,13 @@ describe 'ThemisComponents: Service: thTablePagination', ->
 
     context '<= 9 pages', ->
       it 'shows all pages', ->
-        currentPage = 1
         pageSize = 5
         for numPages in [1 .. 9]
-          totalItems = numPages * pageSize
-          pagination = TablePagination {currentPage, pageSize}
-          pagination.updatePagination {totalItems}
-          expect(pagination.pages()).toEqual [1 .. numPages]
+          for currentPage in [1 .. numPages]
+            totalItems = numPages * pageSize
+            pagination = TablePagination {currentPage, pageSize}
+            pagination.updatePagination {totalItems}
+            expect(pagination.pages()).toEqual [1 .. numPages]
 
     context '> 9 pages', ->
       it 'shows ellipsis if current page is far from first or last page', ->
@@ -73,9 +78,8 @@ describe 'ThemisComponents: Service: thTablePagination', ->
 
   describe '#isFirstPage', ->
     it 'returns true', ->
-      currentPage = 1
       pageSize = 5
-      pagination = TablePagination {currentPage, pageSize}
+      pagination = TablePagination {pageSize}
       expect(pagination.isFirstPage()).toBe true
 
     it 'returns false', ->
@@ -86,11 +90,10 @@ describe 'ThemisComponents: Service: thTablePagination', ->
 
   describe '#isLastPage', ->
     it 'returns false', ->
-      currentPage = 1
       pageSize = 5
       numPages = 10
       totalItems = numPages * pageSize
-      pagination = TablePagination {currentPage, pageSize}
+      pagination = TablePagination {pageSize}
       pagination.updatePagination {totalItems}
       expect(pagination.isLastPage()).toBe false
 
@@ -146,16 +149,15 @@ describe 'ThemisComponents: Service: thTablePagination', ->
 
   describe '#goToPrevPage', ->
     it 'does not work if current page is the first one', ->
-      currentPage = 1
       pageSize = 5
       numPages = 10
       totalItems = numPages * pageSize
       called = false
       triggerFetchData = -> called = true
-      pagination = TablePagination {currentPage, pageSize, triggerFetchData}
+      pagination = TablePagination {pageSize, triggerFetchData}
       pagination.updatePagination {totalItems}
       pagination.goToPrevPage()
-      expect(pagination.getCurrentPage()).toBe currentPage
+      expect(pagination.getCurrentPage()).toBe 1
       expect(called).toBe false
 
     it 'decreases currentPage and calls triggerFetchData', ->
@@ -173,25 +175,24 @@ describe 'ThemisComponents: Service: thTablePagination', ->
 
   describe '#goToPage', ->
     it 'does not work if called with invalid page', ->
-      currentPage = 1
       pageSize = 5
       numPages = 10
       totalItems = numPages * pageSize
       called = false
       triggerFetchData = -> called = true
-      pagination = TablePagination {currentPage, pageSize, triggerFetchData}
+      pagination = TablePagination {pageSize, triggerFetchData}
       pagination.updatePagination {totalItems}
 
       pagination.goToPage 0
-      expect(pagination.getCurrentPage()).toBe currentPage
+      expect(pagination.getCurrentPage()).toBe 1
       expect(called).toBe false
 
       pagination.goToPage 1
-      expect(pagination.getCurrentPage()).toBe currentPage
+      expect(pagination.getCurrentPage()).toBe 1
       expect(called).toBe false
 
       pagination.goToPage ellipsis
-      expect(pagination.getCurrentPage()).toBe currentPage
+      expect(pagination.getCurrentPage()).toBe 1
       expect(called).toBe false
 
     it 'updates currentPage and calls triggerFetchData', ->
@@ -209,24 +210,14 @@ describe 'ThemisComponents: Service: thTablePagination', ->
       expect(called).toBe true
 
   describe '#generatePagination', ->
-    it 'returns empty template unless it has currentPage and pageSize', ->
-      currentPage = 1
-      pageSize = 5
-
+    it 'returns empty template if pageSize is not set', ->
       pagination = TablePagination()
       expect(pagination.generatePaginationTemplate()).toEqual ''
 
-      pagination = TablePagination {currentPage}
-      expect(pagination.generatePaginationTemplate()).toEqual ''
-
-      pagination = TablePagination {pageSize}
-      expect(pagination.generatePaginationTemplate()).toEqual ''
-
-    it 'returns proper template if it has currentPage and pageSize', ->
-      currentPage = 1
+    it 'returns proper template if it has pageSize', ->
       pageSize = 5
 
-      pagination = TablePagination {currentPage, pageSize}
+      pagination = TablePagination {pageSize}
       expect(pagination.generatePaginationTemplate()).not.toEqual ''
 
   describe '#updatePagination', ->

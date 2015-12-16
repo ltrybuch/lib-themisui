@@ -20,13 +20,8 @@ describe 'ThemisComponents: Service: thTableHeader', ->
       expect(-> TableHeader {align}).toThrow()
 
     it 'throws if sortActive and no sortField provided', ->
-      sortDirection = 'ascending'
       sortActive = true
-      expect(-> TableHeader {sortActive, sortDirection}).toThrow()
-
-    it 'throws if sortActive and no sortDirection provided', ->
-      sortActive = true
-      expect(-> TableHeader {sortField, sortActive}).toThrow()
+      expect(-> TableHeader {sortActive}).toThrow()
 
     it 'throws if incorrect sortDirection is provided', ->
       sortDirection = 'wrong'
@@ -37,6 +32,11 @@ describe 'ThemisComponents: Service: thTableHeader', ->
       header = TableHeader {name, sortField}
       expect(header.name).toEqual name
       expect(header.sortField).toEqual sortField
+
+    it 'sets sortDirection to ascending if undefined and sortActive is true', ->
+      sortActive = true
+      header = TableHeader {sortField, sortActive}
+      expect(header.getSortDirection()).toEqual 'ascending'
 
   describe '#cssClasses', ->
     sortField = 'aField'
@@ -62,10 +62,9 @@ describe 'ThemisComponents: Service: thTableHeader', ->
 
     context 'sorting enabled, active', ->
       sortActive = true
-      sortDirection = 'ascending'
 
       it 'has proper sort and align classes', ->
-        header = TableHeader {sortField, sortActive, sortDirection}
+        header = TableHeader {sortField, sortActive}
         classes = header.cssClasses()
         expect(classes.includes(klass)).toBe true for klass in [
           'th-table-sortable'
@@ -77,8 +76,7 @@ describe 'ThemisComponents: Service: thTableHeader', ->
     it 'returns sortActive', ->
       sortField = 'aField'
       sortActive = true
-      sortDirection = 'ascending'
-      header = TableHeader {sortField, sortActive, sortDirection}
+      header = TableHeader {sortField, sortActive}
       expect(header.isSortActive()).toBe true
 
   describe '#getSortDirection', ->
@@ -95,14 +93,13 @@ describe 'ThemisComponents: Service: thTableHeader', ->
       header = TableHeader {sortField}
       header.activateSort()
       expect(header.isSortActive()).toBe true
-      expect(header.getSortDirection()).toBe 'ascending'
+      expect(header.getSortDirection()).toEqual 'ascending'
 
   describe '#deactivateSort', ->
     it 'changes the value of sortActive and sortDirection', ->
       sortField = 'aField'
       sortActive = true
-      sortDirection = 'ascending'
-      header = TableHeader {sortField, sortActive, sortDirection}
+      header = TableHeader {sortField, sortActive}
       header.deactivateSort()
       expect(header.isSortActive()).toBe false
       expect(header.getSortDirection()).toBe undefined
@@ -111,8 +108,7 @@ describe 'ThemisComponents: Service: thTableHeader', ->
     it 'changes the value of sortDirection', ->
       sortField = 'aField'
       sortActive = true
-      sortDirection = 'ascending'
-      header = TableHeader {sortField, sortActive, sortDirection}
+      header = TableHeader {sortField, sortActive}
       header.toggleSortDirection()
       expect(header.getSortDirection()).toEqual 'descending'
       header.toggleSortDirection()

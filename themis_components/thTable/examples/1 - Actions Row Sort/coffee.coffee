@@ -43,7 +43,6 @@ angular.module 'thDemo', ['ThemisComponents']
           name: 'Name'
           sortField: 'name'
           sortActive: true
-          sortDirection: 'ascending'
 
         TableHeader
           name: 'Twitter'

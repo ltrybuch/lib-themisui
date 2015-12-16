@@ -37,7 +37,6 @@ angular.module 'thDemo', ['ThemisComponents']
           name: 'Last Name'
       ]
 
-      currentPage: 1
       pageSize: 5
 
       fetchData: (options, updateData) ->

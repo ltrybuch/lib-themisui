@@ -56,14 +56,12 @@ angular.module 'thDemo', ['ThemisComponents']
           name: 'First Name'
           sortField: 'object.firstName'
           sortActive: true
-          sortDirection: 'ascending'
 
         TableHeader
           name: 'Last Name'
           sortField: 'object.lastName'
       ]
 
-      currentPage: 1
       pageSize: 5
 
       fetchData: (options, updateData) ->

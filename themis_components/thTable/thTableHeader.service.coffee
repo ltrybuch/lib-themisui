@@ -10,11 +10,10 @@ TableHeader = (options = {}) ->
     align = "left"
   } = options
 
+  sortDirection = "ascending" if sortActive and not sortDirection?
+
   if sortActive? and not sortField?
     throw new Error "you need to define sortField to enable sorting"
-
-  if sortActive and not sortDirection?
-    throw new Error "sortDirection must be set for the active sort header"
 
   if sortDirection? and sortDirection not in ["ascending", "descending"]
     throw new Error "sortDirection can be either ascending or descending"
