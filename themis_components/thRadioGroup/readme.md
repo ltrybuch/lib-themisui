@@ -18,7 +18,9 @@ The `th-radio-group` element delimits the set of choices.
 
 The `th-radio-button` element indicates one choice within a set.
 
-The `th-radio-group` element must specify an `ng-model` attribute. This property is updated by the radio group when the user interacts with the widget. The value of `ng-model` determines which element is initially selected by comparing to the `value` attribute of `th-radio-button`. If `ng-model` evaluates to null or undefined, none of the buttons will be selected initially. 
+The `th-radio-group` element can optionally specify an `ng-model` attribute. 
+- If `ng-model` is present, this property is updated to `value` on `th-radio-button` when the user interacts with the widget. The value of `ng-model` determines which element is initially selected by comparing to the `value` attribute of `th-radio-button`. If `ng-model` evaluates to null or undefined, none of the buttons will be selected initially. The presence of `ng-model` overrides any `checked` attribute on `th-radio-button`.
+- If `ng-model` is not present, you can optionally specify which choice is initially selected by providing a `checked` attribute on the appropriate `th-radio-button` element, see [input[type='checkbox']](http://www.w3schools.com/tags/att_input_checked.asp). This is ignored if `ng-model` is present on `th-radio-group`.
 
 When using in a form, a `name` attribute must be present on `th-radio-group`. If no `name` attribute is present or no button is checked, a name-value pair is not passed when the form is submitted.
 
