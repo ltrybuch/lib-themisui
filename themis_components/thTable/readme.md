@@ -16,16 +16,18 @@ manages the entire state of the table:
 * sorting
 * loading and error states
 
-```html
-<th-table delegate="parentController.tableDelegate">
-  ...
-</th-table>
-```
-
 Inside `th-table` you don't actually define the contents of the table. You must
 only define the row types that you want your table to display. These are then
 used and displayed in the table for each data object that's managed by the
 delegate.
+
+```html
+<th-table delegate="parentController.tableDelegate">
+  <th-table-row type="..."> ... </th-table-row>
+  ...
+  <th-table-row type="..."> ... </th-table-row>
+</th-table>
+```
 
 
 
