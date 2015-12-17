@@ -18,14 +18,7 @@ angular.module 'ThemisComponents'
 
     paginationEnabled = -> options.pageSize?
 
-    goToPage = (page) ->
-      return if page is ellipsis or \
-                page not in [1 .. totalPages()] or \
-                page is currentPage
-      currentPage = page
-      triggerFetchData()
-
-    return Object.freeze {
+    return self = Object.freeze {
       # Example return value when there are 20 pages and currentPage is 9:
       # [1, '...', 7, 8, 9, 10, 11, '...', 20]
       pages: ->
@@ -68,13 +61,18 @@ angular.module 'ThemisComponents'
 
       goToNextPage: ->
         if currentPage < totalPages()
-          goToPage currentPage + 1
+          self.goToPage currentPage + 1
 
       goToPrevPage: ->
         if currentPage > 1
-          goToPage currentPage - 1
+          self.goToPage currentPage - 1
 
-      goToPage
+      goToPage: (page) ->
+        return if page is ellipsis or \
+                  page not in [1 .. totalPages()] or \
+                  page is currentPage
+        currentPage = page
+        triggerFetchData()
 
       generatePaginationTemplate: ->
         return "" unless paginationEnabled options
