@@ -43,12 +43,13 @@ angular.module 'ThemisComponents'
 
     generateCellsRowTemplate = (cellsRow, hasActionsRow) ->
       ngRepeat = if hasActionsRow then "ng-repeat-start" else "ng-repeat"
+      borderBottomClass = "th-table-border-bottom" unless hasActionsRow
       objectReference = getObjectReference cellsRow
       cells = childrenArray(cellsRow)
                 .map (cell) -> generateCellTemplate cell
                 .join ''
       return """
-        <tr class="th-table-cells-row"
+        <tr class="th-table-cells-row #{borderBottomClass}"
             #{ngRepeat}="#{objectReference} in thTable.delegate.getData()"
             ng-mouseover="hover = true"
             ng-mouseleave="hover = false"
@@ -76,7 +77,7 @@ angular.module 'ThemisComponents'
                   """
 
       return """
-        <tr class="th-table-actions-row"
+        <tr class="th-table-actions-row th-table-border-bottom"
             ng-repeat-end
             ng-mouseover="hover = true"
             ng-mouseleave="hover = false"

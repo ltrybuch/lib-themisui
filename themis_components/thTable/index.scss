@@ -2,6 +2,8 @@ th-table {
   display: block;
   position: relative;
 
+  font-size: 13px;
+
   .th-table-loading {
     opacity: 0.5;
   }
@@ -70,14 +72,36 @@ th-table {
       color: $light-grey;
       margin: 0;
       vertical-align: top;
+    }
 
-      &.th-table-actions-cell {
-        border-bottom: 1px solid #d9dada;
+    .th-table-border-bottom {
+      border-bottom: 1px solid #d9dada;
+    }
+
+    .th-table-hover-row {
+      background: #fafdff;
+    }
+
+    .th-table-cells-row {
+      color: $medium-grey;
+
+      a {
+        text-decoration: underline;
+        color: $grey;
       }
     }
 
-    tr.th-table-hover-row {
-      background: #fafdff;
+    .th-table-actions-row {
+      a {
+        text-decoration: none;
+        color: $blue;
+        font-size: 12px;
+        margin-right: 16px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
   }
 
@@ -89,7 +113,9 @@ th-table {
     padding: 6px 20px 6px 0px;
 
     .th-table-pagination-link {
+      color: #2d2d2d;
       margin: 16px 8px;
+      text-decoration: none;
       cursor: pointer;
     }
 
@@ -121,8 +147,7 @@ th-table {
     }
   }
 
-  // TODO: Refactor this into a separate component.
-  // It is repeated in th-lazy as well.
+  // TODO: Replace this with <th-error-message> once it's merged
   .th-error-container {
     padding: 60px 0;
     text-align: center;
