@@ -7,7 +7,7 @@ angular.module 'ThemisComponents'
     controllerAs: 'thTable'
     controller: -> return
     compile: (element, attrs) ->
-      table = Table {element}
+      table = Table {element: element[0]}
       table.clear()
 
       post: (scope, element, attrs, controller) ->
