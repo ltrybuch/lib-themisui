@@ -43,8 +43,7 @@ angular.module 'thDemo', ['ThemisComponents']
 
       pageSize: 5
 
-      fetchData: (options, updateData) ->
-        {currentPage, pageSize, sortHeader} = options
+      fetchData: ({currentPage, pageSize, sortHeader}, updateData) ->
         sortedData = sort data, sortHeader
         paginatedSortedData = getDataPage sortedData, currentPage, pageSize
         setTimeout ->

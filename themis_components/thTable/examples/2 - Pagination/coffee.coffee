@@ -39,8 +39,7 @@ angular.module 'thDemo', ['ThemisComponents']
 
       pageSize: 5
 
-      fetchData: (options, updateData) ->
-        {currentPage, pageSize} = options
+      fetchData: ({currentPage, pageSize}, updateData) ->
         paginatedData = getDataPage data, currentPage, pageSize
         updateData {data: paginatedData, totalItems: data.length}
     }
