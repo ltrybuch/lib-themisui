@@ -9,14 +9,14 @@ The objective here is to provide an API that's much simpler and more flexible
 than the current Rails implementation.
 
 Components:
-* [`th-table`](##thTable)
-* [`th-table-row`](##thTableRow)
-* [`th-table-cell`](###cells)
+* [`th-table`](#thtable)
+* [`th-table-row`](#thtablerow)
+* [`th-table-cell`](#cells)
 
 Services:
-* [SimpleTableDelegate](##SimpleTableDelegate)
-* [TableHeader](##TableHeader)
-* [TableSort](##TableSort)
+* [SimpleTableDelegate](#simpletabledelegate)
+* [TableHeader](#tableheader)
+* [TableSort](#tablesort)
 
 
 
