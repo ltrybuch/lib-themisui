@@ -3,7 +3,14 @@ angular.module('ThemisComponents')
     restrict: "EA"
     template: require './thLazy.template.html'
     scope:
-      src: "@src"
+      src: "@"
+      errorMessage: "@"
     controller: ($scope) ->
       $scope.loaded = no
-      $scope.loadingComplete = -> $scope.loaded = yes
+      $scope.loadError = no
+      $scope.messageOverride = $scope.errorMessage?
+      $scope.loadingComplete = ->
+        $scope.loaded = yes
+
+      $scope.$on "$includeContentError", (event, args) ->
+        $scope.loadError = yes
