@@ -102,7 +102,6 @@ describe 'ThemisComponents: Service: thTableHeader', ->
       header = TableHeader {sortField, sortActive}
       header.deactivateSort()
       expect(header.isSortActive()).toBe false
-      expect(header.getSortDirection()).toBe undefined
 
   describe '#toggleSortDirection', ->
     it 'changes the value of sortDirection', ->
