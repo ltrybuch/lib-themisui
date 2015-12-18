@@ -9,8 +9,8 @@ Use the `thError` component to display a stylized error message.
 <th-error></th-error>
 ```
 
-Pass in transcluded elements (will be effected by the same styling as default message)
+Pass in anything inside the component tags. Everything will be transcluded. (will be effected by the same styling as default message though)
 
 ```
-<th-error><p>transcluded message</p></th-error>
+<th-error>transcluded message</th-error>
 ```
