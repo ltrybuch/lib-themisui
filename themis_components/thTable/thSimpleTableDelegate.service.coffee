@@ -65,7 +65,7 @@ angular.module 'ThemisComponents'
 
     generateActionsRowTemplate = (actionsRow, numColumns) ->
       return "" unless actionsRow?
-      startColumn = parseInt(actionsRow.getAttribute('start-column')) || 1
+      startColumn = parseInt (actionsRow.getAttribute('start-column') ? 1), 10
       colspan = numColumns - startColumn + 1
       actions = [1 ... startColumn]
                   .map -> """<td class="th-table-actions-cell"></td>"""
@@ -87,7 +87,7 @@ angular.module 'ThemisComponents'
       """
 
     generateNoDataRowTemplate = (noDataRow = {}, numColumns) ->
-      contents = noDataRow.innerHTML or "No Results"
+      contents = noDataRow.innerHTML ? "No Results"
       return """
         <tr class="th-table-no-data"
             ng-if="thTable.delegate.hasNoData()">
@@ -125,11 +125,10 @@ angular.module 'ThemisComponents'
                         "for the actions and cells rows."
 
       if actionsRow?
-        startColumn = parseInt(actionsRow.getAttribute('start-column')) || 1
+        startColumn = parseInt (actionsRow.getAttribute('start-column') ? 1), 10
         numColumns = childrenArray(cellsRow).length
-        if startColumn > numColumns
-          throw new Error "start-column cannot be bigger " + \
-                          "than the number of cells"
+        if startColumn > numColumns or startColumn < 1
+          throw new Error "start-column has an invalid value"
 
     childrenArray = (node) ->
       arr = []

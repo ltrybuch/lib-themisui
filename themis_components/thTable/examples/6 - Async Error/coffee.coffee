@@ -1,5 +1,5 @@
 angular.module 'thDemo', ['ThemisComponents']
-  .controller "DemoController", (SimpleTableDelegate, TableHeader, $scope) ->
+  .controller "DemoController", (SimpleTableDelegate, TableHeader, $scope, $timeout) ->
     @attempts = 3
 
     getData = =>
@@ -11,7 +11,7 @@ angular.module 'thDemo', ['ThemisComponents']
       @attempts--
       if @attempts > 0 then {error: true} else {data}
 
-    @tableDelegate = SimpleTableDelegate {
+    @tableDelegate = SimpleTableDelegate
       headers: [
         TableHeader
           name: 'Id'
@@ -21,10 +21,8 @@ angular.module 'thDemo', ['ThemisComponents']
       ]
 
       fetchData: (options, updateData) ->
-        setTimeout ->
+        $timeout ->
           updateData getData()
-          $scope.$apply()
         , 1000
-    }
 
     return

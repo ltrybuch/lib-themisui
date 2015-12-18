@@ -3,7 +3,7 @@
 // This was only relevant for IE 8 and below which we do not support anyhow.
 // https://github.com/jquery/jquery/commit/aad235b3251494afe71fd5bb6031e11965af9bdb
 
-if(typeof jQuery == 'function' || typeof $ == 'function') {
+if (typeof jQuery == 'function' || typeof $ == 'function') {
   if (/1\.(7|8)\.\d/.test(jQuery.fn.jquery)) {
     jQuery.extend({
       attrHooks: {

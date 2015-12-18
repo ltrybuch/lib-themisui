@@ -8,7 +8,7 @@ coffeelint = require 'gulp-coffeelint'
 
 autoprefixer = require 'gulp-autoprefixer'
 autoprefixerOptions =
-  browsers: ['last 2 versions']
+  browsers: ['last 2 versions', "> 1%", "IE > 9"]
   cascade: false
 
 # creates gulp.task 'docs-server' and 'docs-restart'

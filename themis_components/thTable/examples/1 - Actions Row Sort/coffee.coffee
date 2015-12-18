@@ -1,3 +1,31 @@
+angular.module 'thDemo', ['ThemisComponents']
+  .controller "DemoController", (SimpleTableDelegate, TableHeader, TableSort) ->
+    data = fixtures()
+    {sort} = TableSort
+
+    @tableDelegate = SimpleTableDelegate
+      headers: [
+        TableHeader
+          name: 'Id'
+          sortField: 'id'
+
+        TableHeader
+          name: 'Name'
+          sortField: 'name'
+          sortActive: true
+
+        TableHeader
+          name: 'Twitter'
+          sortField: 'twitter'
+      ]
+
+      fetchData: ({sortHeader}, updateData) ->
+        sortedData = sort data, sortHeader
+        updateData {data: sortedData, totalItems: sortedData.length}
+
+    return
+
+
 fixtures = ->
   celebrities = [
     {id: 1, name: "Jose Valim",  twitter: "josevalim"}
@@ -26,32 +54,3 @@ fixtures = ->
     }
 
   celebrities.map twitterUser
-
-
-angular.module 'thDemo', ['ThemisComponents']
-  .controller "DemoController", (SimpleTableDelegate, TableHeader, TableSort) ->
-    data = fixtures()
-    {sort} = TableSort
-
-    @tableDelegate = SimpleTableDelegate {
-      headers: [
-        TableHeader
-          name: 'Id'
-          sortField: 'id'
-
-        TableHeader
-          name: 'Name'
-          sortField: 'name'
-          sortActive: true
-
-        TableHeader
-          name: 'Twitter'
-          sortField: 'twitter'
-      ]
-
-      fetchData: ({sortHeader}, updateData) ->
-        sortedData = sort data, sortHeader
-        updateData {data: sortedData, totalItems: sortedData.length}
-    }
-
-    return

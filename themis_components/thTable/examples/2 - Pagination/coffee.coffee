@@ -1,3 +1,30 @@
+angular.module 'thDemo', ['ThemisComponents']
+  .controller "DemoController", (SimpleTableDelegate, TableHeader) ->
+    data = fixtures 102
+
+    getDataPage = (data, page, pageSize) ->
+      start = (page - 1) * pageSize
+      end = start + pageSize
+      data[start ... end]
+
+    @tableDelegate = SimpleTableDelegate
+      headers: [
+        new TableHeader
+          name: 'First Name'
+
+        new TableHeader
+          name: 'Last Name'
+      ]
+
+      pageSize: 5
+
+      fetchData: ({currentPage, pageSize}, updateData) ->
+        paginatedData = getDataPage data, currentPage, pageSize
+        updateData {data: paginatedData, totalItems: data.length}
+
+    return
+
+
 fixtures = (length) ->
   getRandomInt = (min, max) ->
     Math.floor(Math.random() * (max - min + 1)) + min
@@ -17,31 +44,3 @@ fixtures = (length) ->
     people.push {firstName: generateName(), lastName: generateName()}
 
   people
-
-
-angular.module 'thDemo', ['ThemisComponents']
-  .controller "DemoController", (SimpleTableDelegate, TableHeader) ->
-    data = fixtures 102
-
-    getDataPage = (data, page, pageSize) ->
-      start = (page - 1) * pageSize
-      end = start + pageSize
-      data[start ... end]
-
-    @tableDelegate = SimpleTableDelegate {
-      headers: [
-        new TableHeader
-          name: 'First Name'
-
-        new TableHeader
-          name: 'Last Name'
-      ]
-
-      pageSize: 5
-
-      fetchData: ({currentPage, pageSize}, updateData) ->
-        paginatedData = getDataPage data, currentPage, pageSize
-        updateData {data: paginatedData, totalItems: data.length}
-    }
-
-    return

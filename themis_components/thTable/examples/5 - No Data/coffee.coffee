@@ -14,7 +14,7 @@ angular.module 'thDemo', ['ThemisComponents']
       ]
       if reveal then data else []
 
-    @tableDelegate = SimpleTableDelegate {
+    @tableDelegate = SimpleTableDelegate
       headers: [
         TableHeader
           name: 'Id'
@@ -25,6 +25,5 @@ angular.module 'thDemo', ['ThemisComponents']
 
       fetchData: (options, updateData) ->
         updateData {data: getData()}
-    }
 
     return
