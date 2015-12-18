@@ -89,7 +89,7 @@ angular.module 'ThemisComponents'
     generateNoDataRowTemplate = (noDataRow = {}, numColumns) ->
       contents = noDataRow.innerHTML ? "No Results"
       return """
-        <tr class="th-table-no-data"
+        <tr class="th-table-no-data-row"
             ng-if="thTable.delegate.hasNoData()">
           <td colspan="#{numColumns}">
             #{contents}
@@ -99,16 +99,17 @@ angular.module 'ThemisComponents'
 
     generateErrorRowTemplate = (numColumns) ->
       return """
-        <tr class="th-table-error"
+        <tr class="th-table-error-row"
             ng-if="thTable.delegate.getError()">
           <td colspan="#{numColumns}">
-            <div class="th-error-container">
-              <i class="fa fa-exclamation-triangle"></i>
-              <span class="th-error-message">
-                We had trouble loading your content. <br>
+            <th-error>
+              <div>
+                We had trouble loading your content.
+              </div>
+              <div>
                 <a href ng-click="thTable.delegate.triggerFetchData()">Try again</a>.
-              </span>
-            </div>
+              </div>
+            </th-error>
           </td>
         </tr>
       """

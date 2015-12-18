@@ -1,7 +1,7 @@
 context = describe
 describe 'ThemisComponents: Service: thTablePagination', ->
   TablePagination = null
-  ellipsis = '...'
+  ellipsis = '…'
 
   beforeEach ->
     module 'ThemisComponents'

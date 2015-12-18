@@ -11,7 +11,7 @@ angular.module 'ThemisComponents'
     } = options
 
     totalItems = 0
-    ellipsis = '...'
+    ellipsis = '…'
     maxConsecutivePages = 5
 
     totalPages = -> Math.ceil totalItems / pageSize
@@ -20,7 +20,7 @@ angular.module 'ThemisComponents'
 
     return self = Object.freeze {
       # Example return value when there are 20 pages and currentPage is 9:
-      # [1, '...', 7, 8, 9, 10, 11, '...', 20]
+      # [1, '…', 7, 8, 9, 10, 11, '…', 20]
       pages: ->
         return [] unless totalItems > 0
 

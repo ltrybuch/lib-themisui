@@ -17,7 +17,7 @@ TableHeader = (options = {}) ->
     throw new Error "sortDirection can be either ascending or descending."
 
   if align not in ["left", "center", "right"]
-    throw new Error "align can be one of: left, center or right."
+    throw new Error "align can be one of: left, center, or right."
 
   opposite = ascending: "descending", descending: "ascending"
 

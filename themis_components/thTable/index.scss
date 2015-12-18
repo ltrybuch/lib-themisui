@@ -82,7 +82,8 @@ th-table {
       background: #fafdff;
     }
 
-    .th-table-cells-row {
+    .th-table-cells-row,
+    .th-table-no-data-row {
       color: $medium-grey;
 
       a {
@@ -143,29 +144,6 @@ th-table {
     .th-table-loader {
       margin-top: 50px;
       position: relative;
-    }
-  }
-
-  // TODO: Replace this with <th-error-message> once it's merged
-  .th-error-container {
-    padding: 60px 0;
-    text-align: center;
-    width: 100%;
-    vertical-align: middle;
-    font-size: 13px;
-    font-weight: 400;
-    color: $medium-grey;
-
-    .th-error-message {
-      padding: 0px 15px 7px 15px;
-      display: inline-block;
-    }
-
-    i {
-      color: $light-grey-5;
-      display: block;
-      margin-bottom: 12px;
-      font-size: 32px;
     }
   }
 }
