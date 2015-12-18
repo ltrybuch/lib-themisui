@@ -128,7 +128,8 @@ angular.module 'ThemisComponents'
         startColumn = parseInt (actionsRow.getAttribute('start-column') ? 1), 10
         numColumns = childrenArray(cellsRow).length
         if startColumn > numColumns or startColumn < 1
-          throw new Error "start-column has an invalid value"
+          throw new Error "start-column must have a value between 1 and " + \
+                          "the total number of cells."
 
     childrenArray = (node) ->
       arr = []

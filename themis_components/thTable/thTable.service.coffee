@@ -8,18 +8,21 @@ Table = (options = {}) ->
 
   delegate = undefined
 
-  isProperlyDefinedRow = (row) ->
-    row.tagName == 'TH-TABLE-ROW' and row.hasAttribute 'type'
+  getRowDefinitionErrors = (row) ->
+    if row.tagName isnt 'TH-TABLE-ROW'
+      return "The element's children can only be <th-table-row>s."
+    if not row.hasAttribute 'type'
+      return "<th-table-row>s must have the type attribute defined."
+    return
 
-  isProperlyDefined = ->
-    return false if element.children.length is 0
+  getDefinitionErrors = ->
+    return "You must pass a raw DOM element to Table." unless element?
+    return "The element that you passed has no children." if element.children.length is 0
     for child in element.children
-      return false unless isProperlyDefinedRow child
-    true
+      return error if error = getRowDefinitionErrors child
+    return
 
-  throw new Error "You must pass a DOM element to Table." unless element?
-
-  throw new Error "<th-table> not properly configured!" unless isProperlyDefined()
+  throw new Error error if error = getDefinitionErrors()
 
   getRows = ->
     rows = {}
@@ -37,6 +40,6 @@ Table = (options = {}) ->
 
     generateTableTemplate: ->
       throw new Error "You cannot generate a template " + \
-                      "before setting a delegate!" unless delegate?
-      delegate.generateTableTemplate rows
+                      "before setting a delegate." unless delegate?
+      return delegate.generateTableTemplate rows
   }

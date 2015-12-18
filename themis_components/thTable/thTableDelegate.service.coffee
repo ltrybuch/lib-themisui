@@ -8,7 +8,8 @@ angular.module 'ThemisComponents'
       fetchData
     } = options
 
-    throw new Error "TableDelegate needs a fetchData property" unless fetchData?
+    throw new Error "TableDelegate needs to be passed the following function: " + \
+                    "fetchData: (options, updateData) ->" unless fetchData?
 
     data = []
     loading = false

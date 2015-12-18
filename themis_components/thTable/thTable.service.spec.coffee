@@ -2,11 +2,6 @@ context = describe
 describe 'ThemisComponents: Service: thTable', ->
   Table = SimpleTableDelegate = null
 
-  createDOMElement = (template) ->
-    div = document.createElement 'div'
-    div.innerHTML = template
-    div.firstChild
-
   beforeEach ->
     module 'ThemisComponents'
 

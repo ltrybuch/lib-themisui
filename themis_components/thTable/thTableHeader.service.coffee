@@ -5,21 +5,19 @@ TableHeader = (options = {}) ->
   {
     name = ''
     sortField
-    sortActive
-    sortDirection
+    sortActive = false
+    sortDirection = "ascending"
     align = "left"
   } = options
 
-  sortDirection = "ascending" if sortActive and not sortDirection?
+  if sortActive and not sortField?
+    throw new Error "You need to define sortField to enable sorting."
 
-  if sortActive? and not sortField?
-    throw new Error "you need to define sortField to enable sorting"
-
-  if sortDirection? and sortDirection not in ["ascending", "descending"]
-    throw new Error "sortDirection can be either ascending or descending"
+  if sortDirection not in ["ascending", "descending"]
+    throw new Error "sortDirection can be either ascending or descending."
 
   if align not in ["left", "center", "right"]
-    throw new Error "align can be one of: left, center or right"
+    throw new Error "align can be one of: left, center or right."
 
   opposite = ascending: "descending", descending: "ascending"
 

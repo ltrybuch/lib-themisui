@@ -68,6 +68,7 @@ controller: (SimpleTableDelegate, TableHeader, TableSort) ->
 The components and services used in this example are explained in detail below.
 
 
+
 ## thTable
 
 `th-table` receives a single attribute, the `delegate`, which is an object that
