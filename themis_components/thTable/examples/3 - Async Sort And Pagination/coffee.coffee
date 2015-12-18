@@ -50,4 +50,4 @@ fixtures = (length) ->
   for i in [1 .. length]
     people.push {firstName: generateName(), lastName: generateName()}
 
-  people
+  return people

@@ -30,4 +30,4 @@ window.compileDirective = (template, scopeAdditions) ->
 window.createDOMElement = (template) ->
   div = document.createElement 'div'
   div.innerHTML = template
-  div.firstChild
+  return div.firstChild

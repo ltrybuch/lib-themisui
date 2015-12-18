@@ -53,4 +53,4 @@ fixtures = ->
       twitterLikes
     }
 
-  celebrities.map twitterUser
+  return celebrities.map twitterUser

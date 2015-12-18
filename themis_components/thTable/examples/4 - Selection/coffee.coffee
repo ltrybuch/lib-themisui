@@ -1,10 +1,6 @@
 angular.module 'thDemo', ['ThemisComponents']
   .controller "DemoController", (SimpleTableDelegate, TableHeader, TableSort) ->
-    viewObject = (object) ->
-      return {
-        selected: isSelected object
-        object
-      }
+    viewObject = (object) -> {object, selected: isSelected(object)}
 
     @selectedObjects = []
 
@@ -24,7 +20,7 @@ angular.module 'thDemo', ['ThemisComponents']
     getDataPage = (data, page, pageSize) ->
       start = (page - 1) * pageSize
       end = start + pageSize
-      data[start ... end]
+      return data[start ... end]
 
     @tableDelegate = SimpleTableDelegate
       headers: [
@@ -69,4 +65,4 @@ fixtures = (length) ->
   for i in [1 .. length]
     people.push {firstName: generateName(), lastName: generateName()}
 
-  people
+  return people
