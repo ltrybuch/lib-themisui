@@ -9,7 +9,7 @@ angular.module 'ThemisComponents'
     } = options
 
     throw new Error "TableDelegate needs to be passed the following function: " + \
-                    "fetchData: (options, updateData) ->" unless fetchData?
+                    "fetchData: (options, updateData) ->" unless fetchData instanceof Function
 
     data = []
     loading = false

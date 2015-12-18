@@ -13,8 +13,9 @@ describe 'ThemisComponents: Service: thTableDelegate', ->
     expect(TableDelegate?).toBe true
 
   describe '#constructor', ->
-    it 'throws unless fetchData is defined', ->
-      expect(-> TableDelegate()).toThrow()
+    fetchData = 2
+    it 'throws unless fetchData is a function', ->
+      expect(-> TableDelegate {fetchData}).toThrow()
 
     it 'exposes headers', ->
       fetchData = -> return

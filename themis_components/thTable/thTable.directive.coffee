@@ -10,7 +10,7 @@ angular.module 'ThemisComponents'
       table = Table {element: element[0]}
       table.clear()
 
-      post: (scope, element, attrs, controller) ->
+      return post: (scope, element, attrs, controller) ->
         table.setDelegate controller.delegate
         template = table.generateTableTemplate()
 

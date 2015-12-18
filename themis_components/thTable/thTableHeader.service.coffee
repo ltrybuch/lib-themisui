@@ -34,7 +34,7 @@ TableHeader = (options = {}) ->
       else
         classes.push "th-table-sort-none"
       classes.push "th-table-align-" + align
-      classes.join ' '
+      return classes.join ' '
 
     isSortActive: -> sortActive or false
 

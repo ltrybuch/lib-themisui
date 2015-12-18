@@ -29,7 +29,7 @@ Table = (options = {}) ->
     for row in element.children
       type = row.getAttribute 'type'
       rows[type] = row
-    rows
+    return rows
 
   rows = getRows()
 

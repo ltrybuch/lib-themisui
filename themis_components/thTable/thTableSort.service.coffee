@@ -18,12 +18,12 @@ TableSort = ->
     return object if field is ''
     result = object
     field.split('.').forEach (key) -> result = result[key]
-    result
+    return result
 
   return Object.freeze {
     sort: (data, header) ->
       return data unless header.isSortActive()
-      data.sort (obj1, obj2) ->
+      return data.sort (obj1, obj2) ->
         field1 = getField obj1, header.sortField
         field2 = getField obj2, header.sortField
         result = compare field1, field2

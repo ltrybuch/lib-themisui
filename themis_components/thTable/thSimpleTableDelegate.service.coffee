@@ -75,7 +75,6 @@ angular.module 'ThemisComponents'
                       #{actionsRow.innerHTML}
                     </td>
                   """
-
       return """
         <tr class="th-table-actions-row th-table-border-bottom"
             ng-repeat-end
@@ -121,7 +120,7 @@ angular.module 'ThemisComponents'
       actionsRow = rows['actions']
 
       if actionsRow? and
-         getObjectReference(actionsRow) != getObjectReference(cellsRow)
+         getObjectReference(actionsRow) isnt getObjectReference(cellsRow)
         throw new Error "object-reference must be the same" + \
                         "for the actions and cells rows."
 
@@ -132,13 +131,9 @@ angular.module 'ThemisComponents'
           throw new Error "start-column must have a value between 1 and " + \
                           "the total number of cells."
 
-    childrenArray = (node) ->
-      arr = []
-      arr.push(child) for child in node.children
-      arr
+    childrenArray = (node) -> [].slice.call node.children
 
-    getObjectReference = (row) ->
-      row.getAttribute('object-reference') || 'item'
+    getObjectReference = (row) -> row.getAttribute('object-reference') or 'item'
 
     return Object.freeze Object.assign {
       ###
