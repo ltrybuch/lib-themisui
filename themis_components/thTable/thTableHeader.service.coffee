@@ -44,9 +44,7 @@ TableHeader = (options = {}) ->
       sortActive = true
       sortDirection = "ascending"
 
-    deactivateSort: ->
-      sortActive = false
-      sortDirection = undefined
+    deactivateSort: -> sortActive = false
 
     toggleSortDirection: -> sortDirection = opposite[sortDirection]
   }
