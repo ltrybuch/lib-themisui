@@ -171,6 +171,7 @@ that you can use:
   * Manually navigate to the specified page.
 
 
+
 ## TableHeader
 
 This service creates table header objects that you can pass to the delegate.
@@ -200,7 +201,7 @@ data can be fetched at once and sorting doesn't need further API requests.
 
 ```coffeescript
 {sort} = TableSort
-sort(data, header)
+sortedData = sort(data, header)
 ```
 
 It looks at `header.sortField` and `header.sortDirection` and sorts all the data
@@ -211,3 +212,16 @@ accordingly.
 * `""` - this means that the entire object is the value
 * `"regularField"`
 * `"deeply.nested.field"`
+
+
+
+## Caveats
+
+Remember that `<th-table-cell>` and `<th-table-row type="actions">` transclude
+their contents? This means that, in theory, their contents can only see the
+scope outside thTable.
+
+However, because of implementation limitations, there is a slight change to this
+behavior for thTable: their contents have access to a new scope that inherits
+the outside scope and overrides the `thTable` field as the controller of
+`thTable`.
