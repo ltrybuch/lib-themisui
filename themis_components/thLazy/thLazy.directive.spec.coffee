@@ -44,7 +44,7 @@ describe 'ThemisComponents: Directive: thLazy', ->
       httpBackend.flush()
 
     it "displays the custom error message", ->
-      expect(element.find(".th-error-message").text()).toMatch "mmm nope"
+      expect(element.find("ng-transclude > span").text()).toMatch "mmm nope"
 
     it "hides the loader component", ->
       expect(element.find(".th-loader").hasClass("ng-hide")).toBe true

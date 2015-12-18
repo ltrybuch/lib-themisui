@@ -1,0 +1,21 @@
+.th-error-container {
+  padding-top: 60px;
+  text-align: center;
+  width: 100%;
+  vertical-align: middle;
+  font-size: 13px;
+  font-weight: 400;
+  color: $medium-grey;
+
+  .th-error-message {
+    padding: 0px 15px 7px 15px;
+    display: inline-block;
+  }
+
+  i {
+    color: $light-grey-5;
+    display: block;
+    margin-bottom: 12px;
+    font-size: 32px;
+  }
+}
