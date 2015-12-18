@@ -102,8 +102,8 @@ describe 'ThemisComponents: Service: thSimpleTableDelegate', ->
     template = delegate.generateTableTemplate rows
     node = createDOMElement template
     expect(template.indexOf('th-table-loading')).not.toBe -1
-    expect(node.getElementsByClassName('th-table-error').length).toBe 1
-    expect(node.getElementsByClassName('th-table-no-data').length).toBe 1
+    expect(node.getElementsByTagName('th-error').length).toBe 1
+    expect(node.getElementsByClassName('th-table-no-data-row').length).toBe 1
 
   it 'generates custom blank states', ->
     fetchData = -> return

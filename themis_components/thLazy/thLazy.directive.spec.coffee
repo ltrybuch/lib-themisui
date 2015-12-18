@@ -58,7 +58,7 @@ describe 'ThemisComponents: Directive: thLazy', ->
       httpBackend.flush()
 
     it "shows the default error message", ->
-      expect(element.find(".th-error-message").text()).toMatch(
+      expect(element.find("span").text()).toMatch(
         "We had trouble loading your content.Try reloading the page."
       )
 
