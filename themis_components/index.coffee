@@ -25,6 +25,7 @@ require './thPopover/'
 require './thRadioGroup/'
 require './thSelect/'
 require './thSwitch/'
+require './thTable/'
 require './thTabset/'
 require './thWithLabel/'
 
