@@ -1,13 +1,12 @@
 <html ng-app="thDemo">
   <body ng-controller="DemoCtrl as demo" style="width: 400px;">
+
     <form action="/echo" method="POST">
-      Name:
-      <th-input type="text" name="name" icon="user"></th-input>
+      <th-input type="text" with-label="Name" name="name" icon="user"></th-input>
+      <th-checkbox with-label="Admin User" name="isAdmin" ng-model="demo.checked"></th-checkbox>
       <br>
-      Admin User:
-      <th-checkbox name="isAdmin" ng-model="demo.checked"></th-checkbox>
-      <br><br>
       <th-button submit>Submit</th-button>
     </form>
+    
   </body>
 </html>

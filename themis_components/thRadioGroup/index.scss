@@ -1,0 +1,41 @@
+.th-radio-button {
+  $size: 16px;
+  $bordersize: $size / 8;
+  $inset: $size / 8;
+
+  display: inline-block;
+  position: relative;
+  width: $size;
+  height: $size;
+
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: solid $bordersize $blue;
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  i {
+    display: block;
+    position: absolute;
+    top: $inset;
+    bottom: $inset;
+    left: $inset;
+    right: $inset;
+    background-color: $blue;
+    border-radius: 50%;
+    
+    @include animated();
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  &.checked {
+    i {
+      opacity: 1;
+      transform: scale(1);
+    }
+  } 
+}
+

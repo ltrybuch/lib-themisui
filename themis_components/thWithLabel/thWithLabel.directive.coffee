@@ -30,7 +30,7 @@ angular.module('ThemisComponents')
           el: html[0], type: "html"
 
       inlineElement = findInlineInputElement(
-        ["th-switch", "th-checkbox"]
+        ["th-switch", "th-checkbox", "th-radio-button"]
         ["radio", "checkbox"]
       )
 
