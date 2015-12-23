@@ -10,7 +10,7 @@
     "Terry White <terry.white@clio.com>",
     "Jef Curtis <jef.curtis@clio.com>"
   ],
-  "main": "public/build/lib-themisui.min.js",
+  "main": "public/build/lib-themisui.js",
   "private": true,
   "engines": {
     "node": "^0.10.40",
@@ -33,15 +33,13 @@
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-coffeelint": "^0.5.0",
-    "gulp-ng-annotate": "^1.1.0",
+    "gulp-derequire": "^2.1.0",
     "gulp-rename": "^1.2.0",
     "gulp-sass": "^2.1.0",
-    "gulp-uglify": "^1.5.1",
     "jquery": "^2.1.4",
     "marked": "^0.3.3",
     "node-bourbon": "^4.2.1-beta1",
     "stringify": "^3.1.0",
-    "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.2.1"
   },
@@ -60,7 +58,7 @@
     "phantomjs": "^1.9.16"
   },
   "scripts": {
-    "build": "gulp lib-themisui-prod lib-themisui-style",
+    "build": "gulp docs-browserify lib-themisui-style",
     "clean": "rm -rf public/build",
     "postinstall": "npm run clean && npm run build",
     "start": "gulp docs",

@@ -3,10 +3,8 @@ gulp = require 'gulp'
 browserify = require 'browserify'
 watchify = require 'watchify'
 source = require 'vinyl-source-stream'
-buffer = require 'vinyl-buffer'
+derequire = require 'gulp-derequire'
 stringify = require 'stringify'
-uglify = require 'gulp-uglify'
-ngannotate = require 'gulp-ng-annotate'
 templates = stringify ['html']
 
 isWatching = no
@@ -49,6 +47,7 @@ createBundle = (options) ->
       .bundle()
       .on 'error', -> console.log arguments
       .pipe source(options.output)
+      .pipe derequire()
       .pipe gulp.dest(options.destination)
       .on 'end', ->
         time = (new Date().getTime() - startTime) / 1000
@@ -65,25 +64,6 @@ createBundles = (bundles) ->
 
 gulp.task 'docs-browserify', ->
   createBundles files
-
-gulp.task 'lib-themisui-prod', ->
-  bundler = browserify
-    cache: {}
-    packageCache: {}
-    fullPaths: true
-    entries: './themis_components/index.coffee'
-    transform: [templates]
-    extensions: ['.coffee', '.html']
-
-  bundler
-    .bundle()
-    .on 'error', -> console.log arguments
-    .pipe source('lib-themisui.min.js')
-    .pipe buffer()
-    .pipe ngannotate()
-    .pipe uglify()
-    .pipe gulp.dest('./public/build/')
-    .on 'end', -> console.log "lib-themisui.min.js was built."
 
 gulp.task 'docs-watchify', ['docs-browserify-setWatch', 'docs-browserify']
 
