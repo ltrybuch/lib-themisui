@@ -23,6 +23,7 @@ files = [
     extensions: ['.coffee', '.html']
     transform: [templates]
     destination: './public/build/'
+    standalone: 'lib-ThemisUI'
   }
 ]
 
