@@ -3,6 +3,7 @@ gulp = require 'gulp'
 browserify = require 'browserify'
 watchify = require 'watchify'
 source = require 'vinyl-source-stream'
+derequire = require 'gulp-derequire'
 stringify = require 'stringify'
 templates = stringify ['html']
 
@@ -22,6 +23,7 @@ files = [
     extensions: ['.coffee', '.html']
     transform: [templates]
     destination: './public/build/'
+    standalone: 'lib-ThemisUI'
   }
 ]
 
@@ -46,6 +48,7 @@ createBundle = (options) ->
       .bundle()
       .on 'error', -> console.log arguments
       .pipe source(options.output)
+      .pipe derequire()
       .pipe gulp.dest(options.destination)
       .on 'end', ->
         time = (new Date().getTime() - startTime) / 1000
