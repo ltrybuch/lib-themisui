@@ -155,7 +155,8 @@ angular.module 'ThemisComponents'
         tbody = generateBodyTemplate rows
         pagination = generatePaginationTemplate()
         return """
-          <div ng-class="{'th-table-loading': thTable.delegate.isLoading()}">
+          <div ng-class="{'th-table-loading': thTable.delegate.isLoading(),
+                          'th-table-blank': thTable.delegate.getData().length === 0}">
             <table class="th-table">
               #{thead}
               #{tbody}

@@ -6,6 +6,10 @@ th-table {
 
   .th-table-loading {
     opacity: 0.5;
+
+    &.th-table-blank table.th-table {
+      margin-bottom: 62px;
+    }
   }
 
   table.th-table {
@@ -13,6 +17,7 @@ th-table {
     border-collapse: collapse;
     width: 100%;
     font-size: inherit;
+    margin-bottom: 16px;
 
     th, td {
       max-width: 255px;

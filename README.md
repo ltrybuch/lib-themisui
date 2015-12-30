@@ -12,7 +12,7 @@ ThemisUI is a shareable suite of components and brand assets to be shared across
 We're running in stealth mode for now meaning we don't yet want to list on NPM. So to install run:
 
 ```bash
-npm install git+ssh://git@github.com/clio/lib-themisui.git
+npm install clio/lib-themisui
 ```
 
 You can specify [any other release](https://github.com/clio/lib-themisui/releases) as well.
@@ -29,8 +29,8 @@ angular.module 'YourApp', [
 
 You must include the stylesheets as well:
 
-* `lib-ThemisUI/public/build/lib-temisui.css`: the entire CSS
-* `lib-ThemisUI/themis_theme/index.scss`: optional, SCSS variables defined for the Themis theme
+* `node_modules/lib-ThemisUI/public/build/lib-temisui.css`: the entire CSS
+* `node_modules/lib-ThemisUI/themis_theme/index.scss`: optional, SCSS variables defined for the Themis theme
 
 You can now use any of our components in your application. The APIs for each component explain their usage.
 

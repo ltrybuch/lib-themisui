@@ -1,5 +1,5 @@
 angular.module 'thDemo', ['ThemisComponents']
-  .controller "DemoController", (SimpleTableDelegate, TableHeader, $scope, $timeout) ->
+  .controller "DemoController", (SimpleTableDelegate, TableHeader, $timeout) ->
     @attempts = 3
 
     getData = =>
