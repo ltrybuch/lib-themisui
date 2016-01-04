@@ -1,4 +1,8 @@
 th-table {
+  $th-table-cell-height: 35px;
+  $th-table-margin-bottom: 16px;
+  $th-table-loading-spinner-height: 30px;
+
   display: block;
   position: relative;
 
@@ -8,7 +12,7 @@ th-table {
     opacity: 0.5;
 
     &.th-table-blank table.th-table {
-      margin-bottom: 62px;
+      margin-bottom: $th-table-loading-spinner-height + 2 * $th-table-margin-bottom;
     }
   }
 
@@ -17,12 +21,13 @@ th-table {
     border-collapse: collapse;
     width: 100%;
     font-size: inherit;
-    margin-bottom: 16px;
+    margin-bottom: $th-table-margin-bottom;
 
     th, td {
       max-width: 255px;
       word-wrap: break-word;
       padding: 9px;
+      height: $th-table-cell-height;
     }
 
     th {
@@ -151,7 +156,7 @@ th-table {
     height: 100%;
 
     .th-table-loader {
-      margin-top: 50px;
+      margin-top: $th-table-cell-height + $th-table-margin-bottom;
       position: relative;
     }
   }
