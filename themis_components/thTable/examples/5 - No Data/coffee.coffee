@@ -4,7 +4,7 @@ angular.module 'thDemo', ['ThemisComponents']
 
     @revealData = =>
       reveal = true
-      @tableDelegate.triggerFetchData()
+      @tableDelegate.reload()
 
     getData = ->
       data = [
