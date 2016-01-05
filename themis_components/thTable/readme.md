@@ -189,6 +189,8 @@ It accepts a dictionary of options as an argument:
     to the table.
   * It is called once by the delegate when `th-table` initializes.
   * It will also be called whenever the user changes pages or sorts the table.
+  * It can also be triggered programmatically by calling `triggerFetchData()` on
+    the delegate instance. This method is described below.
   * `currentPage`, `pageSize` and `sortHeader` are all optional and will be sent
     only if they are relevant (for example if the table even has pagination or
     sorting in place)
@@ -217,10 +219,21 @@ that you can use:
 
 * `triggerFetchData()`
   * Manually calls `fetchData()` with the current state of the table
-    (pagination, sorting)
+    (pagination, sorting parameters)
 
 * `getData()`
   * Returns an array of data that the table currently displays.
+
+* `getError()`
+  * Returns any error that was passed to `updateData` in the `fetchData` function.
+
+* `isLoading()`
+  * Returns `true`/`false` whether or not the table is currently waiting for
+    data to load.
+
+* `hasNoData()`
+  * Returns `true` if the table successfully finished loading data and it
+    received no data objects.
 
 * `sortData(header)`
   * Manually sorts the table.
@@ -271,6 +284,16 @@ header = TableHeader({name, sortField, sortActive, sortDirection})
 
 * `sortDirection` (optional, default value: `"ascending"`) can be either
   `"ascending"` or `"descending"`.
+
+* `align` (optional, default value: `"left"`) ca be one of: `"left"`, `"right"`, or
+  `"center"`.
+
+The TableHeader objects expose the following properties and methods:
+
+* `name`
+* `sortField`
+* `isSortActive()`
+* `getSortDirection()`
 
 
 
