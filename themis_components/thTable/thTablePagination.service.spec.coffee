@@ -127,21 +127,21 @@ describe 'ThemisComponents: Service: thTablePagination', ->
       numPages = 10
       totalItems = numPages * pageSize
       called = false
-      triggerFetchData = -> called = true
-      pagination = TablePagination {currentPage, pageSize, triggerFetchData}
+      reload = -> called = true
+      pagination = TablePagination {currentPage, pageSize, reload}
       pagination.updatePagination {totalItems}
       pagination.goToNextPage()
       expect(pagination.getCurrentPage()).toBe currentPage
       expect(called).toBe false
 
-    it 'increases currentPage and calls triggerFetchData', ->
+    it 'increases currentPage and calls reload', ->
       currentPage = 9
       pageSize = 5
       numPages = 10
       totalItems = numPages * pageSize
       called = false
-      triggerFetchData = -> called = true
-      pagination = TablePagination {currentPage, pageSize, triggerFetchData}
+      reload = -> called = true
+      pagination = TablePagination {currentPage, pageSize, reload}
       pagination.updatePagination {totalItems}
       pagination.goToNextPage()
       expect(pagination.getCurrentPage()).toBe currentPage + 1
@@ -153,21 +153,21 @@ describe 'ThemisComponents: Service: thTablePagination', ->
       numPages = 10
       totalItems = numPages * pageSize
       called = false
-      triggerFetchData = -> called = true
-      pagination = TablePagination {pageSize, triggerFetchData}
+      reload = -> called = true
+      pagination = TablePagination {pageSize, reload}
       pagination.updatePagination {totalItems}
       pagination.goToPrevPage()
       expect(pagination.getCurrentPage()).toBe 1
       expect(called).toBe false
 
-    it 'decreases currentPage and calls triggerFetchData', ->
+    it 'decreases currentPage and calls reload', ->
       currentPage = 9
       pageSize = 5
       numPages = 10
       totalItems = numPages * pageSize
       called = false
-      triggerFetchData = -> called = true
-      pagination = TablePagination {currentPage, pageSize, triggerFetchData}
+      reload = -> called = true
+      pagination = TablePagination {currentPage, pageSize, reload}
       pagination.updatePagination {totalItems}
       pagination.goToPrevPage()
       expect(pagination.getCurrentPage()).toBe currentPage - 1
@@ -179,8 +179,8 @@ describe 'ThemisComponents: Service: thTablePagination', ->
       numPages = 10
       totalItems = numPages * pageSize
       called = false
-      triggerFetchData = -> called = true
-      pagination = TablePagination {pageSize, triggerFetchData}
+      reload = -> called = true
+      pagination = TablePagination {pageSize, reload}
       pagination.updatePagination {totalItems}
 
       pagination.goToPage 0
@@ -195,14 +195,14 @@ describe 'ThemisComponents: Service: thTablePagination', ->
       expect(pagination.getCurrentPage()).toBe 1
       expect(called).toBe false
 
-    it 'updates currentPage and calls triggerFetchData', ->
+    it 'updates currentPage and calls reload', ->
       currentPage = 9
       pageSize = 5
       numPages = 10
       totalItems = numPages * pageSize
       called = false
-      triggerFetchData = -> called = true
-      pagination = TablePagination {currentPage, pageSize, triggerFetchData}
+      reload = -> called = true
+      pagination = TablePagination {currentPage, pageSize, reload}
       pagination.updatePagination {totalItems}
       newPage = 5
       pagination.goToPage newPage

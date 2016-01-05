@@ -50,7 +50,7 @@ describe 'ThemisComponents: Service: thTableDelegate', ->
       delegate = TableDelegate {fetchData, headers}
       expect(called).toBe true
 
-  describe '#triggerFetchData', ->
+  describe '#reload', ->
     it 'sets loading to true and error to false', ->
       fetchData = -> return
       delegate = TableDelegate {fetchData}
@@ -89,8 +89,16 @@ describe 'ThemisComponents: Service: thTableDelegate', ->
       fetchData = -> numCalled++
       delegate = TableDelegate {fetchData}
       expect(numCalled).toBe 1
-      delegate.triggerFetchData()
+      delegate.reload()
       expect(numCalled).toBe 2
+
+    it 'calls fetchData and changes currentPage', ->
+      page = null
+      fetchData = ({currentPage}) -> page = currentPage
+      delegate = TableDelegate {fetchData}
+      expect(page).toBe 1
+      delegate.reload({currentPage: 200})
+      expect(page).toBe 200
 
   describe '#hasNoData', ->
     it 'is false while loading is true', ->
@@ -126,7 +134,7 @@ describe 'ThemisComponents: Service: thTableDelegate', ->
       delegate.sortData headers[0]
       expect(delegate.isFirstPage()).toBe true
 
-    it 'sets currentSortHeader and calls triggerFetchData', ->
+    it 'sets currentSortHeader and calls reload', ->
       headers = [
         TableHeader {sortField: ''}
       ]

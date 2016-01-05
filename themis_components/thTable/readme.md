@@ -189,7 +189,7 @@ It accepts a dictionary of options as an argument:
     to the table.
   * It is called once by the delegate when `th-table` initializes.
   * It will also be called whenever the user changes pages or sorts the table.
-  * It can also be triggered programmatically by calling `triggerFetchData()` on
+  * It can also be triggered programmatically by calling `reload()` on
     the delegate instance. This method is described below.
   * `currentPage`, `pageSize` and `sortHeader` are all optional and will be sent
     only if they are relevant (for example if the table even has pagination or
@@ -217,9 +217,11 @@ that you can use:
   * Reference to the TableHeader objects array that you pass to the delegate
     on creation.
 
-* `triggerFetchData()`
+* `reload({currentPage})`
   * Manually calls `fetchData()` with the current state of the table
     (pagination, sorting parameters)
+  * It accepts an optional dictionary as argument where you can specify a new
+    currentPage for the table.
 
 * `getData()`
   * Returns an array of data that the table currently displays.

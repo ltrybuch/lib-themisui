@@ -7,7 +7,7 @@ angular.module 'ThemisComponents'
     {
       currentPage = 1
       pageSize
-      triggerFetchData
+      reload
     } = options
 
     totalItems = 0
@@ -72,7 +72,7 @@ angular.module 'ThemisComponents'
                   page not in [1 .. totalPages()] or \
                   page is currentPage
         currentPage = page
-        triggerFetchData()
+        reload()
 
       generatePaginationTemplate: ->
         return "" unless paginationEnabled options

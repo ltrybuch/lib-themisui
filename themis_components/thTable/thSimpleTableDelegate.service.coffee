@@ -106,7 +106,7 @@ angular.module 'ThemisComponents'
                 We had trouble loading your content.
               </div>
               <div>
-                <a href ng-click="thTable.delegate.triggerFetchData()">Try again</a>.
+                <a href ng-click="thTable.delegate.reload()">Try again</a>.
               </div>
             </th-error>
           </td>

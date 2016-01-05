@@ -16,9 +16,12 @@ angular.module 'ThemisComponents'
     error = false
     currentSortHeader = headers.find (header) -> header.isSortActive()
 
-    triggerFetchData = ->
+    reload = (options = {}) ->
       loading = true
       error = false
+
+      if options.currentPage?
+        updatePagination {currentPage: options.currentPage}
 
       updateData = (options = {}) ->
         newError = options.error
@@ -39,7 +42,7 @@ angular.module 'ThemisComponents'
         sortHeader: currentSortHeader
       }, updateData
 
-    tablePagination = TablePagination {currentPage, pageSize, triggerFetchData}
+    tablePagination = TablePagination {currentPage, pageSize, reload}
 
     {
       updatePagination
@@ -55,12 +58,12 @@ angular.module 'ThemisComponents'
         currentSortHeader.deactivateSort() if currentSortHeader?
         currentSortHeader = newSortHeader
 
-    triggerFetchData()
+    reload()
 
     return Object.freeze {
       headers
 
-      triggerFetchData
+      reload
 
       getData: -> data
 
@@ -74,7 +77,7 @@ angular.module 'ThemisComponents'
         return unless header.sortField?
         updatePagination {currentPage: 1}
         updateHeaderSorting header
-        triggerFetchData()
+        reload()
 
       pages: tablePagination.pages
       isLastPage: tablePagination.isLastPage
