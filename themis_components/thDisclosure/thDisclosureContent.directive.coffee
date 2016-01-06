@@ -21,7 +21,12 @@ angular.module 'ThemisComponents'
     bindToController: true
     controllerAs: 'thDisclosureContent'
     controller: ($element) ->
-      @expanded = false
+      DisclosureManager.getDefaultState(@name).then (expanded) =>
+        @expanded = expanded
+        if @expanded
+          $($element).css
+            height: 'auto'
+            overflow: 'visible'
 
       @animateToggle = =>
         @expanded = not @expanded
