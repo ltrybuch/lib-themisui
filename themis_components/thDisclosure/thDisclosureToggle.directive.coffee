@@ -9,7 +9,7 @@ angular.module 'ThemisComponents'
     bindToController: true
     controllerAs: 'thDisclosureToggle'
     controller: ->
-      DisclosureManager.setDefaultState @name, @expanded
+      DisclosureManager.setDefaultState @name, (@expanded ? false)
 
       @toggle = =>
         @expanded = not @expanded
