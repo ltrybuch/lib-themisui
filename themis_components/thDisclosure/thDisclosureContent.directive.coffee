@@ -11,6 +11,14 @@ getActualHeight = (element) ->
   $(element).attr "style", previousCss ? ""
   height
 
+open = (element) ->
+  $(element).css
+    height: 'auto'
+    overflow: 'visible'
+
+close = (element) ->
+  $(element).css overflow: 'hidden'
+
 angular.module 'ThemisComponents'
   .directive 'thDisclosureContent', (DisclosureManager) ->
     restrict: 'E'
@@ -23,10 +31,7 @@ angular.module 'ThemisComponents'
     controller: ($element) ->
       DisclosureManager.getDefaultState(@name).then (expanded) =>
         @expanded = expanded
-        if @expanded
-          $($element).css
-            height: 'auto'
-            overflow: 'visible'
+        if @expanded then open $element
 
       @animateToggle = =>
         @expanded = not @expanded
@@ -35,14 +40,13 @@ angular.module 'ThemisComponents'
           $($element).animate {
             height: "#{height}px"
           }, 300, ->
-            $($element).css
-              height: 'auto'
-              overflow: 'visible'
+            open $element
+            
         else
           $($element).animate {
             height: "0"
           }, 300, ->
-            $($element).css overflow: 'hidden'
+            close $element
 
       DisclosureManager.onToggle @name, => @animateToggle()
 
