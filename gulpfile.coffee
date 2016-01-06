@@ -47,13 +47,13 @@ gulp.task 'docs-style', ->
 
 
 gulp.task 'docs-examples-style', ->
-  console.log "examples.css is building"
+  console.log "examples-app.css is building"
 
   gulp
     .src path.join('public', 'stylesheets', 'examples.scss')
     .pipe sass(includePaths: require('node-bourbon').includePaths)
     .pipe autoprefixer autoprefixerOptions
-    .pipe rename('examples.css')
+    .pipe rename('examples-app.css')
     .pipe gulp.dest path.join('public', 'build')
 
 
