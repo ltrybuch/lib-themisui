@@ -1,8 +1,6 @@
 require '../public/javascript/prism.js'
 require '../polyfills/'
 
-angular = require 'angular'
-
 angular.module 'ThemisComponents', [
   require 'angular-animate'
 ]

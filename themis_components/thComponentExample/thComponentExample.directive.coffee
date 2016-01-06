@@ -11,10 +11,10 @@ angular.module('ThemisComponents')
 
       includeBase = "#{$location.protocol()}://#{$location.host()}:#{$location.port()}"
       includeJS  = [
-        "#{includeBase}/build/lib-themisui.js"
+        "#{includeBase}/build/examples-app.js"
       ]
       includeCSS = [
-        "#{includeBase}/build/examples.css"
+        "#{includeBase}/build/examples-app.css"
         "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
       ]
 

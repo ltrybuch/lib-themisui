@@ -57,7 +57,7 @@
     "phantomjs": "^1.9.16"
   },
   "scripts": {
-    "build": "gulp docs-browserify lib-themisui-style",
+    "build": "gulp lib-themisui lib-themisui-style",
     "clean": "rm -rf public/build",
     "postinstall": "npm run clean && npm run build",
     "start": "gulp docs",
