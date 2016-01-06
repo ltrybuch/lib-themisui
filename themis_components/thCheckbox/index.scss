@@ -1,15 +1,13 @@
 .th-checkbox,
 *[th-checkbox] {
-  $size: 18px;
-  $inset: 1px;
-  $border: $size / 9;
+  $size: 14px;
+  $border: 2px;
   $font-size: 12px;
 
   display: inline-block;
   vertical-align: sub;
   width: $size;
   height: $size;
-  box-sizing: border-box;
   font-weight: 100;
   border-radius: $border;
   background: #fff;
@@ -19,32 +17,37 @@
 
   &.checked {
     i {
-      &:before {
-        max-width: $size;
-        opacity: 1;
-      }
+      width: $size;
+      opacity: 1;
     }
   }
-  
+
   input[type="checkbox"] {
     display: none;
   }
 
   i {
+    display: block;
     position: absolute;
-    top: $inset;
-    left: $inset;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    width: 0px;
+
+    color: $dark-grey-4;
+    font-size: $font-size;
     font-style: normal;
+    text-align: center;
+
+    transition: all 0.2s;
+    opacity: 0.5;
+    overflow: hidden;
 
     &:before {
       @extend .fa;
       content: '\f00c';
-      max-width: 0;
-      overflow: hidden;
-      opacity: 0.5;
-      transition: all 0.2s;
-      font-size: $font-size;
-      color: $dark-grey-4;
+      width: $size;
+      line-height: $size;
     }
   }
 }
