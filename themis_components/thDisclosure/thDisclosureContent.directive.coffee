@@ -45,7 +45,6 @@ angular.module 'ThemisComponents'
             height: "#{height}px"
           }, 300, ->
             open $element
-            
         else
           $($element).animate {
             height: "0"
