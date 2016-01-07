@@ -1,0 +1,57 @@
+.th-flash,
+*[th-flash] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: #fff;
+  z-index: 10;
+  height: 54px;
+  line-height: 54px;
+  padding: 0 16px;
+  display: block;
+  @include transition(all 0.2s ease);
+  @include box-sizing;
+
+  &.ng-hide-remove {
+    top: -54px;
+  }
+
+  &.success-flash {
+    background: $green-3;
+  }
+
+  &.error-flash {
+    background: $red-3;
+  }
+
+  .fa {
+    vertical-align: middle;
+    font-size: 18px;
+
+    &.fa-check,
+    &.fa-warning {
+      color: #fff;
+      text-align: center;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      margin-right: 40px;
+      border-radius: 50%;
+    }
+
+    &.fa-check {
+      background: $green-5;
+    }
+
+    &.fa-warning {
+      background: $red-5;
+    }
+
+    &.fa-times-circle {
+      cursor: pointer;
+      line-height: 54px;
+      float: right;
+    }
+  }
+}
