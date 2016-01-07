@@ -52,6 +52,7 @@ angular.module 'ThemisComponents'
             close $element
         return false
 
+      @expanded = false
       DisclosureManager.registerDisclosureContent @name, this
 
       return
