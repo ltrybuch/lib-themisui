@@ -1,31 +1,40 @@
 angular.module 'ThemisComponents'
   .factory 'DisclosureManager', ($q) ->
-    handlerMap = {}
+
     stateMap = {}
+    disclosureToggles = {}
+    disclosureContents = {}
 
-    onToggle = (name, handler) -> handlerMap[name] = handler
-
-    toggle = (name) -> (handlerMap[name] ? -> return)()
-
-    setDefaultState = (name, state) ->
+    toggle = (name) ->
       if stateMap[name]?
-        stateMap[name].resolve(state)
-      else
-        deferred = $q.defer()
-        deferred.resolve(state)
-        stateMap[name] = deferred.promise
+        if stateMap[name] then close name else open name
 
-    getDefaultState = (name) ->
+    open = (name) ->
+      stateMap[name] = true
+      disclosureToggles[name].open() if disclosureToggles[name]?
+      disclosureContents[name].open() if disclosureContents[name]?
+
+    close = (name) ->
+      stateMap[name] = false
+      disclosureToggles[name].close() if disclosureToggles[name]?
+      disclosureContents[name].close() if disclosureContents[name]?
+
+    updateDisclosure = (name) ->
       if stateMap[name]?
-        stateMap[name]
-      else
-        deferred = $q.defer()
-        stateMap[name] = deferred.promise
-        deferred.promise
+        if stateMap[name] then open name else close name
+
+    registerDisclosureToggle = (name, obj) ->
+      disclosureToggles[name] = obj
+      updateDisclosure name
+
+    registerDisclosureContent = (name, obj) ->
+      disclosureContents[name] = obj
+      updateDisclosure name
 
     return {
-      onToggle
+      open
+      close
       toggle
-      getDefaultState
-      setDefaultState
+      registerDisclosureToggle
+      registerDisclosureContent
     }

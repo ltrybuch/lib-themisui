@@ -12,7 +12,7 @@ A disclosure has 2 parts:
 
 Both components have a mandatory, unique attribute called `name`.
 
-The `th-disclosure-toggle` component has an optional `expanded` attribute called `expanded` with which you can set the default state of the disclosure to expanded or not. Valid values are `true` and `false`. If the optional `expanded` attribute is not defined, the disclosure defaults `expanded` to false.
+The `th-disclosure-toggle` component has an optional `expanded` attribute with which you can control the expanded state of the disclosure. This attribute accepts an expression and can be controlled via a controller variable. If the optional `expanded` attribute is not defined, the disclosure defaults `expanded` to false.
 
 You are free to put anything inside the component tags - everything will be transcluded.
 
