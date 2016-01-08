@@ -25,12 +25,14 @@ angular.module 'ThemisComponents'
         else
           DisclosureManager.close @name
 
+      # only set a watch if we have something bound to @expanded
+      if @expanded?
+        $scope.$watch =>
+          @expanded
+        , -> updateManager()
+
       @expanded = @expanded ? false
       DisclosureManager.registerDisclosureToggle @name, this
       updateManager()
-
-      $scope.$watch =>
-        @expanded
-      , -> updateManager()
 
       return

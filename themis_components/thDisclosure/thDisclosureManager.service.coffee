@@ -7,7 +7,7 @@ angular.module 'ThemisComponents'
 
     toggle = (name) ->
       if stateMap[name]?
-        if stateMap[name] then close name else open name
+        if stateMap[name] then close(name) else open(name)
 
     open = (name) ->
       stateMap[name] = true
@@ -21,7 +21,7 @@ angular.module 'ThemisComponents'
 
     updateDisclosure = (name) ->
       if stateMap[name]?
-        if stateMap[name] then open name else close name
+        if stateMap[name] then open(name) else close(name)
 
     registerDisclosureToggle = (name, obj) ->
       disclosureToggles[name] = obj
