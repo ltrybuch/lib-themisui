@@ -15,6 +15,7 @@ angular.module('ThemisComponents')
     bindToController: true
     controllerAs: 'button'
     controller: ($element, $attrs) ->
-      $element.attr('type', 'submit') if $attrs.submit?
+      type = if $attrs.submit? || $attrs.type == 'submit' then 'submit' else 'button'
+      $element.attr('type', type)
       $element.attr('disabled', 'disabled') if $attrs.disabled?
       return
