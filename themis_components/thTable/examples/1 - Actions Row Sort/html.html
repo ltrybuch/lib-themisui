@@ -1,0 +1,27 @@
+<html ng-app="thDemo" style="height: 200px">
+  <body ng-controller="DemoController as demo" style="padding-right: 0; padding-left: 0;">
+    <th-table delegate="demo.tableDelegate">
+
+      <th-table-row type="cells">
+        <th-table-cell>
+          {{item.id}}
+        </th-table-cell>
+
+        <th-table-cell>
+          {{item.name}}
+        </th-table-cell>
+
+        <th-table-cell>
+          <a target="_blank" ng-href="{{item.twitterProfile}}">{{item.twitter}}</a>
+        </th-table-cell>
+      </th-table-row>
+
+      <th-table-row type="actions" start-column="3">
+        <a target="_blank" ng-href="{{item.twitterFollowing}}">Following</a>
+        <a target="_blank" ng-href="{{item.twitterFollowers}}">Followers</a>
+        <a target="_blank" ng-href="{{item.twitterLikes}}">Likes</a>
+      </th-table-row>
+
+    </th-table>
+  </body>
+</html>

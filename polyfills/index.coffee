@@ -1,3 +1,6 @@
-require './jQuery.typeAttribute.patch'
-require './Element.matches.polyfill'
+require './Array.find.polyfill'
 require './Array.findIndex.polyfill'
+require './Element.matches.polyfill'
+require './jQuery.typeAttribute.patch'
+require './Object.assign.polyfill'
+require './String.includes.polyfill'

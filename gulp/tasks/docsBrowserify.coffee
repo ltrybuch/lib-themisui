@@ -3,25 +3,37 @@ gulp = require 'gulp'
 browserify = require 'browserify'
 watchify = require 'watchify'
 source = require 'vinyl-source-stream'
+derequire = require 'gulp-derequire'
 stringify = require 'stringify'
 templates = stringify ['html']
 
 isWatching = no
 
-files = [
+docsFiles = [
   {
-    input: ['./public/javascript/index.coffee']
+    input: ['./public/javascript/examples.coffee']
+    output: 'examples-app.js'
+    extensions: ['.coffee', '.html']
+    transform: [templates]
+    destination: './public/build/'
+  }
+  {
+    input: ['./public/javascript/docs.coffee']
     output: 'docs-app.js'
     extensions: ['.coffee', '.html']
     transform: [templates]
     destination: './public/build/'
   }
+]
+
+libraryFiles = [
   {
     input: ['./themis_components/index.coffee']
     output: 'lib-themisui.js'
     extensions: ['.coffee', '.html']
     transform: [templates]
     destination: './public/build/'
+    standalone: 'lib-ThemisUI'
   }
 ]
 
@@ -46,6 +58,7 @@ createBundle = (options) ->
       .bundle()
       .on 'error', -> console.log arguments
       .pipe source(options.output)
+      .pipe derequire()
       .pipe gulp.dest(options.destination)
       .on 'end', ->
         time = (new Date().getTime() - startTime) / 1000
@@ -61,7 +74,10 @@ createBundles = (bundles) ->
   bundles.forEach (bundle) -> createBundle bundle
 
 gulp.task 'docs-browserify', ->
-  createBundles files
+  createBundles docsFiles
+
+gulp.task 'lib-themisui', ->
+  createBundles libraryFiles
 
 gulp.task 'docs-watchify', ['docs-browserify-setWatch', 'docs-browserify']
 

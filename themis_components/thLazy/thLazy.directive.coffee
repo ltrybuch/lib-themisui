@@ -6,11 +6,12 @@ angular.module('ThemisComponents')
       src: "@"
       errorMessage: "@"
     controller: ($scope) ->
-      $scope.loaded = no
+      $scope.loading = yes
       $scope.loadError = no
       $scope.messageOverride = $scope.errorMessage?
       $scope.loadingComplete = ->
-        $scope.loaded = yes
+        $scope.loading = no
 
       $scope.$on "$includeContentError", (event, args) ->
         $scope.loadError = yes
+        $scope.loading = no

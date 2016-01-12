@@ -15,10 +15,11 @@ module.exports = (config) ->
     # list of files / patterns to load in the browser
     files: [
       'http://code.jquery.com/jquery-2.1.4.js'
+      'node_modules/angular/angular.js'
       'themis_components/index.coffee'
       'node_modules/angular-mocks/angular-mocks.js'
       'themis_components/**/*.spec.coffee'
-      'spec_helper/compileDirective.coffee'
+      'spec_helper/helpers.coffee'
       {
         pattern: 'themis_components/**/*.+(directive|service).coffee'
         watched: true

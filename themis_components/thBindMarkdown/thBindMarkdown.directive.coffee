@@ -1,4 +1,3 @@
-angular = require 'angular'
 marked = require 'marked'
 Prism = window.Prism
 

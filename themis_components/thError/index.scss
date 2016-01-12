@@ -1,0 +1,23 @@
+.th-error-container {
+  padding-top: 60px;
+  text-align: center;
+  width: 100%;
+  font-size: 13px;
+  font-weight: 400;
+  color: $medium-grey;
+
+  a {
+    text-decoration: none;
+    color: $blue;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  i {
+    color: $light-grey-5;
+    display: block;
+    margin-bottom: 12px;
+    font-size: 32px;
+  }
+}

@@ -1,8 +1,6 @@
 require '../public/javascript/prism.js'
 require '../polyfills/'
 
-angular = require 'angular'
-
 angular.module 'ThemisComponents', [
   require 'angular-animate'
 ]
@@ -16,6 +14,7 @@ require './thContentHeader/'
 require './thContextualMessage/'
 require './thDisclosure/'
 require './thDropdown/'
+require './thError/'
 require './thInput/'
 require './thLazy/'
 require './thLoader/'
@@ -24,6 +23,7 @@ require './thPopover/'
 require './thRadioGroup/'
 require './thSelect/'
 require './thSwitch/'
+require './thTable/'
 require './thTabset/'
 require './thWithLabel/'
 
