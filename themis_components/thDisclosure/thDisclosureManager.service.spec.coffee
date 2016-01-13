@@ -1,6 +1,8 @@
 context = describe
 describe 'ThemisComponents: Service: thDisclosureManager', ->
-  DisclosureManager = uniqueId = openHandlerCalled = closeHandlerCalled = toggle = null
+  DisclosureManager = uniqueId = null
+  toggleOpenHandlerCalled = toggleCloseHandlerCalled = toggleHandler = null
+  contentOpenHandlerCalled = contentCloseHandlerCalled = contentHandler = null
 
   beforeEach ->
     module 'ThemisComponents'
@@ -9,44 +11,56 @@ describe 'ThemisComponents: Service: thDisclosureManager', ->
       DisclosureManager = _DisclosureManager_
 
     uniqueId = 'uniqueId'
-    openHandlerCalled = false
-    closeHandlerCalled = false
-    toggle =
-      open: -> openHandlerCalled = true
-      close: -> closeHandlerCalled = true
+
+    toggleOpenHandlerCalled = false
+    toggleCloseHandlerCalled = false
+    toggleHandler =
+      handleOpen: -> toggleOpenHandlerCalled = true
+      handleClose: -> toggleCloseHandlerCalled = true
+    contentOpenHandlerCalled = false
+    contentCloseHandlerCalled = false
+    contentHandler =
+      handleOpen: -> contentOpenHandlerCalled = true
+      handleClose: -> contentCloseHandlerCalled = true
 
   it 'should exist', ->
     expect(DisclosureManager?).toBe true
 
   describe '#registerDisclosureToggle()', ->
     it 'registers and triggers the toggle handler', ->
-      DisclosureManager.registerDisclosureToggle uniqueId, toggle
+      DisclosureManager.registerDisclosureToggle uniqueId, toggleHandler
       DisclosureManager.open uniqueId
-      expect(openHandlerCalled).toBe true
+      expect(toggleOpenHandlerCalled).toBe true
 
-  describe '#registerDisclosureToggle()', ->
+  describe '#registerDisclosureContent()', ->
     it 'registers and triggers the content handler', ->
-      DisclosureManager.registerDisclosureContent uniqueId, toggle
+      DisclosureManager.registerDisclosureContent uniqueId, contentHandler
       DisclosureManager.open uniqueId
-      expect(openHandlerCalled).toBe true
+      expect(contentOpenHandlerCalled).toBe true
 
   describe '#toggle()', ->
-    it 'toggles the diclosure state and calls the handler', ->
-      DisclosureManager.registerDisclosureContent uniqueId, toggle
+    it 'toggles the disclosure state and calls the handlers', ->
+      DisclosureManager.registerDisclosureToggle uniqueId, toggleHandler
+      DisclosureManager.registerDisclosureContent uniqueId, contentHandler
       DisclosureManager.close uniqueId
       DisclosureManager.toggle uniqueId
-      expect(openHandlerCalled).toBe true
+      expect(toggleOpenHandlerCalled).toBe true
+      expect(contentOpenHandlerCalled).toBe true
 
   describe '#open()', ->
-    it 'calls the open handler', ->
-      DisclosureManager.registerDisclosureContent uniqueId, toggle
+    it 'calls the open handlers', ->
+      DisclosureManager.registerDisclosureToggle uniqueId, toggleHandler
+      DisclosureManager.registerDisclosureContent uniqueId, contentHandler
       DisclosureManager.close uniqueId
       DisclosureManager.open uniqueId
-      expect(openHandlerCalled).toBe true
+      expect(toggleOpenHandlerCalled).toBe true
+      expect(contentOpenHandlerCalled).toBe true
 
   describe '#close()', ->
-    it 'calls the open handler', ->
-      DisclosureManager.registerDisclosureContent uniqueId, toggle
+    it 'calls the open handlers', ->
+      DisclosureManager.registerDisclosureToggle uniqueId, toggleHandler
+      DisclosureManager.registerDisclosureContent uniqueId, contentHandler
       DisclosureManager.open uniqueId
       DisclosureManager.close uniqueId
-      expect(closeHandlerCalled).toBe true
+      expect(toggleCloseHandlerCalled).toBe true
+      expect(contentCloseHandlerCalled).toBe true
