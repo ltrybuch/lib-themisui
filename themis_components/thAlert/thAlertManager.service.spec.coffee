@@ -1,0 +1,32 @@
+context = describe
+describe 'ThemisComponents: Service: thAlertManager', ->
+  AlertManager = null
+
+  beforeEach ->
+    module 'ThemisComponents'
+
+    inject (_AlertManager_) ->
+      AlertManager = _AlertManager_
+
+  it 'should exist', ->
+    expect(AlertManager?).toBe true
+
+  describe '#showSuccess()', ->
+    it 'should populate the alertMessage object', ->
+      AlertManager.showSuccess "Risus Lorem", "success"
+      expect(AlertManager.alertMessage).toEqual {message: 'Risus Lorem', type: 'success'}
+
+  describe '#showError()', ->
+    it 'should populate the alertMessage object', ->
+      AlertManager.showError "Sit Ipsum", "success"
+      expect(AlertManager.alertMessage).toEqual {message: 'Sit Ipsum', type: 'error'}
+
+  describe '#showWarning()', ->
+    it 'should populate the alertMessage object', ->
+      AlertManager.showWarning "Vestibulum Ullamcorper", "success"
+      expect(AlertManager.alertMessage).toEqual {message: 'Vestibulum Ullamcorper', type: 'warning'}
+
+  describe '#hideAlert()', ->
+    it 'should clear the alertMessage object', ->
+      AlertManager.hideAlert
+      expect(AlertManager.alertMessage).toEqual

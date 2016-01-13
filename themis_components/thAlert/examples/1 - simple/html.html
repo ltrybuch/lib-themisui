@@ -1,11 +1,12 @@
 <html ng-app="thDemo">
-  <body ng-controller="DemoController as demo" style="height: 120px;">
+  <body ng-controller="DemoController as demo">
 
-    <th-flash></th-flash>
+    <th-alert></th-alert>
 
     <div style="margin-top: 50px;">
       <button ng-click="demo.displaySuccess()">Show Success Message</button>
       <button ng-click="demo.displayError()">Show Error Message</button>
+      <button ng-click="demo.displayWarning()">Show Warning Message</button>
     </div>
 
   </body>

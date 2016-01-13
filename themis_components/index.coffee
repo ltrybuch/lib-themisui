@@ -7,6 +7,7 @@ angular.module 'ThemisComponents', [
   require 'angular-animate'
 ]
 
+require './thAlert/'
 require './thBindMarkdown/'
 require './thButton/'
 require './thCheckbox/'
@@ -17,7 +18,6 @@ require './thContextualMessage/'
 require './thDisclosure/'
 require './thDropdown/'
 require './thError/'
-require './thFlash/'
 require './thInput/'
 require './thLazy/'
 require './thLoader/'
