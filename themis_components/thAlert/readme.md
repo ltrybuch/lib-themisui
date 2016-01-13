@@ -15,15 +15,15 @@ or for an announcement.
 
 ## Usage
 
-The `th-alert` element should be placed in your application layout file.
+`<th-alert-anchor></th-alert-anchor>` is required in the body of your application.
 It's positioned absolutely to appear at the top of the page, so ensure it's not
 placed in a relatively positioned container.
 
 There are 3 types of alerts that are called with their own functions
 using the `AlertManager`:
-- `showSuccess()`
-- `showError()`
-- `showWarning()`
+- Success alerts with `showSuccess()`
+- Error alerts with `showError()`
+- Warning alerts with `showWarning()`
 
 Each function accepts a `message` parameter. The `message` parameter is the
 actual text of the message that you'd like to show. Such as:
@@ -45,10 +45,4 @@ An example of a warning alert:
 
 ```coffeescript
 AlertManager.showWarning "The selected contact does not have an email address."
-```
-
-### Markup
-
-```html
-<th-alert></th-alert>
 ```

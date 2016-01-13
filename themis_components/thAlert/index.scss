@@ -12,7 +12,7 @@
   @include animated(200ms);
   @include box-sizing;
 
-  &.ng-animate, {
+  &.ng-animate {
     top: -54px;
   }
 

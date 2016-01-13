@@ -1,5 +1,5 @@
 context = describe
-describe "ThemisComponents: Directive: thAlert", ->
+describe "ThemisComponents: Directive: thAlertAnchor", ->
   directive = ctrl = scope = element = AlertManager = null
 
   beforeEach inject ($compile, $rootScope, _AlertManager_) ->

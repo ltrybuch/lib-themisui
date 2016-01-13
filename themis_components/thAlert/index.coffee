@@ -1,2 +1,2 @@
 require './thAlertManager.service'
-require './thAlert.directive'
+require './thAlertAnchor.directive'

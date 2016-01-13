@@ -1,8 +1,8 @@
-angular.module('ThemisComponents').directive "thAlert", ->
+angular.module('ThemisComponents').directive "thAlertAnchor", ->
   restrict: "E"
   bindToController: true
   controllerAs: 'alert'
-  template: require './thAlert.template.html'
+  template: require './thAlertAnchor.template.html'
   controller: (AlertManager) ->
     @alertMessage = AlertManager.alertMessage
 
