@@ -3,10 +3,10 @@ angular.module("ThemisComponents")
     restrict: "A"
     link: (scope, element) ->
       setFocus = (el) ->
-        # Set to 75 ms to account for modal opening time.
+        # Set to 300ms to account for modal CSS transition time.
         $timeout ->
           scope.$apply el[0].focus()
-        , 75
+        , 300
 
       # If this is a thComponent we need to set focus on the inner element.
       thComponentTypes = ["select", "input"]
