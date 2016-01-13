@@ -35,7 +35,7 @@ describe "ThemisComponents: Directive: thSelect", ->
         expect(element.find(".selected-text").text()).toMatch "Darth"
 
       it "replacement select has icon with class 'fa fa-caret-down'", ->
-        expect(element.find(".selected-text > i").hasClass("fa-caret-down")).toBe true
+        expect(element.find(".text-wrapper > i").hasClass("fa-caret-down")).toBe true
 
       it "value on select to equal select value", ->
         expect(element.find("select")[0].value).toEqual "Sith Lord"
@@ -51,7 +51,7 @@ describe "ThemisComponents: Directive: thSelect", ->
         disabled = """
           <th-select name="faction"
                      options="options"
-                     disabled
+                     ng-disabled="true"
                      ng-model="choice">
           </th-select>
         """
@@ -59,6 +59,9 @@ describe "ThemisComponents: Directive: thSelect", ->
 
       it "disables select", ->
         expect(element.find("select").attr("disabled")).toEqual "disabled"
+
+      it "adds class 'disabled' to the text wrapper div", ->
+        expect(element.find(".text-wrapper").hasClass("disabled")).toBe true
 
     context "when select changes", ->
       beforeEach ->
@@ -74,13 +77,11 @@ describe "ThemisComponents: Directive: thSelect", ->
         expect(model).toEqual element.scope().options[1]
 
     context "when select clicked", ->
-      it "adds class 'has-focus' to inner element", ->
+      it "toggles 'has-focus' class to inner element", ->
         element.find("select").triggerHandler "focus"
-        expect(element.find(".selected-text").hasClass('has-focus')).toBe true
-
-      it "removes class 'has-focus' from inner element", ->
+        expect(element.find(".text-wrapper").hasClass('has-focus')).toBe true
         element.find("select").triggerHandler "blur"
-        expect(element.find(".selected-text").hasClass('has-focus')).toBe false
+        expect(element.find(".text-wrapper").hasClass('has-focus')).toBe false
 
   context "using HTML option elements", ->
     context "enabled", ->
@@ -117,7 +118,7 @@ describe "ThemisComponents: Directive: thSelect", ->
     context "when disabled", ->
       beforeEach ->
         template = """
-          <th-select disabled name="lightsaber">
+          <th-select ng-disabled="true" name="lightsaber">
             <option value="1">Green</option>
           </th-select>
         """
@@ -125,3 +126,6 @@ describe "ThemisComponents: Directive: thSelect", ->
 
       it "disables the select element", ->
         expect(element.find("select").attr("disabled")).toEqual "disabled"
+
+      it "adds class 'disabled' to the text wrapper div", ->
+        expect(element.find(".text-wrapper").hasClass("disabled")).toBe true

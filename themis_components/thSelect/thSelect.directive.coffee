@@ -1,8 +1,11 @@
 template = (select) ->  """
   <div class="select-wrapper">
     #{select}
-    <div class="selected-text">
-      {{select.selectedText}}
+    <div class="text-wrapper"
+      ng-class="{disabled: select.ngDisabled}">
+      <span class="selected-text">
+        {{select.selectedText}}
+      </span>
       <i class="fa fa-caret-down"></i>
     </div>
   </div>
@@ -27,25 +30,33 @@ angular.module('ThemisComponents')
       options: "="
       ngModel: "="
       name: "@"
-      disabled: "@"
+      ngDisabled: "="
       ngChange: "=?"
 
     controller: ($scope, $element) ->
       @selectedText = @ngModel?.name ? "Choose…"
 
-      $element.find("select").on 'click', (event) -> return
-      # when a new option is selected we want to capture the name
-      # and add it to our styled select replacement.
-      $element.on 'change', (event) =>
-        $scope.$apply =>
-          @selectedText = event.target.selectedOptions[0].text
-      return
+    link: (scope, element, attributes, controller) ->
 
-    link: (scope, element, attributes) ->
-      # grab the initially selected option and add
-      # it's name to our styled replacement select
-      # this will only be applicable to if we are not
-      # passing in an array of options so we check for that first.
+      updateSelectText = (text) ->
+        el = element[0].getElementsByClassName("selected-text")
+        el[0].textContent = text
+
+      # On the change event, update the select's text
+      element.on 'change', (event) ->
+        text = event.target.selectedOptions[0].text
+        updateSelectText text
+
+      # On the model change, update the select's text
+      scope.$watch ->
+        controller.ngModel
+      , (newValue) ->
+        if newValue?
+          updateSelectText newValue.name
+
+      # Grab the initially selected option and add its name to our
+      # styled replacement select. This will only be applicable
+      # if we are not passing in an array of options.
       options = element.find "option"
       unless attributes.options?
         counter = 0

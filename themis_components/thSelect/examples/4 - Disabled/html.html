@@ -1,11 +1,15 @@
 <html ng-app="thDemo">
   <body ng-controller="DemoController  as demo">
     <th-select
-      with-label="Secret Identity"
-      name="alias"
+      with-label="Pizza Tonight?"
+      name="pizza"
       options="demo.options"
-      ng-model="demo.model">
+      ng-model="demo.model"
+      ng-disabled="demo.disabled">
     </th-select>
+    <th-button ng-click="demo.toggle()">ON / OFF</th-button>
+    <br>
     <div>Value selected: {{demo.model}}</div>
+
   </body>
 </html>
