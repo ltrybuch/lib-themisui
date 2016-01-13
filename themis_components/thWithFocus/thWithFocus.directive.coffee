@@ -6,7 +6,7 @@ angular.module("ThemisComponents")
         # Set to 300ms to account for modal CSS transition time.
         $timeout ->
           scope.$apply el[0].focus()
-        , 300
+        , 301
 
       # If this is a thComponent we need to set focus on the inner element.
       thComponentTypes = ["select", "input"]
