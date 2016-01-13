@@ -11,7 +11,7 @@ describe "ThemisComponents: Directive: withFocus", ->
     jasmine.addMatchers
       toHaveFocus: ->
         compare: (element) ->
-          pass: document.activeElement == element[0]
+          pass: document.activeElement is element[0]
 
   context "with HTML input elements", ->
     ["password", "file", "submit", "email"].forEach (type) ->
@@ -25,7 +25,7 @@ describe "ThemisComponents: Directive: withFocus", ->
   context "with other HTML elements", ->
     ["a", "textarea", "select"].forEach (type) ->
       it "supports #{type} tags", ->
-        href = if type == "a" then "href" else ""
+        href = if type is "a" then "href" else ""
         element = compileDirective(
           """<#{type} #{href} with-focus></#{type}>""").element
         appendToBody element
