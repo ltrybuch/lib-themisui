@@ -20,7 +20,7 @@ It's positioned absolutely to appear at the top of the page, so ensure it's not
 placed in a relatively positioned container.
 
 There are 3 types of alerts that are called with their own functions
-using the `AlertManager`:
+using the `AlertManager` service:
 - Success alerts with `showSuccess()`
 - Error alerts with `showError()`
 - Warning alerts with `showWarning()`

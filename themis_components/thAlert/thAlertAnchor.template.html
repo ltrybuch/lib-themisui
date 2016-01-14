@@ -1,6 +1,6 @@
-<div ng-show="alert.alertMessage.message" ng-class="'th-alert th-alert-' + alert.alertMessage.type">
-  <i class="fa fa-check" ng-show="alert.alertMessage.type == 'success'"></i>
-  <i class="fa fa-warning" ng-show="alert.alertMessage.type == 'error' || alert.alertMessage.type == 'warning'"></i>
-  {{alert.alertMessage.message}}
-  <i class="fa fa-times-circle" ng-click="alert.dismiss()"></i>
+<div ng-show="alertAnchor.alertMessage.message" ng-class="'th-alert th-alert-' + alertAnchor.alertMessage.type">
+  <i class="fa fa-check" ng-show="alertAnchor.alertMessage.type == 'success'"></i>
+  <i class="fa fa-warning" ng-show="alertAnchor.alertMessage.type == 'error' || alertAnchor.alertMessage.type == 'warning'"></i>
+  {{alertAnchor.alertMessage.message}}
+  <i class="fa fa-times-circle" ng-click="alertAnchor.dismiss()"></i>
 </div>
