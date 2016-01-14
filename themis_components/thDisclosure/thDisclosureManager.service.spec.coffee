@@ -29,38 +29,24 @@ describe 'ThemisComponents: Service: thDisclosureManager', ->
   describe '#registerDisclosureToggle()', ->
     it 'registers and triggers the toggle handler', ->
       DisclosureManager.registerDisclosureToggle uniqueId, toggleHandler
-      DisclosureManager.open uniqueId
+      DisclosureManager.updateState uniqueId, true
       expect(toggleOpenHandlerCalled).toBe true
 
   describe '#registerDisclosureContent()', ->
     it 'registers and triggers the content handler', ->
       DisclosureManager.registerDisclosureContent uniqueId, contentHandler
-      DisclosureManager.open uniqueId
+      DisclosureManager.updateState uniqueId, true
       expect(contentOpenHandlerCalled).toBe true
 
-  describe '#toggle()', ->
-    it 'toggles the disclosure state and calls the handlers', ->
+  describe '#updateState()', ->
+    it 'updates the disclosure state and calls the handlers', ->
       DisclosureManager.registerDisclosureToggle uniqueId, toggleHandler
       DisclosureManager.registerDisclosureContent uniqueId, contentHandler
-      DisclosureManager.close uniqueId
-      DisclosureManager.toggle uniqueId
-      expect(toggleOpenHandlerCalled).toBe true
-      expect(contentOpenHandlerCalled).toBe true
 
-  describe '#open()', ->
-    it 'calls the open handlers', ->
-      DisclosureManager.registerDisclosureToggle uniqueId, toggleHandler
-      DisclosureManager.registerDisclosureContent uniqueId, contentHandler
-      DisclosureManager.close uniqueId
-      DisclosureManager.open uniqueId
-      expect(toggleOpenHandlerCalled).toBe true
-      expect(contentOpenHandlerCalled).toBe true
-
-  describe '#close()', ->
-    it 'calls the open handlers', ->
-      DisclosureManager.registerDisclosureToggle uniqueId, toggleHandler
-      DisclosureManager.registerDisclosureContent uniqueId, contentHandler
-      DisclosureManager.open uniqueId
-      DisclosureManager.close uniqueId
+      DisclosureManager.updateState uniqueId, false
       expect(toggleCloseHandlerCalled).toBe true
       expect(contentCloseHandlerCalled).toBe true
+      
+      DisclosureManager.updateState uniqueId, true
+      expect(toggleOpenHandlerCalled).toBe true
+      expect(contentOpenHandlerCalled).toBe true

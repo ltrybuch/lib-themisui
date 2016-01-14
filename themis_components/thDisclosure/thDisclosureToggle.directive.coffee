@@ -11,27 +11,23 @@ angular.module 'ThemisComponents'
     controller: ($scope) ->
 
       @toggle = =>
-        DisclosureManager.toggle @name
+        DisclosureManager.updateState @name, not @expanded
 
-      updateManager = =>
-        if @expanded
-          DisclosureManager.open @name
-        else
-          DisclosureManager.close @name
+      DisclosureManager.registerDisclosureToggle @name, {
+        handleOpen: =>
+          @expanded = true
+
+        handleClose: =>
+          @expanded = false
+      }
 
       # Only set a watch if we have something bound to @expanded.
       if @expanded?
         $scope.$watch =>
           @expanded
-        , -> updateManager()
-
-      @expanded = @expanded ? false
-      DisclosureManager.registerDisclosureToggle @name, {
-        handleOpen: =>
-          @expanded = true
-        handleClose: =>
-          @expanded = false
-      }
-      updateManager()
+        , =>
+          DisclosureManager.updateState @name, @expanded
+      else
+        DisclosureManager.updateState @name, false
 
       return

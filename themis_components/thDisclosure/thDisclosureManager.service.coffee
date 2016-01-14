@@ -5,10 +5,6 @@ angular.module 'ThemisComponents'
     disclosureToggleHandlers = {}
     disclosureContentHandlers = {}
 
-    toggle = (name) ->
-      if stateMap[name]?
-        if stateMap[name] then close(name) else open(name)
-
     open = (name) ->
       stateMap[name] = true
       disclosureToggleHandlers[name].handleOpen() if disclosureToggleHandlers[name]?
@@ -19,22 +15,19 @@ angular.module 'ThemisComponents'
       disclosureToggleHandlers[name].handleClose() if disclosureToggleHandlers[name]?
       disclosureContentHandlers[name].handleClose() if disclosureContentHandlers[name]?
 
-    updateDisclosure = (name) ->
+    updateState = (name, state) ->
+      stateMap[name] = state if state?
       if stateMap[name]?
         if stateMap[name] then open(name) else close(name)
 
-    registerDisclosureToggle = (name, handlers) ->
-      disclosureToggleHandlers[name] = handlers
-      updateDisclosure name
-
-    registerDisclosureContent = (name, handlers) ->
-      disclosureContentHandlers[name] = handlers
-      updateDisclosure name
-
     return {
-      open
-      close
-      toggle
-      registerDisclosureToggle
-      registerDisclosureContent
+      updateState
+
+      registerDisclosureToggle: (name, handlers) ->
+        disclosureToggleHandlers[name] = handlers
+        updateState name
+
+      registerDisclosureContent: (name, handlers) ->
+        disclosureContentHandlers[name] = handlers
+        updateState name
     }
