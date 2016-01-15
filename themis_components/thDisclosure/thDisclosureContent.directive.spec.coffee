@@ -23,8 +23,8 @@ describe "ThemisComponents: Directive: thDisclosureContent", ->
     beforeEach ->
       {element} = compileDirective("""
         <div>
-          <th-disclosure-toggle name="unique-id-1">Toggle</th-disclosure-toggle>
-          <th-disclosure-content name="unique-id-1">Content</th-disclosure-content>
+          <th-disclosure-toggle name="unique-id">Toggle</th-disclosure-toggle>
+          <th-disclosure-content name="unique-id">Content</th-disclosure-content>
         </div>
       """)
       angular.element('body').append element

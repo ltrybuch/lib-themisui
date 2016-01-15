@@ -1,12 +1,17 @@
 <html ng-app="thDemo">
-  <body>
-    <div style="width: 300px">
+  <body style="height: 300px;">
+    <div style="width: 300px;">
       <th-select name="colors" with-label="Colors">
         <option selected value="1">Blue</option>
         <option value="2">Red</option>
       </th-select>
       <th-input with-label="name" with-focus></th-input>
     </div>
+    <th-disclosure-toggle name="dropdown">Using thDisclosure</th-disclosure-toggle>
+    <th-disclosure-content name="dropdown">
+      <div style="margin:10px; width: 300px;">
+        <th-input with-label="Name" with-focus></th-input>
+      </div>
+    </th-disclosure-content>
   </body>
-
 </html>

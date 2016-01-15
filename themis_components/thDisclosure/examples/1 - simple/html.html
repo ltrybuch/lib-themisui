@@ -1,11 +1,6 @@
 <html ng-app="thDemo">
-  <body style="height: 225px;" ng-controller="DemoCtrl as demo">
+  <body style="height: 25px;" ng-controller="DemoCtrl as demo">
     <th-disclosure-toggle name="unique-name" expanded="demo.expanded">Show hidden text</th-disclosure-toggle>
-    <th-disclosure-content name="unique-name">
-      <div style="width:300px; margin:20px;">
-        <th-input with-focus with-label="Name"></th-input>
-        <th-button type="submit">Update</th-button>
-      </div>
-    </th-disclosure-content>
+    <th-disclosure-content name="unique-name">Hidden text</th-disclosure-content>
   </body>
 </html>

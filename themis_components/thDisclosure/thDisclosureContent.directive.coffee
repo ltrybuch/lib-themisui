@@ -35,7 +35,6 @@ angular.module 'ThemisComponents'
           $element.append transEl if isEmpty
 
       animateToggle = =>
-        height = getActualHeight $element
         if @expanded
           processContent()
           height = getActualHeight $element
