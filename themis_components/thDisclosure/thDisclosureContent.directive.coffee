@@ -25,14 +25,20 @@ angular.module 'ThemisComponents'
     transclude: true
     scope:
       name: '@'
-    template: require './thDisclosureContent.template.html'
     bindToController: true
     controllerAs: 'thDisclosureContent'
-    controller: ($element) ->
+    controller: ($scope, $element, $transclude) ->
+
+      processContent = ->
+        $transclude (transEl) ->
+          isEmpty = $element.children().length == 0
+          $element.append transEl if isEmpty
 
       animateToggle = =>
         height = getActualHeight $element
         if @expanded
+          processContent()
+          height = getActualHeight $element
           $($element).animate {
             height: "#{height}px"
           }, 300, ->
@@ -49,7 +55,7 @@ angular.module 'ThemisComponents'
         handleOpen: =>
           @expanded = true
           animateToggle()
-          
+
         handleClose: =>
           @expanded = false
           animateToggle()

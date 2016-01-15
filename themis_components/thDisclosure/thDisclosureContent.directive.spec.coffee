@@ -12,9 +12,9 @@ describe "ThemisComponents: Directive: thDisclosureContent", ->
         </th-disclosure-content>
       """)
 
-    it "renders a <ng-transclude> component", ->
+    it "component is empty", ->
       firstChild = getFirstChild element
-      expect(firstChild.is('ng-transclude')).toBe true
+      expect(firstChild.length).toBe 0
 
     it "has height 0", ->
       expect(element.css("height")).toEqual "0px"
@@ -23,8 +23,8 @@ describe "ThemisComponents: Directive: thDisclosureContent", ->
     beforeEach ->
       {element} = compileDirective("""
         <div>
-          <th-disclosure-toggle name="unique-id">Toggle</th-disclosure-toggle>
-          <th-disclosure-content name="unique-id">Content</th-disclosure-content>
+          <th-disclosure-toggle name="unique-id-1">Toggle</th-disclosure-toggle>
+          <th-disclosure-content name="unique-id-1">Content</th-disclosure-content>
         </div>
       """)
       angular.element('body').append element
