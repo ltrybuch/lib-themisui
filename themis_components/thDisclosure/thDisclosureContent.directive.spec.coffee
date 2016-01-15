@@ -59,7 +59,7 @@ describe "ThemisComponents: Directive: thDisclosureContent", ->
       , 301 # The animation duration is 300ms
 
     it "toggles closed and back open", ->
-      ctrl = element.find('th-disclosure-content ng-transclude').scope().thDisclosureContent
+      ctrl = element.find('th-disclosure-content span').scope().$$prevSibling.thDisclosureContent
       element.find('a').first().triggerHandler 'click'
       expect(ctrl.expanded).toEqual false
       element.find('a').first().triggerHandler 'click'
