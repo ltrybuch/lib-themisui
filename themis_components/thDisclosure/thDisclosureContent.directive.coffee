@@ -27,12 +27,24 @@ angular.module 'ThemisComponents'
       name: '@'
     bindToController: true
     controllerAs: 'thDisclosureContent'
-    controller: ($scope, $element, $transclude) ->
+    controller: ($scope, $element, $attrs, $transclude) ->
+      previousScope = null
 
-      processContent = ->
-        $transclude (transEl) ->
-          isEmpty = $element.children().length == 0
-          $element.append transEl if isEmpty
+      @elementEmpty = -> $element.children().length is 0
+
+      processContent = =>
+        if @elementEmpty()
+          $transclude (cloneOfContent, transclusionScope) ->
+            # Re-use the same scope with every open and close.
+            previousScope = transclusionScope
+            # Append the content of the disclosure to the element.
+            $element.append cloneOfContent
+            # Remove scope manually as we are not using <ng-transclude>
+            $scope.$on "$destroy", -> transclusionScope.$destroy
+        else
+          $transclude previousScope, (cloneOfContent) ->
+            # Inject previous scope to reuse on new content.
+            $element.append cloneOfContent
 
       animateToggle = =>
         if @expanded
@@ -45,7 +57,8 @@ angular.module 'ThemisComponents'
         else
           $($element).animate {
             height: "0"
-          }, 300, ->
+          }, 300, =>
+            $element.empty() if !@elementEmpty()
             close $element
         return false
 
