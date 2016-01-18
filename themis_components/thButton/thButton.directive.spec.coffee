@@ -25,8 +25,8 @@ describe 'ThemisComponents: Directive: thButton', ->
   it 'has the button text set correctly', ->
     expect(element.text().trim()).toBe 'some text'
 
-  it 'has no button type', ->
-    expect(element.attr('type')).toBe undefined
+  it 'has type "button"', ->
+    expect(element.attr('type')).toBe 'button'
 
   it 'creates the correct DOM element', ->
     buttonElement = element.find('button')
