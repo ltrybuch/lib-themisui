@@ -1,5 +1,5 @@
 <html ng-app="thDemo">
-  <body style="height: 300px;" ng-controller="DemoController as demo">
+  <body style="height: 300px;">
     <div style="width: 300px;">
       <th-select name="colors" with-label="Colors">
         <option selected value="1">Blue</option>
@@ -7,10 +7,10 @@
       </th-select>
       <th-input with-label="name" with-focus></th-input>
     </div>
-    <th-disclosure-toggle expanded="true" name="dropdown">Using thDisclosure</th-disclosure-toggle>
+    <th-disclosure-toggle name="dropdown">Using thDisclosure</th-disclosure-toggle>
     <th-disclosure-content name="dropdown">
       <div style="margin:10px; width: 300px;">
-        <th-input with-label="Name" ng-model="demo.model" with-focus></th-input>
+        <th-input with-label="Name" with-focus></th-input>
       </div>
     </th-disclosure-content>
   </body>
