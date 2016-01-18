@@ -13,17 +13,17 @@ describe 'ThemisComponents: Service: thAlertManager', ->
 
   describe '#showSuccess()', ->
     it 'should populate the alertMessage object', ->
-      AlertManager.showSuccess "Risus Lorem", "success"
+      AlertManager.showSuccess "Risus Lorem"
       expect(AlertManager.alertMessage).toEqual {message: 'Risus Lorem', type: 'success'}
 
   describe '#showError()', ->
     it 'should populate the alertMessage object', ->
-      AlertManager.showError "Sit Ipsum", "success"
+      AlertManager.showError "Sit Ipsum"
       expect(AlertManager.alertMessage).toEqual {message: 'Sit Ipsum', type: 'error'}
 
   describe '#showWarning()', ->
     it 'should populate the alertMessage object', ->
-      AlertManager.showWarning "Vestibulum Ullamcorper", "success"
+      AlertManager.showWarning "Vestibulum Ullamcorper"
       expect(AlertManager.alertMessage).toEqual {message: 'Vestibulum Ullamcorper', type: 'warning'}
 
   describe '#hideAlert()', ->
