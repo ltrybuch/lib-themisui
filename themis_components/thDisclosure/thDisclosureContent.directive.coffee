@@ -44,6 +44,8 @@ angular.module 'ThemisComponents'
         else
           $transclude previousScope, (cloneOfContent) ->
             # Inject previous scope to reuse on new content.
+            # Remove element so they are not duplicated.
+            $element.empty()
             $element.append cloneOfContent
 
       animateToggle = =>
@@ -57,8 +59,7 @@ angular.module 'ThemisComponents'
         else
           $($element).animate {
             height: "0"
-          }, 300, =>
-            $element.empty() if !@elementEmpty()
+          }, 300, ->
             close $element
         return false
 

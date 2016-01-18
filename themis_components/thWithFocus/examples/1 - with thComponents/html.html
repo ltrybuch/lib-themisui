@@ -7,12 +7,11 @@
       </th-select>
       <th-input with-label="name" with-focus></th-input>
     </div>
-    <th-disclosure-toggle name="dropdown">Using thDisclosure</th-disclosure-toggle>
+    <th-disclosure-toggle expanded="true" name="dropdown">Using thDisclosure</th-disclosure-toggle>
     <th-disclosure-content name="dropdown">
       <div style="margin:10px; width: 300px;">
         <th-input with-label="Name" ng-model="demo.model" with-focus></th-input>
       </div>
     </th-disclosure-content>
-    <p>{{demo.model}}</p>
   </body>
 </html>

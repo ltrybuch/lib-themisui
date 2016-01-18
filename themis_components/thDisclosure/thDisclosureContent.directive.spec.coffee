@@ -1,8 +1,9 @@
 context = describe
 describe "ThemisComponents: Directive: thDisclosureContent", ->
-  DisclosureManager = element = null
+  element = null
 
   getFirstChild = (element) -> angular.element element.children()[0]
+  toggle = -> element.find('a').first().triggerHandler 'click'
 
   context "when in default state (hidden)", ->
     beforeEach ->
@@ -33,7 +34,7 @@ describe "ThemisComponents: Directive: thDisclosureContent", ->
       element.remove()
 
     it "has real height", (done) ->
-      element.find('a').first().triggerHandler 'click'
+      toggle()
       setTimeout ->
         expect(element.find('div.th-disclosure-content').css("height")).not.toEqual "0px"
         done()
@@ -60,7 +61,7 @@ describe "ThemisComponents: Directive: thDisclosureContent", ->
 
     it "toggles closed and back open", ->
       ctrl = element.find('th-disclosure-content span').scope().$$prevSibling.thDisclosureContent
-      element.find('a').first().triggerHandler 'click'
+      toggle()
       expect(ctrl.expanded).toEqual false
-      element.find('a').first().triggerHandler 'click'
+      toggle()
       expect(ctrl.expanded).toEqual true
