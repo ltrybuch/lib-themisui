@@ -30,17 +30,17 @@ angular.module 'ThemisComponents'
     controller: ($scope, $element, $attrs, $transclude) ->
       previousScope = null
 
-      @elementEmpty = -> $element.children().length is 0
-
-      processContent = =>
-        if @elementEmpty()
+      # Re-appending content each time disclosure is opened.
+      # This allows components to re-initialize. Useful for
+      # components like 'with-focus' that set focus in initialize.
+      appendContent = ->
+        elementEmpty =  $element.children().length is 0
+        if elementEmpty
           $transclude (cloneOfContent, transclusionScope) ->
             # Re-use the same scope with every open and close.
             previousScope = transclusionScope
             # Append the content of the disclosure to the element.
             $element.append cloneOfContent
-            # Remove scope manually as we are not using <ng-transclude>
-            $scope.$on "$destroy", -> transclusionScope.$destroy
         else
           $transclude previousScope, (cloneOfContent) ->
             # Inject previous scope to reuse on new content.
@@ -50,7 +50,7 @@ angular.module 'ThemisComponents'
 
       animateToggle = =>
         if @expanded
-          processContent()
+          appendContent()
           height = getActualHeight $element
           $($element).animate {
             height: "#{height}px"
