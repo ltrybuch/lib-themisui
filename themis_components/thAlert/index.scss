@@ -2,15 +2,14 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: calc(100% - 32px);
   color: #fff;
   z-index: 2147483647;
   height: 54px;
-  line-height: 54px;
-  padding: 0 16px;
+  padding-left: 16px;
+  padding-right: 16px;
   display: block;
-  @include animated(200ms);
-  @include box-sizing;
+  @include animated(300ms);
 
   &.ng-animate {
     top: -54px;
@@ -36,6 +35,11 @@
     }
   }
 
+  p {
+    display: inline-block;
+    width: calc(100% - 104px);
+  }
+
   .fa {
     vertical-align: middle;
     font-size: 18px;
@@ -58,7 +62,7 @@
     &.fa-times-circle {
       cursor: pointer;
       line-height: 54px;
-      float: right;
+      width: 16px;
     }
   }
 }
