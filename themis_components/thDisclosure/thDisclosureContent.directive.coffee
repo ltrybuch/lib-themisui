@@ -39,12 +39,10 @@ angular.module 'ThemisComponents'
           $transclude (cloneOfContent, transclusionScope) ->
             # Re-use the same scope with every open and close.
             previousScope = transclusionScope
-            # Append the content of the disclosure to the element.
             $element.append cloneOfContent
         else
+          # Inject previous scope to reuse on new content.
           $transclude previousScope, (cloneOfContent) ->
-            # Inject previous scope to reuse on new content.
-            # Remove element so they are not duplicated.
             $element.empty()
             $element.append cloneOfContent
 
