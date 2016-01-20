@@ -10,6 +10,8 @@ angular.module 'ThemisComponents'
       reload
     } = options
 
+    currentPage = 1 if currentPage < 1
+
     totalItems = 0
     ellipsis = '…'
     maxConsecutivePages = 5
@@ -59,18 +61,20 @@ angular.module 'ThemisComponents'
 
       inactivePageLink: (page) -> page in [currentPage, ellipsis]
 
-      goToNextPage: ->
-        if currentPage < totalPages()
-          self.goToPage currentPage + 1
+      goToNextPage: -> self.goToPage currentPage + 1
 
-      goToPrevPage: ->
-        if currentPage > 1
-          self.goToPage currentPage - 1
+      goToPrevPage: -> self.goToPage currentPage - 1
 
       goToPage: (page) ->
-        return if page is ellipsis or \
-                  page not in [1 .. totalPages()] or \
-                  page is currentPage
+        return if page in [ellipsis, currentPage]
+
+        if page < 1
+          page = 1
+        else if totalPages() isnt 0 and page > totalPages()
+          page = totalPages()
+
+        return if page is currentPage
+
         currentPage = page
         reload()
 
@@ -103,8 +107,15 @@ angular.module 'ThemisComponents'
         """
 
       updatePagination: (options) ->
+        console.log options
         totalItems = options.totalItems ? totalItems
         currentPage = options.currentPage ? currentPage
+        if currentPage < 1
+          currentPage = 1
+        else if totalPages() isnt 0 and currentPage > totalPages()
+          currentPage = totalPages()
+          console.log 'new', currentPage
+          reload()
 
       getCurrentPage: -> currentPage
 

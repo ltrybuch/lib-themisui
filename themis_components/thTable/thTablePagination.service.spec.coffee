@@ -25,6 +25,12 @@ describe 'ThemisComponents: Service: thTablePagination', ->
       pagination = TablePagination {pageSize}
       expect(pagination.getCurrentPage()).toBe 1
 
+    it 'sets currentPage to default value 1 if < 1', ->
+      pageSize = 5
+      currentPage = 0
+      pagination = TablePagination {pageSize, currentPage}
+      expect(pagination.getCurrentPage()).toBe 1
+
   describe '#pages', ->
     it 'always shows first and last page and 2 pages around the current page', ->
       pageSize = 5
@@ -177,23 +183,43 @@ describe 'ThemisComponents: Service: thTablePagination', ->
     it 'does not work if called with invalid page', ->
       pageSize = 5
       numPages = 10
+      currentPage = 3
       totalItems = numPages * pageSize
       called = false
       reload = -> called = true
-      pagination = TablePagination {pageSize, reload}
+      pagination = TablePagination {currentPage, pageSize, reload}
       pagination.updatePagination {totalItems}
 
-      pagination.goToPage 0
-      expect(pagination.getCurrentPage()).toBe 1
-      expect(called).toBe false
-
-      pagination.goToPage 1
-      expect(pagination.getCurrentPage()).toBe 1
+      pagination.goToPage 3
+      expect(pagination.getCurrentPage()).toBe 3
       expect(called).toBe false
 
       pagination.goToPage ellipsis
-      expect(pagination.getCurrentPage()).toBe 1
+      expect(pagination.getCurrentPage()).toBe 3
       expect(called).toBe false
+
+    it 'corrects the page if it is out of bounds', ->
+      pageSize = 5
+      numPages = 10
+      currentPage = 3
+      totalItems = numPages * pageSize
+      called = false
+      reload = -> called = true
+      pagination = TablePagination {pageSize, currentPage, reload}
+      pagination.updatePagination {totalItems}
+
+      expect(pagination.getCurrentPage()).toBe 3
+      expect(called).toBe false
+
+      called = false
+      pagination.goToPage 0
+      expect(pagination.getCurrentPage()).toBe 1
+      expect(called).toBe true
+
+      called = false
+      pagination.goToPage 20
+      expect(pagination.getCurrentPage()).toBe 10
+      expect(called).toBe true
 
     it 'updates currentPage and calls reload', ->
       currentPage = 9
@@ -243,3 +269,25 @@ describe 'ThemisComponents: Service: thTablePagination', ->
       pagination.updatePagination {currentPage: newCurrentPage}
       expect(getNumPages()).toBe numPages
       expect(pagination.getCurrentPage()).toBe newCurrentPage
+
+    it 'corrects currentPage if < 1', ->
+      pageSize = 5
+      currentPage = 0
+      reload = -> return
+      pagination = TablePagination {currentPage, pageSize, reload}
+      expect(pagination.getCurrentPage()).toBe 1
+      pagination.updatePagination {currentPage: -1}
+      expect(pagination.getCurrentPage()).toBe 1
+
+    it 'corrects currentPage if > last page', ->
+      pageSize = 5
+      currentPage = 20
+      numPages = 10
+      totalItems = numPages * pageSize
+      reload = -> return
+      pagination = TablePagination {currentPage, pageSize, reload}
+      expect(pagination.getCurrentPage()).toBe 20
+      pagination.updatePagination {totalItems}
+      expect(pagination.getCurrentPage()).toBe 10
+      pagination.updatePagination {currentPage: 0}
+      expect(pagination.getCurrentPage()).toBe 1
