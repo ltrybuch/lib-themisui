@@ -107,14 +107,12 @@ angular.module 'ThemisComponents'
         """
 
       updatePagination: (options) ->
-        console.log options
         totalItems = options.totalItems ? totalItems
         currentPage = options.currentPage ? currentPage
         if currentPage < 1
           currentPage = 1
         else if totalPages() isnt 0 and currentPage > totalPages()
           currentPage = totalPages()
-          console.log 'new', currentPage
           reload()
 
       getCurrentPage: -> currentPage

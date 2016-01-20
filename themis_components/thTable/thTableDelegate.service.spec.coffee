@@ -50,7 +50,7 @@ describe 'ThemisComponents: Service: thTableDelegate', ->
       delegate = TableDelegate {fetchData, headers}
       expect(called).toBe true
 
-    fit 'calls fetchData again with last page if currentPage > last page', ->
+    it 'calls fetchData again with last page if currentPage > last page', ->
       timesCalled = 0
       currentPage = 20
       pageSize = 5
