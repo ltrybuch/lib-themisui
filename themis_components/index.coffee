@@ -5,6 +5,7 @@ angular.module 'ThemisComponents', [
   require 'angular-animate'
 ]
 
+require './thAlert/'
 require './thBindMarkdown/'
 require './thButton/'
 require './thCheckbox/'

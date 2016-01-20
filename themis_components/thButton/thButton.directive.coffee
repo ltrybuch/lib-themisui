@@ -15,6 +15,10 @@ angular.module('ThemisComponents')
     bindToController: true
     controllerAs: 'button'
     controller: ($element, $attrs) ->
-      $element.attr('type', 'submit') if $attrs.submit?
+      # In HTML5 a button with no type attribute is 'submit' by default.
+      # If not used for submit, must explicitly specify 'button'.
+      isSubmit = $attrs.submit? or $attrs.type is 'submit'
+      type = if isSubmit then 'submit' else 'button'
+      $element.attr('type', type)
       $element.attr('disabled', 'disabled') if $attrs.disabled?
       return

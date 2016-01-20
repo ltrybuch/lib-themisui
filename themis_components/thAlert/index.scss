@@ -1,0 +1,68 @@
+.th-alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: calc(100% - 32px);
+  color: #fff;
+  z-index: 2147483647;
+  height: 54px;
+  padding-left: 16px;
+  padding-right: 16px;
+  display: block;
+  @include animated(300ms);
+
+  &.ng-animate {
+    top: -54px;
+  }
+
+  &.th-alert-success {
+    background: $green-3;
+  }
+
+  &.th-alert-error {
+    background: $red-3;
+
+    .fa-warning {
+      background: $red-5;
+    }
+  }
+
+  &.th-alert-warning {
+    background: $yellow-4;
+
+    .fa-warning {
+      background: $yellow-5;
+    }
+  }
+
+  p {
+    display: inline-block;
+    width: calc(100% - 104px);
+  }
+
+  .fa {
+    vertical-align: middle;
+    font-size: 18px;
+
+    &.fa-check,
+    &.fa-warning {
+      color: #fff;
+      text-align: center;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      margin-right: 40px;
+      border-radius: 50%;
+    }
+
+    &.fa-check {
+      background: $green-5;
+    }
+
+    &.fa-times-circle {
+      cursor: pointer;
+      line-height: 54px;
+      width: 16px;
+    }
+  }
+}
