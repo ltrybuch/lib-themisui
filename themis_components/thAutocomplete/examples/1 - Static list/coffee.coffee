@@ -1,5 +1,5 @@
 angular.module('thDemo', ['ThemisComponents'])
-  .controller 'DemoCtrl', (AutocompleteDelegate, $scope) ->
+  .controller 'DemoCtrl', (AutocompleteDelegate, $scope, $http) ->
     data = fixtures()
 
     @colour = '1'
@@ -7,8 +7,15 @@ angular.module('thDemo', ['ThemisComponents'])
     @options =
       placeholder: "blah blah blah"
       fetchData: ({term}, updateData) ->
-        console.log 'updating data'
-        updateData(data)
+        $http
+          method: 'GET'
+          url: 'https://api.github.com/search/repositories'
+          params:
+            q: term
+        .then (response) ->
+          updateData response.data.items.map (item) ->
+            text: item.name
+            id: item.id
         return
 
     @change = ->
