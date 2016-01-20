@@ -9,6 +9,8 @@ angular.module('ThemisComponents')
       ngModel: '='
       ngChange: '&'
       options: '='
+      fetchData: '='
+      placeholder: '@'
     transclude: true
     template: require './thAutocomplete.template.html'
     bindToController: true
@@ -24,26 +26,22 @@ angular.module('ThemisComponents')
 
 
 
-      $select.on 'change', =>
-        $timeout =>
-          $scope.$apply =>
-            @ngModel = $select.val()
-
-          # Evaluate ng-change expression
-          @ngChange() if @ngChange?
       return
     link: (scope, element, attrs, controller) ->
-      { placeholder, fetchData } = controller.options
+      options = {
+        placeholder: controller.placeholder
+        minimumInputLength: 1
+      }
 
-      options = { placeholder }
-      ajaxOption = if fetchData instanceof Function then {
+      ajaxOption = if controller.fetchData instanceof Function then {
         ajax:
+          delay: 250
           data: (params) ->
             {
               term
             } = params
           transport: (params, success, failure) ->
-            fetchData params.data, (data) ->
+            controller.fetchData params.data, (data) ->
               success({
                 results: data
               })
@@ -51,6 +49,19 @@ angular.module('ThemisComponents')
       angular.extend(options, ajaxOption)
 
       $select = $ element.find 'select'
-      $select.select2(options).val(controller.ngModel).trigger('change')
+
+      hasNgModel = attrs.ngModel != undefined
+      if hasNgModel
+        $select.select2(options).val(controller.ngModel).trigger('change')
+        
+        $select.on 'change', =>
+          $timeout =>
+            scope.$apply =>
+              controller.ngModel = $select.val()
+
+            # Evaluate ng-change expression
+            controller.ngChange() if controller.ngChange?
+      else
+        $select.select2(options)
 
       return
