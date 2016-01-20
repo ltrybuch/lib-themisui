@@ -2,10 +2,12 @@ angular.module('thDemo', ['ThemisComponents'])
   .controller 'DemoCtrl', (AutocompleteDelegate, $scope) ->
     data = fixtures()
 
-    # @colour = '1'
+    @colour = '1'
 
-    @autocompleteDelegate = AutocompleteDelegate
+    @options =
+      placeholder: "blah blah blah"
       fetchData: ({term}, updateData) ->
+        console.log 'updating data'
         updateData(data)
         return
 

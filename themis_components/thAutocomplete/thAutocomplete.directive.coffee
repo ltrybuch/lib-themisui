@@ -8,6 +8,7 @@ angular.module('ThemisComponents')
       delegate: '='
       ngModel: '='
       ngChange: '&'
+      options: '='
     transclude: true
     template: require './thAutocomplete.template.html'
     bindToController: true
@@ -16,10 +17,10 @@ angular.module('ThemisComponents')
       $select = $ $element.find('select')[0]
 
 
-      $timeout =>
-        $select.select2
-          placeholder: 'this is a test'
-        .val(@ngModel).trigger('change')
+      # $timeout =>
+      #   $select.select2
+      #     placeholder: 'this is a test'
+      #   .val(@ngModel).trigger('change')
 
 
 
@@ -31,27 +32,25 @@ angular.module('ThemisComponents')
           # Evaluate ng-change expression
           @ngChange() if @ngChange?
       return
-    link: (scope, element, attrs, controller, transcludeFn) ->
-      delegate = controller.delegate
+    link: (scope, element, attrs, controller) ->
+      { placeholder, fetchData } = controller.options
 
-      # $(element.find('select')).select2
-      #   placeholder: 'this is a test'
-      # .val(controller.ngModel).trigger('change')
+      options = { placeholder }
+      ajaxOption = if fetchData instanceof Function then {
+        ajax:
+          data: (params) ->
+            {
+              term
+            } = params
+          transport: (params, success, failure) ->
+            fetchData params.data, (data) ->
+              success({
+                results: data
+              })
+      } else {}
+      angular.extend(options, ajaxOption)
 
-
-
-      
-
-      # $(element[0]).select2
-      #   ajax:
-      #     data: (params) ->
-      #       {
-      #         term
-      #       } = params
-      #     transport: (params, success, failure) ->
-      #       delegate.fetchData params.data, (data) ->
-      #         success({
-      #           results: data
-      #         })
+      $select = $ element.find 'select'
+      $select.select2(options).val(controller.ngModel).trigger('change')
 
       return

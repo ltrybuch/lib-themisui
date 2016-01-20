@@ -1,7 +1,7 @@
 <html ng-app="thDemo">
   <body ng-controller="DemoCtrl as demo">
 
-    <th-autocomplete ng-model="demo.colour" ng-change="demo.change()">
+    <th-autocomplete options="demo.options" ng-model="demo.colour" ng-change="demo.change()">
       <option value="0">red</option>
       <option value="1">green</option>
       <option value="2">blue</option>
