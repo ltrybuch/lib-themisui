@@ -31,5 +31,4 @@ describe "ThemisComponents: Directive: withFocus", ->
         httpBackend.expect("GET", "focus.html").respond(template)
         httpBackend.flush()
         flush()
-        expect(angular.element(element.find("#{type}"))).toHaveFocus()
-
+        expect(element.find("#{type}")).toHaveFocus()

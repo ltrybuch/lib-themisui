@@ -51,4 +51,3 @@ describe 'ThemisComponent: Directive: withFocus', ->
         element.find("a").first().triggerHandler "click"
         flush()
         expect(innerEl).toHaveFocus()
-

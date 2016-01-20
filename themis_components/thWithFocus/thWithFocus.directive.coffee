@@ -15,6 +15,6 @@ angular.module("ThemisComponents")
 
       setFocus thComponent ? element
 
-      # Listen for parent container to finish its CSS transition
+      # Listen for parent container to finish its transition
       ["th-disclosure.expanded", "th-modal.open"].map (event) ->
         $rootScope.$on event, -> setFocus thComponent ? element

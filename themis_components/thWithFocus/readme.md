@@ -19,8 +19,6 @@ ordering will be overridden.
 - It is the developer's responsibility to make sure there is only one element with
 focus on the same page. If there happens to be more than one the **last** element
 with `with-focus` is used.
-- There is a 301ms timeout before the focus is set to account for the CSS transition
-time with `thModal`.
 - `with-focus` works well with themisUi components:
   - `thInput`
   - `thSelect`

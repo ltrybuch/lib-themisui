@@ -25,7 +25,7 @@ angular.module 'ThemisComponents'
     transclude: true
     scope:
       name: '@'
-    template: require '/thDisclosureContent.template.html'
+    template: require './thDisclosureContent.template.html'
     bindToController: true
     controllerAs: 'thDisclosureContent'
     controller: ($element) ->
