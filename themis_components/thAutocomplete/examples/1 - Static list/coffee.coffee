@@ -1,10 +1,8 @@
 angular.module('thDemo', ['ThemisComponents'])
   .controller 'DemoCtrl', (AutocompleteDelegate, $scope) ->
-    $scope.foo = "bar"
-
     data = fixtures()
 
-    @test = "1"
+    # @colour = '1'
 
     @autocompleteDelegate = AutocompleteDelegate
       fetchData: ({term}, updateData) ->
@@ -12,11 +10,7 @@ angular.module('thDemo', ['ThemisComponents'])
         return
 
     @change = ->
-      console.log 'ng-changed'
-
-    @flip = =>
-      debugger
-      @test = "2"
+      console.log 'ng-changed' + @colour
 
     return
 
