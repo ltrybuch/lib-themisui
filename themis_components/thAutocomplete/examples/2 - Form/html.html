@@ -1,0 +1,18 @@
+<html ng-app="thDemo">
+  <body ng-controller="DemoCtrl as demo">
+    <form action="/echo" method="POST">
+
+      <th-autocomplete
+        name="Colour"
+        placeholder="Select a colour"
+        >
+        <option value="0">red</option>
+        <option value="1">green</option>
+        <option value="2" selected>blue</option>
+      </th-autocomplete>
+      <br><br>
+      <th-button submit>Submit</th-button>
+
+    </form>
+  </body>
+</html>

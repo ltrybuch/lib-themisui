@@ -2,22 +2,22 @@ angular.module('thDemo', ['ThemisComponents'])
   .controller 'DemoCtrl', (AutocompleteDelegate, $scope, $http) ->
     data = fixtures()
 
-    @colour = '2'
+    @colour = null
 
-    @fetchData = ({term}, updateData) ->
-      $http
-        method: 'GET'
-        url: 'https://api.github.com/search/repositories'
-        params:
-          q: term
-      .then (response) ->
-        updateData response.data.items.map (item) ->
-          text: item.name
-          id: item.id
-      return
+    # @fetchData = ({term}, updateData) ->
+    #   $http
+    #     method: 'GET'
+    #     url: 'https://api.github.com/search/repositories'
+    #     params:
+    #       q: term
+    #   .then (response) ->
+    #     updateData response.data.items.map (item) ->
+    #       text: item.name
+    #       id: item.id
+    #   return
 
-    @change = ->
-      console.log 'ng-changed' + @colour
+    @onChange = ->
+      console.log 'New value: ' + @colour
 
     return
 

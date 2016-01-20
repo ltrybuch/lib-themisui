@@ -5,6 +5,7 @@ angular.module('ThemisComponents')
   .directive 'thAutocomplete', ($timeout) ->
     restrict: 'E'
     scope:
+      name: '@'
       delegate: '='
       ngModel: '='
       ngChange: '&'
@@ -18,22 +19,19 @@ angular.module('ThemisComponents')
     controller: ($scope, $element) ->
       $select = $ $element.find('select')[0]
 
-
       # $timeout =>
       #   $select.select2
       #     placeholder: 'this is a test'
       #   .val(@ngModel).trigger('change')
 
-
-
       return
     link: (scope, element, attrs, controller) ->
       options = {
         placeholder: controller.placeholder
-        minimumInputLength: 1
       }
 
       ajaxOption = if controller.fetchData instanceof Function then {
+        minimumInputLength: 1
         ajax:
           delay: 250
           data: (params) ->

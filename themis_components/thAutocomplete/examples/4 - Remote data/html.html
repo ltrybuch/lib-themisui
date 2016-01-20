@@ -1,0 +1,14 @@
+<html ng-app="thDemo">
+  <body ng-controller="DemoCtrl as demo">
+
+    <th-autocomplete
+      ng-model="demo.value"
+      placeholder="Select a key"
+      fetch-data="demo.fetchData"
+      >
+    </th-autocomplete>
+
+    <p>Select value: {{demo.value}}</p>
+
+  </body>
+</html>

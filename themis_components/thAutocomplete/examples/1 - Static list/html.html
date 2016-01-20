@@ -2,11 +2,10 @@
   <body ng-controller="DemoCtrl as demo">
 
     <th-autocomplete
-      fetch-data="demo.fetchData"
-      placeholder="blah blah blah"
       ng-model="demo.colour"
+      ng-change="demo.onChange()"
+      placeholder="Select a colour"
       >
-      <option></option>
       <option value="0">red</option>
       <option value="1">green</option>
       <option value="2">blue</option>
