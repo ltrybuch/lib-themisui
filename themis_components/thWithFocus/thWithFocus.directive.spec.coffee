@@ -4,7 +4,7 @@ describe "ThemisComponents: Directive: withFocus", ->
   element = timeout = null
 
   appendToBody = (element) -> element.appendTo document.body
-  flush = -> timeout.flush 302
+  flush = -> timeout.flush 0
 
   beforeEach ->
     inject ($timeout) -> timeout = $timeout
@@ -26,8 +26,8 @@ describe "ThemisComponents: Directive: withFocus", ->
     ["a", "textarea", "select"].forEach (type) ->
       it "supports #{type} tags", ->
         href = if type is "a" then "href" else ""
-        element = compileDirective(
-          """<#{type} #{href} with-focus></#{type}>""").element
+        {element} = compileDirective(
+          """<#{type} #{href} with-focus></#{type}>""")
         appendToBody element
         flush()
         expect(angular.element(element)).toHaveFocus()
@@ -35,8 +35,8 @@ describe "ThemisComponents: Directive: withFocus", ->
   context "with th-components", ->
     ["input", "select"].forEach (component) ->
       it "supports #{component}", ->
-        element = compileDirective(
-          """<th-#{component} with-focus><th-#{component}>""").element
+        {element} = compileDirective(
+          """<th-#{component} with-focus><th-#{component}>""")
         appendToBody element
         flush()
         innerEl = angular.element element.find("#{component}")

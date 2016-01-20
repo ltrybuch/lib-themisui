@@ -1,9 +1,8 @@
 context = describe
 describe "ThemisComponents: Directive: thDisclosureContent", ->
-  element = null
+  DisclosureManager = element = null
 
   getFirstChild = (element) -> angular.element element.children()[0]
-  toggle = -> element.find('a').first().triggerHandler 'click'
 
   context "when in default state (hidden)", ->
     beforeEach ->
@@ -13,9 +12,9 @@ describe "ThemisComponents: Directive: thDisclosureContent", ->
         </th-disclosure-content>
       """)
 
-    it "component is empty", ->
+    it "renders a <ng-transclude> component", ->
       firstChild = getFirstChild element
-      expect(firstChild.length).toBe 0
+      expect(firstChild.is('ng-transclude')).toBe true
 
     it "has height 0", ->
       expect(element.css("height")).toEqual "0px"
@@ -34,7 +33,7 @@ describe "ThemisComponents: Directive: thDisclosureContent", ->
       element.remove()
 
     it "has real height", (done) ->
-      toggle()
+      element.find('a').first().triggerHandler 'click'
       setTimeout ->
         expect(element.find('div.th-disclosure-content').css("height")).not.toEqual "0px"
         done()
@@ -60,8 +59,8 @@ describe "ThemisComponents: Directive: thDisclosureContent", ->
       , 301 # The animation duration is 300ms
 
     it "toggles closed and back open", ->
-      ctrl = element.find('th-disclosure-content span').scope().$$prevSibling.thDisclosureContent
-      toggle()
+      ctrl = element.find('th-disclosure-content ng-transclude').scope().thDisclosureContent
+      element.find('a').first().triggerHandler 'click'
       expect(ctrl.expanded).toEqual false
-      toggle()
+      element.find('a').first().triggerHandler 'click'
       expect(ctrl.expanded).toEqual true

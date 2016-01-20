@@ -1,5 +1,5 @@
 angular.module('ThemisComponents')
-  .factory 'ModalManager', ($http, $q) ->
+  .factory 'ModalManager', ($http, $q, $timeout, $rootScope) ->
     modals = []
 
     show = ({path, name, params, context} = {}) ->
@@ -35,6 +35,11 @@ angular.module('ThemisComponents')
 
     addModal = ({content, name, deferred, context}) ->
       if name isnt modals[0]?.name
+        # CSS transition complete (300ms). Inner directives can redraw if needed.
+        $timeout ->
+          $rootScope.$broadcast "th-modal.open"
+        , 301
+
         modals.push
           name: name
           content: content

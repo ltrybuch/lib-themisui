@@ -1,12 +1,11 @@
 angular.module("ThemisComponents")
-  .directive "withFocus", ($timeout) ->
+  .directive "withFocus", ($timeout, $rootScope) ->
     restrict: "A"
     link: (scope, element) ->
       setFocus = (el) ->
-        # Set to 301ms to account for th-modal's CSS transition time.
         $timeout ->
           scope.$apply el[0].focus()
-        , 301
+        , 0
 
       # If this is a thComponent we need to set focus on the inner element.
       thComponentTypes = ["select", "input"]
@@ -15,3 +14,7 @@ angular.module("ThemisComponents")
                       .find (result) -> result.length > 0
 
       setFocus thComponent ? element
+
+      # Listen for parent container to finish its CSS transition
+      ["th-disclosure.expanded", "th-modal.open"].map (event) ->
+        $rootScope.$on event, -> setFocus thComponent ? element

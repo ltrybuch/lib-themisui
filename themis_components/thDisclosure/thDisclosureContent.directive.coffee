@@ -20,40 +20,25 @@ close = (element) ->
   $(element).css overflow: 'hidden'
 
 angular.module 'ThemisComponents'
-  .directive 'thDisclosureContent', (DisclosureManager) ->
+  .directive 'thDisclosureContent', (DisclosureManager, $rootScope) ->
     restrict: 'E'
     transclude: true
     scope:
       name: '@'
+    template: require '/thDisclosureContent.template.html'
     bindToController: true
     controllerAs: 'thDisclosureContent'
-    controller: ($scope, $element, $attrs, $transclude) ->
-      previousScope = null
-
-      # Re-appending content each time disclosure is opened.
-      # This allows components to re-initialize. Useful for
-      # components like 'with-focus' that set focus in initialize.
-      appendContent = ->
-        elementEmpty =  $element.children().length is 0
-        if elementEmpty
-          $transclude (cloneOfContent, transclusionScope) ->
-            # Re-use the same scope with every open and close.
-            previousScope = transclusionScope
-            $element.append cloneOfContent
-        else
-          # Inject previous scope to reuse on new content.
-          $transclude previousScope, (cloneOfContent) ->
-            $element.empty()
-            $element.append cloneOfContent
+    controller: ($element) ->
 
       animateToggle = =>
+        height = getActualHeight $element
         if @expanded
-          appendContent()
-          height = getActualHeight $element
           $($element).animate {
             height: "#{height}px"
           }, 300, ->
             open $element
+            # Animation complete. Inner elements can redraw if needed.
+            $rootScope.$broadcast "th-disclosure.expanded"
         else
           $($element).animate {
             height: "0"
