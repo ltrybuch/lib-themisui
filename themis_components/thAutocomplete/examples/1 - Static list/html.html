@@ -6,9 +6,7 @@
       ng-change="demo.onChange()"
       placeholder="Select a colour"
       >
-      <option value="0">red</option>
-      <option value="1">green</option>
-      <option value="2">blue</option>
+      <option ng-repeat="colour in demo.colours" value="{{colour.id}}">{{colour.text}}</option>
     </th-autocomplete>
 
     <p>Select value: {{demo.colour}}</p>
