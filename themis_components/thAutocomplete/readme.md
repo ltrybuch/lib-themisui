@@ -66,4 +66,4 @@ The following optional parameters can be included in the `options` dictionary:
 
 ## Notes
 
-
+https://select2.github.io/options.html#placeholder

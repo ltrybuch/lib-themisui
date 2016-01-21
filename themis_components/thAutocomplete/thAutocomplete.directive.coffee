@@ -47,19 +47,22 @@ angular.module('ThemisComponents')
       angular.extend(options, ajaxOption)
 
       $select = $ element.find 'select'
+      $select.select2(options)
 
       hasNgModel = attrs.ngModel != undefined
       if hasNgModel
-        $select.select2(options).val(controller.ngModel).trigger('change')
+        # To set the initial value we need to make sure any
+        # transcluded content is already compiled, so options
+        # from ng-repeat are available to select2
+        $timeout ->
+          $select.val(controller.ngModel).trigger('change')
         
-        $select.on 'change', =>
-          $timeout =>
-            scope.$apply =>
-              controller.ngModel = $select.val()
+          $select.on 'change', ->
+            $timeout ->
+              scope.$apply ->
+                controller.ngModel = $select.val()
 
-            # Evaluate ng-change expression
-            controller.ngChange() if controller.ngChange?
-      else
-        $select.select2(options)
+              # Evaluate ng-change expression
+              controller.ngChange() if controller.ngChange?
 
       return
