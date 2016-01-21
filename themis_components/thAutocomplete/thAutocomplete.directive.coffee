@@ -6,12 +6,12 @@ angular.module('ThemisComponents')
     restrict: 'E'
     scope:
       name: '@'
-      delegate: '='
       ngModel: '='
       ngChange: '&'
-      options: '='
       fetchData: '='
       placeholder: '@'
+      resultTemplate: '='
+      selectionTemplate: '='
     transclude: true
     template: require './thAutocomplete.template.html'
     bindToController: true
@@ -28,7 +28,13 @@ angular.module('ThemisComponents')
     link: (scope, element, attrs, controller) ->
       options = {
         placeholder: controller.placeholder
+        escapeMarkup: (m) ->
+          return m
       }
+
+      ajaxOption = {}
+      resultTemplateOption = {}
+      selectionTemplateOption = {}
 
       ajaxOption = if controller.fetchData instanceof Function then {
         minimumInputLength: 1
@@ -44,7 +50,26 @@ angular.module('ThemisComponents')
                 results: data
               })
       } else {}
+
+      resultTemplateOption = if controller.resultTemplate instanceof Function then {
+        templateResult: (item) ->
+          if item.loading
+            return item.text
+          else
+            controller.resultTemplate(item)
+      } else {}
+
+      selectionTemplateOption = if controller.selectionTemplate instanceof Function then {
+        templateSelection: (item) ->
+          if item.id.length > 0
+            return controller.selectionTemplate(item)
+          else
+            return item.text
+      } else {}
+
       angular.extend(options, ajaxOption)
+      angular.extend(options, resultTemplateOption)
+      angular.extend(options, selectionTemplateOption)
 
       $select = $ element.find 'select'
       $select.select2(options)

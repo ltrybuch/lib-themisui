@@ -1,0 +1,30 @@
+<html ng-app="thDemo">
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://select2.github.io/css/s2-docs.css"
+      >
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+      integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+      crossorigin="anonymous"
+      >
+
+  </head>
+  <body ng-controller="DemoCtrl as demo">
+
+    <th-autocomplete
+      ng-model="demo.value"
+      placeholder="Select a key"
+      fetch-data="demo.fetchData"
+      result-template="demo.resultTemplate"
+      selection-template="demo.selectionTemplate"
+      >
+    </th-autocomplete>
+
+    <p>Select value: {{demo.value}}</p>
+
+  </body>
+</html>
