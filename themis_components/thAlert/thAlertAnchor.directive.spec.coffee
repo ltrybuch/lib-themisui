@@ -18,7 +18,8 @@ describe "ThemisComponents: Directive: thAlertAnchor", ->
 
     it 'should load the warning data', ->
       AlertManager.showWarning "Vestibulum Ullamcorper"
-      expect(scope.alertAnchor.alertMessage).toEqual {message: 'Vestibulum Ullamcorper', type: 'warning'}
+      warning = {message: 'Vestibulum Ullamcorper', type: 'warning'}
+      expect(scope.alertAnchor.alertMessage).toEqual warning
 
   describe "dismiss", ->
     it 'clears the message', ->

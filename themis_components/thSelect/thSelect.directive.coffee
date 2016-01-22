@@ -1,6 +1,6 @@
-template = (select) ->  """
+container = (template) ->  """
   <div class="select-wrapper">
-    #{select}
+    #{template}
     <div class="text-wrapper"
       ng-class="{disabled: select.ngDisabled}">
       <span class="selected-text">
@@ -15,13 +15,13 @@ selectTemplate = require './thSelect.select.template.html'
 transcludeTemplate = require './thSelect.transclude.template.html'
 
 angular.module('ThemisComponents')
-  .directive "thSelect", ->
+  .directive "thSelect", ($filter) ->
     restrict: "EA"
     template: (element, attrs) ->
       if attrs.options?
-        template(selectTemplate)
+        container(selectTemplate)
       else
-        template(transcludeTemplate)
+        container(transcludeTemplate)
     controllerAs: "select"
     replace: true
     bindToController: true
@@ -31,13 +31,20 @@ angular.module('ThemisComponents')
       ngModel: "="
       name: "@"
       ngDisabled: "="
-      ngChange: "=?"
+      ngChange: "&"
+      ngRequired: "="
 
     controller: ($scope, $element) ->
-      @selectedText = @ngModel?.name ? "Choose…"
+      @selectedText = @ngModel?.name ? "choose..."
+      @placeholderOption = @options[0] if @options?[0].value is ""
+
+      if @placeholderOption?
+        begin = 1 - @options.length
+        @options = $filter('limitTo')(@options, begin)
+
+      return
 
     link: (scope, element, attributes, controller) ->
-
       updateSelectText = (text) ->
         el = element[0].getElementsByClassName("selected-text")
         el[0].textContent = text
@@ -75,4 +82,5 @@ angular.module('ThemisComponents')
         angular.element(this).next().addClass "has-focus"
       select.on "blur", ->
         angular.element(this).next().removeClass "has-focus"
+
       return

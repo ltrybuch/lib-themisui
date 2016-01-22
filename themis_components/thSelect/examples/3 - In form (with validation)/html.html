@@ -1,0 +1,33 @@
+<html ng-app="thDemo">
+  <style type="text/css">
+    .required { color: red; margin-top: -20px; }
+  </style>
+  <body ng-controller="DemoController as demo" style="width: 400px;">
+    <form name="movie_form" novalidate>
+      <th-input
+        name="movie"
+        ng-model="demo.favoriteMovie"
+        with-label="Favorite Movie">
+      </th-input>
+      <th-select
+        options="demo.genres"
+        name="genre"
+        with-label="Preferred Genre"
+        ng-model="demo.favoriteGenre"
+        ng-required="demo.required">
+      </th-select>
+      <div class="required" ng-show="movie_form.$submitted || movie_form.genre.$touched">
+        <div ng-show="movie_form.genre.$error.required">
+          Don't forget to pick your genre of choice
+        </div>
+      </div>
+      <br>
+      <th-button type="submit" ng-click="demo.submit(movie_form)">Submit</th-button>
+      <br>
+      <br>
+      <div ng-show="movie_form.$submitted">
+        Data submitted: <pre>{{demo.submission | json}}</pre>
+      </div>
+    </form>
+  </body>
+</html>

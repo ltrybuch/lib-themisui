@@ -2,12 +2,14 @@
   <body ng-controller="DemoController as demo">
     <th-select
       style="width: 300px;"
-      with-label="Secret Identity"
-      name="alias"
+      with-label="Country"
       options="demo.options"
-      ng-model="demo.model">
+      ng-model="demo.model"
+      ng-change="demo.onChange()">
     </th-select>
     <div>Value selected: <code>{{demo.model}}</code></div>
+    <br>
+    <div># of change events: <code>{{demo.counter}}</code></div>
   </body>
 </html>
 
