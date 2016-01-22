@@ -61,7 +61,7 @@ angular.module('ThemisComponents')
 
       selectionTemplateOption = if controller.selectionTemplate instanceof Function then {
         templateSelection: (item) ->
-          if item.id.length > 0
+          if item.id.length
             return controller.selectionTemplate(item)
           else
             return item.text
@@ -73,6 +73,9 @@ angular.module('ThemisComponents')
 
       $select = $ element.find 'select'
       $select.select2(options)
+
+      # expose our instance of jQuery so we can access it from our tests
+      # element[0].jQueryInstance = $
 
       hasNgModel = attrs.ngModel != undefined
       if hasNgModel
