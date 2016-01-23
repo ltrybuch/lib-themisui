@@ -1,8 +1,9 @@
 angular.module("thDemo", ["ThemisComponents"])
   .controller "DemoController", ($http) ->
+
     @submission = ""
+    @required = true
     @genres = [
-      {name: "Pick one..", value: ""}
       {name: "Animation", value: 1365}
       {name: "Comedies", value: 77232}
       {name: "Documentary", value: 46576}
@@ -12,7 +13,7 @@ angular.module("thDemo", ["ThemisComponents"])
       {name: "Romance", value: 7442}
       {name: "Comic Book and Superhero", value: 43040}
     ]
-    @required = true
+
     @submit = (form) ->
       if form.$valid
         params =
@@ -20,4 +21,7 @@ angular.module("thDemo", ["ThemisComponents"])
           movie: @favoriteMovie
         $http.post("/echo", params).then (data) =>
           @submission = data.data
+      else
+        @submission = "Invalid form data"
+
     return

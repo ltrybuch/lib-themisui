@@ -1,16 +1,16 @@
 <html ng-app="thDemo">
   <body style="width: 200px;">
-      <th-select name="practice_area" ng-model="area">
-        <option value="">Pick one...</option>
+      <th-select
+        name="practice_area" ng-model="area">
+        <option value="" selected>Pick a practice area..</option>
         <option value="4">Corporate</option>
-        <option value="5" selected>Criminal</option>
+        <option value="5">Criminal</option>
         <option value="6">Employment</option>
         <option value="7">Family</option>
         <option value="8">Immigration</option>
         <option value="9">Insurance</option>
       </th-select>
       <br>
-      <div>Value selected: <code>{{area}}</code></div>
+      <div>Selected Value: <code>{{area}}</code></div>
   </body>
 </html>
-

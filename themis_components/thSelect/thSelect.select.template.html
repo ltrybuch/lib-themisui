@@ -5,5 +5,5 @@
   ng-change="select.ngChange()"
   ng-options="option.name group by option.group for option in select.options track by option.value"
   ng-required="select.ngRequired">
-  <option ng-show="select.placeholderOption" value="">{{select.placeholderOption.name}}</option>
+  <option ng-show="select.placeholder" value="">{{select.placeholder}}</option>
 </select>

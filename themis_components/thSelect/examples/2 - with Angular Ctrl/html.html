@@ -1,0 +1,14 @@
+<html ng-app="thDemo">
+  <body ng-controller="DemoController as demo">
+    <div style="width: 300px;">
+      <th-select
+        with-label="Secret Identity"
+        placeholder="Identity..."
+        options="demo.options"
+        ng-model="demo.model">
+      </th-select>
+    </div>
+    <br>
+    <div>Value selected: <code>{{demo.model}}</code></div>
+  </body>
+</html>

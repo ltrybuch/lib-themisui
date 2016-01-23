@@ -15,7 +15,7 @@ selectTemplate = require './thSelect.select.template.html'
 transcludeTemplate = require './thSelect.transclude.template.html'
 
 angular.module('ThemisComponents')
-  .directive "thSelect", ($filter) ->
+  .directive "thSelect", ->
     restrict: "EA"
     template: (element, attrs) ->
       if attrs.options?
@@ -33,47 +33,49 @@ angular.module('ThemisComponents')
       ngDisabled: "="
       ngChange: "&"
       ngRequired: "="
+      placeholder: "@"
 
     controller: ($scope, $element) ->
-      @selectedText = @ngModel?.name ? "choose..."
-      @placeholderOption = @options[0] if @options?[0].value is ""
-
-      if @placeholderOption?
-        begin = 1 - @options.length
-        @options = $filter('limitTo')(@options, begin)
-
+      @selectedText = @placeholder
+      @selectedText = @ngModel.name if @ngModel?
       return
 
     link: (scope, element, attributes, controller) ->
-      updateSelectText = (text) ->
-        el = element[0].getElementsByClassName("selected-text")
-        el[0].textContent = text
+      # With a transcluded template we'll set the visible text with on change
+      # events. Initial text is set with the `selected` option's text.
+      isTransTemplate = !attributes.options?
+
+      updateLabel = (text) ->
+        label = document.getElementsByClassName("selected-text")[0]
+        label.textContent = text
 
       # On the change event, update the select's text
-      element.on 'change', (event) ->
-        text = event.target.selectedOptions[0].text
-        updateSelectText text
+      if isTransTemplate
+        element.on 'change', (event) ->
+          text = event.target.selectedOptions[0].text
+          updateLabel text
 
       # On the model change, update the select's text
       scope.$watch ->
         controller.ngModel
       , (newValue) ->
-        if newValue?
-          updateSelectText newValue.name
+        text = newValue?.name ? controller.placeholder
+        controller.selectedText = text
 
       # Grab the initially selected option and add its name to our
       # styled replacement select. This will only be applicable
       # if we are not passing in an array of options.
-      options = element.find "option"
-      unless attributes.options?
+      if isTransTemplate
         counter = 0
+        options = element.find "option"
         for option in options when option.hasAttribute "selected"
-          scope.select.selectedText = option.text
+          updateLabel option.text
           counter++
+
         if counter > 1
           console.warn(
-            "#{counter} options are set on a non-multiple select (name: #{attributes.name}).
-             The last selected option will be used."
+            "#{counter} options are set on a non-multiple select \
+            (name: #{attributes.name}). The last selected option will be used."
           )
 
       # add box shadow on entire element when in focus
