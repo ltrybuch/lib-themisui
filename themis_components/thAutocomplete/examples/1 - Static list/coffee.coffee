@@ -1,7 +1,7 @@
 angular.module('thDemo', ['ThemisComponents'])
-  .controller 'DemoCtrl', ->
+  .controller 'DemoCtrl', ($scope) ->
     @colours = fixtures()
-    @colour = null
+    @colour = @colours[3]
 
     @onChange = ->
       console.log 'New value: ' + @colour
@@ -10,9 +10,9 @@ angular.module('thDemo', ['ThemisComponents'])
 
 fixtures = ->
   return [
-    {id: 0, text: "Red"}
-    {id: 1, text: "Orange"}
-    {id: 2, text: "Yellow"}
-    {id: 3, text: "Green"}
-    {id: 4, text: "Blue"}
+    {id: 0, text: "zero"}
+    {id: 1, text: "one"}
+    {id: 2, text: "two"}
+    {id: 3, text: "three"}
+    {id: 4, text: "four"}
   ]

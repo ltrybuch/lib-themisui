@@ -1,96 +1,40 @@
 $ = require 'jquery'
-require 'select2'
+# require 'angular-sanitize'
 
-angular.module('ThemisComponents')
-  .directive 'thAutocomplete', ($timeout) ->
+angular.module('ThemisComponents', ['ui.select'])
+  .directive 'thAutocomplete', ($compile, $timeout) ->
     restrict: 'E'
     scope:
-      name: '@'
+    # #   name: '@'
       ngModel: '='
-      ngChange: '&'
-      fetchData: '='
-      placeholder: '@'
-      resultTemplate: '='
-      selectionTemplate: '='
+    # #   ngChange: '&'
+    # #   fetchData: '='
+      repeat: '@'
+    # #   resultTemplate: '='
+    #   selectionTemplate: '='
     transclude: true
-    template: require './thAutocomplete.template.html'
     bindToController: true
     controllerAs: 'thAutocomplete'
-    controller: ($scope, $element) ->
-      $select = $ $element.find('select')[0]
+    compile: (element, attrs) ->
 
-      # $timeout =>
-      #   $select.select2
-      #     placeholder: 'this is a test'
-      #   .val(@ngModel).trigger('change')
+      return post: (scope, element, attrs, controller) ->
 
-      return
-    link: (scope, element, attrs, controller) ->
-      options = {
-        placeholder: controller.placeholder
-        escapeMarkup: (m) ->
-          return m
-      }
+        template = require './thAutocomplete.template.html'
 
-      ajaxOption = {}
-      resultTemplateOption = {}
-      selectionTemplateOption = {}
+        # The scope used for the table template will be a child of thTable's
+        # scope that inherits from thTable's parent scope.
+        #
+        # This is so that the contents of <th-table-row>s have access to the
+        # outside scope, as if they were transcluded.
+        childScope = scope.$parent.$new false, scope
 
-      ajaxOption = if controller.fetchData instanceof Function then {
-        minimumInputLength: 1
-        ajax:
-          delay: 250
-          data: (params) ->
-            {
-              term
-            } = params
-          transport: (params, success, failure) ->
-            controller.fetchData params.data, (data) ->
-              success({
-                results: data
-              })
-      } else {}
+        # We are attaching the table's controller to the scope, so that the
+        # template has access to it.
+        childScope.thAutocomplete = scope.thAutocomplete
 
-      resultTemplateOption = if controller.resultTemplate instanceof Function then {
-        templateResult: (item) ->
-          if item.loading
-            return item.text
-          else
-            controller.resultTemplate(item)
-      } else {}
+        compiledTemplate = $compile(template) childScope
+        element.append compiledTemplate
 
-      selectionTemplateOption = if controller.selectionTemplate instanceof Function then {
-        templateSelection: (item) ->
-          if item.id.length
-            return controller.selectionTemplate(item)
-          else
-            return item.text
-      } else {}
-
-      angular.extend(options, ajaxOption)
-      angular.extend(options, resultTemplateOption)
-      angular.extend(options, selectionTemplateOption)
-
-      $select = $ element.find 'select'
-      $select.select2(options)
-
-      # expose our instance of jQuery so we can access it from our tests
-      # element[0].jQueryInstance = $
-
-      hasNgModel = attrs.ngModel != undefined
-      if hasNgModel
-        # To set the initial value we need to make sure any
-        # transcluded content is already compiled, so options
-        # from ng-repeat are available to select2
-        $timeout ->
-          $select.val(controller.ngModel).trigger('change')
-        
-          $select.on 'change', ->
-            $timeout ->
-              scope.$apply ->
-                controller.ngModel = $select.val()
-
-              # Evaluate ng-change expression
-              controller.ngChange() if controller.ngChange?
+    controller: ($scope, $element, $attrs) ->
 
       return

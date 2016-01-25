@@ -1,14 +1,12 @@
 <html ng-app="thDemo">
-  <body ng-controller="DemoCtrl as demo">
+  <body ng-controller="DemoCtrl as demo" style="height:500px">
 
     <th-autocomplete
+      repeat="colour in (demo.colours | filter: $select.search) track by colour.id"
       ng-model="demo.colour"
       ng-change="demo.onChange()"
-      placeholder="Select a colour"
       >
-      <option ng-repeat="colour in demo.colours" value="{{colour.id}}">{{colour.text}}</option>
     </th-autocomplete>
-
     <p>Select value: {{demo.colour}}</p>
 
   </body>
