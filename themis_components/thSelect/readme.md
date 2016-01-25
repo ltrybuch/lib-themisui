@@ -26,7 +26,7 @@ set it as checked.
 - [ng-required="string"] Adds required attribute and required validation constraint
 to the element when the ngRequired expression evaluates to true.
 - [ng-change="string"] Expression to be executed when selected option changes due
-to user interaction with the select element. Note, this requires `ngModel` to be present.
+to user interaction with the select element. Note, this **requires** ngModel to be present.
 - [ng-model="string"] Assign a model
 - [ng-disabled="string"] Adds disabled attribute to the element when the ngDisabled
 expression evaluated to true.

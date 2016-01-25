@@ -15,7 +15,7 @@ selectTemplate = require './thSelect.select.template.html'
 transcludeTemplate = require './thSelect.transclude.template.html'
 
 angular.module('ThemisComponents')
-  .directive "thSelect", ->
+  .directive "thSelect", ($timeout) ->
     restrict: "EA"
     template: (element, attrs) ->
       if attrs.options?
@@ -45,9 +45,9 @@ angular.module('ThemisComponents')
       # events. Initial text is set with the `selected` option's text.
       isTransTemplate = !attributes.options?
 
-      updateLabel = (text) ->
-        label = document.getElementsByClassName("selected-text")[0]
-        label.textContent = text
+      updateLabel = (text = "") ->
+        $timeout ->
+          scope.$apply -> controller.selectedText = text
 
       # On the change event, update the select's text
       if isTransTemplate
