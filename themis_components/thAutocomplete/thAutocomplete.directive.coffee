@@ -1,38 +1,30 @@
 angular.module('ThemisComponents', ['ui.select'])
-  .directive 'thAutocomplete', ($compile, $timeout) ->
+  .directive 'thAutocomplete', ($compile) ->
     restrict: 'E'
     scope:
-    # #   name: '@'
+      name: '@'
       ngModel: '='
       fetchData: '&'
       repeat: '@'
-      source: '='
-    # transclude: true
     bindToController: true
     controllerAs: 'thAutocomplete'
+    controller: -> return
+    compile: (element, attrs) =>
+      @innerHTML = element.html()
 
-    compile: (element, attrs, transclude) ->
+      return (scope, element, attrs, controller, transcludeFn) =>
+        template = require './thAutocomplete.template.html'
+        
+        # Insert result template into directive template.
+        templateElement = angular.element(template)
+        templateElement[0].querySelector('ui-select-choices').innerHTML = @innerHTML
 
-      {
-        pre: ->
-          return
+        # ui-select needs access to the parent's scope for evaluating repeat.
+        childScope = scope.$parent.$new false, scope
 
-        post: (scope, element, attrs, controller) ->
-          template = require './thAutocomplete.template.html'
+        # We are attaching the table's controller to the scope, so that the
+        # template has access to it.
+        childScope.thAutocomplete = scope.thAutocomplete
 
-          # The scope used for the table template will be a child of thTable's
-          # scope that inherits from thTable's parent scope.
-          #
-          # This is so that the contents of <th-table-row>s have access to the
-          # outside scope, as if they were transcluded.
-          childScope = scope.$parent.$new false, scope
-
-          # We are attaching the table's controller to the scope, so that the
-          # template has access to it.
-          childScope.thAutocomplete = scope.thAutocomplete
-
-          compiledTemplate = $compile(template) childScope
-          element.append compiledTemplate
-      }
-
-    controller: ($scope, $element, $attrs) -> return
+        compiledTemplate = $compile(templateElement) childScope
+        element.append compiledTemplate

@@ -1,10 +1,10 @@
 <ui-select ng-model="thAutocomplete.ngModel">
 
   <ui-select-choices
-    repeat="colour in thAutocomplete.source"
+    repeat="{{ thAutocomplete.repeat }}"
     refresh="thAutocomplete.fetchData()($select.search)"
+    refresh-delay="250"
     >
-    <span ng-bind="colour.text"></span>
   </ui-select-choices>
 
   <ui-select-match>
@@ -12,5 +12,3 @@
   </ui-select-match>
 
 </ui-select>
-
-<div>blahblahblah: {{ thAutocomplete.ngModel }}</div>
