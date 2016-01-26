@@ -1,12 +1,16 @@
-
-
 <ui-select ng-model="thAutocomplete.ngModel">
-    <ui-select-match>
-        <span ng-bind="$select.selected.text"></span>
-    </ui-select-match>
-    <ui-select-choices repeat="{{ thAutocomplete.repeat }}">
-        <span ng-bind="colour.text"></span>
-    </ui-select-choices>
+
+  <ui-select-choices
+    repeat="colour in thAutocomplete.source"
+    refresh="thAutocomplete.fetchData()($select.search)"
+    >
+    <span ng-bind="colour.text"></span>
+  </ui-select-choices>
+
+  <ui-select-match>
+    <span ng-bind="$select.selected.text"></span>
+  </ui-select-match>
+
 </ui-select>
 
 <div>blahblahblah: {{ thAutocomplete.ngModel }}</div>
