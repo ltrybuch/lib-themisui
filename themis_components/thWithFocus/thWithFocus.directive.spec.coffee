@@ -4,7 +4,7 @@ describe "ThemisComponents: Directive: withFocus", ->
   element = timeout = null
 
   appendToBody = (element) -> element.appendTo document.body
-  flush = -> timeout.flush 302
+  flush = -> timeout.flush 302 # th-modal's CSS transition time.
 
   beforeEach ->
     inject ($timeout) -> timeout = $timeout

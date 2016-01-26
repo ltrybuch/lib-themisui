@@ -1,5 +1,5 @@
 angular.module('ThemisComponents')
-  .factory 'ModalManager', ($http, $q, $timeout, $rootScope) ->
+  .factory 'ModalManager', ($http, $q) ->
     modals = []
 
     show = ({path, name, params, context} = {}) ->

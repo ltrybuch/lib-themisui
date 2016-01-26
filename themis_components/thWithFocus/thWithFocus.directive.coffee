@@ -1,5 +1,5 @@
 angular.module("ThemisComponents")
-  .directive "withFocus", ($timeout, $rootScope) ->
+  .directive "withFocus", ($timeout) ->
     restrict: "A"
     link: (scope, element) ->
       setFocus = (el) ->
