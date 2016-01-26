@@ -35,11 +35,6 @@ angular.module('ThemisComponents')
 
     addModal = ({content, name, deferred, context}) ->
       if name isnt modals[0]?.name
-        # CSS transition complete (300ms). Inner directives can redraw if needed.
-        $timeout ->
-          $rootScope.$broadcast "th-modal.open"
-        , 301
-
         modals.push
           name: name
           content: content

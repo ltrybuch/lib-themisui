@@ -4,7 +4,7 @@ describe 'ThemisComponent: Directive: withFocus', ->
   element = timeout = null
 
   appendToBody = (element) -> angular.element('body').append element
-  flush = -> timeout.flush 0
+  flush = -> timeout.flush 302 # th-modal's CSS transition time
 
   beforeEach ->
     inject ($timeout) -> timeout = $timeout
@@ -18,18 +18,16 @@ describe 'ThemisComponent: Directive: withFocus', ->
       afterEach ->
         element.remove()
 
-      it "sets focus on open", ->
+      it "sets focus when disclosure is expanded on load", ->
         href = if type is "a" then "href" else ""
         element = compileDirective("""
-          <th-disclosure-toggle name="dd"></th-disclosure-toggle>
+          <th-disclosure-toggle name="dd" expanded="true"></th-disclosure-toggle>
             <th-disclosure-content name="dd">
               <#{type} #{href} with-focus></#{type}>
             </th-disclosure-content>
           """).element
         appendToBody element
         innerEl = angular.element(element[2]).find("#{type}")
-        expect(innerEl).not.toHaveFocus()
-        element.find("a").first().triggerHandler "click"
         flush()
         expect(innerEl).toHaveFocus()
 
@@ -38,16 +36,14 @@ describe 'ThemisComponent: Directive: withFocus', ->
       afterEach ->
         element.remove()
 
-      it "sets focus on open", ->
+      it "sets focus when disclosure is expanded on load", ->
         element = compileDirective("""
-          <th-disclosure-toggle name="dd"></th-disclosure-toggle>
+          <th-disclosure-toggle name="dd" expanded="true"></th-disclosure-toggle>
             <th-disclosure-content name="dd">
               <th-#{component} with-focus></th-#{component}>
             </th-disclosure-content>
           """).element
         appendToBody element
         innerEl = angular.element(element[2]).find("#{component}")
-        expect(innerEl).not.toHaveFocus()
-        element.find("a").first().triggerHandler "click"
         flush()
         expect(innerEl).toHaveFocus()

@@ -4,7 +4,7 @@ describe "ThemisComponents: Directive: withFocus", ->
   element = timeout = null
 
   appendToBody = (element) -> element.appendTo document.body
-  flush = -> timeout.flush 0
+  flush = -> timeout.flush 302
 
   beforeEach ->
     inject ($timeout) -> timeout = $timeout

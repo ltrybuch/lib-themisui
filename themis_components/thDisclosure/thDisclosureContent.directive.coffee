@@ -37,8 +37,6 @@ angular.module 'ThemisComponents'
             height: "#{height}px"
           }, 300, ->
             open $element
-            # Animation complete. Inner elements can redraw if needed.
-            $rootScope.$broadcast "th-disclosure.expanded"
         else
           $($element).animate {
             height: "0"
