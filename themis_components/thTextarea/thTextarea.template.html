@@ -1,0 +1,13 @@
+<span class="th-input-wrapper">
+  <span ng-if="ctrl.prefix" class="th-input-prefix">{{ctrl.prefix}}</span>
+  <input
+    ng-model="ctrl.model"
+    class="th-input"
+    ng-class="[{'with-icon': ctrl.icon}, {'with-prefix': ctrl.prefix}, {'with-postfix': ctrl.postfix}]"
+    id="{{ctrl.id}}"
+    type="{{ctrl.type}}"
+    name="{{ctrl.name}}"
+    value="{{ctrl.value}}"
+    placeholder="{{ctrl.placeholder}}">
+  <i ng-if="ctrl.icon" class="th-input-icon fa fa-{{ctrl.icon}}"></i>
+</span>
