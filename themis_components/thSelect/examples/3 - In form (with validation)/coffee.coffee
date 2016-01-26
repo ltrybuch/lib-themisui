@@ -18,10 +18,9 @@ angular.module("thDemo", ["ThemisComponents"])
       if form.$valid
         params =
           genre: @favoriteGenre
-          movie: @favoriteMovie
         $http.post("/echo", params).then (data) =>
           @submission = data.data
       else
-        @submission = "Invalid form data"
+        @submission = "Missing form data. Could not submitted."
 
     return

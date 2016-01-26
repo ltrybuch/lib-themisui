@@ -4,11 +4,6 @@
   </style>
   <body ng-controller="DemoController as demo" style="width: 400px;">
     <form name="movie_form" novalidate>
-      <th-input
-        name="movie"
-        ng-model="demo.favoriteMovie"
-        with-label="Favorite Movie">
-      </th-input>
       <th-select
         options="demo.genres"
         name="genre"
