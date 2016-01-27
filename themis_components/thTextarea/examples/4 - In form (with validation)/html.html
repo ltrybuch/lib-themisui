@@ -1,9 +1,8 @@
 <html ng-app="thDemo">
   <style type="text/css">
-  .required {color: #BF1E2E; margin-top: -15px; margin-bottom: 15px;}
-  .required .error {padding: 3px;}
+  .error {color: #BF1E2E; margin: -15px 0 15px 10px; font-weight: bold;}
   </style>
-  <body ng-controller="DemoCtrl as demo">
+  <body>
     <div class="width-400">
       <form name="form" novalidate>
         <th-textarea
@@ -12,23 +11,21 @@
           with-label="Use with a form"
           ng-required="true"
           ng-minlength="10"
-          ng-maxlength="25"
-          ng-pattern="//^[a-zA-Z]$/">
+          ng-maxlength="25">
         </th-textarea>
-         <div class="required" ng-show="form.text.$dirty">
-           <div class="error" ng-if="form.text.$error.required">
-              <strong>ng-required:</strong> This is a required field.
-           </div>
-           <div class="error" ng-if="form.text.$error.maxlength">
-              <strong>ng-maxlength:</strong> Too long! Dial it back please.
-           </div>
-           <div class="error" ng-if="form.text.$error.minlength">
-              <strong>ng-minlength:</strong> So interesting. You must tell us more!
-           </div>
-           <div class="error" ng-if="form.text.$error.pattern">
-              <strong>ng-pattern:</strong> Sorry. No numbers allowed.
-           </div>
+        <div ng-messages="form.text.$error" ng-if="form.$dirty" class="error">
+          <div ng-message="required">
+            This is a required field.
+          </div>
+          <div ng-message="minlength">
+            So interesting. You must tell us more!
+          </div>
+          <div ng-message="maxlength">
+            Too long! Dial it back please.
+          </div>
         </div>
+        <pre ng-if="form.$invalid">{{form.text.$error | json}}</pre>
+        <pre ng-if="form.$valid">{{ {"valid": form.text.$valid } | json}}</pre>
       </form>
     </div>
   </body>

@@ -8,11 +8,10 @@
     ng-pattern="ctrl.ngPattern"
     ng-class="[{'with-icon': ctrl.icon},{'disabled': ctrl.ngDisabled}]"
     class="th-textarea"
-    name="{{ctrl.name}}"
-    value="{{ctrl.value}}"
-    cols="{{ctrl.cols}}"
-    rows="{{ctrl.rows}}"
-    placeholder="{{ctrl.placeholder}}">
+    ng-attr-name="{{ctrl.name}}"
+    ng-attr-value="{{ctrl.value}}"
+    ng-attr-rows="{{ctrl.rows}}"
+    ng-attr-placeholder="{{ctrl.placeholder}}">
   </textarea>
   <i ng-if="ctrl.icon" class="th-textarea-icon fa fa-{{ctrl.icon}}"></i>
 </span>

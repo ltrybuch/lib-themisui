@@ -4,11 +4,11 @@ angular.module('ThemisComponents').directive "thTextarea", ->
   controllerAs: 'ctrl'
   replace: true
   scope:
+    placeholder: '@'
     name: '@'
     value: '@'
     icon: '@'
     model: '=?ngModel'
-    cols: '='
     rows: '='
     ngRequired: '='
     ngDisabled: '='
@@ -16,9 +16,7 @@ angular.module('ThemisComponents').directive "thTextarea", ->
     ngMaxlength: '='
     ngPattern: '='
   template: require './thTextarea.template.html'
-  controller: ($attrs) ->
-    @placeholder = $attrs.placeholder
-
+  controller: -> return
   link: (scope, element) ->
     # add box shadow on entire element when in focus
     element.find("textarea").on "focus", ->
