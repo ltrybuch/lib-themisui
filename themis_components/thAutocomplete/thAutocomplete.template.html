@@ -1,11 +1,11 @@
 <ui-select
   ng-model='thAutocomplete.ngModel'
-  append-to-body='true'
   >
 
   <ui-select-choices
     repeat='item in (thAutocomplete.data | filter: $select.search) track by item.id'
     refresh-delay='250'
+    position='down'
     >
     <span ng-bind="item.text"></span>
   </ui-select-choices>

@@ -1,21 +1,6 @@
 @import "../../node_modules/ui-select/dist/select";
 
 .ui-select-container {
-  // a {
-  //   background-color: transparent;
-  // }
-  // button,
-  // input,
-  // optgroup,
-  // select,
-  // textarea {
-  //   margin: 0;
-  //   font: inherit;
-  //   color: inherit;
-  // }
-  // input {
-  //   line-height: normal;
-  // }
   .glyphicon {
     position: relative;
     top: 1px;
@@ -25,24 +10,14 @@
     font-weight: normal;
     line-height: 1;
 
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
   }
   .glyphicon-remove:before {
     content: "\e014";
   }
   * {
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
   }
-  // body {
-  //   family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  //   font-size: 14px;
-  //   line-height: 1.42857143;
-  //   color: #333;
-  //   background-color: #fff;
-  // }
   a {
     color: #337ab7;
     text-decoration: none;
@@ -75,13 +50,9 @@
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
-    -ms-touch-action: manipulation;
-        touch-action: manipulation;
+    touch-action: manipulation;
     cursor: pointer;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
+    user-select: none;
     background-image: none;
     border: 1px solid transparent;
     border-radius: 4px;
@@ -107,8 +78,7 @@
   .btn-link[disabled],
   fieldset[disabled] .btn-link {
     background-color: transparent;
-    -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
   }
   .btn-link,
   .btn-link:hover,
@@ -152,13 +122,11 @@
     text-align: left;
     list-style: none;
     background-color: #fff;
-    -webkit-background-clip: padding-box;
-            background-clip: padding-box;
+    background-clip: padding-box;
     border: 1px solid #ccc;
     border: 1px solid rgba(0, 0, 0, .15);
     border-radius: 4px;
-    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
   }
   .dropdown-menu .divider {
     height: 1px;
