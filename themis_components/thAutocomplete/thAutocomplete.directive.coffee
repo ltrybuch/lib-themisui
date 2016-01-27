@@ -2,31 +2,24 @@ angular.module('ThemisComponents', ['ui.select'])
   .directive 'thAutocomplete', ($compile) ->
     restrict: 'E'
     scope:
-      name: '@'
       ngModel: '='
       delegate: '='
       placeholder: '@'
+      data: '='
     bindToController: true
     controllerAs: 'thAutocomplete'
     controller: -> return
-    compile: (element, attrs) ->
-      # @innerHTML = element.find('th-option').html()
-
-      return (scope, element, attrs, controller, transcludeFn) ->
+    compile: ->
+      return (scope, element, attrs, controller) ->
         delegate = if controller.delegate? then controller.delegate else {}
 
         template = require './thAutocomplete.template.html'
         templateElement = angular.element(template)
 
-        # Query select-choices element
-        selectChoicesElement = templateElement.find('ui-select-choices')
-
-        # Insert fetchData function if present
+        # Insert fetchData function into ui-select element if present
         if delegate.fetchData instanceof Function
+          selectChoicesElement = templateElement.find('ui-select-choices')
           selectChoicesElement.attr('refresh', 'thAutocomplete.delegate.fetchData($select.search)')
-
-        # Insert result template
-        # selectChoicesElement[0].innerHTML = @innerHTML
 
         # ui-select needs access to the parent's scope for evaluating repeat
         childScope = scope.$parent.$new false, scope

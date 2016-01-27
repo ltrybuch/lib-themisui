@@ -4,7 +4,7 @@
   >
 
   <ui-select-choices
-    repeat='item in (demo.colours | filter: $select.search) track by item.id'
+    repeat='item in (thAutocomplete.data | filter: $select.search) track by item.id'
     refresh-delay='250'
     >
     <span ng-bind="item.text"></span>

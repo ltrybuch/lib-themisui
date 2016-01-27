@@ -2,14 +2,14 @@
   <body ng-controller="DemoCtrl as demo" style="height:500px">
 
     <th-autocomplete
-      placeholder="checking"
-      ng-model="demo.colour"
-      ng-change="demo.onChange()"
+      placeholder="Enter a GitHub Repo"
+      ng-model="demo.repo"
+      data="demo.repos"
       delegate="demo.delegate"
       >
     </th-autocomplete>
 
-    <p>Select value: {{demo.colour.id}}</p>
+    <p>Selected repo: {{demo.repo.id}}</p>
 
   </body>
 </html>
