@@ -1,14 +1,19 @@
-<ui-select ng-model="thAutocomplete.ngModel">
+<ui-select
+  ng-model='thAutocomplete.ngModel'
+  append-to-body='true'
+  >
 
   <ui-select-choices
-    repeat="{{ thAutocomplete.repeat }}"
-    refresh="thAutocomplete.fetchData()($select.search)"
-    refresh-delay="250"
+    repeat='item in (demo.colours | filter: $select.search) track by item.id'
+    refresh-delay='250'
     >
+    <span ng-bind="item.text"></span>
   </ui-select-choices>
 
-  <ui-select-match>
-    <span ng-bind="$select.selected.text"></span>
+  <ui-select-match
+    placeholder='{{ thAutocomplete.placeholder }}'
+    >
+    <span ng-bind='$select.selected.text'></span>
   </ui-select-match>
 
 </ui-select>

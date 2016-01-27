@@ -2,15 +2,14 @@
   <body ng-controller="DemoCtrl as demo" style="height:500px">
 
     <th-autocomplete
-      repeat="colour in demo.colours"
+      placeholder="checking"
       ng-model="demo.colour"
       ng-change="demo.onChange()"
-      source="demo.colours"
-      fetch-data="demo.fetchData"
-      
+      delegate="demo.delegate"
       >
     </th-autocomplete>
-    <p>Select value: {{demo.colour}}</p>
+
+    <p>Select value: {{demo.colour.id}}</p>
 
   </body>
 </html>
