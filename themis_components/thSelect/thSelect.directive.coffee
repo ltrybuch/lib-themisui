@@ -43,17 +43,17 @@ angular.module('ThemisComponents')
     link: (scope, element, attributes, controller) ->
       # With a transcluded template we'll set the visible text with on change
       # events. Initial text is set with the `selected` option's text.
-      isTransTemplate = !attributes.options?
+      usingTranscludedTemplate = !attributes.options?
 
-      updateLabel = (text = "") ->
+      updateSelectText = (text = "") ->
         $timeout ->
           scope.$apply -> controller.selectedText = text
 
       # On the change event, update the select's text
-      if isTransTemplate
+      if usingTranscludedTemplate
         element.on 'change', (event) ->
           text = event.target.selectedOptions[0].text
-          updateLabel text
+          updateSelectText text
 
       # On the model change, update the select's text
       scope.$watch ->
@@ -65,11 +65,11 @@ angular.module('ThemisComponents')
       # Grab the initially selected option and add its name to our
       # styled replacement select. This will only be applicable
       # if we are not passing in an array of options.
-      if isTransTemplate
+      if usingTranscludedTemplate
         counter = 0
         options = element.find "option"
         for option in options when option.hasAttribute "selected"
-          updateLabel option.text
+          updateSelectText option.text
           counter++
 
         if counter > 1
