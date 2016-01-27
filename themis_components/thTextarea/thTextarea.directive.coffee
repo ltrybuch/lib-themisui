@@ -4,20 +4,25 @@ angular.module('ThemisComponents').directive "thTextarea", ->
   controllerAs: 'ctrl'
   replace: true
   scope:
-    type: '@'
     name: '@'
     value: '@'
     icon: '@'
-    prefix: '@'
     model: '=?ngModel'
+    cols: '='
+    rows: '='
+    ngRequired: '='
+    ngDisabled: '='
+    ngMinlength: '='
+    ngMaxlength: '='
+    ngPattern: '='
   template: require './thTextarea.template.html'
   controller: ($attrs) ->
     @placeholder = $attrs.placeholder
 
   link: (scope, element) ->
     # add box shadow on entire element when in focus
-    element.find("input").on "focus", ->
+    element.find("textarea").on "focus", ->
       angular.element(@parentElement).addClass("has-focus")
-    element.find("input").on "blur", ->
+    element.find("textarea").on "blur", ->
       angular.element(@parentElement).removeClass("has-focus")
     return

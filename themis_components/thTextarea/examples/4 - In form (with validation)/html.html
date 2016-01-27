@@ -1,0 +1,35 @@
+<html ng-app="thDemo">
+  <style type="text/css">
+  .required {color: #BF1E2E; margin-top: -15px; margin-bottom: 15px;}
+  .required .error {padding: 3px;}
+  </style>
+  <body ng-controller="DemoCtrl as demo">
+    <div class="width-400">
+      <form name="form" novalidate>
+        <th-textarea
+          rows="5"
+          name="text"
+          with-label="Use with a form"
+          ng-required="true"
+          ng-minlength="10"
+          ng-maxlength="25"
+          ng-pattern="//^[a-zA-Z]$/">
+        </th-textarea>
+         <div class="required" ng-show="form.text.$dirty">
+           <div class="error" ng-if="form.text.$error.required">
+              <strong>ng-required:</strong> This is a required field.
+           </div>
+           <div class="error" ng-if="form.text.$error.maxlength">
+              <strong>ng-maxlength:</strong> Too long! Dial it back please.
+           </div>
+           <div class="error" ng-if="form.text.$error.minlength">
+              <strong>ng-minlength:</strong> So interesting. You must tell us more!
+           </div>
+           <div class="error" ng-if="form.text.$error.pattern">
+              <strong>ng-pattern:</strong> Sorry. No numbers allowed.
+           </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

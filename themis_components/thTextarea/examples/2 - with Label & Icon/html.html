@@ -1,0 +1,14 @@
+<html ng-app="thDemo">
+  <body ng-controller="DemoCtrl as demo">
+    <div class="width-400">
+      <th-textarea
+        rows="5"
+        placeholder="Tells us what you think.."
+        with-label="Feedback"
+        icon="edit"
+        ng-model="demo.feedback">
+      </th-textarea>
+      <p>Response: <code>{{demo.feedback}}</code></p>
+    </div>
+  </body>
+</html>

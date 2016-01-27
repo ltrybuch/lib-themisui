@@ -1,4 +1,4 @@
-.th-input {
+.th-textarea {
   outline: none;
   -webkit-box-flex: 1;      // OLD - iOS 6-, Safari 3.1-6
   -moz-box-flex: 1;         // OLD - Firefox 19-
@@ -14,6 +14,13 @@
   border-radius: 0.4rem;
   -webkit-appearance: none;
   box-sizing: border-box;
+  height: auto;
+
+  &.disabled {
+    background: $grey-90;
+    color: $grey-40;
+    cursor: not-allowed;
+  }
 
   &::-ms-clear {
     display: none;
@@ -22,23 +29,9 @@
   &.with-icon {
     padding-right: 3.2rem;
   }
-
-  &.with-prefix {
-    border-radius: 0 0.4rem 0.4rem 0;
-    border-left: 0;
-  }
-
-  &.with-postfix {
-    border-radius: 0.4rem 0 0 0.4rem;
-    border-right: 0;
-  }
-
-  &.with-prefix.with-postfix {
-    border-radius: 0;
-  }
 }
 
-.th-input-wrapper {
+.th-textarea-wrapper {
   display: -webkit-box;      // OLD - iOS 6-, Safari 3.1-6
   display: -moz-box;         // OLD - Firefox 19- (buggy but mostly works)
   display: -ms-flexbox;      // TWEENER - IE 10
@@ -50,35 +43,15 @@
 
   &.has-focus {
     box-shadow: 0 0 0.5em rgba(97, 179, 227, .7);
-    .th-input, .th-input-prefix, .th-input-postfix {
+    .th-textarea {
       border-color: #61b3e3;
     }
   }
 }
 
-.th-input-icon {
+.th-textarea-icon {
   position: absolute;
   top: 1.4rem;
   right: 1.6rem;
   color: $grey-40;
-}
-
-.th-input-prefix,.th-input-postfix {
-  color: $grey-60;
-  font-weight: 400;
-  background: $off-white;
-  border: 1px solid $grey-70;
-  padding: 1.2rem;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-.th-input-prefix {
-  border-right: 0; // hide border against <input>
-  border-radius: 0.4rem 0 0 0.4rem;
-}
-
-.th-input-postfix {
-  border-left: 0; // hide border against <input>
-  border-radius: 0 0.4rem 0.4rem 0;
 }
