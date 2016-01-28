@@ -49,7 +49,7 @@ angular.module 'ThemisComponents'
         handleOpen: =>
           @expanded = true
           animateToggle()
-          
+
         handleClose: =>
           @expanded = false
           animateToggle()
