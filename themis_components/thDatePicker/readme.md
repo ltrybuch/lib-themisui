@@ -2,17 +2,19 @@
 
 ## Description
 
-You use 'thDatePicker' to create Date Picker input fields. 
+You use 'thDatePicker' to create Date Picker input fields. It displays an input field that contains a string according to a date format. On focus, a Date Picker grid is displayed. On select of a date, or deselect of the component, the grid disappears.
 
-Acceptable attributes include format, and icon. 
+The date format can be set through a `format` parameter.  The default format is 'YYYY-MM-DD', but two other expected formats can be set: 'MM/DD/YYYY' and 'DD/MM/YYYY'.
 
-If the input field is blank, it will display a placeholder message based on the current date format. 
-
-The default format is 'YYYY-MM-DD', but two other expected formats can be set: 'MM/DD/YYYY' and 'DD/MM/YYYY'.
+If the input field is blank, it will display a placeholder message based on the current date format. (E.g., "yyyy-mm-dd")
 
 ## Usage
 
 ### Markup
 ```
 <th-date-picker ng-model="date"></th-date-picker>
+```
+With optional format parameter:
+```
+<th-date-picker ng-model="date" format='dd/mm/yyyy'></th-date-picker>
 ```
