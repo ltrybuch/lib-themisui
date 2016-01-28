@@ -20,7 +20,7 @@ close = (element) ->
   $(element).css overflow: 'hidden'
 
 angular.module 'ThemisComponents'
-  .directive 'thDisclosureContent', (DisclosureManager, $rootScope) ->
+  .directive 'thDisclosureContent', (DisclosureManager) ->
     restrict: 'E'
     transclude: true
     scope:
