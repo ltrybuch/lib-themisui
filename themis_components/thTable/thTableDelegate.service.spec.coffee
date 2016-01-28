@@ -50,6 +50,25 @@ describe 'ThemisComponents: Service: thTableDelegate', ->
       delegate = TableDelegate {fetchData, headers}
       expect(called).toBe true
 
+    it 'calls fetchData again with last page if currentPage > last page', ->
+      timesCalled = 0
+      currentPage = 20
+      pageSize = 5
+      numPages = 10
+      totalItems = pageSize * numPages
+      currentPageFromFetchData = undefined
+      headers = [
+        TableHeader {sortField: ''}
+        TableHeader {sortField: '', sortActive: true}
+      ]
+      fetchData = (options, updateData) ->
+        timesCalled += 1
+        currentPageFromFetchData = options.currentPage
+        updateData {totalItems}
+      delegate = TableDelegate {fetchData, headers, currentPage, pageSize}
+      expect(timesCalled).toBe 2
+      expect(currentPageFromFetchData).toBe numPages
+
   describe '#reload', ->
     it 'sets loading to true and error to false', ->
       fetchData = -> return

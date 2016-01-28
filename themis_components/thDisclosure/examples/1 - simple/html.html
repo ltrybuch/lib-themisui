@@ -1,6 +1,6 @@
 <html ng-app="thDemo">
-  <body style="height: 25px;">
-    <th-disclosure-toggle name="unique-name">Show hidden text</th-disclosure-toggle>
+  <body style="height: 25px;" ng-controller="DemoCtrl as demo">
+    <th-disclosure-toggle name="unique-name" expanded="demo.expanded">Show hidden text</th-disclosure-toggle>
     <th-disclosure-content name="unique-name">Hidden text</th-disclosure-content>
   </body>
 </html>

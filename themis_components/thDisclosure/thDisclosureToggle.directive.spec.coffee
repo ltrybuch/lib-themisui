@@ -35,7 +35,7 @@ describe "ThemisComponents: Directive: thDisclosureToggle", ->
       inject (_DisclosureManager_) ->
         DisclosureManager = _DisclosureManager_
 
-      spyOn DisclosureManager, "toggle"
+      spyOn DisclosureManager, "updateState"
       a = getFirstChild element
       a.triggerHandler 'click'
-      expect(DisclosureManager.toggle).toHaveBeenCalled()
+      expect(DisclosureManager.updateState).toHaveBeenCalled()

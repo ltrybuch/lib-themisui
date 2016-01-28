@@ -6,6 +6,7 @@ angular.module 'ThemisComponents', [
   require './thAutocomplete/ui-select'
 ]
 
+require './thAlert/'
 require './thAutocomplete/'
 require './thBindMarkdown/'
 require './thButton/'

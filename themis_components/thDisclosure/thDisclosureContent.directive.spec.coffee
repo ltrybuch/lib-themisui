@@ -6,11 +6,11 @@ describe "ThemisComponents: Directive: thDisclosureContent", ->
 
   context "when in default state (hidden)", ->
     beforeEach ->
-      element = compileDirective("""
+      {element} = compileDirective("""
         <th-disclosure-content name="unique-id">
           Content
         </th-disclosure-content>
-      """).element
+      """)
 
     it "renders a <ng-transclude> component", ->
       firstChild = getFirstChild element
@@ -21,12 +21,12 @@ describe "ThemisComponents: Directive: thDisclosureContent", ->
 
   context "when expanded", ->
     beforeEach ->
-      element = compileDirective("""
+      {element} = compileDirective("""
         <div>
           <th-disclosure-toggle name="unique-id">Toggle</th-disclosure-toggle>
           <th-disclosure-content name="unique-id">Content</th-disclosure-content>
         </div>
-      """).element
+      """)
       angular.element('body').append element
 
     afterEach ->
@@ -39,8 +39,28 @@ describe "ThemisComponents: Directive: thDisclosureContent", ->
         done()
       , 301 # The animation duration is 300ms
 
-    it "animates", ->
+  context "when toggle expanded attribute set to true", ->
+    beforeEach ->
+      {element} = compileDirective("""
+        <div>
+          <th-disclosure-toggle name="unique-id" expanded="true">Toggle</th-disclosure-toggle>
+          <th-disclosure-content name="unique-id">Content</th-disclosure-content>
+        </div>
+      """)
+      angular.element('body').append element
+
+    afterEach ->
+      element.remove()
+
+    it "has real height", (done) ->
+      setTimeout ->
+        expect(element.find('div.th-disclosure-content').css("height")).not.toEqual "0px"
+        done()
+      , 301 # The animation duration is 300ms
+
+    it "toggles closed and back open", ->
       ctrl = element.find('th-disclosure-content ng-transclude').scope().thDisclosureContent
-      spyOn ctrl, "animateToggle"
       element.find('a').first().triggerHandler 'click'
-      expect(ctrl.animateToggle).toHaveBeenCalled()
+      expect(ctrl.expanded).toEqual false
+      element.find('a').first().triggerHandler 'click'
+      expect(ctrl.expanded).toEqual true
