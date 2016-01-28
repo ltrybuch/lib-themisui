@@ -3,7 +3,6 @@ require '../polyfills/'
 
 angular.module 'ThemisComponents', [
   require 'angular-animate'
-  require 'angular-sanitize'
   require './thAutocomplete/ui-select'
 ]
 
