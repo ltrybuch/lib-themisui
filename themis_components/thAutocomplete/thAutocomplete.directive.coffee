@@ -11,6 +11,7 @@ angular.module('ThemisComponents', ['ui.select'])
       @data = []
 
       @updateData = (data) =>
+        throw new Error "UpdateData: data must be of type Array" unless data instanceof Array
         @data = data
 
       return
@@ -25,7 +26,7 @@ angular.module('ThemisComponents', ['ui.select'])
         if delegate.fetchData instanceof Function
           selectChoicesElement = templateElement.find('ui-select-choices')
           selectChoicesElement.attr(
-            'refresh', 
+            'refresh',
             'thAutocomplete.delegate.fetchData($select.search, thAutocomplete.updateData)'
         )
 
