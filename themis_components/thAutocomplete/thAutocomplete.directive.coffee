@@ -5,10 +5,15 @@ angular.module('ThemisComponents', ['ui.select'])
       ngModel: '='
       delegate: '='
       placeholder: '@'
-      data: '='
     bindToController: true
     controllerAs: 'thAutocomplete'
-    controller: -> return
+    controller: ->
+      @data = []
+
+      @updateData = (data) =>
+        @data = data
+
+      return
     compile: ->
       return (scope, element, attrs, controller) ->
         delegate = if controller.delegate? then controller.delegate else {}
@@ -19,7 +24,10 @@ angular.module('ThemisComponents', ['ui.select'])
         # Insert fetchData function into ui-select element if present
         if delegate.fetchData instanceof Function
           selectChoicesElement = templateElement.find('ui-select-choices')
-          selectChoicesElement.attr('refresh', 'thAutocomplete.delegate.fetchData($select.search)')
+          selectChoicesElement.attr(
+            'refresh', 
+            'thAutocomplete.delegate.fetchData($select.search, thAutocomplete.updateData)'
+        )
 
         # ui-select needs access to the parent's scope for evaluating repeat
         childScope = scope.$parent.$new false, scope
