@@ -17,18 +17,19 @@ angular.module('ThemisComponents', ['ui.select'])
       return
     compile: ->
       return (scope, element, attrs, controller) ->
-        delegate = if controller.delegate? then controller.delegate else {}
+        unless controller.delegate?.fetchData instanceof Function
+          throw new Error "thAutocomplete delegate needs to be passed the following function: " + \
+                          "fetchData: (searchTerm, updateData) ->"
 
         template = require './thAutocomplete.template.html'
         templateElement = angular.element(template)
 
-        # Insert fetchData function into ui-select element if present
-        if delegate.fetchData instanceof Function
-          selectChoicesElement = templateElement.find('ui-select-choices')
-          selectChoicesElement.attr(
-            'refresh',
-            'thAutocomplete.delegate.fetchData($select.search, thAutocomplete.updateData)'
-        )
+        # Insert fetchData function into ui-select element
+        selectChoicesElement = templateElement.find('ui-select-choices')
+        selectChoicesElement.attr(
+          'refresh',
+          'thAutocomplete.delegate.fetchData($select.search, thAutocomplete.updateData)'
+          )
 
         # ui-select needs access to the parent's scope for evaluating repeat
         childScope = scope.$parent.$new false, scope

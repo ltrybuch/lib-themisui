@@ -16,54 +16,48 @@ Autocomplete should be used when the list of options can be intuited by the user
 
 ## Usage
 
-The `th-autocomplete` element wraps the input and delimits any default options.
+The `th-autocomplete` accepts the following parameters:
 
-Options can be specified in one of two ways or a combination of both.
-
-* Static options can be specified through either:
-  * an `option` tag with optional `selected` attribute, see [option tag](http://www.w3schools.com/tags/tag_option.asp)
-  * angular directive `ng-options`, see [ngOptions](https://docs.angularjs.org/api/ng/directive/ngOptions)
-
-
-* Dynamic options specified from a remote source
-  
-  In this case, options can be retrieved through an api or other source. You must provide a `fetchData` callback to the directive that accepts a query parameter and returns a sorted array of key-value pairs that match the term.
+* `ng-model` is updated to `value` when the user selects an option from the component.
+* `delegate` is a **required** field that represents a dictionary of arguments passed to the component.
+  * `fetchData` (**required**)
+    * represents a callback that accepts a search term reflecting the user's current input and a callback that is used to update the list of options that match the user's current input
+* `placeholder` is the default text that is displayed prior to the user selecting an option.
 
 ### Markup
 
-```
-<th-autocomplete ng-model="colour">
-  <option value="0" selected>red</option>
-  <option value="1">blue</option>
-  <option value="2">green</option>
+```html
+<th-autocomplete
+  ng-model="demo.value"
+  delegate="demo.delegate"
+  placeholder="Select an option"
+  >
 </th-autocomplete>
 ```
 
 ```
-<th-autocomplete ng-model="colour" ng-options="colour.text for colour in colours">
-</th-autocomplete>
+delegate =
+  fetchData: (searchString, updateData) ->
+    if searchString?.length
+      $http
+        method: 'GET'
+        url: 'https://api.github.com/search/repositories'
+        params:
+          q: searchString
+      .then (response) ->
+        repos = response.data.items.map (item) ->
+          Object.assign(item, {
+            # Required parameters
+            text: item.name
+            id: item.id
+          })
+        updateData(repos)
 ```
 
-```
-<th-autocomplete ng-model="colour" options(init? params?)="parentController.options">
-</th-autocomplete>
-```
+### Notes
 
-```
-options = {
-  fetchData: ({term}, updateData) ->
-    data = getData(term) // optional api request
+The array that is passed to `updateData` represents the list of options that match the user's current input. The following are **required** fields:
 
-    updateData(data)
-}
-```
+* `id`- unique identifier used by the component
+* `text`- display string used by the component 
 
-The following optional parameters can be included in the `options` dictionary:
-
-## (Very tentative)
-
-`delay`- delay in ms between successive requests to `fetchData`
-
-## Notes
-
-https://select2.github.io/options.html#placeholder
