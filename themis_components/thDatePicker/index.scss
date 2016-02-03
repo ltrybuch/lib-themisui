@@ -23,25 +23,6 @@
   }
 
 }
-
-.th-input-wrapper {
-  display: -webkit-box;      // OLD - iOS 6-, Safari 3.1-6
-  display: -moz-box;         // OLD - Firefox 19- (buggy but mostly works)
-  display: -ms-flexbox;      // TWEENER - IE 10
-  display: -webkit-flex;     // NEW - Chrome
-  display: flex;             // NEW, Spec - Opera 12.1, Firefox 20+
-  position: relative;
-  border-radius: 0.4rem;
-  @include animated(100ms);
-
-  &.has-focus {
-    box-shadow: 0 0 0.5em rgba(97, 179, 227, .7);
-    .th-input, .th-input-prefix, .th-input-postfix {
-      border-color: #61b3e3;
-    }
-  }
-}
-
 .th-input-icon {
   position: absolute;
   top: 1.4rem;
