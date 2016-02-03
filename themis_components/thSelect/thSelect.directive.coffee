@@ -1,27 +1,7 @@
-container = (template) ->  """
-  <div class="select-wrapper">
-    #{template}
-    <div class="text-wrapper"
-      ng-class="{disabled: select.ngDisabled}">
-      <span class="selected-text">
-        {{select.selectedText}}
-      </span>
-      <i class="fa fa-caret-down"></i>
-    </div>
-  </div>
-"""
-
-selectTemplate = require './thSelect.select.template.html'
-transcludeTemplate = require './thSelect.transclude.template.html'
-
 angular.module('ThemisComponents')
-  .directive "thSelect", ($timeout) ->
+  .directive "thSelect", ->
     restrict: "EA"
-    template: (element, attrs) ->
-      if attrs.options?
-        container(selectTemplate)
-      else
-        container(transcludeTemplate)
+    template: require './thSelect.template.html'
     controllerAs: "select"
     replace: true
     bindToController: true
@@ -35,26 +15,45 @@ angular.module('ThemisComponents')
       ngRequired: "="
       placeholder: "@"
 
-    controller: ($scope, $element) ->
+    controller: ($scope, $element, $attrs, $transclude) ->
       @selectedText = @placeholder
       @selectedText = @ngModel.name if @ngModel?
+      @options ?= []
+
+      isSelected = (el) -> el.hasAttribute "selected"
+
+      isOptionElement = (el) -> el.tagName is "OPTION"
+
+      # Add transcluded Option element to the @options array.
+      angular.forEach $transclude(), (el) =>
+
+        if el.tagName is "OPTGROUP"
+          groupName = el.label
+          groupedOptions = angular.element(el).find "option"
+
+          angular.forEach groupedOptions, (option) =>
+
+            if isOptionElement option
+              @options.push
+                name: option.text
+                value: option.value
+                group: groupName
+
+              if isSelected option
+                @ngModel =
+                  name: option.text
+                  value: option.value
+                  group: groupName
+
+        if isOptionElement el
+          @options.push {name: el.text, value: el.value}
+
+          if isSelected el
+            @ngModel = {name: el.text, value: el.value}
+
       return
 
     link: (scope, element, attributes, controller) ->
-      # With a transcluded template we'll set the visible text with on change
-      # events. Initial text is set with the `selected` option's text.
-      usingTranscludedTemplate = !attributes.options?
-
-      updateSelectText = (text = "") ->
-        $timeout ->
-          scope.$apply -> controller.selectedText = text
-
-      # On the change event, update the select's text
-      if usingTranscludedTemplate
-        element.on 'change', (event) ->
-          text = event.target.selectedOptions[0].text
-          updateSelectText text
-
       # On the model change, update the select's text
       scope.$watch ->
         controller.ngModel
@@ -62,21 +61,16 @@ angular.module('ThemisComponents')
         text = newValue?.name ? controller.placeholder
         controller.selectedText = text
 
-      # Grab the initially selected option and add its name to our
-      # styled replacement select. This will only be applicable
-      # if we are not passing in an array of options.
-      if usingTranscludedTemplate
-        counter = 0
-        options = element.find "option"
-        for option in options when option.hasAttribute "selected"
-          updateSelectText option.text
-          counter++
+      counter = 0
+      options = element.find "option"
+      for option in options when option.hasAttribute "selected"
+        counter++
 
-        if counter > 1
-          console.warn(
-            "#{counter} options are set on a non-multiple select \
-            (name: #{attributes.name}). The last selected option will be used."
-          )
+      if counter > 1
+        console.warn(
+          "#{counter} options are set on a non-multiple select \
+          (name: #{attributes.name}). The last selected option will be used."
+        )
 
       # add box shadow on entire element when in focus
       select = element.find "select"
