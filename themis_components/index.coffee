@@ -28,6 +28,7 @@ require './thSwitch/'
 require './thTable/'
 require './thTabset/'
 require './thTextarea/'
+require './thWithFocus/'
 require './thWithLabel/'
 
 module.exports = 'ThemisComponents'
