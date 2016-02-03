@@ -7,7 +7,7 @@ angular.module('ThemisComponents', ['ui.select'])
       placeholder: '@'
     bindToController: true
     controllerAs: 'thAutocomplete'
-    controller: ->
+    controller: ($scope) ->
       @data = []
 
       @updateData = (data) =>
@@ -29,7 +29,7 @@ angular.module('ThemisComponents', ['ui.select'])
         selectChoicesElement.attr(
           'refresh',
           'thAutocomplete.delegate.fetchData($select.search, thAutocomplete.updateData)'
-          )
+        )
 
         # ui-select needs access to the parent's scope for evaluating repeat
         childScope = scope.$parent.$new false, scope

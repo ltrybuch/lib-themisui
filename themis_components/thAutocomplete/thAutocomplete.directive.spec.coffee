@@ -77,34 +77,3 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
       search('a')
       openDropDown()
       expect(element.find('.ui-select-choices-row').length).toEqual 3
-
-  describe 'when user selects option', ->
-    data = [
-      {id: 0, text: 'a0'}
-      {id: 1, text: 'a1'}
-      {id: 2, text: 'a2'}
-    ]
-
-    beforeEach ->
-      template = """
-        <th-autocomplete
-          delegate='delegate'
-          ng-model='model.value'
-          >
-        </th-autocomplete>
-      """
-      {element, scope} = compileDirective(validTemplate,
-        model:
-          value: data[0]
-        delegate:
-          fetchData: (searchString, updateData) ->
-            updateData(data)
-      )
-
-    it 'updates the model', ->
-      search('a')
-      openDropDown()
-      selectItem(data[1])
-      expect(scope.model.value).toEqual data[1]
-
-
