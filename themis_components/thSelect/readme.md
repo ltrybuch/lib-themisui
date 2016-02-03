@@ -43,10 +43,10 @@ text will be displayed.
 ```
 ```coffeescript
   vehicles = [
-    {name: "Car", value:"1", group: "ground"}
-    {name: "train", value:"2", group: "ground"}
-    {name: "plane", value:"2", group: "air"}
-    {name: "helicopter", value:"2", group: "air"}
+    {name: "Car", value:"1", group: "Ground"}
+    {name: "Train", value:"2", group: "Ground"}
+    {name: "Plane", value:"2", group: "Air"}
+    {name: "Helicopter", value:"2", group: "Air"}
   ]
   type = vehicles[0]
 ```
@@ -88,8 +88,10 @@ to true.
 - Property name of the form under which `th-select` is added.
 
 [options="array"]
-- An array of `option` objects. Requires a `name` and `value` property. Optionally
-add a `group` property to group your `options` together. See example 2.
+- An array of `option` objects. Requires a `name` and `value` property.
+- Optionally add a `group` property to group your `options` together. See example 2.
+- Since the `group` property's value will be the corresponding `<optgroup>`'s label
+(making it visible to the user) be sure to style the text appropriately.
 
 ---
 ## Notes
