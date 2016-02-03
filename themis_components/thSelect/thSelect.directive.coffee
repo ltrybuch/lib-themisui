@@ -20,16 +20,16 @@ angular.module('ThemisComponents')
       @selectedText = @ngModel.name if @ngModel?
       @options ?= []
 
-      isSelected = (el) -> el.hasAttribute "selected"
+      isSelected = (element) -> element.hasAttribute "selected"
 
-      isOptionElement = (el) -> el.tagName is "OPTION"
+      isOptionElement = (element) -> element.tagName is "OPTION"
 
       # Add transcluded Option element to the @options array.
-      angular.forEach $transclude(), (el) =>
+      angular.forEach $transclude(), (element) =>
 
-        if el.tagName is "OPTGROUP"
-          groupName = el.label
-          groupedOptions = angular.element(el).find "option"
+        if element.tagName is "OPTGROUP"
+          groupName = element.label
+          groupedOptions = angular.element(element).find "option"
 
           angular.forEach groupedOptions, (option) =>
 
@@ -45,11 +45,11 @@ angular.module('ThemisComponents')
                   value: option.value
                   group: groupName
 
-        if isOptionElement el
-          @options.push {name: el.text, value: el.value}
+        if isOptionElement element
+          @options.push {name: element.text, value: element.value}
 
-          if isSelected el
-            @ngModel = {name: el.text, value: el.value}
+          if isSelected element
+            @ngModel = {name: element.text, value: element.value}
 
       return
 
@@ -61,12 +61,12 @@ angular.module('ThemisComponents')
         text = newValue?.name ? controller.placeholder
         controller.selectedText = text
 
-      counter = 0
+      selectedElementCount = 0
       options = element.find "option"
       for option in options when option.hasAttribute "selected"
-        counter++
+        selectedElementCount++
 
-      if counter > 1
+      if selectedElementCount > 1
         console.warn(
           "#{counter} options are set on a non-multiple select \
           (name: #{attributes.name}). The last selected option will be used."
