@@ -5,12 +5,12 @@
 The `<textarea>` tag defines a multi-line text input control. The height of a text
 area can be specified by the rows attributes, or even better; through CSS' height property.
 `<thTextarea>` is a replacement to the standard `<textarea>` element. It accepts many
-of the same attributes such as `name`, `value`, `rows`, and `placeholder`.
+of the same attributes such as `name`, `rows`, and `placeholder`.
 ## Markup
 
 ```html
   <th-textarea
-    ng-model="value"
+    ng-model="model"
     placeholder="I'll be here if there is no value"
     icon="edit"
     rows="3">

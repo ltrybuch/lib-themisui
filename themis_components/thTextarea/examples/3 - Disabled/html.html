@@ -1,11 +1,11 @@
 <html ng-app="thDemo">
-  <body ng-controller="DemoCtrl as demo">
+  <body ng-init="disabled = true">
     <div class="width-400">
-      <th-textarea rows="5" ng-disabled="demo.disabled"></th-textarea>
+      <th-textarea rows="5" ng-disabled="disabled"></th-textarea>
       <br>
-      <th-switch ng-model="demo.disabled" with-label="Toggle disabled">
+      <th-switch ng-model="disabled" with-label="Toggle disabled">
       </th-switch>
-      <p>Disabled: <code>{{demo.disabled}}</code></p>
+      <p>Disabled: <code>{{disabled}}</code></p>
     </div>
   </body>
 </html>

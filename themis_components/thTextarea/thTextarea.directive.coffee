@@ -6,7 +6,6 @@ angular.module('ThemisComponents').directive "thTextarea", ->
   scope:
     placeholder: '@'
     name: '@'
-    value: '@'
     icon: '@'
     model: '=?ngModel'
     rows: '='

@@ -8,7 +8,6 @@ describe 'thTextarea', ->
       {element} = compileDirective("""
         <th-textarea
           name="nickname"
-          value="nerf herder"
           rows="5"
           placeholder="Enter your nickname">
         </th-textarea>
@@ -32,7 +31,6 @@ describe 'thTextarea', ->
 
         expect(textarea.attr("rows")).toBe '5'
         expect(textarea.attr("name")).toBe 'nickname'
-        expect(textarea.attr("value")).toBe 'nerf herder'
         expect(textarea.attr("placeholder")).toBe 'Enter your nickname'
 
 
@@ -63,15 +61,15 @@ describe 'thTextarea', ->
     describe "textarea", ->
       it "has all ng-requirements added", ->
         textarea = element.find("textarea")[0]
-        textarea.hasAttribute("required")
         expect(textarea.hasAttribute("ng-required")).toBe true
         expect(textarea.hasAttribute("required")).toBe true
         expect(textarea.hasAttribute("ng-minLength")).toBe true
         expect(textarea.hasAttribute("ng-maxLength")).toBe true
         expect(textarea.hasAttribute("ng-pattern")).toBe true
-        expect(element.find("textarea").attr("ng-pattern")).toEqual '/^[a-zA-Z ]*$/'
-        expect(element.find("textarea").attr("ng-minLength")).toEqual '10'
-        expect(element.find("textarea").attr("ng-maxLength")).toEqual '20'
+        expect(textarea.getAttribute("ng-pattern")).toEqual '/^[a-zA-Z ]*$/'
+        expect(textarea.getAttribute("ng-minLength")).toEqual '10'
+        expect(textarea.getAttribute("ng-maxLength")).toEqual '20'
+        expect(textarea.getAttribute("ng-pattern")).toEqual '/^[a-zA-Z ]*$/'
 
     context "with ng-disabled evaluating to true", ->
       beforeEach ->
@@ -82,5 +80,3 @@ describe 'thTextarea', ->
         it "is disabled", ->
           expect(element.find("textarea").attr("disabled")).toEqual "disabled"
           expect(element.find("textarea").hasClass("disabled")).toBe true
-
-
