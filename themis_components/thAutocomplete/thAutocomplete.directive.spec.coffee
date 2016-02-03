@@ -24,10 +24,9 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
   search = (searchString) ->
     input = element[0].querySelector('.ui-select-container')
 
-    # Set search term
+    # Set search term.
     angular.element(input).scope().$select.search = searchString
 
-    # input.dispatchEvent enterEvent
     timeout.flush()
 
   openDropDown = ->

@@ -1,6 +1,8 @@
 @import "../../node_modules/ui-select/dist/select";
 
 .ui-select-container {
+  // ui-select component uses bootstrap for styling. These are all rules
+  // used by ui-select copied from bootstrap.
   .glyphicon {
     position: relative;
     top: 1px;

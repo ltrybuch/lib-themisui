@@ -1,4 +1,4 @@
-angular.module('ThemisComponents', ['ui.select'])
+angular.module 'ThemisComponents'
   .directive 'thAutocomplete', ($compile) ->
     restrict: 'E'
     scope:
@@ -15,28 +15,41 @@ angular.module('ThemisComponents', ['ui.select'])
         @data = data
 
       return
-    compile: ->
-      return (scope, element, attrs, controller) ->
-        unless controller.delegate?.fetchData instanceof Function
-          throw new Error "thAutocomplete delegate needs to be passed the following function: " + \
-                          "fetchData: (searchTerm, updateData) ->"
+    link: (scope, element, attrs, controller) ->
+      delegate = controller.delegate
+      unless delegate?.fetchData instanceof Function
+        throw new Error "thAutocomplete delegate needs to be passed the following function: " + \
+                        "fetchData: (searchTerm, updateData) ->"
 
-        template = require './thAutocomplete.template.html'
-        templateElement = angular.element(template)
+      template = require './thAutocomplete.template.html'
+      templateElement = angular.element template
 
-        # Insert fetchData function into ui-select element
-        selectChoicesElement = templateElement.find('ui-select-choices')
-        selectChoicesElement.attr(
-          'refresh',
-          'thAutocomplete.delegate.fetchData($select.search, thAutocomplete.updateData)'
-        )
+      # Add repeat attribute to ui-select-choices element.
+      repeatExpression = 'item in thAutocomplete.data'
+      if delegate.trackField?
+        repeatExpression = repeatExpression + ' track by item.' + delegate.trackField
 
-        # ui-select needs access to the parent's scope for evaluating repeat
-        childScope = scope.$parent.$new false, scope
+      selectChoicesElement = templateElement.find 'ui-select-choices'
+      selectChoicesElement.attr(
+        'repeat',
+        repeatExpression
+      )
 
-        # We are attaching the table's controller to the scope, so that the
-        # template has access to it
-        childScope.thAutocomplete = scope.thAutocomplete
+      # Add display field to inner html of ui-select-choices and ui-select-match elements.
+      displayField = delegate.displayField
+      displayField ?= 'name'
 
-        compiledTemplate = $compile(templateElement) childScope
-        element.append compiledTemplate
+      selectChoicesElement.html "<span ng-bind='item." + displayField + "'></span>"
+
+      selectMatchElement = templateElement.find 'ui-select-match'
+      selectMatchElement.html "<span ng-bind='$select.selected." + displayField + "'></span>"
+
+      # ui-select needs access to the parent's scope for evaluating repeat.
+      childScope = scope.$parent.$new false, scope
+
+      # We are attaching the table's controller to the scope, so that the
+      # template has access to it.
+      childScope.thAutocomplete = scope.thAutocomplete
+
+      compiledTemplate = $compile(templateElement) childScope
+      element.append compiledTemplate

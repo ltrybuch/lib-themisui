@@ -3,6 +3,7 @@ angular.module('thDemo', ['ThemisComponents'])
     @repo = null
 
     @delegate =
+      displayField: 'full_name'
       fetchData: (searchString, updateData) ->
         if searchString?.length
           $http
@@ -11,12 +12,6 @@ angular.module('thDemo', ['ThemisComponents'])
             params:
               q: searchString
           .then (response) ->
-            repos = response.data.items.map (item) ->
-              Object.assign(item, {
-                # Required parameters
-                text: item.name
-                id: item.id
-              })
-            updateData(repos)
+            updateData(response.data.items)
               
     return

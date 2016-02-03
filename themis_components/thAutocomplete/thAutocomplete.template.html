@@ -3,17 +3,15 @@
   >
 
   <ui-select-choices
-    repeat='item in (thAutocomplete.data | filter: $select.search) track by item.id'
+    refresh='thAutocomplete.delegate.fetchData($select.search, thAutocomplete.updateData)'
     refresh-delay='250'
     position='down'
     >
-    <span ng-bind="item.text"></span>
   </ui-select-choices>
 
   <ui-select-match
     placeholder='{{ thAutocomplete.placeholder }}'
     >
-    <span ng-bind='$select.selected.text'></span>
   </ui-select-match>
 
 </ui-select>

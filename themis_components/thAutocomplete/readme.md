@@ -8,11 +8,11 @@ Autocomplete looks similar to a text input in its default state. When the user b
 
 Users can navigate and select an option from the list using keyboard or mouse. 
 
-Users are unable to enter an incomplete selection. That is, users are unable to enter arbitrary text, see [thInput](.\thInput).
+Users are unable to enter an incomplete selection. That is, users are unable to enter arbitrary text, see [thInput](../thInput).
 
 Autocomplete can be used to retrieve a list of options remotely through an api.
 
-Autocomplete should be used when the list of options can be intuited by the user (ie. contacts). Otherwise, see [thSelect](.\thSelect).
+Autocomplete should be used when the list of options can be intuited by the user (ie. contacts). Otherwise, see [thSelect](../thSelect).
 
 ## Usage
 
@@ -22,6 +22,10 @@ The `th-autocomplete` accepts the following parameters:
 * `delegate` is a **required** field that represents a dictionary of arguments passed to the component.
   * `fetchData` (**required**)
     * represents a callback that accepts a search term reflecting the user's current input and a callback that is used to update the list of options that match the user's current input
+  * `displayField`
+    * the item field to display (defaults to `name`)
+  * `trackField`
+    * defines the unique key to use for indexing list items internally
 * `placeholder` is the default text that is displayed prior to the user selecting an option.
 
 ### Markup
@@ -37,6 +41,8 @@ The `th-autocomplete` accepts the following parameters:
 
 ```
 delegate =
+  displayField: 'name'
+  trackField: 'id'
   fetchData: (searchString, updateData) ->
     if searchString?.length
       $http
@@ -45,19 +51,10 @@ delegate =
         params:
           q: searchString
       .then (response) ->
-        repos = response.data.items.map (item) ->
-          Object.assign(item, {
-            # Required parameters
-            text: item.name
-            id: item.id
-          })
-        updateData(repos)
+        updateData(response.data.items)
 ```
 
 ### Notes
 
-The array that is passed to `updateData` represents the list of options that match the user's current input. The following are **required** fields:
-
-* `id`- unique identifier used by the component
-* `text`- display string used by the component 
+The array that is passed to `updateData` represents the list of options that match the user's current input.
 
