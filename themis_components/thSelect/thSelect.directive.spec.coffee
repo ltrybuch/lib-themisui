@@ -120,9 +120,10 @@ describe "ThemisComponents: Directive: thSelect", ->
           ng-required="true"
           ng-disabled="true"
           ng-model="model">
-          <option value="1">Green</option>
+          <option value="1" selected>Green</option>
           <option value="2">Blue</option>
         </th-select>""", scopeAdditions
+      optionsWithoutPlaceholder = element.find("option:not([ng-show])")
 
     it "assigns attr 'name' to select", ->
       expect(element.find("select").attr("name")).toMatch "lightsaber"
@@ -135,27 +136,22 @@ describe "ThemisComponents: Directive: thSelect", ->
       expect(element.find("select")[0].hasAttribute("required")).toEqual true
 
     it "transcludes the passed in options", ->
-      expect(element.find("option").length).toEqual 2
+      expect(optionsWithoutPlaceholder.length).toEqual 2
 
     it "sets the visible text to the selected name", ->
       expect(element.find("option:selected").text()).toMatch "Green"
-      setTimeout ->
-        expect(element.find(".selected-text").text()).toMatch "Green"
-      , 500 # To account for using scope.$apply to update text.
+      expect(element.find(".selected-text").text()).toMatch "Green"
 
     context "on select change", ->
       beforeEach ->
-        element.find("select").val element.find("option").eq(0).val()
-        element.find("select").triggerHandler "change"
+        element.find("select").val("2").triggerHandler "change"
 
-      it "updates select value", ->
-        expect(element.find("select").val()).toMatch "1"
-        expect(element.find('option:selected').val()).toMatch "1"
+      it "updates the visible text to the selected name", ->
+        expect(element.find(".selected-text").text()).toMatch "Blue"
 
       it "updates the model value", ->
         model = scope.$$childHead.select.ngModel
-        expect(model).toEqual "1"
-        expect(model).toEqual element.find("option:selected").val()
+        expect(model).toEqual {name: "Blue", value: "2"}
 
     context "when disabled", ->
       it "disables select", ->
