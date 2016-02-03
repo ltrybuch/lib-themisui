@@ -37,16 +37,6 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
 
     scope.$digest()
 
-  selectItem = (item) ->
-    input = element[0].querySelector('.ui-select-container')
-
-    angular.element(input).scope().$select.select(item)
-
-    timeout.flush()
-    scope.$digest()
-
-    timeout.flush()
-
   describe 'when fetch-data is specified', ->
     beforeEach ->
       {element, scope} = compileDirective(validTemplate,
