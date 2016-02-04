@@ -102,6 +102,7 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
     it 'updates the model', ->
       search('a')
       openDropDown()
+      expect(scope.value).toEqual data[0]
       selectItem(data[1])
       expect(scope.value).toEqual data[1]
 
@@ -121,10 +122,10 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
       selectChoice = element[0].querySelector('.ui-select-choices-row-inner').children[0]
       expect(selectChoice.textContent).toEqual 'test0'
 
-      selectItem(data[0])
-
       # Get inner span of match element.
       matchChoice = element[0].querySelector('.ui-select-match-text').children[0]
+      expect(matchChoice.textContent).toEqual ''
+      selectItem(data[0])
       expect(matchChoice.textContent).toEqual 'test0'
 
   describe 'when displayField is specified', ->

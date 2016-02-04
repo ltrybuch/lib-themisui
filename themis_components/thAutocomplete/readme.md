@@ -57,4 +57,3 @@ delegate =
 ### Notes
 
 The array that is passed to `updateData` represents the list of options that match the user's current input.
-
