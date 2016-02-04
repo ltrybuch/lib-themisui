@@ -1,17 +1,17 @@
 angular.module 'ThemisComponents'
-  .factory 'AlertManager', ->
+  .factory 'AlertManager', ($sce) ->
     alertMessage = {}
 
     showSuccess = (message) ->
-      alertMessage.message = message
+      alertMessage.message = $sce.trustAsHtml message
       alertMessage.type = 'success'
 
     showError = (message) ->
-      alertMessage.message = message
+      alertMessage.message = $sce.trustAsHtml message
       alertMessage.type = 'error'
 
     showWarning = (message) ->
-      alertMessage.message = message
+      alertMessage.message = $sce.trustAsHtml message
       alertMessage.type = 'warning'
 
     hideAlert = ->
