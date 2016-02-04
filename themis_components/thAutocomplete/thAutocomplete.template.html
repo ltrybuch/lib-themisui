@@ -1,6 +1,4 @@
-<ui-select
-  ng-model='thAutocomplete.ngModel'
-  >
+<ui-select ng-model='thAutocomplete.ngModel'>
 
   <ui-select-choices
     refresh='thAutocomplete.delegate.fetchData($select.search, thAutocomplete.updateData)'
@@ -9,9 +7,7 @@
     >
   </ui-select-choices>
 
-  <ui-select-match
-    placeholder='{{ thAutocomplete.placeholder }}'
-    >
+  <ui-select-match placeholder='{{ thAutocomplete.placeholder }}'>
   </ui-select-match>
 
 </ui-select>

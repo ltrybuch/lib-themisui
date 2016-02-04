@@ -7,7 +7,8 @@ angular.module 'ThemisComponents'
       placeholder: '@'
     bindToController: true
     controllerAs: 'thAutocomplete'
-    controller: ($scope) ->
+
+    controller: ->
       @data = []
 
       @updateData = (data) =>
@@ -15,6 +16,7 @@ angular.module 'ThemisComponents'
         @data = data
 
       return
+
     link: (scope, element, attrs, controller) ->
       delegate = controller.delegate
       unless delegate?.fetchData instanceof Function
@@ -27,7 +29,7 @@ angular.module 'ThemisComponents'
       # Add repeat attribute to ui-select-choices element.
       repeatExpression = 'item in thAutocomplete.data'
       if delegate.trackField?
-        repeatExpression = repeatExpression + ' track by item.' + delegate.trackField
+        repeatExpression += " track by item.#{delegate.trackField}"
 
       selectChoicesElement = templateElement.find 'ui-select-choices'
       selectChoicesElement.attr(
@@ -36,13 +38,12 @@ angular.module 'ThemisComponents'
       )
 
       # Add display field to inner html of ui-select-choices and ui-select-match elements.
-      displayField = delegate.displayField
-      displayField ?= 'name'
+      displayField = delegate.displayField ? 'name'
 
-      selectChoicesElement.html "<span ng-bind='item." + displayField + "'></span>"
+      selectChoicesElement.html "<span ng-bind='item.#{displayField}'></span>"
 
       selectMatchElement = templateElement.find 'ui-select-match'
-      selectMatchElement.html "<span ng-bind='$select.selected." + displayField + "'></span>"
+      selectMatchElement.html "<span ng-bind='$select.selected.#{displayField}'></span>"
 
       # ui-select needs access to the parent's scope for evaluating repeat.
       childScope = scope.$parent.$new false, scope

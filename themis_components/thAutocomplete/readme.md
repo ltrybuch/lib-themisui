@@ -22,9 +22,9 @@ The `th-autocomplete` accepts the following parameters:
 * `delegate` is a **required** field that represents a dictionary of arguments passed to the component.
   * `fetchData` (**required**)
     * represents a callback that accepts a search term reflecting the user's current input and a callback that is used to update the list of options that match the user's current input
-  * `displayField`
+  * `displayField` (*optional*)
     * the item field to display (defaults to `name`)
-  * `trackField`
+  * `trackField` (*optional*)
     * defines the unique key to use for indexing list items internally
 * `placeholder` is the default text that is displayed prior to the user selecting an option.
 
