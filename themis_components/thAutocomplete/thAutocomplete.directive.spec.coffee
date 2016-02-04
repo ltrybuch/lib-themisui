@@ -152,10 +152,9 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
 
   describe 'when trackField is not specified', ->
     beforeEach ->
-      {element, scope} = compileDirective(validTemplate,
+      {element} = compileDirective(validTemplate,
         delegate:
-          fetchData: (searchString, updateData) ->
-            updateData(data)
+          fetchData: (searchString, updateData) -> return
       )
 
     it 'does not specify what to track by', ->
@@ -164,11 +163,10 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
 
   describe 'when trackField is specified', ->
     beforeEach ->
-      {element, scope} = compileDirective(validTemplate,
+      {element} = compileDirective(validTemplate,
         delegate:
           trackField: 'id'
-          fetchData: (searchString, updateData) ->
-            updateData(data)
+          fetchData: (searchString, updateData) -> return
       )
 
     it 'tracks by trackField', ->
