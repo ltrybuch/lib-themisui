@@ -12,7 +12,9 @@
   @include animated(300ms);
 
   &.ng-animate {
-    top: -54px;
+    &.ng-hide {
+      top: -54px;
+    }
   }
 
   &.th-alert-success {

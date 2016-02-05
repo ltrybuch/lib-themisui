@@ -46,3 +46,8 @@ An example of a warning alert:
 ```coffeescript
 AlertManager.showWarning "The selected contact does not have an email address."
 ```
+
+### Params
+There is an optional parameter to override the default timeout behavior:
+  - **`timeout`**: duration until thAlert disappears (in millseconds). `3000` is the default. Use `0` for no timeout.
+
