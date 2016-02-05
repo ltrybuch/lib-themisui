@@ -1,7 +1,12 @@
 <html ng-app="thDemo">
   <body ng-init="disabled = true">
     <div class="width-400">
-      <th-textarea rows="5" ng-disabled="disabled"></th-textarea>
+      <th-textarea
+        rows="5"
+        ng-disabled="disabled"
+        placeholder="Tell us what you think.."
+        >
+    </th-textarea>
       <br>
       <th-switch ng-model="disabled" with-label="Toggle disabled">
       </th-switch>
