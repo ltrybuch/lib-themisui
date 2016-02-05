@@ -33,7 +33,6 @@ describe 'thTextarea', ->
         expect(textarea.attr("name")).toBe 'nickname'
         expect(textarea.attr("placeholder")).toBe 'Enter your nickname'
 
-
   context "with icon", ->
     beforeEach ->
       {element} = compileDirective(
@@ -44,7 +43,6 @@ describe 'thTextarea', ->
 
     it "adds with-icon to the input field", ->
       expect(element.find("textarea").hasClass("with-icon")).toBeTruthy()
-
 
   context "with validations", ->
     beforeEach ->
