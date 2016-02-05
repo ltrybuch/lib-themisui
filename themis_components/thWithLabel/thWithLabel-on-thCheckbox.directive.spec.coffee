@@ -8,7 +8,10 @@ describe 'withLabel', ->
       additions = {change: -> alert "alerting!"}
       {element} = compileDirective("""
         <th-checkbox
-          with-label="checkbox name" ng-model="model" ng-change="change()">
+          with-label="checkbox name"
+          ng-model="model"
+          ng-change="change()"
+          >
         </th-checkbox>
       """, additions)
 

@@ -7,6 +7,13 @@ angular.module('ThemisComponents')
       element.wrap '<label class="th-label">'
       label = element.parent()
 
+      adjustMarginForRadioInputs = (element) ->
+        # Reduce margin-bottom for radio button groups.
+        isThRadio = element.classList.contains "th-radio-button"
+        isRadioInput = element.type is "radio"
+        className = "radio-label" if isThRadio or isRadioInput
+        label.addClass className
+
       findInlineInputElement = (themisComponents, htmlComponents) ->
         # find themis ui components by class name
         findByClassName = (className) ->
@@ -34,8 +41,10 @@ angular.module('ThemisComponents')
         ["radio", "checkbox"]
       )
 
-      # if element is deemed 'inline' the append the label else prepend the label
+      # if element is deemed 'inline' then append the label else prepend the label
       if inlineElement.el
+        adjustMarginForRadioInputs inlineElement.el
+
         label.append "<span class='inline label-text'>#{attrs.withLabel}</span>"
       else
         label.prepend "<div class='label-text'>#{attrs.withLabel}</div>"

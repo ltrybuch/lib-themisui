@@ -1,23 +1,88 @@
 <html ng-app="thDemo">
   <body>
-    <div style="width: 400px;">
-      <input type="text" with-label="First name: (Label with type='text')">
-      <th-input with-label="Email: (Label with th-input)" type="text"></th-input>
-      <th-checkbox with-label="Save settings (Label is also inline with th-checkboxes)"></th-checkbox>
-      <th-select with-label="Favourite Color: (Works great with th-select)" name="color">
-        <option value="4">Red</option>
-        <option value="5" selected>Yellow</option>
-        <option value="6">Green</option>
-      </th-select>
-      <th-radio-group ng-model="value" name="number">
-        <th-radio-button with-label="One" value="one"></th-radio-button>
-        <th-radio-button with-label="Two" value="two"></th-radio-button>
-        <th-radio-button with-label="Three" value="three"></th-radio-button>
-      </th-radio-group>
-      <input type="radio" value="male" id="male" name="gender" with-label="Male (Label with type='radio')">
-      <input type="radio" value="female" id="female" name="gender" with-label="Female">
-      <input type="checkbox" with-label="Agree to terms (Label with type='checkbox')" name="test" checked>
-      <th-switch with-label="Display image (Label is inline when using a th-switch)"></th-switch>
+    <style type="text/css">
+    .title {color: grey;padding-bottom: 3px;border-bottom: 2px solid #77B7FA;
+      padding-left: 3px;font-weight: inherit;font-size:20px;}
+    .example {border: 2px solid #C4E1FF;padding: 0 30px 0 15px;margin: 10px 0 20px 0;}
+    .example-tag {margin-bottom: 15px;display: inline-block;background: #C4E1FF;color: #5E5E5E;
+      padding: 2px 15px 5px 10px;font-size: 12px;margin-left: -15px;border-bottom-right-radius: 5px;
+      font-weight: bold;}
+    </style>
+    <div style="width: 600px;">
+      <h3 class="title">HTML Elements</h3>
+      <div class="example">
+        <span class="example-tag">Input type "text"</span>
+        <input
+          type="text"
+          with-label="First name"
+          >
+      </div>
+      <div class="example">
+        <span class="example-tag">Input type "radio"</span>
+        <input
+          type="radio"
+          value="male"
+          name="gender"
+          with-label="Male"
+          >
+        <input
+          type="radio"
+          value="female"
+          name="gender"
+          with-label="Female"
+          >
+      </div>
+      <div class="example">
+        <span class="example-tag">Input type "checkbox"</span>
+        <input
+          type="checkbox"
+          with-label="Agree to terms"
+          name="test"
+          checked
+          >
+      </div>
+      <h3 class="title">th-components</h3>
+      <div class="example">
+        <span class="example-tag">th-input</span>
+        <th-input
+          with-label="Email"
+          type="text"
+          >
+        </th-input>
+      </div>
+      <div class="example">
+        <span class="example-tag">th-select</span>
+        <th-select
+          with-label="Favourite Color"
+          name="color"
+          >
+          <option value="4">Red</option>
+          <option value="5" selected>Yellow</option>
+          <option value="6">Green</option>
+        </th-select>
+      </div>
+      <div class="example">
+        <span class="example-tag">th-checkboxes</span>
+        <th-checkbox
+          with-label="Save settings"
+        >
+        </th-checkbox>
+      </div>
+      <div class="example">
+        <span class="example-tag">th-radio-button</span>
+        <th-radio-group ng-model="value" name="number">
+          <th-radio-button with-label="One" value="one"></th-radio-button>
+          <th-radio-button with-label="Two" value="two"></th-radio-button>
+          <th-radio-button with-label="Three" value="three"></th-radio-button>
+        </th-radio-group>
+      </div>
+      <div class="example">
+        <span class="example-tag">th-switch</span>
+        <th-switch
+          with-label="Display image"
+        >
+        </th-switch>
+      </div>
     </div>
  </body>
 </html>
