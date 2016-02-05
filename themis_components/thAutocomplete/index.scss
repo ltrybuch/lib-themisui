@@ -30,44 +30,27 @@
   .form-control {
     display: block;
     width: 100%;
-    height: 34px;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #555;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 1.2rem;
+    background: $off-white;
+    border: 1px solid $grey-70;
+    border-radius: 0.4rem;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    font: inherit;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0.5em rgba(97, 179, 227, .7);
+      border-color: #61b3e3;
+    }
   }
   .btn {
     display: inline-block;
-    padding: 6px 12px;
-    margin-bottom: 0;
-    font-size: 14px;
-    font-weight: normal;
-    line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    touch-action: manipulation;
     cursor: pointer;
-    user-select: none;
-    background-image: none;
-    border: 1px solid transparent;
-    border-radius: 4px;
   }
-  .btn-default {
-    color: #333;
-    background-color: #fff;
-    border-color: #ccc;
-  }
-  .btn-default:hover {
-    color: #333;
-    background-color: #e6e6e6;
-    border-color: #adadad;
+  .btn-default-focus {
+    outline: none;
+    box-shadow: none;
   }
   .btn-link {
     font-weight: normal;
@@ -149,5 +132,32 @@
   }
   .btn .caret {
     margin-left: 0;
+  }
+  &.ui-select-bootstrap {
+    .ui-select-choices-row {
+      > a {
+        display: block;
+        padding: 0.9rem 1.2rem;
+        clear: both;
+        font-weight: inherit;
+        color: #333;
+        white-space: nowrap;
+      }
+      &.active {
+        > a {
+          color: #fff;
+          text-decoration: none;
+          outline: 0;
+          background-color: $blue;
+        }
+      }
+    }
+  }
+  .ui-select-search {
+    font-family: inherit;
+  }
+  input {
+    background: $off-white;
+    font-size: inherit;
   }
 }
