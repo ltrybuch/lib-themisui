@@ -14,7 +14,8 @@ describe 'withLabel', ->
           ng-model="model"
           ng-change="onChange()"
           >
-        </th-switch>""", scopeAdditions)
+        </th-switch>
+        """, scopeAdditions)
 
     it "appends inline label instead of prepends label", ->
       expect(element.next().is("span.inline.label-text")).toBe true
