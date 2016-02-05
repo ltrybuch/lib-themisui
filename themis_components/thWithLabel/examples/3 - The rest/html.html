@@ -9,6 +9,11 @@
         <option value="5" selected>Yellow</option>
         <option value="6">Green</option>
       </th-select>
+      <th-radio-group ng-model="value" name="number">
+        <th-radio-button with-label="One" value="one"></th-radio-button>
+        <th-radio-button with-label="Two" value="two"></th-radio-button>
+        <th-radio-button with-label="Three" value="three"></th-radio-button>
+      </th-radio-group>
       <input type="radio" value="male" id="male" name="gender" with-label="Male (Label with type='radio')">
       <input type="radio" value="female" id="female" name="gender" with-label="Female">
       <input type="checkbox" with-label="Agree to terms (Label with type='checkbox')" name="test" checked>

@@ -36,12 +36,18 @@ angular.module('ThemisComponents')
 
       # if element is deemed 'inline' the append the label else prepend the label
       if inlineElement.el
-        textSpan = angular.element "<span class='inline label-text'>#{attrs.withLabel}</span>"
-        label.append textSpan
-
-        # if element is not a native input we need to extend the click over to
-        # our styled faux input
-        textSpan.on "click", ->
-          element[0].click() if inlineElement.type == "themis"
+        label.append "<span class='inline label-text'>#{attrs.withLabel}</span>"
       else
         label.prepend "<div class='label-text'>#{attrs.withLabel}</div>"
+
+      element.on "click", (event) ->
+        # If clicking on input element stop propagation to label.
+        event.stopPropagation()
+        # Allow underlying input element to handle click event.
+        event.preventDefault() if inlineElement.type is "themis"
+
+      label.on "click", (event) ->
+        if inlineElement.type is "themis"
+          event.preventDefault()
+          # Pass the click event to the th-component.
+          element[0].click()

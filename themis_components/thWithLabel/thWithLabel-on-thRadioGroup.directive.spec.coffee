@@ -1,27 +1,27 @@
-context = describe
-
 describe 'withLabel', ->
   element = null
 
-  context "with th-checkbox", ->
+  context "with th-radio-group", ->
     beforeEach ->
       additions = {change: -> alert "alerting!"}
+      model = 1
       {element} = compileDirective("""
-        <th-checkbox
-          with-label="checkbox name" ng-model="model" ng-change="change()">
-        </th-checkbox>
+        <th-radio-group ng-model="model" ng-change="change()">
+          <th-radio-button with-label="one" value="1"></th-radio-button>
+          <th-radio-button with-label="two" value="2"></th-radio-button>
+        </th-radio-group>
       """, additions)
 
     it "appends inline label instead of prepends label", ->
-      expect(element.next().is("span.inline.label-text")).toBe true
+      expect(element.find("span").hasClass("inline label-text")).toBe true
 
     it "adds 'with-label' value to label", ->
-      expect(element.next().text()).toMatch "checkbox name"
+      expect(element.text()).toMatch "one"
 
     context "when clicking label with an ng-change attribute", ->
       beforeEach ->
         spyOn window, 'alert'
-        element.parent().triggerHandler 'click'
+        element.children().last().triggerHandler 'click'
 
       it "executes ng-change function", ->
         expect(window.alert).toHaveBeenCalledWith "alerting!"
