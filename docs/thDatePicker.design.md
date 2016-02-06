@@ -14,19 +14,11 @@ thDatePicker Design docs
 
 ## Candidate Libraries
 
-### Angular-datepicker
-** selecting this one
-- has extra year selector we may not want/need
-- project repo is active
-https://github.com/720kb/angular-datepicker#angular-datepicker
-
-
-### Angular Mighty Datepicker
-** maybe this one?
-- moderately healthy git project (smallish)
-- light
-- relies on outdated library
-https://github.com/monterail/angular-mighty-datepicker
+### Angular Moment Picker
+- uses moment
+- nice internationalization support
+- fairly new repo with recent activity
+http://indrimuska.github.io/angular-moment-picker/
 
 ### Angular Datepicker
 - supports many functional improvements over existing datepicker (timezone,time,range)
@@ -35,6 +27,23 @@ https://github.com/monterail/angular-mighty-datepicker
 - time input seems cumbersome
 - unsure of styling options
 https://github.com/g00fy-/angular-datepicker
+
+### nzDatepicker 
+** questionable use of bower
+- forked from an out of date implementation that was superceded by Angular Might Datepicker
+https://github.com/nozzle/nzDatepicker
+
+### Angular-datepicker
+** tried this one, has weird handling of dates and formats when inputting text
+- has extra year selector we may not want/need (it's okay)
+- project repo is active
+https://github.com/720kb/angular-datepicker#angular-datepicker
+
+### Angular Mighty Datepicker
+- moderately healthy git project (smallish)
+- light
+- relies on outdated library
+https://github.com/monterail/angular-mighty-datepicker
 
 ## Discarded Libraries (Bootstrap reliant)
 ### Angular Bootstrap Calendar  - NO
