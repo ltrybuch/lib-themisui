@@ -8,7 +8,22 @@ angular.module('ThemisComponents')
     bindToController: true
     controllerAs: 'datepicker'
     controller: ($scope, $filter) ->
-      @dateFormat = @dateFormat || 'yyyy-MM-dd'
-
-      @date = $filter('date')(@date, @dateFormat)
+      @dateFormat = @dateFormat || 'y-MM-d'
+      console.log('date:' + @date)
+      #@date = $filter('date')(@date, @dateFormat)
+      
       return
+    # link: (scope, element, attrs, ngModelCtrl) ->
+    #   return unless ngModelCtrl?
+
+    #   ngModelCtrl.$parsers.push (value) ->
+    #     # value = if (! isDate)
+    #     console.log('parsers ' + value)
+    #     return value 
+
+    #   ngModelCtrl.$formatters.push (value) ->
+    #     console.log('formatter ' + value)
+    #     return value 
+
+
+
