@@ -15,26 +15,27 @@ thDatePicker Design docs
 ## Candidate Libraries
 
 ### Angular Moment Picker
+** !! poor behavior on input text entry, *can* change the date but behaves unpredictably because angular parses and interprets the date!!
 - uses moment
 - nice internationalization support
 - fairly new repo with recent activity
 http://indrimuska.github.io/angular-moment-picker/
 
 ### Angular Datepicker
+** !! text input doesn't update datepicker display at all
 - supports many functional improvements over existing datepicker (timezone,time,range)
 - doesn’t rely on bootstrap
 - healthy project/contributors
-- time input seems cumbersome
-- unsure of styling options
 https://github.com/g00fy-/angular-datepicker
 
 ### nzDatepicker 
-** questionable use of bower
+** !! questionable use of bower
+! wasn't able to get demo working
 - forked from an out of date implementation that was superceded by Angular Might Datepicker
 https://github.com/nozzle/nzDatepicker
 
 ### Angular-datepicker
-** tried this one, has weird handling of dates and formats when inputting text
+** !! has weird handling of dates and formats when inputting text, sometimes only parses after a space character is added at end of date, sometimes highlights the day before the entered date
 - has extra year selector we may not want/need (it's okay)
 - project repo is active
 https://github.com/720kb/angular-datepicker#angular-datepicker
