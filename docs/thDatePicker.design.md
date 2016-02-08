@@ -39,6 +39,12 @@ https://github.com/g00fy-/angular-datepicker
 
 https://github.com/nozzle/nzDatepicker
 
+### ngDatepicker
+** !! questionable use of bower
+** !! doesn't take text input to update picker
+
+https://github.com/jkuri/ngDatepicker
+
 ### Angular-datepicker
 ** !! has weird handling of dates and formats when inputting text, sometimes only parses after a space character is added at end of date, sometimes highlights the day before the entered date
 - has extra year selector we may not want/need (it's okay)
