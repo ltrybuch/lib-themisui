@@ -2,7 +2,7 @@ context = describe
 describe "ThemisComponents: Directive: thAlertAnchor", ->
   directive = ctrl = scope = element = AlertManager = $sce = null
 
-  beforeEach inject ($compile, $rootScope, _AlertManager_, _$sce_) ->
+  beforeEach inject (_AlertManager_, _$sce_) ->
     AlertManager = _AlertManager_
     $sce = _$sce_
     element = """<th-alert-anchor></th-alert-anchor>"""
