@@ -1,17 +1,15 @@
-<span class="th-textarea-wrapper">
-  <textarea
-    ng-model="ctrl.model"
-    ng-required="ctrl.ngRequired"
-    ng-disabled="ctrl.ngDisabled"
-    ng-minlength="ctrl.ngMinlength"
-    ng-maxlength="ctrl.ngMaxlength"
-    ng-pattern="ctrl.ngPattern"
-    ng-class="[{'with-icon': ctrl.icon},{'disabled': ctrl.ngDisabled}]"
-    class="th-textarea"
-    ng-attr-name="{{ctrl.name}}"
-    ng-attr-rows="{{ctrl.rows}}"
-    ng-attr-placeholder="{{ctrl.placeholder}}"
-    >
-  </textarea>
-  <i ng-if="ctrl.icon" class="th-textarea-icon fa fa-{{ctrl.icon}}"></i>
-</span>
+<textarea
+  ng-model="ctrl.model"
+  ng-required="ctrl.ngRequired"
+  ng-disabled="ctrl.ngDisabled"
+  ng-minlength="ctrl.ngMinlength"
+  ng-maxlength="ctrl.ngMaxlength"
+  ng-pattern="ctrl.ngPattern"
+  ng-class="[{'with-icon': ctrl.icon},{'disabled': ctrl.ngDisabled}]"
+  class="th-textarea"
+  ng-attr-name="{{ctrl.name}}"
+  ng-attr-rows="{{ctrl.rows}}"
+  ng-attr-placeholder="{{ctrl.placeholder}}"
+  >
+</textarea>
+<i ng-if="ctrl.icon" class="th-textarea-icon fa fa-{{ctrl.icon}}"></i>

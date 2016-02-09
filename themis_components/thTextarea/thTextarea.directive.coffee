@@ -2,7 +2,6 @@ angular.module('ThemisComponents').directive "thTextarea", ->
   restrict: "E"
   bindToController: true
   controllerAs: 'ctrl'
-  replace: true
   scope:
     placeholder: '@'
     name: '@'

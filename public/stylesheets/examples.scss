@@ -15,9 +15,9 @@ body {
 
 // Convenient width & height classes for examples.
 @for $i from 1 through 11 {
-  .height-#{$i}00 { height: #{$i}00px; }
+  .th-example-height-#{$i}00 { height: #{$i}00px; }
 }
 
 @for $i from 1 through 11 {
-  .width-#{$i}00 { width: #{$i}00px; }
+  .th-example-width-#{$i}00 { width: #{$i}00px; }
 }
