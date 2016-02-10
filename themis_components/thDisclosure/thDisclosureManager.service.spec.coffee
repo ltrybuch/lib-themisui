@@ -5,7 +5,7 @@ describe 'ThemisComponents: Service: thDisclosureManager', ->
   contentOpenHandlerCalled = contentCloseHandlerCalled = contentHandler = null
 
   beforeEach ->
-    module 'ThemisComponents'
+    angular.mock.module 'ThemisComponents'
 
     inject (_DisclosureManager_) ->
       DisclosureManager = _DisclosureManager_
@@ -46,7 +46,7 @@ describe 'ThemisComponents: Service: thDisclosureManager', ->
       DisclosureManager.updateState uniqueId, false
       expect(toggleCloseHandlerCalled).toBe true
       expect(contentCloseHandlerCalled).toBe true
-      
+
       DisclosureManager.updateState uniqueId, true
       expect(toggleOpenHandlerCalled).toBe true
       expect(contentOpenHandlerCalled).toBe true

@@ -3,7 +3,7 @@ describe 'ThemisComponents: Service: thModalManager', ->
   ModalManager = httpBackend = promise = null
 
   beforeEach ->
-    module 'ThemisComponents'
+    angular.mock.module 'ThemisComponents'
 
     inject (_ModalManager_, _$httpBackend_) ->
       ModalManager = _ModalManager_

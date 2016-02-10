@@ -24,7 +24,6 @@ window.compileDirective = (template, scopeAdditions) ->
   scope.$digest()
   return element: jQuery(compiledElement), scope: scope
 
-
 # Creates a raw DOM element from a string template.
 # Only works for templates with a single root node.
 window.createDOMElement = (template) ->

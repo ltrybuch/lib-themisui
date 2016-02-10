@@ -3,7 +3,7 @@ describe 'ThemisComponents: Directive: thSwitch', ->
   validTemplate = '<div th-switch ng-model="state" ng-change="callback()"></div>'
 
   beforeEach ->
-    module 'ThemisComponents'
+    angular.mock.module 'ThemisComponents'
 
   compileSwitchDirective = (template, state, callback) ->
     scopeAdditions =

@@ -3,7 +3,7 @@ describe 'ThemisComponents: Service: thSimpleTableDelegate', ->
   SimpleTableDelegate = TableHeader = null
 
   beforeEach ->
-    module 'ThemisComponents'
+    angular.mock.module 'ThemisComponents'
 
     inject (_SimpleTableDelegate_, _TableHeader_) ->
       SimpleTableDelegate = _SimpleTableDelegate_

@@ -3,7 +3,7 @@ describe 'ThemisComponents: Service: thAlertManager', ->
   AlertManager = null
 
   beforeEach ->
-    module 'ThemisComponents'
+    angular.mock.module 'ThemisComponents'
 
     inject (_AlertManager_) ->
       AlertManager = _AlertManager_
