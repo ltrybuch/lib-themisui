@@ -2,17 +2,14 @@
   ng-show="alertAnchor.alertMessage.message"
   ng-class="'th-alert th-alert-' + alertAnchor.alertMessage.type"
   >
+
   <i
-    class="fa fa-check"
-    ng-if="alertAnchor.alertMessage.type == 'success'"
+    class="fa"
+    ng-class="{ 'fa-check': alertAnchor.alertMessage.type == 'success',
+                'fa-warning': alertAnchor.alertMessage.type == 'error' || 'warning'}"
     >
   </i>
-  <i
-    class="fa fa-warning"
-    ng-if="alertAnchor.alertMessage.type == 'error'
-    || alertAnchor.alertMessage.type == 'warning'"
-    >
-  </i>
+
   <p
     ng-bind-html="alertAnchor.alertMessage.message"
     >

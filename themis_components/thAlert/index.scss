@@ -50,8 +50,7 @@
     vertical-align: middle;
     font-size: 18px;
 
-    &.fa-check,
-    &.fa-warning {
+    &:not(.fa-times-circle) {
       color: #fff;
       text-align: center;
       width: 40px;
