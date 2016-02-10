@@ -23,7 +23,6 @@ angular.module 'ThemisComponents'
     hideAlert = ->
       alertMessage.message = ''
       alertMessage.type = ''
-      $timeout.cancel(timer)
 
     timeout = (duration) ->
       $timeout.cancel(timer)
