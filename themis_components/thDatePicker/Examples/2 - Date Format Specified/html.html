@@ -1,6 +1,10 @@
 <html ng-app="thDemo">
   <body ng-controller="DemoCtrl as demo">
+    <!-- This script inclusion is only for demo purposes. -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
     <p>Date Selected: {{ demo.date }}</p>
-    <th-date-picker ng-model="demo.date" date-format="MM/dd/yyyy"></th-date-picker>
+    <th-date-picker ng-model="demo.date" date-format="MM/DD/YYYY"></th-date-picker>
+    <p>Date Selected: {{ demo.date }}</p>
+    <th-date-picker ng-model="demo.date" date-format="DD/MM/YYYY"></th-date-picker>
   </body>
 </html>

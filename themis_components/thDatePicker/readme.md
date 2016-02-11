@@ -6,7 +6,7 @@ You use 'thDatePicker' to create an input field that contains a string according
 
 The date format can be set through a `format` parameter.  The default format is 'YYYY-MM-DD', but two other expected formats can be set: 'MM/DD/YYYY' and 'DD/MM/YYYY'.
 
-If the input field is blank, it will display a placeholder message based on the current date format. (E.g., "yyyy-mm-dd")
+If the input field is blank, it will display a placeholder message based on the current date format. (E.g., "YYYY-MM-DD")
 
 ## Usage
 

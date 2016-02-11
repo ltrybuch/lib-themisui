@@ -23,14 +23,18 @@ angular.module('ThemisComponents')
       @registerDateWatcher = =>
         @unregisterDateWatcher() if @unregisterDateWatcher?
         @unregisterDateWatcher = $scope.$watch 'datepicker.date', =>
-          @inputDate = @date.format(@dateFormat)
+          @setInputDate()
+
+      @setInputDate = =>
+        @inputDate = @date.format(@dateFormat)
 
       @registerDateWatcher()
 
       dateInputField = $element.find('input')
+      
       dateInputField.on 'blur', => $scope.$apply =>
         @registerDateWatcher()
-        @inputDate = @date.format(@dateFormat)
+        @setInputDate()
 
       dateInputField.on 'focus', => $scope.$apply =>
         @unregisterDateWatcher()
