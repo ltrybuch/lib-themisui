@@ -1,15 +1,13 @@
-<datepicker 
-  date-format="{{datepicker.dateFormat}}"
-  date-typer="true"
-  Zdate-set="{{datepicker.date}}"
-  button-prev="<i class='fa fa-chevron-circle-left'></i>" 
-  button-next="<i class='fa fa-chevron-circle-right'></i>"
->
-  <input
-    ng-model="datepicker.date"
-    class="th-date-picker-input"
-    type="text"
-    placeholder="{{datepicker.dateFormat}}"
-  />
-  <i class="th-input-icon fa fa-calendar"></i>
-</datepicker>
+<th-input
+  ng-model="datepicker.inputDate"
+  type="text"
+  placeholder="YYYY-MM-DD"
+  icon="calendar">
+</th-input>
+<div 
+  date-picker="datepicker.date"
+  watch-direct-changes
+  view="date"
+  min-view="date"
+  max-view="date"
+></div>

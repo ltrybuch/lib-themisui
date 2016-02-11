@@ -1,5 +1,7 @@
+moment = require("moment")
+
 angular.module('ThemisComponents')
-  .directive 'thDatePicker',  ->
+  .directive 'thDatePicker', ->
     restrict: "E"
     template: require "./thDatePicker.template.html"
     scope:
@@ -7,23 +9,30 @@ angular.module('ThemisComponents')
       dateFormat: "@"
     bindToController: true
     controllerAs: 'datepicker'
-    controller: ($scope, $filter) ->
-      @dateFormat = @dateFormat || 'y-MM-d'
-      console.log('date:' + @date)
-      #@date = $filter('date')(@date, @dateFormat)
+    controller: ($element, $scope, $filter, $timeout) ->
+      @dateFormat ?= 'YYYY-MM-DD'
+      @date ?= moment()
+      @inputDate = ""
+      @unregisterDateWatcher = null
       
+      $scope.$watch 'datepicker.inputDate', =>
+        parsedDate = moment(@inputDate, @dateFormat)
+        if parsedDate.isValid()
+          @date = parsedDate
+
+      @registerDateWatcher = =>
+        @unregisterDateWatcher() if @unregisterDateWatcher?
+        @unregisterDateWatcher = $scope.$watch 'datepicker.date', =>
+          @inputDate = @date.format(@dateFormat)
+
+      @registerDateWatcher()
+
+      dateInputField = $element.find('input')
+      dateInputField.on 'blur', => $scope.$apply =>
+        @registerDateWatcher()
+        @inputDate = @date.format(@dateFormat)
+
+      dateInputField.on 'focus', => $scope.$apply =>
+        @unregisterDateWatcher()
+
       return
-    # link: (scope, element, attrs, ngModelCtrl) ->
-    #   return unless ngModelCtrl?
-
-    #   ngModelCtrl.$parsers.push (value) ->
-    #     # value = if (! isDate)
-    #     console.log('parsers ' + value)
-    #     return value 
-
-    #   ngModelCtrl.$formatters.push (value) ->
-    #     console.log('formatter ' + value)
-    #     return value 
-
-
-
