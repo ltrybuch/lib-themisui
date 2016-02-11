@@ -1,24 +1,7 @@
-template = (select) ->  """
-  <div class="select-wrapper">
-    #{select}
-    <div class="selected-text">
-      {{select.selectedText}}
-      <i class="fa fa-caret-down"></i>
-    </div>
-  </div>
-"""
-
-selectTemplate = require './thSelect.select.template.html'
-transcludeTemplate = require './thSelect.transclude.template.html'
-
 angular.module('ThemisComponents')
   .directive "thSelect", ->
     restrict: "EA"
-    template: (element, attrs) ->
-      if attrs.options?
-        template(selectTemplate)
-      else
-        template(transcludeTemplate)
+    template: require './thSelect.template.html'
     controllerAs: "select"
     replace: true
     bindToController: true
@@ -27,36 +10,67 @@ angular.module('ThemisComponents')
       options: "="
       ngModel: "="
       name: "@"
-      disabled: "@"
-      ngChange: "=?"
+      ngDisabled: "="
+      ngChange: "&"
+      ngRequired: "="
+      placeholder: "@"
 
-    controller: ($scope, $element) ->
-      @selectedText = @ngModel?.name ? "Choose…"
+    controller: ($scope, $element, $attrs, $transclude) ->
+      @selectedText = @placeholder
+      @selectedText = @ngModel.name if @ngModel?
+      @options ?= []
 
-      $element.find("select").on 'click', (event) -> return
-      # when a new option is selected we want to capture the name
-      # and add it to our styled select replacement.
-      $element.on 'change', (event) =>
-        $scope.$apply =>
-          @selectedText = event.target.selectedOptions[0].text
+      isSelected = (element) -> element.hasAttribute "selected"
+
+      isOptionElement = (element) -> element.tagName is "OPTION"
+
+      # Add transcluded Option element to the @options array.
+      angular.forEach $transclude(), (element) =>
+
+        if element.tagName is "OPTGROUP"
+          groupName = element.label
+          groupedOptions = angular.element(element).find "option"
+
+          angular.forEach groupedOptions, (option) =>
+
+            if isOptionElement option
+              @options.push
+                name: option.text
+                value: option.value
+                group: groupName
+
+              if isSelected option
+                @ngModel =
+                  name: option.text
+                  value: option.value
+                  group: groupName
+
+        if isOptionElement element
+          @options.push {name: element.text, value: element.value}
+
+          if isSelected element
+            @ngModel = {name: element.text, value: element.value}
+
       return
 
-    link: (scope, element, attributes) ->
-      # grab the initially selected option and add
-      # it's name to our styled replacement select
-      # this will only be applicable to if we are not
-      # passing in an array of options so we check for that first.
+    link: (scope, element, attributes, controller) ->
+      # On the model change, update the select's text
+      scope.$watch ->
+        controller.ngModel
+      , (newValue) ->
+        text = newValue?.name ? controller.placeholder
+        controller.selectedText = text
+
+      selectedElementCount = 0
       options = element.find "option"
-      unless attributes.options?
-        counter = 0
-        for option in options when option.hasAttribute "selected"
-          scope.select.selectedText = option.text
-          counter++
-        if counter > 1
-          console.warn(
-            "#{counter} options are set on a non-multiple select (name: #{attributes.name}).
-             The last selected option will be used."
-          )
+      for option in options when option.hasAttribute "selected"
+        selectedElementCount++
+
+      if selectedElementCount > 1
+        console.warn(
+          "#{counter} options are set on a non-multiple select \
+          (name: #{attributes.name}). The last selected option will be used."
+        )
 
       # add box shadow on entire element when in focus
       select = element.find "select"
@@ -64,4 +78,5 @@ angular.module('ThemisComponents')
         angular.element(this).next().addClass "has-focus"
       select.on "blur", ->
         angular.element(this).next().removeClass "has-focus"
+
       return
