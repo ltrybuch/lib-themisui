@@ -1,5 +1,5 @@
 angular.module 'ThemisComponents'
-  .factory 'AlertManager', ($sce, $timeout) ->
+  .factory 'AlertManager', ($timeout) ->
     alertMessage = {}
     timer = ''
 
@@ -15,9 +15,8 @@ angular.module 'ThemisComponents'
       showAlert(message, params)
       alertMessage.type = 'warning'
 
-    showAlert = (message, params) ->
-      params ?= ""
-      alertMessage.message = $sce.trustAsHtml message
+    showAlert = (message, params = {}) ->
+      alertMessage.message = message
       timeout params.timeout
 
     hideAlert = ->
@@ -28,7 +27,7 @@ angular.module 'ThemisComponents'
       $timeout.cancel(timer)
 
       if duration != 0
-        duration = duration || 3000
+        duration = duration ? 3000
         timer = $timeout ->
           hideAlert()
           $timeout.cancel(timer)
