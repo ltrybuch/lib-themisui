@@ -1,6 +1,8 @@
 <html ng-app="thDemo">
   <style type="text/css">
-    .error {color: #BF1E2E; margin: -15px 0 15px 10px; font-weight: bold;}
+    .error {color: #BF1E2E; font-weight: bold;}
+    .message-wrapper {margin: 5px 0 20px 10px; height: 20px;}
+    .th-label {margin-bottom: 0px !important;}
   </style>
   <body
     ng-controller="DemoController as demo"
@@ -17,20 +19,21 @@
           ng-minlength="10"
           ng-maxlength="25">
         </th-textarea>
-
-        <div
-          ng-messages="demo.form.text.$error"
-          ng-if="demo.form.$dirty"
-          class="error"
-          >
-          <div ng-message="required">
-            This is a required field.
-          </div>
-          <div ng-message="minlength">
-            So interesting. You must tell us more!
-          </div>
-          <div ng-message="maxlength">
-            Too long! Dial it back please.
+        <div class="message-wrapper">
+          <div
+            ng-messages="demo.form.text.$error"
+            class="error"
+            ng-if="demo.form.$submitted"
+            >
+            <div ng-message="required">
+              This is a required field.
+            </div>
+            <div ng-message="minlength">
+              So interesting. You must tell us more!
+            </div>
+            <div ng-message="maxlength">
+              Too long! Dial it back please.
+            </div>
           </div>
         </div>
         <th-button type="default" ng-click="demo.submit()" submit>Submit</th-button>
