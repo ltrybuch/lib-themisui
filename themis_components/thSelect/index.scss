@@ -9,7 +9,7 @@
     transition: box-shadow .3s ease-out;
   }
 
-  .selected-text {
+  .text-wrapper {
     margin: 0;
     padding: 1.2rem;
     background: $off-white;
@@ -28,6 +28,10 @@
       color: $dark-grey;
       line-height: 2rem;
     }
+    &.disabled {
+      background: $grey-90;
+      color: $grey-40;
+    }
   }
   select {
     width: 100%;
@@ -36,5 +40,9 @@
     position: absolute;
     background: none;
     height: 4.3rem;
+
+    &[disabled~="disabled"] {
+      cursor: not-allowed;
+    }
   }
 }

@@ -4,6 +4,7 @@ require '../polyfills/'
 angular.module 'ThemisComponents', [
   require 'angular-animate'
   require './thDatePicker/angular-datepicker'
+  require 'angular-sanitize'
 ]
 
 require './thAlert/'
