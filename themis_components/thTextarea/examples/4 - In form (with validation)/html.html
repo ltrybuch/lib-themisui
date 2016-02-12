@@ -2,7 +2,10 @@
   <style type="text/css">
     .error {color: #BF1E2E; margin: -15px 0 15px 10px; font-weight: bold;}
   </style>
-  <body ng-controller="DemoController as demo">
+  <body
+    ng-controller="DemoController as demo"
+    class="th-example-height-400"
+    >
     <div class="th-example-width-400">
       <form name="demo.form" novalidate>
         <th-textarea
@@ -15,7 +18,11 @@
           ng-maxlength="25">
         </th-textarea>
 
-        <div ng-messages="demo.form.text.$error" ng-if="demo.form.$dirty" class="error">
+        <div
+          ng-messages="demo.form.text.$error"
+          ng-if="demo.form.$dirty"
+          class="error"
+          >
           <div ng-message="required">
             This is a required field.
           </div>
@@ -26,17 +33,9 @@
             Too long! Dial it back please.
           </div>
         </div>
-        <th-button type="default" submit>Submit</th-button>
+        <th-button type="default" ng-click="demo.submit()" submit>Submit</th-button>
         <th-button ng-click="demo.reset()">reset</th-button>
-
-        <div ng-if="demo.form.$submitted && demo.form.text.$viewValue">
-          <pre ng-if="demo.form.$invalid">
-            $error: {{demo.form.text.$error | json}}
-          </pre>
-          <pre ng-if="demo.form.$valid">
-            success: {{ {"valid": demo.form.text.$valid } | json}}
-          </pre>
-        </div>
+        <pre ng-if="demo.response">{{demo.response | json}}</pre>
       </form>
     </div>
   </body>
