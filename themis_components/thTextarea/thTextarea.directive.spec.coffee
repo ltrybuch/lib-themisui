@@ -33,6 +33,13 @@ describe 'thTextarea', ->
         expect(textarea.attr("name")).toBe 'nickname'
         expect(textarea.attr("placeholder")).toBe 'Enter your nickname'
 
+  context "with expandable set to false", ->
+    beforeEach ->
+      {element} = compileDirective(
+        """<th-textarea expandable="false"></th-textarea>""")
+    it "disables resizing", ->
+      expect(element.find("textarea").css("resize")).toEqual "none"
+
   context "with icon", ->
     beforeEach ->
       {element} = compileDirective(

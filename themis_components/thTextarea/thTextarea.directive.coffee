@@ -13,12 +13,24 @@ angular.module('ThemisComponents').directive "thTextarea", ->
     ngMinlength: '='
     ngMaxlength: '='
     ngPattern: '='
+
   template: require './thTextarea.template.html'
   controller: -> return
-  link: (scope, element) ->
+  link: (scope, element, attr) ->
+    textarea = element.find "textarea"
+
+    textarea.css "resize", "none" if attr.expandable is "false"
+
+    # Pass non Angular classes to the textarea element.
+    angularClass = /(^ng-)/
+    for className in element[0].classList
+      if !angularClass.test className
+        textarea.addClass className
+        element.removeClass className
+
     # add box shadow on entire element when in focus
-    element.find("textarea").on "focus", ->
+    textarea.on "focus", ->
       angular.element(@parentElement).addClass("has-focus")
-    element.find("textarea").on "blur", ->
+    textarea.on "blur", ->
       angular.element(@parentElement).removeClass("has-focus")
     return

@@ -29,6 +29,12 @@ expression evaluated to true.
 - [name="string"] Property name of the form under which `th-textarea` is added.
 - [placeholder="string"] Adds placeholder text to the element.
 - [icon="string"] Sets a icon on the right side of the textarea.
-Any [Font Awesome](https://fortawesome.github.io/Font-Awesome/icons/ "icons!")
-font can be used by just passing in the relevant name. ex: `icon="dollar"` for `'fa fa-dollar'`
+- [expandable="boolean"] Lets you control the resizability of `th-textarea`. Defaults to `true`.
+- [font="string"] Any [Font Awesome](https://fortawesome.github.io/Font-Awesome/icons/ "icons!")
+font can be used by just passing in the relevant name. ex: `icon="dollar"` for `'fa fa-dollar'`.
+
+## Notes
+- `th-textarea`'s width is set to 100% so it will conform to the parent's width.
+Set your width adjustments to the parent element and not directly on `th-textarea`.
+
 

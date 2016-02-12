@@ -1,48 +1,43 @@
-.th-textarea {
-  outline: none;
-  flex: 1;
-  width: 100%;
-  font-size: 12px;
-  margin: 0;
-  padding: 13px;
-  background: $off-white;
-  border: 1px solid $grey-70;
-  border-radius: 4px;
-  -webkit-appearance: none;
-  box-sizing: border-box;
-  height: auto;
-
-  &.disabled {
-    background: $grey-90;
-    color: $grey-40;
-  }
-
-  &::-ms-clear {
-    display: none;
-  }
-
-  &.with-icon {
-    padding-right: 32px;
-  }
-}
-
 th-textarea {
-  display: flex;
+  display: inherit;
+  height: auto;
   position: relative;
   border-radius: 4px;
   @include animated(100ms);
 
   &.has-focus {
     box-shadow: 0 0 5px rgba(97, 179, 227, .7);
-    .th-textarea {
-      border-color: #61b3e3;
+    border-color: #61b3e3;
+  }
+
+  textarea {
+    overflow: auto;
+    outline: none;
+    width: 100%;
+    font-size: 12px;
+    margin: 0;
+    padding: 13px;
+    background: $off-white;
+    border: 1px solid $grey-70;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+
+    &.disabled {
+      background: $grey-90;
+      color: $grey-40;
     }
+
+    &.with-icon {
+      padding-right: 32px;
+    }
+  }
+
+  .th-textarea-icon {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    color: $grey-40;
   }
 }
 
-.th-textarea-icon {
-  position: absolute;
-  top: 14px;
-  right: 16px;
-  color: $grey-40;
-}
