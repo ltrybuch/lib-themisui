@@ -1,7 +1,6 @@
-element = null
-
 module.exports =
   testingInlineLabel: (compileElementFn) ->
+    element = null
     beforeEach ->
       {element} = compileElementFn()
 
@@ -12,6 +11,7 @@ module.exports =
       expect(element.next().text()).toMatch "label name"
 
   testingNgChange: (compileElementFn) ->
+    element = null
     beforeEach ->
       spyOn window, 'alert'
       {element} = compileElementFn()
@@ -30,6 +30,7 @@ module.exports =
       expect(window.alert.calls.count()).toEqual 1
 
   testingPrependedLabel: (compileElementFn) ->
+    element = null
     beforeEach ->
       {element} = compileElementFn()
 

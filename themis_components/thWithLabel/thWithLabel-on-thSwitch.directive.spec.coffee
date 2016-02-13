@@ -1,4 +1,5 @@
 context = describe
+sharedTests = require './sharedTests'
 
 describe 'withLabel', ->
   element = null
@@ -17,7 +18,7 @@ describe 'withLabel', ->
     """, scopeAdditions)
 
   context "with th-switch", ->
-    require('./sharedTests').testingInlineLabel compileElement
+    sharedTests.testingInlineLabel compileElement
 
     context "when clicking label with an ng-change attribute", ->
-      require('./sharedTests').testingNgChange compileElement
+      sharedTests.testingNgChange compileElement
