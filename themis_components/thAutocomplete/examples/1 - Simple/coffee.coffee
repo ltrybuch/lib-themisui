@@ -5,7 +5,7 @@ angular.module('thDemo', ['ThemisComponents'])
     @delegate =
       displayField: 'full_name'
       fetchData: (searchString, updateData) ->
-        if searchString?.length
+        if searchString?.length > 0
           $http
             method: 'GET'
             url: 'https://api.github.com/search/repositories'
