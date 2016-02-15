@@ -38,8 +38,8 @@ describe 'ThemisComponents: Directive: thButton', ->
   it 'replaces the directive element', ->
     expect(element.find('th-button').length).toEqual 0
 
-    it 'has class "create"', ->
-      expect(element.hasClass("default")).toBe true
+  it 'has class "create"', ->
+    expect(element.hasClass("create")).toBe true
 
   describe 'and the button is disabled', ->
     beforeEach ->
