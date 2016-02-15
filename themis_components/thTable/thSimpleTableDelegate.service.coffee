@@ -26,6 +26,15 @@ angular.module 'ThemisComponents'
         </thead>
       """
 
+    generateColTemplate = ->
+      hasSetWidth = (headers.filter (header) -> header.width?).length > 0
+      return "" unless hasSetWidth
+      return headers
+        .map (header) ->
+          width = if header.width then "style='width: #{header.width}'" else ""
+          """<col #{width}>"""
+        .join ''
+
     generateBodyTemplate = (rows) ->
       numColumns = childrenArray(rows['cells']).length
       cellsRow = generateCellsRowTemplate rows['cells'], rows['actions']?
@@ -154,10 +163,12 @@ angular.module 'ThemisComponents'
         thead = generateHeadersTemplate()
         tbody = generateBodyTemplate rows
         pagination = generatePaginationTemplate()
+        cols = generateColTemplate()
         return """
           <div ng-class="{'th-table-loading': thTable.delegate.isLoading(),
                           'th-table-blank': thTable.delegate.getData().length === 0}">
             <table class="th-table">
+              #{cols}
               #{thead}
               #{tbody}
             </table>

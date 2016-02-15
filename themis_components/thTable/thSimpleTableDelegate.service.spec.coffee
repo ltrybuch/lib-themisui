@@ -42,6 +42,27 @@ describe 'ThemisComponents: Service: thSimpleTableDelegate', ->
     expect(node.getElementsByTagName('thead').length).toBe 1
     expect(node.getElementsByClassName('th-table-sort-icon').length).toBe 1
 
+  it 'generates <col> elements', ->
+    fetchData = -> return
+    headers = [
+      TableHeader {name: "First", width: '50px'}
+      TableHeader {name: "second"}
+      TableHeader {name: "First", width: '25%'}
+    ]
+    cellsTemplate = """
+      <th-table-row type="cells"></th-table-row>
+    """
+    cells = createDOMElement cellsTemplate
+    rows = {cells}
+    delegate = SimpleTableDelegate {headers, fetchData}
+    template = delegate.generateTableTemplate rows
+    node = createDOMElement template
+    cols = node.getElementsByTagName('col')
+    expect(cols[0].style.width).toEqual '50px'
+    expect(cols[1].style.width).toEqual ''
+    expect(cols[2].style.width).toEqual '25%'
+    expect(cols.length).toBe 3
+
   it 'generates cells rows', ->
     fetchData = -> return
     cellsTemplate = """

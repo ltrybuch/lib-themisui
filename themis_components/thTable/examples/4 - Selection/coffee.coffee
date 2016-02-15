@@ -26,6 +26,7 @@ angular.module 'thDemo', ['ThemisComponents']
       headers: [
         TableHeader
           name: ''
+          width: "75px"
 
         TableHeader
           name: 'First Name'
