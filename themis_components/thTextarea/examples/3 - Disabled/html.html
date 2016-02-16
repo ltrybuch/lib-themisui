@@ -1,0 +1,16 @@
+<html ng-app="thDemo">
+  <body ng-init="disabled = true">
+    <div class="th-example-width-400">
+      <th-textarea
+        class="th-example-height-100"
+        placeholder="Tell us what you think.."
+        ng-disabled="disabled"
+        >
+    </th-textarea>
+      <br>
+      <th-switch ng-model="disabled" with-label="Toggle disabled">
+      </th-switch>
+      <p>Disabled: <code>{{disabled}}</code></p>
+    </div>
+  </body>
+</html>
