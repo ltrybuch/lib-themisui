@@ -1,30 +1,28 @@
 context = describe
 describe "ThemisComponents: Directive: thAlertAnchor", ->
-  directive = ctrl = scope = element = AlertManager = null
+  directive = ctrl = scope = element = AlertManager = $sce = null
 
-  beforeEach inject ($compile, $rootScope, _AlertManager_) ->
+  beforeEach inject (_AlertManager_, _$sce_) ->
     AlertManager = _AlertManager_
+    $sce = _$sce_
     element = """<th-alert-anchor></th-alert-anchor>"""
     {scope} = compileDirective(element)
 
   describe "load message data", ->
     it 'should load the success data', ->
       AlertManager.showSuccess "Risus Lorem"
-      expect(scope.alertAnchor.alertMessage).toEqual
-        message: 'Risus Lorem'
-        type: 'success'
+      expect($sce.getTrustedHtml(AlertManager.alertMessage.message)).toEqual 'Risus Lorem'
+      expect(AlertManager.alertMessage.type).toEqual 'success'
 
     it 'should load the error data', ->
       AlertManager.showError "Sit Ipsum"
-      expect(scope.alertAnchor.alertMessage).toEqual
-        message: 'Sit Ipsum'
-        type: 'error'
+      expect($sce.getTrustedHtml(AlertManager.alertMessage.message)).toEqual 'Sit Ipsum'
+      expect(AlertManager.alertMessage.type).toEqual 'error'
 
     it 'should load the warning data', ->
-      AlertManager.showWarning "Vestibulum Ullamcorper"
-      expect(scope.alertAnchor.alertMessage).toEqual
-        message: 'Vestibulum Ullamcorper'
-        type: 'warning'
+      AlertManager.showWarning "Quam Tellus"
+      expect($sce.getTrustedHtml(AlertManager.alertMessage.message)).toEqual 'Quam Tellus'
+      expect(AlertManager.alertMessage.type).toEqual 'warning'
 
   describe "dismiss", ->
     it 'clears the message', ->

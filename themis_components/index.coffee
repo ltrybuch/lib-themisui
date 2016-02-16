@@ -4,6 +4,7 @@ require '../polyfills/'
 angular.module 'ThemisComponents', [
   require 'angular-animate'
   require 'angular-messages'
+  require 'angular-sanitize'
 ]
 
 require './thAlert/'

@@ -12,7 +12,9 @@
   @include animated(300ms);
 
   &.ng-animate {
-    top: -54px;
+    &.ng-hide {
+      top: -54px;
+    }
   }
 
   &.th-alert-success {
@@ -38,14 +40,17 @@
   p {
     display: inline-block;
     width: calc(100% - 104px);
+
+    a {
+      color: #fff;
+    }
   }
 
   .fa {
     vertical-align: middle;
     font-size: 18px;
 
-    &.fa-check,
-    &.fa-warning {
+    &:not(.fa-times-circle) {
       color: #fff;
       text-align: center;
       width: 40px;
