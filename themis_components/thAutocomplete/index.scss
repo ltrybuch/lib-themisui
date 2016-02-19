@@ -1,20 +1,20 @@
 th-autocomplete {
   @import "../../node_modules/ui-select/dist/select";
-  
-  .ui-select-container {
 
+  .ui-select-container {
     // ui-select component uses bootstrap for styling. These are all rules
     // used by ui-select copied from bootstrap.
     .glyphicon {
       position: relative;
       top: 1px;
+
       display: inline-block;
+
       font-family: 'Glyphicons Halflings';
       font-style: normal;
       font-weight: normal;
-      line-height: 1;
-
       font-smoothing: antialiased;
+      line-height: 1;
     }
 
     .glyphicon-remove:before {
@@ -38,15 +38,17 @@ th-autocomplete {
       display: block;
       width: 100%;
       padding: 1.2rem;
+
+      font: inherit;
+
       background: $off-white;
       border: 1px solid $grey-70;
       border-radius: 0.4rem;
-      font: inherit;
 
       &:focus {
-        outline: none;
         box-shadow: 0 0 0.5em rgba(97, 179, 227, .7);
         border: 1px solid #61b3e3;
+        outline: none;
       }
     }
 
@@ -56,14 +58,14 @@ th-autocomplete {
     }
 
     .btn-default-focus {
-      outline: none;
       box-shadow: none;
       border: none;
+      outline: none;
 
       span.ui-select-toggle {
-        outline: none;
         box-shadow: 0 0 0.5em rgba(97, 179, 227, .7);
         border: 1px solid #61b3e3;
+        outline: none;
       }
     }
 
@@ -78,8 +80,8 @@ th-autocomplete {
     .btn-link.active,
     .btn-link[disabled],
     fieldset[disabled] .btn-link {
-      background-color: transparent;
       box-shadow: none;
+      background-color: transparent;
     }
 
     .btn-link,
@@ -102,7 +104,9 @@ th-autocomplete {
       width: 0;
       height: 0;
       margin-left: 2px;
+      
       vertical-align: middle;
+
       border-top: 4px dashed;
       border-top: 4px solid \9;
       border-right: 4px solid transparent;
@@ -119,20 +123,23 @@ th-autocomplete {
       top: 100%;
       left: 0;
       z-index: 1000;
+
       display: none;
       float: left;
       min-width: 160px;
       padding: 5px 0;
       margin: 2px 0 0;
+
       font-size: 14px;
       text-align: left;
-      list-style: none;
+
       background-color: #fff;
       background-clip: padding-box;
       border: 1px solid #ccc;
       border: 1px solid rgba(0, 0, 0, .15);
       border-radius: 4px;
       box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+      list-style: none;
     }
 
     .dropdown-menu .divider {
@@ -149,6 +156,7 @@ th-autocomplete {
     .dropdown-header {
       display: block;
       padding: 3px 20px;
+
       font-size: 12px;
       line-height: 1.42857143;
       color: #777;
@@ -186,8 +194,8 @@ th-autocomplete {
     }
     
     input {
-      background: $off-white;
       font-size: inherit;
+      background: $off-white;
     }
   }
 }
