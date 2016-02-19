@@ -24,10 +24,22 @@ window.compileDirective = (template, scopeAdditions) ->
   scope.$digest()
   return element: jQuery(compiledElement), scope: scope
 
-
 # Creates a raw DOM element from a string template.
 # Only works for templates with a single root node.
 window.createDOMElement = (template) ->
   div = document.createElement 'div'
   div.innerHTML = template
   return div.firstChild
+
+# .click() on a DOM node is not standard in PhantomJS v1.9.19
+# You need to create an event and dispatch it.
+# http://stackoverflow.com/a/17789929
+if /PhantomJS/.test(window.navigator.userAgent)
+  if !HTMLElement::click
+    HTMLElement::click = ->
+      ev = document.createEvent('MouseEvent')
+      ev.initMouseEvent(
+        'click', true, true, window, null, 0, 0, 0, 0,
+        false, false, false, false, 0, null
+      )
+      @dispatchEvent ev

@@ -3,7 +3,7 @@ describe "ThemisComponents: Directive: thTable", ->
   SimpleTableDelegate = element = null
 
   beforeEach ->
-    module 'ThemisComponents'
+    angular.mock.module 'ThemisComponents'
 
     inject (_SimpleTableDelegate_) ->
       SimpleTableDelegate = _SimpleTableDelegate_

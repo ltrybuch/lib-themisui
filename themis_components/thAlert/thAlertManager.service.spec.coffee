@@ -3,7 +3,7 @@ describe 'ThemisComponents: Service: thAlertManager', ->
   AlertManager = $sce = $timeout = null
 
   beforeEach ->
-    module 'ThemisComponents'
+    angular.mock.module 'ThemisComponents'
 
     inject (_AlertManager_, _$sce_, _$timeout_) ->
       AlertManager = _AlertManager_

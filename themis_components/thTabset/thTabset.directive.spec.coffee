@@ -22,7 +22,7 @@ describe 'ThemisComponents: Directive: thTabset', ->
 
     return element
 
-  beforeEach module 'ThemisComponents'
+  beforeEach angular.mock.module 'ThemisComponents'
 
   beforeEach inject ($injector) ->
     scope = $injector.get('$rootScope').$new()
