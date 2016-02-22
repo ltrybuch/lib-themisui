@@ -22,6 +22,7 @@ window.compileDirective = (template, scopeAdditions) ->
   wrappedTemplate = "<html ng-app>#{template}</html>"
   compiledElement = compile(wrappedTemplate)(scope)
   scope.$digest()
+  debugger
   return element: jQuery(compiledElement), scope: scope
 
 # Creates a raw DOM element from a string template.
