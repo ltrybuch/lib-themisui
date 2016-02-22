@@ -10,7 +10,7 @@ describe 'ThemisComponents: Directive: thRadioGroup', ->
   click.initEvent('click')
 
   beforeEach ->
-    module 'ThemisComponents'
+    angular.mock.module 'ThemisComponents'
 
   queryRadioButtonSelector = (position) ->
     selector = '.th-radio-button'

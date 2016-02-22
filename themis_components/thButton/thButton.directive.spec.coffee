@@ -14,7 +14,7 @@ describe 'ThemisComponents: Directive: thButton', ->
     return element
 
   beforeEach ->
-    module 'ThemisComponents'
+    angular.mock.module 'ThemisComponents'
 
   beforeEach ->
     inject ($rootScope, $compile) ->

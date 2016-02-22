@@ -7,6 +7,13 @@ angular.module('ThemisComponents')
       element.wrap '<label class="th-label">'
       label = element.parent()
 
+      adjustMarginForRadioInputs = (element) ->
+        # Reduce margin-bottom for radio button groups.
+        isThRadio = element.classList.contains "th-radio-button"
+        isRadioInput = element.type is "radio"
+        className = "radio-label" if isThRadio or isRadioInput
+        label.addClass className
+
       findInlineInputElement = (themisComponents, htmlComponents) ->
         # find themis ui components by class name
         findByClassName = (className) ->
@@ -34,14 +41,22 @@ angular.module('ThemisComponents')
         ["radio", "checkbox"]
       )
 
-      # if element is deemed 'inline' the append the label else prepend the label
+      # if element is deemed 'inline' then append the label else prepend the label
       if inlineElement.el
-        textSpan = angular.element "<span class='inline label-text'>#{attrs.withLabel}</span>"
-        label.append textSpan
+        adjustMarginForRadioInputs inlineElement.el
 
-        # if element is not a native input we need to extend the click over to
-        # our styled faux input
-        textSpan.on "click", ->
-          element[0].click() if inlineElement.type == "themis"
+        label.append "<span class='inline label-text'>#{attrs.withLabel}</span>"
       else
         label.prepend "<div class='label-text'>#{attrs.withLabel}</div>"
+
+      element.on "click", (event) ->
+        # If clicking on input element stop propagation to label.
+        event.stopPropagation()
+        # Allow underlying input element to handle click event.
+        event.preventDefault() if inlineElement.type is "themis"
+
+      label.on "click", (event) ->
+        if inlineElement.type is "themis"
+          event.preventDefault()
+          # Pass the click event to the th-component.
+          element[0].click()

@@ -14,7 +14,7 @@ describe 'ThemisComponents: Directive: thLazy', ->
     return element
 
   beforeEach ->
-    module 'ThemisComponents'
+    angular.mock.module 'ThemisComponents'
 
   beforeEach inject ($injector) ->
     httpBackend = $injector.get '$httpBackend'
