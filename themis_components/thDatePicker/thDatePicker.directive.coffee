@@ -9,12 +9,12 @@ angular.module('ThemisComponents')
       dateFormat: "@"
     bindToController: true
     controllerAs: 'datepicker'
-    controller: ($element, $scope, $filter, $timeout) ->
+    controller: ($element, $scope, $filter) ->
       @dateFormat ?= 'YYYY-MM-DD'
       @date ?= moment()
       @inputDate = ""
       @unregisterDateWatcher = null
-      
+
       $scope.$watch 'datepicker.inputDate', =>
         parsedDate = moment(@inputDate, @dateFormat)
         if parsedDate.isValid()
@@ -22,10 +22,10 @@ angular.module('ThemisComponents')
 
       @registerDateWatcher = =>
         @unregisterDateWatcher() if @unregisterDateWatcher?
-        @unregisterDateWatcher = $scope.$watch 'datepicker.date', =>
-          @setInputDate()
+        @unregisterDateWatcher = $scope.$watch 'datepicker.date', ->
+          setInputDate()
 
-      @setInputDate = =>
+      setInputDate = =>
         @inputDate = @date.format(@dateFormat)
 
       @registerDateWatcher()
@@ -34,7 +34,7 @@ angular.module('ThemisComponents')
       
       dateInputField.on 'blur', => $scope.$apply =>
         @registerDateWatcher()
-        @setInputDate()
+        setInputDate()
 
       dateInputField.on 'focus', => $scope.$apply =>
         @unregisterDateWatcher()

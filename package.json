@@ -8,7 +8,8 @@
   "contributors": [
     "Sean Healy <sean.healy@clio.com>",
     "Terry White <terry.white@clio.com>",
-    "Jef Curtis <jef.curtis@clio.com>"
+    "Jef Curtis <jef.curtis@clio.com>",
+    "Jeff Marvin <jeff.marvin@clio.com>"
   ],
   "main": "public/build/lib-themisui.js",
   "private": true,
@@ -19,7 +20,7 @@
   "dependencies": {
     "angular": "1.4.7",
     "angular-animate": "1.4.7",
-    "angular-datepicker": "github:g00fy-/angular-datepicker#41d949bf91f9049a8407c89be2c6d11e8a485ad3",
+    "angular-datepicker": "g00fy-/angular-datepicker#9842705e6dc90fd265e1a196ee444142ad99103c",
     "angular-messages": "^1.4.9",
     "angular-sanitize": "1.4.7",
     "body-parser": "^1.14.1",

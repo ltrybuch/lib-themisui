@@ -4,4 +4,11 @@
   placeholder="YYYY-MM-DD"
   icon="calendar">
 </th-input>
-<a th-popover="exampleTemplates/calendar.html" overflow="visible">Show Calendar</a>
+<div 
+  date-picker="datepicker.date"
+  watch-direct-changes
+  view="date"
+  min-view="date"
+  max-view="date"
+  >
+</div>
