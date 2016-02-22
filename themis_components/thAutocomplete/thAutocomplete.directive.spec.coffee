@@ -16,7 +16,7 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
   click.initEvent('click')
 
   beforeEach ->
-    module 'ThemisComponents'
+    angular.mock.module 'ThemisComponents'
 
     inject ($timeout) ->
       timeout = $timeout
