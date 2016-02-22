@@ -11,10 +11,7 @@ describe 'ThemisComponents: Directive: thContentHeader', ->
     angular.mock.module 'ThemisComponents'
 
   beforeEach ->
-    inject ($rootScope, $compile) ->
-      scope = $rootScope.$new()
-      element = $compile(template) scope
-      scope.$digest()
+    {element, scope} = compileDirective template
 
   it "has a title", ->
     expect(element.children("h1").hasClass("th-header-title")).toEqual(true)
