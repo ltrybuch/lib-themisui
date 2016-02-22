@@ -3,7 +3,7 @@ describe 'ThemisComponents: Service: thTableSort', ->
   TableSort = TableHeader = null
 
   beforeEach ->
-    module 'ThemisComponents'
+    angular.mock.module 'ThemisComponents'
 
     inject (_TableSort_, _TableHeader_) ->
       TableSort = _TableSort_

@@ -12,3 +12,12 @@ body {
   margin: 0;
   padding: 2rem;
 }
+
+// Convenient width & height classes for examples.
+@for $i from 1 through 11 {
+  .th-example-height-#{$i}00 { height: #{$i}00px; }
+}
+
+@for $i from 1 through 11 {
+  .th-example-width-#{$i}00 { width: #{$i}00px; }
+}

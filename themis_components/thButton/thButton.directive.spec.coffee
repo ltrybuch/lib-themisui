@@ -1,7 +1,10 @@
+context = describe
+
 describe 'ThemisComponents: Directive: thButton', ->
   element = compile = scope = null
 
-  validTemplate    = '<div th-button ng-click="action()">some text</div>'
+  validTemplate    = '<div th-button type="create" ng-click="action()">some text</div>'
+  templateWithHref = '<div th-button href="#" type="default">some text</div>'
   disabledTemplate = '<div th-button ng-click="action()" disabled>some text</div>'
   submitTemplate   = '<div th-button type="submit" text="submit text"></div>'
 
@@ -11,7 +14,7 @@ describe 'ThemisComponents: Directive: thButton', ->
     return element
 
   beforeEach ->
-    module 'ThemisComponents'
+    angular.mock.module 'ThemisComponents'
 
   beforeEach ->
     inject ($rootScope, $compile) ->
@@ -35,6 +38,9 @@ describe 'ThemisComponents: Directive: thButton', ->
   it 'replaces the directive element', ->
     expect(element.find('th-button').length).toEqual 0
 
+  it 'has class "create"', ->
+    expect(element.hasClass("create")).toBe true
+
   describe 'and the button is disabled', ->
     beforeEach ->
       element = compileDirective(disabledTemplate)
@@ -48,3 +54,13 @@ describe 'ThemisComponents: Directive: thButton', ->
 
     it 'has type of submit', ->
       expect(element.attr('type')).toBe 'submit'
+
+  context 'with href attribute', ->
+    beforeEach ->
+      element = compileDirective(templateWithHref)
+
+    it 'is an anchor tag', ->
+      expect(element[0].tagName).toEqual "A"
+
+    it 'has class "default"', ->
+      expect(element.hasClass("default")).toBe true

@@ -3,6 +3,7 @@ require '../polyfills/'
 
 angular.module 'ThemisComponents', [
   require 'angular-animate'
+  require 'angular-messages'
   require 'angular-sanitize'
   require './thAutocomplete/ui-select'
 ]
@@ -29,6 +30,7 @@ require './thSelect/'
 require './thSwitch/'
 require './thTable/'
 require './thTabset/'
+require './thTextarea/'
 require './thWithFocus/'
 require './thWithLabel/'
 

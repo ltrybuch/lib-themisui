@@ -39,9 +39,9 @@ module.exports = (config) ->
     preprocessors: {
       'themis_components/**/*.coffee': ['coffeelint']
       'themis_components/index.coffee': ['browserify']
-      'themis_components/**/*.mock.coffee': ['coffee']
-      'themis_components/**/*.spec.coffee': ['coffee']
-      'spec_helper/*.coffee': ['coffee']
+      'themis_components/**/*.mock.coffee': ['browserify']
+      'themis_components/**/*.spec.coffee': ['browserify']
+      'spec_helper/*.coffee': ['browserify']
     }
 
 
@@ -96,10 +96,6 @@ module.exports = (config) ->
         'coffeeify'
         'stringify'
         coverage
-          ignore: [
-            '**/*.mock.coffee'
-            '**/*.spec.coffee'
-          ]
       ]
 
     coverageReporter:

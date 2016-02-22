@@ -3,7 +3,7 @@ describe 'ThemisComponents: Directive: thCheckbox', ->
   validTemplate = '<div th-checkbox ng-model="checked" ng-change="callback()"></div>'
 
   beforeEach ->
-    module 'ThemisComponents'
+    angular.mock.module 'ThemisComponents'
 
   compileCheckboxDirective = (template, checked, callback) ->
     scopeAdditions =

@@ -1,16 +1,22 @@
 context = describe
+sharedTests = require './sharedTests'
 
 describe 'withLabel', ->
   element = null
 
+  createElement = ->
+    additions = {change: -> alert "Alerting!"}
+    compileDirective("""
+      <th-checkbox
+        with-label="label name"
+        ng-model="model"
+        ng-change="change()"
+        >
+      </th-checkbox>
+    """, additions)
+
   context "with th-checkbox", ->
-    beforeEach ->
-      element = compileDirective("""
-        <th-checkbox with-label="checkbox name"></th-checkbox>
-      """).element
+    sharedTests.testingInlineLabel createElement
 
-    it "appends inline label instead of prepends label", ->
-      expect(element.next().is("span.inline.label-text")).toBe true
-
-    it "adds 'with-label' value to label", ->
-      expect(element.next().text()).toMatch "checkbox name"
+    context "when clicking label with an ng-change attribute", ->
+      sharedTests.testingNgChange createElement

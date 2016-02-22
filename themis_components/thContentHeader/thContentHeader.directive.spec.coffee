@@ -1,14 +1,14 @@
 describe 'ThemisComponents: Directive: thContentHeader', ->
-  
+
   element = scope = null
   template = """
     <div th-content-header title="Page Title">
       <button name="thing"></button>
     </div>
   """
-  
+
   beforeEach ->
-    module 'ThemisComponents'
+    angular.mock.module 'ThemisComponents'
 
   beforeEach ->
     inject ($rootScope, $compile) ->

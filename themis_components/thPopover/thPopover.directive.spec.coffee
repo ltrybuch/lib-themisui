@@ -12,7 +12,7 @@ describe 'ThemisComponents: Directive: thPopover', ->
 
     return element
 
-  beforeEach module 'ThemisComponents'
+  beforeEach angular.mock.module 'ThemisComponents'
 
   beforeEach inject ($injector) ->
     httpBackend = $injector.get '$httpBackend'

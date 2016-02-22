@@ -1,14 +1,24 @@
 context = describe
+sharedTests = require './sharedTests'
 
 describe 'withLabel', ->
   element = null
 
+  compileElement = ->
+    scopeAdditions =
+      onChange: -> alert "Alerting!"
+      model: false
+    compileDirective("""
+      <th-switch
+        with-label="label name"
+        ng-model="model"
+        ng-change="onChange()"
+        >
+      </th-switch>
+    """, scopeAdditions)
+
   context "with th-switch", ->
-    beforeEach ->
-      element = compileDirective("""<th-switch with-label="switch name"></th-switch>""").element
+    sharedTests.testingInlineLabel compileElement
 
-    it "appends inline label instead of prepends label", ->
-      expect(element.next().is("span.inline.label-text")).toBe true
-
-    it "adds 'with-label' value to label", ->
-      expect(element.next().text()).toMatch "switch name"
+    context "when clicking label with an ng-change attribute", ->
+      sharedTests.testingNgChange compileElement

@@ -4,7 +4,7 @@ describe 'ThemisComponents: Service: thTablePagination', ->
   ellipsis = '…'
 
   beforeEach ->
-    module 'ThemisComponents'
+    angular.mock.module 'ThemisComponents'
 
     inject (_TablePagination_) ->
       TablePagination = _TablePagination_
