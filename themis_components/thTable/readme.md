@@ -268,6 +268,9 @@ header = TableHeader({name, sortField, sortActive, sortDirection})
 * `name` (optional, default value: `""`) is what will be displayed as a column
   title in the table.
 
+* `width` (optional, default value: `""`) set the width of the related table column.
+Can either be `%` or `px`. ex: `"50px"`
+
 * `sortField` (optional) is the field in the data objects that sorting will be
   made by. Setting this field enables sorting for that specific column. It can
   have the following values:
@@ -294,6 +297,7 @@ The TableHeader objects expose the following properties and methods:
 
 * `name`
 * `sortField`
+* `width`
 * `isSortActive()`
 * `getSortDirection()`
 
