@@ -3,31 +3,33 @@ moment = require("moment")
 describe 'ThemisComponents: Directive: thDatePicker', ->
   element = scope = compile = validTemplate = null
   testDate = moment("2014-02-16")
-  # todayDate = moment()
-  # noDate = ""
+  todayDate = moment()
+  noDate = ''
+  defaultDateFormat = 'YYYY-MM-DD'
 
-  beforeEach ->
-    scopeAdditions = {date: testDate}
+  setupDatePicker = (date, dateFormat = '') ->
+    scopeAdditions = {}
+    scopeAdditions.date = date
+    scopeAdditions.dateFormat = dateFormat
     validTemplate = """
-      <th-date-picker ng-model="date"></th-date-picker>
+      <th-date-picker ng-model="date" date-format="dateFormat"></th-date-picker>
     """
     {element, scope} = compileDirective validTemplate, scopeAdditions
 
-  fit "has a name", ->
-    # debugger
-    expect(element.find("input.th-input").val()).toBe testDate.format('YYYY-MM-DD')
+  it "creates a default date of today when date is empty string", ->
+    setupDatePicker(noDate)
+    expect(element.find("input.th-input").val()).toBe todayDate.format(defaultDateFormat)
 
-  # it "creates a default date of today if no date is defined", ->
-  #   expect(element.find("input.th-input").val()).toBe todayDate
+  it "creates a date out of a test date with a default format #{defaultDateFormat}", ->
+    setupDatePicker(testDate)
+    expect(element.find("input.th-input").val()).toBe testDate.format(defaultDateFormat)
 
-  # it "parses a valid string into a date according to a default format", ->
-  #   expect(element.find("input").val()).toEqual scope.date
-
-  # it "parses a valid date into three formats", ->
-  #   scopeAdditions.dateFormat = 'YYYY-MM-DD'
-
-  #   validTemplate = """
-  #       <th-date-picker ng-model="date" date-format="dateFormat"></th-date-picker>
-  #     """
-
-  # xit "parses the text input into a valid date onBlur", ->
+  dateFormat = [
+    'YYYY-MM-DD'
+    'MM/DD/YYYY'
+    'DD/MM/YYYY'
+  ]
+  dateFormat.forEach (format) ->
+    it "parses a valid date into format (#{format})", ->
+      setupDatePicker(testDate, format)
+      expect(element.find("input.th-input").val()).toBe testDate.format(format)
