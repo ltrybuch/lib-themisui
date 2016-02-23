@@ -1,7 +1,7 @@
 moment = require("moment")
 
 describe 'ThemisComponents: Directive: thDatePicker', ->
-  element = scope = compile = validTemplate = null
+  element = scope = validTemplate = null
   testDate = moment("2014-02-16")
   todayDate = moment()
   noDate = ''
