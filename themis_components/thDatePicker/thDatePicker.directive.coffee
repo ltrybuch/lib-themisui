@@ -6,18 +6,28 @@ angular.module('ThemisComponents')
     template: require "./thDatePicker.template.html"
     scope:
       date: "=ngModel"
-      dateFormat: "="
+      dateFormat: "@"
     bindToController: true
     controllerAs: 'datepicker'
     controller: ($element, $scope, $filter) ->
-     
-      validDateFormats = [
-        'YYYY-MM-DD'
-        'MM/DD/YYYY'
-        'DD/MM/YYYY'
-      ]
-      @dateFormat = validDateFormats[0] if @dateFormat not in validDateFormats
-      
+      @registerDateWatcher = =>
+        @unregisterDateWatcher() if @unregisterDateWatcher?
+        @unregisterDateWatcher = $scope.$watch 'datepicker.date', ->
+          setInputDate()
+
+      setInputDate = =>
+        initDateFormat()
+        @inputDate = @date.format(@dateFormat)
+
+      initDateFormat = =>
+        validDateFormats = [
+          'YYYY-MM-DD'
+          'MM/DD/YYYY'
+          'DD/MM/YYYY'
+        ]
+        @dateFormat = validDateFormats[0] unless @dateFormat in validDateFormats
+
+      initDateFormat()
       @date = moment() if !@date
       @inputDate = ""
       @unregisterDateWatcher = null
@@ -26,14 +36,6 @@ angular.module('ThemisComponents')
         parsedDate = moment(@inputDate, @dateFormat)
         if parsedDate.isValid()
           @date = parsedDate
-
-      @registerDateWatcher = =>
-        @unregisterDateWatcher() if @unregisterDateWatcher?
-        @unregisterDateWatcher = $scope.$watch 'datepicker.date', ->
-          setInputDate()
-
-      setInputDate = =>
-        @inputDate = @date.format(@dateFormat)
 
       @registerDateWatcher()
 

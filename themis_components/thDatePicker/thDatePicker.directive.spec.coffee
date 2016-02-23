@@ -12,7 +12,7 @@ describe 'ThemisComponents: Directive: thDatePicker', ->
     scopeAdditions.date = date
     scopeAdditions.dateFormat = dateFormat
     validTemplate = """
-      <th-date-picker ng-model="date" date-format="dateFormat"></th-date-picker>
+      <th-date-picker ng-model="date" date-format="{{dateFormat}}"></th-date-picker>
     """
     {element, scope} = compileDirective validTemplate, scopeAdditions
 
