@@ -5,6 +5,7 @@ TableHeader = (options = {}) ->
   {
     name = ''
     sortField
+    width
     sortActive = false
     sortDirection = "ascending"
     align = "left"
@@ -24,6 +25,7 @@ TableHeader = (options = {}) ->
   return Object.freeze {
     name
     sortField
+    width
 
     cssClasses: ->
       classes = []
