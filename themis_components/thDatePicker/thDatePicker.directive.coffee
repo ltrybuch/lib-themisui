@@ -1,51 +1,51 @@
-moment = require("moment")
+moment = require "moment"
 
 angular.module('ThemisComponents')
   .directive 'thDatePicker', ->
     restrict: "E"
     template: require "./thDatePicker.template.html"
     scope:
-      date: "=ngModel"
+      ngModel: "="
       dateFormat: "@"
     bindToController: true
-    controllerAs: 'datepicker'
-    controller: ($element, $scope, $filter) ->
-      @registerDateWatcher = =>
-        @unregisterDateWatcher() if @unregisterDateWatcher?
-        @unregisterDateWatcher = $scope.$watch 'datepicker.date', ->
-          setInputDate()
+    controllerAs: 'controller'
+    controller: ($element, $scope) ->
+      #set our model
+      @ngModel = moment() unless @ngModel.isValid()
 
-      setInputDate = =>
-        initDateFormat()
-        @inputDate = @date.format(@dateFormat)
+      # initialize our format
+      validDateFormats = ['YYYY-MM-DD', 'MM/DD/YYYY', 'DD/MM/YYYY']
+      @dateFormat = validDateFormats[0] unless @dateFormat in validDateFormats
 
-      initDateFormat = =>
-        validDateFormats = [
-          'YYYY-MM-DD'
-          'MM/DD/YYYY'
-          'DD/MM/YYYY'
-        ]
+      #initialize internal date
+      @internalDate = ""
+
+      setInternalDate = =>
+        validDateFormats = ['YYYY-MM-DD', 'MM/DD/YYYY', 'DD/MM/YYYY']
         @dateFormat = validDateFormats[0] unless @dateFormat in validDateFormats
+        @internalDate = @ngModel.format(@dateFormat)
 
-      initDateFormat()
-      @date = moment() if !@date
-      @inputDate = ""
-      @unregisterDateWatcher = null
+      # @unregisterModelWatcher = null
 
-      $scope.$watch 'datepicker.inputDate', =>
-        parsedDate = moment(@inputDate, @dateFormat)
-        if parsedDate.isValid()
-          @date = parsedDate
+      @registerModelWatcher = =>
+        @unregisterModelWatcher() if @unregisterModelWatcher?
+        @unregisterModelWatcher = $scope.$watch 'controller.ngModel', ->
+          setInternalDate()
 
-      @registerDateWatcher()
+      $scope.$watch 'controller.internalDate', =>
+        parsedDate = moment @internalDate, @dateFormat
+        @ngModel = parsedDate if parsedDate.isValid()
 
+      @registerModelWatcher()
+
+      # on blur on input we'll set the model
       dateInputField = $element.find('input')
-      
-      dateInputField.on 'blur', => $scope.$apply =>
-        @registerDateWatcher()
-        setInputDate()
+      dateInputField.on 'blur', =>
+        @registerModelWatcher()
+        setInternalDate()
 
-      dateInputField.on 'focus', => $scope.$apply =>
-        @unregisterDateWatcher()
+      # on focus on input we'll unregister our listener
+      dateInputField.on 'focus', =>
+        @unregisterModelWatcher()
 
       return

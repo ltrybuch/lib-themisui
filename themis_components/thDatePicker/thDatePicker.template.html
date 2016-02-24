@@ -1,13 +1,13 @@
 <span class="th-date-picker">
   <div th-input
-    ng-model="datepicker.inputDate"
+    ng-model="controller.internalDate"
     type="text"
     placeholder="YYYY-MM-DD"
     icon="calendar"
     class="th-input"
     ></div>
   <div 
-    date-picker="datepicker.date"
+    date-picker="controller.ngModel"
     watch-direct-changes
     view="date"
     min-view="date"
