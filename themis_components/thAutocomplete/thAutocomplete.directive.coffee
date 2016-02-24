@@ -33,7 +33,7 @@ angular.module 'ThemisComponents'
 
       selectChoicesElement = templateElement.find 'ui-select-choices'
       selectChoicesElement.attr(
-        'repeat',
+        'repeat'
         repeatExpression
       )
 

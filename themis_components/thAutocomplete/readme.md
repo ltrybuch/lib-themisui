@@ -19,14 +19,18 @@ Autocomplete should be used when the list of options can be intuited by the user
 The `th-autocomplete` accepts the following parameters:
 
 * `ng-model` is updated to `value` when the user selects an option from the component.
+* `placeholder` is the default text that is displayed prior to the user selecting an option.
 * `delegate` is a **required** field that represents a dictionary of arguments passed to the component.
-  * `fetchData` (**required**)
+  * `fetchData({searchString}, updateData)` (**required**)
     * represents a callback that accepts a search term reflecting the user's current input and a callback that is used to update the list of options that match the user's current input
+      * `searchString` is the string used to search against for matches.
+      * `updateData(data)` is a function that accepts an array of matches. Once your query returns, call `updateData` where `data` represents your matched array.
+
+
   * `displayField` (*optional*)
     * the item field to display (defaults to `name`)
   * `trackField` (*optional*)
     * defines the unique key to use for indexing list items internally
-* `placeholder` is the default text that is displayed prior to the user selecting an option.
 
 ### Markup
 

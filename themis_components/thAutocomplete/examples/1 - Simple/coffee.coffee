@@ -4,7 +4,7 @@ angular.module('thDemo', ['ThemisComponents'])
 
     @delegate =
       displayField: 'full_name'
-      fetchData: (searchString, updateData) ->
+      fetchData: ({searchString}, updateData) ->
         if searchString?.length > 0
           $http
             method: 'GET'
