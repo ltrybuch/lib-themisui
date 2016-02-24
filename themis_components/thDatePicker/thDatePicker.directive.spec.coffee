@@ -8,9 +8,7 @@ describe 'ThemisComponents: Directive: thDatePicker', ->
   defaultDateFormat = 'YYYY-MM-DD'
 
   setupDatePicker = (date, dateFormat = '') ->
-    scopeAdditions = {}
-    scopeAdditions.date = date
-    scopeAdditions.dateFormat = dateFormat
+    scopeAdditions = {date: date, dateFormat: dateFormat}
     validTemplate = """
       <th-date-picker ng-model="date" date-format="{{dateFormat}}"></th-date-picker>
     """

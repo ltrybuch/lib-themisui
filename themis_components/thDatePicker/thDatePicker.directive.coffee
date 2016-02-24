@@ -21,11 +21,11 @@ angular.module('ThemisComponents')
       @internalDate = ""
 
       setInternalDate = =>
+        ## DODGY DRY
         validDateFormats = ['YYYY-MM-DD', 'MM/DD/YYYY', 'DD/MM/YYYY']
         @dateFormat = validDateFormats[0] unless @dateFormat in validDateFormats
+        ##########
         @internalDate = @ngModel.format(@dateFormat)
-
-      # @unregisterModelWatcher = null
 
       @registerModelWatcher = =>
         @unregisterModelWatcher() if @unregisterModelWatcher?
