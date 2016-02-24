@@ -12,9 +12,6 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
     {id: 2, text: 'a2', name: 'test2'}
   ]
 
-  click = document.createEvent('MouseEvent')
-  click.initEvent('click')
-
   beforeEach ->
     angular.mock.module 'ThemisComponents'
 
