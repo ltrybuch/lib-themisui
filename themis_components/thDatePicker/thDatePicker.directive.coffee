@@ -15,8 +15,8 @@ angular.module('ThemisComponents')
 
       # initialize our format
       validDateFormats = ['YYYY-MM-DD', 'MM/DD/YYYY', 'DD/MM/YYYY']
-      if @dateFormat in validDateFormats 
-        @internalFormat = @dateFormat 
+      if @dateFormat in validDateFormats
+        @internalFormat = @dateFormat
       else @internalFormat = validDateFormats[0]
 
       #initialize internal date
