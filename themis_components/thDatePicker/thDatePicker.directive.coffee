@@ -15,17 +15,15 @@ angular.module('ThemisComponents')
 
       # initialize our format
       validDateFormats = ['YYYY-MM-DD', 'MM/DD/YYYY', 'DD/MM/YYYY']
-      @dateFormat = validDateFormats[0] unless @dateFormat in validDateFormats
+      if @dateFormat in validDateFormats 
+        @internalFormat = @dateFormat 
+      else @internalFormat = validDateFormats[0]
 
       #initialize internal date
       @internalDate = ""
 
       setInternalDate = =>
-        ## DODGY DRY
-        validDateFormats = ['YYYY-MM-DD', 'MM/DD/YYYY', 'DD/MM/YYYY']
-        @dateFormat = validDateFormats[0] unless @dateFormat in validDateFormats
-        ##########
-        @internalDate = @ngModel.format(@dateFormat)
+        @internalDate = @ngModel.format(@internalFormat)
 
       @registerModelWatcher = =>
         @unregisterModelWatcher() if @unregisterModelWatcher?
@@ -33,7 +31,7 @@ angular.module('ThemisComponents')
           setInternalDate()
 
       $scope.$watch 'controller.internalDate', =>
-        parsedDate = moment @internalDate, @dateFormat
+        parsedDate = moment @internalDate, @internalFormat
         @ngModel = parsedDate if parsedDate.isValid()
 
       @registerModelWatcher()
