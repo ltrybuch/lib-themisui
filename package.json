@@ -20,7 +20,7 @@
   "dependencies": {
     "angular": "1.4.7",
     "angular-animate": "1.4.7",
-    "angular-datepicker": "g00fy-/angular-datepicker#9842705e6dc90fd265e1a196ee444142ad99103c",
+    "angular-datepicker": "g00fy-/angular-datepicker#d868a587f2fd9f69af8e46de3a3fa9f13776d346",
     "angular-messages": "^1.4.9",
     "angular-sanitize": "1.4.7",
     "body-parser": "^1.14.1",
