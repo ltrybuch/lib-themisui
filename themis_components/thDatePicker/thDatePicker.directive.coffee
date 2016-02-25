@@ -40,8 +40,8 @@ angular.module('ThemisComponents')
       # on blur on input we'll set the model
       dateInputField = $element.find('input')
       dateInputField.on 'blur', => $scope.$apply =>
-          @registerModelWatcher()
-          setInternalDate()
+        @registerModelWatcher()
+        setInternalDate()
 
       # on focus on input we'll unregister our listener
       dateInputField.on 'focus', => $scope.$apply =>
