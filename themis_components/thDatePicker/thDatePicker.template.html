@@ -1,9 +1,11 @@
 <span class="th-date-picker">
   <div th-input
-    ng-model="controller.internalDate"
+    ng-model="controller.viewDate"
     type="text"
     placeholder="YYYY-MM-DD"
     icon="calendar"
+    ng-required="controller.ngRequired"
+    ng-disabled="controller.ngDisabled"
     ></div>
   <div 
     date-picker="controller.ngModel"

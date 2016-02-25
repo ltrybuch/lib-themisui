@@ -1,0 +1,30 @@
+<html ng-app="thDemo">
+  <style type="text/css">
+    .required { color: red; margin-top: -20px; }
+  </style>
+  <body ng-controller="DemoCtrl as demo" class="th-example-height-400">
+    <!-- This script inclusion is only for demo purposes. -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+
+    <form name="example_form" novalidate>
+      <th-date-picker 
+        name="dueDate"
+        ng-required="demo.required"
+        ng-model="demo.dueDate">
+      </th-date-picker>
+      <div class="required" ng-show="example_form.$submitted || example_form.dueDate.$touched">
+        <div style="border:1px;align-right" ng-show="example_form.dueDate.$error.required">
+          Don't forget to enter a Due Date
+        </div>
+      </div>
+      <br>
+      <th-button type="submit" ng-click="demo.submit(example_form)">Submit</th-button>
+      <br>
+      <br>
+      <div ng-show="example_form.$submitted">
+        Data submitted: <pre>{{demo.submission | json}}</pre>
+      </div>
+      <pre>example_form | json</pre>
+    </form>
+  </body>
+</html>

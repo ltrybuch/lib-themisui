@@ -7,31 +7,34 @@ angular.module('ThemisComponents')
     scope:
       ngModel: "="
       dateFormat: "@"
+      ngRequired: "="
+      ngDisabled: "="
     bindToController: true
     controllerAs: 'controller'
-    controller: ($element, $scope) ->
+    controller: ($element, $scope, $attrs) ->
+      
       #set our model
       @ngModel = moment() unless @ngModel.isValid()
 
       # initialize our format
       validDateFormats = ['YYYY-MM-DD', 'MM/DD/YYYY', 'DD/MM/YYYY']
       if @dateFormat in validDateFormats
-        @internalFormat = @dateFormat
-      else @internalFormat = validDateFormats[0]
+        @viewFormat = @dateFormat
+      else @viewFormat = validDateFormats[0]
 
-      #initialize internal date
-      @internalDate = ""
+      #initialize view date
+      @viewDate = ""
 
       setInternalDate = =>
-        @internalDate = @ngModel.format(@internalFormat)
+        @viewDate = @ngModel.format(@viewFormat)
 
       @registerModelWatcher = =>
         @unregisterModelWatcher() if @unregisterModelWatcher?
         @unregisterModelWatcher = $scope.$watch 'controller.ngModel', ->
           setInternalDate()
 
-      $scope.$watch 'controller.internalDate', =>
-        parsedDate = moment @internalDate, @internalFormat
+      $scope.$watch 'controller.viewDate', =>
+        parsedDate = moment @viewDate, @viewFormat
         @ngModel = parsedDate if parsedDate.isValid()
 
       @registerModelWatcher()
