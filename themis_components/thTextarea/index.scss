@@ -7,7 +7,7 @@ th-textarea {
 
   &.has-focus {
     box-shadow: 0 0 5px rgba(97, 179, 227, .7);
-    border-color: #61b3e3;
+    border-color: $focus-blue;
   }
 
   textarea {

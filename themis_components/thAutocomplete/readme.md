@@ -19,17 +19,25 @@ Autocomplete should be used when the list of options can be intuited by the user
 The `th-autocomplete` accepts the following parameters:
 
 * `ng-model` is updated to `value` when the user selects an option from the component.
-* `placeholder` is the default text that is displayed prior to the user selecting an option.
-* `delegate` is a **required** field that represents a dictionary of arguments passed to the component.
-  * `fetchData({searchString}, updateData)` (**required**)
-    * represents a callback that accepts a search term reflecting the user's current input and a callback that is used to update the list of options that match the user's current input
-      * `searchString` is the string used to search against for matches.
-      * `updateData(data)` is a function that accepts an array of matches. Once your query returns, call `updateData` where `data` represents your matched array.
 
+* `placeholder` is the default text that is displayed prior to the user selecting an option.
+
+* `delegate` is a **required** field that represents a dictionary of arguments passed to the component.
+
+  * `fetchData({searchString}, updateData)` (**required**)
+
+    * represents a callback that accepts a search term reflecting the user's current input and a callback that is used to update the list of options that match the user's current input
+
+      * `searchString` is the string used to compare against for matches.
+
+      * `updateData(data)` is a function that accepts an array of matches. Once your query returns, call `updateData` with parameter `data` where `data` is an object of type `Array` and each element contains the fields referenced by `displayField` and `trackField` (defaults to `name` and `id` respectively, see below)
 
   * `displayField` (*optional*)
+
     * the item field to display (defaults to `name`)
+
   * `trackField` (*optional*)
+
     * defines the unique key to use for indexing list items internally
 
 ### Markup
@@ -47,7 +55,7 @@ The `th-autocomplete` accepts the following parameters:
 delegate =
   displayField: 'name'
   trackField: 'id'
-  fetchData: (searchString, updateData) ->
+  fetchData: ({searchString}, updateData) ->
     if searchString?.length
       $http
         method: 'GET'

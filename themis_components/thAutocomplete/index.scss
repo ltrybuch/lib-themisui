@@ -47,7 +47,7 @@ th-autocomplete {
 
       &:focus {
         box-shadow: 0 0 5px rgba(97, 179, 227, .7);
-        border: $border-focus;
+        border: 1px solid $focus-blue;
         outline: none;
       }
     }
@@ -64,7 +64,7 @@ th-autocomplete {
 
       span.ui-select-toggle {
         box-shadow: 0 0 5px rgba(97, 179, 227, .7);
-        border: $border-focus;
+        border: 1px solid $focus-blue;
         outline: none;
       }
     }
