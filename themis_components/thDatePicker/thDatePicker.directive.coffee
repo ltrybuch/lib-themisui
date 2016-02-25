@@ -7,8 +7,6 @@ angular.module('ThemisComponents')
     scope:
       ngModel: "="
       dateFormat: "@"
-      ngRequired: "="
-      ngDisabled: "="
     bindToController: true
     controllerAs: 'controller'
     controller: ($element, $scope, $attrs) ->
