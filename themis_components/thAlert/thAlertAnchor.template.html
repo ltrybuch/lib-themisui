@@ -2,19 +2,21 @@
   ng-show="alertAnchor.alertMessage.message"
   ng-class="'th-alert th-alert-' + alertAnchor.alertMessage.type"
   >
-
   <i
-    class="fa"
+    class="fa alert-icon"
     ng-class="{ 'fa-check': alertAnchor.alertMessage.type == 'success',
                 'fa-warning': alertAnchor.alertMessage.type == 'error' ||
                               alertAnchor.alertMessage.type == 'warning' }"
     >
   </i>
-
   <p
     ng-bind-html="alertAnchor.alertMessage.message"
     >
     {{alertAnchor.alertMessage.message}}
   </p>
-  <i class="fa fa-times-circle" ng-click="alertAnchor.dismiss()"></i>
+  <i
+    class="fa fa-times-circle dismiss-icon"
+    ng-click="alertAnchor.dismiss()"
+    >
+  </i>
 </div>
