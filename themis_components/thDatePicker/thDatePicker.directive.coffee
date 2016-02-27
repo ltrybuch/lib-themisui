@@ -9,30 +9,31 @@ angular.module('ThemisComponents')
       dateFormat: "@"
     bindToController: true
     controllerAs: 'controller'
-    controller: ($element, $scope, $attrs) ->
+    controller: ($element, $scope) ->
       
-      #set our model
+      # init date model to today or a valid moment
       @ngModel = moment() unless @ngModel.isValid()
 
-      # initialize our format
-      validDateFormats = ['YYYY-MM-DD', 'MM/DD/YYYY', 'DD/MM/YYYY']
-      if @dateFormat in validDateFormats
-        @viewFormat = @dateFormat
-      else @viewFormat = validDateFormats[0]
+      setDateFormat = =>
+        validDateFormats = ['YYYY-MM-DD', 'MM/DD/YYYY', 'DD/MM/YYYY']
+        defaultDateFormat = validDateFormats[0]
+        if @dateFormat in validDateFormats then @dateFormat else defaultDateFormat
 
-      #initialize view date
+      @dateFormat = setDateFormat()
+
+      # init input field date view
       @viewDate = ""
 
-      setInternalDate = =>
-        @viewDate = @ngModel.format(@viewFormat)
+      setViewDate = =>
+        @viewDate = @ngModel.format(@dateFormat)
 
       @registerModelWatcher = =>
         @unregisterModelWatcher() if @unregisterModelWatcher?
         @unregisterModelWatcher = $scope.$watch 'controller.ngModel', ->
-          setInternalDate()
+          setViewDate('model watch')
 
       $scope.$watch 'controller.viewDate', =>
-        parsedDate = moment @viewDate, @viewFormat
+        parsedDate = moment @viewDate, @dateFormat
         @ngModel = parsedDate if parsedDate.isValid()
 
       @registerModelWatcher()
@@ -41,7 +42,7 @@ angular.module('ThemisComponents')
       dateInputField = $element.find('input')
       dateInputField.on 'blur', => $scope.$apply =>
         @registerModelWatcher()
-        setInternalDate()
+        setViewDate('onblur')
 
       # on focus on input we'll unregister our listener
       dateInputField.on 'focus', => $scope.$apply =>
