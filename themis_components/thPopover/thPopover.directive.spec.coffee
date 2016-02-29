@@ -1,5 +1,5 @@
 describe 'ThemisComponents: Directive: thPopover', ->
-  element = scope = compile = $timeout = PopoverManager = null
+  element = compile = $timeout = PopoverManager = null
 
   beforeEach ->
     angular.mock.module 'ThemisComponents'
