@@ -13,10 +13,10 @@ describe 'ThemisComponents: Directive: thDatePicker', ->
       """
     {element} = compileDirective(template, scopeAdditions)
     expect(element.find("input.th-input").val()).toBe todayDate.format defaultDateFormat
-  
+
   # test the 3 valid date formats
   dateFormat = ['YYYY-MM-DD', 'MM/DD/YYYY', 'DD/MM/YYYY']
-  
+
   dateFormat.forEach (format) ->
     it "parses a valid date into format (#{format})", ->
       scopeAdditions = {date: todayDate, dateFormat: format}
@@ -24,5 +24,5 @@ describe 'ThemisComponents: Directive: thDatePicker', ->
         <th-date-picker ng-model="date" date-format="{{dateFormat}}"></th-date-picker>
         """
       {element} = compileDirective(template, scopeAdditions)
-      
+
       expect(element.find("input.th-input").val()).toBe todayDate.format format
