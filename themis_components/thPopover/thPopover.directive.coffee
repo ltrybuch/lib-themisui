@@ -1,10 +1,11 @@
 angular.module('ThemisComponents')
-  .directive "thPopover", (PopoverManager) ->
+  .directive "thPopover", (PopoverManager, $q) ->
     restrict: "A"
     scope: true
     link: ($scope, element, attributes) ->
-      getContent = (success, failure) ->
-        content = PopoverManager.getContent attributes.thPopover
-        if content?.length > 0 then success(content) else failure()
+      getContent =  ->
+        $q (resolve, reject) ->
+          content = PopoverManager.getContent attributes.thPopover
+          if content? then resolve({data: content}) else reject()
 
       PopoverManager.addTarget($scope, element, attributes, getContent)

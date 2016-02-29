@@ -3,11 +3,7 @@ angular.module('ThemisComponents')
     restrict: "A"
     scope: true
     link: ($scope, element, attributes) ->
-      getContent = (success, failure) ->
+      getContent = ->
         $http.get attributes.thPopoverUrl
-        .then (response) ->
-          success(response.data)
-        , ->
-          failure()
 
       PopoverManager.addTarget($scope, element, attributes, getContent)

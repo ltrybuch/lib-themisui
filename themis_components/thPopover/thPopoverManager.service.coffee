@@ -4,7 +4,7 @@ angular.module('ThemisComponents')
 
     getContent = (name) ->
       index = contents.findIndex (element) -> element.name is name
-      if index is -1 then "" else contents[index].html
+      if index is -1 then null else contents[index].html
 
     addContent = (name, html) ->
       contents.push
@@ -120,17 +120,14 @@ angular.module('ThemisComponents')
             $scope.$apply -> $scope.dismiss()
 
         unless $scope.loaded
-          getContent(success, failure)
+          getContent().then (content) ->
+            $scope.loaded = yes
+            $scope.content = content.data
+          , ->
+            $scope.dismiss()
 
       $scope.dismiss = ->
         $scope.$broadcast 'thPopover.dismiss'
-
-      success = (content) ->
-        $scope.loaded = yes
-        $scope.content = content
-
-      failure = ->
-        $scope.dismiss()
 
     return {
       addContent
