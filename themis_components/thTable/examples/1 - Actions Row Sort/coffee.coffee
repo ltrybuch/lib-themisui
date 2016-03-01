@@ -8,6 +8,7 @@ angular.module 'thDemo', ['ThemisComponents']
         TableHeader
           name: 'Id'
           sortField: 'id'
+          width: '100px'
 
         TableHeader
           name: 'Name'
