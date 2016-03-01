@@ -48,3 +48,17 @@ describe 'ThemisComponents: Directive: thPopoverManager', ->
 
     expect(document.querySelector('.th-popover-view')).toBeNull()
     expect(document.querySelector('.th-popover-overlay')).toBeNull()
+
+  describe 'getContent', ->
+
+    describe 'when content exists', ->
+      beforeEach ->
+        PopoverManager.addContent('test', 'content')
+
+      it 'should return content', ->
+        expect(PopoverManager.getContent('test')).toBe 'content'
+
+    describe 'when content does not exist', ->
+      it 'should return null', ->
+        expect(PopoverManager.getContent('test')).toBe null
+
