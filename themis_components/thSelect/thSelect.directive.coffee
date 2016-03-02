@@ -7,6 +7,7 @@ angular.module('ThemisComponents')
     bindToController: true
     transclude: true
     scope:
+      condensed: "="
       options: "="
       ngModel: "="
       name: "@"

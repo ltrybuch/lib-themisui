@@ -1,17 +1,13 @@
 .th-input {
   outline: none;
-  -webkit-box-flex: 1;      // OLD - iOS 6-, Safari 3.1-6
-  -moz-box-flex: 1;         // OLD - Firefox 19-
-  -webkit-flex: 1;          // Chrome
-  -ms-flex: 1;              // IE 10
-  flex: 1;                  // NEW, Spec - Opera 12.1, Firefox 20+
+  flex: 1;
   width: 100%;
-  font-size: 1.25rem;
+  font-size: 14px;
   margin: 0;
-  padding: 1.2rem;
+  padding: 12px;
   background: $off-white;
   border: 1px solid $grey-70;
-  border-radius: 0.4rem;
+  border-radius: 4px;
   -webkit-appearance: none;
   box-sizing: border-box;
 
@@ -20,46 +16,49 @@
   }
 
   &.with-icon {
-    padding-right: 3.2rem;
+    padding-right: 32px;
   }
 
   &.with-prefix {
-    border-radius: 0 0.4rem 0.4rem 0;
+    border-radius: 0 4px 4px 0;
     border-left: 0;
   }
 
   &.with-postfix {
-    border-radius: 0.4rem 0 0 0.4rem;
+    border-radius: 4px 0 0 4px;
     border-right: 0;
   }
 
   &.with-prefix.with-postfix {
     border-radius: 0;
   }
+
 }
 
 .th-input-wrapper {
-  display: -webkit-box;      // OLD - iOS 6-, Safari 3.1-6
-  display: -moz-box;         // OLD - Firefox 19- (buggy but mostly works)
-  display: -ms-flexbox;      // TWEENER - IE 10
-  display: -webkit-flex;     // NEW - Chrome
-  display: flex;             // NEW, Spec - Opera 12.1, Firefox 20+
+  display: flex;
   position: relative;
-  border-radius: 0.4rem;
+  border-radius: 4px;
   @include animated(100ms);
 
   &.has-focus {
-    box-shadow: 0 0 0.5em rgba(97, 179, 227, .7);
+    box-shadow: 0 0 5px rgba(97, 179, 227, .7);
     .th-input, .th-input-prefix, .th-input-postfix {
       border-color: #61b3e3;
+    }
+  }
+  &.condensed {
+    .th-input, .th-input-prefix, .th-input-postfix {
+    padding: 8px;
+    font-size: 13px;
     }
   }
 }
 
 .th-input-icon {
   position: absolute;
-  top: 1.4rem;
-  right: 1.6rem;
+  top: 14px;
+  right: 16px;
   color: $grey-40;
 }
 
@@ -68,17 +67,17 @@
   font-weight: 400;
   background: $off-white;
   border: 1px solid $grey-70;
-  padding: 1.2rem;
+  padding: 12px;
   text-align: center;
   box-sizing: border-box;
 }
 
 .th-input-prefix {
   border-right: 0; // hide border against <input>
-  border-radius: 0.4rem 0 0 0.4rem;
+  border-radius: 4px 0 0 4px;
 }
 
 .th-input-postfix {
   border-left: 0; // hide border against <input>
-  border-radius: 0 0.4rem 0.4rem 0;
+  border-radius: 0 4px 4px 0;
 }

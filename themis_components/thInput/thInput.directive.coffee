@@ -11,6 +11,7 @@ angular.module('ThemisComponents').directive "thInput", ->
     prefix: '@'
     postfix: '@'
     model: '=?ngModel'
+    condensed: "="
   template: require './thInput.template.html'
   controller: ($attrs) ->
     @placeholder = $attrs.placeholder

@@ -11,6 +11,7 @@ Add your input fields with a little style.
   - icons
   - postfix
   - prefix
+  - condensed
 
 
 - `<input>` attributes can be passed in like you normally would:

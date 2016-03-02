@@ -11,22 +11,23 @@
 
   .text-wrapper {
     margin: 0;
-    padding: 1.2rem;
+    padding: 12px;
     background: $off-white;
     border: 1px solid $grey-70;
-    border-radius: 0.4rem;
+    border-radius: 4px;
     position: relative;
     box-sizing: border-box;
     -webkit-appearance: none;
-    font-size: 1.4rem;
+    font-size: 14px;
     z-index: 9;
     width: 100%;
-    min-height: 4.3rem;
+    min-height: 42px;
+    color: $light-grey-5;
 
     .fa-caret-down {
       float: right;
       color: $dark-grey;
-      line-height: 2rem;
+      line-height: 20px;
     }
     &.disabled {
       background: $grey-90;
@@ -39,10 +40,27 @@
     z-index: 10;
     position: absolute;
     background: none;
-    height: 4.3rem;
+    height: 42px;
 
     &[disabled~="disabled"] {
       cursor: not-allowed;
     }
+
+    &.ng-dirty + .text-wrapper {
+      color: $dark-grey;
+    }
+  }
+
+  &.condensed {
+    .text-wrapper {
+      font-size: 13px;
+      padding: 7px 10px;
+      min-height: 34px;
+    }
+
+    select {
+      height: 34px;
+    }
   }
 }
+
