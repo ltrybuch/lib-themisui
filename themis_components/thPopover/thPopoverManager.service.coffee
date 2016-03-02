@@ -1,15 +1,15 @@
 angular.module('ThemisComponents')
   .factory 'PopoverManager', ($compile, $timeout) ->
-    contents = []
+    contents = {}
 
     getContent = (name) ->
-      index = contents.findIndex (element) -> element.name is name
-      if index is -1 then null else contents[index].html
+      unless document.querySelector("[name=#{name}]")?
+        throw new Error "PopoverManager: content '#{name}' does not exist."
+
+      if contents.hasOwnProperty(name) is true then contents[name] else null
 
     addContent = (name, html) ->
-      contents.push
-        name: name
-        html: html
+      contents[name] = html
 
     addTarget = ($scope, element, attributes, getContent) ->
       element.attr('href', '')

@@ -8,7 +8,7 @@ angular.module("ThemisComponents")
       # Add element content to popover manager.
       PopoverManager.addContent(tAttrs.name, tElement[0].innerHTML)
 
-      # Remove element from DOM.
-      tElement.remove()
+      # Hide element in DOM
+      tElement.attr('style', 'display: none;')
 
       return
