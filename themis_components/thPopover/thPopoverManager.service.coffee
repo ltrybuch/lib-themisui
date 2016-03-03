@@ -24,8 +24,11 @@ angular.module('ThemisComponents')
 
       target = targets[targetName]
 
-      {renderPopover} = addPopoverToTarget(target, getContent(contentName))
-      renderPopover()
+      if not target.renderPopover?
+        {renderPopover} = addPopoverToTarget(target, getContent(contentName))
+        target.renderPopover = renderPopover
+
+      target.renderPopover()
 
     attachPopover = ($scope, element, attributes, getContent) ->
       {renderPopover} = addPopoverToTarget(
@@ -103,6 +106,11 @@ angular.module('ThemisComponents')
             top: "#{ top }px"
             left: "#{ anchorRect.left + anchorRect.width / 2 - arrowOffset }px"
 
+          if $scope.loaded is yes
+            overlay.removeClass 'th-popover-hidden'
+            view.removeClass 'th-popover-hidden'
+            arrow.removeClass 'th-popover-hidden'
+
       $scope.$on 'thPopover.dismiss', ->
         overlay?.remove()
         view?.remove()
@@ -111,8 +119,6 @@ angular.module('ThemisComponents')
       $scope.$watch 'content', ->
         $timeout -> # Wait for the tick after the digest cycle completes.
           positionPopover()
-        # $timeout ->
-        #   $scope.loaded = yes
 
       renderPopover = ->
         unless view?
