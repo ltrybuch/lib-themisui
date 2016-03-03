@@ -8,12 +8,13 @@ angular.module('ThemisComponents')
 
     getContent = (contentName) ->
       $q (resolve, reject) ->
-        # Still have to check document to make sure content exists.
+        unless document.body.querySelector("[name=#{contentName}]")
+          throw new Error "PopoverManager: content '#{contentName}' not found in document body."
 
-        if contents.hasOwnProperty(contentName)
-          resolve({data: contents[contentName]})
-        else
-          reject()
+        unless contents.hasOwnProperty contentName
+          throw new Error "PopoverManager: content '#{contentName}' does not exist."
+        
+        resolve({data: contents[contentName]})
 
     addTarget = (targetName, $scope, element, attributes) ->
       targets[targetName] = {$scope, element, attributes}
@@ -106,10 +107,9 @@ angular.module('ThemisComponents')
             top: "#{ top }px"
             left: "#{ anchorRect.left + anchorRect.width / 2 - arrowOffset }px"
 
-          if $scope.loaded is yes
-            overlay.removeClass 'th-popover-hidden'
-            view.removeClass 'th-popover-hidden'
-            arrow.removeClass 'th-popover-hidden'
+          overlay.removeClass 'th-popover-hidden'
+          view.removeClass 'th-popover-hidden'
+          arrow.removeClass 'th-popover-hidden'
 
       $scope.$on 'thPopover.dismiss', ->
         overlay?.remove()
