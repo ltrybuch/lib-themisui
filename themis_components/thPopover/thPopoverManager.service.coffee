@@ -19,28 +19,28 @@ angular.module('ThemisComponents')
     addTarget = (targetName, $scope, element, attributes) ->
       targets[targetName] = {$scope, element, attributes}
 
-    showPopover = (targetName, contentName) ->
+    showPopover = (targetName, contentPromise) ->
       unless targets.hasOwnProperty(targetName)
         throw new Error "PopoverManager: target '#{targetName}' does not exist."
 
       target = targets[targetName]
 
       if not target.renderPopover?
-        {renderPopover} = addPopoverToTarget(target, getContent(contentName))
+        {renderPopover} = addPopoverToTarget(target, contentPromise)
         target.renderPopover = renderPopover
 
       target.renderPopover()
 
-    attachPopover = ($scope, element, attributes, getContent) ->
+    attachPopover = ($scope, element, attributes, contentPromise) ->
       {renderPopover} = addPopoverToTarget(
         {$scope, element, attributes}
-        getContent
+        contentPromise
       )
 
       element.on 'click', ->
         renderPopover()
 
-    addPopoverToTarget = (target, getContent) ->
+    addPopoverToTarget = (target, contentPromise) ->
       {$scope, element, attributes} = target
 
       element.attr('href', '')
@@ -155,7 +155,7 @@ angular.module('ThemisComponents')
             $scope.$apply -> $scope.dismiss()
 
         unless $scope.loaded
-          getContent.then (content) ->
+          contentPromise.then (content) ->
             $scope.loaded = yes
             $scope.content = content.data
           , ->
