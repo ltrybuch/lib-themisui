@@ -1,17 +1,44 @@
 angular.module('ThemisComponents')
-  .factory 'PopoverManager', ($compile, $timeout) ->
+  .factory 'PopoverManager', ($compile, $timeout, $q) ->
     contents = {}
+    targets = {}
 
-    getContent = (name) ->
-      unless document.querySelector("[name=#{name}]")?
-        throw new Error "PopoverManager: content '#{name}' does not exist."
+    addContent = (contentName, contentHtml) ->
+      contents[contentName] = contentHtml
 
-      if contents.hasOwnProperty(name) is true then contents[name] else null
+    getContent = (contentName) ->
+      $q (resolve, reject) ->
+        # Still have to check document to make sure content exists.
 
-    addContent = (name, html) ->
-      contents[name] = html
+        if contents.hasOwnProperty(contentName)
+          resolve({data: contents[contentName]})
+        else
+          reject()
 
-    addTarget = ($scope, element, attributes, getContent) ->
+    addTarget = (targetName, $scope, element, attributes) ->
+      targets[targetName] = {$scope, element, attributes}
+
+    showPopover = (targetName, contentName) ->
+      unless targets.hasOwnProperty(targetName)
+        throw new Error "PopoverManager: target '#{targetName}' does not exist."
+
+      target = targets[targetName]
+
+      {renderPopover} = addPopoverToTarget(target, getContent(contentName))
+      renderPopover()
+
+    attachPopover = ($scope, element, attributes, getContent) ->
+      {renderPopover} = addPopoverToTarget(
+        {$scope, element, attributes}
+        getContent
+      )
+
+      element.on 'click', ->
+        renderPopover()
+
+    addPopoverToTarget = (target, getContent) ->
+      {$scope, element, attributes} = target
+
       element.attr('href', '')
 
       view = null
@@ -84,8 +111,10 @@ angular.module('ThemisComponents')
       $scope.$watch 'content', ->
         $timeout -> # Wait for the tick after the digest cycle completes.
           positionPopover()
+        # $timeout ->
+        #   $scope.loaded = yes
 
-      element.on 'click', -> $scope.$apply ->
+      renderPopover = ->
         unless view?
           view = angular.element require './thPopover.template.html'
         unless overlay?
@@ -120,7 +149,7 @@ angular.module('ThemisComponents')
             $scope.$apply -> $scope.dismiss()
 
         unless $scope.loaded
-          getContent().then (content) ->
+          getContent.then (content) ->
             $scope.loaded = yes
             $scope.content = content.data
           , ->
@@ -129,8 +158,14 @@ angular.module('ThemisComponents')
       $scope.dismiss = ->
         $scope.$broadcast 'thPopover.dismiss'
 
+      return {
+        renderPopover
+      }
+
     return {
+      attachPopover
+      showPopover
       addContent
-      addTarget
       getContent
+      addTarget
     }
