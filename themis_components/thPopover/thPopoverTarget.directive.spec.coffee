@@ -5,7 +5,7 @@ describe 'ThemisComponents: Directive: thPopoverTarget', ->
     angular.mock.module 'ThemisComponents'
 
   beforeEach inject ($injector, _PopoverManager_) ->
-    PopoverManager = _PopoverManager_ 
+    PopoverManager = _PopoverManager_
 
   describe 'when name is not specified', ->
     it 'should throw an error', ->
