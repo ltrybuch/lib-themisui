@@ -1,11 +1,11 @@
 describe 'ThemisComponents: Directive: thPopoverContent', ->
-  PopoverManager = null
+  directive = element = PopoverManager = null
 
   beforeEach ->
     angular.mock.module 'ThemisComponents'
 
-  beforeEach inject (_PopoverManager_) ->
-    PopoverManager = _PopoverManager_
+  beforeEach inject ($injector, _PopoverManager_) ->
+    PopoverManager = _PopoverManager_ 
 
   describe 'when name attribute is not specified', ->
     it 'should throw an error', ->
@@ -14,8 +14,12 @@ describe 'ThemisComponents: Directive: thPopoverContent', ->
 
   describe 'when template is valid', ->
     beforeEach ->
+      spyOn(PopoverManager, "addContent")
+      
       template = "<th-popover-content name='content'>inner</th-popover-content>"
-      compileDirective(template)
+      directive = compileDirective(template)
+      element = directive.element
 
-    it 'should be added to PopoverManager', ->
-      expect(PopoverManager.getContent('content')).toBe 'inner'
+    it 'should hide the dom element', ->
+      expect(element[0].style.display).toBe 'none'
+      expect(PopoverManager.addContent).toHaveBeenCalled()

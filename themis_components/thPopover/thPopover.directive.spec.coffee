@@ -1,50 +1,25 @@
 describe 'ThemisComponents: Directive: thPopover', ->
-  element = compile = $timeout = PopoverManager = null
+  PopoverManager = null
 
   beforeEach ->
     angular.mock.module 'ThemisComponents'
 
-  beforeEach ->
-    inject (_PopoverManager_, _$timeout_) ->
-      PopoverManager = _PopoverManager_
-      $timeout = _$timeout_
+  beforeEach inject ($injector, _PopoverManager_) ->
+    PopoverManager = _PopoverManager_ 
 
-  describe 'getContent', ->
-    describe 'if popover-content exists', ->
-      beforeEach ->
-        template = """
-          <div th-popover="test"></div>
-          <th-popover-content name="test">content</th-popover-content>
-        """
-        directive = compileDirective(template)
-        element = directive.element
+  describe 'when name is not specified', ->
+    beforeEach ->
+      spyOn(PopoverManager, "attachPopover")
+      spyOn(PopoverManager, "getContent")
 
-      it 'should resolve promise', ->
-        result = null
-        
-        promise = element.scope().thPopover.getContent()
-        promise.then (content) ->
-          result = content
-        $timeout.flush()
+    it 'should throw an error', ->
+      expect(-> compileDirective("<div th-popover></div>")).toThrow()
 
-        expect(result.data).toBe "content"
+  describe 'when template is valid', ->
+    beforeEach ->
+      spyOn(PopoverManager, "attachPopover")
+      spyOn(PopoverManager, "getContent")
+      compileDirective("<div th-popover='test'></div>")
 
-    describe 'if popover-content does not exist', ->
-      beforeEach ->
-        template = """
-          <div th-popover="test"></div>
-        """
-        directive = compileDirective(template)
-        element = directive.element
-
-      it 'should reject promise', ->
-        reject = false
-        
-        promise = element.scope().thPopover.getContent()
-        promise.then (content) ->
-          return
-        , ->
-          reject = true
-        $timeout.flush()
-
-        expect(reject).toBe true
+    it "should call 'PopoverManager.attachPopover'", ->
+      expect(PopoverManager.attachPopover).toHaveBeenCalled()
