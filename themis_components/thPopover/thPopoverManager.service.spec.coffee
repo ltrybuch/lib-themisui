@@ -92,7 +92,7 @@ describe 'ThemisComponents: Directive: thPopoverManager', ->
         expect(document.querySelector('.th-popover-view')).not.toBeNull()
         expect(document.querySelector('.th-popover-overlay')).not.toBeNull()
         expect(document.querySelector('.th-popover-arrow')).not.toBeNull()
-  
+
   describe 'attachPopover', ->
     beforeEach ->
       httpBackend.when('GET', '/template.html').respond mockResponse
@@ -123,4 +123,3 @@ describe 'ThemisComponents: Directive: thPopoverManager', ->
 
       expect(document.querySelector('.th-popover-view')).toBeNull()
       expect(document.querySelector('.th-popover-overlay')).toBeNull()
-
