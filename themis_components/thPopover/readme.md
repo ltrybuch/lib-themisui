@@ -4,9 +4,9 @@
 
 Add small overlays of content, like those on the iPad, to any element for housing secondary information.
 
-`th-popover` accepts the name of a `th-popover-content` element where it will fetch its inner content from.
+`th-popover` accepts the name of a `th-popover-content` element where its content will come from.
 
-`th-popover-url` accepts a URL of where it will fetch its inner content from.
+`th-popover-url` accepts a URL from which it will fetch its content.
 
 `th-popover-content` specifies a block of content used for display in a popover.
 
@@ -21,4 +21,40 @@ Add small overlays of content, like those on the iPad, to any element for housin
 
 
 ### Markup
-`<a href="" th-popover-url="/templatePath.html">Trigger</a>`
+
+Fetch remote content.
+
+```html
+<a href="" th-popover-url="/templatePath.html">Trigger</a>
+```
+
+Fetch inline content.
+
+```html
+<a href="" th-popover="content">Trigger</a>
+
+<th-popover-content name="content">
+  <h1>Some content</h1>
+</th-popover-content>
+```
+
+Trigger from script.
+
+```html
+<a href="" th-popover-target="target">Target</a>
+
+<th-popover-content name="content">
+  <h1>Some content</h1>
+</th-popover-content>
+```
+
+```coffeescript
+controller: (PopoverManager, $http) ->
+  # Remote content
+  contentPromise = $http.get "http://www.google.com"
+  PopoverManager.showPopover("target", contentPromise)
+
+  # Inline content
+  contentPromise = PopoverManager.getContent("content")
+  PopoverManager.showPopover("target", contentPromise)
+```
