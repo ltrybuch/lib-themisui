@@ -1,8 +1,8 @@
 <html ng-app="thDemo">
   <body style="height: 200px;" ng-controller="DemoCtrl as demo">
 
-    <th-button th-popover-target="target">Target</th-button>
-    <th-button ng-click="demo.clickHandler()" style="float: right;">Trigger</th-button>
+    <th-button ng-click="demo.clickHandler()">Trigger</th-button>
+    <th-button th-popover-target="target" style="float: right;">Target</th-button>
 
     <th-popover-content name="content">
       <div>

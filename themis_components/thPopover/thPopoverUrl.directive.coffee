@@ -6,7 +6,7 @@ angular.module("ThemisComponents")
         throw new Error "thPopoverUrl: must specify url."
 
       PopoverManager.attachPopover(
-        $scope
+        $scope.$new()
         element
         attributes
         $http.get(attributes.thPopoverUrl)

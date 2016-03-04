@@ -7,7 +7,7 @@ angular.module("ThemisComponents")
 
       PopoverManager.addTarget(
         attributes.thPopoverTarget
-        $scope
+        $scope.$new()
         element
         attributes
       )

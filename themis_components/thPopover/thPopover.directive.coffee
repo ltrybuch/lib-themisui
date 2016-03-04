@@ -6,7 +6,7 @@ angular.module('ThemisComponents')
         throw new Error "thPopover: must specify content name."
 
       PopoverManager.attachPopover(
-        $scope
+        $scope.$new()
         element
         attributes
         PopoverManager.getContent(attributes.thPopover)
