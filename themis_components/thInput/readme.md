@@ -42,5 +42,3 @@ attribute is ignored.
 
 - If adding an icon to your input field you *cannot* also add a prefix as they exist in the same space.
 - This component is mainly useful for text input ex: `type="text"` `type="password"` but also works great for a file selector ex: `type="file"`
-
-

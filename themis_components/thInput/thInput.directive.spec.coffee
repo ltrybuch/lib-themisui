@@ -10,7 +10,8 @@ describe 'thInput', ->
                   name="nickname"
                   value="Steve-o"
                   placeholder="Enter your nickname"
-                  condensed="true">
+                  condensed="true"
+                  >
         </th-input>
       """).element
 
