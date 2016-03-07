@@ -20,6 +20,11 @@ Add your input fields with a little style.
   - value
   - type
   - id
+  - Angular's input validation attributes are all optional attributes for `<thInput>`
+    - [[[ng-required="string"]](https://docs.angularjs.org/api/ng/directive/ngRequired)
+    - [[ng-minLength="number"]](https://docs.angularjs.org/api/ng/directive/ngMinlength)
+    - [[ng-maxLength="number"]](https://docs.angularjs.org/api/ng/directive/ngMaxlength)
+    - [[ng-pattern="string"]](https://docs.angularjs.org/api/ng/directive/ngPattern)
 
 ---
 

@@ -1,16 +1,25 @@
 <span class="th-input-wrapper">
   <span ng-if="input.prefix" class="th-input-prefix">{{input.prefix}}</span>
   <input
-    ng-model="input.model"
+    ng-model="input.ngModel"
     class="th-input"
-    ng-class="[{'with-icon': input.icon}, {'with-prefix': input.prefix}, {'with-postfix': input.postfix}]"
+    ng-class="[
+      {'with-icon': input.icon},
+      {'with-prefix': input.prefix},
+      {'with-postfix': input.postfix},
+      {'disabled': input.ngDisabled}
+    ]"
     id="{{input.id}}"
     type="{{input.type}}"
     name="{{input.name}}"
     value="{{input.value}}"
-    placeholder="{{input.placeholder}}">
-
+    placeholder="{{input.placeholder}}"
+    ng-required="input.ngRequired"
+    ng-disabled="input.ngDisabled"
+    ng-minlength="input.ngMinlength"
+    ng-maxlength="input.ngMaxlength"
+    ng-pattern="input.ngPattern"
+    >
   <i ng-if="input.icon" class="th-input-icon fa fa-{{input.icon}}"></i>
-
   <span ng-if="input.postfix" class="th-input-postfix">{{input.postfix}}</span>
 </span>

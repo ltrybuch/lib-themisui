@@ -85,3 +85,39 @@ describe 'thInput', ->
     it "displays '/hr' before input", ->
       postfix = element.find(".th-input-postfix")
       expect(postfix.text()).toMatch "/hr"
+
+  context "with validations", ->
+    beforeEach ->
+      scopeAdditions =
+        pattern: /^[a-zA-Z ]*$/
+      {element} = compileDirective("""
+        <th-input
+          ng-required="true"
+          ng-minLength="10"
+          ng-maxLength="20"
+          ng-pattern="pattern">
+        </th-input>""", scopeAdditions)
+
+    describe "textarea", ->
+      it "has all ng-requirements added", ->
+        input = element.find("input")[0]
+        expect(input.hasAttribute("ng-required")).toBe true
+        expect(input.hasAttribute("required")).toBe true
+        expect(input.hasAttribute("ng-minLength")).toBe true
+        expect(input.hasAttribute("ng-maxLength")).toBe true
+        expect(input.hasAttribute("ng-pattern")).toBe true
+        expect(input.getAttribute("ng-pattern")).toEqual '/^[a-zA-Z ]*$/'
+        expect(input.getAttribute("ng-minLength")).toEqual '10'
+        expect(input.getAttribute("ng-maxLength")).toEqual '20'
+        expect(input.getAttribute("ng-pattern")).toEqual '/^[a-zA-Z ]*$/'
+
+    context "with ng-disabled evaluating to true", ->
+      beforeEach ->
+        {element} = compileDirective(
+          """<th-input ng-disabled="true"></th-input>""")
+
+      describe "the input", ->
+        it "is disabled", ->
+          expect(element.find("input").attr("disabled")).toEqual "disabled"
+          expect(element.find("input").hasClass("disabled")).toBe true
+
