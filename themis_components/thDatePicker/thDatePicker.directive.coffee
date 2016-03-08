@@ -1,5 +1,7 @@
 moment = require "moment"
 
+# TODO - FOLLOW UP WORK REQUIRED BEFORE THIS CAN BE RELEASED
+# SEE CLIO-31987
 angular.module('ThemisComponents')
   .directive 'thDatePicker', ->
     restrict: "E"
