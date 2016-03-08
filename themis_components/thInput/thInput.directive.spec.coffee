@@ -98,7 +98,7 @@ describe 'thInput', ->
           ng-pattern="pattern">
         </th-input>""", scopeAdditions)
 
-    describe "textarea", ->
+    describe "the input", ->
       it "has all ng-requirements added", ->
         input = element.find("input")[0]
         expect(input.hasAttribute("ng-required")).toBe true
@@ -109,12 +109,12 @@ describe 'thInput', ->
         expect(input.getAttribute("ng-pattern")).toEqual '/^[a-zA-Z ]*$/'
         expect(input.getAttribute("ng-minLength")).toEqual '10'
         expect(input.getAttribute("ng-maxLength")).toEqual '20'
-        expect(input.getAttribute("ng-pattern")).toEqual '/^[a-zA-Z ]*$/'
 
     context "with ng-disabled evaluating to true", ->
       beforeEach ->
         {element} = compileDirective(
-          """<th-input ng-disabled="true"></th-input>""")
+          """<th-input ng-disabled="true"></th-input>"""
+        )
 
       describe "the input", ->
         it "is disabled", ->
