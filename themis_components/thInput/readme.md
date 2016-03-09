@@ -12,7 +12,6 @@ Add your input fields with a little style.
   - postfix
   - prefix
 
-
 - `<input>` attributes can be passed in like you normally would:
 
   - name
@@ -20,6 +19,12 @@ Add your input fields with a little style.
   - value
   - type
   - id
+  - ng-disabled - Set the disabled attribute if the expression inside evaluates to truthy.
+  - Angular's input validation attributes are all optional attributes for `<thInput>`
+    - [[ng-required="string"]](https://docs.angularjs.org/api/ng/directive/ngRequired)
+    - [[ng-minLength="number"]](https://docs.angularjs.org/api/ng/directive/ngMinlength)
+    - [[ng-maxLength="number"]](https://docs.angularjs.org/api/ng/directive/ngMaxlength)
+    - [[ng-pattern="string"]](https://docs.angularjs.org/api/ng/directive/ngPattern)
 
 ---
 
