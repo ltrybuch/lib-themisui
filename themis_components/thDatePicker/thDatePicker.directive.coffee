@@ -10,7 +10,7 @@ angular.module('ThemisComponents')
       ngModel: "="
       dateFormat: "@"
     bindToController: true
-    controllerAs: 'controller'
+    controllerAs: 'datepicker'
     controller: ($element, $scope) ->
 
       # Initialize the model to today if it isn't a valid moment.
@@ -23,32 +23,32 @@ angular.module('ThemisComponents')
 
       @dateFormat = setDateFormat()
 
-      # Initialize the input field string
+      # Initialize the input field string.
       @inputFieldString = ""
 
       setInputFieldString = =>
         @inputFieldString = @ngModel.format(@dateFormat)
 
-      # When the datepicker changes the model, update the input field string
+      # When the datepicker changes the model, update the input field string.
       @registerModelWatcher = =>
         @unregisterModelWatcher() if @unregisterModelWatcher?
-        @unregisterModelWatcher = $scope.$watch 'controller.ngModel', ->
+        @unregisterModelWatcher = $scope.$watch 'datepicker.ngModel', ->
           setInputFieldString()
 
-      # update the model and datepicker unless the user enters an invalid date
-      $scope.$watch 'controller.inputFieldString', =>
+      # Update the model and datepicker, unless the user enters an invalid date.
+      $scope.$watch 'datepicker.inputFieldString', =>
         parsedDate = moment @inputFieldString, @dateFormat
         @ngModel = parsedDate if parsedDate.isValid()
 
       @registerModelWatcher()
 
-      # On blur of the input field
+      # On blur of the input field...
       dateInputField = $element.find('input')
       dateInputField.on 'blur', => $scope.$apply =>
-        # listen for datepicker model changes
+        # ... listen for datepicker model changes.
         @registerModelWatcher()
 
-      # On focus of the input field, unregister our model listener
+      # On focus of the input field, unregister our model listener.
       dateInputField.on 'focus', => $scope.$apply =>
         @unregisterModelWatcher()
 
