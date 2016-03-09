@@ -120,4 +120,3 @@ describe 'thInput', ->
         it "is disabled", ->
           expect(element.find("input").attr("disabled")).toEqual "disabled"
           expect(element.find("input").hasClass("disabled")).toBe true
-
