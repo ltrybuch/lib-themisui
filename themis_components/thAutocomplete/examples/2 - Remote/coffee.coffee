@@ -12,6 +12,8 @@ angular.module('thDemo', ['ThemisComponents'])
             params:
               q: searchString
           .then (response) ->
-            updateData(response.data.items)
+            updateData response.data.items
+        else
+          updateData []
               
     return
