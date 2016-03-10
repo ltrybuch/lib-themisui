@@ -1,5 +1,5 @@
 module.exports = ($compile, $timeout) -> (target, contentPromise) ->
-  {$scope, element, attributes} = target
+  {scope, element, attributes} = target
 
   element.attr('href', '')
 
@@ -7,9 +7,9 @@ module.exports = ($compile, $timeout) -> (target, contentPromise) ->
   arrow = null
   overlay = null
 
-  $scope.overflow = attributes.overflow
-  $scope.loaded = no
-  $scope.content = ""
+  scope.overflow = attributes.overflow
+  scope.loaded = no
+  scope.content = ""
 
   positionPopover = ->
     return if view is null # We don't want to try positioning views that no longer exist.
@@ -30,7 +30,7 @@ module.exports = ($compile, $timeout) -> (target, contentPromise) ->
 
       # Setup our width. If we are loading set a sensible default.
       maxWidth = window.innerWidth - minInset * 3
-      viewWidth = if $scope.loaded then Math.min maxWidth, viewRect.width else 200
+      viewWidth = if scope.loaded then Math.min maxWidth, viewRect.width else 200
 
       # Assuming no window bounds where would we like to be?
       viewGoalLeft = anchorRect.left + anchorRect.width / 2 - viewWidth / 2 - arrowOffset
@@ -69,14 +69,14 @@ module.exports = ($compile, $timeout) -> (target, contentPromise) ->
       view.removeClass 'th-popover-hidden'
       arrow.removeClass 'th-popover-hidden'
 
-  $scope.$on 'thPopover.dismiss', ->
+  scope.$watch 'content', ->
+    $timeout -> # Wait for the tick after the digest cycle completes.
+      positionPopover()
+
+  dismissPopover = ->
     overlay?.remove()
     view?.remove()
     arrow?.remove()
-
-  $scope.$watch 'content', ->
-    $timeout -> # Wait for the tick after the digest cycle completes.
-      positionPopover()
 
   renderPopover = ->
     unless view?
@@ -92,9 +92,9 @@ module.exports = ($compile, $timeout) -> (target, contentPromise) ->
     body.append arrow
 
     overlay.on 'click', ->
-      $scope.dismiss()
+      dismissPopover()
 
-    $compile(view)($scope)
+    $compile(view)(scope)
 
     positionPopover()
 
@@ -110,17 +110,14 @@ module.exports = ($compile, $timeout) -> (target, contentPromise) ->
       whitelistSelector = whitelist.join ', '
 
       if !event.target.matches(whitelistSelector) and event.target.matches("a, a *")
-        $scope.$apply -> $scope.dismiss()
+        scope.$apply -> dismissPopover()
 
-    unless $scope.loaded
+    unless scope.loaded
       contentPromise.then (content) ->
-        $scope.loaded = yes
-        $scope.content = content.data
+        scope.loaded = yes
+        scope.content = content.data
       , ->
-        $scope.dismiss()
-
-  $scope.dismiss = ->
-    $scope.$broadcast 'thPopover.dismiss'
+        dismissPopover()
 
   return {
     renderPopover

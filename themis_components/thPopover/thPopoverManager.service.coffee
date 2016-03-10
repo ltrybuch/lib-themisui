@@ -1,5 +1,5 @@
 angular.module('ThemisComponents')
-  .factory 'PopoverManager', ($compile, $timeout, $q) ->
+  .factory 'PopoverManager', ($compile, $timeout, $q, $rootScope) ->
     contents = {}
     targets = {}
 
@@ -16,8 +16,8 @@ angular.module('ThemisComponents')
         
         resolve({data: contents[contentName]})
 
-    addTarget = (targetName, $scope, element, attributes) ->
-      targets[targetName] = {$scope, element, attributes}
+    addTarget = (targetName, element, attributes) ->
+      targets[targetName] = {scope: $rootScope.$new(), element, attributes}
 
     showPopover = (targetName, contentPromise) ->
       unless targets.hasOwnProperty(targetName)
@@ -31,9 +31,9 @@ angular.module('ThemisComponents')
 
       target.renderPopover()
 
-    attachPopover = ($scope, element, attributes, contentPromise) ->
+    attachPopover = (element, attributes, contentPromise) ->
       {renderPopover} = addPopoverToTarget(
-        {$scope, element, attributes}
+        {scope: $rootScope.$new(), element, attributes}
         contentPromise
       )
 
