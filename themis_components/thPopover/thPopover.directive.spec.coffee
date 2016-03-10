@@ -13,7 +13,9 @@ describe 'ThemisComponents: Directive: thPopover', ->
       spyOn(PopoverManager, "getContent")
 
     it 'should throw an error', ->
-      expect(-> compileDirective("<div th-popover></div>")).toThrow()
+      expect ->
+        compileDirective("<div th-popover></div>")
+      .toThrow()
 
   describe 'when template is valid', ->
     beforeEach ->
