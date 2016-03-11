@@ -30,7 +30,7 @@ angular.module('thDemo', ['ThemisComponents'])
         lowerCaseSearchString = searchString.toLowerCase()
         updateData(
           @cities.filter (city) ->
-            city.name.toLowerCase().indexOf(lowerCaseSearchString) != -1
+            city.name.toLowerCase().indexOf(lowerCaseSearchString) isnt -1
         )
 
     return
