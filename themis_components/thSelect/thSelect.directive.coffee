@@ -58,8 +58,13 @@ angular.module('ThemisComponents')
 
       # Toggle color based on placeholder text visibility.
       textElement = element[0].getElementsByClassName("text-wrapper")[0]
-      setTextToLightGrey = -> textElement.className += " light-grey"
-      setTextToDarkGrey = -> textElement.className.replace /\blight-grey\b/
+
+      setTextToLightGrey = ->
+        textElement.className += " light-grey"
+
+      setTextToDarkGrey = ->
+        classes = textElement.className.replace "light-grey", ""
+        textElement.className = classes
 
       # On the model change, update the select's text
       scope.$watch ->
