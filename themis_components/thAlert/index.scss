@@ -60,7 +60,7 @@ $dismiss-icon-size: 16px;
     &.alert-icon {
       color: #fff;
       text-align: center;
-      min-width: $alert-icon-size;
+      width: $alert-icon-size;
       height: $alert-icon-size;
       line-height: $alert-icon-size;
       margin-right: $margin;
@@ -75,7 +75,7 @@ $dismiss-icon-size: 16px;
     &.dismiss-icon {
       cursor: pointer;
       line-height: $height;
-      min-width: $dismiss-icon-size;
+      width: $dismiss-icon-size;
       margin-left: $margin;
 
     }
