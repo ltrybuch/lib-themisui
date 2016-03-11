@@ -22,7 +22,6 @@
     z-index: 9;
     width: 100%;
     min-height: 42px;
-    color: $light-grey-5;
 
     .fa-caret-down {
       float: right;
@@ -45,10 +44,6 @@
     &[disabled~="disabled"] {
       cursor: not-allowed;
     }
-
-    &.ng-dirty + .text-wrapper {
-      color: $dark-grey;
-    }
   }
 
   &.condensed {
@@ -61,6 +56,9 @@
     select {
       height: 34px;
     }
+  }
+  .light-grey {
+    color: $light-grey-5;
   }
 }
 
