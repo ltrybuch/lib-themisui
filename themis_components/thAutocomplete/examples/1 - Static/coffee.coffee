@@ -27,10 +27,14 @@ angular.module('thDemo', ['ThemisComponents'])
     @delegate =
       displayField: 'name'
       fetchData: ({searchString}, updateData) =>
-        lowerCaseSearchString = searchString.toLowerCase()
-        updateData(
-          @cities.filter (city) ->
-            city.name.toLowerCase().indexOf(lowerCaseSearchString) isnt -1
-        )
+        if searchString?.length > 0
+          lowerCaseSearchString = searchString.toLowerCase()
+
+          updateData(
+            @cities.filter (city) ->
+              city.name.toLowerCase().indexOf(lowerCaseSearchString) isnt -1
+          )
+        else
+          updateData []
 
     return
