@@ -1,5 +1,5 @@
 angular.module('ThemisComponents').directive "thInput", ->
-  restrict: "E"
+  restrict: "EA"
   bindToController: true
   controllerAs: 'input'
   replace: true
