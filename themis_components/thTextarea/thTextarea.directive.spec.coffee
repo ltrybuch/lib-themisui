@@ -74,7 +74,6 @@ describe 'thTextarea', ->
         expect(textarea.getAttribute("ng-pattern")).toEqual '/^[a-zA-Z ]*$/'
         expect(textarea.getAttribute("ng-minLength")).toEqual '10'
         expect(textarea.getAttribute("ng-maxLength")).toEqual '20'
-        expect(textarea.getAttribute("ng-pattern")).toEqual '/^[a-zA-Z ]*$/'
 
     context "with ng-disabled evaluating to true", ->
       beforeEach ->

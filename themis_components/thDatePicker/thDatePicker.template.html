@@ -1,0 +1,17 @@
+<span class="th-date-picker">
+  <div th-input
+    ng-model="datepicker.inputFieldString"
+    type="text"
+    placeholder="YYYY-MM-DD"
+    icon="calendar"
+    >
+  </div>
+  <div
+    date-picker="datepicker.ngModel"
+    watch-direct-changes
+    view="date"
+    min-view="date"
+    max-view="date"
+    >
+  </div>
+</span>

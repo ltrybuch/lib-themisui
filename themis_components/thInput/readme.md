@@ -36,6 +36,15 @@ attribute is ignored.
 - The type attribute specifies the type of element to display. The default type is: text.
 [HTML docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
 
+[ng-disabled="string"]
+- Set the disabled attribute if the expression inside evaluates to truthy.
+
+Angular's input validation attributes are all optional attributes for `<thInput>`
+  - [[ng-required="string"]](https://docs.angularjs.org/api/ng/directive/ngRequired)
+  - [[ng-minLength="number"]](https://docs.angularjs.org/api/ng/directive/ngMinlength)
+  - [[ng-maxLength="number"]](https://docs.angularjs.org/api/ng/directive/ngMaxlength)
+  - [[ng-pattern="string"]](https://docs.angularjs.org/api/ng/directive/ngPattern)
+
 ---
 
 ## Notes
