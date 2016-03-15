@@ -10,7 +10,6 @@ describe 'ThemisComponents: Directive: thPopover', ->
   describe 'when name is not specified', ->
     beforeEach ->
       spyOn(PopoverManager, "attachPopover")
-      spyOn(PopoverManager, "getContent")
 
     it 'should throw an error', ->
       expect ->
@@ -24,4 +23,5 @@ describe 'ThemisComponents: Directive: thPopover', ->
       compileDirective("<div th-popover='test'></div>")
 
     it "should call 'PopoverManager.attachPopover'", ->
+      expect(PopoverManager.getContent).toHaveBeenCalled()
       expect(PopoverManager.attachPopover).toHaveBeenCalled()

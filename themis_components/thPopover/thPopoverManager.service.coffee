@@ -16,12 +16,20 @@ angular.module('ThemisComponents')
         
         resolve({data: contents[contentName]})
 
-    addTarget = (targetName, element, attributes) ->
-      targets[targetName] = {scope: $rootScope.$new(), element, attributes}
+    addTarget = (targetName, scope, element, attributes) ->
+      targets[targetName] = {scope: scope.$new(), element, attributes}
 
-    showPopover = (targetName, contentPromise) ->
+    showPopover = (options = {}) -> 
+      {
+        targetName      # String: Required
+        contentPromise  # Promise: Required
+      } = options
+
       unless targets.hasOwnProperty(targetName)
         throw new Error "PopoverManager: target '#{targetName}' does not exist."
+
+      unless contentPromise.constructor.name is 'Promise'
+        throw new Error "PopoverManager: content must be of type 'Promise'"
 
       target = targets[targetName]
 
@@ -31,9 +39,9 @@ angular.module('ThemisComponents')
 
       target.renderPopover()
 
-    attachPopover = (element, attributes, contentPromise) ->
+    attachPopover = (scope, element, attributes, contentPromise) ->
       {renderPopover} = addPopoverToTarget(
-        {scope: $rootScope.$new(), element, attributes}
+        {scope: scope.$new(), element, attributes}
         contentPromise
       )
 

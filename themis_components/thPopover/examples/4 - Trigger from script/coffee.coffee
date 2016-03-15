@@ -1,9 +1,10 @@
 angular.module('thDemo', ['ThemisComponents'])
   .controller 'DemoCtrl', (PopoverManager) ->
+    @headerString = 'thPopover Example 4'
     @clickHandler = ->
       PopoverManager.showPopover(
-        'target'
-        PopoverManager.getContent 'content'
+        targetName: 'target'
+        contentPromise: PopoverManager.getContent 'content'
       )
 
     return

@@ -1,11 +1,11 @@
 <html ng-app="thDemo">
-  <body style="height: 200px;">
+  <body ng-controller="DemoCtrl as demo" style="height: 200px;">
 
     <th-button th-popover="test">Trigger</th-button>
 
     <th-popover-content name="test">
       <div>
-        <h1>thPopover Example 3</h1>
+        <h1>{{demo.headerString}}</h1>
       </div>
     </th-popover-content>
 
