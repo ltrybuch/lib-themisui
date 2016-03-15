@@ -10,13 +10,13 @@ angular.module('ThemisComponents').directive "thInput", ->
     icon: '@'
     prefix: '@'
     postfix: '@'
+    condensed: "="
     ngModel: '='
     ngRequired: '='
     ngDisabled: '='
     ngMinlength: '='
     ngMaxlength: '='
     ngPattern: '='
-
   template: require './thInput.template.html'
   controller: ($attrs) ->
     @placeholder = $attrs.placeholder

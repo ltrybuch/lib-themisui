@@ -1,4 +1,6 @@
-<div class="select-wrapper">
+<div class="select-wrapper"
+  ng-class="{condensed: select.condensed}"
+  >
   <select
     ng-disabled="select.ngDisabled"
     ng-attr-name="{{select.name || undefined}}"

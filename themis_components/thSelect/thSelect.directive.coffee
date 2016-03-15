@@ -7,6 +7,7 @@ angular.module('ThemisComponents')
     bindToController: true
     transclude: true
     scope:
+      condensed: "="
       options: "="
       ngModel: "="
       name: "@"
@@ -54,12 +55,27 @@ angular.module('ThemisComponents')
       return
 
     link: (scope, element, attributes, controller) ->
+
+      # Toggle color based on placeholder text visibility.
+      textElement = element[0].getElementsByClassName("text-wrapper")[0]
+
+      setTextToLightGrey = ->
+        textElement.className += " light-grey"
+
+      setTextToDarkGrey = ->
+        classes = textElement.className.replace "light-grey", ""
+        textElement.className = classes
+
       # On the model change, update the select's text
       scope.$watch ->
         controller.ngModel
       , (newValue) ->
-        text = newValue?.name ? controller.placeholder
-        controller.selectedText = text
+        if newValue?.name?
+          controller.selectedText = newValue.name
+          setTextToDarkGrey()
+        else
+          controller.selectedText = controller.placeholder
+          setTextToLightGrey()
 
       selectedElementCount = 0
       options = element.find "option"
@@ -72,7 +88,6 @@ angular.module('ThemisComponents')
           (name: #{attributes.name}). The last selected option will be used."
         )
 
-      # add box shadow on entire element when in focus
       select = element.find "select"
       select.on "focus", ->
         angular.element(this).next().addClass "has-focus"

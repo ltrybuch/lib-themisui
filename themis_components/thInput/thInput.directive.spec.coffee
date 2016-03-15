@@ -9,7 +9,9 @@ describe 'thInput', ->
         <th-input type="text"
                   name="nickname"
                   value="Steve-o"
-                  placeholder="Enter your nickname">
+                  placeholder="Enter your nickname"
+                  condensed="true"
+                  >
         </th-input>
       """).element
 
@@ -34,6 +36,9 @@ describe 'thInput', ->
       element.find("input").triggerHandler 'blur'
       expect(element.hasClass("has-focus")).toBe false
 
+    context "with 'condensed' attribute set to true", ->
+      it "adds class 'condensed' to the input wrapper", ->
+        expect(element.hasClass("condensed")).toBe true
     describe 'input', ->
       it 'has appropriate attributes set', ->
         input = element.find("input").first()
