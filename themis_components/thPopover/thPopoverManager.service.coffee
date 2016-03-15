@@ -19,7 +19,7 @@ angular.module('ThemisComponents')
     addTarget = (targetName, scope, element, attributes) ->
       targets[targetName] = {scope: scope.$new(), element, attributes}
 
-    showPopover = (options = {}) -> 
+    showPopover = (options = {}) ->
       {
         targetName      # String: Required
         contentPromise  # Promise: Required
