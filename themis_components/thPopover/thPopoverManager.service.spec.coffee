@@ -87,7 +87,10 @@ describe 'ThemisComponents: Directive: thPopoverManager', ->
 
       it 'should render popover', ->
         contentPromise = PopoverManager.getContent('content')
-        PopoverManager.showPopover('target', contentPromise)
+        PopoverManager.showPopover(
+          targetName: 'target'
+          contentPromise: contentPromise
+        )
 
         expect(document.querySelector('.th-popover-view')).not.toBeNull()
         expect(document.querySelector('.th-popover-overlay')).not.toBeNull()
