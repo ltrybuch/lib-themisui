@@ -1,5 +1,5 @@
 angular.module('ThemisComponents').directive "thInput", ->
-  restrict: "E"
+  restrict: "EA"
   bindToController: true
   controllerAs: 'input'
   replace: true
@@ -10,13 +10,13 @@ angular.module('ThemisComponents').directive "thInput", ->
     icon: '@'
     prefix: '@'
     postfix: '@'
+    condensed: "="
     ngModel: '='
     ngRequired: '='
     ngDisabled: '='
     ngMinlength: '='
     ngMaxlength: '='
     ngPattern: '='
-
   template: require './thInput.template.html'
   controller: ($attrs) ->
     @placeholder = $attrs.placeholder
