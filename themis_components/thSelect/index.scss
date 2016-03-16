@@ -21,7 +21,7 @@
     font-size: 14px;
     z-index: 9;
     width: 100%;
-    min-height: 42px;
+    min-height: 40px;
 
     .fa-caret-down {
       float: right;
@@ -39,7 +39,7 @@
     z-index: 10;
     position: absolute;
     background: none;
-    height: 42px;
+    height: 40px;
 
     &[disabled~="disabled"] {
       cursor: not-allowed;
