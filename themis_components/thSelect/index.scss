@@ -18,10 +18,11 @@
     position: relative;
     box-sizing: border-box;
     -webkit-appearance: none;
-    font-size: 14px;
+    font-size: 13px;
     z-index: 9;
     width: 100%;
-    min-height: 40px;
+    height: 42px;
+    line-height: 16px;
 
     .fa-caret-down {
       float: right;
@@ -39,7 +40,7 @@
     z-index: 10;
     position: absolute;
     background: none;
-    height: 40px;
+    height: 42px;
 
     &[disabled~="disabled"] {
       cursor: not-allowed;
@@ -50,7 +51,7 @@
     .text-wrapper {
       font-size: 13px;
       padding: 7px 10px;
-      min-height: 34px;
+      height: 34px;
     }
 
     select {
