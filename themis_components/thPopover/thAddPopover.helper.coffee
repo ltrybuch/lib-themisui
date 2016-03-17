@@ -1,4 +1,4 @@
-module.exports = ($compile, $timeout) -> (target, contentPromise) ->
+module.exports = ($compile, $timeout) -> (target, getContentPromise) ->
   {scope, element, attributes} = target
 
   element.attr('href', '')
@@ -70,8 +70,7 @@ module.exports = ($compile, $timeout) -> (target, contentPromise) ->
       arrow.removeClass 'th-popover-hidden'
 
   scope.$watch 'content', ->
-    $timeout -> # Wait for the tick after the digest cycle completes.
-      positionPopover()
+    positionPopover()
 
   dismissPopover = ->
     overlay?.remove()
@@ -113,7 +112,7 @@ module.exports = ($compile, $timeout) -> (target, contentPromise) ->
         scope.$apply -> dismissPopover()
 
     unless scope.loaded
-      contentPromise.then (content) ->
+      getContentPromise().then (content) ->
         scope.loaded = yes
         scope.content = content.data
       , ->

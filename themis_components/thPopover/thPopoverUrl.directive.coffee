@@ -9,5 +9,5 @@ angular.module("ThemisComponents")
         scope
         element
         attributes
-        $http.get(attributes.thPopoverUrl)
+        -> $http.get(attributes.thPopoverUrl)
       )

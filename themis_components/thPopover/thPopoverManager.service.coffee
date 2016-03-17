@@ -21,28 +21,28 @@ angular.module('ThemisComponents')
 
     showPopover = (options = {}) ->
       {
-        targetName      # String: Required
-        contentPromise  # Promise: Required
+        targetName         # String: Required
+        getContentPromise  # Function: Required
       } = options
 
       unless targets.hasOwnProperty(targetName)
         throw new Error "PopoverManager: target '#{targetName}' does not exist."
 
-      unless contentPromise.constructor.name is 'Promise'
-        throw new Error "PopoverManager: content must be of type 'Promise'"
+      unless getContentPromise instanceof Function
+        throw new Error "PopoverManager: getContentPromise must be of type 'Function'"
 
       target = targets[targetName]
 
       if not target.renderPopover?
-        {renderPopover} = addPopoverToTarget(target, contentPromise)
+        {renderPopover} = addPopoverToTarget(target, getContentPromise)
         target.renderPopover = renderPopover
 
       target.renderPopover()
 
-    attachPopover = (scope, element, attributes, contentPromise) ->
+    attachPopover = (scope, element, attributes, getContentPromise) ->
       {renderPopover} = addPopoverToTarget(
         {scope: scope.$new(), element, attributes}
-        contentPromise
+        getContentPromise
       )
 
       element.on 'click', ->

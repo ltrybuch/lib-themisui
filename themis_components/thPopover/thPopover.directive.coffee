@@ -9,5 +9,5 @@ angular.module('ThemisComponents')
         scope
         element
         attributes
-        PopoverManager.getContent(attributes.thPopover)
+        -> PopoverManager.getContent(attributes.thPopover)
       )
