@@ -40,7 +40,8 @@ angular.module('ThemisComponents')
         {renderPopover} = addPopoverToTarget(target, contentCallback)
         target.renderPopover = renderPopover
 
-      target.renderPopover()
+      $timeout ->
+        target.renderPopover()
 
     attachPopover = (element, contentCallback) ->
       {renderPopover} = addPopoverToTarget(

@@ -81,49 +81,50 @@ module.exports = ($compile, $timeout) -> (target, contentCallback) ->
     arrow?.remove()
 
   renderPopover = ->
-    unless view?
-      view = angular.element require './thPopover.template.html'
-    unless overlay?
-      overlay = angular.element require './thPopover.overlay.template.html'
-    unless arrow?
-      arrow = angular.element require './thPopover.arrow.template.html'
-
     unless scope?
       {getContentPromise, contentScope} = contentCallback()
       prepareScope contentScope
 
-    body = angular.element(document.body)
-    body.append overlay
-    body.append view
-    body.append arrow
+    scope.$apply ->
+      unless view?
+        view = angular.element require './thPopover.template.html'
+      unless overlay?
+        overlay = angular.element require './thPopover.overlay.template.html'
+      unless arrow?
+        arrow = angular.element require './thPopover.arrow.template.html'
 
-    overlay.on 'click', ->
-      dismissPopover()
+      body = angular.element(document.body)
+      body.append overlay
+      body.append view
+      body.append arrow
 
-    $compile(view)(scope)
-
-    positionPopover()
-
-    view.on 'click', (event) ->
-      # When an A tag in a popover and is clicked the popover should normally
-      # close. However, we do have components that will live in popovers that
-      # will be exceptions to this rule.
-      whitelist = [
-        '.chzn-container *'
-        '.th-switch *'
-        '.ui-select-choices-row-inner *' # Select 2 autocompleter
-      ]
-      whitelistSelector = whitelist.join ', '
-
-      if !event.target.matches(whitelistSelector) and event.target.matches("a, a *")
-        scope.$apply -> dismissPopover()
-
-    unless scope.loaded
-      getContentPromise().then (content) ->
-        scope.loaded = yes
-        scope.content = content.data
-      , ->
+      overlay.on 'click', ->
         dismissPopover()
+
+      $compile(view)(scope)
+
+      positionPopover()
+
+      view.on 'click', (event) ->
+        # When an A tag in a popover and is clicked the popover should normally
+        # close. However, we do have components that will live in popovers that
+        # will be exceptions to this rule.
+        whitelist = [
+          '.chzn-container *'
+          '.th-switch *'
+          '.ui-select-choices-row-inner *' # Select 2 autocompleter
+        ]
+        whitelistSelector = whitelist.join ', '
+
+        if !event.target.matches(whitelistSelector) and event.target.matches("a, a *")
+          scope.$apply -> dismissPopover()
+
+      unless scope.loaded
+        getContentPromise().then (content) ->
+          scope.loaded = yes
+          scope.content = content.data
+        , ->
+          dismissPopover()
 
   return {
     renderPopover
