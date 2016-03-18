@@ -1,5 +1,5 @@
 module.exports = ($compile, $timeout) -> (target, contentAccessor) ->
-  {element, attributes} = target
+  {element} = target
 
   view = null
   arrow = null
@@ -11,7 +11,7 @@ module.exports = ($compile, $timeout) -> (target, contentAccessor) ->
     {getContentPromise, contentScope} = contentAccessor()
     scope = contentScope.$new()
 
-    scope.overflow = attributes.overflow
+    scope.overflow = element.attr('overflow')
     scope.loaded = no
     scope.content = ""
 

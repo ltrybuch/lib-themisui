@@ -7,7 +7,6 @@ angular.module("ThemisComponents")
 
       PopoverManager.attachPopover(
         element
-        attributes
         -> {
           getContentPromise: -> $http.get(attributes.thPopoverUrl)
           contentScope: scope

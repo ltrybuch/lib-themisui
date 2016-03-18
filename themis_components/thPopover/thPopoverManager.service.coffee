@@ -19,8 +19,8 @@ angular.module('ThemisComponents')
 
       contents[contentName]
 
-    addTarget = (targetName, element, attributes) ->
-      targets[targetName] = {element, attributes}
+    addTarget = (targetName, element) ->
+      targets[targetName] = {element}
 
     showPopover = (options = {}) ->
       {
@@ -42,9 +42,9 @@ angular.module('ThemisComponents')
 
       target.renderPopover()
 
-    attachPopover = (element, attributes, contentAccessor) ->
+    attachPopover = (element, contentAccessor) ->
       {renderPopover} = addPopoverToTarget(
-        {element, attributes}
+        {element}
         contentAccessor
       )
 
