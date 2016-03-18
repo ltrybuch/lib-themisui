@@ -4,7 +4,7 @@ angular.module('thDemo', ['ThemisComponents'])
     @clickHandler = ->
       PopoverManager.showPopover(
         targetName: 'target'
-        getContentPromise: -> PopoverManager.getContent 'content'
+        contentAccessor: PopoverManager.getContentAccessor 'content'
       )
 
     return

@@ -1,15 +1,22 @@
-module.exports = ($compile, $timeout) -> (target, getContentPromise) ->
-  {scope, element, attributes} = target
-
-  element.attr('href', '')
+module.exports = ($compile, $timeout) -> (target, contentAccessor) ->
+  {element, attributes} = target
 
   view = null
   arrow = null
   overlay = null
 
-  scope.overflow = attributes.overflow
-  scope.loaded = no
-  scope.content = ""
+  scope = getContentPromise = null
+
+  prepareScope = ->
+    {getContentPromise, contentScope} = contentAccessor()
+    scope = contentScope.$new()
+
+    scope.overflow = attributes.overflow
+    scope.loaded = no
+    scope.content = ""
+
+    scope.$watch 'content', ->
+      positionPopover()
 
   positionPopover = ->
     return if view is null # We don't want to try positioning views that no longer exist.
@@ -69,9 +76,6 @@ module.exports = ($compile, $timeout) -> (target, getContentPromise) ->
       view.removeClass 'th-popover-hidden'
       arrow.removeClass 'th-popover-hidden'
 
-  scope.$watch 'content', ->
-    positionPopover()
-
   dismissPopover = ->
     overlay?.remove()
     view?.remove()
@@ -84,6 +88,9 @@ module.exports = ($compile, $timeout) -> (target, getContentPromise) ->
       overlay = angular.element require './thPopover.overlay.template.html'
     unless arrow?
       arrow = angular.element require './thPopover.arrow.template.html'
+
+    unless scope?
+      prepareScope()
 
     body = angular.element(document.body)
     body.append overlay

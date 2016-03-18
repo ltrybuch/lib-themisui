@@ -1,48 +1,51 @@
 angular.module('ThemisComponents')
-  .factory 'PopoverManager', ($compile, $timeout, $q, $rootScope) ->
+  .factory 'PopoverManager', ($compile, $timeout, $q) ->
     contents = {}
     targets = {}
 
-    addContent = (contentName, contentHtml) ->
-      contents[contentName] = contentHtml
+    addContent = (contentName, contentHtml, contentScope) ->
+      contents[contentName] = {
+        getContentPromise: -> $q (resolve, reject) ->
+          resolve {data: contentHtml}
+        contentScope
+      }
 
-    getContent = (contentName) ->
-      $q (resolve, reject) ->
-        unless document.body.querySelector("[name=#{contentName}]")
-          throw new Error "PopoverManager: content '#{contentName}' not found in document body."
+    getContentAccessor = (contentName) -> ->
+      unless document.body.querySelector("[name=#{contentName}]")
+        throw new Error "PopoverManager: content '#{contentName}' not found in document body."
 
-        unless contents.hasOwnProperty contentName
-          throw new Error "PopoverManager: content '#{contentName}' does not exist."
-        
-        resolve({data: contents[contentName]})
+      unless contents.hasOwnProperty contentName
+        throw new Error "PopoverManager: content '#{contentName}' does not exist."
 
-    addTarget = (targetName, scope, element, attributes) ->
-      targets[targetName] = {scope: scope.$new(), element, attributes}
+      contents[contentName]
+
+    addTarget = (targetName, element, attributes) ->
+      targets[targetName] = {element, attributes}
 
     showPopover = (options = {}) ->
       {
-        targetName         # String: Required
-        getContentPromise  # Function: Required
+        targetName        # String: Required
+        contentAccessor   # Function: Required
       } = options
 
       unless targets.hasOwnProperty(targetName)
         throw new Error "PopoverManager: target '#{targetName}' does not exist."
 
-      unless getContentPromise instanceof Function
-        throw new Error "PopoverManager: getContentPromise must be of type 'Function'"
+      # unless getContentPromise instanceof Function
+      #   throw new Error "PopoverManager: getContentPromise must be of type 'Function'"
 
       target = targets[targetName]
 
       if not target.renderPopover?
-        {renderPopover} = addPopoverToTarget(target, getContentPromise)
+        {renderPopover} = addPopoverToTarget(target, contentAccessor)
         target.renderPopover = renderPopover
 
       target.renderPopover()
 
-    attachPopover = (scope, element, attributes, getContentPromise) ->
+    attachPopover = (element, attributes, contentAccessor) ->
       {renderPopover} = addPopoverToTarget(
-        {scope: scope.$new(), element, attributes}
-        getContentPromise
+        {element, attributes}
+        contentAccessor
       )
 
       element.on 'click', ->
@@ -54,6 +57,6 @@ angular.module('ThemisComponents')
       attachPopover
       showPopover
       addContent
-      getContent
+      getContentAccessor
       addTarget
     }
