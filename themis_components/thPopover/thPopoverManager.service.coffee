@@ -10,7 +10,7 @@ angular.module('ThemisComponents')
         contentScope
       }
 
-    getContentAccessor = (contentName) -> ->
+    getContent = (contentName) ->
       unless document.body.querySelector("[name=#{contentName}]")
         throw new Error "PopoverManager: content '#{contentName}' not found in document body."
 
@@ -25,7 +25,7 @@ angular.module('ThemisComponents')
     showPopover = (options = {}) ->
       {
         targetName        # String: Required
-        contentAccessor   # Function: Required
+        contentCallback   # Function: Required
       } = options
 
       unless targets.hasOwnProperty(targetName)
@@ -37,15 +37,15 @@ angular.module('ThemisComponents')
       target = targets[targetName]
 
       if not target.renderPopover?
-        {renderPopover} = addPopoverToTarget(target, contentAccessor)
+        {renderPopover} = addPopoverToTarget(target, contentCallback)
         target.renderPopover = renderPopover
 
       target.renderPopover()
 
-    attachPopover = (element, contentAccessor) ->
+    attachPopover = (element, contentCallback) ->
       {renderPopover} = addPopoverToTarget(
         {element}
-        contentAccessor
+        contentCallback
       )
 
       element.on 'click', ->
@@ -57,6 +57,6 @@ angular.module('ThemisComponents')
       attachPopover
       showPopover
       addContent
-      getContentAccessor
+      getContent
       addTarget
     }

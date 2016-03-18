@@ -7,5 +7,5 @@ angular.module('ThemisComponents')
 
       PopoverManager.attachPopover(
         element
-        PopoverManager.getContentAccessor attributes.thPopover
+        -> PopoverManager.getContent attributes.thPopover
       )

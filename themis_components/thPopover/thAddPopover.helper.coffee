@@ -1,4 +1,4 @@
-module.exports = ($compile, $timeout) -> (target, contentAccessor) ->
+module.exports = ($compile, $timeout) -> (target, contentCallback) ->
   {element} = target
 
   view = null
@@ -7,8 +7,7 @@ module.exports = ($compile, $timeout) -> (target, contentAccessor) ->
 
   scope = getContentPromise = null
 
-  prepareScope = ->
-    {getContentPromise, contentScope} = contentAccessor()
+  prepareScope = (contentScope) ->
     scope = contentScope.$new()
 
     scope.overflow = element.attr('overflow')
@@ -90,7 +89,8 @@ module.exports = ($compile, $timeout) -> (target, contentAccessor) ->
       arrow = angular.element require './thPopover.arrow.template.html'
 
     unless scope?
-      prepareScope()
+      {getContentPromise, contentScope} = contentCallback()
+      prepareScope contentScope
 
     body = angular.element(document.body)
     body.append overlay
