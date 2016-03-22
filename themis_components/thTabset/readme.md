@@ -4,9 +4,20 @@
 
 Want some tabs? The `th-tabset` & `th-tab` power duo are just what you were looking for.
 
-Each `th-tab` gets a `name` which will be used as the label for the tab bar. Any content inside of `th-tab` will be the content of that tab.
+Each `th-tab` gets a `name` which will be used as the label for the tab bar.
+Any content inside of `th-tab` will be the content of that tab.
 
-Combine this with `th-lazy` for an extreme team of lazy-loaded tabs!
+## Attributes
+
+[name="string"]
+- `name` is used as the label for the tab bar. This is not required but the tab
+will not be visible in the tab bar without a name.
+
+[ngClick="function"]
+- Pass in an expression that can be evaluated upon clicking the tab in the tab bar
+using `ng-click`. Using `ng-click` will not effect the normal usage of `thTabset`
+but just allow a click event to attach to. See example 3 below.
+[Angular docs](https://docs.angularjs.org/api/ng/directive/ngClick)
 
 ## Usage
 
@@ -20,3 +31,7 @@ Combine this with `th-lazy` for an extreme team of lazy-loaded tabs!
   </th-tab>
 </th-tabset>
 ```
+
+## Notes
+
+- Combine this with `th-lazy` for an extreme team of lazy-loaded tabs!

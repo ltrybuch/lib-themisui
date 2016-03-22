@@ -2,13 +2,16 @@
   <div class="th-tab-bar">
       <a
         href=""
-        ng-click="activateTab(tab)"
+        ng-click="processTabChange(tab)"
         ng-repeat="tab in tabs"
         ng-class="{active:tab.active}"
-        >{{ tab.name }}</a>
+        >
+        {{ tab.name }}
+      </a>
   </div>
   <div
     class="th-tabset-content"
     ng-transclude
-    ></div>
+    >
+  </div>
 </div>
