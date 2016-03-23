@@ -118,4 +118,6 @@ angular.module 'ThemisComponents'
       getCurrentPage: -> currentPage
 
       getPageSize: -> pageSize
+
+      getTotalRecordCount: -> totalItems
     }

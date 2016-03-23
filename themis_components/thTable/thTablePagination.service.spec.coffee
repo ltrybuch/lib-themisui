@@ -82,6 +82,15 @@ describe 'ThemisComponents: Service: thTablePagination', ->
             else
               expect(pages[pages.length - 2]).not.toEqual ellipsis
 
+  describe '#getTotalRecordCount', ->
+    it 'returns the proper record count', ->
+      pageSize = 5
+      numPages = 10
+      totalItems = numPages * pageSize
+      pagination = TablePagination {pageSize}
+      pagination.updatePagination {totalItems}
+      expect(pagination.getTotalRecordCount()).toBe totalItems
+
   describe '#isFirstPage', ->
     it 'returns true', ->
       pageSize = 5

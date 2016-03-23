@@ -80,6 +80,7 @@ angular.module 'ThemisComponents'
         reload()
 
       pages: tablePagination.pages
+      totalRecords: tablePagination.getTotalRecordCount
       isLastPage: tablePagination.isLastPage
       isFirstPage: tablePagination.isFirstPage
       inactivePageLink: tablePagination.inactivePageLink
