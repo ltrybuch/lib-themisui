@@ -6,6 +6,7 @@ angular.module('ThemisComponents')
     transclude: true
     scope:
       name: "@name"
+      ngClick: "&"
     link: (scope, element, attrs, controller) ->
       scope.active = no
       controller.addTab scope
