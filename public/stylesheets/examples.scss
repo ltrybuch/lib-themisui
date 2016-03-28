@@ -21,3 +21,7 @@ body {
 @for $i from 1 through 11 {
   .th-example-width-#{$i}00 { width: #{$i}00px; }
 }
+
+.th-example-grey { color: $light-grey; }
+
+.th-example-blue { color: $blue; }

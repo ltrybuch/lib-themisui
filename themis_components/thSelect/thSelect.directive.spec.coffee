@@ -12,7 +12,7 @@ describe "ThemisComponents: Directive: thSelect", ->
       ]
       scopeAdditions.choice = scopeAdditions.options[0]
       {element, scope} = compileDirective """
-        <th-select name="faction" options="options" ng-model="choice">
+        <th-select name="faction" condensed="true" options="options" ng-model="choice">
         </th-select>""", scopeAdditions
       select = element.find "select"
       options = element.find "option"
@@ -41,6 +41,10 @@ describe "ThemisComponents: Directive: thSelect", ->
         expect(options.first().val()).toMatch ""
         expect(options.first().text()).toMatch ""
         expect(options.first().hasClass("ng-hide")).toBe true
+
+    context "with 'condensed' attribute set to true", ->
+      it "adds class 'condensed' to the select wrapper", ->
+        expect(element.hasClass("condensed")).toBe true
 
   describe "when disabled", ->
     beforeEach ->

@@ -1,0 +1,22 @@
+<html ng-app="thDemo">
+  <body ng-controller="DemoController as demo">
+    <th-tabset>
+      <th-tab name="Show" ng-click="demo.toggleEditState()"></th-tab>
+      <th-tab name="Edit" ng-click="demo.toggleEditState()"></th-tab>
+    </th-tabset>
+    <div style="padding: 20px;" class="th-example-width-500">
+      <div ng-if="demo.editing">
+        <th-input
+          placeholder="Add a name.."
+          ng-model="demo.name"
+          ng-if="demo.editing"
+          >
+        </th-input>
+      </div>
+      <h3 ng-if="!demo.editing">
+        <span class="th-example-blue">Name:</span>
+        <span class="th-example-grey">{{demo.name || "Click edit to update"}}</span>
+      </h3>
+    </div>
+  </body>
+</html>

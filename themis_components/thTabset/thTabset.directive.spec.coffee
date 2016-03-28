@@ -1,5 +1,5 @@
 describe 'ThemisComponents: Directive: thTabset', ->
-  element = scope = compile = null
+  element = validTemplate = ngClickTemplate = null
   validTemplate = """
     <div th-tabset>
       <div th-tab name="Tab One">
@@ -14,34 +14,41 @@ describe 'ThemisComponents: Directive: thTabset', ->
       </div>
     </div>
   """
+  ngClickTemplate = """
+    <div th-tabset>
+      <div th-tab name="Tab One" ng-click="alert('one')"></div>
+      <div th-tab name="Tab Two" ng-click="alert('two')">
+      </div>
+    </div>
+  """
 
-  compileDirective = (state, template) ->
-    template = template ? validTemplate
-    element = compile(template)(scope)
-    scope.$digest()
+  describe "with a valid template", ->
+    beforeEach -> {element} = compileDirective validTemplate
 
-    return element
+    it 'should create a tab bar', ->
+      expect(element.find('.th-tab-bar').length).toBe 1
 
-  beforeEach angular.mock.module 'ThemisComponents'
+    it 'should create a content area', ->
+      expect(element.find('.th-tabset-content').length).toBe 1
 
-  beforeEach inject ($injector) ->
-    scope = $injector.get('$rootScope').$new()
-    compile = $injector.get '$compile'
+    it 'should default to the first tab being visible', ->
+      expect(element.find('.th-tab-bar a').first().hasClass('active')).toBe true
+      expect(element.find('.th-tab-bar a').last().hasClass('active')).toBe false
 
-  beforeEach ->
-    element = compileDirective()
+    it 'should switch to the second tab if clicked', ->
+      element.find('.th-tab-bar a').last().click()
+      expect(element.find('.th-tab-bar a').first().hasClass('active')).toBe false
+      expect(element.find('.th-tab-bar a').last().hasClass('active')).toBe true
 
-  it 'should create a tab bar', ->
-    expect(element.find('.th-tab-bar').length).toBe 1
+  describe "with an ngClick attribute", ->
+    beforeEach ->
+      additions = {alert: (tab) -> alert tab}
+      {element} = compileDirective ngClickTemplate, additions
 
-  it 'should create a content area', ->
-    expect(element.find('.th-tabset-content').length).toBe 1
+    it 'should trigger the ng-click function on tab click', ->
+      spyOn window, 'alert'
+      element.find('.th-tab-bar a').first().triggerHandler 'click'
+      expect(window.alert).toHaveBeenCalledWith 'one'
 
-  it 'should default to the first tab being visible', ->
-    expect(element.find('.th-tab-bar a').first().hasClass('active')).toBe true
-    expect(element.find('.th-tab-bar a').last().hasClass('active')).toBe false
-
-  it 'should switch to the second tab if clicked', ->
-    element.find('.th-tab-bar a').last().click()
-    expect(element.find('.th-tab-bar a').first().hasClass('active')).toBe false
-    expect(element.find('.th-tab-bar a').last().hasClass('active')).toBe true
+      element.find('.th-tab-bar a').last().triggerHandler 'click'
+      expect(window.alert).toHaveBeenCalledWith 'two'

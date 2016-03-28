@@ -93,6 +93,9 @@ to true.
 - Since the `group` property's value will be the corresponding `<optgroup>`'s label
 (making it visible to the user) be sure to style the text appropriately.
 
+[condensed="boolean"]
+- Set to `true` to reduce the height of `th-select` by 25%. Defaults to `false`.
+
 ---
 ## Notes
 - The `option` elements (dropdown list items) are rendered by the OS so will look
