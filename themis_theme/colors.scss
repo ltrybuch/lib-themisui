@@ -12,6 +12,7 @@ $grey: #d0d0d0;
 $dark-grey: #333333;
 $medium-grey: #666666;
 $link-blue: #3a7abd;
+$focus-blue: #61b3e3;
 /*--------------------------------------------------
 * COLOURS
   Values increase lightest to darkest (1 = lightest,
@@ -135,7 +136,6 @@ $global-search-height: 30px;
 $subnav-top: $header-height * 2;
 $content-top: $header-height + $nav-height;
 $header-1-size: 18px;
-$border: 1px solid $border-color;
 $modal-padding: 24px;
 /*--------------------------------------------------
 * BREAKPOINT VARIABLES
