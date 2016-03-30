@@ -217,6 +217,9 @@ that you can use:
   * Reference to the TableHeader objects array that you pass to the delegate
     on creation.
 
+* `totalRecords`
+  * Returns the total number of records in the complete data set for the table.
+
 * `reload({currentPage})`
   * Manually calls `fetchData()` with the current state of the table
     (pagination, sorting parameters)

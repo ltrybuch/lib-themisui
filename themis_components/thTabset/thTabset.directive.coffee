@@ -8,6 +8,12 @@ angular.module('ThemisComponents')
     controller: ($scope) ->
       tabs = $scope.tabs = []
 
+      $scope.processTabChange = (tabToSelect) ->
+        $scope.activateTab tabToSelect
+
+        # Evaluate ngClick function only if tabs have loaded.
+        tabToSelect.ngClick() if typeof tabToSelect.ngClick is "function"
+
       $scope.activateTab = (tabToSelect) ->
         tabToSelect.active = yes
         tab.active = no for tab in tabs when tab isnt tabToSelect

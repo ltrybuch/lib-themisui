@@ -1,0 +1,23 @@
+/*--------------------------------------------------
+* Clio z-index planes
+*
+* This file contains constants used for common
+* z-index values. When adding a z-index value to a
+* selector, use the constant defined below for the
+* corresponding plane.
+*--------------------------------------------------*/
+
+/*--------------------------------------------------
+* Notification plane
+*--------------------------------------------------*/
+$notification-plane: 300000000;
+
+/*--------------------------------------------------
+* Menu plane
+*--------------------------------------------------*/
+$menu-plane: 200000000;
+
+/*--------------------------------------------------
+* Modal plane
+*--------------------------------------------------*/
+$modal-plane: 100000000;
