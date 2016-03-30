@@ -1,6 +1,15 @@
 <div class="select-wrapper"
   ng-class="{condensed: select.condensed}"
   >
+  <div
+    class="text-wrapper"
+    ng-class="{disabled: select.ngDisabled}"
+    >
+    <span class="selected-text">
+      {{select.selectedText}}
+    </span>
+    <i class="fa fa-caret-down"></i>
+  </div>
   <select
     ng-disabled="select.ngDisabled"
     ng-attr-name="{{select.name || undefined}}"
@@ -16,13 +25,4 @@
       {{select.placeholder}}
     </option>
   </select>
-  <div
-    class="text-wrapper"
-    ng-class="{disabled: select.ngDisabled}"
-    >
-    <span class="selected-text">
-      {{select.selectedText}}
-    </span>
-    <i class="fa fa-caret-down"></i>
-  </div>
 </div>

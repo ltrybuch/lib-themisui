@@ -10,19 +10,21 @@
   }
 
   .text-wrapper {
+    position: relative;
+    width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+
     margin: 0;
     padding: 12px;
+
+    line-height: 16px;
+    font-size: 13px;
+
     background: $off-white;
     border: 1px solid $grey-70;
     border-radius: 4px;
-    position: relative;
-    box-sizing: border-box;
     -webkit-appearance: none;
-    font-size: 13px;
-    z-index: 9;
-    width: 100%;
-    height: 42px;
-    line-height: 16px;
 
     .fa-caret-down {
       float: right;
@@ -35,12 +37,12 @@
     }
   }
   select {
-    width: 100%;
-    opacity: 0;
-    z-index: 10;
     position: absolute;
-    background: none;
+    top: 0px;
+    width: 100%;
     height: 42px;
+    background: none;
+    opacity: 0;
 
     &[disabled~="disabled"] {
       cursor: not-allowed;
@@ -62,4 +64,3 @@
     color: $light-grey-5;
   }
 }
-
