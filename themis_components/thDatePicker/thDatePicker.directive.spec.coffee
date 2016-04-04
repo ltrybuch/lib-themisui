@@ -1,6 +1,6 @@
 moment = require "moment"
 
-describe 'ThemisComponents: Directive: thDatePicker', ->
+xdescribe 'ThemisComponents: Directive: thDatePicker', ->
   element = validTemplate = null
   todayDate = moment()
   defaultDateFormat = 'YYYY-MM-DD'
