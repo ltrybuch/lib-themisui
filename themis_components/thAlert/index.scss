@@ -10,7 +10,7 @@ $dismiss-icon-size: 16px;
   left: 0;
   width: calc(100% - (#{$padding} * 2));
   color: #fff;
-  z-index: 2147483647;
+  z-index: $notification-plane;
   min-height: $height;
   padding-left: $padding;
   padding-right: $padding;
