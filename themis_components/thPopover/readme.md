@@ -60,10 +60,15 @@ Trigger from script.
 ```coffeescript
 controller: (PopoverManager, $http) ->
   # Remote content
-  contentPromise = $http.get "http://www.google.com"
-  PopoverManager.showPopover("target", contentPromise)
+  PopoverManager.showPopover(
+    targetName: "target"
+    contentCallback: -> $http.get "http://www.google.com"
+  )
 
   # Inline content
-  contentPromise = PopoverManager.getContent("content")
-  PopoverManager.showPopover("target", contentPromise)
+  contentPromise = 
+  PopoverManager.showPopover(
+    targetName: "target"
+    contentCallback: -> PopoverManager.getContent "content"
+  )
 ```
