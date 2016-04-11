@@ -7,6 +7,7 @@ angular.module('thDemo', ['ThemisComponents'])
       {name: "Argentina", group: "South America", value: "arg"}
       {name: "Chile", group: "South America", value: "chl"}
       {name: "Brazil", group: "South America", value: "bra"}
+      {name: "Democratic People's Republic of Korea", group: "Asia", value: "dprk"}
     ]
     @counter = 0
     @onChange = -> @counter = @counter + 1
