@@ -1,0 +1,200 @@
+th-autocomplete {
+  @import "../../node_modules/ui-select/dist/select";
+
+  .ui-select-container {
+    // ui-select component uses bootstrap for styling. These are all rules
+    // used by ui-select copied from bootstrap.
+    .glyphicon {
+      position: relative;
+      top: 1px;
+
+      display: inline-block;
+
+      font-family: 'Glyphicons Halflings';
+      font-style: normal;
+      font-weight: normal;
+      font-smoothing: antialiased;
+      line-height: 1;
+    }
+
+    .glyphicon-remove:before {
+      content: "\e014";
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    a {
+      color: $red-1;
+      text-decoration: none;
+    }
+
+    .text-muted {
+      color: inherit;
+    }
+
+    .form-control {
+      display: block;
+      width: 100%;
+      padding: 12px;
+
+      font: inherit;
+
+      background: $off-white;
+      border: 1px solid $grey-70;
+      border-radius: 4px;
+
+      &:focus {
+        box-shadow: 0 0 5px rgba(97, 179, 227, .7);
+        border: 1px solid $focus-blue;
+        outline: none;
+      }
+    }
+
+    .btn {
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .btn-default-focus {
+      box-shadow: none;
+      border: none;
+      outline: none;
+
+      span.ui-select-toggle {
+        box-shadow: 0 0 5px rgba(97, 179, 227, .7);
+        border: 1px solid $focus-blue;
+        outline: none;
+      }
+    }
+
+    .btn-link {
+      font-weight: normal;
+      color: $red-1;
+      border-radius: 0;
+    }
+
+    .btn-link,
+    .btn-link:active,
+    .btn-link.active,
+    .btn-link[disabled],
+    fieldset[disabled] .btn-link {
+      box-shadow: none;
+      background-color: transparent;
+    }
+
+    .btn-link,
+    .btn-link:hover,
+    .btn-link:focus,
+    .btn-link:active {
+      border-color: transparent;
+    }
+
+    .btn-xs,
+    .btn-group-xs > .btn {
+      padding: 1px 5px;
+      font-size: 12px;
+      line-height: 1.5;
+      border-radius: 3px;
+    }
+
+    .caret {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      margin-left: 2px;
+      
+      vertical-align: middle;
+
+      border-top: 4px dashed;
+      border-top: 4px solid \9;
+      border-right: 4px solid transparent;
+      border-left: 4px solid transparent;
+    }
+
+    &.dropup,
+    &.dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: $menu-plane;
+
+      display: none;
+      float: left;
+      min-width: 160px;
+      padding: 5px 0;
+      margin: 2px 0 0;
+
+      font-size: 14px;
+      text-align: left;
+
+      background-color: $white;
+      background-clip: padding-box;
+      border: 1px solid rgba(0, 0, 0, .15);
+      border-radius: 4px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+      list-style: none;
+    }
+
+    .dropdown-menu .divider {
+      height: 1px;
+      margin: 9px 0;
+      overflow: hidden;
+      background-color: $red-1;
+    }
+
+    &.open > .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-header {
+      display: block;
+      padding: 3px 20px;
+
+      font-size: 12px;
+      line-height: 1.42857143;
+      color: $red-1;
+      white-space: nowrap;
+    }
+
+    .btn .caret {
+      margin-left: 0;
+    }
+
+    &.ui-select-bootstrap {
+      .ui-select-choices-row {
+        > a {
+          display: block;
+          padding: 9px 12px;
+          clear: both;
+          font-weight: inherit;
+          color: inherit;
+          white-space: nowrap;
+        }
+
+        &.active {
+          > a {
+            color: $white;
+            text-decoration: none;
+            outline: 0;
+            background-color: $blue;
+          }
+        }
+      }
+    }
+
+    .ui-select-search {
+      font-family: inherit;
+    }
+    
+    input {
+      font-size: inherit;
+      background: $off-white;
+    }
+  }
+}

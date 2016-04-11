@@ -17,7 +17,7 @@
 
   overflow: auto;
 
-  z-index: 2147483647;
+  z-index: $menu-plane;
 
   &.loading {
     // TODO: This loading state should be replaced with th-loader once it's moved over here.
@@ -42,7 +42,7 @@ i.th-popover-arrow {
     position: absolute;
     margin-top: 12px;
 
-    z-index: 2147483647;
+    z-index: $menu-plane;
 
     &:before {
       content: "\25B2";
@@ -55,7 +55,7 @@ i.th-popover-arrow {
       color: #fff;
       top: -13px;
       text-shadow: 0 -2px 3px rgba(0, 0, 0, 0.2);
-    } 
+    }
 }
 
 .th-popover-overlay {
@@ -68,6 +68,5 @@ i.th-popover-arrow {
 
   background-color: rgba(0,0,0,0);
 
-  z-index: 2147483647;
-
+  z-index: $menu-plane;
 }

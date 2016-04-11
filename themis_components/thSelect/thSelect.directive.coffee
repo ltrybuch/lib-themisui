@@ -89,9 +89,9 @@ angular.module('ThemisComponents')
         )
 
       select = element.find "select"
-      select.on "focus", ->
-        angular.element(this).next().addClass "has-focus"
-      select.on "blur", ->
-        angular.element(this).next().removeClass "has-focus"
+      select.on "focus", (event) ->
+        event.target.previousElementSibling.classList.add "has-focus"
+      select.on "blur", (event) ->
+        event.target.previousElementSibling.classList.remove "has-focus"
 
       return

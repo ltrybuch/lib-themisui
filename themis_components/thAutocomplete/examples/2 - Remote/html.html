@@ -1,0 +1,14 @@
+<html ng-app="thDemo">
+  <body ng-controller="DemoCtrl as demo">
+
+    <th-autocomplete
+      placeholder="Select a GitHub Repo"
+      ng-model="demo.repo"
+      delegate="demo.delegate"
+      >
+    </th-autocomplete>
+
+    <p>Selected repo: {{demo.repo.id}}</p>
+
+  </body>
+</html>

@@ -1,0 +1,14 @@
+<html ng-app="thDemo">
+  <body ng-controller="DemoCtrl as demo">
+
+    <th-autocomplete
+      placeholder="Select a city"
+      ng-model="demo.city"
+      delegate="demo.delegate"
+      >
+    </th-autocomplete>
+
+    <p>Selected city: {{demo.city.id}}</p>
+
+  </body>
+</html>

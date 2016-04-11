@@ -46,7 +46,7 @@
   &.has-focus {
     box-shadow: 0 0 5px rgba(97, 179, 227, .7);
     .th-input, .th-input-prefix, .th-input-postfix {
-      border-color: #61b3e3;
+      border-color: $focus-blue;
     }
   }
   &.condensed {

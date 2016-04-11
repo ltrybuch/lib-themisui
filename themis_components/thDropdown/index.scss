@@ -44,7 +44,7 @@
 }
 .dropdown-menu {
   position: absolute;
-  z-index: 2147483647;
+  z-index: $menu-plane;
   border-radius: .2rem;
   border: $border;
   margin: 0;
@@ -94,7 +94,7 @@
   bottom: 0px;
   left: 0px;
   right: 0px;
-  z-index: 2147483646;
+  z-index: $menu-plane;
   background-color: rgba(0,0,0,0);
 }
 hr.th-divider {
@@ -102,4 +102,3 @@ hr.th-divider {
   margin: 0;
   border: 1px solid $grey-70;
 }
-
