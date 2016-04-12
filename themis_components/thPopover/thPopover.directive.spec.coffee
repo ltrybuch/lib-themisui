@@ -23,5 +23,4 @@ describe 'ThemisComponents: Directive: thPopover', ->
       compileDirective("<div th-popover='test'></div>")
 
     it "should call 'PopoverManager.attachPopover'", ->
-      expect(PopoverManager.getContent).toHaveBeenCalled()
       expect(PopoverManager.attachPopover).toHaveBeenCalled()

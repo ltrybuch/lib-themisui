@@ -5,7 +5,7 @@ describe 'ThemisComponents: Directive: thPopoverManager', ->
     <a href="" th-popover-url="/template.html">Popover</a>
   """
   mockResponse = "<h1>Popover</h1>"
-      
+
   addContentToBody = ->
     contentElement = document.createElement 'th-popover-content'
     contentElement.setAttribute(
@@ -55,9 +55,9 @@ describe 'ThemisComponents: Directive: thPopoverManager', ->
 
       it "should return a promise that resolves to 'content'", ->
         resolvedContent = null
- 
+
         contentPromise = PopoverManager.getContent('content')
-        contentPromise.then (content) ->
+        contentPromise.getContentPromise().then (content) ->
           resolvedContent = content
         timeout.flush()
 
@@ -86,11 +86,11 @@ describe 'ThemisComponents: Directive: thPopoverManager', ->
         removeContentFromBody()
 
       it 'should render popover', ->
-        contentPromise = PopoverManager.getContent('content')
         PopoverManager.showPopover(
           targetName: 'target'
-          contentPromise: contentPromise
+          contentCallback: -> PopoverManager.getContent('content')
         )
+        timeout.flush()
 
         expect(document.querySelector('.th-popover-view')).not.toBeNull()
         expect(document.querySelector('.th-popover-overlay')).not.toBeNull()
