@@ -28,11 +28,12 @@ angular.module('ThemisComponents')
         contentCallback   # Function: Required
       } = options
 
-      unless targets.hasOwnProperty(targetName)
+      unless targets.hasOwnProperty targetName
         throw new Error "PopoverManager: target '#{targetName}' does not exist."
 
-      # unless getContentPromise instanceof Function
-      #   throw new Error "PopoverManager: getContentPromise must be of type 'Function'"
+      unless contentCallback instanceof Function
+        throw new Error "PopoverManager: options must have Function " + \
+          "'contentCallback'."
 
       target = targets[targetName]
 

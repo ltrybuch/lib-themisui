@@ -85,6 +85,14 @@ describe 'ThemisComponents: Directive: thPopoverManager', ->
 
         removeContentFromBody()
 
+      describe "when contentCallback is not defined or not a function", ->
+        it "should throw an error", ->
+          expect(-> PopoverManager.showPopover(targetName: 'target')).toThrow()
+          expect(-> PopoverManager.showPopover(
+            targetName: 'target'
+            contentCallback: '2'
+          )).toThrow()
+
       it 'should render popover', ->
         PopoverManager.showPopover(
           targetName: 'target'

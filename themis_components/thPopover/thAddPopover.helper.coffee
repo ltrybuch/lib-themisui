@@ -83,6 +83,15 @@ module.exports = ($compile, $timeout) -> (target, contentCallback) ->
   renderPopover = ->
     unless scope?
       {getContentPromise, contentScope} = contentCallback()
+
+      unless getContentPromise instanceof Function
+        throw new Error "renderPopover: contentCallback() must return " + \
+          "Function 'getContentPromise'."
+
+      unless contentScope?
+        throw new Error "renderePopover: concentCallback() must return " + \
+          "'contentScope'."
+
       prepareScope contentScope
 
     scope.$apply ->
