@@ -89,7 +89,7 @@ module.exports = ($compile, $timeout) -> (target, contentCallback) ->
           "Function 'getContentPromise'."
 
       unless contentScope?
-        throw new Error "renderePopover: concentCallback() must return " + \
+        throw new Error "renderPopover: concentCallback() must return " + \
           "'contentScope'."
 
       prepareScope contentScope
