@@ -16,7 +16,7 @@
     box-sizing: border-box;
 
     margin: 0;
-    padding: 12px;
+    padding: 12px 36px 12px 12px;
 
     line-height: 16px;
     font-size: 13px;
@@ -26,8 +26,13 @@
     border-radius: 4px;
     -webkit-appearance: none;
 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
     .fa-caret-down {
-      float: right;
+      position: absolute;
+      right: 12px;
       color: $dark-grey;
       line-height: 20px;
     }
