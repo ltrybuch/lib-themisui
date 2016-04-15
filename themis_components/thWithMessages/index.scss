@@ -1,0 +1,15 @@
+.th-with-message {
+  height: 25px;
+  padding-top: 5px;
+  margin-bottom: 10px;
+
+  .message-container {
+    color: $red-alert;
+    font-size: 13px;
+    font-weight: 400;
+  }
+}
+
+label.margin-bottom-none {
+  margin-bottom: 0px;
+}

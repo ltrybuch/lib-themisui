@@ -1,0 +1,59 @@
+<html ng-app="thDemo">
+  <body ng-controller="DemoController as demo" class="th-example-height-500">
+    <div class="th-example-width-400">
+      <form name="demo.form" novalidate="novalidate">
+
+        <th-input
+          name="text"
+          with-label="Text"
+          type="text"
+          placeholder="This field allows up to 10 characters"
+          ng-model="demo.text"
+          with-messages
+          ng-maxlength="10"
+          >
+        </th-input>
+
+        <th-textarea
+          with-label="Textarea"
+          placeholder="This field requires a minimum of 10 characters."
+          rows="4"
+          name="textarea"
+          ng-model="demo.textarea"
+          ng-minlength="10"
+          with-messages
+          >
+        </th-textarea>
+
+        <th-checkbox
+          ng-model="demo.checkbox"
+          with-label="Checkbox"
+          name="checkbox"
+          ng-required="true"
+          with-messages
+          >
+        </th-checkbox>
+
+        <th-radio-group
+          with-label="Radio Buttons"
+          ng-required="true"
+          ng-model="demo.radio"
+          name="radio"
+          with-messages
+          >
+          <th-radio-button with-label="One" value="one">
+          </th-radio-button>
+          <th-radio-button with-label="Two" value="two">
+          </th-radio-button>
+          <th-radio-button with-label="Three" value="three">
+          </th-radio-button>
+        </th-radio-group>
+
+        <th-button type="default" ng-click="demo.submit()" submit>Submit</th-button>
+        <th-button ng-click="demo.reset()">reset</th-button>
+        <pre ng-if="demo.response">{{demo.response | json}}</pre>
+
+      </form>
+    </div>
+ </body>
+</html>

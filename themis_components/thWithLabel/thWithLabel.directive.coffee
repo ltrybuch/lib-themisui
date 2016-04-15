@@ -1,8 +1,12 @@
 angular.module('ThemisComponents')
   .directive "withLabel", ->
     restrict: "A"
+    # Note: Post links run in reverse priority order. So set 'withLabel'
+    # directive first and then run 'withMessages' after. Counterintiutive yes,
+    # but this is how it works.
+    # https://docs.angularjs.org/api/ng/service/$compile
+    priority: 1
     link: (scope, element, attrs) ->
-
       # wrap our input in a label
       element.wrap '<label class="th-label">'
       label = element.parent()
@@ -14,38 +18,35 @@ angular.module('ThemisComponents')
         className = "radio-label" if isThRadio or isRadioInput
         label.addClass className
 
-      findInlineInputElement = (themisComponents, htmlComponents) ->
-        # find themis ui components by class name
-        findByClassName = (className) ->
-          label[0].getElementsByClassName(className)[0]
+      createElementObject = ->
+        elementObject = {el: null, type: "themis", inline: false}
 
-        # find inline inputs by type
-        findByInputType = (type) ->
-          label[0].querySelectorAll("input[type=#{type}]")[0]
+        # Check th-radio-group first as th-radio-button are found inside
+        # and can set th-radio-group to "inline" when it shouldn't be.
+        radioGroupEl = label[0].getElementsByClassName "th-radio-group"
+        return elementObject if radioGroupEl.length > 0
 
-        html = (findByInputType(comp) \
-                 for comp in htmlComponents \
-                 when findByInputType(comp) isnt undefined)
+        # Set type to "themis" and inline to true
+        classNames = ["th-switch", "th-checkbox", "th-radio-button"]
+        classNames.map (className) ->
+          temp = label[0].getElementsByClassName(className)[0]
+          elementObject = {el: temp, type: "themis", inline: true} if temp?
 
-        themis = (findByClassName(comp) \
-                   for comp in themisComponents \
-                   when findByClassName(comp) isnt undefined)
+        # Set type to "html" and inline to true
+        unless elementObject.el?
+          inputTypes = ["radio", "checkbox"]
+          inputTypes.map (type) ->
+            temp = label[0].querySelectorAll("input[type=#{type}]")[0]
+            elementObject = {el: temp, type: "html", inline: true} if temp?
 
-        if themis[0]
-          el: themis[0], type: "themis"
-        else
-          el: html[0], type: "html"
+        return elementObject
 
-      inlineElement = findInlineInputElement(
-        ["th-switch", "th-checkbox", "th-radio-button"]
-        ["radio", "checkbox"]
-      )
+      elementObject = createElementObject()
 
       # if element is deemed 'inline' then append the label else prepend the label
-      if inlineElement.el
-        adjustMarginForRadioInputs inlineElement.el
-
+      if elementObject.inline
         label.append "<span class='inline label-text'>#{attrs.withLabel}</span>"
+        adjustMarginForRadioInputs elementObject.el
       else
         label.prepend "<div class='label-text'>#{attrs.withLabel}</div>"
 
@@ -53,10 +54,10 @@ angular.module('ThemisComponents')
         # If clicking on input element stop propagation to label.
         event.stopPropagation()
         # Allow underlying input element to handle click event.
-        event.preventDefault() if inlineElement.type is "themis"
+        event.preventDefault() if elementObject.type is "themis"
 
       label.on "click", (event) ->
-        if inlineElement.type is "themis"
+        if elementObject.type is "themis"
           event.preventDefault()
           # Pass the click event to the th-component.
           element[0].click()

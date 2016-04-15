@@ -30,16 +30,28 @@
       cursor: default;
       opacity: 0.6;
     }
+    &:hover {
+      background: $blue-shade;
+    }
   }
   .create {
     background: $green;
+    &:hover {
+      background: $green-shade;
+    }
   }
   .standard {
     color: $grey;
-    background: $grey-70;
+    background: $grey-80;
+    &:hover {
+      background: $grey-70;
+    }
   }
   .destroy {
     background-color: $red;
+    &:hover {
+      background: $red-shade;
+    }
   }
 }
 .dropdown-menu {
@@ -73,7 +85,8 @@
   }
   &.standard {
     .dropdown-item:hover {
-      background: $grey-70;
+      background: $grey-80;
+      color: $grey;
     }
   }
   &.create {

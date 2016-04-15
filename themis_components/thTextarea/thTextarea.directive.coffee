@@ -2,6 +2,7 @@ angular.module('ThemisComponents').directive "thTextarea", ->
   restrict: "E"
   bindToController: true
   controllerAs: 'ctrl'
+  require: ["?^form", "thTextarea"]
   scope:
     placeholder: '@'
     name: '@'
@@ -16,10 +17,19 @@ angular.module('ThemisComponents').directive "thTextarea", ->
 
   template: require './thTextarea.template.html'
   controller: -> return
-  link: (scope, element, attr) ->
-    textarea = element.find "textarea"
 
-    textarea.css "resize", "none" if attr.expandable is "false"
+  link: (scope, element, attribute, controllerArray) ->
+    form = controllerArray[0] ? null
+    controller = controllerArray[1]
+    fieldName = controller.name ? null
+
+    # If input value is invalid append invalid class.
+    controller.isInvalid = ->
+      return no unless fieldName and form
+      form[fieldName].$invalid && (form[fieldName].$touched or form.$submitted)
+
+    textarea = element.find "textarea"
+    textarea.css "resize", "none" if attribute.expandable is "false"
 
     # Pass non Angular classes to the textarea element.
     angularClass = /(^ng-)/
@@ -28,9 +38,7 @@ angular.module('ThemisComponents').directive "thTextarea", ->
         textarea.addClass className
         element.removeClass className
 
-    # add box shadow on entire element when in focus
-    textarea.on "focus", ->
-      angular.element(@parentElement).addClass("has-focus")
-    textarea.on "blur", ->
-      angular.element(@parentElement).removeClass("has-focus")
+    # Toggle box-shadow.
+    textarea.on "focus", -> textarea.addClass "has-focus"
+    textarea.on "blur", -> textarea.removeClass "has-focus"
     return

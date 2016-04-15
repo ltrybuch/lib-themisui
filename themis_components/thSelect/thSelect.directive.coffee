@@ -6,6 +6,7 @@ angular.module('ThemisComponents')
     replace: true
     bindToController: true
     transclude: true
+    require: ["?^form", "thSelect"]
     scope:
       condensed: "="
       options: "="
@@ -54,7 +55,16 @@ angular.module('ThemisComponents')
 
       return
 
-    link: (scope, element, attributes, controller) ->
+    link: (scope, element, attribute, controllerArray) ->
+      form = controllerArray[0] ? null
+      controller = controllerArray[1]
+      fieldName = controller.name ? null
+
+      # If input value is invalid append invalid class.
+      controller.isInvalid = ->
+        return no unless fieldName and form
+        form[fieldName].$invalid && (form[fieldName].$touched or form.$submitted)
+
 
       # Toggle color based on placeholder text visibility.
       textElement = element[0].getElementsByClassName("text-wrapper")[0]
@@ -88,6 +98,7 @@ angular.module('ThemisComponents')
           (name: #{attributes.name}). The last selected option will be used."
         )
 
+      # Toggle box-shadow.
       select = element.find "select"
       select.on "focus", (event) ->
         event.target.previousElementSibling.classList.add "has-focus"

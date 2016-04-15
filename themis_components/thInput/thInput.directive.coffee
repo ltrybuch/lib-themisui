@@ -3,6 +3,7 @@ angular.module('ThemisComponents').directive "thInput", ->
   bindToController: true
   controllerAs: 'input'
   replace: true
+  require: ["?^form", "thInput"]
   scope:
     type: '@'
     name: '@'
@@ -20,11 +21,20 @@ angular.module('ThemisComponents').directive "thInput", ->
   template: require './thInput.template.html'
   controller: ($attrs) ->
     @placeholder = $attrs.placeholder
+    return
 
-  link: (scope, element) ->
-    # add box shadow on entire element when in focus
-    element.find("input").on "focus", ->
-      angular.element(@parentElement).addClass("has-focus")
-    element.find("input").on "blur", ->
-      angular.element(@parentElement).removeClass("has-focus")
+  link: (scope, element, attribute, controllerArray) ->
+    form = controllerArray[0] ? null
+    controller = controllerArray[1]
+    fieldName = controller.name ? null
+
+    # If input value is invalid append invalid class.
+    controller.isInvalid = ->
+      return no unless fieldName and form
+      form[fieldName].$invalid && (form[fieldName].$touched or form.$submitted)
+
+    # Toggle box-shadow.
+    input = element.find("input")
+    input.on "focus", -> element.addClass("has-focus")
+    input.on "blur", -> element.removeClass("has-focus")
     return

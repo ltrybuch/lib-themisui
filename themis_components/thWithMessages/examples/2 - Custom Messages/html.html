@@ -1,0 +1,47 @@
+<html ng-app="thDemo">
+  <body ng-controller="DemoController as demo" class="th-example-height-500">
+    <div class="th-example-width-400">
+      <form name="demo.form" novalidate="novalidate">
+
+        <th-input
+          name="text"
+          with-label="Text"
+          type="text"
+          icon="users"
+          placeholder="This field allows up to 25 characters"
+          ng-model="demo.text"
+          with-messages="demo.messages"
+          ng-maxlength="25"
+          >
+        </th-input>
+
+        <th-textarea
+          with-label="Textarea"
+          placeholder="This field requires a minimum of 10 characters."
+          rows="4"
+          ng-model="demo.textarea"
+          name="textarea"
+          ng-minlength="10"
+          with-messages="demo.messages"
+          >
+        </th-textarea>
+
+        <th-select
+          name="select"
+          with-label="No custom 'required' message so reverts to default message"
+          placeholder="A selection is required.."
+          options="demo.options"
+          ng-model="demo.select"
+          with-messages="demo.messages"
+          ng-required="true"
+          >
+        </th-select>
+
+        <th-button type="default" ng-click="demo.submit()" submit>Submit</th-button>
+        <th-button ng-click="demo.reset()">reset</th-button>
+        <pre ng-if="demo.response">{{demo.response | json}}</pre>
+
+      </form>
+    </div>
+ </body>
+</html>

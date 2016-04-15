@@ -35,5 +35,6 @@ require './thTabset/'
 require './thTextarea/'
 require './thWithFocus/'
 require './thWithLabel/'
+require './thWithMessages/'
 
 module.exports = 'ThemisComponents'

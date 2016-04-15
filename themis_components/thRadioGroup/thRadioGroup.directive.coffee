@@ -10,6 +10,7 @@ angular.module('ThemisComponents')
       name: '@'
       change: '&ngChange'
       value: '=ngModel'
+      ngRequired: "="
     controller: ($scope, $attrs) ->
       buttons = []
 
@@ -17,6 +18,10 @@ angular.module('ThemisComponents')
         # Compare to ng-model by default; otherwise 'checked' attribute
         button.checked = if $attrs['ngModel']? then @value == button.value else checked
         buttons.push button
+
+      $scope.$watch (=> @value), (updatedValue) ->
+        # Reset visual radio elements when attached ngModel is blank.
+        button.checked = no for button in buttons if not updatedValue
 
       @selectButton = (buttonToSelect) ->
         if not buttonToSelect.checked

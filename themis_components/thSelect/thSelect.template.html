@@ -3,7 +3,10 @@
   >
   <div
     class="text-wrapper"
-    ng-class="{disabled: select.ngDisabled}"
+    ng-class="[
+      {disabled: select.ngDisabled},
+      {'is-invalid': select.isInvalid()}
+    ]"
     >
     <span class="selected-text">
       {{select.selectedText}}

@@ -1,7 +1,7 @@
 context = describe
 
 describe 'thTextarea', ->
-  element = null
+  element = textarea = null
 
   context 'with complete example', ->
     beforeEach ->
@@ -12,18 +12,19 @@ describe 'thTextarea', ->
           placeholder="Enter your nickname">
         </th-textarea>
       """)
+      textarea = element.find("textarea")
     it "removes the icon element when the icon attribute is not specified", ->
       expect(element.find("i").length).toBe 0
 
     it "gains class 'has-focus' when in focus", ->
-      element.find("textarea").triggerHandler 'focus'
-      expect(element.hasClass("has-focus")).toBe true
+      textarea.triggerHandler 'focus'
+      expect(textarea.hasClass("has-focus")).toBe true
 
     it "loses class 'has-focus' when blurred", ->
-      element.find("textarea").triggerHandler 'focus'
-      expect(element.hasClass("has-focus")).toBe true
-      element.find("textarea").triggerHandler 'blur'
-      expect(element.hasClass("has-focus")).toBe false
+      textarea.triggerHandler 'focus'
+      expect(textarea.hasClass("has-focus")).toBe true
+      textarea.triggerHandler 'blur'
+      expect(textarea.hasClass("has-focus")).toBe false
 
     describe 'textarea', ->
       it 'has appropriate attributes set', ->

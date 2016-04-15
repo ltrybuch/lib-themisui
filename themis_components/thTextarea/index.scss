@@ -3,12 +3,8 @@ th-textarea {
   height: auto;
   position: relative;
   border-radius: 4px;
+  border: 1px solid #fff;
   @include animated(100ms);
-
-  &.has-focus {
-    box-shadow: 0 0 5px rgba(97, 179, 227, .7);
-    border-color: $focus-blue;
-  }
 
   textarea {
     overflow: auto;
@@ -23,6 +19,13 @@ th-textarea {
     box-sizing: border-box;
     resize: vertical;
 
+    &.has-focus {
+      transition: border-color .3s ease-out;
+      transition: box-shadow .3s ease-out;
+      box-shadow: 0 0 10px rgba($blue-shadow, .7);
+      border-color: $blue-tint;
+    }
+
     &.disabled {
       background: $grey-90;
       color: $grey-40;
@@ -30,6 +33,11 @@ th-textarea {
 
     &.with-icon {
       padding-right: 32px;
+    }
+
+    &.is-invalid {
+      box-shadow: 0px 0px 0px 1px rgba($red-alert, .7);
+      border-color: $red-alert;
     }
   }
 

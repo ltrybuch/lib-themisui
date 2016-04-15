@@ -7,6 +7,7 @@ $yellow: #FEC902;
 $blue: #3D7BBA;
 $light-blue: #5AB1E7;
 $red: #BF1E2E;
+$red-alert: #c9282d;
 $green: #58B028;
 $grey: #d0d0d0;
 $dark-grey: #333333;
@@ -89,6 +90,7 @@ $yellow-shade: shade($yellow, 10%);
 $blue: #4891dc;
 $blue-tint: tint($blue, 10%);
 $blue-shade: shade($blue, 10%);
+$blue-shadow: rgba(97, 179, 227, .7);
 
 $red: #c9282d;
 $red-tint: tint($red, 10%);

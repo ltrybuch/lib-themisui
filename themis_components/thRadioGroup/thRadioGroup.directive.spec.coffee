@@ -57,6 +57,14 @@ describe 'ThemisComponents: Directive: thRadioGroup', ->
         expect(queryRadioButtonChecked('first')).toBe false
         expect(queryRadioButtonChecked('last')).toBe true
 
+    describe 'when value is reset to falsey', ->
+      beforeEach ->
+        queryRadioButtonSelector('last').dispatchEvent click
+        scope.$apply -> scope.value = null
+      it 'no radio buttons should be checked', ->
+        expect(queryRadioButtonChecked('first')).toBe false
+        expect(queryRadioButtonChecked('last')).toBe false
+
   describe 'when value is initialized to second element', ->
     beforeEach ->
       compileRadioGroupDirective(validTemplate, 'blue')

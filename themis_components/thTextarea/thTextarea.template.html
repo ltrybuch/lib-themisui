@@ -5,7 +5,11 @@
   ng-minlength="ctrl.ngMinlength"
   ng-maxlength="ctrl.ngMaxlength"
   ng-pattern="ctrl.ngPattern"
-  ng-class="[{'with-icon': ctrl.icon},{'disabled': ctrl.ngDisabled}]"
+  ng-class="[
+    {'with-icon': ctrl.icon},
+    {'disabled': ctrl.ngDisabled},
+    {'is-invalid': ctrl.isInvalid()}
+  ]"
   ng-attr-name="{{ctrl.name}}"
   ng-attr-rows="{{ctrl.rows}}"
   ng-attr-placeholder="{{ctrl.placeholder}}"

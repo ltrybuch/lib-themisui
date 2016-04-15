@@ -7,6 +7,7 @@ angular.module('ThemisComponents')
       name: '@'
       change: '&ngChange'
       state: '=ngModel'
+      ngRequired: "="
     bindToController: true
     controllerAs: 'switch'
     controller: ($scope, $element) ->
