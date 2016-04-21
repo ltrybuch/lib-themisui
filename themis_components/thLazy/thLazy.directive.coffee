@@ -1,17 +1,36 @@
+uuid = require 'uuid'
+qs = require 'qs'
+
 angular.module('ThemisComponents')
   .directive "thLazy", ->
     restrict: "EA"
     template: require './thLazy.template.html'
+    controllerAs: "lazy"
+    bindToController: true
     scope:
       src: "@"
+      name: "@"
       errorMessage: "@"
-    controller: ($scope) ->
-      $scope.loading = yes
-      $scope.loadError = no
-      $scope.messageOverride = $scope.errorMessage?
-      $scope.loadingComplete = ->
-        $scope.loading = no
+    controller: ($scope, LazyManager) ->
+      @loading = yes
+      @loadError = no
+      @messageOverride = @errorMessage?
+      LazyManager.addLazyObject(this)
 
-      $scope.$on "$includeContentError", (event, args) ->
-        $scope.loadError = yes
-        $scope.loading = no
+      @loadingComplete = ->
+        @loading = no
+
+      @reload = ->
+        if @src.indexOf('?') != -1
+          queryString = @src.substring( @src.indexOf('?') + 1 )
+          params = qs.parse(queryString)
+          params.refreshCacheBuster = uuid.v1()
+          @src = @src.replace(queryString, qs.stringify(params))
+        else
+          @src = @src + "?refreshCacheBuster=" + uuid.v1()
+
+      $scope.$on "$includeContentError", (event, args) =>
+        @loadError = yes
+        @loading = no
+
+      return

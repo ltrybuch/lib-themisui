@@ -1,4 +1,4 @@
-<ng-include onload="loadingComplete()" src="src"></ng-include>
-<th-loader trigger="loading" size="small"></th-loader>
-<th-error ng-if="loadError && errorMessage">{{errorMessage}}</th-error>
-<th-error ng-if="loadError && !errorMessage"></th-error>
+<ng-include onload="lazy.loadingComplete()" src="lazy.src"></ng-include>
+<th-loader trigger="lazy.loading" size="small"></th-loader>
+<th-error ng-if="lazy.loadError && lazy.errorMessage">{{lazy.errorMessage}}</th-error>
+<th-error ng-if="lazy.loadError && !lazy.errorMessage"></th-error>

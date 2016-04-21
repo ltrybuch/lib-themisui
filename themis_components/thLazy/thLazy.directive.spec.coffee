@@ -64,3 +64,26 @@ describe 'ThemisComponents: Directive: thLazy', ->
 
     it "hides the loader component", ->
       expect(element.find(".th-loader").hasClass("ng-hide")).toBe true
+
+  context "when reloading the src", ->
+    beforeEach ->
+      httpBackend.when('GET', '/template.html').respond mockResponse
+      element = compileDirective()
+
+    it 'should add a refreshCacheBuster param', ->
+      originalSrc = scope.$$childHead.lazy.src
+      scope.$$childHead.lazy.reload()
+      expect(originalSrc).not.toEqual(scope.$$childHead.lazy.src)
+
+    it 'should update the refreshCacheBuster param', ->
+      scope.$$childHead.lazy.reload()
+      firstSrc = scope.$$childHead.lazy.src
+      scope.$$childHead.lazy.reload()
+      secondSrc = scope.$$childHead.lazy.src
+      expect(firstSrc).not.toEqual(secondSrc)
+
+    it 'should retain the exisiting params', ->
+      scope.$$childHead.lazy.src = scope.$$childHead.lazy.src + "?foo=bar"
+      originalSrc = scope.$$childHead.lazy.src
+      scope.$$childHead.lazy.reload()
+      expect(scope.$$childHead.lazy.src.indexOf(originalSrc) > -1).toEqual true
