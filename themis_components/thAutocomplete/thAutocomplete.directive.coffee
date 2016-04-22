@@ -1,9 +1,11 @@
 angular.module 'ThemisComponents'
-  .directive 'thAutocomplete', ($compile) ->
+  .directive 'thAutocomplete', ($compile, $interpolate) ->
     restrict: 'E'
     scope:
       ngModel: '='
+      ngChange: '&'
       delegate: '='
+      name: '@'
       placeholder: '@'
     bindToController: true
     controllerAs: 'thAutocomplete'
@@ -21,9 +23,13 @@ angular.module 'ThemisComponents'
       delegate = controller.delegate
       unless delegate?.fetchData instanceof Function
         throw new Error "thAutocomplete delegate needs to be passed the following function: " + \
-                        "fetchData: (searchTerm, updateData) ->"
+                        "fetchData: ({searchTerm}, updateData) ->"
 
-      template = require './thAutocomplete.template.html'
+      template = (require "./thAutocomplete.template")({
+        interpolateStart: $interpolate.startSymbol()
+        interpolateEnd: $interpolate.endSymbol()
+        valueField: delegate.trackField ? "id"
+      })
       templateElement = angular.element template
 
       # Add repeat attribute to ui-select-choices element.

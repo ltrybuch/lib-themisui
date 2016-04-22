@@ -1,6 +1,7 @@
 angular.module('thDemo', ['ThemisComponents'])
   .controller 'DemoCtrl', ($http) ->
     @repo = null
+    @counter = 0
 
     @delegate =
       displayField: 'full_name'
@@ -15,5 +16,7 @@ angular.module('thDemo', ['ThemisComponents'])
             updateData response.data.items
         else
           updateData []
-              
+
+    @onChange = -> @counter = @counter + 1
+
     return

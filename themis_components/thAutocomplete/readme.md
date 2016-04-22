@@ -6,7 +6,7 @@ Autocomplete is used to suggest options to the user based on keyboard input.
 
 Autocomplete looks similar to a text input in its default state. When the user begins typing, autocomplete suggests a list of options to the user that matches what they've entered so far. The list is updated based on continued user input.
 
-Users can navigate and select an option from the list using keyboard or mouse. 
+Users can navigate and select an option from the list using keyboard or mouse.
 
 Users are unable to enter an incomplete selection. That is, users are unable to enter arbitrary text, see [thInput](../thInput).
 
@@ -20,7 +20,11 @@ The `th-autocomplete` accepts the following parameters:
 
 * `ng-model` is updated to `value` when the user selects an option from the component.
 
+* `ng-change` is called whenever `value` is updated.
+
 * `placeholder` is the default text that is displayed prior to the user selecting an option.
+
+* `name` is the name used when submitting `thAutocomplete` as part of a form.
 
 * `delegate` is a **required** field that represents a dictionary of arguments passed to the component.
 
@@ -45,6 +49,7 @@ The `th-autocomplete` accepts the following parameters:
 ```html
 <th-autocomplete
   ng-model="demo.value"
+  ng-change="demo.onChange"
   delegate="demo.delegate"
   placeholder="Select an option"
   >

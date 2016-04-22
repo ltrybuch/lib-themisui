@@ -1,5 +1,5 @@
 describe 'ThemisComponents: Directive: thAutocomplete', ->
-  element = scope = timeout = null
+  element = scope = timeout = hiddenFormInput = null
   validTemplate = """
     <th-autocomplete
       delegate='delegate'
@@ -7,9 +7,9 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
     </th-autocomplete>
   """
   data = [
-    {id: 0, text: 'a0', name: 'test0'}
-    {id: 1, text: 'a1', name: 'test1'}
-    {id: 2, text: 'a2', name: 'test2'}
+    {id: "0", anotherId: "3", name: "test0", anotherName: "test3"}
+    {id: "1", anotherId: "4", name: "test1", anotherName: "test4"}
+    {id: "2", anotherId: "5", name: "test2", anotherName: "test5"}
   ]
 
   beforeEach ->
@@ -21,6 +21,9 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
   getSelect = ->
     angular.element(element[0].querySelector('.ui-select-container')).scope().$select
 
+  getHiddenFormInput = ->
+    element[0].querySelector("input[type='hidden']")
+
   search = (searchString) ->
     getSelect().search = searchString
     timeout.flush()
@@ -31,7 +34,6 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
 
   selectItem = (item) ->
     getSelect().select(item)
-    scope.$digest()
 
   describe 'when delegate is not specified', ->
     it 'should throw an error', ->
@@ -40,15 +42,17 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
 
   describe 'when fetchData is not specified', ->
     it 'should throw an error', ->
-      expect(-> compileDirective(validTemplate,
+      expect(-> compileDirective(
+        validTemplate
         delegate: {}
       )).toThrow()
 
   describe 'when fetchData is specified', ->
     beforeEach ->
-      {element, scope} = compileDirective(validTemplate,
+      {element, scope} = compileDirective(
+        validTemplate
         delegate:
-          fetchData: (searchString, updateData) -> return
+          fetchData: ({searchString}, updateData) -> return
       )
       spyOn scope.delegate, 'fetchData'
 
@@ -58,9 +62,10 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
 
   describe 'when updateData is called without an array', ->
     beforeEach ->
-      {element, scope} = compileDirective(validTemplate,
+      {element, scope} = compileDirective(
+        validTemplate
         delegate:
-          fetchData: (searchString, updateData) ->
+          fetchData: ({searchString}, updateData) ->
             updateData({})
       )
 
@@ -69,9 +74,10 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
 
   describe 'when updateData is called with an array', ->
     beforeEach ->
-      {element, scope} = compileDirective(validTemplate,
+      {element, scope} = compileDirective(
+        validTemplate
         delegate:
-          fetchData: (searchString, updateData) ->
+          fetchData: ({searchString}, updateData) ->
             updateData(data)
       )
 
@@ -80,34 +86,65 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
       openDropDown()
       expect(element.find('.ui-select-choices-row').length).toEqual 3
 
-  describe 'when user selects option', ->
+  describe 'when user starts typing', ->
+    onChangeSpy = null
+
     beforeEach ->
       template = """
        <th-autocomplete
          delegate='delegate'
          ng-model='value'
+         ng-change='change()'
+         name='test'
          >
        </th-autocomplete>
       """
-      {element, scope} = compileDirective(template,
+      {element, scope} = compileDirective(
+        template
         value: data[0]
         delegate:
-          fetchData: (searchString, updateData) ->
+          fetchData: ({searchString}, updateData) ->
             updateData(data)
+        change: -> return
       )
-
-    it 'updates the model', ->
+      onChangeSpy = spyOn scope, "change"
+      hiddenFormInput = getHiddenFormInput()
       search('a')
       openDropDown()
-      expect(scope.value).toEqual data[0]
-      selectItem(data[1])
-      expect(scope.value).toEqual data[1]
+
+    it "should have hidden input element with name attribute", ->
+      expect(hiddenFormInput.getAttribute("name")).toBe "test"
+
+    it "should not call 'onChange'", ->
+      expect(onChangeSpy).not.toHaveBeenCalled()
+
+    describe "when user selects option", ->
+      testSelectOption = (item) ->
+        beforeEach ->
+          onChangeSpy.calls.reset()
+          selectItem item
+          timeout.flush()
+
+        it 'updates model', ->
+          expect(scope.value).toEqual item
+
+        it "calls 'ngChange' function", ->
+          expect(onChangeSpy.calls.count()).toBe 1
+
+        it "updates value on hidden input", ->
+          expect(hiddenFormInput.getAttribute("value")).toBe item.id
+
+      testSelectOption data[2]
+
+      describe "when user selects another option", ->
+        testSelectOption data[1]
 
   describe 'when displayField is not specified', ->
     beforeEach ->
-      {element, scope} = compileDirective(validTemplate,
+      {element, scope} = compileDirective(
+        validTemplate
         delegate:
-          fetchData: (searchString, updateData) ->
+          fetchData: ({searchString}, updateData) ->
             updateData(data)
       )
 
@@ -123,14 +160,16 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
       matchChoice = element[0].querySelector('.ui-select-match-text').children[0]
       expect(matchChoice.textContent).toEqual ''
       selectItem(data[0])
+      scope.$digest()
       expect(matchChoice.textContent).toEqual 'test0'
 
   describe 'when displayField is specified', ->
     beforeEach ->
-      {element, scope} = compileDirective(validTemplate,
+      {element, scope} = compileDirective(
+        validTemplate
         delegate:
-          displayField: 'text'
-          fetchData: (searchString, updateData) ->
+          displayField: 'anotherName'
+          fetchData: ({searchString}, updateData) ->
             updateData(data)
       )
 
@@ -140,19 +179,21 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
 
       # Get inner span of first item of drop down.
       selectChoice = element[0].querySelector('.ui-select-choices-row-inner').children[0]
-      expect(selectChoice.textContent).toEqual 'a0'
+      expect(selectChoice.textContent).toEqual 'test3'
 
       selectItem(data[0])
+      scope.$digest()
 
       # Get inner span of match element.
       matchChoice = element[0].querySelector('.ui-select-match-text').children[0]
-      expect(matchChoice.textContent).toEqual 'a0'
+      expect(matchChoice.textContent).toEqual 'test3'
 
   describe 'when trackField is not specified', ->
     beforeEach ->
-      {element} = compileDirective(validTemplate,
+      {element} = compileDirective(
+        validTemplate
         delegate:
-          fetchData: (searchString, updateData) -> return
+          fetchData: ({searchString}, updateData) -> return
       )
 
     it 'does not specify what to track by', ->
@@ -161,14 +202,29 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
 
   describe 'when trackField is specified', ->
     beforeEach ->
-      {element} = compileDirective(validTemplate,
+      {element} = compileDirective(
+        validTemplate
         delegate:
-          trackField: 'id'
-          fetchData: (searchString, updateData) -> return
+          trackField: 'anotherId'
+          fetchData: ({searchString}, updateData) ->
+            updateData(data)
       )
+      hiddenFormInput = getHiddenFormInput()
+      search('a')
+      openDropDown()
 
     it 'tracks by trackField', ->
       selectChoices = element[0].querySelector('.ui-select-choices')
       expect(selectChoices.getAttribute('repeat')).toEqual(
-        'item in thAutocomplete.data track by item.id'
+        'item in thAutocomplete.data track by item.anotherId'
       )
+
+    describe "when user selects item", ->
+      beforeEach ->
+        search('a')
+        openDropDown()
+        selectItem(data[0])
+        timeout.flush()
+
+      it "should update value to alt-id", ->
+        expect(hiddenFormInput.getAttribute("value")).toBe "3"

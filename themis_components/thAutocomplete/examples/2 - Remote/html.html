@@ -5,10 +5,13 @@
       placeholder="Select a GitHub Repo"
       ng-model="demo.repo"
       delegate="demo.delegate"
+      ng-change="demo.onChange()"
       >
     </th-autocomplete>
 
-    <p>Selected repo: {{demo.repo.id}}</p>
+    <p>Selected repo: <code>{{demo.repo.id}}</code></p>
+    <br>
+    <div># of change events: <code>{{demo.counter}}</code></div>
 
   </body>
 </html>
