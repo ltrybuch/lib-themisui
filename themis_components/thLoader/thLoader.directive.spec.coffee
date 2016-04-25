@@ -1,7 +1,12 @@
+{
+  compileDirective
+} = require "spec_helpers"
 context = describe
 
 describe 'ThemisComponents: Directive: thLoader', ->
   element = q = timeout = scope = null
+
+  beforeEach angular.mock.module "ThemisComponents"
 
   context 'with text passed in', ->
     beforeEach ->

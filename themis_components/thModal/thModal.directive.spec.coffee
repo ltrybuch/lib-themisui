@@ -1,7 +1,12 @@
+{
+  compileDirective
+} = require "spec_helpers"
 context = describe
+
 describe "ThemisComponents: Directive: thModal", ->
   directive = element = scope = ModalManager = null
-  beforeEach -> return
+
+  beforeEach angular.mock.module "ThemisComponents"
 
   describe "#dismiss", ->
 

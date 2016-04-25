@@ -1,9 +1,11 @@
+{
+  compileDirective
+} = require "spec_helpers"
+
 describe 'ThemisComponents: Directive: thPopover', ->
   PopoverManager = null
 
-  beforeEach ->
-    angular.mock.module 'ThemisComponents'
-
+  beforeEach angular.mock.module 'ThemisComponents'
   beforeEach inject ($injector, _PopoverManager_) ->
     PopoverManager = _PopoverManager_
 

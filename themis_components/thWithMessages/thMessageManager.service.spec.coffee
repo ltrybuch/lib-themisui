@@ -1,3 +1,6 @@
+{
+  createDOMElement
+} = require "spec_helpers"
 context = describe
 
 normalizeText = (text) ->
@@ -7,9 +10,8 @@ describe 'thMessageManager.service', ->
   attributes = extended = messages = null
   messageNode = MessageService = options = null
 
-
+  beforeEach angular.mock.module 'ThemisComponents'
   beforeEach ->
-    angular.mock.module 'ThemisComponents'
     inject (_MessageService_) -> MessageService = _MessageService_
 
     messages =

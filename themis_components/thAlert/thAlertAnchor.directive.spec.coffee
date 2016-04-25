@@ -1,7 +1,12 @@
+{
+  compileDirective
+} = require "spec_helpers"
 context = describe
+
 describe "ThemisComponents: Directive: thAlertAnchor", ->
   directive = ctrl = scope = element = AlertManager = $sce = null
 
+  beforeEach angular.mock.module "ThemisComponents"
   beforeEach inject (_AlertManager_, _$sce_) ->
     AlertManager = _AlertManager_
     $sce = _$sce_

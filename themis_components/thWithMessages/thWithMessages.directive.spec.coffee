@@ -1,8 +1,13 @@
+{
+  compileDirective
+} = require "spec_helpers"
 testHelpers = require './validationTests.spec'
 context = describe
 
 describe 'withMessages', ->
   element = scope = messageEl = null
+
+  beforeEach angular.mock.module "ThemisComponents"
 
   context "with-th-input", ->
     context "using default messages", ->

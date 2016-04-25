@@ -1,9 +1,12 @@
+{
+  compileDirective
+} = require "spec_helpers"
+
 describe 'ThemisComponents: Directive: thCheckbox', ->
   element = scope = compile = defaultState = null
   validTemplate = '<div th-checkbox ng-model="checked" ng-change="callback()"></div>'
 
-  beforeEach ->
-    angular.mock.module 'ThemisComponents'
+  beforeEach angular.mock.module 'ThemisComponents'
 
   compileCheckboxDirective = (template, checked, callback) ->
     scopeAdditions =

@@ -2,11 +2,9 @@ context = describe
 describe 'ThemisComponents: Service: thTableHeader', ->
   TableHeader = null
 
-  beforeEach ->
-    angular.mock.module 'ThemisComponents'
-
-    inject (_TableHeader_) ->
-      TableHeader = _TableHeader_
+  beforeEach angular.mock.module 'ThemisComponents'
+  beforeEach inject (_TableHeader_) ->
+    TableHeader = _TableHeader_
 
   it 'exists', ->
     expect(TableHeader?).toBe true

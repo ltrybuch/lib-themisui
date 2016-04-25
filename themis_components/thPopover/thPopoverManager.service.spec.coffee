@@ -1,5 +1,9 @@
+{
+  compileDirective
+} = require "spec_helpers"
+
 describe 'ThemisComponents: Directive: thPopoverManager', ->
-  directive = element = httpBackend = scope = compile = timeout =
+  directive = element = httpBackend = scope = timeout =
     PopoverManager = contentElement = null
   validTemplate = """
     <a href="" th-popover-url="/template.html">Popover</a>
@@ -18,11 +22,9 @@ describe 'ThemisComponents: Directive: thPopoverManager', ->
     document.body.removeChild contentElement
 
   beforeEach angular.mock.module 'ThemisComponents'
-
   beforeEach inject ($injector, _PopoverManager_) ->
     httpBackend = $injector.get '$httpBackend'
     scope = $injector.get('$rootScope').$new()
-    compile = $injector.get '$compile'
     timeout = $injector.get '$timeout'
     PopoverManager = _PopoverManager_
 

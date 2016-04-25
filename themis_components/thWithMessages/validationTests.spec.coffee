@@ -1,3 +1,7 @@
+{
+  compileDirective
+} = require "spec_helpers"
+
 module.exports =
   setUpElements: (inputType, scopeAdditions) ->
     ->

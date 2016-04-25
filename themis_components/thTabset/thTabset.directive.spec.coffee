@@ -1,3 +1,7 @@
+{
+  compileDirective
+} = require "spec_helpers"
+
 describe 'ThemisComponents: Directive: thTabset', ->
   element = validTemplate = ngClickTemplate = null
   validTemplate = """
@@ -21,6 +25,8 @@ describe 'ThemisComponents: Directive: thTabset', ->
       </div>
     </div>
   """
+
+  beforeEach angular.mock.module "ThemisComponents"
 
   describe "with a valid template", ->
     beforeEach -> {element} = compileDirective validTemplate

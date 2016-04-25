@@ -1,7 +1,12 @@
+{
+  compileDirective
+} = require "spec_helpers"
 context = describe
+
 describe "ThemisComponents: Directive: thSelect", ->
   element = optionsWithoutPlaceholder = scope = scopeAdditions = options = select = null
 
+  beforeEach angular.mock.module "ThemisComponents"
   beforeEach -> scopeAdditions = {}
 
   describe "using an array of options", ->

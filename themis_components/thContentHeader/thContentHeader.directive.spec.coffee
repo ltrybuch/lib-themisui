@@ -1,7 +1,11 @@
-describe 'ThemisComponents: Directive: thContentHeader', ->
+{
+  compileDirective
+} = require "spec_helpers"
 
+describe 'ThemisComponents: Directive: thContentHeader', ->
   element = scope = null
 
+  beforeEach angular.mock.module "ThemisComponents"
   beforeEach ->
     {element} = compileDirective """
       <div th-content-header title="Page Title">

@@ -1,8 +1,13 @@
+{
+  compileDirective
+} = require "spec_helpers"
 context = describe
 
 describe "ThemisComponents: Directive: thError", ->
   element = null
   defaultMsg = "We had trouble loading your content.Try reloading the page."
+
+  beforeEach angular.mock.module "ThemisComponents"
 
   context "default component", ->
     it "displays the default text", ->

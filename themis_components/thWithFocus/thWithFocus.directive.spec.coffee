@@ -1,3 +1,6 @@
+{
+  compileDirective
+} = require "spec_helpers"
 context = describe
 
 describe "ThemisComponents: Directive: withFocus", ->
@@ -6,6 +9,7 @@ describe "ThemisComponents: Directive: withFocus", ->
   appendToBody = (element) -> element.appendTo document.body
   flush = -> timeout.flush 302 # th-modal's CSS transition time.
 
+  beforeEach angular.mock.module 'ThemisComponents'
   beforeEach ->
     inject ($timeout) -> timeout = $timeout
     jasmine.addMatchers

@@ -1,3 +1,7 @@
+{
+  compileDirective
+} = require "spec_helpers"
+
 describe 'ThemisComponents: Directive: thAutocomplete', ->
   element = scope = timeout = hiddenFormInput = null
   validTemplate = """
@@ -12,11 +16,9 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
     {id: "2", anotherId: "5", name: "test2", anotherName: "test5"}
   ]
 
-  beforeEach ->
-    angular.mock.module 'ThemisComponents'
-
-    inject ($timeout) ->
-      timeout = $timeout
+  beforeEach angular.mock.module "ThemisComponents"
+  beforeEach inject ($timeout) ->
+    timeout = $timeout
 
   getSelect = ->
     angular.element(element[0].querySelector('.ui-select-container')).scope().$select

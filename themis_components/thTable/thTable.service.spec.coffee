@@ -1,13 +1,15 @@
+{
+  createDOMElement
+} = require "spec_helpers"
 context = describe
+
 describe 'ThemisComponents: Service: thTable', ->
   Table = SimpleTableDelegate = null
 
-  beforeEach ->
-    angular.mock.module 'ThemisComponents'
-
-    inject (_Table_, _SimpleTableDelegate_) ->
-      Table = _Table_
-      SimpleTableDelegate = _SimpleTableDelegate_
+  beforeEach angular.mock.module 'ThemisComponents'
+  beforeEach inject (_Table_, _SimpleTableDelegate_) ->
+    Table = _Table_
+    SimpleTableDelegate = _SimpleTableDelegate_
 
   it 'exists', ->
     expect(Table?).toBe true

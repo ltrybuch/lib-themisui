@@ -1,9 +1,12 @@
+{
+  compileDirective
+} = require "spec_helpers"
+
 describe 'ThemisComponents: Directive: thSwitch', ->
   element = scope = compile = defaultState = null
   validTemplate = '<div th-switch ng-model="state" ng-change="callback()"></div>'
 
-  beforeEach ->
-    angular.mock.module 'ThemisComponents'
+  beforeEach angular.mock.module 'ThemisComponents'
 
   compileSwitchDirective = (template, state, callback) ->
     scopeAdditions =

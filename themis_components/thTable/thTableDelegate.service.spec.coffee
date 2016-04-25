@@ -2,12 +2,10 @@ context = describe
 describe 'ThemisComponents: Service: thTableDelegate', ->
   TableDelegate = TableHeader = null
 
-  beforeEach ->
-    angular.mock.module 'ThemisComponents'
-
-    inject (_TableDelegate_, _TableHeader_) ->
-      TableDelegate = _TableDelegate_
-      TableHeader = _TableHeader_
+  beforeEach angular.mock.module 'ThemisComponents'
+  beforeEach inject (_TableDelegate_, _TableHeader_) ->
+    TableDelegate = _TableDelegate_
+    TableHeader = _TableHeader_
 
   it 'exists', ->
     expect(TableDelegate?).toBe true

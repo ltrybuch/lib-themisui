@@ -1,7 +1,12 @@
+{
+  compileDirective
+} = require "spec_helpers"
 context = describe
 
 describe 'withLabel', ->
   element = null
+
+  beforeEach angular.mock.module "ThemisComponents"
 
   context "HTML checkbox input", ->
     beforeEach ->

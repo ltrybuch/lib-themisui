@@ -1,3 +1,7 @@
+{
+  compileDirective
+} = require "spec_helpers"
+
 describe 'ThemisComponents: Directive: thRadioGroup', ->
   element = scope = compile = null
   validTemplate = """
@@ -9,8 +13,7 @@ describe 'ThemisComponents: Directive: thRadioGroup', ->
   click = document.createEvent('MouseEvent')
   click.initEvent('click')
 
-  beforeEach ->
-    angular.mock.module 'ThemisComponents'
+  beforeEach angular.mock.module 'ThemisComponents'
 
   queryRadioButtonSelector = (position) ->
     selector = '.th-radio-button'

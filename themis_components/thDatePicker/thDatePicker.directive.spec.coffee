@@ -1,3 +1,6 @@
+{
+  compileDirective
+} = require "spec_helpers"
 moment = require "moment"
 
 xdescribe 'ThemisComponents: Directive: thDatePicker', ->

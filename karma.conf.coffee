@@ -19,9 +19,8 @@ module.exports = (config) ->
       'themis_components/index.coffee'
       'node_modules/angular-mocks/angular-mocks.js'
       'themis_components/**/*.spec.coffee'
-      'spec_helper/helpers.coffee'
       {
-        pattern: 'themis_components/**/*.+(directive|service).coffee'
+        pattern: 'themis_components/**/*.+(directive|service|template).coffee'
         watched: true
         included: false
         served: false
@@ -86,6 +85,7 @@ module.exports = (config) ->
       debug: true
       watch: true
       extensions: ['.coffee']
+      paths: ['./spec_modules']
       # fix for dbl karma compiling of coffeescript
       # https://github.com/nikku/karma-browserify/issues/130
       postFilter: (id, file, pkg) ->

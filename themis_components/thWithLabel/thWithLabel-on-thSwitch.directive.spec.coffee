@@ -1,8 +1,13 @@
-context = describe
+{
+  compileDirective
+} = require "spec_helpers"
 sharedTests = require './sharedTests'
+context = describe
 
 describe 'withLabel', ->
   element = null
+
+  beforeEach angular.mock.module "ThemisComponents"
 
   compileElement = ->
     scopeAdditions =

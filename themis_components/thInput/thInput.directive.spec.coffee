@@ -1,7 +1,12 @@
+{
+  compileDirective
+} = require "spec_helpers"
 context = describe
 
 describe 'thInput', ->
   element = null
+
+  beforeEach angular.mock.module "ThemisComponents"
 
   context 'with complete example', ->
     beforeEach ->

@@ -3,11 +3,9 @@ describe 'ThemisComponents: Service: thTablePagination', ->
   TablePagination = null
   ellipsis = '…'
 
-  beforeEach ->
-    angular.mock.module 'ThemisComponents'
-
-    inject (_TablePagination_) ->
-      TablePagination = _TablePagination_
+  beforeEach angular.mock.module 'ThemisComponents'
+  beforeEach inject (_TablePagination_) ->
+    TablePagination = _TablePagination_
 
   it 'exists', ->
     expect(TablePagination?).toBe true

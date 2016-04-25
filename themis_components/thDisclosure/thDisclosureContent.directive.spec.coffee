@@ -1,6 +1,12 @@
+{
+  compileDirective
+} = require "spec_helpers"
 context = describe
+
 describe "ThemisComponents: Directive: thDisclosureContent", ->
   DisclosureManager = element = null
+
+  beforeEach angular.mock.module "ThemisComponents"
 
   getFirstChild = (element) -> angular.element element.children()[0]
 

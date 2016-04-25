@@ -1,12 +1,14 @@
+{
+  compileDirective
+} = require "spec_helpers"
 context = describe
+
 describe "ThemisComponents: Directive: thTable", ->
   SimpleTableDelegate = element = null
 
-  beforeEach ->
-    angular.mock.module 'ThemisComponents'
-
-    inject (_SimpleTableDelegate_) ->
-      SimpleTableDelegate = _SimpleTableDelegate_
+  beforeEach angular.mock.module 'ThemisComponents'
+  beforeEach inject (_SimpleTableDelegate_) ->
+    SimpleTableDelegate = _SimpleTableDelegate_
 
   it "renders a simple table", ->
     data = [

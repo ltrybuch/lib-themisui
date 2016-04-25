@@ -13,14 +13,11 @@ describe 'ThemisComponents: Directive: thButton', ->
     scope.$digest()
     return element
 
-  beforeEach ->
-    angular.mock.module 'ThemisComponents'
-
-  beforeEach ->
-    inject ($rootScope, $compile) ->
-      scope = $rootScope.$new()
-      scope.text = 'correct'
-      compile = $compile
+  beforeEach angular.mock.module 'ThemisComponents'
+  beforeEach inject ($rootScope, $compile) ->
+    scope = $rootScope.$new()
+    scope.text = 'correct'
+    compile = $compile
 
   beforeEach ->
     element = compileDirective(validTemplate)
