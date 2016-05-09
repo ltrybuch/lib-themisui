@@ -16,11 +16,15 @@ angular.module('ThemisComponents')
       ngChange: "&"
       ngRequired: "="
       placeholder: "@"
+      nameField: "@?"
+      valueField: "@?"
 
     controller: ($scope, $element, $attrs, $transclude) ->
       @selectedText = @placeholder
       @selectedText = @ngModel.name if @ngModel?
       @options ?= []
+      @nameField ?= "name"
+      @valueField ?= "value"
 
       isSelected = (element) -> element.hasAttribute "selected"
 

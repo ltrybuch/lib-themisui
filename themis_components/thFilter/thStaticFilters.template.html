@@ -1,0 +1,26 @@
+<div class="th-static-filters">
+  <div class="row">
+    <div
+      class="field"
+      ng-repeat="filter in thStaticFilters.staticFilters"
+      ng-switch on="filter.type"
+      >
+      <th-filter-select
+        ng-switch-when="select"
+        class="field"
+        filter-set="thStaticFilters.filterSet"
+        filter-options="filter"
+        with-label="{{filter.name}}"
+        >
+      </th-filter-select>
+      <th-filter-input
+        ng-switch-when="input"
+        class="field"
+        filter-set="thStaticFilters.filterSet"
+        filter-options="filter"
+        with-label="{{filter.name}}"
+        >
+      </th-filter-input>
+    </div>
+  </div>
+</div>

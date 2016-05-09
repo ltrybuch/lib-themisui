@@ -22,6 +22,12 @@ body {
   .th-example-width-#{$i}00 { width: #{$i}00px; }
 }
 
+.th-example-filter {
+  background: #e8e8e8;
+  border-top: 1px solid #d9dada;
+  padding: 20px;
+}
+
 .th-example-grey { color: $light-grey; }
 
 .th-example-blue { color: $blue; }

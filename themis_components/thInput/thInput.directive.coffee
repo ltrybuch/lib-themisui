@@ -11,18 +11,17 @@ angular.module('ThemisComponents').directive "thInput", ->
     icon: '@'
     prefix: '@'
     postfix: '@'
+    placeholder: '@'
     condensed: "="
     ngModel: '='
     ngRequired: '='
     ngDisabled: '='
+    ngKeypress: '&'
     ngMinlength: '='
     ngMaxlength: '='
     ngPattern: '='
   template: require './thInput.template.html'
-  controller: ($attrs) ->
-    @placeholder = $attrs.placeholder
-    return
-
+  controller: -> return
   link: (scope, element, attribute, controllerArray) ->
     form = controllerArray[0] ? null
     controller = controllerArray[1]

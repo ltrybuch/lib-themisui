@@ -1,0 +1,34 @@
+<html ng-app="thDemo" style="height: 200px">
+  <body ng-controller="DemoController as demo" style="padding-right: 0; padding-left: 0;">
+
+    <div class="th-example-filter">
+      <th-static-filters options="demo.filterOptions"></th-static-filters>
+      <th-custom-filters options="demo.filterOptions"></th-custom-filters>
+      <th-search-row options="demo.filterOptions" field-identifier="q"></th-search-row>
+      <br>
+      <div># of change events: <code>{{demo.filterChangeEvents}}</code></div>
+    </div>
+
+    <th-table delegate="demo.tableDelegate">
+
+      <th-table-row type="cells">
+        <th-table-cell>
+          {{item.userId}}
+        </th-table-cell>
+
+        <th-table-cell>
+          {{item.id}}
+        </th-table-cell>
+
+        <th-table-cell>
+          {{item.title}}
+        </th-table-cell>
+
+        <th-table-cell>
+          {{item.completed}}
+        </th-table-cell>
+      </th-table-row>
+
+    </th-table>
+  </body>
+</html>

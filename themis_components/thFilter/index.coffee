@@ -1,0 +1,5 @@
+require './filters/'
+require './thCustomFilterRow.directive'
+require './thCustomFilters.directive'
+require './thSearchRow.directive'
+require './thStaticFilters.directive'

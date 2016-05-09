@@ -1,0 +1,43 @@
+.th-static-filters,
+.th-custom-filters,
+.th-search-row {
+
+  .th-label {
+    margin-bottom: 0;
+  }
+
+  .link {
+    display: inline-block;
+    font-weight: bold;
+    color: $blue-3;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .add-custom-filter {
+    margin-bottom: 12px;
+    margin-left: 4px;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin:  0 -10px;
+
+    > .field {
+      flex-basis: 25%;
+      padding: 0 10px;
+      box-sizing: border-box;
+      margin-bottom: 12px;
+
+      &.wide {
+        flex-basis: 50%;
+      }
+
+      &.bottom {
+        align-self: flex-end;
+      }
+    }
+  }
+}

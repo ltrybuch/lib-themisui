@@ -108,6 +108,46 @@ describe "ThemisComponents: Directive: thSelect", ->
         select.triggerHandler "blur"
         expect(element.find(".text-wrapper").hasClass('has-focus')).toBe false
 
+  describe "with options that are without name-value fields", ->
+    beforeEach ->
+      scopeAdditions.options = [
+        {altNameField: "Darth", altValueField: "Sith Lord"}
+        {altNameField: "Luke", altValueField: "Jedi Knight"}
+      ]
+
+    describe "with name-field and value-field attrs", ->
+      beforeEach ->
+        {element} = compileDirective """
+          <th-select
+            options="options"
+            ng-model="choice"
+            name-field="altNameField"
+            value-field="altValueField"
+            >
+        </th-select>""", scopeAdditions
+
+        select = element.find "select"
+        select.val scope.options[1].value
+        select.triggerHandler 'change'
+
+      it "updates select value", ->
+        expect(select.val()).toMatch "Jedi Knight"
+        expect(element.find('option:selected').text()).toMatch 'Luke'
+
+    describe "without name-field and value-field attrs", ->
+      beforeEach ->
+        {element} = compileDirective """
+          <th-select options="options" ng-change="onChange()" ng-model="choice">
+        </th-select>""", scopeAdditions
+
+        select = element.find "select"
+        select.val scope.options[1].value
+        select.triggerHandler 'change'
+
+      it "should not update select", ->
+        expect(select.val()).not.toMatch "Jedi Knight"
+        expect(element.find('option:selected').text()).not.toMatch 'Luke'
+
   describe "with an ng-change attr", ->
     beforeEach ->
       scopeAdditions.options = [{name: "One", value: 2}, {name: "two", value: 2}]

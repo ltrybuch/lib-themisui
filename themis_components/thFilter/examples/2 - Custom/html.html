@@ -1,0 +1,35 @@
+<html ng-app="thDemo" style="height: 200px">
+  <body ng-controller="DemoController as demo" style="padding-right: 0; padding-left: 0;">
+
+    <div class="th-example-filter">
+      <th-custom-filters options="demo.filterOptions"></th-custom-filters>
+    </div>
+
+    <th-table delegate="demo.tableDelegate">
+
+      <th-table-row type="cells">
+        <th-table-cell>
+          {{item.id}}
+        </th-table-cell>
+
+        <th-table-cell>
+          {{item.name}}
+        </th-table-cell>
+
+        <th-table-cell>
+          {{item.tier}}
+        </th-table-cell>
+
+        <th-table-cell>
+          {{item.difficulty}}
+        </th-table-cell>
+
+        <th-table-cell>
+          {{item.status}}
+        </th-table-cell>
+
+      </th-table-row>
+
+    </th-table>
+  </body>
+</html>

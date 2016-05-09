@@ -1,0 +1,22 @@
+<div class="th-search-row">
+  <div class="row">
+    <div class="field">
+      <th-filter-input
+        filter-set="thSearchRow.filterSet"
+        filter-options="thSearchRow.queryFilterOptions"
+        with-label="Search"
+        >
+      </th-filter-input>
+    </div>
+    <div class="bottom field">
+      <th-button
+        ng-click="thSearchRow.filterSet.onFilterChange()"
+        type="default"
+        >
+        Search
+      </th-button>
+    </div>
+    <div class="field"></div>
+    <div class="field"></div>
+  </div>
+</div>

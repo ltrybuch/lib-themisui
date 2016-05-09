@@ -1,0 +1,91 @@
+{
+  compileDirective
+} = require "spec_helpers"
+
+describe "ThemisComponents: Directive: thFilterSelect", ->
+  SelectFilter = FilterSet = timeout = null
+  filterSet = filterOptions = filter = options = element = scope = null
+
+  options =  [
+    {name: "One", value: "one"}
+    {name: "Two", value: "two"}
+    {name: "Three", value: "three"}
+  ]
+
+  validTemplate = """
+    <th-filter-select
+      filter-set="filterSet"
+      filter-options="filterOptions"
+      >
+    </th-filter-select>
+  """
+
+  beforeEach angular.mock.module "ThemisComponents"
+  beforeEach ->
+    inject ($injector, _FilterSet_, _SelectFilter_, $timeout) ->
+      FilterSet = _FilterSet_
+      SelectFilter = _SelectFilter_
+      timeout = $timeout
+
+    filterSet = new FilterSet {
+      onFilterChange: -> return
+    }
+
+    filterOptions = {
+      name: 'name'
+      value: 1
+      type: 'select'
+
+      fieldIdentifier: 'id'
+      selectOptions: options
+    }
+
+    {element, scope} = compileDirective(validTemplate, {
+      filterSet
+      filterOptions
+    })
+
+  it "should have 'select' element", ->
+    expect(element[0].querySelector("select")).not.toBe null
+
+  it "should not have label", ->
+    expect(element[0].querySelector(".th-label")).toBe null
+
+  it "should add filter to filter set", ->
+    expect(filterSet.length).toBe 1
+    expect(filterSet[0]).toBe instanceof SelectFilter
+
+  describe "when value is changed", ->
+    beforeEach ->
+      spyOn filterSet, "onFilterChange"
+
+    it "should call onFilterChange and update filter", ->
+      select = element.find "select"
+      select.val options[1].value
+      select.triggerHandler "change"
+      timeout.flush()
+      expect(filterSet[0].getValue()).toBe options[1].value
+      expect(filterSet.onFilterChange).toHaveBeenCalled()
+
+  describe "when scope is destroyed", ->
+    beforeEach ->
+      spyOn filterSet, "remove"
+      spyOn filterSet, "onFilterChange"
+
+    describe "when value is undefined", ->
+      it "should remove filter from filter set and not call onFilterChange", ->
+        scope.$destroy()
+        expect(filterSet.remove).toHaveBeenCalled()
+        expect(filterSet.onFilterChange).not.toHaveBeenCalled()
+
+    describe "when value is selected", ->
+      beforeEach ->
+        select = element.find "select"
+        select.val options[0].value
+        select.triggerHandler "change"
+        timeout.flush()
+
+      it "should remove filter from filter set and call onFilterChange", ->
+        scope.$destroy()
+        expect(filterSet.remove).toHaveBeenCalled()
+        expect(filterSet.onFilterChange).toHaveBeenCalled()

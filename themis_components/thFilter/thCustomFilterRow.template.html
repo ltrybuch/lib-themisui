@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="field">
+    <th-select
+      options="thCustomFilters.customFilterTypes"
+      placeholder="Select field"
+      ng-model="thCustomFilterRow.rowSelectValue"
+      ng-change="thCustomFilterRow.onRowSelectChange()"
+      value-field="fieldIdentifier"
+      condensed="true"
+      >
+    </th-select>
+  </div>
+  <div
+    ng-repeat="filter in thCustomFilterRow.rowFilterOptions"
+    ng-switch on="filter.type"
+    class="wide field filter-container"
+    >
+    <th-filter-select
+      ng-switch-when="select"
+      filter-set="thCustomFilters.filterSet"
+      filter-options="thCustomFilterRow.rowSelectValue"
+      >
+    </th-filter-select>
+    <th-filter-input
+      ng-switch-when="input"
+      filter-set="thCustomFilters.filterSet"
+      filter-options="thCustomFilterRow.rowSelectValue"
+      >
+    </th-filter-input>
+  </div>
+  <div class="field">
+    <div class="link" ng-click="thCustomFilterRow.removeRow()">
+      Remove
+    </div>
+  </div>
+</div>

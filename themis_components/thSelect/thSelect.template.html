@@ -18,7 +18,7 @@
     ng-attr-name="{{select.name || undefined}}"
     ng-model="select.ngModel"
     ng-change="select.ngChange()"
-    ng-options="option.name group by option.group for option in select.options track by option.value"
+    ng-options="option.{{select.nameField}} group by option.group for option in select.options track by option.{{select.valueField}}"
     ng-required="select.ngRequired"
     >
     <option
