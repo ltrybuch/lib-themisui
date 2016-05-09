@@ -7,6 +7,7 @@ angular.module 'ThemisComponents'
       delegate: '='
       name: '@'
       placeholder: '@'
+      icon: '@'
     bindToController: true
     controllerAs: 'thAutocomplete'
 

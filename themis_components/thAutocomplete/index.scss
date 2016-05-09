@@ -1,6 +1,9 @@
 th-autocomplete {
   @import "../../node_modules/ui-select/dist/select";
 
+  display: block;
+  position: relative;
+
   .ui-select-container {
     // ui-select component uses bootstrap for styling. These are all rules
     // used by ui-select copied from bootstrap.
@@ -100,17 +103,7 @@ th-autocomplete {
     }
 
     .caret {
-      display: inline-block;
-      width: 0;
-      height: 0;
-      margin-left: 2px;
-      
-      vertical-align: middle;
-
-      border-top: 4px dashed;
-      border-top: 4px solid \9;
-      border-right: 4px solid transparent;
-      border-left: 4px solid transparent;
+      display: none;
     }
 
     &.dropup,
@@ -162,10 +155,6 @@ th-autocomplete {
       white-space: nowrap;
     }
 
-    .btn .caret {
-      margin-left: 0;
-    }
-
     &.ui-select-bootstrap {
       .ui-select-choices-row {
         > a {
@@ -191,10 +180,24 @@ th-autocomplete {
     .ui-select-search {
       font-family: inherit;
     }
-    
+
     input {
       font-size: inherit;
       background: $off-white;
     }
+  }
+
+  .th-autocomplete-icon ~ .ui-select-container {
+    .form-control {
+      padding-right: 32px;
+    }
+  }
+
+  .th-autocomplete-icon {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    color: $grey-40;
+    z-index: $root-plane + 1;
   }
 }

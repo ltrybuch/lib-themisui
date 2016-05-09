@@ -26,6 +26,10 @@ The `th-autocomplete` accepts the following parameters:
 
 * `name` is the name used when submitting `thAutocomplete` as part of a form.
 
+* `icon` is the name of any
+  [Font Awesome](https://fortawesome.github.io/Font-Awesome/icons/ "icons!")
+  font. Eg. `icon="dollar"` for `fa-dollar`
+
 * `delegate` is a **required** field that represents a dictionary of arguments passed to the component.
 
   * `fetchData({searchString}, updateData)` (**required**)

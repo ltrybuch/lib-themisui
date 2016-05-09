@@ -58,6 +58,9 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
       )
       spyOn scope.delegate, 'fetchData'
 
+    it 'should have no icon element', ->
+      expect(element[0].querySelector('.th-autocomplete-icon')).toBe null
+
     it 'should call fetchData', ->
       search('a')
       expect(scope.delegate.fetchData).toHaveBeenCalled
@@ -87,6 +90,28 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
       search('a')
       openDropDown()
       expect(element.find('.ui-select-choices-row').length).toEqual 3
+
+  describe "when icon is specified", ->
+    beforeEach ->
+      {element, scope} = compileDirective(
+        """
+        <th-autocomplete
+          delegate='delegate'
+          icon='test'
+          >
+        </th-autocomplete>
+        """
+        delegate:
+          fetchData: -> return
+      )
+      @iconElement = element.find(".th-autocomplete-icon")
+
+    it "should have icon element with specified class", ->
+      expect(@iconElement).not.toBe null
+      expect(@iconElement.hasClass("fa-test")).toBeTruthy()
+
+    it "should have icon element preceding 'ui-select-container' for sibling selector", ->
+      expect(@iconElement.next().hasClass("ui-select-container")).toBeTruthy()
 
   describe 'when user starts typing', ->
     onChangeSpy = null
