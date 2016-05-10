@@ -60,6 +60,20 @@ describe "ThemisComponents: Service: SelectFilter", ->
           expect(selectFilter.options[1].value).toBe "v1"
 
   describe "#getValue", ->
-    it "return undefined", ->
+    describe "when initialized", ->
+      it "should return undefined", ->
+        selectFilter = new SelectFilter
+        expect(selectFilter.getValue()).toBe undefined
+
+  describe "#clearValue", ->
+    beforeEach ->
       selectFilter = new SelectFilter
-      expect(selectFilter.getValue()).toBe undefined
+
+    describe "when value is not null", ->
+      beforeEach ->
+        selectFilter.model = {value: "test"}
+
+      it "should set value to null", ->
+        expect(selectFilter.getValue()).not.toBe undefined
+        selectFilter.clearValue()
+        expect(selectFilter.getValue()).toBe undefined

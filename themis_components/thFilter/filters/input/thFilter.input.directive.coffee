@@ -22,4 +22,7 @@ angular.module 'ThemisComponents'
         if @filter.getValue()?
           @filterSet.onFilterChange()
 
+      $scope.$on "th.filters.clear", =>
+        @filter.clearValue()
+
       return

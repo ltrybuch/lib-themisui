@@ -7,7 +7,7 @@ angular.module 'ThemisComponents'
     bindToController: true
     controllerAs: 'thSearchRow'
     template: require './thSearchRow.template.html'
-    controller: ->
+    controller: ($scope) ->
       {
         @filterSet
       } = @options
@@ -19,5 +19,9 @@ angular.module 'ThemisComponents'
         fieldIdentifier: @fieldIdentifier or "query"
         placeholder: 'Enter search term...'
       }
+
+      @clearFilters = ->
+        $scope.$parent.$broadcast "th.filters.clear"
+        @filterSet.onFilterChange()
 
       return

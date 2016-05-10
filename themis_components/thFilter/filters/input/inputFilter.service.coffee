@@ -10,3 +10,6 @@ angular.module "ThemisComponents"
 
     getValue: =>
       @model
+
+    clearValue: =>
+      @model = null

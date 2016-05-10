@@ -39,3 +39,24 @@ describe "ThemisComponents: Directive: thSearchRow", ->
       expect(filterSet.length).toBe 1
       expect(filterSet[0]).toBe instanceof InputFilter
       expect(filterSet[0].fieldIdentifier).toBe "query"
+
+  describe "#clearFilters", ->
+    beforeEach ->
+      {@element, @scope} = compileDirective(validTemplate, {
+        options: {
+          filterSet: filterSet
+        }
+      })
+      spyOn @scope, "$broadcast"
+      spyOn filterSet, "onFilterChange"
+
+      controller = angular.element(
+        @element[0].querySelector(".th-search-row")
+      ).scope().thSearchRow
+      controller.clearFilters()
+
+    it "should broadcast 'th.filters.clear' event", ->
+      expect(@scope.$broadcast).toHaveBeenCalledWith "th.filters.clear"
+
+    it "should call 'onFilterChange'", ->
+      expect(filterSet.onFilterChange).toHaveBeenCalled()

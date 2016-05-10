@@ -23,3 +23,16 @@ describe "ThemisComponents: Service: InputFilter", ->
       it "should return undefined", ->
         inputFilter = new InputFilter
         expect(inputFilter.getValue()).toBe null
+
+  describe "#clearValue", ->
+    beforeEach ->
+      inputFilter = new InputFilter
+
+    describe "when value is not null", ->
+      beforeEach ->
+        inputFilter.model = "test"
+
+      it "should set value to null", ->
+        expect(inputFilter.getValue()).not.toBe null
+        inputFilter.clearValue()
+        expect(inputFilter.getValue()).toBe null

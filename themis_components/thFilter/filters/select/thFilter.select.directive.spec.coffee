@@ -89,3 +89,12 @@ describe "ThemisComponents: Directive: thFilterSelect", ->
         scope.$destroy()
         expect(filterSet.remove).toHaveBeenCalled()
         expect(filterSet.onFilterChange).toHaveBeenCalled()
+
+  describe "when 'th.filters.clear' event is received", ->
+    it "should clear model", ->
+      filter = angular.element(
+        element.find("div")
+      ).scope().thFilterSelect.filter
+      spyOn filter, "clearValue"
+      scope.$broadcast "th.filters.clear"
+      expect(filter.clearValue).toHaveBeenCalled()
