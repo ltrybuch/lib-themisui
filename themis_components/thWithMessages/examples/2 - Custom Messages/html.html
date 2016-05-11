@@ -15,6 +15,20 @@
           >
         </th-input>
 
+        <th-input
+          with-label="Price"
+          type="number"
+          min="1"
+          max="100"
+          ng-model="demo.number"
+          name="number"
+          ng-required="true"
+          prefix="$"
+          postfix="per unit"
+          with-messages="demo.messages"
+          >
+        </th-input>
+
         <th-textarea
           with-label="Textarea"
           placeholder="This field requires a minimum of 10 characters."

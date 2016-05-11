@@ -130,3 +130,16 @@ describe 'thInput', ->
         it "is disabled", ->
           expect(element.find("input").attr("disabled")).toEqual "disabled"
           expect(element.find("input").hasClass("disabled")).toBe true
+
+  context "with type number", ->
+    beforeEach ->
+      {element} = compileDirective("""
+        <th-input type="number" min="10" max="20" step="2"></th-input>"""
+      )
+
+    it "set appropriate attributes set", ->
+      input = element.find("input")
+      expect(input.attr("type")).toBe 'number'
+      expect(input.attr("min")).toBe '10'
+      expect(input.attr("max")).toBe '20'
+      expect(input.attr("step")).toBe '2'

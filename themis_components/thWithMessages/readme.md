@@ -44,8 +44,18 @@ validation object. [Angular form docs](https://docs.angularjs.org/guide/forms)
   - `minlength` = "Please enter at least minlength* characters."
   - `maxlength` = "Please enter no more than maxlength* characters."
   - `pattern` = "The formatting is incorrect."
+  - `number`** = "Please enter a number."
+  - `min`\*\* = "Please enter a valid number equal to or greater than minNumberValue*."
+  - `max`\*\* = "Please enter a valid number less than or equal to maxNumberValue*."
+  - If both the `min` and `max` attributes are set then a number range message will be
+  applied for both the `min` and `max` message.
+  - `min` & `max` = "Please enter a number between minNumberValue\* and maxNumberValue\*"
 
-    *value taken from the validation attribute.
+
+  \* Value taken from the validation attribute.
+
+  ** These attributes are only applicable to input `type="number"` and will be
+  ignored without it.
 
 - These default messages can (and probably be should) be overridden by passing in a
 collection of custom messages that cover the validation types that you are using.
@@ -59,6 +69,9 @@ Any type that is missed will gracefully fall back to the default messages.
   maxlength: "I got no time for the jibba-jabba."
   minlength: "I pity the fool, who don't add more text."
   pattern: "Life's tough, but I'm tougher."
+  number: "Hey fool, this ain't no number!"
+  min: "I don't hate low number values, I pity them!"
+  max: "Don't make me mad with your high number value, Arrr!"
 
 # view
 <form name="form" novalidate>
@@ -78,7 +91,7 @@ Any type that is missed will gracefully fall back to the default messages.
 native form validation. Otherwise there may be some unwanted message duplication.
 - Use the same custom message array on all of your form elements if they apply to
 save from duplicating the messages. If your field element is *not* using one of the
-`type`s in the messages array passed in then it will just be ignored that message.
+`type`s in the messages array passed in then it will just be ignored by that message.
 - A great reference when writing your own custom validation messages can be found
 [here](http://uxmovement.com/forms/how-to-make-your-form-error-messages-more-reassuring)
 - The error message is triggered in several ways depending on the input type being used:

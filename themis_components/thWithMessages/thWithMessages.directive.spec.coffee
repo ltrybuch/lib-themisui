@@ -5,7 +5,7 @@ testHelpers = require './validationTests.spec'
 context = describe
 
 describe 'withMessages', ->
-  element = scope = messageEl = null
+  element = scope = messageEl = template = triggerElement = null
 
   beforeEach angular.mock.module "ThemisComponents"
 
@@ -37,6 +37,62 @@ describe 'withMessages', ->
       testHelpers.testWithValidInput(
         "input", testHelpers.setUpElements("input")
       )
+
+    context "with type='number'", ->
+      context "with only one number validator", ->
+        context "using default messages", ->
+
+          beforeEach ->
+            template = (min, max) ->
+              minAttr = -> if min != "" then "min=#{min}" else ""
+              maxAttr = -> if max != "" then "max=#{max}" else ""
+              """<form name="form">
+                <th-input
+                  with-messages
+                  name="inputName"
+                  ng-model="modelName"
+                  #{maxAttr()}
+                  #{minAttr()}
+                  type="number"
+                  >
+                </th-input>
+              </form>"""
+            triggerElement = ->
+              element.find("input").triggerHandler 'focus'
+              element.find("input").triggerHandler 'blur'
+
+          it "sets the form to invalid", ->
+            {element, scope} = compileDirective(template("", "10"), {modelName: 20})
+            triggerElement()
+            expect(scope.form.$invalid).toBe true
+
+          it "display the default 'min' message", ->
+            {element, scope} = compileDirective(template("", "10"), {modelName: 20})
+            triggerElement()
+            normalized = element.find(".message-text").text().trim()
+            expect("Please enter a valid number less than or equal to 10.").toBe normalized
+
+      context "using both number validators", ->
+        context "using default messages", ->
+          it "sets the form to invalid", ->
+            {element, scope} = compileDirective(template("1", "10"), {modelName: 20})
+            triggerElement()
+            expect(scope.form.$invalid).toBe true
+
+            scope.modelName = 0.5
+            triggerElement()
+            expect(scope.form.$invalid).toBe true
+
+          it "set the 'min' and 'max' messages to the range message", ->
+            {element, scope} = compileDirective(template("1", "10"), {modelName: 20})
+            triggerElement()
+            normalized = element.find(".message-text").text().trim()
+            expect("Please enter a number between 1 and 10.").toBe normalized
+
+            scope.modelName = 0.5
+            triggerElement()
+            normalized = element.find(".message-text").text().trim()
+            expect("Please enter a number between 1 and 10.").toBe normalized
 
   context "with-th-textarea", ->
     context "using default messages", ->

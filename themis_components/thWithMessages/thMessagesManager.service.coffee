@@ -37,14 +37,28 @@ angular.module 'ThemisComponents'
       "#{messageWrapper}#{messages}</div></div>"
 
     extendMessages = (messages, attrs) ->
-      min = attrs.ngMinlength ? ""
-      max = attrs.ngMaxlength ? ""
+      minLength = attrs.ngMinlength ? ""
+      maxLength = attrs.ngMaxlength ? ""
+
+      minNumberValue = attrs.min ? 0
+      maxNumberValue = attrs.max ? 0
+      hasNumberRange = attrs.max? and attrs.min?
+
+      soloMinNumberMsg =
+        "Please enter a valid number equal to or greater than #{minNumberValue}."
+      soloMaxNumberMsg =
+        "Please enter a valid number less than or equal to #{maxNumberValue}."
+      rangeNumberMsg =
+        "Please enter a number between #{minNumberValue} and #{maxNumberValue}."
 
       defaultMessages =
         required: "This field is required."
-        minlength: "Please enter at least #{min} characters."
-        maxlength: "Please enter no more than #{max} characters."
+        minlength: "Please enter at least #{minLength} characters."
+        maxlength: "Please enter no more than #{maxLength} characters."
         pattern: "Invalid Response."
+        number: "Please enter a number."
+        min: if hasNumberRange then rangeNumberMsg else soloMinNumberMsg
+        max: if hasNumberRange then rangeNumberMsg else soloMaxNumberMsg
 
       return Object.assign({}, defaultMessages, messages)
 

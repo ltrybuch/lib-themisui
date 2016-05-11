@@ -20,6 +20,9 @@ angular.module('ThemisComponents').directive "thInput", ->
     ngMinlength: '='
     ngMaxlength: '='
     ngPattern: '='
+    min: '='
+    max: '='
+    step: '='
   template: require './thInput.template.html'
   controller: -> return
   link: (scope, element, attribute, controllerArray) ->

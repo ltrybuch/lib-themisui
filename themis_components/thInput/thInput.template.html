@@ -26,6 +26,9 @@
     ng-minlength="input.ngMinlength"
     ng-maxlength="input.ngMaxlength"
     ng-pattern="input.ngPattern"
+    ng-attr-min="{{input.min}}"
+    ng-attr-max="{{input.max}}"
+    ng-attr-step="{{input.step}}"
     >
   <i ng-if="input.icon" class="th-input-icon fa fa-{{input.icon}}"></i>
   <span ng-if="input.postfix" class="th-input-postfix">{{input.postfix}}</span>

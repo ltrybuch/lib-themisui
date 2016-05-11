@@ -5,7 +5,7 @@ angular.module('thDemo', ['ThemisComponents'])
       @form.$setUntouched()
       @response = ""
       # Reset input fields.
-      ["text", "textarea", "checkbox", "radio"].forEach (el) =>
+      ["text", "textarea", "checkbox", "radio", "number"].forEach (el) =>
         @[el] = ""
 
     @submit = ->
@@ -16,6 +16,7 @@ angular.module('thDemo', ['ThemisComponents'])
           $error:
             text: @form.text.$error
             textarea: @form.textarea.$error
+            number: @form.number.$error
             checkbox: @form.checkbox.$error
             radio: @form.radio.$error
 
