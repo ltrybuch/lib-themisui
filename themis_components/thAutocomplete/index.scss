@@ -187,9 +187,19 @@ th-autocomplete {
     }
   }
 
+  // Add ellipsis for overflowing names.
+  .ui-select-match {
+    span {
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
   .th-autocomplete-icon ~ .ui-select-container {
     .form-control {
-      padding-right: 32px;
+      padding-right: 36px;
     }
   }
 
