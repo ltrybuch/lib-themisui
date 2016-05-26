@@ -82,8 +82,9 @@ angular.module 'thDemo', ['ThemisComponents']
         filteredData = data
         for filter in @filterSet
           value = filter.getValue()
-          filteredData = filteredData.filter (item) ->
-            value is undefined or item[filter.fieldIdentifier] is value
+          if value?
+            filteredData = filteredData.filter (item) ->
+              item[filter.fieldIdentifier] is value
 
         sortedData = sort filteredData, sortHeader
         updateData {data: sortedData, totalItems: sortedData.length}

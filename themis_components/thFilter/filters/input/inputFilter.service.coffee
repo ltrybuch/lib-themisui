@@ -9,7 +9,7 @@ angular.module "ThemisComponents"
     type: "input"
 
     getValue: =>
-      @model
+      if @model?.length > 0 then @model else null
 
     clearValue: =>
       @model = null

@@ -1,5 +1,5 @@
 angular.module "ThemisComponents"
-.directive "thCustomFilters", ->
+.directive "thCustomFilters", ($http, CustomFilterConverter) ->
   restrict: "E"
   scope:
     options: "="
@@ -10,13 +10,30 @@ angular.module "ThemisComponents"
     {
       @filterSet
       @customFilterTypes
+      customFilterUrl
+      customFilterConverter
     } = @options
 
     unless @filterSet instanceof Array
       throw new Error "thCustomFilters: must specify 'filterSet' attribute."
 
-    unless @customFilterTypes instanceof Array
-      throw new Error "thCustomFilters: filter options not valid."
+    unless @customFilterTypes instanceof Array or customFilterUrl?
+      throw new Error "thCustomFilters: must specify custom filter options " + \
+                      "through 'customFilterTypes' or 'customFilterUrl'."
+
+    if customFilterUrl?
+      $http
+        method: 'GET'
+        url: customFilterUrl
+      .then (response) =>
+        if customFilterConverter?
+          unless customFilterConverter.constructor.prototype instanceof CustomFilterConverter
+            throw new Error "customFilterConverter must be instance of " + \
+                            "'CustomFilterConverter'."
+
+          @customFilterTypes = customFilterConverter.mapToCustomFilterArray response.data
+        else
+          @customFilterTypes = response.data
 
     @customFilterRows = []
     nextIdentifer = 0

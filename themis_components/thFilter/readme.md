@@ -171,7 +171,40 @@ consisting of the following options:
 
 * `filterSet` is the `FilterSet` instance that the component will modify.
 
-* `customFilters` is an array of filter options hashes.
+`th-custom-filters` *requires* one of the following two options:
+
+* `customFilterTypes` is the array of filter options.
+
+* `customFilterUrl` indicates a url that returns the array of filter options.
+
+  * `customFilterConverter` (*optional*) is an object that subclasses
+    `CustomFilterConverter`. `customFilterConverter.mapToCustomFilterArray` is
+    called with the data returned from `customFilterUrl` and returns an array
+    containing the custom filter objects. A general `customFilterConverter` will
+    be created in Themis that handles conversion of all custom filter api calls.
+
+    ```json
+    class MyCustomFilterConverter extends CustomFilterConverter
+      mapToCustomFilterArray: (data) ->
+        data.map (item) ->
+          fieldIdentifier: item.id
+          name: item.name
+          type: ( ->
+            switch item.field_type
+              when "picklist"
+                "select"
+              when "text_line"
+                "input"
+              else
+                throw new Error "unsupported field_type"
+            )()
+          selectOptions: ( ->
+            if item.custom_field_picklist_options?
+              item.custom_field_picklist_options.map (option) ->
+                name: option.option
+                value: option.id
+            )()
+    ```
 
 ### `th-search-row`
 

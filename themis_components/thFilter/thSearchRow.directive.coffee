@@ -17,7 +17,7 @@ angular.module 'ThemisComponents'
 
       @queryFilterOptions = {
         fieldIdentifier: @fieldIdentifier or "query"
-        placeholder: 'Enter search term...'
+        placeholder: 'Enter search term…'
       }
 
       @clearFilters = ->
