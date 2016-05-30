@@ -26,7 +26,7 @@ Acceptable attributes include `url`, `type`, `divider`, `name`, `icon`. Examples
 ---
 ### Notes
 
-- The types `standard`, `destroy`, and `create` are accepted to color the button.If a type is not given it will set the button color to blue.
+- The types `destroy`, `create`, and `secondary` are accepted to color the button. If a type is not given it will set the button color to blue.
 
   ```
   <th-dropdown name="New" type="create" list="menuItems"></th-dropdown>

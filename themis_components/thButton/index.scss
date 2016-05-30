@@ -46,15 +46,15 @@
     cursor: default;
   }
 
-  @include generate-button($grey-80, $grey-70, $grey);
+  @include generate-button($blue, $blue-shade);
 
-  &.default {
-    @include generate-button($blue, $blue-shade);
-  }
   &.create {
     @include generate-button($green, $green-shade);
   }
   &.destroy {
     @include generate-button($red, $red-shade);
+  }
+  &.secondary {
+    @include generate-button($grey-80, $grey-70, $grey);
   }
 }

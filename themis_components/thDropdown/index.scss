@@ -40,17 +40,17 @@
       background: $green-shade;
     }
   }
-  .standard {
-    color: $grey;
-    background: $grey-80;
-    &:hover {
-      background: $grey-70;
-    }
-  }
   .destroy {
     background-color: $red;
     &:hover {
       background: $red-shade;
+    }
+  }
+  .secondary {
+    color: $grey;
+    background: $grey-80;
+    &:hover {
+      background: $grey-70;
     }
   }
 }
@@ -84,12 +84,6 @@
       color: #fff;
     }
   }
-  &.standard {
-    .dropdown-item:hover {
-      background: $grey-80;
-      color: $grey;
-    }
-  }
   &.create {
     .dropdown-item:hover {
       background: $green;
@@ -98,6 +92,12 @@
   &.destroy {
     .dropdown-item:hover {
       background: $red;
+    }
+  }
+  &.secondary {
+    .dropdown-item:hover {
+      background: $grey-80;
+      color: $grey;
     }
   }
 }

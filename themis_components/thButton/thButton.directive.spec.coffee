@@ -4,7 +4,7 @@ describe 'ThemisComponents: Directive: thButton', ->
   element = compile = scope = null
 
   validTemplate    = '<div th-button type="create" ng-click="action()">some text</div>'
-  templateWithHref = '<div th-button href="#" type="default">some text</div>'
+  templateWithHref = '<div th-button href="#" type="secondary">some text</div>'
   disabledTemplate = '<div th-button ng-click="action()" disabled>some text</div>'
   submitTemplate   = '<div th-button type="submit" text="submit text"></div>'
 
@@ -59,5 +59,5 @@ describe 'ThemisComponents: Directive: thButton', ->
     it 'is an anchor tag', ->
       expect(element[0].tagName).toEqual "A"
 
-    it 'has class "default"', ->
-      expect(element.hasClass("default")).toBe true
+    it 'has class "secondary"', ->
+      expect(element.hasClass("secondary")).toBe true
