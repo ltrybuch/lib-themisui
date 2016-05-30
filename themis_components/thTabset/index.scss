@@ -3,13 +3,13 @@
 
   .th-tab-bar {
     border-bottom: solid 1px $grey-70;
-    padding: 0 2rem;
+    padding: 0 20px;
 
     a {
       display: inline-block;
-      margin-right: 0.6rem;
+      margin-right: 6px;
       line-height: 32px;
-      font-size: 1.6rem;
+      font-size: 16px;
 
       color: $grey-40;
       @include gibson-regular;
@@ -19,6 +19,19 @@
         color: $grey;
         @include gibson-semibold;
         border-bottom: solid 3px $blue;
+      }
+    }
+  }
+
+  &.sub-header {
+    a {
+      margin-right: 20px;
+      padding-top: 12px;
+      padding-bottom: 8px;
+      font-size: 15px;
+
+      &.active {
+        font-weight: bold;
       }
     }
   }

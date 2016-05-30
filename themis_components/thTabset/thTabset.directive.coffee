@@ -4,9 +4,15 @@ angular.module('ThemisComponents')
     replace: true
     template: require './thTabset.native.template.html'
     transclude: true
-    scope: {}
+    scope:
+      type: "@"
     controller: ($scope) ->
       tabs = $scope.tabs = []
+
+      if $scope.type
+        acceptableTypes = ["sub-header"]
+        unless $scope.type in acceptableTypes
+          throw new Error "thTabset: invalid 'type'."
 
       $scope.processTabChange = (tabToSelect) ->
         $scope.activateTab tabToSelect

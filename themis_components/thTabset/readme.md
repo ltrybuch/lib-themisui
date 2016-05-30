@@ -19,6 +19,9 @@ using `ng-click`. Using `ng-click` will not effect the normal usage of `thTabset
 but just allow a click event to attach to. See example 3 below.
 [Angular docs](https://docs.angularjs.org/api/ng/directive/ngClick)
 
+[type="string"]
+- `type` allows you to modify the `thTabset` styling based on it's intended purpose. Currently `sub-header` is the only option.
+
 ## Usage
 
 ```
