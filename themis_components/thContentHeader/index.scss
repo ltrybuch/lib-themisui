@@ -33,6 +33,12 @@ th-content-header,
     font-size: $header-1-size;
   }
 
+  .th-header-flex-item {
+    .th-button, .button-dropdown {
+      margin-left: 6px;
+    }
+  }
+
   .th-header-flex-item:nth-child(1) {
     -webkit-order: 0;
     -ms-flex-order: 0;
