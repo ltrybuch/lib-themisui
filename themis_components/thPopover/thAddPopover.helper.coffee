@@ -121,6 +121,7 @@ module.exports = ($compile, $timeout) -> (target, contentCallback) ->
         whitelist = [
           '.chzn-container *'
           '.th-switch *'
+          '[th-popover-persist]'
           '.ui-select-choices-row-inner *' # Select 2 autocompleter
         ]
         whitelistSelector = whitelist.join ', '

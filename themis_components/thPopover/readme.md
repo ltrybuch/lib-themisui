@@ -26,8 +26,10 @@ datepickers). The overflow property is set to `auto` by default. Valid options:
   - `visible`
   - `hidden`
 
-## Usage
+Adding the attribute `th-popover-persist` to an `a` element within the popover will
+prevent it from dismissing when clicked.
 
+## Usage
 
 ### Markup
 
@@ -66,7 +68,7 @@ controller: (PopoverManager, $http) ->
   )
 
   # Inline content
-  contentPromise = 
+  contentPromise =
   PopoverManager.showPopover(
     targetName: "target"
     contentCallback: -> PopoverManager.getContent "content"
