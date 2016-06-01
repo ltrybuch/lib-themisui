@@ -8,9 +8,6 @@ angular.module 'ThemisComponents'
     controllerAs: 'thFilterSelect'
     template: require './thFilter.select.template.html'
     controller: ($scope) ->
-      @filter = new SelectFilter @filterOptions
-      @filterSet.push @filter
-
       @onValueChange = ->
         $timeout =>
           @filterSet.onFilterChange()
@@ -25,3 +22,7 @@ angular.module 'ThemisComponents'
         @filter.clearValue()
 
       return
+    compile: ->
+      pre: (scope, element, attrs, controller) ->
+        controller.filter = new SelectFilter controller.filterOptions
+        controller.filterSet.push controller.filter

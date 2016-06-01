@@ -47,6 +47,12 @@ attribute is ignored.
 [ng-disabled="string"]
 - Set the disabled attribute if the expression inside evaluates to truthy.
 
+[ng-keypress="expression"]
+-Expression to evaluate upon keypress. Event object is available as $event.
+
+[ng-blur="expression"]
+- Expression to evaluate upon blur. Event object is available as $event.
+
 Angular's input validation attributes are all optional attributes for `<thInput>`
   - [[ng-required="string"]](https://docs.angularjs.org/api/ng/directive/ngRequired)
   - [[ng-minLength="number"]](https://docs.angularjs.org/api/ng/directive/ngMinlength)

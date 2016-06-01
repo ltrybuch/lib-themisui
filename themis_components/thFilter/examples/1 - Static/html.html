@@ -1,9 +1,9 @@
 <html ng-app="thDemo" style="height: 200px">
   <body ng-controller="DemoController as demo" style="padding-right: 0; padding-left: 0;">
 
-    <div class="th-example-filter">
-      <th-static-filters options="demo.filterOptions"></th-static-filters>
-    </div>
+    <th-filter options="demo.filterOptions">
+      <th-static-filters></th-static-filters>
+    </th-filter>
 
     <th-table delegate="demo.tableDelegate">
 

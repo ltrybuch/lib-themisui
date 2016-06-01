@@ -12,6 +12,9 @@ found in a table (see [thTable](.\thTable)).
 The filter view is comprised of a set of filter fields. The filter view supports
 'select' and 'input' type filter fields.
 
+A wrapper directive `th-filter` is provided for consistent styling across filter
+views.
+
 Three types of views exist for filter fields.
 
 * Static filter fields are presented in a grid and are always visible to the user.
@@ -53,9 +56,11 @@ filter set.
 ```
 
 ```html
-<th-static-filters options="demo.filterOptions"></th-static-filters>
-<th-custom-filters options="demo.filterOptions"></th-custom-filters>
-<th-search-row options="demo.filterOptions"></th-search-row>
+<th-filter options="demo.filterOptions">
+  <th-static-filters></th-static-filters>
+  <th-custom-filters></th-custom-filters>
+  <th-search-row></th-search-row>
+</th-filter>
 ```
 
 ## Usage
@@ -154,11 +159,23 @@ state.
 
 ## Directives
 
+### `th-filter`
+
+The `th-filter` element is optionally used to wrap any of the following filter
+views. It provides consistent styling across views and lets you easily specify
+filter options in one place instead of having to specify options for each
+filter directive. As such, it accepts an `options` attribute with the following
+parameter:
+
+* `filterSet` is the `FilterSet` instance that the enclosed components will
+modify.
+
 ### `th-static-filters`
 
 The `th-static-filters` element is a container for a block of filters that are
-always visible to the user. It accepts an `options` attribute which is a hash
-consisting of the following options:
+always visible to the user. It accepts an `options` attribute which, if
+present, overrides the `options` attribute supplied to `th-filter`. It is a
+hash consisting of the following options:
 
 * `filterSet` is the `FilterSet` instance that the component will modify.
 
@@ -166,8 +183,9 @@ consisting of the following options:
 
 ### `th-custom-filters`
 
-The `th-custom-filters` element accepts an `options` attribute which is a hash
-consisting of the following options:
+The `th-custom-filters` element accepts an `options` attribute which, if
+present, overrides the `options` attribute supplied to `th-filter`. It is a
+hash consisting of the following options:
 
 * `filterSet` is the `FilterSet` instance that the component will modify.
 
@@ -209,7 +227,8 @@ consisting of the following options:
 ### `th-search-row`
 
 The `th-search-row` element defines the search row pattern consisting of an
-input field and "Search" button. It accepts an `options` attribute which is a
+input field and "Search" button. It accepts an `options` attribute which, if
+present, overrides the `options` attribute supplied to `th-filter`. It is a
 hash consisting of the following options:
 
 * `filterSet` is the `FilterSet` instance that the component will modify.

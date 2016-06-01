@@ -1,4 +1,5 @@
 require './filters/'
+require './thFilter.directive'
 require './thCustomFilterRow.directive'
 require './thCustomFilters.directive'
 require './thSearchRow.directive'

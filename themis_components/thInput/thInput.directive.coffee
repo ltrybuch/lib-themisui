@@ -16,6 +16,7 @@ angular.module('ThemisComponents').directive "thInput", ->
     ngModel: '='
     ngRequired: '='
     ngDisabled: '='
+    ngBlur: '&'
     ngKeypress: '&'
     ngMinlength: '='
     ngMaxlength: '='

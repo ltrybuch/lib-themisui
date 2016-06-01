@@ -4,16 +4,14 @@ angular.module 'ThemisComponents'
     scope:
       filterSet: '='
       filterOptions: '='
+      ngBlur: '&'
     bindToController: true
     controllerAs: 'thFilterInput'
     template: require './thFilter.input.template.html'
     controller: ($scope) ->
       enterEventCode = 13
 
-      @filter = new InputFilter @filterOptions
-      @filterSet.push @filter
-
-      @onKeypress = (event) ->
+      @ngKeypress = (event) ->
         @filterSet.onFilterChange() if event.which is enterEventCode
 
       $scope.$on "$destroy", =>
@@ -26,3 +24,7 @@ angular.module 'ThemisComponents'
         @filter.clearValue()
 
       return
+    compile: ->
+      pre: (scope, element, attrs, controller) ->
+        controller.filter = new InputFilter controller.filterOptions
+        controller.filterSet.push controller.filter

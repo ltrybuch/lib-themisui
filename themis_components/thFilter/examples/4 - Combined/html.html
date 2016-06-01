@@ -1,13 +1,13 @@
 <html ng-app="thDemo" style="height: 200px">
   <body ng-controller="DemoController as demo" style="padding-right: 0; padding-left: 0;">
 
-    <div class="th-example-filter">
-      <th-static-filters options="demo.filterOptions"></th-static-filters>
-      <th-custom-filters options="demo.filterOptions"></th-custom-filters>
-      <th-search-row options="demo.filterOptions" field-identifier="q"></th-search-row>
+    <th-filter options="demo.filterOptions">
+      <th-static-filters></th-static-filters>
+      <th-custom-filters></th-custom-filters>
+      <th-search-row field-identifier="q"></th-search-row>
       <br>
       <div># of change events: <code>{{demo.filterChangeEvents}}</code></div>
-    </div>
+    </th-filter>
 
     <th-table delegate="demo.tableDelegate">
 

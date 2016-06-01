@@ -8,6 +8,11 @@ describe "ThemisComponents: Directive: thStaticFilters", ->
     <th-static-filters options="options"></th-static-filters>
   """
 
+  findController = (element) ->
+    angular.element(element[0].querySelector(
+      ".th-static-filters"
+    )).scope().thStaticFilters
+
   beforeEach angular.mock.module "ThemisComponents"
   beforeEach ->
     inject ($injector, _InputFilter_, _SelectFilter_, _FilterSet_) ->
@@ -16,11 +21,6 @@ describe "ThemisComponents: Directive: thStaticFilters", ->
       FilterSet = _FilterSet_
 
     filterSet = new FilterSet {onFilterChange: -> return}
-
-  describe "when options is undefined", ->
-    it "should throw an error", ->
-      template = "<th-static-filters></th-static-filters>"
-      expect(-> compileDirective(template)).toThrow()
 
   describe "when filter set is undefined", ->
     it "should throw an error", ->
@@ -37,6 +37,55 @@ describe "ThemisComponents: Directive: thStaticFilters", ->
           filterSet: filterSet
         }
       })).toThrow()
+
+  describe "when filter set is defined on th-filter", ->
+    it "should use filter set from th-filter", ->
+      {element} = compileDirective("""
+        <th-filter options="options">
+          <th-static-filters></th-static-filters>
+        </th-filter>
+      """
+      , {
+        options: {
+          filterSet: filterSet
+          staticFilters: []
+        }
+      })
+      controller = findController element
+      expect(controller.filterSet).toBe filterSet
+
+  describe "when filter set is defined on th-static-filters", ->
+    it "should use filter set from th-static-filters", ->
+      {element} = compileDirective(validTemplate, {
+        options: {
+          filterSet: filterSet
+          staticFilters: []
+        }
+      })
+      controller = findController element
+      expect(controller.filterSet).toBe filterSet
+
+  describe "when filter set is defined on both th-filter and th-static-filters", ->
+    it "should use filter set from th-static-filters", ->
+      filterSet1 = new FilterSet {onFilterChange: -> return}
+      filterSet2 = new FilterSet {onFilterChange: -> return}
+      {element} = compileDirective("""
+        <th-filter options="options1">
+          <th-static-filters options="options2"></th-static-filters>
+        </th-filter>
+      """
+      , {
+        options1: {
+          filterSet: filterSet1
+          staticFilters: []
+        }
+        options2: {
+          filterSet: filterSet2
+          staticFilters: []
+        }
+      })
+      controller = findController element
+      expect(controller.filterSet).toBe filterSet2
 
   describe "when list has zero elements", ->
     it "should should add zero filters to filter set and template", ->

@@ -25,6 +25,7 @@
       ng-switch-when="input"
       filter-set="thCustomFilters.filterSet"
       filter-options="thCustomFilterRow.rowSelectValue"
+      ng-blur="thCustomFilters.filterSet.onFilterChange()"
       >
     </th-filter-input>
   </div>

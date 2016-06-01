@@ -8,6 +8,11 @@ describe "ThemisComponents: Directive: thCustomFilters", ->
     <th-custom-filters options="options"></th-custom-filters>
   """
 
+  findController = (element) ->
+    angular.element(element[0].querySelector(
+      ".th-custom-filters"
+    )).scope().thCustomFilters
+
   beforeEach angular.mock.module "ThemisComponents"
   beforeEach ->
     inject ($injector, _FilterSet_, _CustomFilterConverter_, $httpBackend) ->
@@ -26,11 +31,6 @@ describe "ThemisComponents: Directive: thCustomFilters", ->
     customFiltersElement = element[0].querySelector(".th-custom-filters")
     directiveScope = angular.element(customFiltersElement).scope()
 
-  describe "when options is undefined", ->
-    it "should throw an error", ->
-      template = "<th-custom-filters></th-custom-filters>"
-      expect(-> compileDirective(template)).toThrow()
-
   describe "when filter set is undefined", ->
     it "should throw an error", ->
       expect(-> compileDirective(validTemplate, {
@@ -46,6 +46,55 @@ describe "ThemisComponents: Directive: thCustomFilters", ->
           filterSet: filterSet
         }
       })).toThrow()
+
+  describe "when filter set is defined on th-filter", ->
+    it "should use filter set from th-filter", ->
+      {element} = compileDirective("""
+        <th-filter options="options">
+          <th-custom-filters></th-custom-filters>
+        </th-filter>
+      """
+      , {
+        options: {
+          filterSet: filterSet
+          customFilterTypes: []
+        }
+      })
+      controller = findController element
+      expect(controller.filterSet).toBe filterSet
+
+  describe "when filter set is defined on th-custom-filters", ->
+    it "should use filter set from th-custom-filters", ->
+      {element} = compileDirective(validTemplate, {
+        options: {
+          filterSet: filterSet
+          customFilterTypes: []
+        }
+      })
+      controller = findController element
+      expect(controller.filterSet).toBe filterSet
+
+  describe "when filter set is defined on both th-filter and th-custom-filters", ->
+    it "should use filter set from th-custom-filters", ->
+      filterSet1 = new FilterSet {onFilterChange: -> return}
+      filterSet2 = new FilterSet {onFilterChange: -> return}
+      {element} = compileDirective("""
+        <th-filter options="options1">
+          <th-custom-filters options="options2"></th-custom-filters>
+        </th-filter>
+      """
+      , {
+        options1: {
+          filterSet: filterSet1
+          customFilterTypes: []
+        }
+        options2: {
+          filterSet: filterSet2
+          customFilterTypes: []
+        }
+      })
+      controller = findController element
+      expect(controller.filterSet).toBe filterSet2
 
   describe "when component is initialized", ->
     it "should have zero rows", ->
