@@ -96,6 +96,22 @@ describe 'thInput', ->
       postfix = element.find(".th-input-postfix")
       expect(postfix.text()).toMatch "/hr"
 
+  context "with ng-change attr", ->
+    beforeEach ->
+      scopeAdditions = {}
+      scopeAdditions.onChange = -> alert "changed"
+      {element} = compileDirective(
+        """<th-input ng-change="onChange()" ng-model="choice"></th-input>""",
+         scopeAdditions
+       )
+
+    it "On change the ngChange function is called", (done) ->
+      spyOn window, 'alert'
+      element.find('input').triggerHandler 'change'
+      done()
+      expect(window.alert).toHaveBeenCalledWith 'changed'
+
+
   context "with validations", ->
     beforeEach ->
       scopeAdditions =

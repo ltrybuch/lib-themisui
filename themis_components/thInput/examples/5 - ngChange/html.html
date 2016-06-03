@@ -1,0 +1,30 @@
+<html ng-app="thDemo">
+  <style type="text/css">
+    .th-label {margin-bottom: 0 !important;}
+  </style>
+  <body
+    ng-controller="DemoController as demo"
+    class="th-example-height-100 th-example-width-500"
+    >
+    <div class="th-example-width-300">
+        <th-input
+          name="text"
+          icon="comment-o"
+          ng-model="demo.text"
+          with-label="thInput with ngChange"
+          ng-change="demo.onChange()"
+          condensed="true"
+          >
+        </th-input>
+    </div>
+    <div class="th-example-width-100">
+      <th-button ng-click="demo.reset()">reset</th-button>
+    </div>
+    <h4 class="th-example-grey">
+      ngChanged function called
+      <span class="th-example-blue">{{demo.counter}}</span>
+      time(s) with value
+      <div class="th-example-blue">{{demo.modelValueOnChange}}</div>
+    </h4>
+  </body>
+</html>

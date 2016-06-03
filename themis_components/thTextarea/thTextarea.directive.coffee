@@ -1,4 +1,4 @@
-angular.module('ThemisComponents').directive "thTextarea", ->
+angular.module('ThemisComponents').directive "thTextarea", (Utilities) ->
   restrict: "E"
   bindToController: true
   controllerAs: 'ctrl'
@@ -14,9 +14,12 @@ angular.module('ThemisComponents').directive "thTextarea", ->
     ngMinlength: '='
     ngMaxlength: '='
     ngPattern: '='
+    ngChange: '&'
 
   template: require './thTextarea.template.html'
-  controller: -> return
+  controller: ->
+    @thOnChange = -> Utilities.onChange @ngChange
+    return
 
   link: (scope, element, attribute, controllerArray) ->
     form = controllerArray[0] ? null

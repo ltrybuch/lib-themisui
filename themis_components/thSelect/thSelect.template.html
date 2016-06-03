@@ -17,7 +17,7 @@
     ng-disabled="select.ngDisabled"
     ng-attr-name="{{select.name || undefined}}"
     ng-model="select.ngModel"
-    ng-change="select.ngChange()"
+    ng-change="select.thOnChange()"
     ng-options="option.{{select.nameField}} group by option.group for option in select.options track by option.{{select.valueField}}"
     ng-required="select.ngRequired"
     >

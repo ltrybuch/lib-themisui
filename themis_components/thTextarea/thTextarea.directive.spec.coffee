@@ -57,6 +57,21 @@ describe 'thTextarea', ->
     it "adds with-icon to the input field", ->
       expect(element.find("textarea").hasClass("with-icon")).toBeTruthy()
 
+  context "with ng-change attr", ->
+    beforeEach ->
+      scopeAdditions = {}
+      scopeAdditions.onChange = -> alert "changed"
+      {element} = compileDirective(
+        """<th-textarea ng-change="onChange()" ng-model="text"></th-textarea>""",
+        scopeAdditions
+      )
+
+    it "On change the ngChange function is called", (done) ->
+      spyOn window, 'alert'
+      element.find('textarea').triggerHandler 'change'
+      done()
+      expect(window.alert).toHaveBeenCalledWith 'changed'
+
   context "with validations", ->
     beforeEach ->
       scopeAdditions =

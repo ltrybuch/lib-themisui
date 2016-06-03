@@ -47,6 +47,12 @@ attribute is ignored.
 [ng-disabled="string"]
 - Set the disabled attribute if the expression inside evaluates to truthy.
 
+[ng-change="expression"]
+- Expression to be executed when selected option changes due to user interaction
+with the select element.
+- This **requires** ngModel to be present.
+[ng-change Angular docs](https://docs.angularjs.org/api/ng/directive/ngChange).
+
 [ng-keypress="expression"]
 -Expression to evaluate upon keypress. Event object is available as $event.
 

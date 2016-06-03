@@ -71,7 +71,7 @@ the `ngRequired` expression evaluates to true.
 invalid select value in your form and Angular will set the `$error.required` to
 be `true` if selected. Example 4 shows working demo of this.
 
-[ng-change="string"]
+[ng-change="function"]
 - Expression to be executed when selected option changes due to user interaction
 with the select element.
 - This **requires** ngModel to be present.

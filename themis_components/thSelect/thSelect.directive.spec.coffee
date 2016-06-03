@@ -156,9 +156,10 @@ describe "ThemisComponents: Directive: thSelect", ->
         <th-select options="options" ng-change="onChange()" ng-model="choice">
       </th-select>""", scopeAdditions
 
-    it "when select is changed executes the change function", ->
+    it "when select is changed executes the change function", (done) ->
       spyOn window, 'alert'
       element.find('select').triggerHandler 'change'
+      done()
       expect(window.alert).toHaveBeenCalledWith 'changed'
 
   describe "using HTML option elements", ->

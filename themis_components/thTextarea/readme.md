@@ -26,6 +26,9 @@ sizing opting to instead require utilizing CSS' height and width properties.
 - [ng-model="string"] Assign a model
 - [ng-disabled="string"] Adds disabled attribute to the element when the ngDisabled
 expression evaluated to true.
+- [ng-change="function"] Expression to be executed when selected option changes due
+to user interaction with the select element. This **requires** ngModel to be present.
+[ng-change Angular docs](https://docs.angularjs.org/api/ng/directive/ngChange).
 - [name="string"] Property name of the form under which `th-textarea` is added.
 - [placeholder="string"] Adds placeholder text to the element.
 - [icon="string"] Sets a icon on the right side of the textarea.

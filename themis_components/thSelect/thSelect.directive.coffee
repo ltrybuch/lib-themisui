@@ -1,5 +1,5 @@
 angular.module('ThemisComponents')
-  .directive "thSelect", ->
+  .directive "thSelect", (Utilities) ->
     restrict: "EA"
     template: require './thSelect.template.html'
     controllerAs: "select"
@@ -57,6 +57,7 @@ angular.module('ThemisComponents')
           if isSelected element
             @ngModel = {name: element.text, value: element.value}
 
+      @thOnChange = -> Utilities.onChange @ngChange
       return
 
     link: (scope, element, attribute, controllerArray) ->

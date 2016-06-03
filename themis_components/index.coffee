@@ -8,7 +8,7 @@ angular.module 'ThemisComponents', [
   require 'angular-sanitize'
   require './thAutocomplete/ui-select'
 ]
-
+require './services/'
 require './thAlert/'
 require './thAutocomplete/'
 require './thBindMarkdown/'

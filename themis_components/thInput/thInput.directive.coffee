@@ -1,4 +1,4 @@
-angular.module('ThemisComponents').directive "thInput", ->
+angular.module('ThemisComponents').directive "thInput", (Utilities) ->
   restrict: "EA"
   bindToController: true
   controllerAs: 'input'
@@ -24,8 +24,12 @@ angular.module('ThemisComponents').directive "thInput", ->
     min: '='
     max: '='
     step: '='
+    ngChange: '&'
   template: require './thInput.template.html'
-  controller: -> return
+  controller: ->
+    @thOnChange = -> Utilities.onChange @ngChange
+    return
+
   link: (scope, element, attribute, controllerArray) ->
     form = controllerArray[0] ? null
     controller = controllerArray[1]

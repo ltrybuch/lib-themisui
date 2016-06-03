@@ -10,5 +10,7 @@ angular.module('thDemo', ['ThemisComponents'])
       {name: "Democratic People's Republic of Korea", group: "Asia", value: "dprk"}
     ]
     @counter = 0
-    @onChange = -> @counter = @counter + 1
+    @onChange = ->
+      @modelValueOnChange = @model
+      @counter += 1
     return
