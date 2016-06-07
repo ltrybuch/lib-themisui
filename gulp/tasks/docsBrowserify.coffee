@@ -41,7 +41,6 @@ createBundle = (options) ->
   browserifyOptions =
     cache: {}
     packageCache: {}
-    fullPaths: true
     entries: options.input
     transform: options.transform
     extensions: options.extensions
