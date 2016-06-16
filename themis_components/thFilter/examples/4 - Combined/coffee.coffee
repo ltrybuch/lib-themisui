@@ -7,11 +7,9 @@ angular.module "thDemo", ["ThemisComponents"]
     $http
   ) ->
     {sort} = TableSort
-    @filterChangeEvents = 0
 
     @filterSet = new FilterSet
       onFilterChange: (filters) =>
-        @filterChangeEvents = @filterChangeEvents + 1
         @tableDelegate.reload {currentPage: 1}
 
     @filterOptions = {
@@ -29,7 +27,6 @@ angular.module "thDemo", ["ThemisComponents"]
         name: "Completed"
         type: "select"
         fieldIdentifier: "completed"
-        placeholder: "Select an option"
         selectOptions: [
           {name: "True", value: "true"}
           {name: "False", value: "false"}

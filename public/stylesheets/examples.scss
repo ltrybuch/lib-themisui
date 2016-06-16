@@ -11,6 +11,11 @@ body {
   font-size: 14px;
   margin: 0;
   padding: 2rem;
+
+  &.no-horizontal-padding {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 // Convenient width & height classes for examples.

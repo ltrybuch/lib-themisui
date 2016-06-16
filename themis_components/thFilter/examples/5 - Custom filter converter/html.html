@@ -1,0 +1,11 @@
+<html ng-app="thDemo" class="th-example-height-200">
+  <body ng-controller="DemoController as demo" class="no-horizontal-padding">
+
+    <th-filter options="demo.filterOptions">
+      <th-custom-filters></th-custom-filters>
+      <br>
+      <div># of change events: <code>{{demo.filterChangeEvents}}</code></div>
+    </th-filter>
+
+  </body>
+</html>

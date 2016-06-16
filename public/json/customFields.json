@@ -1,0 +1,28 @@
+[
+  {
+    "name": "picklist",
+    "field_type": "picklist",
+    "id": "7",
+    "custom_field_picklist_options":
+    [
+      {
+        "option": "picklist_option1",
+        "id": "0"
+      },
+      {
+        "option": "picklist_option2",
+        "id": "1"
+      }
+    ]
+  },
+  {
+    "name": "text_area",
+    "field_type": "text_area",
+    "id": "8"
+  },
+  {
+    "name": "text_line",
+    "field_type": "text_line",
+    "id": "9"
+  }
+]
