@@ -1,0 +1,51 @@
+<html ng-app="thDemo">
+  <body ng-controller="DemoController as demo">
+
+    <th-select
+      class="th-example-width-300"
+      ng-model="demo.currentTab"
+      with-label="Switch Tabs"
+      options="demo.tabOptions"
+      >
+    </th-select>
+
+    <th-tabset active-tab="demo.currentTab.value">
+      <th-tab name="Tab One" ng-click="demo.updateSelect(0)">
+        <h4>Tab One</h4>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </th-tab>
+      <th-tab name="Tab Two" ng-click="demo.updateSelect(1)">
+        <h4>Tab Two</h4>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </th-tab>
+      <th-tab name="Tab Three" ng-click="demo.updateSelect(2)">
+        <h4>Tab Three</h4>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </th-tab>
+      <th-tab name="Tab Four" ng-click="demo.updateSelect(3)">
+        <h4>Tab Four</h4>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </th-tab>
+      <th-tab name="Tab Five" ng-click="demo.updateSelect(4)">
+        <h4>Tab Five</h4>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </th-tab>
+    </th-tabset>
+
+  </body>
+</html>

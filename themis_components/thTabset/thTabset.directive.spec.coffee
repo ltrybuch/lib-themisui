@@ -3,7 +3,7 @@
 } = require "spec_helpers"
 
 describe 'ThemisComponents: Directive: thTabset', ->
-  element = validTemplate = ngClickTemplate = null
+  element = validTemplate = ngClickTemplate = scope = null
   validTemplate = """
     <div th-tabset>
       <div th-tab name="Tab One">
@@ -21,8 +21,13 @@ describe 'ThemisComponents: Directive: thTabset', ->
   ngClickTemplate = """
     <div th-tabset>
       <div th-tab name="Tab One" ng-click="alert('one')"></div>
-      <div th-tab name="Tab Two" ng-click="alert('two')">
-      </div>
+      <div th-tab name="Tab Two" ng-click="alert('two')"></div>
+    </div>
+  """
+  activeTabTemplate = """
+    <div th-tabset active-tab="activeTabName">
+      <div th-tab name="Tab One"></div>
+      <div th-tab name="Tab Two"></div>
     </div>
   """
 
@@ -58,3 +63,21 @@ describe 'ThemisComponents: Directive: thTabset', ->
 
       element.find('.th-tab-bar a').last().triggerHandler 'click'
       expect(window.alert).toHaveBeenCalledWith 'two'
+
+  describe "with 'activeTab' attribute set", ->
+    beforeEach ->
+      additions = {activeTabName: "Tab Two"}
+      {element, scope} = compileDirective activeTabTemplate, additions
+
+    it "uses the 'active-tab' attr to set the correct tab", ->
+      tabs = element.find(".th-tab-bar a")
+      expect(tabs.first().hasClass('active')).toBe false
+      expect(tabs.last().hasClass('active')).toBe true
+
+    it "updating 'active-tab' attr update the active tab", ->
+      tabs = element.find(".th-tab-bar a")
+      expect(tabs.first().hasClass('active')).toBe false
+      expect(tabs.last().hasClass('active')).toBe true
+      scope.$apply -> scope.activeTabName = "Tab One"
+      expect(tabs.first().hasClass('active')).toBe true
+      expect(tabs.last().hasClass('active')).toBe false

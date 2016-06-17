@@ -5,9 +5,12 @@ angular.module('ThemisComponents')
     template: require './thTabset.native.template.html'
     transclude: true
     scope:
+      activeTab: "="
       type: "@"
     controller: ($scope) ->
       tabs = $scope.tabs = []
+
+      $scope.$watch (-> $scope.activeTab), -> $scope.setActiveTab()
 
       if $scope.type
         acceptableTypes = ["sub-header"]
@@ -23,6 +26,9 @@ angular.module('ThemisComponents')
       $scope.activateTab = (tabToSelect) ->
         tabToSelect.active = yes
         tab.active = no for tab in tabs when tab isnt tabToSelect
+
+      $scope.setActiveTab = ->
+        $scope.activateTab tab for tab in tabs when tab.name is $scope.activeTab
 
       @addTab = (tab) ->
         $scope.activateTab tab if tabs.length is 0

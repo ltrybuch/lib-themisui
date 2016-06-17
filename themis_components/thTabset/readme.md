@@ -20,7 +20,13 @@ but just allow a click event to attach to. See example 3 below.
 [Angular docs](https://docs.angularjs.org/api/ng/directive/ngClick)
 
 [type="string"]
-- `type` allows you to modify the `thTabset` styling based on it's intended purpose. Currently `sub-header` is the only option.
+- `type` allows you to modify the `thTabset` styling based on it's intended purpose.
+Currently `sub-header` is the only option.
+
+[activeTab="string"]
+- Use `active-tab` to set which tab should be active by passing the corresponding
+`th-tab` name.
+- Optional: `th-tabset` sets the first tab to active by default.
 
 ## Usage
 
