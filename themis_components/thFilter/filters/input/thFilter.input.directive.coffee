@@ -5,6 +5,7 @@ angular.module 'ThemisComponents'
       filterSet: '='
       filterOptions: '='
       ngBlur: '&'
+      placeholder: '@'
     bindToController: true
     controllerAs: 'thFilterInput'
     template: require './thFilter.input.template.html'

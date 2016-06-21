@@ -28,6 +28,22 @@
       ng-blur="thCustomFilters.filterSet.onFilterChange()"
       >
     </th-filter-input>
+    <th-filter-input
+      ng-switch-when="email"
+      filter-set="thCustomFilters.filterSet"
+      filter-options="thCustomFilterRow.rowSelectValue"
+      ng-blur="thCustomFilters.filterSet.onFilterChange()"
+      placeholder="email@example.com"
+      >
+    </th-filter-input>
+    <th-filter-input
+      ng-switch-when="url"
+      filter-set="thCustomFilters.filterSet"
+      filter-options="thCustomFilterRow.rowSelectValue"
+      ng-blur="thCustomFilters.filterSet.onFilterChange()"
+      placeholder="webaddress.com"
+      >
+    </th-filter-input>
   </div>
   <div class="field">
     <div class="link" ng-click="thCustomFilterRow.removeRow()">

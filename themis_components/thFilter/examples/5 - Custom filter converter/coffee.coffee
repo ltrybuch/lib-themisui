@@ -11,6 +11,8 @@ angular.module "thDemo", ["ThemisComponents"]
               "select"
             when "text_area", "text_line"
               "input"
+            when "email", "url"
+              item.field_type
             else
               throw new Error "unsupported field_type"
         selectOptions: do ->

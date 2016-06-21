@@ -4,6 +4,7 @@ angular.module 'ThemisComponents'
     scope:
       filterSet: '='
       filterOptions: '='
+      placeholder: '@'
     bindToController: true
     controllerAs: 'thFilterSelect'
     template: require './thFilter.select.template.html'
