@@ -23,7 +23,6 @@ body {
   .th-example-height-#{$i}00 {
     vertical-align: bottom;
 
-    display: inline-block;
     height: #{$i}00px;
   }
 }
@@ -32,7 +31,6 @@ body {
   .th-example-width-#{$i}00 {
     vertical-align: bottom;
 
-    display: inline-block;
     width: #{$i}00px;
   }
 }

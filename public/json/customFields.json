@@ -1,5 +1,10 @@
 [
   {
+    "name": "checkbox",
+    "field_type": "checkbox",
+    "id": "0"
+  },
+  {
     "name": "email",
     "field_type": "email",
     "id": "3"

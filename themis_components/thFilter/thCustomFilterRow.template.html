@@ -28,6 +28,13 @@
       ng-blur="thCustomFilters.filterSet.onFilterChange()"
       >
     </th-filter-input>
+    <th-filter-select
+      ng-switch-when="checkbox"
+      filter-set="thCustomFilters.filterSet"
+      filter-options="thCustomFilterRow.rowSelectValue"
+      options="thCustomFilterRow.checkboxOptions"
+      >
+    </th-filter-select>
     <th-filter-input
       ng-switch-when="email"
       filter-set="thCustomFilters.filterSet"

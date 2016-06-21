@@ -10,7 +10,11 @@ angular.module 'ThemisComponents'
       @rowSelectValue = null
       @rowIdentifier = 0
       @rowFilterOptions = []
-
+      @checkboxOptions = [
+        {name: "Enabled", value: "true"}
+        {name: "Disabled", value: "false"}
+      ]
+      
       @onRowSelectChange = =>
         $timeout =>
           @rowFilterOptions = []

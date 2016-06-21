@@ -2,7 +2,7 @@
   <th-select
     ng-model="thFilterSelect.filter.model"
     ng-change="thFilterSelect.onValueChange()"
-    options="thFilterSelect.filter.options"
+    options="thFilterSelect.options || thFilterSelect.filter.options"
     ng-attr-placeholder="{{thFilterSelect.filter.placeholder || thFilterSelect.placeholder || 'Select an option'}}"
     condensed="true"
     >
