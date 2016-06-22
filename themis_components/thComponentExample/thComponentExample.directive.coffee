@@ -40,22 +40,32 @@ angular.module('ThemisComponents')
           exampleFrame.contentWindow.document.open()
           exampleFrame.contentWindow.document.write html
           exampleFrame.contentWindow.document.close()
+          observer = new MutationObserver (mutations) ->
+            # Just accessing scrollTop seems to fix a weird FF flicker error.
+            # Once FF supports `scrollingElement` we can take out our polyfill.
+            # CLIO-37920
+            mutations[0].target.ownerDocument.scrollingElement
+              .querySelector(".component-details-view").scrollTop
 
-          exampleFrame.contentWindow.document.addEventListener "DOMSubtreeModified", ->
             $timeout ->
-              scrollingElement = exampleFrame
-                                  .ownerDocument
-                                  .scrollingElement
-                                  .querySelector '.component-details-view'
-              scroll = scrollingElement.scrollTop
-              exampleFrame.style.height = '0px'
-              exampleFrame.style.height = exampleFrame
-                                            .contentWindow
-                                            .document
-                                            .body
-                                            .scrollHeight + 10 + 'px'
-              scrollingElement.scrollTop = scroll
-            , 100
+              if exampleFrame.contentWindow isnt null
+                scrollingElement = exampleFrame
+                                    .ownerDocument
+                                    .scrollingElement
+                                    .querySelector '.component-details-view'
+                scroll = scrollingElement.scrollTop
+                exampleFrame.style.height = '0px'
+                exampleFrame.style.height = exampleFrame
+                                              .contentWindow
+                                              .document
+                                              .body
+                                              .scrollHeight + 10 + 'px'
+                scrollingElement.scrollTop = scroll
+            , 1500
+
+          config = {childList: true, attributes: true, characterData: true}
+
+          observer.observe(exampleFrame, config)
 
           exampleFrame.style.height = '0px'
           $timeout ->
