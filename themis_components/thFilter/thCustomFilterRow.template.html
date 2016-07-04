@@ -28,6 +28,15 @@
       ng-blur="thCustomFilters.filterSet.onFilterChange()"
       >
     </th-filter-input>
+    <th-filter-number
+      ng-switch-when="number"
+      filter-set="thCustomFilters.filterSet"
+      filter-options="thCustomFilterRow.rowSelectValue"
+      operator-options="thCustomFilterRow.numberOperatorOptions"
+      default-operator-index="2"
+      ng-blur="thCustomFilters.filterSet.onFilterChange()"
+      >
+    </th-filter-number>
     <th-filter-select
       ng-switch-when="checkbox"
       filter-set="thCustomFilters.filterSet"

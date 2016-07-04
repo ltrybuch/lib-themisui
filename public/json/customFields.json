@@ -10,6 +10,11 @@
     "id": "3"
   },
   {
+    "name": "numeric",
+    "field_type": "numeric",
+    "id": "4"
+  },
+  {
     "name": "picklist",
     "field_type": "picklist",
     "id": "7",

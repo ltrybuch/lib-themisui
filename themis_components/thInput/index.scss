@@ -1,9 +1,11 @@
 .th-input-wrapper {
-  display: flex;
   position: relative;
+  display: flex;
+  height: 42px;
+  box-sizing: border-box;
+  border: 1px solid $grey-70;
   border-radius: 4px;
   @include animated(100ms);
-  border: 1px solid $grey-70;
 
   &.has-focus {
     transition: border-color .3s ease-out;
@@ -18,12 +20,13 @@
   }
 
   &.condensed {
+    height: 34px;
+
     .th-input,
     .th-input-prefix,
     .th-input-postfix {
       padding: 8px;
       font-size: 13px;
-      height: 34px;
     }
     .th-input-icon {
       top: 10px;
@@ -43,7 +46,7 @@
     width: 100%;
     font-size: 13px;
     line-height: 16px;
-    height: 42px;
+    height: 100%;
     margin: 0;
     padding: 12px;
     background: $off-white;

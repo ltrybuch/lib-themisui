@@ -142,6 +142,11 @@ available to the user.
   * `select-options-value-field` (*optional*) indicates the value-field to use
   in the returned JSON. Defaults to "value".
 
+  * `select-options-callback` (*optional*) is the function to call with the
+  response from `select-options-url` as a parameter. `select-options-callback`
+  should return the array of options to use, with each option specifying a
+  `name` and `value` attribute.
+
 #### Input filter options
 
 ```json

@@ -52,17 +52,33 @@
 
     > .field {
       flex-basis: 25%;
+      max-width: 25%;
       padding: 0 10px;
       box-sizing: border-box;
       margin-bottom: 12px;
 
       &.wide {
         flex-basis: 50%;
+        max-width: 50%;
       }
 
       &.bottom {
         align-self: flex-end;
       }
+    }
+  }
+
+  .inner {
+    display: flex;
+
+    > .operator {
+      flex-basis: 50%;
+      margin-right: 10px;
+    }
+
+    > .value {
+      flex-basis: 50%;
+      margin-left: 10px;
     }
   }
 }

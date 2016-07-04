@@ -4,9 +4,11 @@
 context = describe
 
 describe 'thTextarea', ->
-  element = textarea = null
+  element = textarea = timeout = null
 
   beforeEach angular.mock.module "ThemisComponents"
+  beforeEach inject ($timeout) ->
+    timeout = $timeout
 
   context 'with complete example', ->
     beforeEach ->
@@ -66,10 +68,10 @@ describe 'thTextarea', ->
         scopeAdditions
       )
 
-    it "On change the ngChange function is called", (done) ->
+    it "On change the ngChange function is called", ->
       spyOn window, 'alert'
       element.find('textarea').triggerHandler 'change'
-      done()
+      timeout.flush()
       expect(window.alert).toHaveBeenCalledWith 'changed'
 
   context "with validations", ->

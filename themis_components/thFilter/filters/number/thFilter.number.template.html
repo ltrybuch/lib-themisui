@@ -1,0 +1,20 @@
+<div class="inner">
+  <th-select
+    ng-model="thFilterNumber.filter.operator"
+    ng-change="thFilterNumber.onOperatorChange()"
+    options="thFilterNumber.filter.operatorOptions"
+    condensed="true"
+    class="operator"
+    >
+  </th-select>
+  <th-input
+    ng-model="thFilterNumber.filter.model"
+    ng-attr-placeholder="{{thFilterNumber.filter.placeholder || 'Type a number…'}}"
+    ng-keypress="thFilterNumber.onKeypress($event)"
+    ng-blur="thFilterNumber.ngBlur($event)"
+    condensed="true"
+    class="value"
+    type="number"
+    >
+  </th-input>
+</div>

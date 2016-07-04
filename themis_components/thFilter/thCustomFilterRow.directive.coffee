@@ -14,7 +14,14 @@ angular.module 'ThemisComponents'
         {name: "Enabled", value: "true"}
         {name: "Disabled", value: "false"}
       ]
-      
+      @numberOperatorOptions = [
+        {name: "<", value: "<"}
+        {name: "<=", value: "<="}
+        {name: "=", value: "="}
+        {name: ">=", value: ">="}
+        {name: ">", value: ">"}
+      ]
+
       @onRowSelectChange = =>
         $timeout =>
           @rowFilterOptions = []

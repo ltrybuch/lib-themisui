@@ -12,9 +12,12 @@ angular.module "ThemisComponents"
           method: 'GET'
           url: options.selectOptionsUrl
         .then (response) =>
-          @options = response.data.map (item) ->
-            name: item[options.selectOptionsNameField or "name"]
-            value: item[options.selectOptionsValueField or "value"]
+          @options = if options.selectOptionsCallback?
+            options.selectOptionsCallback response.data
+          else
+            response.data.data.map (item) ->
+              name: item[options.selectOptionsNameField or "name"]
+              value: item[options.selectOptionsValueField or "value"]
 
     type: "select"
 

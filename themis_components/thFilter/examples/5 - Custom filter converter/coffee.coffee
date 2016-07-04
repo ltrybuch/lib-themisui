@@ -11,6 +11,8 @@ angular.module "thDemo", ["ThemisComponents"]
               "select"
             when "text_area", "text_line"
               "input"
+            when "numeric"
+              "number"
             when "checkbox", "email", "url"
               item.field_type
             else
@@ -34,7 +36,7 @@ angular.module "thDemo", ["ThemisComponents"]
 
   @filterSet = new FilterSet
     onFilterChange: (filters) =>
-      console.log @filterSet.getQueryParameters()
+      @query = @filterSet.getQueryParameters()
       @filterChangeEvents += 1
 
   @filterOptions = {

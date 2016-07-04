@@ -5,6 +5,11 @@
       <th-custom-filters></th-custom-filters>
       <br>
       <div># of change events: <code>{{demo.filterChangeEvents}}</code></div>
+      <div ng-if="demo.query">
+        <br>
+        Query parameters:
+        <pre>{{demo.query | json}}</pre>
+      </div>
     </th-filter>
 
   </body>

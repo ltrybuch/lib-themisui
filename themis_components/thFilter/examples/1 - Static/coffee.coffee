@@ -15,8 +15,10 @@ angular.module 'thDemo', ['ThemisComponents']
         fieldIdentifier: 'userId'
         placeholder: 'Select a user'
         selectOptionsUrl: 'http://jsonplaceholder.typicode.com/users'
-        selectOptionsNameField: 'name'
-        selectOptionsValueField: 'id'
+        selectOptionsCallback: (data) ->
+          data.map (item) ->
+            name: item.name
+            value: item.id
       }
       {
         name: 'Completed'

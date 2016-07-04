@@ -26,10 +26,12 @@ describe "ThemisComponents: Service: SelectFilter", ->
     describe "when specifying options url", ->
       describe "when using default options name and value field", ->
         beforeEach ->
-          httpBackend.when("GET", "/options.json").respond """[
-            {"name":"n0", "value":"v0"},
-            {"name":"n1", "value":"v1"}
-          ]"""
+          httpBackend.when("GET", "/options.json").respond """{
+            "data": [
+              {"name":"n0", "value":"v0"},
+              {"name":"n1", "value":"v1"}
+            ]
+          }"""
           selectFilter = new SelectFilter {
             selectOptionsUrl: "/options.json"
           }
@@ -43,10 +45,12 @@ describe "ThemisComponents: Service: SelectFilter", ->
 
       describe "when specifying options name and value field", ->
         beforeEach ->
-          httpBackend.when("GET", "/options.json").respond """[
-            {"testName":"n0", "testValue":"v0"},
-            {"testName":"n1", "testValue":"v1"}
-          ]"""
+          httpBackend.when("GET", "/options.json").respond """{
+            "data": [
+              {"testName":"n0", "testValue":"v0"},
+              {"testName":"n1", "testValue":"v1"}
+            ]
+          }"""
           selectFilter = new SelectFilter {
             selectOptionsUrl: "/options.json"
             selectOptionsNameField: "testName"
@@ -55,6 +59,32 @@ describe "ThemisComponents: Service: SelectFilter", ->
 
         it "should fetch options from url", ->
           httpBackend.flush()
+          expect(selectFilter.options.length).toBe 2
+          expect(selectFilter.options[0].name).toBe "n0"
+          expect(selectFilter.options[1].value).toBe "v1"
+
+      describe "when specifying optional callback", ->
+        beforeEach ->
+          httpBackend.when("GET", "/options.json").respond """[
+              {"testName":"n0", "testValue":"v0"},
+              {"testName":"n1", "testValue":"v1"}
+          ]"""
+          @wrapper = {
+            callback: (data) ->
+              data.map (item) ->
+                name: item.testName
+                value: item.testValue
+          }
+          spyOn(@wrapper, "callback").and.callThrough()
+
+          selectFilter = new SelectFilter {
+            selectOptionsUrl: "/options.json"
+            selectOptionsCallback: @wrapper.callback
+          }
+
+        it "should call callback", ->
+          httpBackend.flush()
+          expect(@wrapper.callback).toHaveBeenCalled()
           expect(selectFilter.options.length).toBe 2
           expect(selectFilter.options[0].name).toBe "n0"
           expect(selectFilter.options[1].value).toBe "v1"
