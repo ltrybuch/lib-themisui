@@ -1,5 +1,9 @@
 module.exports = ({interpolateStart, interpolateEnd, valueField}) -> """
-  <i ng-if="thAutocomplete.icon" class="th-autocomplete-icon fa fa-{{thAutocomplete.icon}}"></i>
+  <i
+    ng-if="thAutocomplete.icon"
+    class="th-autocomplete-icon fa fa-#{interpolateStart} thAutocomplete.icon #{interpolateEnd}"
+    >
+  </i>
   <ui-select
     ng-model="thAutocomplete.ngModel"
     reset-search-input="true"
