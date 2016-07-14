@@ -8,7 +8,7 @@ angular.module("ThemisComponents")
     transclude: true
     scope:
       name: "@"
-      list: "="
+      list: "=?"
       type: "@"
       disabled: "@"
     controller: ($element, $attrs) ->

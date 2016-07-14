@@ -7,7 +7,7 @@ angular.module('ThemisComponents')
     controllerAs: 'loader'
     scope: true
     bindToController:
-      visible: "=trigger"
+      visible: "=?trigger"
       promise: "="
       timeout: "="
       size: "@"
@@ -20,7 +20,7 @@ angular.module('ThemisComponents')
         messageElement.innerText = "Loading..."
 
     controller: ($timeout) ->
-      @visible = @visible ? yes
+      @visible ||= yes
 
       switch
         # if millisecs is passed

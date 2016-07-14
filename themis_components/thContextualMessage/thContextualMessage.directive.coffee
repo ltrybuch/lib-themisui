@@ -10,22 +10,22 @@ angular.module('ThemisComponents')
         for elm in document.querySelectorAll ".thContextualMessage.context-#{messageContext}"
           angular.element(elm).remove()
 
-          if messageCount > 0
-            anchorRect = element[0].getBoundingClientRect()
-            messageElement = angular.element """
-              <div>
-                #{$scope.messages[0].text}
-              </div>
-            """
-            messageElement.addClass "thContextualMessage"
-            messageElement.addClass "context-#{messageContext}"
-            $document.find('body').append messageElement
-            top = anchorRect.top + anchorRect.height
-            left = anchorRect.left \
-                     + anchorRect.width / 2 \
-                     - messageElement[0].clientWidth / 2
-            messageElement.css
-              top: "#{top}px"
-              left: "#{left}px"
+        if messageCount > 0
+          anchorRect = element[0].getBoundingClientRect()
+          messageElement = angular.element """
+            <div>
+              #{$scope.messages[0].text}
+            </div>
+          """
+          messageElement.addClass "thContextualMessage"
+          messageElement.addClass "context-#{messageContext}"
+          $document.find('body').append messageElement
+          top = anchorRect.top + anchorRect.height
+          left = anchorRect.left \
+                   + anchorRect.width / 2 \
+                   - messageElement[0].clientWidth / 2
+          messageElement.css
+            top: "#{top}px"
+            left: "#{left}px"
 
-            ContextualMessageManager.showedMessageForContext messageContext
+          ContextualMessageManager.showedMessageForContext messageContext

@@ -4,7 +4,7 @@ angular.module 'ThemisComponents'
     transclude: true
     scope:
       name: '@'
-      expanded: '='
+      expanded: '=?'
     template: require './thDisclosureToggle.template.html'
     bindToController: true
     controllerAs: 'thDisclosureToggle'

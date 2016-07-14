@@ -6,7 +6,7 @@ angular.module('ThemisComponents')
     scope:
       name: '@'
       change: '&ngChange'
-      checked: '=ngModel'
+      checked: '=?ngModel'
       ngRequired: "="
     bindToController: true
     controllerAs: 'checkbox'

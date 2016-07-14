@@ -9,8 +9,8 @@ angular.module('ThemisComponents')
     require: ["?^form", "thSelect"]
     scope:
       condensed: "="
-      options: "="
-      ngModel: "="
+      options: "=?"
+      ngModel: "=?"
       name: "@"
       ngDisabled: "="
       ngChange: "&"

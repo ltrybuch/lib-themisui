@@ -77,7 +77,7 @@ describe "ThemisComponents: Directive: thFilterNumber", ->
 
     describe "when value is undefined", ->
       it "should not call onFilterChange", ->
-        selectOperator operatorOptions[1].value
+        selectOperator operatorOptions[1]
         expect(filterSet.onFilterChange).not.toHaveBeenCalled()
 
     describe "when value is defined", ->
@@ -85,7 +85,7 @@ describe "ThemisComponents: Directive: thFilterNumber", ->
         setInputValue "1000"
 
       it "should call onFilterChange", ->
-        selectOperator operatorOptions[1].value
+        selectOperator operatorOptions[1]
         expect(filterSet.onFilterChange).toHaveBeenCalled()
 
   describe "when scope is destroyed", ->

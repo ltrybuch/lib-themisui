@@ -6,7 +6,7 @@ angular.module('ThemisComponents')
     scope:
       name: '@'
       change: '&ngChange'
-      state: '=ngModel'
+      state: '=?ngModel'
       ngRequired: "="
     bindToController: true
     controllerAs: 'switch'

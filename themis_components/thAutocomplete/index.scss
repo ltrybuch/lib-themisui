@@ -179,11 +179,22 @@ th-autocomplete {
 
     .ui-select-search {
       font-family: inherit;
-    }
-
-    input {
       font-size: inherit;
       background: $off-white;
+      min-width: 100%;
+      padding: 12px;
+      margin: 0;
+    }
+
+    input[type="search"].form-control {
+      -webkit-appearance: textfield;
+
+      &::-webkit-search-decoration,
+      &::-webkit-search-cancel-button,
+      &::-webkit-search-results-button,
+      &::-webkit-search-results-decoration {
+        appearance: none;
+      }
     }
   }
 
@@ -197,12 +208,6 @@ th-autocomplete {
     }
   }
 
-  .th-autocomplete-icon ~ .ui-select-container {
-    .form-control {
-      padding-right: 36px;
-    }
-  }
-
   .th-autocomplete-icon {
     position: absolute;
     top: 14px;
@@ -210,4 +215,12 @@ th-autocomplete {
     color: $grey-40;
     z-index: $root-plane + 1;
   }
+
+  i.th-autocomplete-icon ~ .ui-select-container {
+    .ui-select-search {
+      // Add padding to accommodate icon if icon exists.
+      padding: 12px 40px 12px 12px;
+    }
+  }
+
 }

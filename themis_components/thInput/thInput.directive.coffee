@@ -13,7 +13,7 @@ angular.module('ThemisComponents').directive "thInput", (Utilities) ->
     postfix: '@'
     placeholder: '@'
     condensed: "="
-    ngModel: '='
+    ngModel: '=?'
     ngRequired: '='
     ngDisabled: '='
     ngBlur: '&'

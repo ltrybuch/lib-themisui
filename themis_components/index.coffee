@@ -6,7 +6,7 @@ angular.module 'ThemisComponents', [
   # require './thDatePicker/angular-datepicker'
   require 'angular-messages'
   require 'angular-sanitize'
-  require './thAutocomplete/ui-select'
+  require 'ui-select'
 ]
 require './services/'
 require './thAlert/'

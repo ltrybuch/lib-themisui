@@ -2,7 +2,7 @@ angular.module 'ThemisComponents'
   .directive 'thAutocomplete', ($compile, $interpolate) ->
     restrict: 'E'
     scope:
-      ngModel: '='
+      ngModel: '=?'
       ngChange: '&'
       delegate: '='
       name: '@'

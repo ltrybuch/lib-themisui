@@ -9,7 +9,6 @@ module.exports = ({interpolateStart, interpolateEnd, valueField}) -> """
     reset-search-input="true"
     on-select="thAutocomplete.ngChange()"
     >
-
     <ui-select-choices
       refresh="
         thAutocomplete.delegate.fetchData(
