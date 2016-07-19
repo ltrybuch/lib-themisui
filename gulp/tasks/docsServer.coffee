@@ -5,7 +5,6 @@ fs = require 'fs'
 coffeescript = require 'coffee-script'
 
 express = require 'express'
-expressWs = require 'express-ws'
 bodyParser = require 'body-parser'
 
 componentsRoot = path.join 'themis_components'
@@ -40,6 +39,12 @@ gulp.task 'docs-restart', ->
     app.restart()
 
 gulp.task 'docs-server', ->
+  expressWs = require 'express-ws'
+
+  # WebSocket
+  webSocketApp = expressWs(app)
+  app.ws '/channel', -> # no-op
+
   gulp.watch ['themis_components/**/*', 'public/**/*'], ['docs-restart']
 
   app.get '/readme.md', (request, response) ->
@@ -81,10 +86,6 @@ gulp.task 'docs-server', ->
   app.get '/:componentName', serveIndex
 
   app.use express.static 'public'
-
-  # WebSocket
-  webSocketApp = expressWs(app)
-  app.ws '/channel', -> # no-op
 
   # Start server on port 3042
   server = null
