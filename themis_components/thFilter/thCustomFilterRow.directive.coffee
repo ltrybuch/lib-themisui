@@ -21,6 +21,11 @@ angular.module 'ThemisComponents'
         {name: ">=", value: ">="}
         {name: ">", value: ">"}
       ]
+      @currencyOperatorOptions = [
+        {name: "Less than", value: "<"}
+        {name: "Exactly", value: "="}
+        {name: "More than", value: ">"}
+      ]
 
       @onRowSelectChange = =>
         $timeout =>

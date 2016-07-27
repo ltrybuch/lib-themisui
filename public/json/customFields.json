@@ -15,6 +15,11 @@
     "id": "4"
   },
   {
+    "name": "currency",
+    "field_type": "currency",
+    "id": "6"
+  },
+  {
     "name": "picklist",
     "field_type": "picklist",
     "id": "7",

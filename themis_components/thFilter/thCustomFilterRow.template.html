@@ -37,6 +37,15 @@
       ng-blur="thCustomFilters.filterSet.onFilterChange()"
       >
     </th-filter-number>
+    <th-filter-number
+      ng-switch-when="currency"
+      filter-set="thCustomFilters.filterSet"
+      filter-options="thCustomFilterRow.rowSelectValue"
+      operator-options="thCustomFilterRow.currencyOperatorOptions"
+      default-operator-index="1"
+      ng-blur="thCustomFilters.filterSet.onFilterChange()"
+      >
+    </th-filter-number>
     <th-filter-select
       ng-switch-when="checkbox"
       filter-set="thCustomFilters.filterSet"
