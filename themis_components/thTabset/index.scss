@@ -5,8 +5,10 @@
     border-bottom: solid 1px $grey-70;
     padding: 0 20px;
 
-    a {
-      display: inline-block;
+    display: flex;
+    align-items: center;
+
+    a.tab-name {
       margin-right: 6px;
       line-height: 32px;
       font-size: 16px;
@@ -15,24 +17,48 @@
       @include gibson-regular;
       text-decoration: none;
 
+      border-bottom: solid 3px #fff;
+
       &.active {
         color: $grey;
         @include gibson-semibold;
-        border-bottom: solid 3px $blue;
+        border-color: $blue;
       }
     }
   }
-
+  &.header,
   &.sub-header {
-    a {
-      margin-right: 20px;
+    a.tab-name {
       padding-top: 12px;
-      padding-bottom: 8px;
-      font-size: 15px;
 
       &.active {
         font-weight: bold;
       }
+    }
+  }
+  &.header {
+    a.tab-name {
+      margin-right: 24px;
+      padding-bottom: 12px;
+
+      font-size: 18px;
+    }
+  }
+  &.sub-header {
+    a.tab-name {
+      margin-right: 20px;
+      padding-bottom: 8px;
+
+      font-size: 15px;
+    }
+  }
+
+  .th-tab-action-bar {
+    margin-left: auto;
+
+    .th-button,
+    .button-dropdown {
+      margin-left: 6px;
     }
   }
 }

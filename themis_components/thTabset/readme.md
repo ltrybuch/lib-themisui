@@ -21,7 +21,7 @@ but just allow a click event to attach to. See example 3 below.
 
 [type="string"]
 - `type` allows you to modify the `thTabset` styling based on it's intended purpose.
-Currently `sub-header` is the only option.
+Current options include `header` and `sub-header`.
 
 [activeTab="string"]
 - Use `active-tab` to set which tab should be active by passing the corresponding
@@ -29,8 +29,9 @@ Currently `sub-header` is the only option.
 - Optional: `th-tabset` sets the first tab to active by default.
 
 ## Usage
+### Standard Markup
 
-```
+```html
 <th-tabset>
   <th-tab name="Tab One">
     Tab One Content
@@ -38,6 +39,29 @@ Currently `sub-header` is the only option.
   <th-tab name="Tab Two">
     Tab Two Content
   </th-tab>
+</th-tabset>
+```
+
+You can also include transclude elements (such as `thButton` and `thDropdown`) by placing them in an `th-tab-action-bar` element:
+
+### Markup with Buttons
+
+```html
+<th-tabset type="header">
+  <th-tab name="Tab One">
+    Tab One Content
+  </th-tab>
+  <th-tab name="Tab Two">
+    Tab Two Content
+  </th-tab>
+
+  <th-tab-action-bar>
+    <th-dropdown name="Dropdown" type="standard">
+      <th-item url="#" name="First"></th-item>
+      <th-item url="#" name="Second"></th-item>
+    </th-dropdown>
+    <th-button>Button</th-button>
+  </th-tab-action-bar>
 </th-tabset>
 ```
 

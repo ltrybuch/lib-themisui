@@ -5,9 +5,15 @@
         ng-click="processTabChange(tab)"
         ng-repeat="tab in tabs"
         ng-class="{active:tab.active}"
+        class="tab-name"
         >
         {{ tab.name }}
       </a>
+      <div
+        class="th-tab-action-bar"
+        ng-transclude="actionBar"
+      >
+      </div>
   </div>
   <div
     class="th-tabset-content"

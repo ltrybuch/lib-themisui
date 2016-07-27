@@ -3,7 +3,9 @@ angular.module('ThemisComponents')
     restrict: "EA"
     replace: true
     template: require './thTabset.native.template.html'
-    transclude: true
+    transclude: {
+      actionBar: '?thTabActionBar'
+    }
     scope:
       activeTab: "="
       type: "@"
@@ -13,7 +15,7 @@ angular.module('ThemisComponents')
       $scope.$watch (-> $scope.activeTab), -> $scope.setActiveTab()
 
       if $scope.type
-        acceptableTypes = ["sub-header"]
+        acceptableTypes = ["header", "sub-header"]
         unless $scope.type in acceptableTypes
           throw new Error "thTabset: invalid 'type'."
 
