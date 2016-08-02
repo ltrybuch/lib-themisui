@@ -1,9 +1,10 @@
 angular.module('ThemisComponents')
-  .directive "thButton", ($compile) ->
+  .directive "thButton", ->
     restrict: "EA"
     scope:
       type: '@'
       href: '@'
+      loading: '=?'
     replace: true
     transclude: true
     template: (element, attrs) ->
@@ -14,7 +15,12 @@ angular.module('ThemisComponents')
           require './thButton.button.template.html'
     bindToController: true
     controllerAs: 'button'
-    controller: ($element, $attrs) ->
+    controller: ($scope, $element, $attrs, $transclude) ->
+      @loading ||= no
+
+      types = ["standard", "create", "destroy"]
+      @theme = if @type?.toLowerCase() in types then "light" else "dark"
+
       # In HTML5 a button with no type attribute is 'submit' by default.
       # If not used for submit, must explicitly specify 'button'.
       isSubmit = $attrs.submit? or $attrs.type is 'submit'

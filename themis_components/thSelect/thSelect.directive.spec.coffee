@@ -4,10 +4,12 @@
 context = describe
 
 describe "ThemisComponents: Directive: thSelect", ->
-  element = optionsWithoutPlaceholder = scope = scopeAdditions = options = select = null
+  element = optionsWithoutPlaceholder = scope = null
+  scopeAdditions = options = select = timeout = null
 
   beforeEach angular.mock.module "ThemisComponents"
   beforeEach -> scopeAdditions = {}
+  beforeEach inject ($timeout) -> timeout = $timeout
 
   describe "using an array of options", ->
     beforeEach ->
@@ -156,10 +158,10 @@ describe "ThemisComponents: Directive: thSelect", ->
         <th-select options="options" ng-change="onChange()" ng-model="choice">
       </th-select>""", scopeAdditions
 
-    it "when select is changed executes the change function", (done) ->
+    it "when select is changed executes the change function", ->
       spyOn window, 'alert'
       element.find('select').triggerHandler 'change'
-      done()
+      timeout.flush()
       expect(window.alert).toHaveBeenCalledWith 'changed'
 
   describe "using HTML option elements", ->

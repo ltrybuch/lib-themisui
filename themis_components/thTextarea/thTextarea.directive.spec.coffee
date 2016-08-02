@@ -10,6 +10,9 @@ describe 'thTextarea', ->
   beforeEach inject ($timeout) ->
     timeout = $timeout
 
+  beforeEach inject ($timeout) ->
+    timeout = $timeout
+
   context 'with complete example', ->
     beforeEach ->
       {element} = compileDirective("""

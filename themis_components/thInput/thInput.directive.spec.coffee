@@ -4,9 +4,11 @@
 context = describe
 
 describe 'thInput', ->
-  element = null
+  element = timeout = null
 
   beforeEach angular.mock.module "ThemisComponents"
+
+  beforeEach inject ($timeout) -> timeout = $timeout
 
   context 'with complete example', ->
     beforeEach ->
@@ -105,10 +107,10 @@ describe 'thInput', ->
          scopeAdditions
        )
 
-    it "On change the ngChange function is called", (done) ->
+    it "On change the ngChange function is called", ->
       spyOn window, 'alert'
       element.find('input').triggerHandler 'change'
-      done()
+      timeout.flush()
       expect(window.alert).toHaveBeenCalledWith 'changed'
 
 

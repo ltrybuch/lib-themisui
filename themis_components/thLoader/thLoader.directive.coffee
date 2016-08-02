@@ -5,19 +5,18 @@ angular.module('ThemisComponents')
     transclude: true
     replace: true
     controllerAs: 'loader'
-    scope: true
-    bindToController:
+    scope:
       visible: "=?trigger"
       promise: "="
       timeout: "="
       size: "@"
+      theme: "="
+    bindToController: true
 
     link: (scope, element, attrs) ->
-      messageElement = element[0].querySelector(".loading-text")
-
       # replace a blank message with default message
-      if messageElement.innerText == ""
-        messageElement.innerText = "Loading..."
+      messageElement = element[0].querySelector(".loading-text")
+      messageElement.innerText ||= "Loading..."
 
     controller: ($timeout) ->
       @visible ||= yes

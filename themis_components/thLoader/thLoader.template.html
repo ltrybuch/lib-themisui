@@ -1,4 +1,9 @@
-<div class="th-loader" ng-show="loader.visible">
-  <div class="progress {{loader.size}}"><div>Loading…</div></div>
-  <p class="loading-text" ng-transclude></p>
+<div
+  class="th-loader {{loader.theme}}"
+  ng-show="loader.visible"
+  >
+  <div class="progress {{loader.size}}">
+    <div>Loading…</div>
+  </div>
+  <p ng-hide="loader.size == 'mini'" class="loading-text" ng-transclude></p>
 </div>

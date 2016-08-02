@@ -22,6 +22,10 @@
     animation: spin 1s infinite steps(8);
   }
 
+  .mini.progress {
+    font-size: 4px;
+  }
+
   .small.progress {
     font-size: 6px;
   }
@@ -63,5 +67,39 @@
   .progress > div:after {
     transform: rotate(-135deg);
     background: #bbb;
+  }
+
+  // Flatten loader to one color with theme classes (light or dark)
+  @mixin theme-type($color) {
+    .progress:before,
+    .progress:after,
+    .progress > div:before,
+    .progress > div:after {
+      background: rgba($color, 1);
+      box-shadow: 0 3.5em rgba($color, 1);
+    }
+
+    .progress:after {
+      transform: rotate(-45deg);
+      background: rgba($color, .25);
+    }
+
+    .progress > div:before {
+      transform: rotate(-90deg);
+      background: rgba($color, .5);
+    }
+
+    .progress > div:after {
+      transform: rotate(-135deg);
+      background: rgba($color, .75);
+    }
+  }
+
+  &.light {
+    @include theme-type(white);
+  }
+
+  &.dark {
+    @include theme-type(black);
   }
 }

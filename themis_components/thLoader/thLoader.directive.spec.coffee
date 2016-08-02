@@ -77,3 +77,20 @@ describe 'ThemisComponents: Directive: thLoader', ->
 
     it "has should not have class 'large'", ->
       expect(element.find("div.progress").hasClass("large")).toBe false
+
+  context "with size 'mini' attribute", ->
+    beforeEach ->
+      element = compileDirective('<div th-loader size="mini"></div>').element
+
+    it "has should have class 'mini'", ->
+      expect(element.find("div.progress").hasClass("mini")).toBe true
+
+    it "should hide the 'loading' paragraph", ->
+      expect(element.find("p.loading-text").hasClass("ng-hide")).toBe true
+
+  context "with theme attribute", ->
+    beforeEach ->
+      {element} = compileDirective("""<div th-loader theme="'light'"></div>""")
+
+    it "should pass the attribute as a class to the loader", ->
+      expect(element.hasClass("light")).toBe true

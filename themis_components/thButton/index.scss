@@ -21,6 +21,8 @@
   @extend .antialiased;
 
   display: inline-block;
+  position: relative;
+  box-sizing: border-box;
 
   height: 36px;
   padding: 0px 12px;
@@ -46,6 +48,37 @@
     cursor: default;
   }
 
+  ng-transclude {
+    display: inline-block;
+    transition: all 0.2s;
+
+    &.hide {
+     opacity: 0;
+   }
+    &.show {
+      opacity: 1;
+      transition-delay: 0.2s;
+    }
+  }
+
+  .load-wrapper {
+    position: absolute;
+    top: 8px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    transition: all 0.2s;
+
+    &.hide {
+      opacity: 0;
+    }
+    &.show {
+      opacity: 1;
+      transition-delay: 0.2s;
+    }
+  }
+
   @include generate-button($blue, $blue-shade);
 
   &.create {
@@ -56,5 +89,11 @@
   }
   &.secondary {
     @include generate-button($grey-80, $grey-70, $grey);
+  }
+}
+
+a.th-button {
+  .th-loader {
+    margin-top: 7px;
   }
 }
