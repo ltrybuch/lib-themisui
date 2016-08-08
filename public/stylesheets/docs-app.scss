@@ -36,6 +36,21 @@ body {
       font-weight: 100;
       line-height: inherit;
     }
+
+    .version {
+      display: block;
+      position: absolute;
+      top: 15px;
+      right: -11px;
+      width: $header-height;
+
+      line-height: normal;
+      font-size: 10px;
+      text-align: center;
+
+      opacity: 0.6;
+      transform: rotate(-90deg);
+    }
   }
 }
 

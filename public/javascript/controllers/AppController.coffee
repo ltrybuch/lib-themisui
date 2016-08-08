@@ -1,4 +1,10 @@
 angular = require 'angular'
 
 angular.module('ThemisComponentsApp')
-  .controller 'AppController', -> return
+  .controller 'AppController', ($scope, $http) ->
+
+    $http.get("/version.json")
+    .then (response) ->
+      $scope.version = "v#{response.data.version}"
+
+    return

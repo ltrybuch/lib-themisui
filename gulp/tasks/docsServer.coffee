@@ -50,6 +50,12 @@ gulp.task 'docs-server', ->
   app.get '/readme.md', (request, response) ->
     response.sendFile path.resolve(path.join('README.md'))
 
+  app.get '/version.json', (request, response) ->
+    packageFile = fs.readFileSync 'package.json', 'utf8'
+    version = JSON.parse(packageFile).version
+    response.send
+      version: version
+
   app.get '/components.json', (request, response) ->
     componentList = availableComponentNames()
     response.send componentList
