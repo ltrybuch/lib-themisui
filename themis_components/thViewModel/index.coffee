@@ -1,0 +1,1 @@
+require './thViewModel.service'

@@ -1,0 +1,24 @@
+<html ng-app="thDemo">
+  <body ng-controller="DemoController as demo">
+    <h3>
+      <span class="th-example-blue">{{demo.count}} </span>
+      <span class="th-example-grey">{{"post" | pluralize: demo.count}}</span>
+    </h3>
+    <h3>
+      <span class="th-example-blue">{{demo.count}} </span>
+      <span class="th-example-grey">{{"fish" | pluralize: demo.count}}</span>
+    </h3>
+    <h3>
+      <span class="th-example-blue">{{demo.count}} </span>
+      <span class="th-example-grey">{{"pants" | pluralize: demo.count}}</span>
+    </h3>
+    <h3>
+      <span class="th-example-blue">{{demo.count}} </span>
+      <span class="th-example-grey">{{"activity" | pluralize: demo.count}}</span>
+    </h3>
+
+    <th-button ng-click="demo.plusOne()"><i class="fa fa-plus"></i></th-button>
+    <th-button ng-click="demo.reset()"><i class="fa fa-refresh"></i></th-button>
+
+  </body>
+</html>

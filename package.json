@@ -42,9 +42,10 @@
     "marked": "^0.3.3",
     "moment": "^2.14.1",
     "node-bourbon": "^4.2.1-beta1",
+    "pluralize": "^3.0.0",
     "qs": "^6.1.0",
-    "ui-select": "^0.18.1",
     "stringify": "^4.0.1",
+    "ui-select": "^0.18.1",
     "uuid": "^2.0.2",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.2.1"

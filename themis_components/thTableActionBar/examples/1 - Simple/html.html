@@ -1,0 +1,57 @@
+<html ng-app="thDemo">
+  <body ng-controller="DemoController as demo" style="padding-right: 0; padding-left: 0;">
+  <style type="text/css">
+    .selected-results {margin-bottom: 15px;}
+    .result-list {font-family: monospace; margin: 0 0 5px 10px;}
+  </style>
+    <th-table-action-bar delegate="demo.actionBarDelegate">
+      <th-button type="secondary">export</th-button>
+    </th-table-action-bar>
+
+    <th-table delegate="demo.tableDelegate">
+      <th-table-row type="cells">
+        <!-- Trigger toggleSelected to update the actionBarDelegate -->
+        <th-table-cell class="action-column">
+          <th-checkbox
+            ng-model="item.view.selected"
+            ng-change="demo.toggleSelected(item)"
+            style="margin-left: 10px;"
+            >
+          </th-checkbox>
+        </th-table-cell>
+
+        <th-table-cell>
+          {{item.model.id}}
+        </th-table-cell>
+
+        <th-table-cell>
+          {{item.model.firstName}}
+        </th-table-cell>
+
+        <th-table-cell>
+          {{item.model.lastName}}
+        </th-table-cell>
+
+        <th-table-cell>
+          {{item.model.email}}
+        </th-table-cell>
+      </th-table-row>
+    </th-table>
+
+    <div class="result-list" ng-if="demo.ids">
+      <div class="selected-results">
+        <span class="th-example-grey">All Items Selected:</span>
+        <span class="th-example-blue">{{demo.allSelected}}</span>
+      </div>
+      <div class="selected-results">
+        <span class="th-example-grey">Selected Action:</span>
+        <span class="th-example-blue">{{demo.selectedAction}}</span>
+      </div>
+      <div class="selected-results">
+        <span class='th-example-grey'>IDs:</span>
+        <span class="th-example-blue">{{demo.ids}}</span>
+      </div>
+    </div>
+  </body>
+</html>
+
