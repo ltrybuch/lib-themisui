@@ -6,10 +6,14 @@
   "repository": "https://github.com/clio/lib-themisui.git",
   "author": "Sean Healy <sean.healy@clio.com>",
   "contributors": [
-    "Sean Healy <sean.healy@clio.com>",
-    "Terry White <terry.white@clio.com>",
+    "Chris Saunders <chris.saunders@clio.com>",
+    "Craig Carlyle <craig.carlyle@clio.com>",
+    "Dwight Tomalty <dwight.tomalty@clio.com>",
+    "Frankie Yan <frankie.yan@clio.com>",
     "Jef Curtis <jef.curtis@clio.com>",
-    "Jeff Marvin <jeff.marvin@clio.com>"
+    "Jeff Marvin <jeff.marvin@clio.com>",
+    "Sean Healy <sean.healy@clio.com>",
+    "Terry White <terry.white@clio.com>"
   ],
   "main": "public/build/lib-themisui.js",
   "private": true,
