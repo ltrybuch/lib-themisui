@@ -69,6 +69,12 @@
       placeholder="webaddress.com"
       >
     </th-filter-input>
+    <th-filter-autocomplete
+      ng-switch-when="autocomplete"
+      filter-set="thCustomFilters.filterSet"
+      filter-options="thCustomFilterRow.rowSelectValue"
+      >
+    </th-filter-autocomplete>
   </div>
   <div class="field">
     <div class="link" ng-click="thCustomFilterRow.removeRow()">

@@ -10,7 +10,7 @@ The filter component is used for filtering presentation data, most commonly
 found in a table (see [thTable](.\thTable)).
 
 The filter view is comprised of a set of filter fields. The filter view supports
-'select' and 'input' type filter fields.
+a number of filter field types including text, number, autocomplete, etc.
 
 A wrapper directive `th-filter` is provided for consistent styling across filter
 views.
@@ -106,25 +106,25 @@ is acting on.
 
 ```json
 {
-  type: "select"
-  name: "Sample Select"
-  fieldIdentifier: "sampleFieldId"
+  "type": "select",
+  "name": "Sample Select",
+  "fieldIdentifier": "sampleFieldId",
 
-  placeholder: "Placeholder string"
+  "placeholder": "Placeholder string",
 
-  select-options: [
-    {name: "Option one", value: 1}
-    {name: "Option two", value: 2}
-  ]
+  "select-options": [
+    {"name": "Option one", "value": "1"},
+    {"name": "Option two", "value": "2"}
+  ],
 
-  select-options-url: "./sampleoptions.json"
-  select-options-name-field: "altname"
-  select-options-value-field: "altvalue"
+  "select-options-url": "./sampleoptions.json",
+  "select-options-name-field": "altname",
+  "select-options-value-field": "altvalue"
 }
 ```
 The select filter type takes the following options:
 
-* `placeholder` defines the placeholder string of the element in its default
+* `placeholder` (*optional*) defines the placeholder string of the element in its default
 state.
 
 The select filter *requires* one of the following attributes:
@@ -151,16 +151,57 @@ available to the user.
 
 ```json
 {
-  type: "input"
-  name: "Sample Input"
-  fieldIdentifier: "sampleFieldId"
+  "type": "input",
+  "name": "Sample Input",
+  "fieldIdentifier": "sampleFieldId",
 
-  placeholder: "Placeholder string"
+  "placeholder": "Placeholder string"
 }
 ```
 
-* `placeholder` defines the placeholder string of the element in its default
+* `placeholder` (*optional*) defines the placeholder string of the element in its default
 state.
+
+#### Autocomplete filter options
+
+```json
+{
+  "type": "autocomplete",
+  "name": "Sample Input",
+  "fieldIdentifier": "sampleFieldId",
+
+  "placeholder": "Placeholder string",
+
+  "autocompleteOptions": {
+    "modelClass": "Contact",
+    "trackField": "id",
+    "displayField": "name",
+    "queryParams": {
+      "sampleQueryParam": "test data"
+    }
+  }
+}
+```
+
+* `placeholder` (*optional*) defines the placeholder string of the element in its default
+state.
+
+* `autocompleteOptions` (*required*)
+
+  * `modelClass` (*required*) indicates the class name of the service that will
+  provide query functionality. The autocomplete field will instantiate a
+  `modelClass` instance and call `query` for each request, passing the
+  search term and any additional parameters supplied in `queryParams`.
+
+  * `trackField` (*optional*) indicates the unique key to use for each item
+  returned from `ModelClass.query`, for indexing autocomplete options. Defaults
+  to `id`.
+
+  * `displayField` (*optional*) indicates the field to display to the user, for
+  each item returned from `ModelClass.query`. Defaults to `name`.
+
+  * `queryParams` (*optional*) indicates any additional parameters to pass to
+  `ModelClass.query`.
 
 ## Directives
 

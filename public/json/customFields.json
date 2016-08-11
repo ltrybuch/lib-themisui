@@ -5,6 +5,15 @@
     "id": "0"
   },
   {
+    "name": "autocomplete",
+    "field_type": "autocomplete",
+    "id": "1",
+    "autocomplete_options": {
+      "model_class": "Repo",
+      "icon": "github"
+    }
+  },
+  {
     "name": "email",
     "field_type": "email",
     "id": "3"

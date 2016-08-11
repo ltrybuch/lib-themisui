@@ -1,0 +1,11 @@
+<div>
+  <th-autocomplete
+    ng-model="thFilterAutocomplete.filter.model"
+    ng-attr-placeholder="{{thFilterAutocomplete.filter.placeholder || thFilterAutocomplete.placeholder || 'Type some text…'}}"
+    delegate="thFilterAutocomplete.delegate"
+    ng-change="thFilterAutocomplete.filterSet.onFilterChange()"
+    icon="{{thFilterAutocomplete.filterOptions.autocompleteOptions.icon}}"
+    condensed="true"
+    >
+  </th-autocomplete>
+</div>

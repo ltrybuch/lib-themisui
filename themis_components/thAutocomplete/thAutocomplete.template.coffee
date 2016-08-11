@@ -1,4 +1,8 @@
 module.exports = ({interpolateStart, interpolateEnd, valueField}) -> """
+<span
+  class="th-autocomplete-wrapper"
+  ng-class="{condensed: thAutocomplete.condensed}"
+  >
   <i
     ng-if="thAutocomplete.icon"
     class="th-autocomplete-icon fa fa-#{interpolateStart} thAutocomplete.icon #{interpolateEnd}"
@@ -31,4 +35,5 @@ module.exports = ({interpolateStart, interpolateEnd, valueField}) -> """
     name="#{interpolateStart} thAutocomplete.name #{interpolateEnd}"
     ng-value="thAutocomplete.ngModel.#{valueField}"
     >
+</span>
 """

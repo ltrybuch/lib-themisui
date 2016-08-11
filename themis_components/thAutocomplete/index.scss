@@ -1,10 +1,13 @@
-th-autocomplete {
+.th-autocomplete-wrapper {
   @import "../../node_modules/ui-select/dist/select";
 
-  display: block;
   position: relative;
+  display: block;
+  font-size: 13px;
 
   .ui-select-container {
+    height: 42px;
+
     // ui-select component uses bootstrap for styling. These are all rules
     // used by ui-select copied from bootstrap.
     .glyphicon {
@@ -34,7 +37,7 @@ th-autocomplete {
     }
 
     .text-muted {
-      color: inherit;
+      color: $placeholder-grey;
     }
 
     .form-control {
@@ -123,7 +126,6 @@ th-autocomplete {
       padding: 5px 0;
       margin: 2px 0 0;
 
-      font-size: 14px;
       text-align: left;
 
       background-color: $white;
@@ -149,7 +151,6 @@ th-autocomplete {
       display: block;
       padding: 3px 20px;
 
-      font-size: 12px;
       line-height: 1.42857143;
       color: $red-1;
       white-space: nowrap;
@@ -178,8 +179,6 @@ th-autocomplete {
     }
 
     .ui-select-search {
-      font-family: inherit;
-      font-size: inherit;
       background: $off-white;
       min-width: 100%;
       padding: 12px;
@@ -223,4 +222,32 @@ th-autocomplete {
     }
   }
 
+  &.condensed {
+    .ui-select-container {
+      height: 34px;
+
+      .form-control {
+        padding: 8px;
+      }
+
+      .btn {
+        height: 34px;
+      }
+    }
+
+    .ui-select-search {
+      padding: 8px;
+    }
+
+    .th-autocomplete-icon {
+      top: 12px;
+    }
+
+    i.th-autocomplete-icon ~ .ui-select-container {
+      .ui-select-search {
+        // Add padding to accommodate icon if icon exists.
+        padding: 8px 40px 8px 8px;
+      }
+    }
+  }
 }
