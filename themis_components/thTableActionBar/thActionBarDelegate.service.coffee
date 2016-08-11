@@ -13,11 +13,6 @@ angular.module 'ThemisComponents'
           "ActionBarDelegate needs to be passed the following function: onAction"
         )
 
-      unless availableActions instanceof Array
-        throw new Error(
-          "ActionBarDelegate needs to be passed the following array: availableActions"
-        )
-
       currentPage = 1
       # Used to update viewmodels When entire collection is requested.
       # When set to true any incoming items will be set to selected when
@@ -28,7 +23,6 @@ angular.module 'ThemisComponents'
       currentPageItemIdentifiers = []
       unselectedItemIdentifiers = []
       selectedItemIdentifiers = []
-      selectedAction = null
 
       results =
         pageSize: pageSize ? 0
@@ -37,6 +31,7 @@ angular.module 'ThemisComponents'
         availableActions: availableActions
         processing: no
         isCurrentPageSelected: no
+        selectedAction: null
 
       makeSelectable = ({data = [], totalItems = 0, currentPage = 1, resetSelection = no}) ->
         _resetInternalCollections() if resetSelection
@@ -124,17 +119,11 @@ angular.module 'ThemisComponents'
         results.isCurrentPageSelected = yes
         _updateViewModels()
 
-      setSelectedAction = (action) ->
-        if action?.value
-          selectedAction = action.value
-        else
-          selectedAction = ""
-
       evaluateOnApplyFunction = ->
         onApply
           trackedCollection: _appropriateCollection()
           allSelected: selectAllFlag
-          selectedAction: selectedAction
+          selectedAction: results.selectedAction?.value
           ->
             _resetInternalCollections()
             selectAllFlag = no
@@ -151,6 +140,7 @@ angular.module 'ThemisComponents'
       _resetInternalCollections = ->
         _resetSelectedItems()
         _resetUnselectedItems()
+        results.selectedAction = null
 
       _resetSelectedItems = ->
         selectedItemIdentifiers.length = 0
@@ -194,7 +184,6 @@ angular.module 'ThemisComponents'
 
       return Object.freeze {
         results
-        setSelectedAction
         makeSelectable
         toggleSelected
         evaluateOnApplyFunction

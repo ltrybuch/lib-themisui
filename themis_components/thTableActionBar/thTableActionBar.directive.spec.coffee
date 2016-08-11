@@ -13,7 +13,6 @@ describe 'ThemisComponents: Directive: thTableActionBar', ->
       availableActions: [{name: "one", value: 1}]
       pageSize: 1
     }, options
-
     new ActionBarDelegate extended
 
   setUp = (options = {}) ->
@@ -77,6 +76,15 @@ describe 'ThemisComponents: Directive: thTableActionBar', ->
       link = element.find(".action-text a").first()
       expect(normalizeText(link.text())).toBe "Select all 2 tags"
 
+  context "with a button name attr", ->
+    beforeEach ->
+      setUp({templateOptions: "button-name = generate"})
+      scope.$apply -> scope.delegate.selectPage()
+
+    it "should use 'button-name' value as the uhh button name", ->
+      text = normalizeText element.find('.th-button ng-transclude span').text()
+      expect(text).toBe "generate"
+
   context "when total item count is <= page size", ->
     it "should only include a limited action text without select all link", ->
       setUp({dataOptions: {totalItems: 1}})
@@ -115,3 +123,17 @@ describe 'ThemisComponents: Directive: thTableActionBar', ->
 
       element.find("button").triggerHandler "click"
       expect(element.isolateScope().actionBar.triggerApply).toHaveBeenCalled()
+
+  context "when 'availableActions' are provided", ->
+    it "renders the dropdown select", ->
+      setUp()
+      scope.$apply -> scope.delegate.selectPage()
+
+      expect(element.find("select").length).toBe 1
+
+  context "when no 'availableActions' are provided", ->
+    it "does not render the dropdown select", ->
+      setUp({delegateOptions: {availableActions: null}})
+      scope.$apply -> scope.delegate.selectPage()
+
+      expect(element.find("select").length).toBe 0

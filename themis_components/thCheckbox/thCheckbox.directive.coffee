@@ -8,6 +8,7 @@ angular.module('ThemisComponents')
       change: '&ngChange'
       checked: '=?ngModel'
       ngRequired: "="
+      ngDisabled: "="
     bindToController: true
     controllerAs: 'checkbox'
     controller: ($scope, $element) ->
@@ -19,6 +20,6 @@ angular.module('ThemisComponents')
         @change() if @change?
 
       $element.on 'click', =>
-        @toggle()
+        @toggle() unless $element.attr("disabled")
 
       return

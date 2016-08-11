@@ -1,12 +1,14 @@
 <span
   class="th-checkbox"
-  ng-class="{checked: checkbox.checked}"
+  ng-class="[{checked: checkbox.checked}, {disabled: checkbox.ngDisabled}]"
   >
   <input
     type="checkbox"
     name="{{checkbox.name}}"
     ng-model="checkbox.checked"
     ng-required="checkbox.ngRequired"
+    ng-disabled="checkbox.ngDisabled"
+    value="{{checkbox.checked}}"
     >
   <i></i>
 </span>

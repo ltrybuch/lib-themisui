@@ -22,6 +22,11 @@
     }
   }
 
+  &.disabled {
+    background-color: $grey-90;
+    cursor: initial;
+  }
+
   input[type="checkbox"] {
     display: none;
   }

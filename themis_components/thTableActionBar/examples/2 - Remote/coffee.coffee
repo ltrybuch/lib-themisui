@@ -23,11 +23,6 @@ angular.module 'thDemo', ['ThemisComponents']
           reset()
           AlertManager.showSuccess "Your post have been processed."
         , 3000
-
-      availableActions: [
-        {name: "Print", value: "print"}
-        {name: "Download Archive", value: "download"}
-      ]
       pageSize: 10
 
     # thTableActionBar: Link to the select column on each row.

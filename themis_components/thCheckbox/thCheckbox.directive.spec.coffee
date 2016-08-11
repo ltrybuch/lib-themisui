@@ -5,6 +5,9 @@
 describe 'ThemisComponents: Directive: thCheckbox', ->
   element = scope = compile = defaultState = null
   validTemplate = '<div th-checkbox ng-model="checked" ng-change="callback()"></div>'
+  disabledTemplate = """
+    <div ng-disabled="true" th-checkbox ng-model="checked" ng-change="callback()"></div>
+  """
 
   beforeEach angular.mock.module 'ThemisComponents'
 
@@ -57,3 +60,14 @@ describe 'ThemisComponents: Directive: thCheckbox', ->
       spyOn scope, 'callback'
       element.triggerHandler 'click'
       expect(scope.callback).toHaveBeenCalled()
+
+  describe "when checkbox is disabled", ->
+    beforeEach ->
+      compileCheckboxDirective disabledTemplate, false
+
+    it "adds the 'disabled' class" , ->
+      expect(element.hasClass("disabled")).toBe true
+
+    it "th-checkbox should be disabled", ->
+      element.triggerHandler "click"
+      expect(scope.checked).toBe false

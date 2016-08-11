@@ -6,13 +6,14 @@ angular.module('ThemisComponents')
     scope:
       delegate: "="
       itemName: "@"
+      buttonName: "@"
     transclude: true
     bindToController: true
     controllerAs: 'actionBar'
     template: require './thTableActionBar.template.html'
     controller: ($scope, $element, $attrs) ->
-      @setSelectedAction = -> @delegate.setSelectedAction(@selectedAction)
       @itemName ||= "item"
+      @buttonName ||= "Apply"
 
       @pluralizeItemName = (count) -> return pluralize @itemName, count
 

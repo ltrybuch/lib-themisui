@@ -46,9 +46,6 @@ describe 'ThemisComponents: Service: ActionBarDelegate', ->
     it 'throws if no "onApply" function is passed', ->
       expect(-> ActionBarDelegate()).toThrow()
 
-    it "throws if no select options are passed", ->
-      expect(-> ActionBarDelegate({onApply: -> return})).toThrow()
-
   describe "#makeSelectable", ->
     it "returns a selectable array with length of the current page size", ->
       expect(selectable?).toBe true
@@ -136,15 +133,3 @@ describe 'ThemisComponents: Service: ActionBarDelegate', ->
         delegate.selectPage()
         selectedItems = delegate.results.selectedItemCount
         expect(selectable.length).toEqual selectedItems
-
-  describe "#setSelectedAction", ->
-    context "when argument is selected placeholder", ->
-      it "selectedAction is == ''", ->
-        selectedAction = delegate.setSelectedAction()
-        expect(selectedAction).toBe ""
-
-    context "when argument is valid", ->
-      it "selectedAction is equal to argument.value", ->
-        selectedAction =
-          delegate.setSelectedAction(delegate.results.availableActions[0])
-        expect(selectedAction).toBe 1

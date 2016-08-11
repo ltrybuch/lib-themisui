@@ -37,23 +37,28 @@
           </a>
         </span>
       </div>
-      <th-select
-        ng-model="actionBar.selectedAction"
-        ng-change="actionBar.setSelectedAction()"
-        options="actionBar.delegate.results.availableActions"
-        placeholder="Action"
-        condensed="true"
-        ng-disabled="actionBar.delegate.results.processing"
+      <span ng-if="actionBar.delegate.results.availableActions">
+        <th-select
+          ng-model="actionBar.delegate.results.selectedAction"
+          options="actionBar.delegate.results.availableActions"
+          placeholder="Action"
+          condensed="true"
+          ng-disabled="actionBar.delegate.results.processing"
+          >
+        </th-select>
+      </span>
+      <span class="button-wrapper"
+        ng-class="{'margin-left-10': !actionBar.delegate.results.availableActions}"
         >
-      </th-select>
-      <th-button
-        type="standard"
-        ng-click="actionBar.triggerApply()"
-        ng-disabled="actionBar.delegate.results.processing"
-        loading="actionBar.delegate.results.processing"
-        >
-        Apply
-      </th-button>
+        <th-button
+          type="standard"
+          ng-click="actionBar.triggerApply()"
+          ng-disabled="actionBar.delegate.results.processing"
+          loading="actionBar.delegate.results.processing"
+          >
+          {{actionBar.buttonName}}
+        </th-button>
+      </span>
     </div>
   </div>
   <div class="flex-section">
