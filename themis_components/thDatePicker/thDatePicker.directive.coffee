@@ -1,7 +1,6 @@
 moment = require "moment"
+uuid = require "uuid"
 
-# TODO - FOLLOW UP WORK REQUIRED BEFORE THIS CAN BE RELEASED
-# SEE CLIO-31987
 angular.module('ThemisComponents')
   .directive 'thDatePicker', ->
     restrict: "E"
@@ -11,7 +10,21 @@ angular.module('ThemisComponents')
       dateFormat: "@"
     bindToController: true
     controllerAs: 'datepicker'
-    controller: ($element, $scope) ->
+    controller: (PopoverManager, $element, $scope) ->
+      tabEventCode = 9
+
+      # Use random names, since there might be multiple date pickers in the document.
+      @targetName = "datepicker-target-#{uuid.v1()}"
+      @contentName = "datepicker-content-#{uuid.v1()}"
+
+      @showPopover = =>
+        PopoverManager.showPopover(
+          targetName: @targetName
+          contentCallback: => PopoverManager.getContent @contentName
+        )
+
+      @hidePopover = =>
+        PopoverManager.hidePopover @targetName
 
       # Initialize the model to today if it isn't a valid moment.
       @ngModel = moment() unless @ngModel.isValid()
@@ -42,14 +55,23 @@ angular.module('ThemisComponents')
 
       @registerModelWatcher()
 
-      # On blur of the input field...
+      # Input Field
       dateInputField = $element.find('input')
+
+      # If tab key is pressed...
+      dateInputField.on 'keydown', (event) =>
+        if (event.which == tabEventCode)
+          # ... hide popover.
+          @hidePopover()
+
+      # On blur of the input field...
       dateInputField.on 'blur', => $scope.$apply =>
         # ... listen for datepicker model changes.
         @registerModelWatcher()
 
       # On focus of the input field, unregister our model listener.
       dateInputField.on 'focus', => $scope.$apply =>
+        @showPopover()
         @unregisterModelWatcher()
 
       return

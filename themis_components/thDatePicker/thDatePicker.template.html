@@ -4,14 +4,19 @@
     type="text"
     placeholder="YYYY-MM-DD"
     icon="calendar"
+    th-popover-target="{{datepicker.targetName}}"
     >
   </div>
-  <div
-    date-picker="datepicker.ngModel"
-    watch-direct-changes
-    view="date"
-    min-view="date"
-    max-view="date"
-    >
-  </div>
+  <th-popover-content name="{{datepicker.contentName}}">
+    <span class="date-picker-widget">
+      <div
+        date-picker="datepicker.ngModel"
+        watch-direct-changes
+        view="date"
+        min-view="date"
+        max-view="date"
+        >
+      </div>
+    </span>
+  </th-popover-content>
 </span>

@@ -18,6 +18,13 @@ describe 'ThemisComponents: Directive: thPopoverManager', ->
     )
     document.body.appendChild contentElement
 
+  popoverExists = ->
+    if document.querySelector('.th-popover-view') &&
+      document.querySelector('.th-popover-overlay') &&
+      document.querySelector('.th-popover-arrow')
+    then true
+    else false
+
   removeContentFromBody = ->
     document.body.removeChild contentElement
 
@@ -65,6 +72,39 @@ describe 'ThemisComponents: Directive: thPopoverManager', ->
 
         expect(resolvedContent.data).toBe 'content'
 
+  describe 'hidePopover', ->
+    describe 'when target does not exist', ->
+      it 'should throw an error', ->
+        expect(-> PopoverManager.hidePopover('target', undefined)).toThrow()
+
+    describe 'when target exists', ->
+      beforeEach ->
+        addContentToBody()
+
+        template = """
+          <div th-popover-target='target'></div>
+          <th-popover-content name='content'>content</th-popover-content>
+        """
+        compileDirective(template)
+
+      afterEach ->
+        angular.element(
+          document.querySelector('.th-popover-overlay')
+        ).triggerHandler 'click'
+
+        removeContentFromBody()
+
+      it 'should dismiss rendered popover', ->
+        PopoverManager.showPopover(
+          targetName: 'target'
+          contentCallback: -> PopoverManager.getContent('content')
+        )
+        timeout.flush()
+
+        PopoverManager.hidePopover('target')
+
+        expect(popoverExists()).toBe false
+
   describe 'showPopover', ->
     describe 'when target does not exist', ->
       it 'should throw an error', ->
@@ -102,9 +142,7 @@ describe 'ThemisComponents: Directive: thPopoverManager', ->
         )
         timeout.flush()
 
-        expect(document.querySelector('.th-popover-view')).not.toBeNull()
-        expect(document.querySelector('.th-popover-overlay')).not.toBeNull()
-        expect(document.querySelector('.th-popover-arrow')).not.toBeNull()
+        expect(popoverExists()).toBe true
 
   describe 'attachPopover', ->
     beforeEach ->

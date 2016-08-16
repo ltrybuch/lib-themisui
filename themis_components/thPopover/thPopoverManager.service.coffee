@@ -22,6 +22,13 @@ angular.module('ThemisComponents')
     addTarget = (targetName, element) ->
       targets[targetName] = {element}
 
+    hidePopover = (targetName) ->
+      unless targets.hasOwnProperty targetName
+        throw new Error "PopoverManager: target '#{targetName}' does not exist."
+
+      target = targets[targetName]
+      target.dismissPopover() if target.dismissPopover?
+
     showPopover = (options = {}) ->
       {
         targetName        # String: Required
@@ -38,8 +45,12 @@ angular.module('ThemisComponents')
       target = targets[targetName]
 
       if not target.renderPopover?
-        {renderPopover} = addPopoverToTarget(target, contentCallback)
+        {
+          dismissPopover
+          renderPopover
+        } = addPopoverToTarget(target, contentCallback)
         target.renderPopover = renderPopover
+        target.dismissPopover = dismissPopover
 
       $timeout ->
         target.renderPopover()
@@ -58,6 +69,7 @@ angular.module('ThemisComponents')
     return {
       attachPopover
       showPopover
+      hidePopover
       addContent
       getContent
       addTarget

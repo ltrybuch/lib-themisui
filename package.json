@@ -24,7 +24,7 @@
   "dependencies": {
     "angular": "1.5.7",
     "angular-animate": "^1.5.7",
-    "angular-datepicker": "g00fy-/angular-datepicker#9842705e6dc90fd265e1a196ee444142ad99103c",
+    "angular-datepicker": "g00fy-/angular-datepicker#28c312d6d11f4f2d36767ab1feebc4e8133ac1ae",
     "angular-messages": "^1.5.7",
     "angular-sanitize": "^1.5.7",
     "body-parser": "^1.14.1",

@@ -116,17 +116,28 @@ module.exports = ($compile, $timeout) -> (target, contentCallback) ->
 
       view.on 'click', (event) ->
         # When an A tag in a popover and is clicked the popover should normally
-        # close. However, we do have components that will live in popovers that
-        # will be exceptions to this rule.
+        # close. However, we hereby whitelist components that will live in popovers that
+        # are exceptions to this rule.
         whitelist = [
           '.chzn-container *'
           '.th-switch *'
           '[th-popover-persist]'
           '.ui-select-choices-row-inner *' # Select 2 autocompleter
         ]
-        whitelistSelector = whitelist.join ', '
 
-        if !event.target.matches(whitelistSelector) and event.target.matches("a, a *")
+        blacklist = [
+          'a'
+          'a *'
+
+          # The date picker lib we have currently orphans the DOM so we don't have a
+          # better selector to watch for at the moment.
+          'td[ng-repeat="day in week"] span[ng-click="selectDate(day)"]'
+        ]
+
+        whitelistSelector = whitelist.join ', '
+        blacklistSelector = blacklist.join ', '
+
+        if !event.target.matches(whitelistSelector) and event.target.matches(blacklist)
           scope.$apply -> dismissPopover()
 
       unless scope.loaded
@@ -137,5 +148,6 @@ module.exports = ($compile, $timeout) -> (target, contentCallback) ->
           dismissPopover()
 
   return {
+    dismissPopover
     renderPopover
   }
