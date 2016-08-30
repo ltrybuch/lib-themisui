@@ -21,6 +21,10 @@ label.th-label {
     color: $light-grey;
     font-weight: bold;
     margin-bottom: 8px;
+  }
 
+  .required-field {
+    float: right;
+    color: $green;
   }
 }

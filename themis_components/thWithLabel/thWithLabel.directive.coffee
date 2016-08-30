@@ -49,6 +49,7 @@ angular.module('ThemisComponents')
         adjustMarginForRadioInputs elementObject.el
       else
         label.prepend "<div class='label-text'>#{attrs.withLabel}</div>"
+      label.prepend "<span class='required-field'>required</span>" if attrs.ngRequired == "true"
 
       element.on "click", (event) ->
         # If clicking on input element stop propagation to label.

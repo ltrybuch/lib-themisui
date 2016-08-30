@@ -15,6 +15,6 @@ Wrap your input fields in a styled label easily by adding this `with-label` comp
   - thInput
   - thCheckbox
   - thSwitch
+- Using the `ng-required` attribute with any input element will add a "required" indicator.
 
 ---
-
