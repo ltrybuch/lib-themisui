@@ -10,7 +10,8 @@
     "id": "1",
     "autocomplete_options": {
       "model_class": "Repo",
-      "icon": "github"
+      "icon": "github",
+      "query_field": "searchString"
     }
   },
   {

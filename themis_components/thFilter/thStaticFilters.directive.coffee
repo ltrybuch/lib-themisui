@@ -1,5 +1,5 @@
 angular.module "ThemisComponents"
-.directive "thStaticFilters", (FilterSet) ->
+.directive "thStaticFilters", (FilterSet, $timeout) ->
   restrict: "E"
   require: "?^^thFilter"
   scope:
@@ -13,7 +13,8 @@ angular.module "ThemisComponents"
       {
         filterSet
         staticFilters
-      } = scope.thStaticFilters.options or thFilterController.options
+        initialState
+      } = scope.thStaticFilters.options or thFilterController?.options
 
       unless filterSet instanceof Array
         throw new Error "thStaticFilters: options must specify 'filterSet'."
@@ -21,6 +22,13 @@ angular.module "ThemisComponents"
 
       unless staticFilters instanceof Array
         throw new Error "thStaticFilters: options must specify 'staticFilters'."
-      scope.thStaticFilters.staticFilters = staticFilters
 
-      return
+      scope.thStaticFilters.staticFilters = []
+      staticFilters.forEach (item) ->
+        initialValue = initialState?[item.fieldIdentifier]
+        scope.thStaticFilters.staticFilters.push
+          filterOptions: item
+          initialValue: initialValue
+
+      thFilterController?.registerInitPromise new Promise (resolve) ->
+        $timeout -> resolve()

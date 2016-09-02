@@ -12,13 +12,20 @@ describe "ThemisComponents: Service: FilterSet", ->
         expect(-> new FilterSet).toThrow()
 
     describe "when 'onFilterChange' is specified", ->
-      it "should return a new FilterSet object", ->
-        test = -> return
-        filterSet = new FilterSet {
-          onFilterChange: test
-        }
-        expect(filterSet).toBe instanceof Array
-        expect(filterSet.onFilterChange).toBe test
+      describe "when 'onInitialized' is not specified", ->
+        it "shouldn't throw an error", ->
+          expect(-> new FilterSet(onFilterChange: -> return)).not.toThrow()
+
+      describe "when 'onInitialized' is specified", ->
+        it "should return a new FilterSet object", ->
+          test = -> return
+          filterSet = new FilterSet {
+            onFilterChange: test
+            onInitialized: test
+          }
+          expect(filterSet).toBe instanceof Array
+          expect(filterSet.onFilterChange).toBe test
+          expect(filterSet.onInitialized).toBe test
 
   describe "#remove", ->
     beforeEach ->

@@ -1,10 +1,10 @@
 angular.module "ThemisComponents"
 .factory "InputFilter", (FilterBase) ->
   class InputFilter extends FilterBase
-    constructor: (options = {}) ->
+    constructor: (options = {}, initialValue) ->
       super options
       @placeholder = options.placeholder
-      @model = null
+      @model = initialValue
 
     type: "input"
 

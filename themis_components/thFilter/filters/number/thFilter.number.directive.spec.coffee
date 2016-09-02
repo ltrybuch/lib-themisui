@@ -57,6 +57,31 @@ describe "ThemisComponents: Directive: thFilterNumber", ->
     expect(filterSet.length).toBe 1
     expect(filterSet[0]).toBe instanceof NumberFilter
 
+  describe "when initial value is specified", ->
+    beforeEach ->
+      filterSet = new FilterSet {
+        onFilterChange: -> return
+      }
+
+      {element, scope} = compileDirective("""
+        <th-filter-number
+          filter-set="filterSet"
+          filter-options="filterOptions"
+          operator-options="operatorOptions"
+          initial-value=">-1234.56"
+          >
+        </th-filter-number>
+      """
+      , {
+        filterSet
+        filterOptions
+        operatorOptions
+      })
+
+    it "should parse initial value", ->
+      expect(filterSet[0].operator.value).toBe ">"
+      expect(filterSet[0].model).toBe -1234.56
+
   describe "when value is changed", ->
     beforeEach ->
       spyOn filterSet, "onFilterChange"

@@ -9,7 +9,7 @@ angular.module 'thDemo', ['ThemisComponents']
     {sort} = TableSort
 
     @filterSet = new FilterSet
-      onFilterChange: (filters) =>
+      onFilterChange: =>
         @tableDelegate.reload {currentPage: 1}
 
     @filterOptions = {

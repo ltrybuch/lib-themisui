@@ -3,6 +3,7 @@ angular.module 'ThemisComponents'
   FilterSet = (options = {}) ->
     {
       onFilterChange
+      onInitialized
     } = options
 
     unless onFilterChange instanceof Function
@@ -11,6 +12,7 @@ angular.module 'ThemisComponents'
 
     filterArray = []
     filterArray.onFilterChange = onFilterChange
+    filterArray.onInitialized = onInitialized
 
     filterArray.remove = (filterBase) ->
       index = @indexOf filterBase

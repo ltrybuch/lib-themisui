@@ -10,6 +10,7 @@ describe "ThemisComponents: Directive: thFilterInput", ->
     <th-filter-input
       filter-set="filterSet"
       filter-options="filterOptions"
+      initial-value="value"
       >
     </th-filter-input>
   """
@@ -47,6 +48,7 @@ describe "ThemisComponents: Directive: thFilterInput", ->
   it "should add filter to filter set", ->
     expect(filterSet.length).toBe 1
     expect(filterSet[0]).toBe instanceof InputFilter
+    expect(filterSet[0].getValue()).toBe "value"
 
   describe "when value is changed", ->
     beforeEach ->
@@ -69,17 +71,17 @@ describe "ThemisComponents: Directive: thFilterInput", ->
       spyOn filterSet, "onFilterChange"
 
     describe "when value is undefined", ->
+      beforeEach ->
+        input = element.find "input"
+        input.val null
+        input.triggerHandler "change"
+
       it "should remove filter from filter set and not call onFilterChange", ->
         scope.$destroy()
         expect(filterSet.remove).toHaveBeenCalled()
         expect(filterSet.onFilterChange).not.toHaveBeenCalled()
 
     describe "when value is defined", ->
-      beforeEach ->
-        input = element.find "input"
-        input.val "test"
-        input.triggerHandler "change"
-
       it "should remove filter from filter set and call onFilterChange", ->
         scope.$destroy()
         expect(filterSet.remove).toHaveBeenCalled()

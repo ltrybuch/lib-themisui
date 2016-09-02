@@ -19,10 +19,15 @@ describe "ThemisComponents: Service: InputFilter", ->
       expect(inputFilter.prototype).toBe instanceof FilterBase
 
   describe "#getValue", ->
-    describe "when initialized", ->
-      it "should return undefined", ->
+    describe "when no initial value is provided", ->
+      it "should return null", ->
         inputFilter = new InputFilter
         expect(inputFilter.getValue()).toBe null
+
+    describe "when initial value is provided", ->
+      it "should return value", ->
+        inputFilter = new InputFilter(null, "value")
+        expect(inputFilter.getValue()).toBe "value"
 
   describe "#clearValue", ->
     beforeEach ->

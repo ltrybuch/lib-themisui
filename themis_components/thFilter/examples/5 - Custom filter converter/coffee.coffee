@@ -3,7 +3,7 @@ angular.module "thDemo", ["ThemisComponents"]
   class MyCustomFilterConverter extends CustomFilterConverter
     mapToCustomFilterArray: (data) ->
       data.map (item) ->
-        fieldIdentifier: item.id
+        fieldIdentifier: item.name
         name: item.name
         type: do ->
           switch item.field_type
@@ -27,27 +27,26 @@ angular.module "thDemo", ["ThemisComponents"]
           displayField: item.autocomplete_options?.display_field
           trackField: item.autocomplete_options?.track_field
           icon: item.autocomplete_options?.icon
+          queryField: item.autocomplete_options?.query_field
 
 .factory "Repo", ($http) ->
   class Repo
-    query: (params) ->
-      if params.searchString.length > 1
-        result = []
-        result.loading = true
-        result.promise =
-          $http
-            method: 'GET'
-            url: 'https://api.github.com/search/repositories'
-            params:
-              q: params.searchString
-          .then (response) ->
-            response.data.items.forEach (item) ->
-              result.push item
-            result.loading = false
+    @query: (params) ->
+      result = []
+      result.loading = true
+      result.promise =
+        $http
+          method: 'GET'
+          url: 'https://api.github.com/search/repositories'
+          params:
+            q: params.searchString
+        .then (response) ->
+          response.data.items.forEach (item) ->
+            result.push item
+          result.loading = false
+          return {collection: result}
 
-        return result
-      else
-        []
+      return result
 
 .controller "DemoController", (
   SimpleTableDelegate
@@ -61,14 +60,25 @@ angular.module "thDemo", ["ThemisComponents"]
   @filterChangeEvents = 0
 
   @filterSet = new FilterSet
-    onFilterChange: (filters) =>
+    onFilterChange: =>
       @query = @filterSet.getQueryParameters()
       @filterChangeEvents += 1
+    onInitialized: =>
+      @query = @filterSet.getQueryParameters()
 
   @filterOptions = {
     filterSet: @filterSet
     customFilterUrl: "./json/customFields.json"
     customFilterConverter: new MyCustomFilterConverter
+    initialState:
+      numeric: "<=12.34"
+      currency: ">12"
+      email: "email example text"
+      text_line: "text line example text"
+      text_area: "text area example text"
+      url: "url example text"
+      picklist: "0"
+      checkbox: "true"
   }
 
   return

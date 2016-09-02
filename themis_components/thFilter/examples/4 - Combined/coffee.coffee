@@ -9,8 +9,15 @@ angular.module "thDemo", ["ThemisComponents"]
     {sort} = TableSort
 
     @filterSet = new FilterSet
-      onFilterChange: (filters) =>
+      onFilterChange: =>
         @tableDelegate.reload {currentPage: 1}
+      onInitialized: =>
+        @tableDelegate.reload {currentPage: 1}
+
+    @initialState =
+      userId: "3"
+      completed: "true"
+      q: "temporibus"
 
     @filterOptions = {
       filterSet: @filterSet
@@ -34,6 +41,7 @@ angular.module "thDemo", ["ThemisComponents"]
           {name: "False", value: "false"}
         ]
       ]
+      @initialState
     }
 
     @tableDelegate = SimpleTableDelegate

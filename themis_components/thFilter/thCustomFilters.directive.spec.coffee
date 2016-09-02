@@ -115,22 +115,29 @@ describe "ThemisComponents: Directive: thCustomFilters", ->
         options:
           filterSet: filterSet
           customFilterUrl: "/custom_filter.json"
+          initialState:
+            id0: "test"
+            idx: "unknown"
       )
       httpBackend.flush()
       directiveElement = element[0].querySelector(".th-custom-filters")
-      @customFilters = angular.element(directiveElement).scope().thCustomFilters.customFilterTypes
+      @controller = angular.element(directiveElement).scope().thCustomFilters
 
     it "should fetch custom filters from url", ->
       httpBackend.expectGET "/custom_filter.json"
 
     it "should set customFilterTypes to response", ->
-      expect(@customFilters.length).toBe 2
-      expect(@customFilters[0].type).toBe "input"
-      expect(@customFilters[0].fieldIdentifier).toBe "id0"
-      expect(@customFilters[0].name).toBe "input"
-      expect(@customFilters[1].type).toBe "select"
-      expect(@customFilters[1].fieldIdentifier).toBe "id1"
-      expect(@customFilters[1].name).toBe "select"
+      expect(@controller.customFilterTypes.length).toBe 2
+      expect(@controller.customFilterTypes[0].type).toBe "input"
+      expect(@controller.customFilterTypes[0].fieldIdentifier).toBe "id0"
+      expect(@controller.customFilterTypes[0].name).toBe "input"
+      expect(@controller.customFilterTypes[1].type).toBe "select"
+      expect(@controller.customFilterTypes[1].fieldIdentifier).toBe "id1"
+      expect(@controller.customFilterTypes[1].name).toBe "select"
+
+    it "should add a row for each initial known name/value pair", ->
+      expect(@controller.customFilterRows.length).toBe 1
+      expect(@controller.customFilterRows[0].value).toBe "test"
 
   describe "when specifying custom filter url with converter", ->
     describe "when custom filter converter is not valid", ->
@@ -198,10 +205,6 @@ describe "ThemisComponents: Directive: thCustomFilters", ->
       directiveScope.thCustomFilters.addCustomFilterRow()
       directiveScope.$digest()
 
-      rows = element[0].querySelectorAll("th-custom-filter-row")
-      firstIndex = rows[0].getAttribute('index')
-      lastIndex = rows[1].getAttribute('index')
-
     describe "when called with invalid index", ->
       it "should throw an error", ->
         expect(->
@@ -210,24 +213,23 @@ describe "ThemisComponents: Directive: thCustomFilters", ->
 
     describe "when called with index of first element repeatedly", ->
       it "should remove first element from DOM repeatedly", ->
-        directiveScope.thCustomFilters.removeCustomFilterRow(firstIndex)
+        rows = element[0].querySelectorAll(".row")
+        angular.element(rows[0]).scope().thCustomFilterRow.removeRow()
         directiveScope.$digest()
 
-        rows = element[0].querySelectorAll("th-custom-filter-row")
+        rows = element[0].querySelectorAll(".row")
         expect(rows.length).toBe 1
-        expect(rows[0].getAttribute('index')).toBe lastIndex
-
-        directiveScope.thCustomFilters.removeCustomFilterRow(lastIndex)
+        angular.element(rows[0]).scope().thCustomFilterRow.removeRow()
         directiveScope.$digest()
 
-        rows = element[0].querySelectorAll("th-custom-filter-row")
+        rows = element[0].querySelectorAll(".row")
         expect(rows.length).toBe 0
 
     describe "when called with index of last element", ->
       it "should remove last element from DOM", ->
-        directiveScope.thCustomFilters.removeCustomFilterRow(lastIndex)
+        rows = element[0].querySelectorAll(".row")
+        angular.element(rows[1]).scope().thCustomFilterRow.removeRow()
         directiveScope.$digest()
 
-        rows = element[0].querySelectorAll("th-custom-filter-row")
+        rows = element[0].querySelectorAll(".row")
         expect(rows.length).toBe 1
-        expect(rows[0].getAttribute('index')).toBe firstIndex

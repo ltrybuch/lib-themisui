@@ -45,17 +45,9 @@ describe "ThemisComponents: Directive: thCustomFilterRow", ->
     rowContainerController.addCustomFilterRow()
     rowContainerScope.$digest()
 
-    rowElement = element[0].querySelector("th-custom-filter-row")
+    rowElement = element[0].querySelector(".row")
     rowScope = angular.element(rowElement).scope()
     rowController = rowScope.thCustomFilterRow
-
-  describe "#removeRow", ->
-    it "should remove the row", ->
-      spyOn rowContainerController, "removeCustomFilterRow"
-      rowController.removeRow()
-      expect(
-        rowContainerController.removeCustomFilterRow
-      ).toHaveBeenCalledWith(rowController.rowIdentifier)
 
   describe "#onRowSelectChanged", ->
     describe "when selected value is null or undefined", ->

@@ -1,13 +1,17 @@
 <div class="th-custom-filters">
-  <div class="custom-filters" with-label="{{thCustomFilters.options.name}} Custom Fields">
+  <div class="custom-filters" with-label="{{thCustomFilters.name}} Custom Fields">
     <th-custom-filter-row
-      ng-repeat="rowIdentifer in thCustomFilters.customFilterRows"
-      index="{{rowIdentifer}}"
+      ng-repeat="row in thCustomFilters.customFilterRows"
+      row-select-value="row.type"
+      initial-value="{{row.value}}"
+      custom-filter-types="thCustomFilters.customFilterTypes"
+      filter-set="thCustomFilters.filterSet"
+      remove-row="thCustomFilters.removeCustomFilterRow(row.identifier)"
       >
     </th-custom-filter-row>
   </div>
   <div class="link add-custom-filter" ng-click="thCustomFilters.addCustomFilterRow()">
     <i class="fa right-space fa-plus-circle"></i>
-    Add {{thCustomFilters.options.name}} Custom Field
+    Add {{thCustomFilters.name}} Custom Field
   </div>
 </div>

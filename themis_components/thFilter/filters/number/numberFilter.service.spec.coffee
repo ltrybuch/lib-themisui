@@ -6,6 +6,21 @@ describe "ThemisComponents: Service: NumberFilter", ->
     FilterBase = _FilterBase_
     NumberFilter = _NumberFilter_
 
+  parseFilterString = (initialValue) ->
+    filter = new NumberFilter
+      placeholder: "placeholder"
+    , [
+      {name: 'a', value: '<'},
+      {name: 'b', value: '<='},
+      {name: 'c', value: '='},
+      {name: 'd', value: '>='},
+      {name: 'e', value: '>'}
+    ]
+    , 0
+    , initialValue
+
+    [filter.operator.value, filter.model]
+
   describe "#constructor", ->
     describe "when operatorOptions is not specified", ->
       it "should throw an error", ->
@@ -50,6 +65,18 @@ describe "ThemisComponents: Service: NumberFilter", ->
 
         it "should set operator to operator at index 1", ->
           expect(numberFilter.operator.value).toBe "b"
+
+    describe "when initial value is specified", ->
+      it "should parse operator and value", ->
+        expect(parseFilterString("<.001")).toEqual ["<", .001]
+        expect(parseFilterString("<=-13.4")).toEqual ["<=", -13.4]
+        expect(parseFilterString("=0")).toEqual ["=", 0]
+        expect(parseFilterString(">=12.4")).toEqual [">=", 12.4]
+        expect(parseFilterString(">100000.0")).toEqual [">", 100000]
+        expect(parseFilterString()).toEqual ["<", null]
+        expect(parseFilterString("<12.13.1")).toEqual ["<", null]
+        expect(parseFilterString(">=ab")).toEqual ["<", null]
+        expect(parseFilterString("12")).toEqual ["<", null]
 
   describe "#getValue", ->
     beforeEach ->

@@ -14,21 +14,25 @@ angular.module 'ThemisComponents'
           "'modelClass' in autocomplete options."
 
       try
-        ModelClass = new ($injector.get @filterOptions.autocompleteOptions.modelClass)()
+        ModelClass = $injector.get @filterOptions.autocompleteOptions.modelClass
       catch
         throw new Error "thFilterAutocomplete: cannot inject class '" + \
           "#{@filterOptions.autocompleteOptions.modelClass}'."
+
+      fieldIdentifier =
+        @filterOptions.autocompleteOptions?.queryField or "query"
 
       @delegate =
         trackField: @filterOptions.autocompleteOptions?.trackField or "id"
         displayField: @filterOptions.autocompleteOptions?.displayField or "name"
         fetchData: ({searchString}, updateData) =>
-          params =
-            if @filterOptions.autocompleteOptions.queryParams?
-              @filterOptions.autocompleteOptions.queryParams
-            else {}
-          Object.assign(params, {searchString})
-          updateData(ModelClass.query params)
+          if searchString?.length > 1
+            params = @filterOptions.autocompleteOptions.queryParams or {}
+            params[fieldIdentifier] = searchString
+            ModelClass.query(params).promise.then ({collection}) ->
+              updateData collection
+          else
+            updateData []
 
       $scope.$on "$destroy", =>
         @filterSet.remove @filter

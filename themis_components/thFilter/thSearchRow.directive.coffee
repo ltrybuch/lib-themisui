@@ -1,5 +1,5 @@
 angular.module 'ThemisComponents'
-.directive 'thSearchRow', (InputFilter) ->
+.directive 'thSearchRow', (InputFilter, $timeout) ->
   restrict: 'E'
   require: "?^^thFilter"
   scope:
@@ -19,8 +19,15 @@ angular.module 'ThemisComponents'
     pre: (scope, element, attrs, thFilterController) ->
       {
         filterSet
-      } = scope.thSearchRow.options or thFilterController.options
+        initialState
+      } = scope.thSearchRow.options or thFilterController?.options
 
       unless filterSet instanceof Array
         throw new Error "thSearchRow: must specify 'filterSet' attribute."
       scope.thSearchRow.filterSet = filterSet
+
+      scope.thSearchRow.initialValue =
+        initialState?[scope.thSearchRow.queryFilterOptions.fieldIdentifier]
+
+      thFilterController?.registerInitPromise new Promise (resolve) ->
+        $timeout -> resolve()

@@ -2,14 +2,19 @@ angular.module 'ThemisComponents'
   .directive 'thCustomFilterRow', ($timeout) ->
     restrict: 'E'
     require: "^thCustomFilters"
-    scope: true
+    scope:
+      rowSelectValue: "="
+      initialValue: "@"
+      customFilterTypes: "="
+      filterSet: "="
+      removeRow: "&"
     bindToController: true
     controllerAs: 'thCustomFilterRow'
     template: require './thCustomFilterRow.template.html'
     controller: ($scope) ->
-      @rowSelectValue = null
-      @rowIdentifier = 0
       @rowFilterOptions = []
+      @rowFilterOptions.push @rowSelectValue if @rowSelectValue
+
       @checkboxOptions = [
         {name: "Enabled", value: "true"}
         {name: "Disabled", value: "false"}
@@ -29,12 +34,8 @@ angular.module 'ThemisComponents'
 
       @onRowSelectChange = =>
         $timeout =>
+          @initialValue = null
           @rowFilterOptions = []
           @rowFilterOptions.push @rowSelectValue if @rowSelectValue?
 
-      @removeRow = =>
-        $scope.thCustomFilters.removeCustomFilterRow @rowIdentifier
-
       return
-    link: (scope, element, attrs) ->
-      scope.thCustomFilterRow.rowIdentifier = attrs.index

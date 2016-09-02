@@ -6,6 +6,7 @@ angular.module 'ThemisComponents'
       filterOptions: '='
       options: '='
       placeholder: '@'
+      initialValue: '@'
     bindToController: true
     controllerAs: 'thFilterSelect'
     template: require './thFilter.select.template.html'
@@ -26,5 +27,9 @@ angular.module 'ThemisComponents'
       return
     compile: ->
       pre: (scope, element, attrs, controller) ->
-        controller.filter = new SelectFilter controller.filterOptions
+        controller.filter = new SelectFilter(
+          controller.filterOptions
+          controller.options
+          controller.initialValue
+        )
         controller.filterSet.push controller.filter

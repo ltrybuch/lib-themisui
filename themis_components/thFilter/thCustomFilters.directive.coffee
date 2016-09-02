@@ -1,5 +1,5 @@
 angular.module "ThemisComponents"
-.directive "thCustomFilters", ($http, CustomFilterConverter) ->
+.directive "thCustomFilters", (CustomFilterConverter, $http, $timeout) ->
   restrict: "E"
   require: "?^^thFilter"
   scope:
@@ -7,21 +7,41 @@ angular.module "ThemisComponents"
   bindToController: true
   controllerAs: "thCustomFilters"
   template: require "./thCustomFilters.template.html"
-  controller: ->
+  controller: ($scope) ->
     @customFilterRows = []
-    nextIdentifer = 0
+    nextIdentifier = 0
+
+    getNextIdentifier = ->
+      identifier = nextIdentifier
+      nextIdentifier += 1
+      identifier.toString()
 
     @addCustomFilterRow = ->
-      @customFilterRows.push nextIdentifer
-      nextIdentifer = nextIdentifer + 1
+      @customFilterRows.push
+        identifier: getNextIdentifier()
 
-    @removeCustomFilterRow = (identifer) ->
-      index = @customFilterRows.indexOf parseInt(identifer, 10)
+    @removeCustomFilterRow = (identifier) ->
+      index = @customFilterRows.findIndex (item) ->
+        item.identifier is identifier
+
       unless index > -1
         throw new Error "thCustomFilters: Cannot find custom filter " + \
                         "identifier."
 
       @customFilterRows.splice(index, 1)
+
+    @parseParams = ->
+      if @initialState
+        for key in Object.keys @initialState
+          type = @customFilterTypes.find (item) ->
+            item.fieldIdentifier is key
+
+          unless type? then continue
+
+          @customFilterRows.push
+            identifier: getNextIdentifier()
+            type: type
+            value: @initialState[key]
 
     return
   compile: ->
@@ -31,7 +51,12 @@ angular.module "ThemisComponents"
         customFilterTypes
         customFilterUrl
         customFilterConverter
-      } = scope.thCustomFilters.options or thFilterController.options
+        initialState
+        name
+      } = scope.thCustomFilters.options or thFilterController?.options
+
+      scope.thCustomFilters.name = name
+      scope.thCustomFilters.initialState = initialState
 
       unless filterSet instanceof Array
         throw new Error "thCustomFilters: must specify 'filterSet'."
@@ -41,6 +66,11 @@ angular.module "ThemisComponents"
         throw new Error "thCustomFilters: must specify 'customFilterTypes'" + \
                         "or 'customFilterUrl'."
       scope.thCustomFilters.customFilterTypes = customFilterTypes
+
+      onInitializedSuccess = onInitializedFailure = null
+      thFilterController?.registerInitPromise new Promise (resolve, reject) ->
+        onInitializedSuccess = resolve
+        onInitializedFailure = reject
 
       if customFilterUrl?
         $http
@@ -56,3 +86,14 @@ angular.module "ThemisComponents"
               customFilterConverter.mapToCustomFilterArray response.data
           else
             scope.thCustomFilters.customFilterTypes = response.data
+
+          scope.thCustomFilters.parseParams()
+
+          onInitializedSuccess?()
+        , ->
+          onInitializedFailure?()
+      else
+        scope.thCustomFilters.parseParams()
+
+        $timeout ->
+          onInitializedSuccess?()

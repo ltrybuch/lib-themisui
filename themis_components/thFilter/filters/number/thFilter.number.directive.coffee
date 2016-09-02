@@ -7,6 +7,7 @@ angular.module 'ThemisComponents'
       ngBlur: '&'
       operatorOptions: '='
       defaultOperatorIndex: '@'
+      initialValue: '@'
     bindToController: true
     controllerAs: 'thFilterNumber'
     template: require './thFilter.number.template.html'
@@ -35,5 +36,6 @@ angular.module 'ThemisComponents'
           controller.filterOptions
           controller.operatorOptions
           controller.defaultOperatorIndex
+          controller.initialValue
         )
         controller.filterSet.push controller.filter

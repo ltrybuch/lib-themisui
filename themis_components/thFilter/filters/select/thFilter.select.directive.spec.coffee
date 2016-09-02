@@ -16,6 +16,7 @@ describe "ThemisComponents: Directive: thFilterSelect", ->
     <th-filter-select
       filter-set="filterSet"
       filter-options="filterOptions"
+      initial-value="two"
       >
     </th-filter-select>
   """
@@ -54,6 +55,7 @@ describe "ThemisComponents: Directive: thFilterSelect", ->
   it "should add filter to filter set", ->
     expect(filterSet.length).toBe 1
     expect(filterSet[0]).toBe instanceof SelectFilter
+    expect(filterSet[0].getValue()).toBe "two"
 
   describe "when value is changed", ->
     beforeEach ->
@@ -73,6 +75,9 @@ describe "ThemisComponents: Directive: thFilterSelect", ->
       spyOn filterSet, "onFilterChange"
 
     describe "when value is undefined", ->
+      beforeEach ->
+        filterSet[0].clearValue()
+
       it "should remove filter from filter set and not call onFilterChange", ->
         scope.$destroy()
         expect(filterSet.remove).toHaveBeenCalled()

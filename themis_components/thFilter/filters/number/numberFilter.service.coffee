@@ -1,7 +1,12 @@
 angular.module "ThemisComponents"
 .factory "NumberFilter", (FilterBase) ->
   class NumberFilter extends FilterBase
-    constructor: (options = {}, operatorOptions  = [], defaultOperatorIndex = 0) ->
+    constructor: (
+      options = {}
+      operatorOptions = []
+      defaultOperatorIndex = 0
+      initialValue
+    ) ->
       super options
       @placeholder = options.placeholder
 
@@ -14,6 +19,13 @@ angular.module "ThemisComponents"
       @defaultOperatorIndex = defaultOperatorIndex
 
       @clearValue()
+
+      if initialValue?
+        match = initialValue.match /(<|<=|=|>=|>)(-?(?:(?:\d*\.\d+)|(?:\d+))$)/
+        if match
+          @operator = @operatorOptions.find (item) ->
+            item.value is match[1]
+          @model = parseFloat match[2]
 
     type: "number"
 

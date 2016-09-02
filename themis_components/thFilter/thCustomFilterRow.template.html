@@ -1,7 +1,7 @@
 <div class="row">
   <div class="field">
     <th-select
-      options="thCustomFilters.customFilterTypes"
+      options="thCustomFilterRow.customFilterTypes"
       placeholder="Select field"
       ng-model="thCustomFilterRow.rowSelectValue"
       ng-change="thCustomFilterRow.onRowSelectChange()"
@@ -17,61 +17,68 @@
     >
     <th-filter-select
       ng-switch-when="select"
-      filter-set="thCustomFilters.filterSet"
+      filter-set="thCustomFilterRow.filterSet"
       filter-options="thCustomFilterRow.rowSelectValue"
+      initial-value="{{thCustomFilterRow.initialValue}}"
       >
     </th-filter-select>
     <th-filter-input
       ng-switch-when="input"
-      filter-set="thCustomFilters.filterSet"
+      filter-set="thCustomFilterRow.filterSet"
       filter-options="thCustomFilterRow.rowSelectValue"
-      ng-blur="thCustomFilters.filterSet.onFilterChange()"
+      ng-blur="thCustomFilterRow.filterSet.onFilterChange()"
+      initial-value="{{thCustomFilterRow.initialValue}}"
       >
     </th-filter-input>
     <th-filter-number
       ng-switch-when="number"
-      filter-set="thCustomFilters.filterSet"
+      filter-set="thCustomFilterRow.filterSet"
       filter-options="thCustomFilterRow.rowSelectValue"
       operator-options="thCustomFilterRow.numberOperatorOptions"
       default-operator-index="2"
-      ng-blur="thCustomFilters.filterSet.onFilterChange()"
+      ng-blur="thCustomFilterRow.filterSet.onFilterChange()"
+      initial-value="{{thCustomFilterRow.initialValue}}"
       >
     </th-filter-number>
     <th-filter-number
       ng-switch-when="currency"
-      filter-set="thCustomFilters.filterSet"
+      filter-set="thCustomFilterRow.filterSet"
       filter-options="thCustomFilterRow.rowSelectValue"
       operator-options="thCustomFilterRow.currencyOperatorOptions"
       default-operator-index="1"
-      ng-blur="thCustomFilters.filterSet.onFilterChange()"
+      ng-blur="thCustomFilterRow.filterSet.onFilterChange()"
+      initial-value="{{thCustomFilterRow.initialValue}}"
       >
     </th-filter-number>
     <th-filter-select
       ng-switch-when="checkbox"
-      filter-set="thCustomFilters.filterSet"
+      filter-set="thCustomFilterRow.filterSet"
       filter-options="thCustomFilterRow.rowSelectValue"
       options="thCustomFilterRow.checkboxOptions"
+      initial-value="{{thCustomFilterRow.initialValue}}"
       >
     </th-filter-select>
     <th-filter-input
       ng-switch-when="email"
-      filter-set="thCustomFilters.filterSet"
+      filter-set="thCustomFilterRow.filterSet"
       filter-options="thCustomFilterRow.rowSelectValue"
-      ng-blur="thCustomFilters.filterSet.onFilterChange()"
+      ng-blur="thCustomFilterRow.filterSet.onFilterChange()"
       placeholder="email@example.com"
+      initial-value="{{thCustomFilterRow.initialValue}}"
       >
     </th-filter-input>
     <th-filter-input
       ng-switch-when="url"
-      filter-set="thCustomFilters.filterSet"
+      filter-set="thCustomFilterRow.filterSet"
       filter-options="thCustomFilterRow.rowSelectValue"
-      ng-blur="thCustomFilters.filterSet.onFilterChange()"
+      ng-blur="thCustomFilterRow.filterSet.onFilterChange()"
       placeholder="webaddress.com"
+      initial-value="{{thCustomFilterRow.initialValue}}"
       >
     </th-filter-input>
     <th-filter-autocomplete
       ng-switch-when="autocomplete"
-      filter-set="thCustomFilters.filterSet"
+      filter-set="thCustomFilterRow.filterSet"
       filter-options="thCustomFilterRow.rowSelectValue"
       >
     </th-filter-autocomplete>

@@ -73,10 +73,12 @@ the entire `FilterSet` or individual filters.
 ### FilterSet
 
 All directives accept and modify a `FilterSet` object. The `FilterSet` accepts
-as arguments a hash containing the following option:
+as arguments a hash containing the following options:
 
-* `onFilterChange` (*required*) is the function that gets called when the filter
-set changes.
+* `onFilterChange` (*required*) gets called when the filter set changes.
+
+* `onInitialized` (*optional*) gets called when the filter is finished
+initializing.
 
 `FilterSet` extends `Array` type with the following properties:
 
@@ -176,6 +178,7 @@ state.
     "modelClass": "Contact",
     "trackField": "id",
     "displayField": "name",
+    "queryField": "query",
     "queryParams": {
       "sampleQueryParam": "test data"
     }
@@ -199,6 +202,8 @@ state.
 
   * `displayField` (*optional*) indicates the field to display to the user, for
   each item returned from `ModelClass.query`. Defaults to `name`.
+
+  * `queryField` (*optional*) indicates the field to query. Defaults to `query`.
 
   * `queryParams` (*optional*) indicates any additional parameters to pass to
   `ModelClass.query`.

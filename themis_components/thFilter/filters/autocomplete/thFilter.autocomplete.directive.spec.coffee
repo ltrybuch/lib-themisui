@@ -4,13 +4,19 @@
 
 # Defined here because the directive uses $injector to instantiate model class.
 angular.module "ThemisComponents"
-.factory "Repo", ->
+.factory "Repo", ($q) ->
   class Repo
     # Pass through parameters for validating.
-    query: (params) -> params
+    @query: (params) ->
+      deferred = $q.defer()
+      deferred.resolve collection: params
+
+      result = []
+      result.promise = deferred.promise
+      return result
 
 describe "ThemisComponents: Directive: thFilterAutocomplete", ->
-  AutocompleteFilter = FilterSet = null
+  AutocompleteFilter = FilterSet = timeout = null
 
   validTemplate = """
     <th-filter-autocomplete
@@ -22,9 +28,10 @@ describe "ThemisComponents: Directive: thFilterAutocomplete", ->
 
   beforeEach angular.mock.module "ThemisComponents"
   beforeEach ->
-    inject ($injector, _FilterSet_, _AutocompleteFilter_) ->
+    inject ($injector, _FilterSet_, _AutocompleteFilter_, $timeout) ->
       FilterSet = _FilterSet_
       AutocompleteFilter = _AutocompleteFilter_
+      timeout = $timeout
 
     @filterSet = new FilterSet {
       onFilterChange: -> return
@@ -38,6 +45,7 @@ describe "ThemisComponents: Directive: thFilterAutocomplete", ->
 
       autocompleteOptions:
         modelClass: "Repo"
+        queryField: "searchString"
     }
 
     {@element, @scope} = compileDirective(validTemplate, {
@@ -112,8 +120,8 @@ describe "ThemisComponents: Directive: thFilterAutocomplete", ->
       it "should call updateData with search term", ->
         searchParam = {searchString: "test"}
         @controller.delegate.fetchData(searchParam, @updateData)
-
-        expect(@updateData).toHaveBeenCalledWith(searchParam)
+        timeout.flush()
+        expect(@updateData).toHaveBeenCalledWith searchParam
 
     describe "with query params", ->
       it "should call updateData with search term and query params", ->
@@ -132,9 +140,10 @@ describe "ThemisComponents: Directive: thFilterAutocomplete", ->
         ).scope().thFilterAutocomplete
 
         @controller.delegate.fetchData(searchParam, @updateData)
+        timeout.flush()
 
         Object.assign(queryParams, searchParam)
-        expect(@updateData).toHaveBeenCalledWith(queryParams)
+        expect(@updateData).toHaveBeenCalledWith queryParams
 
   describe "when scope is destroyed", ->
     beforeEach ->

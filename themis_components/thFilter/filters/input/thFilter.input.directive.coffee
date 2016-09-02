@@ -6,6 +6,7 @@ angular.module 'ThemisComponents'
       filterOptions: '='
       ngBlur: '&'
       placeholder: '@'
+      initialValue: '@'
     bindToController: true
     controllerAs: 'thFilterInput'
     template: require './thFilter.input.template.html'
@@ -27,5 +28,8 @@ angular.module 'ThemisComponents'
       return
     compile: ->
       pre: (scope, element, attrs, controller) ->
-        controller.filter = new InputFilter controller.filterOptions
+        controller.filter = new InputFilter(
+          controller.filterOptions
+          controller.initialValue
+        )
         controller.filterSet.push controller.filter

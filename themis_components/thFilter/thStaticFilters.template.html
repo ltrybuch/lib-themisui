@@ -2,23 +2,25 @@
   <div class="row">
     <div
       class="field"
-      ng-repeat="filter in thStaticFilters.staticFilters"
-      ng-switch on="filter.type"
+      ng-repeat="filter in thStaticFilters.staticFilters track by filter.filterOptions.fieldIdentifier"
+      ng-switch on="filter.filterOptions.type"
       >
       <th-filter-select
         ng-switch-when="select"
         class="field"
         filter-set="thStaticFilters.filterSet"
-        filter-options="filter"
-        with-label="{{filter.name}}"
+        filter-options="filter.filterOptions"
+        with-label="{{filter.filterOptions.name}}"
+        initial-value="{{filter.initialValue}}"
         >
       </th-filter-select>
       <th-filter-input
         ng-switch-when="input"
         class="field"
         filter-set="thStaticFilters.filterSet"
-        filter-options="filter"
-        with-label="{{filter.name}}"
+        filter-options="filter.filterOptions"
+        with-label="{{filter.filterOptions.name}}"
+        initial-value="{{filter.initialValue}}"
         >
       </th-filter-input>
     </div>

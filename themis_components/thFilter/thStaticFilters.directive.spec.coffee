@@ -101,8 +101,8 @@ describe "ThemisComponents: Directive: thStaticFilters", ->
 
   describe "when list has two elements", ->
     it "should add two filters to filter set and template", ->
-      selectfilter = new SelectFilter
-      inputFilter = new InputFilter
+      selectfilter = new SelectFilter(fieldIdentifier: 0)
+      inputFilter = new InputFilter(fieldIdentifier: 1)
       {element} = compileDirective(validTemplate, {
         options: {
           filterSet: filterSet

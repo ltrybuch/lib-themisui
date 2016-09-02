@@ -1,3 +1,7 @@
+# From NPM
+require('es6-promise').polyfill()
+
+# Local
 require './Array.find.polyfill'
 require './Array.findIndex.polyfill'
 require './Array.includes.polyfill'
