@@ -8,12 +8,18 @@ Creating a simple modal for your content is easy!
 
 2. You must inject the `ModalManager` service into your controller in order to push your modal into the queue of modals
 
-3. Use `ModalManager.show(path: "/template-path", params: {optional: params}, name: "class-name", context: {id: 100})` to add your modal and show it.
+3. Use
+  `ModalManager.show(path: "/template-path", params: {optional: params}, name: "class-name", context: {id: 100})` or `ModalManager.show(template: "<h1>Header</h1>", name: "class-name", context: {id: 100})`
+  to add your modal and show it.
 
   - **`path`**: path to the template to be used.
+  - **`template`**: string to be passed into the modal as its template
   - **`name` [optional]**: will add that name as a class to the modal
   - **`context` [optional]**: pass local data into the modal
   - **`params` [optional]**: any required params for your template.
+
+
+  Note that one of `path` or `template` must be provided.
 
 ---
 

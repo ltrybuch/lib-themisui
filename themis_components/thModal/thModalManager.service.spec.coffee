@@ -1,13 +1,14 @@
 context = describe
-describe 'ThemisComponents: Service: thModalManager', ->
-  ModalManager = httpBackend = promise = null
+describe "ThemisComponents: Service: thModalManager", ->
+  ModalManager = httpBackend = promise = $scope = null
 
   beforeEach ->
-    angular.mock.module 'ThemisComponents'
+    angular.mock.module "ThemisComponents"
 
-    inject (_ModalManager_, _$httpBackend_) ->
+    inject (_ModalManager_, _$httpBackend_, _$rootScope_) ->
       ModalManager = _ModalManager_
       httpBackend = _$httpBackend_
+      $scope = _$rootScope_.$new()
 
   afterEach ->
     httpBackend.verifyNoOutstandingExpectation()
@@ -16,16 +17,16 @@ describe 'ThemisComponents: Service: thModalManager', ->
   performAction = (template, name) ->
     promise = ModalManager.show path: template, context: {itemId: 100}, name: name || template
     if template == "validTemplate.html"
-      httpBackend.expect('GET', template).respond(200, "<h3>Hello World</h3>")
+      httpBackend.expect("GET", template).respond(200, "<h3>Hello World</h3>")
     else
-      httpBackend.expect('GET', template).respond(404, '')
+      httpBackend.expect("GET", template).respond(404, "")
     httpBackend.flush()
     promise
 
-  it 'should exist', ->
+  it "should exist", ->
     expect(ModalManager?).toBe true
 
-  describe '#show()', ->
+  describe "#show()", ->
 
     context "with valid template", ->
       beforeEach ->
@@ -35,19 +36,19 @@ describe 'ThemisComponents: Service: thModalManager', ->
         expect(promise).toBeDefined
         expect(promise.then instanceof Function).toBe true
 
-      it 'add modal to modals array', ->
+      it "add modal to modals array", ->
         expect(ModalManager._modals.length).toBe 1
 
-      it 'has correct content', ->
+      it "has correct content", ->
         expect(ModalManager._modals[0].content).toBe "<h3>Hello World</h3>"
 
-      it 'has correct name', ->
+      it "has correct name", ->
         expect(ModalManager._modals[0].name).toBe "valid"
 
-      it 'has correct context', ->
+      it "has correct context", ->
         expect(ModalManager._modals[0].context).toEqual {itemId: 100}
 
-    context 'with no name', ->
+    context "with no name", ->
 
       it "defaults name to template string", ->
         performAction("validTemplate.html", "")
@@ -55,16 +56,24 @@ describe 'ThemisComponents: Service: thModalManager', ->
 
     context "with invalid template", ->
 
-      it 'rejects template silently', ->
-        performAction("invalidTemplate.html", 'invalid')
+      it "rejects template silently", ->
+        performAction("invalidTemplate.html", "invalid")
         expect(ModalManager._modals.length).toBe 0
 
-  describe '#dismiss()', ->
+    context "with inline template", ->
+
+      it "has correct content", ->
+        inlineTemplate = "<h1>Test</h1>"
+        $scope.$apply promise = ModalManager.show template: inlineTemplate
+        expect(ModalManager._modals[0].content).toBe inlineTemplate
+
+
+  describe "#dismiss()", ->
 
     beforeEach ->
       promise = performAction("validTemplate.html", "valid")
 
-    it 'removes modal if it exists in array', ->
+    it "removes modal if it exists in array", ->
       ModalManager.dismiss("valid")
       expect(ModalManager._modals.length).toBe 0
 
@@ -79,12 +88,12 @@ describe 'ThemisComponents: Service: thModalManager', ->
       ModalManager.dismiss("valid")
       expect(promise.$$state.status).toEqual rejected
 
-  describe '#confirm()', ->
+  describe "#confirm()", ->
 
     beforeEach ->
       promise = performAction("validTemplate.html", "valid")
 
-    it 'removes modal if it exists in array', ->
+    it "removes modal if it exists in array", ->
       ModalManager.confirm("valid")
       expect(ModalManager._modals.length).toBe 0
 

@@ -1,12 +1,23 @@
-angular.module('ThemisComponents')
-  .factory 'ModalManager', ($http, $q) ->
+angular.module("ThemisComponents")
+  .factory "ModalManager", ($http, $q) ->
     modals = []
 
-    show = ({path, name, params, context} = {}) ->
-      path ?= ""; name ?= path; params ?= ""; context ?= {} # set defaults
+    show = (options = {}) ->
+      {
+        path = ""
+        name = path
+        params = ""
+        context = {}
+        template = null
+      } = options
 
       deferred = $q.defer()
-      modalPromise = $http(url: path, method: "GET", params: params)
+      modalPromise =
+        if template?
+          $q.when(data: template)
+        else
+          $http(url: path, method: "GET", params: params)
+
       modalPromise.then (response) ->
         addModal
           content: response.data
