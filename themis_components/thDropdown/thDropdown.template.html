@@ -1,30 +1,65 @@
-<div class="button-dropdown">
-  <div class="dd-overlay" ng-click="dropdown.toggle()" ng-if="dropdown.visible"></div>
+<div
+  class="button-dropdown"
+  ng-keydown="dropdown.keyboardToggle($event)"
+  tabindex="{{dropdown.visible ? '-1' : '0'}}"
+  aria-label="{{dropdown.name}}"
+  role="application"
+  >
+  <div
+    class="dd-overlay"
+    ng-click="dropdown.toggle()"
+    ng-if="dropdown.visible"
+    >
+  </div>
   <a
     ng-class="dropdown.type"
-    ng-click="dropdown.toggle()">
+    ng-click="dropdown.toggle()"
+    aria-role="button"
+    aria-haspopup="true"
+    aria-owns="{{dropdown.name|lowercase}}-listbox"
+    >
     {{dropdown.name}}
-    <i class="fa" ng-class="dropdown.toggleCaret()"></i>
+    <i
+      class="fa"
+      ng-class="dropdown.toggleCaret()"
+      >
+    </i>
   </a>
-  <div
+  <ul
+    id="{{dropdown.name|lowercase}}-listbox"
     ng-click="dropdown.toggle()"
     ng-if="dropdown.visible"
     class="dropdown-menu"
     ng-class="dropdown.type"
+    aria-role="listbox"
+    tabindex="{{dropdown.visible ? '0' : '-1'}}"
     >
-    <ng-switch on="item.type" ng-repeat="item in dropdown.processedItems">
+    <ng-switch
+      on="item.type"
+      ng-repeat="item in dropdown.processedItems"
+      >
       <th-item ng-switch-when='link'
         name="{{item.name}}"
         href="{{item.href}}"
-        icon="{{item.icon}}">
+        icon="{{item.icon}}"
+        aria-role="option"
+        ng-class="{'selected' : item.selected}"
+        >
       </th-item>
       <th-item ng-switch-when='action'
         name="{{item.name}}"
         ng-click="item.ngClick()"
-        icon="{{item.icon}}">
+        icon="{{item.icon}}"
+        aria-role="option"
+        ng-class="{'selected' : item.selected}"
+        >
       </th-item>
-      <th-divider ng-switch-default></th-divider>
+      <th-divider
+        ng-switch-default
+        aria-hidden="true"
+      >
+      </th-divider>
     </ng-switch>
     <ng-transclude></ng-transclude>
-  </div>
+  </ul>
 </div>

@@ -34,19 +34,19 @@
       background: $blue-shade;
     }
   }
-  .create {
+  a.create {
     background: $green;
     &:hover {
       background: $green-shade;
     }
   }
-  .destroy {
+  a.destroy {
     background-color: $red;
     &:hover {
       background: $red-shade;
     }
   }
-  .secondary {
+  a.secondary {
     color: $grey;
     background: $grey-80;
     &:hover {
@@ -54,7 +54,7 @@
     }
   }
 }
-.dropdown-menu {
+ul.dropdown-menu {
   position: absolute;
   z-index: $menu-plane;
   border-radius: 4px;
@@ -63,41 +63,58 @@
   background: #fff;
   min-width: 160px;
   padding: 6px;
+  list-style-type: none;
 
-  .dropdown-item {
+  li {
+    list-style: none;
+    &.warning-message {
+      a {
+        color: $red;
+      }
+    }
+  }
+
+  a.dropdown-item {
     display: block;
     text-align: left;
     padding: 8px 16px;
     border-radius: 2px;
     box-sizing: border-box;
     text-decoration: none;
+    color: $grey;
     i {
       margin-right: .5rem;
     }
 
-    &:not(.warning-message) {
-      color: $grey;
-    }
-
-    &:hover {
+    &:hover,
+    &:focus {
       background: $blue;
       color: #fff;
     }
   }
   &.create {
-    .dropdown-item:hover {
-      background: $green;
+    .dropdown-item {
+      &:hover,
+      &:focus {
+        background: $green;
+      }
     }
   }
   &.destroy {
-    .dropdown-item:hover {
-      background: $red;
+    .dropdown-item {
+      &:hover,
+      &:focus {
+        background: $red;
+      }
     }
   }
   &.secondary {
-    .dropdown-item:hover {
-      background: $grey-80;
-      color: $grey;
+    .dropdown-item {
+      &:hover,
+      &:focus {
+        background: $grey-80;
+        color: $grey;
+      }
     }
   }
 }

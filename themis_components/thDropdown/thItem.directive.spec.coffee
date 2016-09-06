@@ -13,9 +13,10 @@ describe "ThemisComponents: Directive: thItem", ->
       element = compileDirective("""<th-item name="First" href="#"><th-item>""").element
 
     it "replace directive with anchor with class 'dropdown-item'", ->
-      expect(element).not.toBe null
-      expect(element.is("a")).toBe true
-      expect(element.hasClass("dropdown-item")).toBe true
+      anchor = element.find("a")
+      expect(anchor).not.toBe null
+      expect(anchor.is("a")).toBe true
+      expect(anchor.hasClass("dropdown-item")).toBe true
 
     it "sets text of anchor with name attribute", ->
       expect(element.text()).toMatch "First"
@@ -43,12 +44,14 @@ describe "ThemisComponents: Directive: thItem", ->
       expect(element.attr('ng-click')).toMatch "action()"
 
     it "adds attr 'href' with value of '#'", ->
-      expect(element.attr("href")).toMatch "#"
+      anchor = element.find("a")
+      expect(anchor.attr("href")).toMatch "#"
 
     it "replace directive with anchor with class 'dropdown-item'", ->
-      expect(element).not.toBe null
-      expect(element.is("a")).toBe true
-      expect(element.hasClass("dropdown-item")).toBe true
+      anchor = element.find("a")
+      expect(anchor).not.toBe null
+      expect(anchor.is("a")).toBe true
+      expect(anchor.hasClass("dropdown-item")).toBe true
 
     it "add anchor element", ->
       expect(element.length).toEqual 1

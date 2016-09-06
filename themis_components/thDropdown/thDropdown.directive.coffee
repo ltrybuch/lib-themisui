@@ -1,3 +1,5 @@
+keycode = require "keycode"
+
 angular.module("ThemisComponents")
   .directive "thDropdown", ->
     restrict: "E"
@@ -11,16 +13,55 @@ angular.module("ThemisComponents")
       list: "=?"
       type: "@"
       disabled: "@"
-    controller: ($element, $attrs) ->
+    controller: ($element, $attrs, $timeout) ->
       @processedItems = []
       @list = @list ? []
       @visible = false
+      @currentItemIndex = 0
+      element = $element[0]
+
+      @keyboardToggle = (event) =>
+        unless @disabled?
+          switch event.keyCode
+            when keycode('Enter')
+              @toggle() if @visible == false
+
+            when keycode('Space')
+              if @visible == false
+                @toggle()
+                event.preventDefault()
+
+            when keycode('Escape')
+              @visible = false
+              element.focus() # set focus to the button element
+
+            when keycode('Down')
+              focusOptionInDirection('down')
+              event.preventDefault()
+
+            when keycode('Up')
+              focusOptionInDirection('up')
+              event.preventDefault()
 
       @toggle = ->
         @visible = !@visible
+        @currentItemIndex = 0
+        $timeout =>
+          element.focus() if @visible == false
 
       @toggleCaret = ->
         if @visible then 'fa-caret-up' else 'fa-caret-down'
+
+      focusOptionInDirection = (direction) =>
+        index = if direction == 'down' then @currentItemIndex + 1 else @currentItemIndex - 1
+        option = element.getElementsByClassName("dropdown-item")[index]
+        if option
+          switch direction
+            when 'down'
+              @currentItemIndex++
+            when 'up'
+              @currentItemIndex--
+          option.focus()
 
       processList = =>
         for item in @list
@@ -39,6 +80,13 @@ angular.module("ThemisComponents")
     link: (scope, elem, attr) ->
       # set button to disabled if attr passed
       elem.find("a").attr('disabled', 'disabled') if attr.disabled?
+
+      elem.on 'keyup', (event) ->
+        unless attr.disabled?
+          firstOption = elem[0].getElementsByClassName("dropdown-item")[0]
+          if event.keyCode == keycode('Enter') ||
+             event.keyCode == keycode('Space')
+            firstOption.focus()
 
       elem.on 'click', (event) ->
         menu = elem[0].getElementsByClassName("dropdown-menu")[0]
