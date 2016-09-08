@@ -255,3 +255,28 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
 
       it "should update value to alt-id", ->
         expect(hiddenFormInput.getAttribute("value")).toBe "3"
+
+  describe "when 'multiple' is enabled and user applies focus and blur to input field", ->
+    beforeEach ->
+      template = """
+       <th-autocomplete
+         delegate='delegate'
+         multiple
+         >
+       </th-autocomplete>
+      """
+      {@element} = compileDirective(
+        template
+        delegate:
+          fetchData: ({searchString}, updateData) ->
+            updateData(data)
+      )
+      timeout.flush()
+
+    it "should add and remove 'has-focus' class from container", ->
+      input = @element.querySelectorAll(".ui-select-search")
+      select = @element.querySelectorAll(".ui-select-container")
+      input.triggerHandler("focus")
+      expect(select.hasClass("has-focus")).toBe true
+      input.triggerHandler("blur")
+      expect(select.hasClass("has-focus")).toBe false

@@ -1,7 +1,10 @@
-module.exports = ({interpolateStart, interpolateEnd, valueField}) -> """
+module.exports = ({interpolateStart, interpolateEnd, valueField, multiple}) -> """
 <span
   class="th-autocomplete-wrapper"
-  ng-class="{condensed: thAutocomplete.condensed}"
+  ng-class="[
+    {condensed: thAutocomplete.condensed},
+    {multiple: thAutocomplete.multiple != null}
+  ]"
   >
   <i
     ng-if="thAutocomplete.icon"
@@ -12,6 +15,7 @@ module.exports = ({interpolateStart, interpolateEnd, valueField}) -> """
     ng-model="thAutocomplete.ngModel"
     reset-search-input="true"
     on-select="thAutocomplete.ngChange()"
+    #{multiple}
     >
     <ui-select-choices
       refresh="

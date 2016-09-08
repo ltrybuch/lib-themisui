@@ -1,7 +1,7 @@
 angular.module('thDemo', ['ThemisComponents'])
   .controller 'DemoCtrl', ->
-    @city = null
-    @cities = [
+    @cities = null
+    @cityOptions = [
       {id: 0, name: 'Toronto'}
       {id: 1, name: 'Montreal'}
       {id: 2, name: 'Calgary'}
@@ -31,7 +31,7 @@ angular.module('thDemo', ['ThemisComponents'])
           lowerCaseSearchString = searchString.toLowerCase()
 
           updateData(
-            @cities.filter (city) ->
+            @cityOptions.filter (city) ->
               city.name.toLowerCase().indexOf(lowerCaseSearchString) isnt -1
           )
         else

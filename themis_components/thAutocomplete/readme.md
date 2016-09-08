@@ -18,19 +18,24 @@ Autocomplete should be used when the list of options can be intuited by the user
 
 The `th-autocomplete` accepts the following parameters:
 
-* `ng-model` is updated to `value` when the user selects an option from the component.
+* `ng-model` (*optional*) is updated to `value` when the user selects an option from the component.
 
-* `ng-change` is called whenever `value` is updated.
+* `ng-change` (*optional*) is called whenever `value` is updated.
 
-* `placeholder` is the default text that is displayed prior to the user selecting an option.
+* `placeholder` (*optional*) is the default text that is displayed prior to the user selecting an option.
 
-* `name` is the name used when submitting `thAutocomplete` as part of a form.
+* `name` (*optional*) is the name used when submitting `thAutocomplete` as part of a form.
 
-* `icon` is the name of any
+* `icon` (*optional*) is the name of any
   [Font Awesome](https://fortawesome.github.io/Font-Awesome/icons/ "icons!")
   font. Eg. `icon="dollar"` for `fa-dollar`
 
-* `delegate` is a **required** field that represents a dictionary of arguments passed to the component.
+* `condensed` (*optional*) applies condensed styling to the component.
+
+* `multiple` (*optional*) enables multiple-selection, allowing the user to select more than
+one value. Styling is condensed by default.
+
+* `delegate` (**required**) represents a dictionary of arguments passed to the component.
 
   * `fetchData({searchString}, updateData)` (**required**)
 
