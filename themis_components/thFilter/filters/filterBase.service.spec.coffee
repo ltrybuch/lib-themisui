@@ -14,7 +14,15 @@ describe "ThemisComponents: Service: FilterBase", ->
       expect(filterBase.fieldIdentifier).toBe "id"
       expect(filterBase.name).toBe "name"
 
-  describe "#getValue", ->
+  describe "#getState", ->
     it "should throw an error when called on base class", ->
       filterBase = new FilterBase
-      expect(-> filterBase.getValue()).toThrow()
+      expect(-> filterBase.getState()).toThrow()
+
+  describe "#getMetadata", ->
+    it "should return meta data", ->
+      metadata = {sampleData: "meta"}
+      filterBase = new FilterBase {
+        metadata
+      }
+      expect(filterBase.getMetadata()).toBe metadata

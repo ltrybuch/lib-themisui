@@ -32,10 +32,13 @@ angular.module 'thDemo', ['ThemisComponents']
       ]
       pageSize: 10
       fetchData: ({currentPage, pageSize, sortHeader}, updateData) =>
-        query = @filterSet.getQueryString()
+        state = @filterSet.getState()
+        queryString = ""
+        for key in Object.keys state
+          queryString += "#{key}=#{state[key].value}&"
         $http
           method: 'GET'
-          url: "http://jsonplaceholder.typicode.com/albums?" + query
+          url: "http://jsonplaceholder.typicode.com/albums?" + queryString
         .then (response) ->
           sortedData = sort response.data, sortHeader
           start = (currentPage - 1) * pageSize

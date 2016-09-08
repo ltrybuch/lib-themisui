@@ -18,19 +18,18 @@ angular.module 'ThemisComponents'
       index = @indexOf filterBase
       @splice(index, 1) if index isnt -1
 
-    filterArray.getQueryParameters = ->
+    filterArray.getState = ->
       @reduce (paramsCollector, filter) ->
-        paramsCollector[filter.fieldIdentifier] = filter.getValue() if filter.getValue()?
+        if state = filter.getState()
+          paramsCollector[filter.fieldIdentifier] = state
         return paramsCollector
       , {}
 
-    filterArray.getQueryString = ->
-      @reduce (queryString, filter) ->
-        if filter.getValue()?
-          if queryString.length > 0
-            queryString = queryString + "&"
-          queryString = queryString + filter.fieldIdentifier + "=" + filter.getValue()
-        return queryString
-      , ""
+    filterArray.getMetadata = ->
+      @reduce (paramsCollector, filter) ->
+        if metadata = filter.getMetadata()
+          paramsCollector[filter.fieldIdentifier] = metadata
+        return paramsCollector
+      , {}
 
     return filterArray

@@ -15,9 +15,12 @@ angular.module "thDemo", ["ThemisComponents"]
         @tableDelegate.reload {currentPage: 1}
 
     @initialState =
-      userId: "3"
-      completed: "true"
-      q: "temporibus"
+      userId:
+        value: "3"
+      completed:
+        value: "true"
+      q:
+        value: "temporibus"
 
     @filterOptions = {
       filterSet: @filterSet
@@ -63,10 +66,13 @@ angular.module "thDemo", ["ThemisComponents"]
       ]
       pageSize: 10
       fetchData: ({currentPage, pageSize, sortHeader}, updateData) =>
-        query = @filterSet.getQueryString()
+        state = @filterSet.getState()
+        queryString = ""
+        for key in Object.keys state
+          queryString += "#{key}=#{state[key].value}&"
         $http
           method: "GET"
-          url: "http://jsonplaceholder.typicode.com/todos?" + query
+          url: "http://jsonplaceholder.typicode.com/todos?" + queryString
         .then (response) ->
           sortedData = sort response.data, sortHeader
           start = (currentPage - 1) * pageSize

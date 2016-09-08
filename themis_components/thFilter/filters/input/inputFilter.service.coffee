@@ -1,15 +1,19 @@
 angular.module "ThemisComponents"
 .factory "InputFilter", (FilterBase) ->
   class InputFilter extends FilterBase
-    constructor: (options = {}, initialValue) ->
+    constructor: (options = {}, initialState) ->
       super options
       @placeholder = options.placeholder
-      @model = initialValue
+      @model = initialState?.value
 
     type: "input"
 
-    getValue: =>
-      if @model?.length > 0 then @model else null
+    getState: =>
+      if @model?.length > 0
+        return {
+          value: @model
+        }
+      else return null
 
-    clearValue: =>
+    clearState: =>
       @model = null

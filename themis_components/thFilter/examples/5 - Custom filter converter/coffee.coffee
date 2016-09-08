@@ -61,24 +61,37 @@ angular.module "thDemo", ["ThemisComponents"]
 
   @filterSet = new FilterSet
     onFilterChange: =>
-      @query = @filterSet.getQueryParameters()
+      @query = @filterSet.getState()
       @filterChangeEvents += 1
     onInitialized: =>
-      @query = @filterSet.getQueryParameters()
+      @query = @filterSet.getState()
 
   @filterOptions = {
     filterSet: @filterSet
     customFilterUrl: "./json/customFields.json"
     customFilterConverter: new MyCustomFilterConverter
     initialState:
-      numeric: "<=12.34"
-      currency: ">12"
-      email: "email example text"
-      text_line: "text line example text"
-      text_area: "text area example text"
-      url: "url example text"
-      picklist: "0"
-      checkbox: "true"
+      numeric:
+        value: 12.34
+        operator: "<="
+      currency:
+        value: 12
+        operator: ">"
+      email:
+        value: "email example text"
+      text_line:
+        value: "text line example text"
+      text_area:
+        value: "text area example text"
+      url:
+        value: "url example text"
+      picklist:
+        value: "0"
+      checkbox:
+        value: "true"
+      autocomplete:
+        name: "autocomplete example text"
+        value: 123456
   }
 
   return

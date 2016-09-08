@@ -4,7 +4,7 @@ angular.module 'ThemisComponents'
     require: "^thCustomFilters"
     scope:
       rowSelectValue: "="
-      initialValue: "@"
+      initialState: "=?"
       customFilterTypes: "="
       filterSet: "="
       removeRow: "&"
@@ -34,7 +34,7 @@ angular.module 'ThemisComponents'
 
       @onRowSelectChange = =>
         $timeout =>
-          @initialValue = null
+          @initialState = null
           @rowFilterOptions = []
           @rowFilterOptions.push @rowSelectValue if @rowSelectValue?
 

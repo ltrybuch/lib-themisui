@@ -3,7 +3,7 @@
     <th-custom-filter-row
       ng-repeat="row in thCustomFilters.customFilterRows"
       row-select-value="row.type"
-      initial-value="{{row.value}}"
+      initial-state="row.initialState"
       custom-filter-types="thCustomFilters.customFilterTypes"
       filter-set="thCustomFilters.filterSet"
       remove-row="thCustomFilters.removeCustomFilterRow(row.identifier)"

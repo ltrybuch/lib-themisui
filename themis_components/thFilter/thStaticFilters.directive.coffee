@@ -25,10 +25,10 @@ angular.module "ThemisComponents"
 
       scope.thStaticFilters.staticFilters = []
       staticFilters.forEach (item) ->
-        initialValue = initialState?[item.fieldIdentifier]
+        state = initialState?[item.fieldIdentifier]
         scope.thStaticFilters.staticFilters.push
           filterOptions: item
-          initialValue: initialValue
+          initialState: state
 
       thFilterController?.registerInitPromise new Promise (resolve) ->
         $timeout -> resolve()

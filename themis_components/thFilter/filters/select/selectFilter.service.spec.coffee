@@ -42,7 +42,7 @@ describe "ThemisComponents: Service: SelectFilter", ->
           selectFilter = new SelectFilter(
             selectOptions: options
           , null
-          , "1"
+          , {value: "1"}
           )
 
         it "should set initial value", ->
@@ -54,7 +54,7 @@ describe "ThemisComponents: Service: SelectFilter", ->
           selectFilter = new SelectFilter(
             selectOptionsUrl: "/options.json"
           , null
-          , "1"
+          , {value: "1"}
           )
           spyOn selectFilter, "setOption"
 
@@ -145,13 +145,13 @@ describe "ThemisComponents: Service: SelectFilter", ->
         selectFilter.setOption "2"
         expect(selectFilter.model).toBe undefined
 
-  describe "#getValue", ->
+  describe "#getState", ->
     describe "when initialized", ->
-      it "should return undefined", ->
+      it "should return null", ->
         selectFilter = new SelectFilter
-        expect(selectFilter.getValue()).toBe undefined
+        expect(selectFilter.getState()).toBe null
 
-  describe "#clearValue", ->
+  describe "#clearState", ->
     beforeEach ->
       selectFilter = new SelectFilter
 
@@ -160,6 +160,6 @@ describe "ThemisComponents: Service: SelectFilter", ->
         selectFilter.model = {value: "test"}
 
       it "should set value to null", ->
-        expect(selectFilter.getValue()).not.toBe undefined
-        selectFilter.clearValue()
-        expect(selectFilter.getValue()).toBe undefined
+        expect(selectFilter.getState()).not.toBe null
+        selectFilter.clearState()
+        expect(selectFilter.getState()).toBe null

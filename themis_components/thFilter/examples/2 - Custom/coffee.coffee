@@ -81,10 +81,10 @@ angular.module 'thDemo', ['ThemisComponents']
       fetchData: ({sortHeader}, updateData) =>
         filteredData = data
         for filter in @filterSet
-          value = filter.getValue()
-          if value?
+          state = filter.getState()
+          if state?
             filteredData = filteredData.filter (item) ->
-              item[filter.fieldIdentifier] is value
+              item[filter.fieldIdentifier] is state.value
 
         sortedData = sort filteredData, sortHeader
         updateData {data: sortedData, totalItems: sortedData.length}

@@ -16,7 +16,7 @@ describe "ThemisComponents: Directive: thFilterSelect", ->
     <th-filter-select
       filter-set="filterSet"
       filter-options="filterOptions"
-      initial-value="two"
+      initial-state="initialState"
       >
     </th-filter-select>
   """
@@ -44,6 +44,7 @@ describe "ThemisComponents: Directive: thFilterSelect", ->
     {element, scope} = compileDirective(validTemplate, {
       filterSet
       filterOptions
+      initialState: {value: "two"}
     })
 
   it "should have 'select' element", ->
@@ -55,7 +56,7 @@ describe "ThemisComponents: Directive: thFilterSelect", ->
   it "should add filter to filter set", ->
     expect(filterSet.length).toBe 1
     expect(filterSet[0]).toBe instanceof SelectFilter
-    expect(filterSet[0].getValue()).toBe "two"
+    expect(filterSet[0].getState()).toEqual {value: "two"}
 
   describe "when value is changed", ->
     beforeEach ->
@@ -66,7 +67,7 @@ describe "ThemisComponents: Directive: thFilterSelect", ->
       select.val options[1].value
       select.triggerHandler "change"
       timeout.flush()
-      expect(filterSet[0].getValue()).toBe options[1].value
+      expect(filterSet[0].getState()).toEqual {value: options[1].value}
       expect(filterSet.onFilterChange).toHaveBeenCalled()
 
   describe "when scope is destroyed", ->
@@ -76,7 +77,7 @@ describe "ThemisComponents: Directive: thFilterSelect", ->
 
     describe "when value is undefined", ->
       beforeEach ->
-        filterSet[0].clearValue()
+        filterSet[0].clearState()
 
       it "should remove filter from filter set and not call onFilterChange", ->
         scope.$destroy()
@@ -100,6 +101,6 @@ describe "ThemisComponents: Directive: thFilterSelect", ->
       filter = angular.element(
         element.find("div")
       ).scope().thFilterSelect.filter
-      spyOn filter, "clearValue"
+      spyOn filter, "clearState"
       scope.$broadcast "th.filters.clear"
-      expect(filter.clearValue).toHaveBeenCalled()
+      expect(filter.clearState).toHaveBeenCalled()

@@ -5,7 +5,7 @@ angular.module "ThemisComponents"
       options = {}
       operatorOptions = []
       defaultOperatorIndex = 0
-      initialValue
+      initialState
     ) ->
       super options
       @placeholder = options.placeholder
@@ -18,23 +18,23 @@ angular.module "ThemisComponents"
         throw new Error "NumberFilter: must specify valid default operator index."
       @defaultOperatorIndex = defaultOperatorIndex
 
-      @clearValue()
+      @clearState()
 
-      if initialValue?
-        match = initialValue.match /(<|<=|=|>=|>)(-?(?:(?:\d*\.\d+)|(?:\d+))$)/
-        if match
-          @operator = @operatorOptions.find (item) ->
-            item.value is match[1]
-          @model = parseFloat match[2]
+      if initialState
+        @model = initialState.value
+        @operator = @operatorOptions.find (item) ->
+          item.value is initialState.operator
 
     type: "number"
 
-    getValue: =>
-      if @model?
-        @operator.value + @model
-      else
-        null
+    getState: =>
+      if @model
+        return {
+          value: @model
+          operator: @operator.value
+        }
+      else return null
 
-    clearValue: =>
+    clearState: =>
       @model = null
       @operator = @operatorOptions[@defaultOperatorIndex]

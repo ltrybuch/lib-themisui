@@ -18,18 +18,18 @@ describe "ThemisComponents: Service: InputFilter", ->
     it "should inherit from FilterBase", ->
       expect(inputFilter.prototype).toBe instanceof FilterBase
 
-  describe "#getValue", ->
+  describe "#getState", ->
     describe "when no initial value is provided", ->
       it "should return null", ->
         inputFilter = new InputFilter
-        expect(inputFilter.getValue()).toBe null
+        expect(inputFilter.getState()).toBe null
 
     describe "when initial value is provided", ->
       it "should return value", ->
-        inputFilter = new InputFilter(null, "value")
-        expect(inputFilter.getValue()).toBe "value"
+        inputFilter = new InputFilter(null, {value: "value"})
+        expect(inputFilter.getState()).toEqual {value: "value"}
 
-  describe "#clearValue", ->
+  describe "#clearState", ->
     beforeEach ->
       inputFilter = new InputFilter
 
@@ -38,6 +38,6 @@ describe "ThemisComponents: Service: InputFilter", ->
         inputFilter.model = "test"
 
       it "should set value to null", ->
-        expect(inputFilter.getValue()).not.toBe null
-        inputFilter.clearValue()
-        expect(inputFilter.getValue()).toBe null
+        expect(inputFilter.getState()).not.toBe null
+        inputFilter.clearState()
+        expect(inputFilter.getState()).toBe null

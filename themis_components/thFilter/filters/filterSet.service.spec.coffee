@@ -49,7 +49,7 @@ describe "ThemisComponents: Service: FilterSet", ->
         expect(filterSet.length).toBe 1
         expect(filterSet.toString()).toBe "1"
 
-  describe "#getQueryParameters", ->
+  describe "#getState", ->
     beforeEach ->
       filterSet = new FilterSet {
         onFilterChange: -> return
@@ -57,7 +57,7 @@ describe "ThemisComponents: Service: FilterSet", ->
 
     describe "when filter set is empty", ->
       it "should return the empty set", ->
-        expect(Object.keys(filterSet.getQueryParameters()).length).toBe 0
+        expect(Object.keys(filterSet.getState()).length).toBe 0
 
     describe "when filter set is not empty", ->
       beforeEach ->
@@ -74,16 +74,16 @@ describe "ThemisComponents: Service: FilterSet", ->
 
         describe "when filter value is undefined", ->
           it "should return the empty string", ->
-            expect(Object.keys(filterSet.getQueryParameters()).length).toBe 0
+            expect(Object.keys(filterSet.getState()).length).toBe 0
 
         describe "when filter value is defined", ->
           beforeEach ->
             selectFilter1.model = {value: "value1"}
 
           it "should return the query string", ->
-            params = filterSet.getQueryParameters()
+            params = filterSet.getState()
             expect(Object.keys(params).length).toBe 1
-            expect(params.name1).toBe "value1"
+            expect(params.name1).toEqual {value: "value1"}
 
       describe "when filter set has more than one filter", ->
         beforeEach ->
@@ -93,47 +93,51 @@ describe "ThemisComponents: Service: FilterSet", ->
           filterSet.push selectFilter2
 
         it "should return the query string", ->
-          params = filterSet.getQueryParameters()
+          params = filterSet.getState()
           expect(Object.keys(params).length).toBe 2
-          expect(params.name1).toBe "value1"
-          expect(params.name2).toBe "value2"
+          expect(params.name1).toEqual {value: "value1"}
+          expect(params.name2).toEqual {value: "value2"}
 
-  describe "#getQueryString", ->
+  describe "#getMetadata", ->
     beforeEach ->
       filterSet = new FilterSet {
         onFilterChange: -> return
       }
 
     describe "when filter set is empty", ->
-      it "should return the empty string", ->
-        expect(filterSet.getQueryString()).toBe ""
+      it "should return the empty set", ->
+        expect(Object.keys(filterSet.getMetadata()).length).toBe 0
 
     describe "when filter set is not empty", ->
       beforeEach ->
+        @metadata = {someData: "test"}
         selectFilter1 = new SelectFilter {
-          fieldIdentifier: "name"
+          fieldIdentifier: "name1"
+        }
+        selectFilter2 = new SelectFilter {
+          fieldIdentifier: "name2"
+          @metadata
         }
 
       describe "when filter set has one filter", ->
         beforeEach ->
           filterSet.push selectFilter1
 
-        describe "when filter value is undefined", ->
-          it "should return the empty string", ->
-            expect(filterSet.getQueryString()).toBe ""
+        describe "when metadata is undefined", ->
+          it "should return the empty set", ->
+            expect(Object.keys(filterSet.getMetadata()).length).toBe 0
 
-        describe "when filter value is defined", ->
+        afterEach ->
+          filterSet.remove selectFilter1
+
+        describe "when metadata is defined", ->
           beforeEach ->
-            selectFilter1.model = {value: "value"}
+            filterSet.push selectFilter2
 
-          it "should return the query string", ->
-            expect(filterSet.getQueryString()).toBe "name=value"
+          it "should return the metadata", ->
+            metadata = filterSet.getMetadata()
+            expect(Object.keys(metadata).length).toBe 1
+            expect(metadata.name2).toBe @metadata
 
-      describe "when filter set has more than one filter", ->
-        beforeEach ->
-          selectFilter1.model = {value: "value"}
-          filterSet.push selectFilter1
-          filterSet.push selectFilter1
-
-        it "should return the query string", ->
-          expect(filterSet.getQueryString()).toBe "name=value&name=value"
+          afterEach ->
+            filterSet.remove selectFilter2

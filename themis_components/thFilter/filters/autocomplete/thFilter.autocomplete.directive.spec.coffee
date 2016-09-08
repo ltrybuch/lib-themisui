@@ -170,6 +170,6 @@ describe "ThemisComponents: Directive: thFilterAutocomplete", ->
       filter = angular.element(
         @element.find("div")
       ).scope().thFilterAutocomplete.filter
-      spyOn filter, "clearValue"
+      spyOn filter, "clearState"
       @scope.$broadcast "th.filters.clear"
-      expect(filter.clearValue).toHaveBeenCalled()
+      expect(filter.clearState).toHaveBeenCalled()

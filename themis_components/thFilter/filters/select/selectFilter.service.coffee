@@ -1,7 +1,7 @@
 angular.module "ThemisComponents"
 .factory "SelectFilter", ($http, FilterBase) ->
   class SelectFilter extends FilterBase
-    constructor: (options = {}, selectOptionsOverride, initialValue) ->
+    constructor: (options = {}, selectOptionsOverride, initialState) ->
       super options
       @placeholder = options.placeholder
       @options = selectOptionsOverride or options.selectOptions or []
@@ -11,22 +11,22 @@ angular.module "ThemisComponents"
 
       if options.selectOptionsUrl?
         @model = {}
-        @model[@valueField] = initialValue
+        @model[@valueField] = initialState?.value
 
         $http
           method: 'GET'
           url: options.selectOptionsUrl
         .then (response) =>
-          @options = if options.selectOptionsCallback?
+          @options = if options.selectOptionsCallback
             options.selectOptionsCallback response.data
           else
             response.data?.data?.map (item) =>
               name: item[@nameField]
               value: item[@valueField]
 
-          if initialValue then @setOption initialValue
+          if initialState then @setOption initialState.value
       else
-        if initialValue then @setOption initialValue
+        if initialState then @setOption initialState.value
 
     type: "select"
 
@@ -34,8 +34,12 @@ angular.module "ThemisComponents"
       @model = @options.find (item) =>
         item[@valueField].toString() is value
 
-    getValue: =>
-      @model?[@valueField]
+    getState: =>
+      if @model
+        return {
+          value: @model[@valueField]
+        }
+      else return null
 
-    clearValue: =>
+    clearState: =>
       @model = null

@@ -19,7 +19,7 @@
       ng-switch-when="select"
       filter-set="thCustomFilterRow.filterSet"
       filter-options="thCustomFilterRow.rowSelectValue"
-      initial-value="{{thCustomFilterRow.initialValue}}"
+      initial-state="thCustomFilterRow.initialState"
       >
     </th-filter-select>
     <th-filter-input
@@ -27,7 +27,7 @@
       filter-set="thCustomFilterRow.filterSet"
       filter-options="thCustomFilterRow.rowSelectValue"
       ng-blur="thCustomFilterRow.filterSet.onFilterChange()"
-      initial-value="{{thCustomFilterRow.initialValue}}"
+      initial-state="thCustomFilterRow.initialState"
       >
     </th-filter-input>
     <th-filter-number
@@ -37,7 +37,7 @@
       operator-options="thCustomFilterRow.numberOperatorOptions"
       default-operator-index="2"
       ng-blur="thCustomFilterRow.filterSet.onFilterChange()"
-      initial-value="{{thCustomFilterRow.initialValue}}"
+      initial-state="thCustomFilterRow.initialState"
       >
     </th-filter-number>
     <th-filter-number
@@ -47,7 +47,7 @@
       operator-options="thCustomFilterRow.currencyOperatorOptions"
       default-operator-index="1"
       ng-blur="thCustomFilterRow.filterSet.onFilterChange()"
-      initial-value="{{thCustomFilterRow.initialValue}}"
+      initial-state="thCustomFilterRow.initialState"
       >
     </th-filter-number>
     <th-filter-select
@@ -55,7 +55,7 @@
       filter-set="thCustomFilterRow.filterSet"
       filter-options="thCustomFilterRow.rowSelectValue"
       options="thCustomFilterRow.checkboxOptions"
-      initial-value="{{thCustomFilterRow.initialValue}}"
+      initial-state="thCustomFilterRow.initialState"
       >
     </th-filter-select>
     <th-filter-input
@@ -64,7 +64,7 @@
       filter-options="thCustomFilterRow.rowSelectValue"
       ng-blur="thCustomFilterRow.filterSet.onFilterChange()"
       placeholder="email@example.com"
-      initial-value="{{thCustomFilterRow.initialValue}}"
+      initial-state="thCustomFilterRow.initialState"
       >
     </th-filter-input>
     <th-filter-input
@@ -73,13 +73,14 @@
       filter-options="thCustomFilterRow.rowSelectValue"
       ng-blur="thCustomFilterRow.filterSet.onFilterChange()"
       placeholder="webaddress.com"
-      initial-value="{{thCustomFilterRow.initialValue}}"
+      initial-state="thCustomFilterRow.initialState"
       >
     </th-filter-input>
     <th-filter-autocomplete
       ng-switch-when="autocomplete"
       filter-set="thCustomFilterRow.filterSet"
       filter-options="thCustomFilterRow.rowSelectValue"
+      initial-state="thCustomFilterRow.initialState"
       >
     </th-filter-autocomplete>
   </div>

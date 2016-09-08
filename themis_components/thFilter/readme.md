@@ -82,10 +82,15 @@ initializing.
 
 `FilterSet` extends `Array` type with the following properties:
 
-* getQueryParameters()
+* getState()
 
-  * Returns a hash representing the query parameters, where hash key is the
-  filter field.
+  * Returns a hash representing the filter state, where hash key is the
+  field identifier and value is an object representing the state of the field.
+
+* getMetadata()
+
+  * Returns a hash representing the filter metadata, where hash key is the field
+  identifier and value is the metadata passed in as part of the filter options.
 
 ### Filter options
 
@@ -98,11 +103,22 @@ All filter types require the following options:
 
   * `select`
   * `input`
+  * `number`
+  * `currency`
+  * `checkbox`
+  * `url`
+  * `email`
+  * `autocomplete`
 
 * `name` is the string representation indicating the filter type to the user.
 
 * `fieldIdentifier` indicates the name of the field in your data that the filter
 is acting on.
+
+Optional fields:
+
+* `metadata` (*optional*) specifies additional data that will be returned from
+`getMetadata()`.
 
 #### Select filter options
 
@@ -218,8 +234,12 @@ filter options in one place instead of having to specify options for each
 filter directive. As such, it accepts an `options` attribute with the following
 parameter:
 
-* `filterSet` is the `FilterSet` instance that the enclosed components will
+* `filterSet` (*required*) is the `FilterSet` instance that the enclosed components will
 modify.
+
+* `initialState` (*optional*) is a hash of key/value pairs where key is the
+`fieldIdentifier` of the field you wish to initialize and value is a hash
+representing the initial state of the field.
 
 ### `th-static-filters`
 
@@ -228,9 +248,11 @@ always visible to the user. It accepts an `options` attribute which, if
 present, overrides the `options` attribute supplied to `th-filter`. It is a
 hash consisting of the following options:
 
-* `filterSet` is the `FilterSet` instance that the component will modify.
+* `filterSet` (*required*) is the `FilterSet` instance that the component will modify.
 
-* `staticFilters` is an array of filter options hashes.
+* `initialState` (*optional*) see above.
+
+* `staticFilters` (*required*) is an array of filter options hashes.
 
 ### `th-custom-filters`
 
@@ -238,7 +260,9 @@ The `th-custom-filters` element accepts an `options` attribute which, if
 present, overrides the `options` attribute supplied to `th-filter`. It is a
 hash consisting of the following options:
 
-* `filterSet` is the `FilterSet` instance that the component will modify.
+* `filterSet` (*required*) is the `FilterSet` instance that the component will modify.
+
+* `initialState` (*optional*) see above.
 
 `th-custom-filters` *requires* one of the following two options:
 
@@ -283,6 +307,8 @@ present, overrides the `options` attribute supplied to `th-filter`. It is a
 hash consisting of the following options:
 
 * `filterSet` is the `FilterSet` instance that the component will modify.
+
+* `initialState` (*optional*) see above.
 
 * `fieldIdentifier` (*optional*) is the name of the field the search row will
 query. Defaults to "query".

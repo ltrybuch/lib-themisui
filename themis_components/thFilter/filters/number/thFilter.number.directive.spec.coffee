@@ -68,7 +68,7 @@ describe "ThemisComponents: Directive: thFilterNumber", ->
           filter-set="filterSet"
           filter-options="filterOptions"
           operator-options="operatorOptions"
-          initial-value=">-1234.56"
+          initial-state="initialState"
           >
         </th-filter-number>
       """
@@ -76,10 +76,13 @@ describe "ThemisComponents: Directive: thFilterNumber", ->
         filterSet
         filterOptions
         operatorOptions
+        initialState:
+          value: -1234.56
+          operator: ">"
       })
 
     it "should parse initial value", ->
-      expect(filterSet[0].operator.value).toBe ">"
+      expect(filterSet[0].operator.value).toEqual ">"
       expect(filterSet[0].model).toBe -1234.56
 
   describe "when value is changed", ->
@@ -94,7 +97,7 @@ describe "ThemisComponents: Directive: thFilterNumber", ->
       input.trigger keypress
       timeout.flush()
       expect(filterSet.onFilterChange).toHaveBeenCalled()
-      expect(filterSet[0].getValue()).toBe "<1000"
+      expect(filterSet[0].getState()).toEqual {value: 1000, operator: "<"}
 
   describe "when operator is changed", ->
     beforeEach ->
@@ -138,6 +141,6 @@ describe "ThemisComponents: Directive: thFilterNumber", ->
       filter = angular.element(
         element.find("div")
       ).scope().thFilterNumber.filter
-      spyOn filter, "clearValue"
+      spyOn filter, "clearState"
       scope.$broadcast "th.filters.clear"
-      expect(filter.clearValue).toHaveBeenCalled()
+      expect(filter.clearState).toHaveBeenCalled()

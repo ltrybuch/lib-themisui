@@ -5,6 +5,7 @@ angular.module 'ThemisComponents'
       filterSet: '='
       filterOptions: '='
       placeholder: '@'
+      initialState: "=?"
     bindToController: true
     controllerAs: 'thFilterAutocomplete'
     template: require './thFilter.autocomplete.template.html'
@@ -22,9 +23,12 @@ angular.module 'ThemisComponents'
       fieldIdentifier =
         @filterOptions.autocompleteOptions?.queryField or "query"
 
-      @delegate =
-        trackField: @filterOptions.autocompleteOptions?.trackField or "id"
-        displayField: @filterOptions.autocompleteOptions?.displayField or "name"
+      @displayField = @filterOptions.autocompleteOptions?.displayField or "name"
+      @trackField = @filterOptions.autocompleteOptions?.trackField or "id"
+
+      @delegate = {
+        @displayField
+        @trackField
         fetchData: ({searchString}, updateData) =>
           if searchString?.length > 1
             params = @filterOptions.autocompleteOptions.queryParams or {}
@@ -33,18 +37,24 @@ angular.module 'ThemisComponents'
               updateData collection
           else
             updateData []
+      }
 
       $scope.$on "$destroy", =>
         @filterSet.remove @filter
 
-        if @filter.getValue()?
+        if @filter.getState()?
           @filterSet.onFilterChange()
 
       $scope.$on "th.filters.clear", =>
-        @filter.clearValue()
+        @filter.clearState()
 
       return
     compile: ->
       pre: (scope, element, attrs, controller) ->
-        controller.filter = new AutocompleteFilter controller.filterOptions
+        controller.filter = new AutocompleteFilter(
+          controller.filterOptions
+          controller.initialState
+          controller.displayField
+          controller.trackField
+        )
         controller.filterSet.push controller.filter

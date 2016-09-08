@@ -10,7 +10,7 @@ describe "ThemisComponents: Directive: thFilterInput", ->
     <th-filter-input
       filter-set="filterSet"
       filter-options="filterOptions"
-      initial-value="value"
+      initial-state="initialState"
       >
     </th-filter-input>
   """
@@ -37,6 +37,7 @@ describe "ThemisComponents: Directive: thFilterInput", ->
     {element, scope} = compileDirective(validTemplate, {
       filterSet
       filterOptions
+      initialState: {value: "value"}
     })
 
   it "should have 'input' element", ->
@@ -48,7 +49,7 @@ describe "ThemisComponents: Directive: thFilterInput", ->
   it "should add filter to filter set", ->
     expect(filterSet.length).toBe 1
     expect(filterSet[0]).toBe instanceof InputFilter
-    expect(filterSet[0].getValue()).toBe "value"
+    expect(filterSet[0].getState()).toEqual {value: "value"}
 
   describe "when value is changed", ->
     beforeEach ->
@@ -58,7 +59,7 @@ describe "ThemisComponents: Directive: thFilterInput", ->
       input = element.find "input"
       input.val "test"
       input.triggerHandler "change"
-      expect(filterSet[0].getValue()).toBe "test"
+      expect(filterSet[0].getState()).toEqual {value: "test"}
       keypress = angular.element.Event("keypress")
       keypress.which = 13
       input.trigger keypress
@@ -92,6 +93,6 @@ describe "ThemisComponents: Directive: thFilterInput", ->
       filter = angular.element(
         element.find("div")
       ).scope().thFilterInput.filter
-      spyOn filter, "clearValue"
+      spyOn filter, "clearState"
       scope.$broadcast "th.filters.clear"
-      expect(filter.clearValue).toHaveBeenCalled()
+      expect(filter.clearState).toHaveBeenCalled()

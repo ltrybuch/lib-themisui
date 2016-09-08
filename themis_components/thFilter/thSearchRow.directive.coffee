@@ -26,7 +26,7 @@ angular.module 'ThemisComponents'
         throw new Error "thSearchRow: must specify 'filterSet' attribute."
       scope.thSearchRow.filterSet = filterSet
 
-      scope.thSearchRow.initialValue =
+      scope.thSearchRow.initialState =
         initialState?[scope.thSearchRow.queryFilterOptions.fieldIdentifier]
 
       thFilterController?.registerInitPromise new Promise (resolve) ->

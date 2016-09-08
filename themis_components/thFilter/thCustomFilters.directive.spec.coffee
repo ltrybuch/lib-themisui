@@ -116,8 +116,8 @@ describe "ThemisComponents: Directive: thCustomFilters", ->
           filterSet: filterSet
           customFilterUrl: "/custom_filter.json"
           initialState:
-            id0: "test"
-            idx: "unknown"
+            id0: {value: "test"}
+            idx: {value: "unknown"}
       )
       httpBackend.flush()
       directiveElement = element[0].querySelector(".th-custom-filters")
@@ -137,7 +137,7 @@ describe "ThemisComponents: Directive: thCustomFilters", ->
 
     it "should add a row for each initial known name/value pair", ->
       expect(@controller.customFilterRows.length).toBe 1
-      expect(@controller.customFilterRows[0].value).toBe "test"
+      expect(filterSet[0].getState()).toEqual {value: "test"}
 
   describe "when specifying custom filter url with converter", ->
     describe "when custom filter converter is not valid", ->

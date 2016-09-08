@@ -6,7 +6,7 @@ angular.module 'ThemisComponents'
       filterOptions: '='
       ngBlur: '&'
       placeholder: '@'
-      initialValue: '@'
+      initialState: '=?'
     bindToController: true
     controllerAs: 'thFilterInput'
     template: require './thFilter.input.template.html'
@@ -19,17 +19,17 @@ angular.module 'ThemisComponents'
       $scope.$on "$destroy", =>
         @filterSet.remove @filter
 
-        if @filter.getValue()?
+        if @filter.getState()?
           @filterSet.onFilterChange()
 
       $scope.$on "th.filters.clear", =>
-        @filter.clearValue()
+        @filter.clearState()
 
       return
     compile: ->
       pre: (scope, element, attrs, controller) ->
         controller.filter = new InputFilter(
           controller.filterOptions
-          controller.initialValue
+          controller.initialState
         )
         controller.filterSet.push controller.filter

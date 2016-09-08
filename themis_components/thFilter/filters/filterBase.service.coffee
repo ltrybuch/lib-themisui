@@ -3,13 +3,13 @@ angular.module "ThemisComponents"
   class FilterBase
     constructor: (options = {}) ->
       {
-        fieldIdentifier
-        name
+        @fieldIdentifier
+        @name
+        @metadata
       } = options
 
-      @fieldIdentifier = fieldIdentifier
-      @name = name
-
-    getValue: ->
+    getState: ->
       throw new Error "FilterBase: Subclass '#{@type}' must implement " + \
-                      "'getValue'."
+                      "'getState'."
+
+    getMetadata: -> @metadata

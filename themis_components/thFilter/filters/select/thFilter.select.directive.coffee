@@ -6,7 +6,7 @@ angular.module 'ThemisComponents'
       filterOptions: '='
       options: '='
       placeholder: '@'
-      initialValue: '@'
+      initialState: '=?'
     bindToController: true
     controllerAs: 'thFilterSelect'
     template: require './thFilter.select.template.html'
@@ -18,11 +18,11 @@ angular.module 'ThemisComponents'
       $scope.$on "$destroy", =>
         @filterSet.remove @filter
 
-        if @filter.getValue()?
+        if @filter.getState()?
           @filterSet.onFilterChange()
 
       $scope.$on "th.filters.clear", =>
-        @filter.clearValue()
+        @filter.clearState()
 
       return
     compile: ->
@@ -30,6 +30,6 @@ angular.module 'ThemisComponents'
         controller.filter = new SelectFilter(
           controller.filterOptions
           controller.options
-          controller.initialValue
+          controller.initialState
         )
         controller.filterSet.push controller.filter

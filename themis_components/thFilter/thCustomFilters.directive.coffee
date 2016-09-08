@@ -41,7 +41,7 @@ angular.module "ThemisComponents"
           @customFilterRows.push
             identifier: getNextIdentifier()
             type: type
-            value: @initialState[key]
+            initialState: @initialState[key]
 
     return
   compile: ->

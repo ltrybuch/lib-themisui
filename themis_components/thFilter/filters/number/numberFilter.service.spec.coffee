@@ -6,21 +6,6 @@ describe "ThemisComponents: Service: NumberFilter", ->
     FilterBase = _FilterBase_
     NumberFilter = _NumberFilter_
 
-  parseFilterString = (initialValue) ->
-    filter = new NumberFilter
-      placeholder: "placeholder"
-    , [
-      {name: 'a', value: '<'},
-      {name: 'b', value: '<='},
-      {name: 'c', value: '='},
-      {name: 'd', value: '>='},
-      {name: 'e', value: '>'}
-    ]
-    , 0
-    , initialValue
-
-    [filter.operator.value, filter.model]
-
   describe "#constructor", ->
     describe "when operatorOptions is not specified", ->
       it "should throw an error", ->
@@ -67,18 +52,25 @@ describe "ThemisComponents: Service: NumberFilter", ->
           expect(numberFilter.operator.value).toBe "b"
 
     describe "when initial value is specified", ->
-      it "should parse operator and value", ->
-        expect(parseFilterString("<.001")).toEqual ["<", .001]
-        expect(parseFilterString("<=-13.4")).toEqual ["<=", -13.4]
-        expect(parseFilterString("=0")).toEqual ["=", 0]
-        expect(parseFilterString(">=12.4")).toEqual [">=", 12.4]
-        expect(parseFilterString(">100000.0")).toEqual [">", 100000]
-        expect(parseFilterString()).toEqual ["<", null]
-        expect(parseFilterString("<12.13.1")).toEqual ["<", null]
-        expect(parseFilterString(">=ab")).toEqual ["<", null]
-        expect(parseFilterString("12")).toEqual ["<", null]
+      beforeEach ->
+        @filter = new NumberFilter
+          placeholder: "placeholder"
+        , [
+          {name: 'c', value: '='},
+          {name: 'd', value: '>='},
+          {name: 'e', value: '>'}
+        ]
+        , 0
+        , {
+          value: -.001
+          operator: ">="
+        }
 
-  describe "#getValue", ->
+      it "should parse operator and value", ->
+        expect(@filter.model).toBe -.001
+        expect(@filter.operator.value).toBe ">="
+
+  describe "#getState", ->
     beforeEach ->
       numberFilter = new NumberFilter {}, [
         {name: '=', value: '='},
@@ -87,31 +79,30 @@ describe "ThemisComponents: Service: NumberFilter", ->
 
     describe "when initialized", ->
       it "should return null", ->
-        expect(numberFilter.getValue()).toBe null
+        expect(numberFilter.getState()).toBe null
 
       describe "when operator is not default", ->
         beforeEach ->
           numberFilter.operator = numberFilter.operatorOptions[0]
 
         it "should return null", ->
-          expect(numberFilter.getValue()).toBe null
+          expect(numberFilter.getState()).toBe null
 
     describe "when value is not null", ->
       beforeEach ->
         numberFilter.model = "test"
 
       it "should return default operator prepended to value", ->
-        expect(numberFilter.getValue()).toBe "=test"
+        expect(numberFilter.getState()).toEqual {value: "test", operator: "="}
 
       describe "when operator is not default", ->
         beforeEach ->
           numberFilter.operator = numberFilter.operatorOptions[1]
 
         it "should return operator preprended to value", ->
-          expectedValue = numberFilter.operatorOptions[1].value + "test"
-          expect(numberFilter.getValue()).toBe expectedValue
+          expect(numberFilter.getState()).toEqual {value: "test", operator: ">"}
 
-  describe "#clearValue", ->
+  describe "#clearState", ->
     beforeEach ->
       numberFilter = new NumberFilter {}, [
         {name: '=', value: '='},
@@ -123,7 +114,7 @@ describe "ThemisComponents: Service: NumberFilter", ->
         numberFilter.model = "test"
 
       it "should set value to null", ->
-        numberFilter.clearValue()
+        numberFilter.clearState()
         expect(numberFilter.model).toBe null
 
     describe "when operator is not null", ->
@@ -131,5 +122,5 @@ describe "ThemisComponents: Service: NumberFilter", ->
         numberFilter.operator = numberFilter.operatorOptions[1]
 
       it "should set operator to default", ->
-        numberFilter.clearValue()
+        numberFilter.clearState()
         expect(numberFilter.operator.value).toBe "="
