@@ -123,6 +123,8 @@ module.exports = ($compile, $timeout) -> (target, contentCallback) ->
           '.th-switch *'
           '[th-popover-persist]'
           '.ui-select-choices-row-inner *' # Select 2 autocompleter
+          '.ui-datepicker-prev'
+          '.ui-datepicker-next'
         ]
 
         blacklist = [
