@@ -10,8 +10,7 @@ angular.module "ThemisComponents"
       @valueField = options.selectOptionsValueField or "value"
 
       if options.selectOptionsUrl?
-        @model = {}
-        @model[@valueField] = initialState?.value
+        @model = value: initialState?.value
 
         $http
           method: 'GET'
@@ -31,14 +30,12 @@ angular.module "ThemisComponents"
     type: "select"
 
     setOption: (value) =>
-      @model = @options.find (item) =>
-        item[@valueField].toString() is value
+      @model = @options.find (item) ->
+        item.value?.toString() is value
 
     getState: =>
       if @model
-        return {
-          value: @model[@valueField]
-        }
+        return value: @model.value
       else return null
 
     clearState: =>
