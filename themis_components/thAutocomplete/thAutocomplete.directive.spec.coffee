@@ -166,6 +166,16 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
       describe "when user selects another option", ->
         testSelectOption data[1]
 
+    describe "when user selects the same option", ->
+      it "should not call 'ngChange'", ->
+        selectItem data[0]
+        timeout.flush()
+        expect(onChangeSpy).toHaveBeenCalled()
+        onChangeSpy.calls.reset()
+        selectItem data[0]
+        timeout.flush()
+        expect(onChangeSpy).not.toHaveBeenCalled()
+
   describe 'when displayField is not specified', ->
     beforeEach ->
       {element, scope} = compileDirective(
@@ -223,9 +233,11 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
           fetchData: ({searchString}, updateData) -> return
       )
 
-    it 'does not specify what to track by', ->
+    it 'tracks by item.id', ->
       selectChoices = element[0].querySelector('.ui-select-choices')
-      expect(selectChoices.getAttribute('repeat')).toEqual 'item in thAutocomplete.data'
+      expect(selectChoices.getAttribute('repeat')).toEqual(
+        'item in thAutocomplete.data track by item.id'
+      )
 
   describe 'when trackField is specified', ->
     beforeEach ->

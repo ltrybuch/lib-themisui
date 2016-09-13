@@ -15,33 +15,38 @@ angular.module 'ThemisComponents'
 
     controller: ->
       @data = []
+      @lastValue = null
 
       @updateData = (data) =>
         throw new Error "UpdateData: data must be of type Array" unless data instanceof Array
         @data = data
 
+      @onSelect = ->
+        if @lastValue isnt @ngModel?[@trackField]
+          @lastValue = @ngModel?[@trackField]
+          @ngChange?()
+
       return
 
     link: (scope, element, attrs, controller) ->
+      multiple = controller.multiple?
       delegate = controller.delegate
       unless delegate?.fetchData instanceof Function
         throw new Error "thAutocomplete delegate needs to be passed the following function: " + \
                         "fetchData: ({searchTerm}, updateData) ->"
 
-      multiple = controller.multiple?
+      controller.trackField = delegate.trackField ? "id"
 
       template = (require "./thAutocomplete.template")({
         interpolateStart: $interpolate.startSymbol()
         interpolateEnd: $interpolate.endSymbol()
-        valueField: delegate.trackField ? "id"
+        valueField: controller.trackField
         multiple: if multiple then "multiple" else ""
       })
       templateElement = angular.element template
 
       # Add repeat attribute to ui-select-choices element.
-      repeatExpression = 'item in thAutocomplete.data'
-      if delegate.trackField?
-        repeatExpression += " track by item.#{delegate.trackField}"
+      repeatExpression = "item in thAutocomplete.data track by item.#{controller.trackField}"
 
       selectChoicesElement = templateElement.find 'ui-select-choices'
       selectChoicesElement.attr(

@@ -14,7 +14,7 @@ module.exports = ({interpolateStart, interpolateEnd, valueField, multiple}) -> "
   <ui-select
     ng-model="thAutocomplete.ngModel"
     reset-search-input="true"
-    on-select="thAutocomplete.ngChange()"
+    on-select="thAutocomplete.onSelect()"
     #{multiple}
     >
     <ui-select-choices
