@@ -23,6 +23,15 @@
         initial-state="filter.initialState"
         >
       </th-filter-input>
+      <th-filter-autocomplete
+        ng-switch-when="autocomplete"
+        class="field"
+        filter-set="thStaticFilters.filterSet"
+        filter-options="filter.filterOptions"
+        with-label="{{filter.filterOptions.name}}"
+        initial-value="{{filter.initialValue}}"
+        >
+      </th-filter-autocomplete>
     </div>
   </div>
 </div>
