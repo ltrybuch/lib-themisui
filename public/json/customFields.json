@@ -59,5 +59,10 @@
     "name": "url",
     "field_type": "url",
     "id": "11"
+  },
+  {
+    "name": "date",
+    "field_type": "date",
+    "id": "12"
   }
 ]

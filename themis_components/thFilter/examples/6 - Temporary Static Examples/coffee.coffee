@@ -21,8 +21,6 @@ angular.module "thDemo", ["ThemisComponents"]
   .controller "DemoController", (
     FilterSet
   ) ->
-    @filterChangeEvents = 0
-
     filterTypes = [
       {
         name: "Repo"
@@ -33,12 +31,16 @@ angular.module "thDemo", ["ThemisComponents"]
           modelClass: "Repo"
           queryField: "searchString"
       }
+      {
+        name: "Date"
+        type: "date"
+        fieldIdentifier: "exampleDate"
+      }
     ]
 
     @filterSet = new FilterSet
       onFilterChange: =>
         @query = @filterSet.getState()
-        @filterChangeEvents += 1
 
     @filterOptions = {
       filterSet: @filterSet

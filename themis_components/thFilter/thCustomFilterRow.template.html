@@ -83,6 +83,12 @@
       initial-state="thCustomFilterRow.initialState"
       >
     </th-filter-autocomplete>
+    <th-filter-date
+      ng-switch-when="date"
+      filter-set="thCustomFilterRow.filterSet"
+      filter-options="thCustomFilterRow.rowSelectValue"
+      >
+    </th-filter-date>
   </div>
   <div class="field">
     <div class="link" ng-click="thCustomFilterRow.removeRow()">

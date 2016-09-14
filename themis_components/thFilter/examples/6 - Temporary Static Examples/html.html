@@ -1,9 +1,8 @@
-<html ng-app="thDemo" class="th-example-height-200">
+<html ng-app="thDemo" class="th-example-height-500">
   <body ng-controller="DemoController as demo" class="no-horizontal-padding">
 
     <th-filter options="demo.filterOptions">
       <th-static-filters></th-static-filters>
-      <div># of change events: <code>{{demo.filterChangeEvents}}</code></div>
       <div ng-if="demo.query">
         <br>
         Query parameters:

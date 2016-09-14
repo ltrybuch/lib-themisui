@@ -1,4 +1,5 @@
 require './autocomplete/'
+require './date/'
 require './input/'
 require './number/'
 require './select/'

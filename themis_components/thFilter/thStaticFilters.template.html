@@ -23,6 +23,14 @@
         initial-state="filter.initialState"
         >
       </th-filter-input>
+      <th-filter-date
+        ng-switch-when="date"
+        class="field"
+        filter-set="thStaticFilters.filterSet"
+        filter-options="filter.filterOptions"
+        with-label="{{filter.filterOptions.name}}"
+        >
+      </th-filter-date>
       <th-filter-autocomplete
         ng-switch-when="autocomplete"
         class="field"

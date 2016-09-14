@@ -13,7 +13,7 @@ angular.module "thDemo", ["ThemisComponents"]
               "input"
             when "numeric"
               "number"
-            when "checkbox", "email", "url", "currency", "autocomplete"
+            when "checkbox", "email", "url", "currency", "autocomplete", "date"
               item.field_type
             else
               throw new Error "unsupported field_type"
