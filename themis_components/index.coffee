@@ -3,7 +3,7 @@ require '../polyfills/'
 
 angular.module 'ThemisComponents', [
   require 'angular-animate'
-  require './thDatePicker/angular-datepicker'
+  require 'angular-datepicker'
   require 'angular-messages'
   require 'angular-sanitize'
   require 'ui-select'
