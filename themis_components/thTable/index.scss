@@ -23,6 +23,10 @@ th-table {
     font-size: inherit;
     margin-bottom: $th-table-margin-bottom;
 
+    tbody {
+      border-bottom: 1px solid #d9dada;
+    }
+
     th, td {
       max-width: 255px;
       word-wrap: break-word;
@@ -76,15 +80,19 @@ th-table {
       }
     }
 
+    tr {
+      border-top: 1px solid #d9dada;
+
+      &.th-table-cells-row + .th-table-actions-row {
+        border-top: none;
+      }
+    }
+
     td {
       border: 0 none;
       color: $light-grey;
       margin: 0;
       vertical-align: top;
-    }
-
-    .th-table-border-bottom {
-      border-bottom: 1px solid #d9dada;
     }
 
     .th-table-hover-row {

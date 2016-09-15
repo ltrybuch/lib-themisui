@@ -58,12 +58,20 @@ angular.module 'ThemisComponents'
         currentSortHeader.deactivateSort() if currentSortHeader?
         currentSortHeader = newSortHeader
 
+    setVisibleColumns = (visibleColumns) ->
+      unless visibleColumns.length == headers.length
+        throw new Error "Array length does not match the number of columns."
+      visibleColumns.forEach (visibility, index) ->
+        headers[index].visible = visibility
+
     reload()
 
     return Object.freeze {
       headers
 
       reload
+
+      setVisibleColumns
 
       getData: -> data
 

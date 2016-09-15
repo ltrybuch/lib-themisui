@@ -9,6 +9,7 @@ TableHeader = (options = {}) ->
     sortActive = false
     sortDirection = "ascending"
     align = "left"
+    visible = true
   } = options
 
   if sortActive and not sortField?
@@ -22,10 +23,11 @@ TableHeader = (options = {}) ->
 
   opposite = ascending: "descending", descending: "ascending"
 
-  return Object.freeze {
+  return {
     name
     sortField
     width
+    visible
 
     cssClasses: ->
       classes = []

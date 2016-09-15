@@ -18,7 +18,9 @@ angular.module 'ThemisComponents'
           <tr>
             <th ng-repeat="header in thTable.delegate.headers track by $index"
                 ng-class="header.cssClasses()"
-                ng-click="thTable.delegate.sortData(header)">
+                ng-show="header.visible"
+                ng-click="thTable.delegate.sortData(header)"
+                >
               #{interpolateStart}header.name#{interpolateEnd}
               <span class="th-table-sort-icon" aria-hidden="true"></span>
             </th>
@@ -30,9 +32,9 @@ angular.module 'ThemisComponents'
       hasSetWidth = (headers.filter (header) -> header.width?).length > 0
       return "" unless hasSetWidth
       return headers
-        .map (header) ->
+        .map (header, index) ->
           width = if header.width then "style='width: #{header.width}'" else ""
-          """<col #{width}>"""
+          """<col ng-show="thTable.delegate.headers[#{index}].visible" #{width}>"""
         .join ''
 
     generateBodyTemplate = (rows) ->
@@ -52,45 +54,50 @@ angular.module 'ThemisComponents'
 
     generateCellsRowTemplate = (cellsRow, hasActionsRow) ->
       ngRepeat = if hasActionsRow then "ng-repeat-start" else "ng-repeat"
-      borderBottomClass = "th-table-border-bottom" unless hasActionsRow
       objectReference = getObjectReference cellsRow
       cells = childrenArray(cellsRow)
-                .map (cell) -> generateCellTemplate cell
+                .map (cell, index) ->
+                  generateCellTemplate cell, index
                 .join ''
+
       return """
-        <tr class="th-table-cells-row #{borderBottomClass}"
+        <tr class="th-table-cells-row"
             #{ngRepeat}="#{objectReference} in thTable.delegate.getData()"
             ng-mouseover="hover = true"
             ng-mouseleave="hover = false"
-            ng-class="{'th-table-hover-row': hover}">
+            ng-class="{'th-table-hover-row': hover}"
+            >
           #{cells}
         </tr>
       """
 
-    generateCellTemplate = (cell) ->
+    generateCellTemplate = (cell, index) ->
       return """
-        <td>#{cell.innerHTML}</td>
+        <td ng-if="thTable.delegate.headers[#{index}].visible">
+          #{cell.innerHTML}
+        </td>
       """
 
     generateActionsRowTemplate = (actionsRow, numColumns) ->
       return "" unless actionsRow?
       startColumn = parseInt (actionsRow.getAttribute('start-column') ? 1), 10
       colspan = numColumns - startColumn + 1
-      actions = [1 ... startColumn]
-                  .map -> """<td class="th-table-actions-cell"></td>"""
-                  .join ''
-                  .concat """
-                    <td class="th-table-actions-cell" colspan=#{colspan}>
-                      #{actionsRow.innerHTML}
-                    </td>
-                  """
       return """
-        <tr class="th-table-actions-row th-table-border-bottom"
+        <tr class="th-table-actions-row"
             ng-repeat-end
             ng-mouseover="hover = true"
             ng-mouseleave="hover = false"
-            ng-class="{'th-table-hover-row': hover}">
-          #{actions}
+            ng-class="{'th-table-hover-row': hover}"
+            ng-show="thTable.delegate.headers[#{startColumn - 1}].visible"
+            >
+            <td class="th-table-actions-cell"
+                ng-repeat="header in thTable.delegate.headers track by $index"
+                ng-show="header.visible"
+                >
+                <span ng-if="#{startColumn - 1} == $index">
+                  #{actionsRow.innerHTML}
+                </span>
+            </td>
         </tr>
       """
 
@@ -98,7 +105,8 @@ angular.module 'ThemisComponents'
       contents = noDataRow.innerHTML ? "No Results"
       return """
         <tr class="th-table-no-data-row"
-            ng-if="thTable.delegate.hasNoData()">
+            ng-if="thTable.delegate.hasNoData()"
+            >
           <td colspan="#{numColumns}">
             #{contents}
           </td>
@@ -166,7 +174,8 @@ angular.module 'ThemisComponents'
         cols = generateColTemplate()
         return """
           <div ng-class="{'th-table-loading': thTable.delegate.isLoading(),
-                          'th-table-blank': thTable.delegate.getData().length === 0}">
+                          'th-table-blank': thTable.delegate.getData().length === 0}"
+                          >
             <table class="th-table">
               #{cols}
               #{thead}

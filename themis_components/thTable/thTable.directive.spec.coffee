@@ -4,11 +4,12 @@
 context = describe
 
 describe "ThemisComponents: Directive: thTable", ->
-  SimpleTableDelegate = element = null
+  SimpleTableDelegate = TableHeader = element = null
 
   beforeEach angular.mock.module 'ThemisComponents'
-  beforeEach inject (_SimpleTableDelegate_) ->
+  beforeEach inject (_SimpleTableDelegate_, _TableHeader_) ->
     SimpleTableDelegate = _SimpleTableDelegate_
+    TableHeader = _TableHeader_
 
   it "renders a simple table", ->
     data = [
@@ -18,7 +19,15 @@ describe "ThemisComponents: Directive: thTable", ->
 
     fetchData = (options, updateData) -> updateData {data}
 
-    tableDelegate = SimpleTableDelegate {fetchData}
+    tableDelegate = SimpleTableDelegate {
+      headers: [
+        TableHeader
+          name: 'First'
+        TableHeader
+          name: 'Second'
+      ]
+      fetchData
+    }
 
     {element} = compileDirective """
       <th-table delegate="tableDelegate">
@@ -46,7 +55,13 @@ describe "ThemisComponents: Directive: thTable", ->
 
     fetchData = (options, updateData) -> updateData {data}
 
-    tableDelegate = SimpleTableDelegate {fetchData}
+    tableDelegate = SimpleTableDelegate {
+      headers: [
+        TableHeader
+          name: 'First'
+      ]
+      fetchData
+    }
     outsider = "outsideValue"
 
     {element} = compileDirective """

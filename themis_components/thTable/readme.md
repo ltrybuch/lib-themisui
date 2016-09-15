@@ -258,6 +258,9 @@ that you can use:
 * `goToPage(pageIndex)`
   * Manually navigate to the specified page.
 
+* `setVisibleColumns([true, true, false])`
+  * Toggle which columns you want to be visible by passing in an array of either
+    `true` or `false` values. Array length must match the number of columns.
 
 
 ## TableHeader

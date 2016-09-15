@@ -165,3 +165,30 @@ describe 'ThemisComponents: Service: thTableDelegate', ->
       expectedSortHeader = headers[0]
       delegate.sortData expectedSortHeader
       expect(numCalled).toBe 2
+
+  describe '#setVisibleColumns', ->
+    context "given column 2 having initial visibility of false", ->
+      it "changes the visibility of column 2 to true", ->
+        called = false
+        headers = [
+          TableHeader {name: 'First', visible: true}
+          TableHeader {name: 'Second', visible: false}
+        ]
+        fetchData = (options, updateData) ->
+          called = true
+        delegate = TableDelegate {fetchData, headers}
+        delegate.setVisibleColumns([true, true])
+        expect(delegate.headers[1].visible).toBe true
+
+    it 'throws an error if array length does not match number of columns', ->
+      called = false
+      headers = [
+        TableHeader {name: 'First', visible: true}
+        TableHeader {name: 'Second', visible: false}
+      ]
+      fetchData = (options, updateData) ->
+        called = true
+      delegate = TableDelegate {fetchData, headers}
+      expect(->
+        delegate.setVisibleColumns([true])
+      ).toThrow()
