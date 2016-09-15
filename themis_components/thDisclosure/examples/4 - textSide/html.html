@@ -1,0 +1,32 @@
+<html ng-app="thDemo">
+  <body
+    style="height: 25px;"
+    ng-controller="DemoCtrl as demo"
+    >
+    <th-disclosure-toggle
+      name="left-name"
+      expanded="demo.leftExpanded"
+      text-side="left"
+      >
+      Left side
+    </th-disclosure-toggle>
+    <th-disclosure-content
+      name="left-name"
+      >
+      Left hidden text
+    </th-disclosure-content>
+    <br>
+    <th-disclosure-toggle
+      name="right-name"
+      expanded="demo.rightExpanded"
+      text-side="right"
+      >
+      Right side
+    </th-disclosure-toggle>
+    <th-disclosure-content
+      name="right-name"
+      >
+      Right hidden text
+    </th-disclosure-content>
+  </body>
+</html>

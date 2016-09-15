@@ -1,0 +1,30 @@
+<html ng-app="thDemo">
+  <body
+    style="height: 25px;"
+    ng-controller="DemoCtrl as demo"
+    >
+
+    <th-button
+      ng-click="demo.toggle()"
+      style="margin-bottom: 20px;"
+      >
+      {{demo.disabled ? 'Enable Disclosure' : 'Disable Disclosure' }}
+    </th-button>
+
+    <br>
+
+    <th-disclosure-toggle
+      name="unique-name"
+      ng-disabled="demo.disabled"
+      expanded="demo.expanded"
+      >
+      Show hidden text
+    </th-disclosure-toggle>
+    <th-disclosure-content
+      name="unique-name"
+      >
+      Hidden text
+    </th-disclosure-content>
+
+  </body>
+</html>

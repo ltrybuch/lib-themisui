@@ -1,7 +1,15 @@
 <a href ng-click="thDisclosureToggle.toggle()">
-  <ng-transclude></ng-transclude>
-  <span class="fa fa-caret-right"
-        ng-class="{'fa-caret-right-rotated': thDisclosureToggle.expanded}"
-        aria-hidden="true">
+  <ng-transclude
+    ng-if="thDisclosureToggle.textSide == 'left'"
+    >
+  </ng-transclude>
+  <span
+    class="fa fa-caret-right"
+    ng-class="{'fa-caret-right-rotated': thDisclosureToggle.expanded}"
+    aria-hidden="true">
   </span>
+  <ng-transclude
+    ng-if="thDisclosureToggle.textSide == 'right'"
+    >
+  </ng-transclude>
 </a>

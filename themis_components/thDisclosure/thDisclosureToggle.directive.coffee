@@ -5,13 +5,18 @@ angular.module 'ThemisComponents'
     scope:
       name: '@'
       expanded: '=?'
+      ngDisabled: '=?'
+      textSide: '@'
     template: require './thDisclosureToggle.template.html'
     bindToController: true
     controllerAs: 'thDisclosureToggle'
     controller: ($scope) ->
 
+      @textSide ||= 'left'
+
       @toggle = =>
-        DisclosureManager.updateState @name, not @expanded
+        unless @ngDisabled
+          DisclosureManager.updateState @name, not @expanded
 
       DisclosureManager.registerDisclosureToggle @name, {
         handleOpen: =>

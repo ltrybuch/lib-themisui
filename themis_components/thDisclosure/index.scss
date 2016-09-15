@@ -21,4 +21,24 @@ th-disclosure-toggle {
     -ms-transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
   }
+
+  a {
+    text-decoration: none;
+
+    &:visited {
+      color: inherit;
+    }
+  }
+
+  &[disabled] {
+    opacity: 0.6;
+
+    a {
+      cursor: default;
+
+      &:active {
+        color: inherit;
+      }
+    }
+  }
 }
