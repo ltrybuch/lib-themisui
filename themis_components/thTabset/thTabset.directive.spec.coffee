@@ -3,7 +3,8 @@
 } = require "spec_helpers"
 
 describe 'ThemisComponents: Directive: thTabset', ->
-  element = validTemplate = ngClickTemplate = scope = null
+  element = validTemplate = ngClickTemplate = scope = tabs = null
+  badgeValue = 99
   validTemplate = """
     <div th-tabset>
       <div th-tab name="Tab One">
@@ -27,6 +28,13 @@ describe 'ThemisComponents: Directive: thTabset', ->
   activeTabTemplate = """
     <div th-tabset active-tab="activeTabName">
       <div th-tab name="Tab One"></div>
+      <div th-tab name="Tab Two"></div>
+    </div>
+  """
+
+  badgeTemplate = """
+    <div th-tabset>
+      <div th-tab name="Tab One" badge="#{badgeValue}"></div>
       <div th-tab name="Tab Two"></div>
     </div>
   """
@@ -81,3 +89,16 @@ describe 'ThemisComponents: Directive: thTabset', ->
       scope.$apply -> scope.activeTabName = "Tab One"
       expect(tabs.first().hasClass('active')).toBe true
       expect(tabs.last().hasClass('active')).toBe false
+
+  describe "with 'badge' attribute set", ->
+    beforeEach ->
+      {element, scope} = compileDirective badgeTemplate
+      tabs = element.find(".th-tab-bar a")
+
+    it "creates a badge element", ->
+      firstTabBadge = tabs.first().find("span")
+      secondTabBadge = tabs.last().find("span")
+
+      expect(firstTabBadge.length).toBe 1
+      expect(parseInt firstTabBadge.text()).toBe badgeValue
+      expect(secondTabBadge.length).toBe 0

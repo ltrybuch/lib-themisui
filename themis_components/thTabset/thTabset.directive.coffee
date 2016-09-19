@@ -1,4 +1,5 @@
-angular.module('ThemisComponents')
+angular
+  .module('ThemisComponents')
   .directive "thTabset", ->
     restrict: "EA"
     replace: true
@@ -31,6 +32,9 @@ angular.module('ThemisComponents')
 
       $scope.setActiveTab = ->
         $scope.activateTab tab for tab in tabs when tab.name is $scope.activeTab
+
+      $scope.hasBadge = (tab) ->
+        tab.badge?
 
       @addTab = (tab) ->
         $scope.activateTab tab if tabs.length is 0

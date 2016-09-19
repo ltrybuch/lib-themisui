@@ -8,6 +8,9 @@
         class="tab-name"
         >
         {{ tab.name }}
+        <span class="th-tab-badge" ng-if="hasBadge(tab)">
+          {{ tab.badge }}
+        </span>
       </a>
       <div
         class="th-tab-action-bar"

@@ -1,4 +1,5 @@
-angular.module('ThemisComponents')
+angular
+  .module('ThemisComponents')
   .directive "thTab", ->
     require: "^thTabset"
     restrict: "EA"
@@ -7,6 +8,7 @@ angular.module('ThemisComponents')
     scope:
       name: "@name"
       ngClick: "&"
+      badge: "<"
     link: (scope, element, attrs, controller) ->
       scope.active = no
       controller.addTab scope

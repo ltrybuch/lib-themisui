@@ -9,6 +9,7 @@ Any content inside of `th-tab` will be the content of that tab.
 
 ## Attributes
 
+#### thTab
 [name="string"]
 - `name` is used as the label for the tab bar. This is not required but the tab
 will not be visible in the tab bar without a name.
@@ -19,6 +20,10 @@ using `ng-click`. Using `ng-click` will not effect the normal usage of `thTabset
 but just allow a click event to attach to. See example 3 below.
 [Angular docs](https://docs.angularjs.org/api/ng/directive/ngClick)
 
+[badge="number" | "string"]
+- Optional: `badge` allows a value to be displayed as a badge beside the tab. See example 7 below.
+
+#### thTabSet
 [type="string"]
 - `type` allows you to modify the `thTabset` styling based on it's intended purpose.
 Current options include `header` and `sub-header`.

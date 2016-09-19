@@ -23,6 +23,11 @@
         color: $grey;
         @include gibson-semibold;
         border-color: $blue;
+
+        .th-tab-badge {
+          color: $white;
+          background: $grey;
+        }
       }
     }
   }
@@ -60,5 +65,21 @@
     .button-dropdown {
       margin-left: 6px;
     }
+  }
+
+  .th-tab-badge {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 3px 8px;
+
+    color: $grey;
+    font-size: 0.7896em;
+    line-height: 14px;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    white-space: nowrap;
+    vertical-align: baseline;
+
+    border-radius: $border-radius;
+    background: $light-grey-2;
   }
 }
