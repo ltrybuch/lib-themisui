@@ -92,7 +92,12 @@ angular.module 'ThemisComponents'
             >
             <td class="th-table-actions-cell"
                 ng-repeat="header in thTable.delegate.headers track by $index"
-                ng-show="header.visible"
+                ng-if="header.visible &&
+                       #{startColumn - 1} >= $index &&
+                       thTable.delegate.headers[#{startColumn - 1}].visible"
+                colspan="#{interpolateStart}
+                           #{startColumn - 1} == $index ? #{colspan} : 1
+                         #{interpolateEnd}"
                 >
                 <span ng-if="#{startColumn - 1} == $index">
                   #{actionsRow.innerHTML}
