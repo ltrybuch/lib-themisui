@@ -65,7 +65,7 @@ describe "ThemisComponents: Directive: thFilterTime", ->
         onFilterChange: -> return
       }
       @initialState =
-        value: "6:21 PM"
+        value: "16:21"
         operator: ">"
 
       {element, scope} = compileDirective("""

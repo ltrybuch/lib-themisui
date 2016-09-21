@@ -59,7 +59,7 @@ angular.module "ThemisComponents"
       getState: =>
         if @time
           return {
-            value: @model
+            value: @time.format "H:mm"
             operator: @operator.value
           }
         else return null

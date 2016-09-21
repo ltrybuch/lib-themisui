@@ -57,7 +57,7 @@ describe "ThemisComponents: Service: TimeFilter", ->
     describe "when initial value is specified", ->
       beforeEach ->
         @initialState =
-          value: "12:01 PM"
+          value: "12:01"
           operator: ">"
 
         @filter = new TimeFilter {}, defaultOperators, 0, @initialState
@@ -108,16 +108,17 @@ describe "ThemisComponents: Service: TimeFilter", ->
       beforeEach ->
         timeFilter.time = {}
         timeFilter.model = "123"
+        timeFilter.validate()
 
       it "should return value and default operator", ->
-        expect(timeFilter.getState()).toEqual {value: "123", operator: "<"}
+        expect(timeFilter.getState()).toEqual {value: "12:03", operator: "<"}
 
       describe "when operator is not default", ->
         beforeEach ->
           timeFilter.operator = timeFilter.operatorOptions[1]
 
         it "should return value and operator", ->
-          expect(timeFilter.getState()).toEqual {value: "123", operator: "="}
+          expect(timeFilter.getState()).toEqual {value: "12:03", operator: "="}
 
   describe "#clearState", ->
     beforeEach ->
