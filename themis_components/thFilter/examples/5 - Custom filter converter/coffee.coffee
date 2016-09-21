@@ -13,7 +13,7 @@ angular.module "thDemo", ["ThemisComponents"]
               "input"
             when "numeric"
               "number"
-            when "checkbox", "email", "url", "currency", "autocomplete", "date"
+            when "checkbox", "email", "url", "currency", "autocomplete", "date", "time"
               item.field_type
             else
               throw new Error "unsupported field_type"
@@ -92,9 +92,12 @@ angular.module "thDemo", ["ThemisComponents"]
       autocomplete:
         name: "autocomplete example text"
         value: 123456
+      time:
+        value: "10:01 AM"
+        operator: ">"
       date:
         value: "2016-09-19T11:05:00-06:00"
-        operator: "="
+        operator: "<"
   }
 
   return

@@ -1,0 +1,19 @@
+<div class="inner">
+  <th-select
+    ng-model="thFilterTime.filter.operator"
+    ng-change="thFilterTime.onOperatorChange()"
+    options="thFilterTime.operatorOptions"
+    condensed="true"
+    class="operator"
+    >
+  </th-select>
+  <th-input
+    ng-model="thFilterTime.filter.model"
+    ng-attr-placeholder="{{thFilterTime.filter.placeholder || '4am, 16:13'}}"
+    ng-keypress="thFilterTime.onKeypress($event)"
+    ng-blur="thFilterTime.validateInput()"
+    condensed="true"
+    class="value"
+    >
+  </th-input>
+</div>

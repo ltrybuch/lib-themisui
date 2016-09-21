@@ -62,9 +62,11 @@ angular.module 'thDemo', ['ThemisComponents']
           _limit: pageSize
           _start: (currentPage - 1) * pageSize
           _end: ((currentPage - 1) * pageSize) + pageSize
-        searchString = @filterSet.getQueryString()
+        state = @filterSet.getState()
+        for k in Object.keys(state)
+          params[k] = state[k].value
 
-        queryString = "#{generateQueryString(params)}&#{searchString}"
+        queryString = generateQueryString(params)
         $http.get("http://jsonplaceholder.typicode.com/posts?#{queryString}")
           .then (response) ->
             data = response.data

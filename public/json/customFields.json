@@ -15,6 +15,11 @@
     }
   },
   {
+    "name": "date",
+    "field_type": "date",
+    "id": "2"
+  },
+  {
     "name": "email",
     "field_type": "email",
     "id": "3"
@@ -56,13 +61,13 @@
     "id": "9"
   },
   {
+    "name": "time",
+    "field_type": "time",
+    "id": "10"
+  },
+  {
     "name": "url",
     "field_type": "url",
     "id": "11"
-  },
-  {
-    "name": "date",
-    "field_type": "date",
-    "id": "12"
   }
 ]
