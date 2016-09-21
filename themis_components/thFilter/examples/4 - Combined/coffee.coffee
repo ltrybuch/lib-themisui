@@ -10,17 +10,11 @@ angular.module "thDemo", ["ThemisComponents"]
 
     @filterSet = new FilterSet
       onFilterChange: =>
+        @query = @filterSet.getState()
         @tableDelegate.reload {currentPage: 1}
       onInitialized: =>
+        @query = @filterSet.getState()
         @tableDelegate.reload {currentPage: 1}
-
-    @initialState =
-      userId:
-        value: "3"
-      completed:
-        value: "true"
-      q:
-        value: "temporibus"
 
     @filterOptions = {
       filterSet: @filterSet
@@ -44,7 +38,11 @@ angular.module "thDemo", ["ThemisComponents"]
           {name: "False", value: "false"}
         ]
       ]
-      @initialState
+      initialState:
+        completed:
+          value: "true"
+        q:
+          value: "temporibus"
     }
 
     @tableDelegate = SimpleTableDelegate
