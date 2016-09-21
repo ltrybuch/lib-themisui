@@ -31,6 +31,11 @@ angular.module 'ThemisComponents'
         {name: "Exactly", value: "="}
         {name: "More than", value: ">"}
       ]
+      @dateOperatorOptions = [
+        {name: "Before", value: "<"}
+        {name: "On", value: "="}
+        {name: "After", value: ">"}
+      ]
 
       @onRowSelectChange = =>
         $timeout =>

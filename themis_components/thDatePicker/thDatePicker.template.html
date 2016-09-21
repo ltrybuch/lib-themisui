@@ -2,7 +2,7 @@
   <div th-input
     ng-model="datepicker.inputFieldString"
     type="text"
-    placeholder="YYYY-MM-DD"
+    placeholder="{{datepicker.dateFormat}}"
     icon="calendar"
     th-popover-target="{{datepicker.targetName}}"
     condensed="datepicker.condensed"

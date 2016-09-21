@@ -92,6 +92,9 @@ angular.module "thDemo", ["ThemisComponents"]
       autocomplete:
         name: "autocomplete example text"
         value: 123456
+      date:
+        value: "2016-09-19T11:05:00-06:00"
+        operator: "="
   }
 
   return

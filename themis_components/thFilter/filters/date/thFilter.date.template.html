@@ -1,9 +1,19 @@
-<div>
+<div ng-class="{inner: thFilterDate.hasOperator}">
+  <th-select
+    ng-if="thFilterDate.hasOperator"
+    ng-model="thFilterDate.filter.operator"
+    ng-change="thFilterDate.onOperatorChange()"
+    options="thFilterDate.filter.operatorOptions"
+    condensed="true"
+    class="operator"
+    >
+  </th-select>
   <th-date-picker
     ng-model="thFilterDate.filter.model"
     ng-attr-placeholder="{{thFilterDate.filter.placeholder || thFilterDate.placeholder || 'Enter filter date…'}}"
     ng-change="thFilterDate.onValueChange()"
     condensed="true"
+    ng-class="{value: thFilterDate.hasOperator}"
     >
   </th-date-picker>
 </div>

@@ -29,7 +29,7 @@ angular.module("ThemisComponents")
         PopoverManager.hidePopover @targetName
 
       # Initialize the model if it isn't a valid moment.
-      @ngModel = null unless @ngModel?.isValid()
+      @ngModel = null unless @ngModel?.isValid?()
 
       setDateFormat = =>
         validDateFormats = ["YYYY-MM-DD", "MM/DD/YYYY", "DD/MM/YYYY"]
