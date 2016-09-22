@@ -14,6 +14,8 @@ angular.module("ThemisComponents")
     controllerAs: "datepicker"
     controller: (PopoverManager, $element, $scope) ->
       tabEventCode = 9
+      # Flag to control updates to the model
+      updatingModelFromPopover = no
 
       # Use random names, since there might be multiple date pickers in the document.
       @targetName = "datepicker-target-#{uuid.v1()}"
@@ -44,20 +46,30 @@ angular.module("ThemisComponents")
       # Initialize the input field string.
       setInputFieldString()
 
-      # When the datepicker changes the model, update the input field string.
+      # When the datepicker popover changes the model, update the input field string.
       @registerModelWatcher = =>
         @unregisterModelWatcher() if @unregisterModelWatcher?
-        @unregisterModelWatcher = $scope.$watch "datepicker.ngModel", =>
-          setInputFieldString()
-          @ngChange?()
+        @unregisterModelWatcher = $scope.$watch "datepicker.ngModel", (newVal, oldVal) =>
+          if !(newVal == oldVal)
+            updatingModelFromPopover = yes
+            setInputFieldString()
+
+            @ngChange?()
 
       # Update the model and datepicker, unless the user enters an invalid date.
-      $scope.$watch "datepicker.inputFieldString", =>
+      $scope.$watch "datepicker.inputFieldString", (newVal, oldVal) =>
         if @inputFieldString == ""
           @ngModel = null
-        else
+        else if !(newVal == oldVal) and not updatingModelFromPopover
+          # Only update the model if the new date is different than the old,
+          # a valid date, and the change is coming from the input field,
+          # not from the datepicker popover.
           parsedDate = moment @inputFieldString, @dateFormat
           @ngModel = parsedDate if parsedDate.isValid()
+
+          @ngChange?()
+
+        updatingModelFromPopover = no
 
       @registerModelWatcher()
 
@@ -72,7 +84,9 @@ angular.module("ThemisComponents")
 
       # On blur of the input field...
       dateInputField.on "blur", => $scope.$apply =>
-        # ... listen for datepicker model changes.
+        # Make sure the input string reflects the model...
+        setInputFieldString()
+        # ... and listen for datepicker model changes.
         @registerModelWatcher()
 
       # On focus of the input field, unregister our model listener.

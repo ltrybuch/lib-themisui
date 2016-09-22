@@ -1,3 +1,5 @@
+debounce = require "debounce"
+
 angular.module "ThemisComponents"
   .directive "thFilterDate", (DateFilter) ->
     restrict: "E"
@@ -14,8 +16,11 @@ angular.module "ThemisComponents"
     controller: ($scope) ->
       @hasOperator = @operatorOptions?.length > 0
 
-      @onValueChange = (event) =>
+      debouncedChange = debounce =>
         @filterSet.onFilterChange()
+      , 300
+
+      @onValueChange = (event) -> debouncedChange()
 
       @onOperatorChange = ->
         @filterSet.onFilterChange() if @filter.model?
