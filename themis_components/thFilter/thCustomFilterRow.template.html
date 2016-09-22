@@ -1,14 +1,14 @@
 <div class="row">
   <div class="field">
-    <th-select
-      options="thCustomFilterRow.customFilterTypes"
-      placeholder="Select field"
+    <th-autocomplete
       ng-model="thCustomFilterRow.rowSelectValue"
       ng-change="thCustomFilterRow.onRowSelectChange()"
-      value-field="fieldIdentifier"
+      delegate="thCustomFilterRow.customFieldDelegate"
+      placeholder="Select field"
       condensed="true"
+      icon="caret-down"
       >
-    </th-select>
+    </th-autocomplete>
   </div>
   <div
     ng-repeat="filter in thCustomFilterRow.rowFilterOptions"

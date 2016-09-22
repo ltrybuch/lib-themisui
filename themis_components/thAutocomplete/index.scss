@@ -321,10 +321,13 @@
 
   .th-autocomplete-icon {
     position: absolute;
+    z-index: $root-plane + 1;
     top: 14px;
     right: 16px;
+
     color: $grey-40;
-    z-index: $root-plane + 1;
+    
+    pointer-events: none;
   }
 
   &.multiple {
@@ -343,6 +346,12 @@
   &.condensed {
     .ui-select-container {
       height: 34px;
+
+      .ui-select-choices-row {
+        a {
+          padding: 5px 12px;
+        }
+      }
 
       .form-control {
         padding: 8px;

@@ -43,4 +43,20 @@ angular.module 'ThemisComponents'
           @rowFilterOptions = []
           @rowFilterOptions.push @rowSelectValue if @rowSelectValue?
 
+      @customFieldDelegate =
+        displayField: 'name'
+        trackField: 'fieldIdentifier'
+        fetchData: ({searchString}, updateData) =>
+          if searchString?.length > 1
+            lowerCaseSearchString = searchString.toLowerCase()
+            updateData(
+              @customFilterTypes.filter (filterType) ->
+                filterType.name.toLowerCase().indexOf(lowerCaseSearchString) isnt -1
+            )
+          else
+            updateData(
+              @customFilterTypes.filter (filterType, $index) ->
+                filterType if $index < 10
+            )
+
       return
