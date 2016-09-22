@@ -1,0 +1,44 @@
+<div class="action-bar">
+  <div class="flex-section">
+    <th-checkbox
+      ng-model="actionBar.delegate.results.allSelected"
+      ng-click="actionBar.toggleAll()"
+      with-label="Select All"
+      ng-disabled="actionBar.delegate.results.processing"
+      >
+    </th-checkbox>
+    <div class="action-menu" ng-if="actionBar.delegate.results.selectedItemCount > 0">
+      <div class="action-text">
+        (<strong>{{actionBar.delegate.results.parentSelectedItemCount}}</strong>
+          {{actionBar.openingWords}}
+          {{actionBar.lastWord | pluralize: actionBar.delegate.results.parentSelectedItemCount}}
+          selected.)
+      </div>
+      <span ng-if="actionBar.delegate.results.availableActions">
+        <th-select
+          ng-model="actionBar.delegate.results.selectedAction"
+          options="actionBar.delegate.results.availableActions"
+          placeholder="Action"
+          condensed="true"
+          ng-disabled="actionBar.delegate.results.processing"
+          >
+        </th-select>
+      </span>
+      <span class="button-wrapper"
+        ng-class="{'margin-left-10': !actionBar.delegate.results.availableActions}"
+        >
+        <th-button
+          type="standard"
+          ng-click="actionBar.triggerApply()"
+          ng-disabled="actionBar.delegate.results.processing"
+          loading="actionBar.delegate.results.processing"
+          >
+          {{actionBar.buttonName}}
+        </th-button>
+      </span>
+    </div>
+  </div>
+  <div class="flex-section">
+    <ng-transclude></ng-transclude>
+  </div>
+</div>

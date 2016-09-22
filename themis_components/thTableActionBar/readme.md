@@ -1,5 +1,7 @@
 # `thTableActionBar`
-
+***
+This version of `thTableActionBar` will soon be **DEPRECATED**. A new version to replace this component will be coming soon. Posted: 20/09/2016
+***
 The action bar component is used to interact with a collections of items.
 This component is meant primarily to be used with a table (see [thTable](.\thTable)).
 
