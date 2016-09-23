@@ -10,9 +10,9 @@
     transition: box-shadow .3s ease-out;
 
     margin: 0;
-    padding: 12px 36px 12px 12px;
+    padding: 0 36px 0 12px;
 
-    line-height: 16px;
+    line-height: 40px;
     font-size: 13px;
 
     background: $off-white;
@@ -37,8 +37,8 @@
     .fa-caret-down {
       position: absolute;
       right: 12px;
+      line-height: 40px;
       color: $dark-grey;
-      line-height: 20px;
     }
     &.disabled {
       background: $grey-90;
@@ -60,9 +60,13 @@
 
   &.condensed {
     .text-wrapper {
-      font-size: 13px;
-      padding: 7px 10px;
       height: 34px;
+      padding: 0 30px 0 10px;
+      line-height: 32px;
+
+      .fa-caret-down {
+        line-height: 32px;
+      }
     }
 
     select {
