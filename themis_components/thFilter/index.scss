@@ -1,4 +1,9 @@
 .th-filter {
+  $th-filter-loading-spinner-height: 30px;
+
+  position: relative;
+  display: block;
+
   padding: 20px;
   background: #e8e8e8;
   border-top: 1px solid #d9dada;
@@ -15,6 +20,24 @@
 
     .clear-filters {
       align-self: flex-end;
+    }
+  }
+
+  &.th-filter-loading {
+    opacity: 0.5;
+  }
+
+  .th-filter-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    .th-filter-loader {
+      top: 50%;
+      position: relative;
+      margin-top: -$th-filter-loading-spinner-height / 2;
     }
   }
 }

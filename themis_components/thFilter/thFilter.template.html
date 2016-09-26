@@ -1,4 +1,4 @@
-<div class="th-filter">
+<div class="th-filter" ng-class="{'th-filter-loading': thFilter.isLoading}">
   <div class="th-filter-header">
     <div class="filter-header-text">Filters</div>
     <th-button
@@ -10,4 +10,8 @@
     </th-button>
   </div>
   <div ng-transclude></div>
+
+  <div class="th-filter-overlay" ng-if="thFilter.isLoading">
+    <th-loader class="th-filter-loader" size="small">&nbsp;</th-loader>
+  </div>
 </div>

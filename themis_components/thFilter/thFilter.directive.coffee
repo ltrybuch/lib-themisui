@@ -27,10 +27,12 @@ angular.module "ThemisComponents"
     return
 
   link: (scope, element, attrs, thFilterController) ->
+    scope.thFilter.isLoading = yes
     $q.when(
       Promise.all scope.thFilter.initPromises
       ->
+        scope.thFilter.isLoading = no
         scope.thFilter.filterSet.onInitialized?()
       ->
-        console.log 'error'
+        console.log 'thFilter: Some filters were unable to load.'
     )
