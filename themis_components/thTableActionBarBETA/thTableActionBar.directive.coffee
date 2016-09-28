@@ -18,9 +18,7 @@ angular.module("ThemisComponents")
           @delegate.results.actionBarModel.view.selected = yes
           @delegate.results.allSelected = yes
         else
-          @delegate.results.actionBarModel.view.selected = no
-          @delegate.results.allSelected = no
-          @delegate.results.parentSelectedItemCount = 0
+          @delegate.triggerReset()
 
       @itemName ||= "item"
       itemName = @itemName.split " "

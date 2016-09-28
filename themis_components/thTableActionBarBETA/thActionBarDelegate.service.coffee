@@ -116,33 +116,37 @@ angular.module 'ThemisComponents'
           # For new incoming view models we need to set up listeners.
           for viewModel in collection
             existingListener = viewModel.listeners("view:changed:selected")[1]
-            unless existingListener
-              _attachListenerToNested viewModel
-              ++results.selectedItemCount if viewModel.view.selected
+            _attachListenerToNested viewModel unless existingListener
 
       _attachListener = (viewModel) ->
         viewModel.on "view:changed:selected", (status) ->
-          unless updatingSelections
-            _updateSourceOfTruth()
-          if status
-            ++results.parentSelectedItemCount
-          else
-            --results.parentSelectedItemCount
-            results.allSelected = no
 
-          if results.parentSelectedItemCount is totalItemCount
+          _updateSourceOfTruth() unless updatingSelections
+          results.allSelected = no unless status
+
+          results.selectedItemCount = _getSelectedItemCount()
+
+          if results.selectedItemCount is totalItemCount
             results.allSelected = yes
 
           if results.allSelected
-            results.parentSelectedItemCount = totalItemCount
+            results.selectedItemCount = totalItemCount
 
       _attachListenerToNested = (viewModel) ->
         viewModel.on "view:changed:selected", (status) ->
           _updateSourceOfTruth() unless updatingSelections
-          if status
-            ++results.selectedItemCount
-          else
-            --results.selectedItemCount
+
+          results.selectedItemCount = _getSelectedItemCount()
+
+      _getSelectedItemCount = ->
+        itemCount = 0
+        for key, parent of sourceOfTruth
+
+          aChildIsSelected = parent.children?.some (child) -> child.selected
+          parentIsSelected = parent.selected
+
+          if parentIsSelected or aChildIsSelected then ++itemCount
+        return itemCount
 
       _generateCollectionReferences = ->
         # Let's set up references to property for the incoming collection data.
@@ -159,7 +163,6 @@ angular.module 'ThemisComponents'
             children.view.selected = no for children in parent.model[ref.children]
 
         results.selectedItemCount = 0
-        results.parentSelectedItemCount = 0
         results.availableActions = availableActions
         results.allSelected = no
         results.processing = no
@@ -169,7 +172,7 @@ angular.module 'ThemisComponents'
         currentPageItems = results.actionBarModel.model[ref.parents].length
 
         # Spanning more than one page. We need to get all the ids.
-        if results.parentSelectedItemCount >= currentPageItems
+        if results.selectedItemCount >= currentPageItems
           _fetchAllValue()
           _returnSelectedValues()
         else
