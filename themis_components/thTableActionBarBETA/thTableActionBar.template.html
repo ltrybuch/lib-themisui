@@ -9,10 +9,10 @@
     </th-checkbox>
     <div class="action-menu" ng-if="actionBar.delegate.results.selectedItemCount > 0">
       <div class="action-text">
-        (<strong>{{actionBar.delegate.results.parentSelectedItemCount}}</strong>
+        <strong>{{actionBar.delegate.results.parentSelectedItemCount}}</strong>
           {{actionBar.openingWords}}
           {{actionBar.lastWord | pluralize: actionBar.delegate.results.parentSelectedItemCount}}
-          selected.)
+          selected.
       </div>
       <span ng-if="actionBar.delegate.results.availableActions">
         <th-select
