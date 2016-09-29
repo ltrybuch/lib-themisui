@@ -19,6 +19,7 @@ angular.module("ThemisComponents")
       selectableCollection.parent = parent
       selectableCollection.totalItems = totalItems
       selectableCollection.allSelected = allSelected
+      selectableCollection.selectedCount = 0
       selectableCollection.allIdentifiers = {}
 
       selectableCollection.resetSelected = ->
@@ -99,6 +100,8 @@ angular.module("ThemisComponents")
         selectedCount = trackedCollection.reduce (count, item) ->
           if item.selected then ++count else count
         , 0
+
+        selectableCollection.selectedCount = selectedCount
 
         if selectedCount is totalItems
           allSelected = yes
