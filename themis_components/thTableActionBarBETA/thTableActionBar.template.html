@@ -7,11 +7,20 @@
       ng-disabled="actionBar.delegate.results.processing"
       >
     </th-checkbox>
-    <div class="action-menu" ng-if="actionBar.delegate.results.selectedItemCount > 0">
+    <th-loader
+      ng-if="actionBar.delegate.results.loadingIds"
+      size="mini"
+      >
+    </th-loader>
+    <div
+      class="action-menu"
+      ng-if="actionBar.delegate.results.selectedItemCount > 0
+        && !actionBar.delegate.results.loadingIds"
+      >
       <div class="action-text">
-        <strong>{{actionBar.delegate.results.parentSelectedItemCount}}</strong>
+        <strong>{{actionBar.delegate.results.selectedItemCount}}</strong>
           {{actionBar.openingWords}}
-          {{actionBar.lastWord | pluralize: actionBar.delegate.results.parentSelectedItemCount}}
+          {{actionBar.lastWord | pluralize: actionBar.delegate.results.selectedItemCount}}
           selected.
       </div>
       <span ng-if="actionBar.delegate.results.availableActions">

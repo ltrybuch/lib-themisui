@@ -1,12 +1,14 @@
 angular.module 'thDemo', ['ThemisComponents']
-  .controller "DemoController", ($scope, $q, ActionBarDelegateBETA) ->
+  .controller "DemoController", ($scope, $q, ActionBarDelegateBETA, $timeout) ->
     pageSize = 5
     @currentPage = 1
 
     @actionBarDelegate = new ActionBarDelegateBETA
       retrieveIds: (viewObject) ->
         if viewObject.model.id is "root"
-          $q.when Client.ids()
+          $timeout ->
+            $q.when Client.ids()
+          , 200
         else
           Matter.ids viewObject.model.id
 

@@ -46,6 +46,8 @@ angular.module 'ThemisComponents'
 
         results.actionBarModel = selectableCollection[0]
         results.actionBarModel.view.selected = results.allSelected
+        results.actionBarModel.on "selectableCollection:fetchingIds", (status) ->
+          results.loadingIds = status
 
         results.actionBarModel.model[ref.parents].forEach (viewModel) ->
           _updateSelectedStatus viewModel unless results.allSelected
@@ -110,6 +112,7 @@ angular.module 'ThemisComponents'
                     sourceOfTruth[item.id].children.push child if child.selected
 
       _attachListenersOnCollectionChange = (viewModel, collection) ->
+        # TODO: Replace this event name format with the emerging "foo:barXyz"
         viewModel.on "selectableCollectionUpdated", ->
           _updateSelectedStatus(this)
 
@@ -167,6 +170,7 @@ angular.module 'ThemisComponents'
         results.allSelected = no
         results.processing = no
         results.selectedAction = null
+        results.loadingIds = no
 
       _returnCollection = ->
         currentPageItems = results.actionBarModel.model[ref.parents].length
