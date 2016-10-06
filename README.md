@@ -28,7 +28,7 @@ We're running in stealth mode for now meaning we don't yet want to list on NPM. 
 install run:
 
 ```bash
-npm install --save github:clio/lib-themisui[#<release-tag>]
+npm install --save github:clio/lib-themisui#<release-tag>
 ```
 
 You can specify [any other release](https://github.com/clio/lib-themisui/releases) as
@@ -62,7 +62,7 @@ command with your desired [release-tag](https://github.com/clio/lib-themisui/rel
 shrinkwrap file.
 
 ```bash
-npm install --save github:clio/lib-themisui[#<release-tag>]
+npm install --save github:clio/lib-themisui#<release-tag>
 ```
 
 For example to install version [`v0.9.0 — No More Mr Nice Guy`](https://github.com/clio/lib-themisui/releases/tag/v0.9.0)
@@ -107,7 +107,7 @@ or revised component before a release is cut you can easily temporarily install 
 a third party fork / commit.
 
 ```bash
-npm install github:<githubname>/<githubrepo>[#<commit-ish>]
+npm install github:<githubname>/<githubrepo>#<commit-ish>
 ```
 
 To ensure that you don't accidentally drift your main project off of a primary
