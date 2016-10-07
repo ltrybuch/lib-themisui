@@ -2,19 +2,25 @@ label.th-label {
   @include box-sizing;
   position: relative;
   display: block;
-  margin-bottom: 25px;
+  margin-left: 8px;
 
   &.radio-label {
     vertical-align: top;
-
-    &:not(:last-child) {
-      margin-bottom: 15px;
-    }
+    margin-top: 6px;
+    margin-bottom: 6px;
   }
 
   .inline {
     margin-left: 8px;
     vertical-align: inherit;
+
+    &.label-text {
+      height: 14px;
+      color: $primary-text-color;
+      font-family: $sans-serif;
+      font-size: $primary-text-font-size;
+      font-weight: normal;
+    }
   }
 
   .label-text {

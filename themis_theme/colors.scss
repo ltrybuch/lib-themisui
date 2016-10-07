@@ -6,6 +6,7 @@ $sprite-size: 4.23em 3.423em;
 $yellow: #FEC902;
 $blue: #3D7BBA;
 $light-blue: #5AB1E7;
+$dark-blue: #0075bb;
 $red: #BF1E2E;
 $red-alert: #c9282d;
 $green: #58B028;
@@ -15,6 +16,8 @@ $medium-grey: #666666;
 $placeholder-grey: #a9a9a9;
 $link-blue: #3a7abd;
 $focus-blue: #61b3e3;
+$primary-text-color: #263238;
+$subtext-color: #667881;
 /*--------------------------------------------------
 * COLOURS
   Values increase lightest to darkest (1 = lightest,
@@ -66,6 +69,7 @@ $light-grey-5: #999999;
 * TYPOGRAPHY
 *--------------------------------------------------*/
 $base-font-size: 10px; //used in the rem mixin and for declaring the root font-size on the html element.
+$primary-text-font-size: 13px;
 $sans-serif: "Helvetica Neue",Helvetica,Arial,sans-serif;
 $gibson-semibold: 'GibsonSemiBold',Geneva,Tahoma,Verdana,sans-serif;
 $gibson-regular: 'GibsonRegular',Geneva,Tahoma,Verdana,sans-serif;

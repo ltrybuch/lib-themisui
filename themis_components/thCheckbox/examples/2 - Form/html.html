@@ -3,10 +3,12 @@
 
     <form action="/echo" method="POST">
       <th-input type="text" with-label="Name" name="name" icon="user"></th-input>
-      <th-checkbox with-label="Admin User" name="isAdmin" ng-model="demo.checked"></th-checkbox>
+      <th-checkbox with-label="Admin User" name="isAdmin" ng-model="demo.checked1"></th-checkbox>
+      <th-checkbox with-label="Enabled" name="enabled" ng-model="demo.checked2"></th-checkbox>
+      <th-checkbox with-label="Receive notifications" name="receiveNotifications" ng-model="demo.checked3"></th-checkbox>
       <br>
       <th-button submit>Submit</th-button>
     </form>
-    
+
   </body>
 </html>
