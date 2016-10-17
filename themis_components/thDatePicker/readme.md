@@ -2,14 +2,14 @@
 
 ## Description
 
-You use 'thDatePicker' to create an input field that contains a string according to a date format. 
+You use 'thDatePicker' to create an input field that contains a string according to a date format.
 
-On focus, a Date Picker grid is displayed. After selecting a date, or deselecting the component, the grid disappears. (Current implementation excludes popover behavior, and Themis styling.)
+On focus, a Date Picker grid is displayed. After selecting a date, or deselecting the component, the grid disappears.
 
 The input field can be edited by the user, allowing dates to be entered on the keyboard as well. When the element loses focus, it will attempt to make a date out of the input field contents. If an invalid date is entered, the input field content does not alter the date selected in the datepicker. It will always revert to the last known good date entered.
 
 ### Date Formats
-The date format can optionally be set through a `format` parameter.  
+The date format can optionally be set through a `date-format` parameter.
 - 'YYYY-MM-DD' (default)
 - 'MM/DD/YYYY'
 - 'DD/MM/YYYY'
@@ -25,5 +25,5 @@ If the input field is blank, it will display a placeholder message based on the 
 ```
 With optional format parameter:
 ```html
-<th-date-picker ng-model="date" format='DD/MM/YYYY'></th-date-picker>
+<th-date-picker ng-model="date" date-format='DD/MM/YYYY'></th-date-picker>
 ```
