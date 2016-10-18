@@ -11,6 +11,16 @@ angular.module('ThemisComponents')
       element.wrap '<label class="th-label">'
       label = element.parent()
 
+      scope.$watch attrs.ngRequired, (newVal) ->
+        labelEl = element.parent()[0]
+        requiredLabel = labelEl.getElementsByClassName("required-field")
+        wrappedRequiredLabel = angular.element(requiredLabel)
+
+        if newVal
+          wrappedRequiredLabel.removeClass("hide")
+        else
+          wrappedRequiredLabel.addClass("hide")
+
       adjustMarginForRadioInputs = (element) ->
         # Reduce margin-bottom for radio button groups.
         isThRadio = element.classList.contains "th-radio-button"
@@ -49,7 +59,7 @@ angular.module('ThemisComponents')
         adjustMarginForRadioInputs elementObject.el
       else
         label.prepend "<div class='label-text'>#{attrs.withLabel}</div>"
-      label.prepend "<span class='required-field'>required</span>" if attrs.ngRequired == "true"
+      label.prepend """<span class='required-field'>required</span>"""
 
       element.on "click", (event) ->
         # If clicking on input element stop propagation to label.
