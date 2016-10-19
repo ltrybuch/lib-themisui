@@ -2,6 +2,7 @@ module.exports = ({interpolateStart, interpolateEnd, valueField, multiple}) -> "
 <span
   class="th-autocomplete-wrapper"
   ng-class="[
+    {'is-invalid': thAutocomplete.isInvalid()},
     {condensed: thAutocomplete.condensed},
     {multiple: thAutocomplete.multiple != null}
   ]"
@@ -13,6 +14,7 @@ module.exports = ({interpolateStart, interpolateEnd, valueField, multiple}) -> "
   </i>
   <ui-select
     ng-model="thAutocomplete.ngModel"
+    ng-required="thAutocomplete.ngRequired"
     reset-search-input="true"
     on-select="thAutocomplete.onSelect()"
     #{multiple}

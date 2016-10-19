@@ -1,9 +1,11 @@
-angular.module 'ThemisComponents'
+ angular.module 'ThemisComponents'
   .directive 'thAutocomplete', ($compile, $interpolate, $timeout) ->
     restrict: 'E'
+    require: ["?^form", "thAutocomplete"]
     scope:
       ngModel: '=?'
       ngChange: '&?'
+      ngRequired: '=?'
       delegate: '='
       name: '@?'
       placeholder: '@?'
@@ -28,12 +30,23 @@ angular.module 'ThemisComponents'
 
       return
 
-    link: (scope, element, attrs, controller) ->
+    link: (scope, element, attrs, controllerArray) ->
+      form = controllerArray[0] ? null
+      controller = controllerArray[1]
+      fieldName = controller.name ? null
+
       multiple = controller.multiple?
       delegate = controller.delegate
       unless delegate?.fetchData instanceof Function
         throw new Error "thAutocomplete delegate needs to be passed the following function: " + \
                         "fetchData: ({searchTerm}, updateData) ->"
+
+
+      # If autocomplete value is invalid append invalid class.
+      controller.isInvalid = ->
+        return no unless fieldName and form
+        console.log form
+        form[fieldName].$invalid && (form[fieldName].$touched or form.$submitted)
 
       controller.trackField = delegate.trackField ? "id"
 
@@ -78,12 +91,12 @@ angular.module 'ThemisComponents'
       compiledTemplate = $compile(templateElement) childScope
       element.append compiledTemplate
 
-      if multiple
-        $timeout ->
-          # Toggle container shadow when input has focus.
-          search = angular.element(element[0].querySelectorAll(".ui-select-search"))
-          container = angular.element(element[0].querySelectorAll(".ui-select-container"))
-          search.on "focus", ->
-            container.addClass("has-focus")
-          search.on "blur", ->
-            container.removeClass("has-focus")
+      $timeout ->
+        # Toggle container shadow when input has focus.
+        search = angular.element(element[0].querySelectorAll(".ui-select-search"))
+        container = angular.element(element[0].querySelectorAll(".ui-select-container"))
+        search.on "focus", ->
+          container.addClass("has-focus")
+        search.on "blur", ->
+          form?[fieldName].$setTouched()
+          container.removeClass("has-focus")
