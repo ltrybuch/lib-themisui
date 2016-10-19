@@ -1,10 +1,11 @@
- angular.module 'ThemisComponents'
+angular.module 'ThemisComponents'
   .directive 'thAutocomplete', ($compile, $interpolate, $timeout) ->
     restrict: 'E'
     require: ["?^form", "thAutocomplete"]
     scope:
       ngModel: '=?'
       ngChange: '&?'
+      ngDisabled: '=?'
       ngRequired: '=?'
       delegate: '='
       name: '@?'
@@ -45,8 +46,16 @@
       # If autocomplete value is invalid append invalid class.
       controller.isInvalid = ->
         return no unless fieldName and form
-        console.log form
         form[fieldName].$invalid && (form[fieldName].$touched or form.$submitted)
+
+      # This is to accomodate a bug in ui-select where the form model is not
+      # validated after it's cleared.
+      if form and fieldName
+        scope.$watch ->
+          form[fieldName].$modelValue
+        , (newValue) ->
+          if multiple and !newValue?.length
+            form[fieldName].$setValidity "required", false
 
       controller.trackField = delegate.trackField ? "id"
 

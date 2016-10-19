@@ -6,7 +6,6 @@ angular.module('thDemo', ['ThemisComponents'])
       @form.$setUntouched()
       @response = ""
     @submit = ->
-      debugger
       @response =
         if @form.$valid
           $valid: @form.$valid
