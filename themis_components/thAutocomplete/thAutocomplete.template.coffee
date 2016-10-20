@@ -16,7 +16,7 @@ module.exports = ({interpolateStart, interpolateEnd, valueField, multiple}) -> "
     ng-model="thAutocomplete.ngModel"
     ng-disabled="thAutocomplete.ngDisabled"
     ng-required="thAutocomplete.ngRequired"
-    reset-search-input="false"
+    reset-search-input="#{multiple == "multiple"}"
     on-select="thAutocomplete.onSelect()"
     #{multiple}
     >
