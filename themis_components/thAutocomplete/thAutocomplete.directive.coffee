@@ -24,13 +24,10 @@ angular.module 'ThemisComponents'
         throw new Error "UpdateData: data must be of type Array" unless data instanceof Array
         @data = data
 
-      @onSelect = ->
-        if @lastValue isnt @ngModel?[@trackField]
-          @lastValue = @ngModel?[@trackField]
-          @ngChange?()
+      @clear = ->
+        @ngModel = @lastValue = null
 
       return
-
     link: (scope, element, attrs, controllerArray) ->
       form = controllerArray[0] ? null
       controller = controllerArray[1]
@@ -48,8 +45,8 @@ angular.module 'ThemisComponents'
         return no unless fieldName and form
         form[fieldName].$invalid && (form[fieldName].$touched or form.$submitted)
 
-      # This is to accomodate a bug in ui-select where the form model is not
-      # validated after it's cleared.
+      # This is to accomodate a bug in ui-select (multiple only) where the form
+      # model is not validated after it's cleared.
       if form and fieldName
         scope.$watch ->
           form[fieldName].$modelValue
@@ -100,12 +97,36 @@ angular.module 'ThemisComponents'
       compiledTemplate = $compile(templateElement) childScope
       element.append compiledTemplate
 
+      controller.copyValueToInputField = (search) ->
+        $timeout ->
+          search.val controller.ngModel?[displayField] or null
+
+      controller.onSelect = ->
+        if controller.lastValue isnt controller.ngModel?[controller.trackField]
+          controller.lastValue = controller.ngModel?[controller.trackField]
+          controller.ngChange?()
+
+        # This sets the text of the input field to the full text of the
+        # selected value.
+        if not multiple
+          search = angular.element(element[0].querySelectorAll(".ui-select-search"))
+          controller.copyValueToInputField search
+
       $timeout ->
         # Toggle container shadow when input has focus.
         search = angular.element(element[0].querySelectorAll(".ui-select-search"))
         container = angular.element(element[0].querySelectorAll(".ui-select-container"))
         search.on "focus", ->
-          container.addClass("has-focus")
+          container.addClass("has-focus") if multiple
         search.on "blur", ->
           form?[fieldName].$setTouched()
-          container.removeClass("has-focus")
+
+          if multiple
+            container.removeClass("has-focus")
+          else
+            # This clears the autocomplete (in single-selection only) when the
+            # user clears the input text
+            if search.val().length is 0
+              controller.ngModel = null
+
+            controller.copyValueToInputField search
