@@ -241,7 +241,7 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
 
   describe 'when trackField is specified', ->
     beforeEach ->
-      {element} = compileDirective(
+      {element, scope} = compileDirective(
         validTemplate
         delegate:
           trackField: 'anotherId'
@@ -260,8 +260,6 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
 
     describe "when user selects item", ->
       beforeEach ->
-        search('a')
-        openDropDown()
         selectItem(data[0])
         timeout.flush()
 
