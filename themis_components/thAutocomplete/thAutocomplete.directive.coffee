@@ -93,7 +93,7 @@ angular.module 'ThemisComponents'
       compiledTemplate = $compile(templateElement) childScope
       element.append compiledTemplate
 
-      controller.copyValueToSearchField = (search) ->
+      copyValueToSearchField = (search) ->
         $timeout ->
           search.val controller.ngModel?[displayField] or null
 
@@ -106,7 +106,7 @@ angular.module 'ThemisComponents'
         # selected value.
         if not multiple
           search = angular.element(element[0].querySelectorAll(".ui-select-search"))
-          controller.copyValueToSearchField search
+          copyValueToSearchField search
 
       $timeout ->
         # Toggle container shadow when input has focus.
@@ -125,4 +125,4 @@ angular.module 'ThemisComponents'
             if search.val().length is 0
               controller.ngModel = null
 
-            controller.copyValueToSearchField search
+            copyValueToSearchField search
