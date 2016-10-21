@@ -1,10 +1,12 @@
 angular.module('thDemo', ['ThemisComponents'])
   .controller 'DemoCtrl', ($http) ->
     @repo = null
+
     @reset = ->
+      @repo = @response = null
       @form.$setPristine()
       @form.$setUntouched()
-      @response = ""
+
     @submit = ->
       @response =
         if @form.$valid
@@ -25,7 +27,5 @@ angular.module('thDemo', ['ThemisComponents'])
             updateData response.data.items
         else
           updateData []
-
-    @onChange = -> @counter = @counter + 1
 
     return

@@ -24,14 +24,11 @@ angular.module 'ThemisComponents'
         throw new Error "UpdateData: data must be of type Array" unless data instanceof Array
         @data = data
 
-      @clear = ->
-        @ngModel = @lastValue = null
-
       return
     link: (scope, element, attrs, controllerArray) ->
-      form = controllerArray[0] ? null
+      form = controllerArray[0]
       controller = controllerArray[1]
-      fieldName = controller.name ? null
+      fieldName = controller.name or null
 
       multiple = controller.multiple?
       delegate = controller.delegate
@@ -39,19 +36,18 @@ angular.module 'ThemisComponents'
         throw new Error "thAutocomplete delegate needs to be passed the following function: " + \
                         "fetchData: ({searchTerm}, updateData) ->"
 
-
-      # If autocomplete value is invalid append invalid class.
+      # If autocomplete value is invalid append class.
       controller.isInvalid = ->
-        return no unless fieldName and form
-        form[fieldName].$invalid && (form[fieldName].$touched or form.$submitted)
+        return no unless form and fieldName
+        form[fieldName].$invalid and (form[fieldName].$touched or form.$submitted)
 
       # This is to accomodate a bug in ui-select (multiple only) where the form
-      # model is not validated after it's cleared.
-      if form and fieldName
+      # model is not invalidated after it's cleared.
+      if controller.ngRequired and multiple and form and fieldName
         scope.$watch ->
           form[fieldName].$modelValue
         , (newValue) ->
-          if multiple and !newValue?.length
+          if not newValue?.length
             form[fieldName].$setValidity "required", false
 
       controller.trackField = delegate.trackField ? "id"
@@ -60,7 +56,7 @@ angular.module 'ThemisComponents'
         interpolateStart: $interpolate.startSymbol()
         interpolateEnd: $interpolate.endSymbol()
         valueField: controller.trackField
-        multiple: if multiple then "multiple" else ""
+        multiple
       })
       templateElement = angular.element template
 
@@ -97,7 +93,7 @@ angular.module 'ThemisComponents'
       compiledTemplate = $compile(templateElement) childScope
       element.append compiledTemplate
 
-      controller.copyValueToInputField = (search) ->
+      controller.copyValueToSearchField = (search) ->
         $timeout ->
           search.val controller.ngModel?[displayField] or null
 
@@ -110,7 +106,7 @@ angular.module 'ThemisComponents'
         # selected value.
         if not multiple
           search = angular.element(element[0].querySelectorAll(".ui-select-search"))
-          controller.copyValueToInputField search
+          controller.copyValueToSearchField search
 
       $timeout ->
         # Toggle container shadow when input has focus.
@@ -129,4 +125,4 @@ angular.module 'ThemisComponents'
             if search.val().length is 0
               controller.ngModel = null
 
-            controller.copyValueToInputField search
+            controller.copyValueToSearchField search

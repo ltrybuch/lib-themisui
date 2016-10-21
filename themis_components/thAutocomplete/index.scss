@@ -1,27 +1,29 @@
 .th-autocomplete-wrapper {
   @import "../../node_modules/ui-select/dist/select";
 
+  @mixin invalid-visual {
+    border-color: $red-alert;
+    box-shadow: 0px 0px 0px 1px rgba($red-alert, .7);
+  }
+
   position: relative;
   display: block;
   font-size: 13px;
 
   &.is-invalid {
     .form-control:not([disabled]) {
-      box-shadow: 0px 0px 0px 1px rgba($red-alert, .7);
-      border-color: $red-alert;
+      @include invalid-visual;
 
       &:focus,
       &.has-focus {
-        box-shadow: 0px 0px 0px 1px rgba($red-alert, .7);
-        border: 1px solid $red-alert;
+        @include invalid-visual;
       }
     }
 
     .ui-select-container {
       .btn-default-focus {
         span.ui-select-toggle {
-          box-shadow: 0px 0px 0px 1px rgba($red-alert, .7);
-          border: 1px solid $red-alert;
+          @include invalid-visual;
         }
       }
     }
