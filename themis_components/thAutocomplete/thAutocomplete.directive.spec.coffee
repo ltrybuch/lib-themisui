@@ -20,6 +20,9 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
   beforeEach inject ($timeout) ->
     timeout = $timeout
 
+  getSearch = ->
+    angular.element(element[0].querySelectorAll(".ui-select-search"))
+
   getSelect = ->
     angular.element(element[0].querySelector('.ui-select-container')).scope().$select
 
@@ -161,6 +164,10 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
         it "updates value on hidden input", ->
           expect(hiddenFormInput.getAttribute("value")).toBe item.id
 
+        it "updates input text", ->
+          input = getSearch()
+          expect(input.val()).toEqual item.name
+
       testSelectOption data[2]
 
       describe "when user selects another option", ->
@@ -265,6 +272,39 @@ describe 'ThemisComponents: Directive: thAutocomplete', ->
 
       it "should update value to alt-id", ->
         expect(hiddenFormInput.getAttribute("value")).toBe "3"
+
+  describe "when value is not null", ->
+    beforeEach ->
+      {element, scope} = compileDirective("""
+          <th-autocomplete
+            delegate='delegate'
+            ng-model='value'
+            >
+          </th-autocomplete>
+        """
+        delegate:
+          fetchData: ({searchString}, updateData) ->
+            updateData data
+      )
+      @input = getSearch()
+      selectItem data[0]
+      timeout.flush()
+
+    describe "when text is cleared then field is blurred", ->
+      it "should set value to null", ->
+        expect(@input.val()).toEqual "test0"
+        @input.val ""
+        @input.triggerHandler "blur"
+        timeout.flush()
+        expect(scope.value).toEqual null
+
+    describe "when text is modified then field is blurred", ->
+      it "should reset text", ->
+        @input.val "modified text"
+        @input.triggerHandler "blur"
+        timeout.flush()
+        expect(scope.value).toBe data[0]
+        expect(@input.val()).toEqual "test0"
 
   describe "when 'multiple' is enabled and user applies focus and blur to input field", ->
     beforeEach ->
