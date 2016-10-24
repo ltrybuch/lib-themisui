@@ -32,5 +32,9 @@ label.th-label {
   .required-field {
     float: right;
     color: $green;
+
+    &.hide {
+      display: none;
+    }
   }
 }

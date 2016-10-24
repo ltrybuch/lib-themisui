@@ -32,7 +32,7 @@
   .form-control {
     display: block;
     width: 100%;
-    padding: 12px;
+    padding: 12px 10px;
 
     font: inherit;
 
@@ -70,15 +70,19 @@
 
       &.ui-select-bootstrap {
         height: auto;
-        min-height: 34px;
-        padding: 3px 3px 3px 8px;
+        min-height: 42px;
+        padding: 7px 10px;
         box-sizing: border-box;
 
         input[type="search"].ui-select-search {
           min-width: 200px !important;
           height: 19px;
-          padding: 0px;
-          margin: 3px 0;
+          // Padding-right and margin-right (+10px/-10px) are specified this way
+          // because ui-select dynamically resizes using the width of the
+          // container and doesn't respect padding.
+          // https://github.com/angular-ui/ui-select/blob/master/src/uiSelectController.js#L549
+          padding: 0 10px 0 0;
+          margin: 3px -10px 3px 0;
 
           font: inherit;
           color: inherit;
@@ -332,7 +336,7 @@
     .ui-select-search {
       background: $off-white;
       min-width: 100%;
-      padding: 12px;
+      padding: 12px 10px;
       margin: 0;
     }
 
@@ -358,23 +362,47 @@
 
     pointer-events: none;
   }
-
-  &.multiple {
-    .th-autocomplete-icon {
-      top: 12px;
-    }
+    pointer-events: none;
   }
 
   i.th-autocomplete-icon ~ .ui-select-container {
     .ui-select-search {
       // Add padding to accommodate icon if icon exists.
-      padding: 12px 40px 12px 12px;
+      padding-right: 40px;
+    }
+
+    .form-control {
+      padding-right: 40px;
+    }
+
+    &.ui-select-multiple {
+      padding-right: 40px;
+
+      input[type="search"].ui-select-search {
+        // This is here because ui-select dynamically resizes using the width
+        // of the container and doesn't respect padding.
+        // https://github.com/angular-ui/ui-select/blob/master/src/uiSelectController.js#L549
+        margin-right: -40px;
+        padding-right: 40px;
+      }
     }
   }
 
   &.condensed {
     .ui-select-container {
       height: 34px;
+
+      &.ui-select-multiple {
+        &.ui-select-bootstrap {
+          min-height: 34px;
+          padding-top: 3px;
+          padding-bottom: 3px;
+        }
+
+        .btn {
+          height: 21px;
+        }
+      }
 
       .ui-select-choices-row {
         a {
@@ -383,7 +411,8 @@
       }
 
       .form-control {
-        padding: 8px;
+        padding-top: 8px;
+        padding-bottom: 8px;
       }
 
       .btn {
@@ -392,18 +421,12 @@
     }
 
     .ui-select-search {
-      padding: 8px;
+      padding-top: 8px;
+      padding-bottom: 8px;
     }
 
     .th-autocomplete-icon {
       top: 12px;
-    }
-
-    i.th-autocomplete-icon ~ .ui-select-container {
-      .ui-select-search {
-        // Add padding to accommodate icon if icon exists.
-        padding: 8px 40px 8px 8px;
-      }
     }
   }
 }

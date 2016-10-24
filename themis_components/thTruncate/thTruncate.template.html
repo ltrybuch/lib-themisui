@@ -1,0 +1,14 @@
+<span
+  ng-class="{'expanded':truncate.expanded,
+             'th-truncate':truncate.hasTruncateControl}"
+  >
+  {{ truncate.truncatedText }}
+</span>
+<a
+  href=""
+  class="truncate-control"
+  ng-click="truncate.toggleTruncation()"
+  ng-if="truncate.hasTruncateControl"
+  >
+  ({{ truncate.expanded ? 'close' : 'more' }})
+</a>

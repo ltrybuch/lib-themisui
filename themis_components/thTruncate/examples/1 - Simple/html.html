@@ -1,0 +1,41 @@
+<html ng-app="thDemo">
+  <body>
+    <div>
+      <p><strong>Default Length (100 Characters)</strong></p>
+      <strong style="color: #666;">Over 100 Characters:</strong><br>
+      <th-truncate
+        text="Sed posuere consectetur est at lobortis. Donec sed odio dui.
+              Aenean eu leo quam. Pellentesque sem lacinia quam venenatis
+              vestibulum. Vestibulum id ligula porta felis euismod semper. Cras
+              mattis consectetur purus sit amet fermentum. Vivamus sagittis
+              lacus vel augue laoreet rutrum faucibus dolor auctor. Aenean eu
+              leo quam. Pellentesque ornare sem lacinia quam venenatis."
+        >
+      </th-truncate>
+      <br><br>
+      <strong style="color: #666;">Under 100 Characters:</strong><br>
+      <th-truncate
+        text="Curabitur blandit tempus porttitor."
+        >
+      </th-truncate>
+
+      <hr style="margin: 24px 0;">
+
+      <p><strong>Custom Length (50 Characters)</strong></p>
+      <strong style="color: #666;">Over 50 Characters:</strong><br>
+      <th-truncate
+        limit="50"
+        text="Duis mollis, est non commodo luctus, nisi erat porttitor ligula,
+              eget lacinia odio sem nec elit. Donec id elit non mi porta grav."
+        >
+      </th-truncate>
+      <br><br>
+      <strong style="color: #666;">Under 50 Characters:</strong><br>
+      <th-truncate
+        limit="50"
+        text="Lorem ipsum dolor sit amet, consectetur elit."
+        >
+      </th-truncate>
+    </div>
+  </body>
+</html>
