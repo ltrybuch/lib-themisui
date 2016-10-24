@@ -25,6 +25,7 @@
   "dependencies": {
     "angular": "1.5.7",
     "angular-animate": "^1.5.7",
+    "angular-aria": "^1.5.8",
     "angular-datepicker": "mbuckley/angular-datepicker.git#v2.2.1",
     "angular-messages": "^1.5.7",
     "angular-sanitize": "^1.5.7",
