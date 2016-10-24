@@ -93,6 +93,8 @@ angular.module "ThemisComponents"
       compiledTemplate = $compile(templateElement) childScope
       element.append compiledTemplate
 
+      # This sets the text of the input field to the full text of the
+      # selected value.
       copyValueToSearchField = (search) ->
         $timeout ->
           search = angular.element(element[0].querySelectorAll(".ui-select-search"))
@@ -105,8 +107,6 @@ angular.module "ThemisComponents"
           controller.lastValue = modelValue
           controller.ngChange?()
 
-        # This sets the text of the input field to the full text of the
-        # selected value.
         copyValueToSearchField() if not multiple
 
       scope.$watch "thAutocomplete.ngModel", (newValue) ->
