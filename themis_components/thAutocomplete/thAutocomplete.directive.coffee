@@ -95,18 +95,24 @@ angular.module "ThemisComponents"
 
       copyValueToSearchField = (search) ->
         $timeout ->
-          search.val controller.ngModel?[displayField] or null
+          search = angular.element(element[0].querySelectorAll(".ui-select-search"))
+          modelName = controller.ngModel?[displayField]
+          search.val modelName or null
 
       controller.onSelect = ->
-        if controller.lastValue isnt controller.ngModel?[controller.trackField]
-          controller.lastValue = controller.ngModel?[controller.trackField]
+        modelValue = controller.ngModel?[controller.trackField]
+        if controller.lastValue isnt modelValue
+          controller.lastValue = modelValue
           controller.ngChange?()
 
         # This sets the text of the input field to the full text of the
         # selected value.
-        if not multiple
-          search = angular.element(element[0].querySelectorAll(".ui-select-search"))
-          copyValueToSearchField search
+        copyValueToSearchField() if not multiple
+
+      scope.$watch "thAutocomplete.ngModel", (newValue) ->
+        if newValue is null
+          controller.lastValue = controller.data = null
+          copyValueToSearchField() if not multiple
 
       $timeout ->
         # Toggle container shadow when input has focus.
@@ -125,4 +131,4 @@ angular.module "ThemisComponents"
             if search.val().length is 0
               controller.ngModel = null
 
-            copyValueToSearchField search
+            copyValueToSearchField()
