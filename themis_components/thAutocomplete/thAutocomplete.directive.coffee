@@ -1,20 +1,20 @@
-angular.module 'ThemisComponents'
-  .directive 'thAutocomplete', ($compile, $interpolate, $timeout) ->
-    restrict: 'E'
+angular.module "ThemisComponents"
+  .directive "thAutocomplete", ($compile, $interpolate, $timeout) ->
+    restrict: "E"
     require: ["?^form", "thAutocomplete"]
     scope:
-      ngModel: '=?'
-      ngChange: '&?'
-      ngDisabled: '=?'
-      ngRequired: '=?'
-      delegate: '='
-      name: '@?'
-      placeholder: '@?'
-      icon: '@?'
+      ngModel: "=?"
+      ngChange: "&?"
+      ngDisabled: "=?"
+      ngRequired: "=?"
+      delegate: "="
+      name: "@?"
+      placeholder: "@?"
+      icon: "@?"
       condensed: "=?"
       multiple: "@?"
     bindToController: true
-    controllerAs: 'thAutocomplete'
+    controllerAs: "thAutocomplete"
 
     controller: ->
       @data = []
@@ -63,14 +63,14 @@ angular.module 'ThemisComponents'
       # Add repeat attribute to ui-select-choices element.
       repeatExpression = "item in thAutocomplete.data track by item.#{controller.trackField}"
 
-      selectChoicesElement = templateElement.find 'ui-select-choices'
+      selectChoicesElement = templateElement.find "ui-select-choices"
       selectChoicesElement.attr(
-        'repeat'
+        "repeat"
         repeatExpression
       )
 
       # Add display field to inner html of ui-select-choices and ui-select-match elements.
-      displayField = delegate.displayField ? 'name'
+      displayField = delegate.displayField ? "name"
 
       selectChoicesElement.html "<span ng-bind='item.#{displayField}'></span>"
 
@@ -80,7 +80,7 @@ angular.module 'ThemisComponents'
         else
           "<span ng-bind='$select.selected.#{displayField}'></span>"
 
-      selectMatchElement = templateElement.find 'ui-select-match'
+      selectMatchElement = templateElement.find "ui-select-match"
       selectMatchElement.html selectMatchHtml
 
       # ui-select needs access to the parent's scope for evaluating repeat.
