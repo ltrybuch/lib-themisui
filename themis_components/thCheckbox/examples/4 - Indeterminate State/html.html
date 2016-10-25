@@ -1,0 +1,10 @@
+<html ng-app="thDemo">
+  <body ng-controller="DemoCtrl as demo">
+
+    <th-checkbox ng-model="demo.checked" indeterminate="demo.indeterminate"></th-checkbox>
+    <p>Checkbox state: {{ demo.checked }}</p>
+    <th-switch ng-model="demo.indeterminate"></th-switch>
+    <p>indeterminate state: {{ demo.indeterminate }}</p>
+
+  </body>
+</html>

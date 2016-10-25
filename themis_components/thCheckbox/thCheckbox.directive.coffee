@@ -9,10 +9,10 @@ angular.module('ThemisComponents')
       checked: '=?ngModel'
       ngRequired: "="
       ngDisabled: "="
+      indeterminate: "=?"
     bindToController: true
     controllerAs: 'checkbox'
     controller: ($scope, $element) ->
-      @checked = @checked ? false
 
       @toggle = ->
         $scope.$apply =>
@@ -20,6 +20,7 @@ angular.module('ThemisComponents')
         @change() if @change?
 
       $element.on 'click', =>
+        @indeterminate = no
         @toggle() unless $element.attr("disabled")
 
       return

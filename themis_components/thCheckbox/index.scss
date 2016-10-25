@@ -20,15 +20,27 @@
   margin-top: $margin-size;
   margin-bottom: $margin-size;
 
-  &.checked {
+  &.checked, &.indeterminate {
     background-color: $dark-blue;
     border: solid $border $dark-blue;
-
     i {
       width: $icon-width;
       height: $icon-height;
       color: #fff;
       opacity: 1;
+    }
+  }
+
+  &.indeterminate {
+    i:before {
+      content: "\f068";
+      padding-left: 1px;
+    }
+  }
+
+  &.checked {
+    i:before {
+      content: "\f00c";
     }
   }
 
@@ -52,14 +64,10 @@
     color: #fff;
     font-size: $icon-width;
     font-style: normal;
-
-    transition: all 0.2s;
-    opacity: 0.5;
-    overflow: hidden;
+    opacity: 0;
 
     &:before {
       @extend .fa;
-      content: '\f00c';
       position: absolute;
       width: $icon-width;
       height: $icon-height;

@@ -1,6 +1,10 @@
 <span
   class="th-checkbox"
-  ng-class="[{checked: checkbox.checked}, {disabled: checkbox.ngDisabled}]"
+  ng-class="[
+    {disabled: checkbox.ngDisabled},
+    {checked: checkbox.checked && !checkbox.indeterminate},
+    {indeterminate: checkbox.indeterminate}
+  ]"
   >
   <input
     type="checkbox"
