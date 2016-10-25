@@ -1,0 +1,23 @@
+<html ng-app="thDemo">
+  <body ng-controller="DemoCtrl as demo">
+    <div class="th-example-width-400">
+      <form name="demo.form" novalidate>
+        <th-autocomplete
+          name="repo"
+          placeholder="Type a GitHub Repo…"
+          ng-model="demo.repo"
+          ng-required="true"
+          with-label="GitHub Repository"
+          with-messages
+          delegate="demo.delegate"
+          icon="github"
+          >
+        </th-autocomplete>
+        <br>
+        <th-button type="default" ng-click="demo.submit()" submit>Submit</th-button>
+        <th-button ng-click="demo.reset()">reset</th-button>
+        <pre ng-if="demo.response">{{demo.response | json}}</pre>
+      </form>
+    </div>
+  </body>
+</html>

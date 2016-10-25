@@ -12,7 +12,7 @@ Users are unable to enter an incomplete selection. That is, users are unable to 
 
 Autocomplete can be used to retrieve a list of options remotely through an api.
 
-Autocomplete should be used when the list of options can be intuited by the user (ie. contacts). Otherwise, see [thSelect](../thSelect).
+Autocomplete should be used when the list of options can be intuited by the user (e.g., contacts). Otherwise, see [thSelect](../thSelect).
 
 ## Usage
 

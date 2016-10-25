@@ -1,9 +1,33 @@
 .th-autocomplete-wrapper {
   @import "../../node_modules/ui-select/dist/select";
 
+  @mixin invalid-visual {
+    border-color: $red-alert;
+    box-shadow: 0px 0px 0px 1px rgba($red-alert, .7);
+  }
+
   position: relative;
   display: block;
   font-size: 13px;
+
+  &.is-invalid {
+    .form-control:not([disabled]) {
+      @include invalid-visual;
+
+      &:focus,
+      &.has-focus {
+        @include invalid-visual;
+      }
+    }
+
+    .ui-select-container {
+      .btn-default-focus {
+        span.ui-select-toggle {
+          @include invalid-visual;
+        }
+      }
+    }
+  }
 
   .form-control {
     display: block;
@@ -16,11 +40,13 @@
     border: 1px solid $grey-70;
     border-radius: 4px;
 
-    &:focus,
-    &.has-focus {
-      box-shadow: 0 0 5px $blue-shadow;
-      border: 1px solid $focus-blue;
-      outline: none;
+    &:not([disabled]) {
+      &:focus,
+      &.has-focus {
+        box-shadow: 0 0 5px $blue-shadow;
+        border: 1px solid $focus-blue;
+        outline: none;
+      }
     }
   }
 
@@ -186,7 +212,10 @@
 
     .btn {
       display: inline-block;
-      cursor: pointer;
+
+      &:not([disabled]) {
+        cursor: pointer;
+      }
     }
 
     .btn-default-focus {
