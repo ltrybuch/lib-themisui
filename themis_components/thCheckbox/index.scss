@@ -1,24 +1,21 @@
 .th-checkbox,
 *[th-checkbox] {
   $size: 14px;
-  $margin-size: 6px;
   $border: 1px;
   $border-radius: 2px;
   $font-size: 13px;
   $icon-width: 10px;
   $icon-height: 7px;
 
+  position: relative;
   display: inline-block;
-  vertical-align: -9px;
   width: $size;
   height: $size;
+  vertical-align: middle;
+  cursor: pointer;
   background-color: #fff;
   border-radius: $border-radius;
   border: solid $border $subtext-color;
-  position: relative;
-  cursor: pointer;
-  margin-top: $margin-size;
-  margin-bottom: $margin-size;
 
   &.checked, &.indeterminate {
     background-color: $dark-blue;
@@ -54,14 +51,14 @@
   }
 
   i {
-    display: block;
     position: absolute;
     top: 4px;
     bottom: 0px;
     left: 2px;
+    display: block;
     width: 0px;
+    overflow: hidden;
 
-    color: #fff;
     font-size: $icon-width;
     font-style: normal;
     opacity: 0;

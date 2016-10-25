@@ -24,8 +24,10 @@ angular.module('ThemisComponents')
       adjustMarginForRadioInputs = (element) ->
         # Reduce margin-bottom for radio button groups.
         isThRadio = element.classList.contains "th-radio-button"
+        isThCheckbox = element.classList.contains "th-checkbox"
         isRadioInput = element.type is "radio"
         className = "radio-label" if isThRadio or isRadioInput
+        className = "th-checkbox-label" if isThCheckbox
         label.addClass className
 
       createElementObject = ->

@@ -10,6 +10,20 @@ module.exports =
     it "adds 'with-label' value to label", ->
       expect(element.next().text()).toMatch "label name"
 
+  testingInlineSubLabel: (compileElementFn) ->
+    element = null
+    beforeEach ->
+      {element} = compileElementFn()
+
+    it "adds subtext class to container", ->
+      expect(element.is("span.th-checkbox.ng-scope.ng-isolate-scope.with-subtext")).toBe true
+
+    it "adds nested sub label", ->
+      expect(element.next().children().is("p.inline.sublabel-text")).toBe true
+
+    it "adds 'with-subtext' value to nested sub label", ->
+      expect(element.next().text()).toMatch "label subtext"
+
   testingNgChange: (compileElementFn) ->
     element = null
     beforeEach ->

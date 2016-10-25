@@ -1,0 +1,50 @@
+<html ng-app="thDemo">
+  <body ng-controller="DemoCtrl as demo" style="width: 400px;">
+    <div class="example">
+      <span class="example-tag">th-radio-buttons</span>
+      <th-radio-group name="colour">
+        <th-radio-button
+          with-label="Red"
+          with-subtext="Hotrod red"
+          value="red"
+          >
+        </th-radio-button>
+        <th-radio-button
+          with-label="Green"
+          with-subtext="Lime green"
+          value="green"
+          checked
+          >
+        </th-radio-button>
+        <th-radio-button
+          with-label="Blue"
+          with-subtext="Sky blue"
+          value="blue"
+          >
+        </th-radio-button>
+      </th-radio-group>
+    </div>
+
+    <div class="example">
+      <span class="example-tag">th-checkboxes</span>
+      <th-checkbox
+        with-label="Receive Updates"
+        with-subtext="Receive updates via email notifications"
+        type="text"
+        >
+      </th-checkbox>
+      <th-checkbox
+        with-label="Enabled"
+        with-subtext="User account can login"
+        type="text"
+        >
+      </th-checkbox>
+      <th-checkbox
+        with-label="Admin"
+        with-subtext="Has administrator privilages"
+        type="text"
+        >
+      </th-checkbox>
+    </div>
+  </body>
+</html>

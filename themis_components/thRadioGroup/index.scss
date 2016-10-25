@@ -1,16 +1,16 @@
 .th-radio-button {
   $size: 16px;
-  $inset: 5px;
 
-  display: inline-block;
   position: relative;
+  display: inline-block;
   width: $size;
   height: $size;
+  vertical-align: middle;
   background-color: #fff;
 
-  box-sizing: border-box;
   border: solid 1px $subtext-color;
   border-radius: 100%;
+  box-sizing: border-box;
 
   input[type="radio"] {
     display: none;
@@ -21,15 +21,13 @@
   }
 
   i {
-    display: block;
     position: absolute;
-    top: $inset;
-    bottom: $inset;
-    left: $inset;
-    right: $inset;
+    top: 5px;
+    left: 5px;
+    display: block;
+    width: $size / 4;
+    height: $size / 4;
     background-color: #fff;
-    width: 4px;
-    height: 4px;
     border-radius: 100%;
 
     @include animated();
