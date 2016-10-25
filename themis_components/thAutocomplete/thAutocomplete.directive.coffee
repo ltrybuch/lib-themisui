@@ -117,11 +117,33 @@ angular.module "ThemisComponents"
       $timeout ->
         # Toggle container shadow when input has focus.
         search = angular.element(element[0].querySelectorAll(".ui-select-search"))
+        choices = angular.element(element[0].querySelectorAll(".ui-select-choices"))
         container = angular.element(element[0].querySelectorAll(".ui-select-container"))
+
+        triggerInputTouched = ->
+          form?[fieldName].$setTouched()
+
+        choicesMouseDown = no
+        
+        choices.on "mousedown", ->
+          choicesMouseDown = yes
+        choices.on "mouseup", ->
+          choicesMouseDown = no
+          triggerInputTouched()
+
+          # Pass focus back to the search input; this is not the default
+          # behaviour of ui-select.
+          search[0].focus() if multiple
+
         search.on "focus", ->
           container.addClass("has-focus") if multiple
         search.on "blur", ->
-          form?[fieldName].$setTouched()
+          # This is to account for the search input blurring when the user
+          # clicks on the choices dropdown. If the user is mid-click, we don't
+          # set the field to `touched` until mouse-up (and the item is
+          # selected). If it's set to touched before an item is selected, the
+          # element would be in an `invalid` state for the duration of the click.
+          triggerInputTouched() unless choicesMouseDown
 
           if multiple
             container.removeClass("has-focus")
