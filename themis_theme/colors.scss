@@ -273,7 +273,7 @@ $firm-name-width-xsmall: 300px;
       // px value given - calculate rem value from font-size
       $new-rem-value: $value / $font-size;
       $px-values: join($px-values, round($value));
-      $rem-values: join($rem-values, #{$new-rem-value}rem);
+      $rem-values: join($rem-values, unquote("#{$new-rem-value}rem"));
     } @else if type-of($value) == number and not unitless($value) and (unit($value) == "%") {
       // % value given - don't add px or rem
       $px-values: join($px-values, #{$value});
