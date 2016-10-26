@@ -98,8 +98,22 @@ angular.module "ThemisComponents"
       copyValueToSearchField = (search) ->
         $timeout ->
           search = angular.element(element[0].querySelectorAll(".ui-select-search"))
-          modelName = controller.ngModel?[displayField]
-          search.val modelName or null
+          modelName = controller.ngModel?[displayField] or null
+          search.val modelName
+          controller.lastSearch = modelName
+
+      # This clears the autocomplete (in single-selection only) when the
+      # user clears the input text
+      checkForEmptySearchField = ->
+        if not multiple
+          search = angular.element(element[0].querySelectorAll(".ui-select-search"))
+          lastSearchIsEmpty = not (controller.lastSearch?.length > 0)
+          thisSearchIsEmpty = not (search.val()?.length > 0)
+
+          # We only want to set model to null when the user has actually cleared
+          # the field. If it was already empty then don't clear it again
+          if not lastSearchIsEmpty and thisSearchIsEmpty
+            controller.ngModel = null
 
       controller.onSelect = ->
         modelValue = controller.ngModel?[controller.trackField]
@@ -123,8 +137,13 @@ angular.module "ThemisComponents"
         triggerInputTouched = ->
           form?[fieldName].$setTouched()
 
+        search.on "keydown", (event) ->
+          enterKeyCode = 13
+          if not multiple and event.which is enterKeyCode
+            checkForEmptySearchField()
+
         choicesMouseDown = no
-        
+
         choices.on "mousedown", ->
           choicesMouseDown = yes
         choices.on "mouseup", ->
@@ -148,9 +167,6 @@ angular.module "ThemisComponents"
           if multiple
             container.removeClass("has-focus")
           else
-            # This clears the autocomplete (in single-selection only) when the
-            # user clears the input text
-            if search.val().length is 0
-              controller.ngModel = null
+            checkForEmptySearchField()
 
             copyValueToSearchField()
