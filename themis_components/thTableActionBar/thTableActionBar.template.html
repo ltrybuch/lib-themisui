@@ -53,7 +53,8 @@
         <th-button
           type="standard"
           ng-click="actionBar.triggerApply()"
-          ng-disabled="actionBar.delegate.results.processing"
+          ng-disabled="actionBar.delegate.results.processing ||
+                       !actionBar.delegate.results.selectedAction"
           loading="actionBar.delegate.results.processing"
           >
           {{actionBar.buttonName}}
