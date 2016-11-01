@@ -1,6 +1,19 @@
-<button class="th-button {{button.type}}">
-  <span class="load-wrapper" ng-class="button.loading ? 'show' : 'hide'">
-    <th-loader theme="button.theme" size="mini"></th-loader>
+<button
+  class="th-button {{button.type}}"
+  aria-disabled="{{button.ngDisabled}}"
+  >
+  <span
+    class="load-wrapper"
+    ng-class="button.loading ? 'show' : 'hide'"
+    >
+    <th-loader
+      theme="button.theme"
+      size="mini"
+      >
+    </th-loader>
   </span>
-  <ng-transclude ng-class="button.loading ? 'hide' : 'show'"></ng-transclude>
+  <ng-transclude
+    ng-class="button.loading ? 'hide' : 'show'"
+    >
+  </ng-transclude>
 </button>

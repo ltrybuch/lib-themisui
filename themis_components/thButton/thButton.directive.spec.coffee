@@ -6,11 +6,13 @@ context = describe
 describe 'ThemisComponents: Directive: thButton', ->
   element = compile = scope = null
 
-  validTemplate    = '<div th-button type="create" ng-click="action()">some text</div>'
-  templateWithHref = '<div th-button href="#" type="secondary">some text</div>'
-  disabledTemplate = '<div th-button ng-click="action()" disabled>some text</div>'
-  submitTemplate   = '<div th-button type="submit" text="submit text"></div>'
-  loadingTemplate  = """<th-button loading="loading">text</th-button>"""
+  validTemplate               = '<div th-button type="create" ng-click="action()">some text</div>'
+  templateWithHref            = '<div th-button href="#" type="secondary">some text</div>'
+  disabledTemplate            = '<div th-button ng-click="action()" disabled>some text</div>'
+  submitTemplate              = '<div th-button type="submit" text="submit text"></div>'
+  loadingTemplate             = """<th-button loading="loading">text</th-button>"""
+  templateWithAriaLabel       = """<th-button aria-label="test">text</th-button>"""
+  templateWithAriaDescribedBy = """<th-button aria-describedby="test-id">text</th-button>"""
 
   beforeEach angular.mock.module 'ThemisComponents'
 
@@ -84,3 +86,17 @@ describe 'ThemisComponents: Directive: thButton', ->
 
         expect(textElement.hasClass("show")).toBe true
         expect(loaderElement.hasClass("hide")).toBe true
+
+  context 'with an aria-label attribute', ->
+    beforeEach ->
+      {element} = compileDirective(templateWithAriaLabel)
+
+    it 'it is included in the element', ->
+      expect(element.attr('aria-label')).toBe 'test'
+
+  context 'with an aria-describedby attribute', ->
+    beforeEach ->
+      {element} = compileDirective(templateWithAriaDescribedBy)
+
+    it 'it is included in the element', ->
+      expect(element.attr('aria-describedby')).toBe 'test-id'

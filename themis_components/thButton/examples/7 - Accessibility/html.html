@@ -1,0 +1,37 @@
+<html ng-app="thDemo">
+  <body>
+
+    <div class="example">
+      <span class="example-tag">aria-label</span>
+      <div style="margin: 12px 0;">
+
+        <th-button type="create" aria-label="Create New Object">Create</th-button>
+        <p>
+          A screen reader will read the aria-label property "Create New Object"
+          instead of the button's text content. Use this when the button's label
+          text could use additional context.
+        </p>
+
+      </div>
+    </div>
+
+    <div class="example">
+      <span class="example-tag">aria-describedby</span>
+      <div style="margin: 12px 0;">
+
+        <th-button
+          aria-describedby="button-label"
+          >
+          Complex Function
+        </th-button>
+        <p id="button-label">
+          This text will be read by a screen reader when the button receives
+          focus. Use this when a button is accompanied by additional text that
+          describes it's functionality.
+        </p>
+
+      </div>
+    </div>
+
+  </body>
+</html>
