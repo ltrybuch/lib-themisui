@@ -13,27 +13,41 @@ angular.module("ThemisComponents")
       list: "=?"
       type: "@"
       disabled: "@"
+      ariaLabel: "@"
+      ariaDescribedby: "@"
     controller: ($element, $attrs, $timeout) ->
       @processedItems = []
       @list = @list ? []
       @visible = false
       @currentItemIndex = 0
       element = $element[0]
+      @ariaLabel ?= @name
+
+      if $attrs.disabled?
+        angular.element(element).find("button").attr('disabled', 'disabled')
 
       @keyboardToggle = (event) =>
         unless @disabled?
           switch event.keyCode
             when keycode('Enter')
-              @toggle() if @visible == false
+              if @visible == true
+                @selectOption()
+              else
+                @toggle()
+              event.preventDefault()
 
             when keycode('Space')
-              if @visible == false
+              if @visible == true
+                @selectOption()
+              else
                 @toggle()
-                event.preventDefault()
+              event.preventDefault()
 
             when keycode('Escape')
               @visible = false
-              element.focus() # set focus to the button element
+              # Set focus to the button element
+              angular.element(element).find("button")[0].focus()
+              event.preventDefault()
 
             when keycode('Down')
               focusOptionInDirection('down')
@@ -43,11 +57,20 @@ angular.module("ThemisComponents")
               focusOptionInDirection('up')
               event.preventDefault()
 
+      @selectOption = ->
+        $timeout =>
+          angular.element(document.activeElement.parentElement).triggerHandler 'click'
+          @visible = !@visible
+          @currentItemIndex = 0
+
       @toggle = ->
         @visible = !@visible
         @currentItemIndex = 0
         $timeout =>
-          element.focus() if @visible == false
+          if @visible == false
+            element.focus()
+          else
+            angular.element(element).find("a")[0].focus()
 
       @toggleCaret = ->
         if @visible then 'fa-caret-up' else 'fa-caret-down'
@@ -80,13 +103,6 @@ angular.module("ThemisComponents")
     link: (scope, elem, attr) ->
       # set button to disabled if attr passed
       elem.find("a").attr('disabled', 'disabled') if attr.disabled?
-
-      elem.on 'keyup', (event) ->
-        unless attr.disabled?
-          firstOption = elem[0].getElementsByClassName("dropdown-item")[0]
-          if event.keyCode == keycode('Enter') ||
-             event.keyCode == keycode('Space')
-            firstOption.focus()
 
       elem.on 'click', (event) ->
         menu = elem[0].getElementsByClassName("dropdown-menu")[0]

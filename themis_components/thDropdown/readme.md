@@ -48,5 +48,22 @@ Include only the relevant name of the icon.
 - ng-click can be used instead of the `href` attribute. When the corresponding menu item is clicked that `ng-click` will be invoked. If both are added the `href` attr will override.
 - If multiple action attributes are included the menu item will select `url` first, `action` next, and divider last. If nothing is passed in it will set the menu item to a `th-divider`.
 
+---
+
+## Accessibility
+
+The `thDropdown` component adheres to the standards set in the [WAI-ARIA Authoring Practices 1.1](https://www.w3.org/TR/wai-aria-practices-1.1#Listbox) document.
+
+### Keyboard Interaction
+`thDropdown` can be activated with either the `Space` or `Enter` keys. Once active, it can be navigated with the `Down` and `Up` arrow keys or be closed with the `Escape` key.
+
+### Optional Accessibility Attributes
+* `aria-label` [string] Screen readers will read the button's text content by
+default. Setting the `aria-label` attribute will override the text read by the
+screen reader.
+
+* `aria-describedby` [string] A description of a button's function can be
+provided by setting the `aria-describedby` attribute to that of the `id` of the
+description element.
 
 ---

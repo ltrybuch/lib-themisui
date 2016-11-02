@@ -1,9 +1,6 @@
 <div
   class="button-dropdown"
   ng-keydown="dropdown.keyboardToggle($event)"
-  tabindex="{{dropdown.visible ? '-1' : '0'}}"
-  aria-label="{{dropdown.name}}"
-  role="application"
   >
   <div
     class="dd-overlay"
@@ -11,12 +8,14 @@
     ng-if="dropdown.visible"
     >
   </div>
-  <a
+  <button
     ng-class="dropdown.type"
     ng-click="dropdown.toggle()"
-    aria-role="button"
     aria-haspopup="true"
     aria-owns="{{dropdown.name|lowercase}}-listbox"
+    aria-label="{{dropdown.ariaLabel}}"
+    aria-describedby="{{dropdown.ariaDescribedby}}"
+    tabindex="{{dropdown.visible ? '-1' : '0'}}"
     >
     {{dropdown.name}}
     <i
@@ -24,7 +23,7 @@
       ng-class="dropdown.toggleCaret()"
       >
     </i>
-  </a>
+  </button>
   <ul
     id="{{dropdown.name|lowercase}}-listbox"
     ng-click="dropdown.toggle()"

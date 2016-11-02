@@ -6,7 +6,7 @@
   -moz-border-radius: 0.2rem;
   height: 3.6rem;
   vertical-align: middle;
-  > a {
+  > button {
     @extend .antialiased;
     @include transition(none);
     border-radius: $border-radius;
@@ -34,19 +34,19 @@
       background: $blue-shade;
     }
   }
-  a.create {
+  button.create {
     background: $green;
     &:hover {
       background: $green-shade;
     }
   }
-  a.destroy {
+  button.destroy {
     background-color: $red;
     &:hover {
       background: $red-shade;
     }
   }
-  a.secondary {
+  button.secondary {
     color: $grey;
     background: $grey-80;
     &:hover {

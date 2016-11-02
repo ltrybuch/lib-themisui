@@ -25,7 +25,7 @@ describe "ThemisComponents: Directive: thDropdown", ->
 
     context "when clicked", ->
       beforeEach ->
-        element.find('a').first().triggerHandler 'click'
+        element.find('button').first().triggerHandler 'click'
       it "sets dropdown overlay to visible", ->
         expect(element.find("div.th-dropdown-overlay")).not.toBe null
 
@@ -39,7 +39,7 @@ describe "ThemisComponents: Directive: thDropdown", ->
       element = compileDirective("""
         <th-dropdown name="button" type="standard"></th-dropdown>
       """).element
-      expect(element.find("a").first().hasClass("standard")).toBe true
+      expect(element.find("button").first().hasClass("standard")).toBe true
 
   context "with link", ->
     beforeEach ->
@@ -49,7 +49,7 @@ describe "ThemisComponents: Directive: thDropdown", ->
 
     context "when button is clicked", ->
       beforeEach ->
-        element.find('a').first().triggerHandler 'click'
+        element.find('button').first().triggerHandler 'click'
 
       it "displays a menu with items", ->
         expect(element.find(".dropdown-menu")).not.toBe null
@@ -72,7 +72,7 @@ describe "ThemisComponents: Directive: thDropdown", ->
       """).element
     context "when button is clicked", ->
       beforeEach ->
-        element.find('a').first().triggerHandler 'click'
+        element.find('button').first().triggerHandler 'click'
       it "anchor has i element with class 'fa fa-users'", ->
         expect(element.find(".dropdown-item > i").hasClass("fa fa-users")).toBe true
 
@@ -87,7 +87,7 @@ describe "ThemisComponents: Directive: thDropdown", ->
 
     context "when button is clicked", ->
       beforeEach ->
-        element.find('a').first().triggerHandler 'click'
+        element.find('button').first().triggerHandler 'click'
 
       it "displays a menu with items", ->
         expect(element.find(".dropdown-menu")).not.toBe null
@@ -134,14 +134,13 @@ describe "ThemisComponents: Directive: thDropdown", ->
         openEvent.keyCode = 13
         element.triggerHandler openEvent
 
-        spyOn element[0], 'focus'
+        spyOn element.find('button')[0], 'focus'
         escEvent = $.Event('keydown')
         escEvent.keyCode = 27
         element.triggerHandler escEvent
         expect(element.find(".dropdown-menu").length).toBe 0
         expect(element.find(".dropdown-item").length).toEqual 0
-        timeout.flush()
-        expect(element[0].focus).toHaveBeenCalled()
+        expect(element.find('button')[0].focus).toHaveBeenCalled()
 
     context "when keycode is '40' (Down)", ->
       it "navigates to the second item in the list", ->
@@ -175,7 +174,7 @@ describe "ThemisComponents: Directive: thDropdown", ->
       element = compileDirective(template, scope).element
     context "when button is clicked", ->
       beforeEach ->
-        element.find('a').first().triggerHandler 'click'
+        element.find('button').first().triggerHandler 'click'
       it "anchor has i element with class 'fa fa-users'", ->
         expect(element.find("a.dropdown-item > i").hasClass("fa fa-users")).toBe true
 
@@ -184,7 +183,7 @@ describe "ThemisComponents: Directive: thDropdown", ->
       element = compileDirective("""
         <th-dropdown name="Button" list="[{divider:true}]"></th-dropdown>
       """).element
-      element.find('a').first().triggerHandler 'click'
+      element.find('button').first().triggerHandler 'click'
 
     it "displays a menu with items", ->
       expect(element.find(".dropdown-menu")).not.toBe null

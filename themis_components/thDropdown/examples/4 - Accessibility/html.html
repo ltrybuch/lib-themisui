@@ -1,0 +1,43 @@
+<html ng-app="thDemo">
+  <body ng-controller="DemoController as demo">
+
+    <div class="example">
+      <span class="example-tag">aria-label</span>
+      <div style="margin: 12px 0;">
+
+        <th-dropdown
+          name="Genres"
+          list="demo.genres"
+          aria-label="Dropdown List of Genres"
+          >
+        </th-dropdown>
+        <p>
+          A screen reader will read the aria-label property "Dropdown List of
+          Genres" instead of the dropdown's name content. Use this when the
+          dropdown's name could use additional context.
+        </p>
+
+      </div>
+    </div>
+
+    <div class="example">
+      <span class="example-tag">aria-describedby</span>
+      <div style="margin: 12px 0;">
+
+        <th-dropdown
+          name="Complex Settings Dropdown List"
+          list="demo.settings"
+          aria-describedby="dropdown-label"
+          >
+        </th-dropdown>
+        <p id="dropdown-label">
+          This text will be read by a screen reader when the button receives
+          focus. Use this when a dropdown is accompanied by additional text that
+          describes it's functionality.
+        </p>
+
+      </div>
+    </div>
+
+  </body>
+</html>
