@@ -54,9 +54,6 @@ angular.module 'ThemisComponents'
                 filterType.name.toLowerCase().indexOf(lowerCaseSearchString) isnt -1
             )
           else
-            updateData(
-              @customFilterTypes.filter (filterType, $index) ->
-                filterType if $index < 10
-            )
+            updateData @customFilterTypes
 
       return
