@@ -1,6 +1,6 @@
 # `thModalTitlebar`
 
-A modal's titlebar is used to name the modal and commonly provide it with a close button.
+A modal's titlebar is used to visibly name the modal and commonly provide it with a close button.
 
 ## Usage
 
@@ -9,9 +9,10 @@ A modal's titlebar is used to name the modal and commonly provide it with a clos
 ```html
 <th-modal-titlebar
   title="Foo"
-  close-visible="true|false"
+  show-close-button="true|false"
   type="standard|success|warn|destroy"
-  ></th-modal-title-bar>
+  >
+</th-modal-titlebar>
 ```
 
 ## Attributes:
@@ -19,7 +20,7 @@ A modal's titlebar is used to name the modal and commonly provide it with a clos
 ### `title` &lt;string&gt;
 > The title text to show in the titlebar.
 
-### `close-visible` &lt;boolean&gt; [optional]
+### `show-close-button` &lt;boolean&gt; [optional]
 > Control if the close button is visible or not.
 
 Defaults to true.
