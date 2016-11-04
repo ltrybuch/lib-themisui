@@ -1,7 +1,7 @@
 require './filters/'
 require './thFilter.directive'
 require './thCustomFilterRow.directive'
-require './thCustomFilters.directive'
+require './thCustomFilters.component'
 require './thSearchRow.directive'
 require './thStaticFilters.directive'
 require './thCustomFilterConverter.service'

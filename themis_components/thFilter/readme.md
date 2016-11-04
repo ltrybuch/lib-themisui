@@ -228,11 +228,8 @@ state.
 
 ### `th-filter`
 
-The `th-filter` element is optionally used to wrap any of the following filter
-views. It provides consistent styling across views and lets you easily specify
-filter options in one place instead of having to specify options for each
-filter directive. As such, it accepts an `options` attribute with the following
-parameter:
+The `th-filter` element is used to wrap the following filter views. It provides consistent
+styling across views and accepts an `options` attribute as an object containing the following properties:
 
 * `filterSet` (*required*) is the `FilterSet` instance that the enclosed components will
 modify.
@@ -241,34 +238,15 @@ modify.
 `fieldIdentifier` of the field you wish to initialize and value is a hash
 representing the initial state of the field.
 
-### `th-static-filters`
-
-The `th-static-filters` element is a container for a block of filters that are
-always visible to the user. It accepts an `options` attribute which, if
-present, overrides the `options` attribute supplied to `th-filter`. It is a
-hash consisting of the following options:
-
-* `filterSet` (*required*) is the `FilterSet` instance that the component will modify.
-
-* `initialState` (*optional*) see above.
+The following property is supported when the `th-static-filters` component is included as a child element of `th-filter`:
 
 * `staticFilters` (*required*) is an array of filter options hashes.
 
-### `th-custom-filters`
+The following properties are supported when the `th-custom-filters` component is included as a child element of `th-filter`:
 
-The `th-custom-filters` element accepts an `options` attribute which, if
-present, overrides the `options` attribute supplied to `th-filter`. It is a
-hash consisting of the following options:
+* `customFilterTypes` (*required*) is the array of filter options.
 
-* `filterSet` (*required*) is the `FilterSet` instance that the component will modify.
-
-* `initialState` (*optional*) see above.
-
-`th-custom-filters` *requires* one of the following two options:
-
-* `customFilterTypes` is the array of filter options.
-
-* `customFilterUrl` indicates a url that returns the array of filter options.
+* `customFilterUrl` (*required*) indicates a url that returns the array of filter options.
 
   * `customFilterConverter` (*optional*) is an object that subclasses
     `CustomFilterConverter`. `customFilterConverter.mapToCustomFilterArray` is
@@ -299,16 +277,24 @@ hash consisting of the following options:
             )()
     ```
 
-### `th-search-row`
-
-The `th-search-row` element defines the search row pattern consisting of an
-input field and "Search" button. It accepts an `options` attribute which, if
-present, overrides the `options` attribute supplied to `th-filter`. It is a
-hash consisting of the following options:
-
-* `filterSet` is the `FilterSet` instance that the component will modify.
-
-* `initialState` (*optional*) see above.
+The following property is supported when the `th-search-row` component is included as a child element of `th-filter`:
 
 * `fieldIdentifier` (*optional*) is the name of the field the search row will
 query. Defaults to "query".
+
+### `th-static-filters`
+
+The `th-static-filters` element is a container for a block of filters that are
+always visible to the user.
+
+### `th-custom-filters`
+
+The `th-custom-filters` element is a container for allowing users to add custom filters
+to the set.
+
+### `th-search-row`
+
+The `th-search-row` element defines the search row pattern consisting of an
+input field and "Search" button.
+
+
