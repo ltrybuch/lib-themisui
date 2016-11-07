@@ -16,10 +16,24 @@ module.exports =
       {element} = compileElementFn()
 
     it "adds subtext class to container", ->
-      expect(element.is("span.th-checkbox.ng-scope.ng-isolate-scope.with-subtext")).toBe true
+      expect(element.is("span.with-subtext")).toBe true
 
     it "adds nested sub label", ->
       expect(element.next().children().is("p.inline.sublabel-text")).toBe true
+
+    it "adds 'with-subtext' value to nested sub label", ->
+      expect(element.next().text()).toMatch "label subtext"
+
+  testingBlockSubLabel: (compileElementFn) ->
+    element = null
+    beforeEach ->
+      {element} = compileElementFn()
+
+    it "adds subtext class to container", ->
+      expect(element.is("span.with-subtext")).toBe true
+
+    it "adds nested sub label", ->
+      expect(element.next().is("p.block.sublabel-text")).toBe true
 
     it "adds 'with-subtext' value to nested sub label", ->
       expect(element.next().text()).toMatch "label subtext"
