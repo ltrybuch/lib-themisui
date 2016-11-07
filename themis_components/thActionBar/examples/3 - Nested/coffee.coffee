@@ -1,9 +1,9 @@
 angular.module 'thDemo', ['ThemisComponents']
-  .controller "DemoController", ($scope, $q, ActionBarDelegateBETA, $timeout) ->
+  .controller "DemoController", ($scope, $q, ActionBarDelegate, $timeout) ->
     pageSize = 5
     @currentPage = 1
 
-    @actionBarDelegate = new ActionBarDelegateBETA
+    @actionBarDelegate = new ActionBarDelegate
       retrieveIds: (viewObject) ->
         if viewObject.model.id is "root"
           $timeout ->
@@ -24,7 +24,9 @@ angular.module 'thDemo', ['ThemisComponents']
       collectionReferences: ["clients", "matters"]
 
     @showMore = (viewObject) ->
+      # The viewmodel allows for access to it's collection.
       collection = viewObject.model.matters
+
       clientID = viewObject.model.id
       page = ++viewObject.model.currentMattersPage
       Matter.query(clientID: clientID, page: page).then (matters) ->
@@ -45,7 +47,7 @@ angular.module 'thDemo', ['ThemisComponents']
     return
 
 ####################################################################################################
-# Sample data here.
+## SAMPLE DATA HERE. ##
 currentID = 0
 fixtures = (length) ->
   getRandomInt = (min, max) ->
@@ -117,7 +119,7 @@ Matter.ids = (clientID) ->
     resolve ids
 
 ####################################################################################################
-
+## UNRELATED COMPONENT TO SET UP EXAMPLE ##
 angular.module("thDemo")
   .component "ccPagination",
     controllerAs: "ccPagination"

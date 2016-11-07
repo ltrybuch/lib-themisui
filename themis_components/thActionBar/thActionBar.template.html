@@ -5,6 +5,7 @@
       ng-click="actionBar.toggleAll()"
       with-label="Select All"
       ng-disabled="actionBar.delegate.results.processing"
+      indeterminate="actionBar.isIndeterminate()"
       >
     </th-checkbox>
     <th-loader
@@ -40,7 +41,8 @@
           type="standard"
           ng-click="actionBar.triggerApply()"
           ng-disabled="actionBar.delegate.results.processing ||
-                       !actionBar.delegate.results.selectedAction"
+                       (!actionBar.delegate.results.selectedAction &&
+                       !!actionBar.delegate.results.availableActions)"
           loading="actionBar.delegate.results.processing"
           >
           {{actionBar.buttonName}}

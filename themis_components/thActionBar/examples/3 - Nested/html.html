@@ -17,13 +17,13 @@
       .return-container {margin: 10px; background: #f6f6f6; padding: 10px; border: 1px solid grey; font-size: 11px;}
     </style>
 
-    <th-table-action-bar-beta
+    <th-action-bar
       delegate="demo.actionBarDelegate"
       item-name="billable Client"
       button-name="Generate"
       >
       <th-button type="secondary">export</th-button>
-    </th-table-action-bar-beta>
+    </th-action-bar>
 
     <table style="width: 100%;">
       <col style="width: 55px;"/><col style="width: 55px;"/><col /><col /><col />
@@ -36,7 +36,13 @@
       </tr>
       <tbody>
         <tr class="outer" ng-repeat-start="client in demo.clients">
-          <td><th-checkbox ng-model="client.view.selected"></th-checkbox></td>
+          <td>
+            <th-checkbox
+              ng-model="client.view.selected"
+              indeterminate="client.view.indeterminate"
+              >
+            </th-checkbox>
+          </td>
           <td>{{client.model.id}}</td>
           <td>{{client.model.firstName}}</td>
           <td>{{client.model.lastName}}</td>

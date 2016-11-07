@@ -66,9 +66,8 @@ describe 'ThemisComponents: Directive: thButton', ->
       {element, scope} = compileDirective(loadingTemplate, scopeAdditions)
 
     context "when loading is true", ->
-      it 'should set the loading animation to visible', ->
+      it 'should set the loading indicator to visible', ->
         loaderElement = element.find(".load-wrapper")
-        expect(loaderElement.hasClass("show")).toBe true
 
         textElement = element.find('ng-transclude')
         expect(textElement.hasClass("hide")).toBe true
@@ -79,13 +78,14 @@ describe 'ThemisComponents: Directive: thButton', ->
         textElement = element.find('ng-transclude')
         loaderElement = element.find(".load-wrapper")
 
-        expect(loaderElement.hasClass("show")).toBe true
+        expect(loaderElement.length).toBe 1
         expect(textElement.hasClass("hide")).toBe true
 
         scope.$apply -> scope.loading = false
 
+        loaderElement = element.find(".load-wrapper")
+        expect(loaderElement.length).toBe 0
         expect(textElement.hasClass("show")).toBe true
-        expect(loaderElement.hasClass("hide")).toBe true
 
   context 'with an aria-label attribute', ->
     beforeEach ->
@@ -100,3 +100,4 @@ describe 'ThemisComponents: Directive: thButton', ->
 
     it 'it is included in the element', ->
       expect(element.attr('aria-describedby')).toBe 'test-id'
+

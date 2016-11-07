@@ -1,5 +1,5 @@
 angular.module 'ThemisComponents'
-  .factory 'ActionBarDelegateBETA', (ViewModel, SelectableCollection) ->
+  .factory 'ActionBarDelegate', (ViewModel, SelectableCollection) ->
     ActionBarDelegate = (options = {}) ->
       {
         retrieveIds
@@ -89,27 +89,38 @@ angular.module 'ThemisComponents'
 
             for childOfViewModel in viewModelChildren
               for childOfExistingItem in existingItemInSourceOfTruth.children
+
+                # If a view model's children are not all selected but some are then
+                # we'll need to update the view model's indeterminate state to be true.
+                hasSelectedChildren = existingItemInSourceOfTruth.children.some (each) ->
+                  each.selected
+                viewModel.view.indeterminate = hasSelectedChildren
+
                 if childOfViewModel.model.id is childOfExistingItem.id
                   childOfViewModel.view.selected = childOfExistingItem.selected
 
         updatingSelections = no
 
       _updateSourceOfTruth = ->
-        updatedvalues = results.actionBarModel.model[ref.parents].getSelected()
 
         # This will only work for a depth of 2
+        _updateChildren = (originalItem, updatedItem) ->
+          if originalItem? and originalItem.children? and updatedItem.children?
+            originalItem.children.forEach (child) ->
+              childExists = updatedItem.children?.some (item) -> item.id is child.id
+              unless childExists
+                sourceOfTruth[originalItem.id].children.push child if child.selected
+
+        updatedvalues =
+          results.actionBarModel.model[ref.parents].collectionValues()
+
         if updatedvalues?
           updatedvalues.forEach (item) ->
-            oldItemSourceOfTruth = sourceOfTruth[item.id]
-            sourceOfTruth[item.id] = item
-            if (oldItemSourceOfTruth? and
-              oldItemSourceOfTruth.children? and
-              sourceOfTruth[item.id].children?)
-                oldItemSourceOfTruth.children.forEach (child) ->
-                  childExists = sourceOfTruth[item.id].children?.some (item) ->
-                    item.id is child.id
-                  unless childExists
-                    sourceOfTruth[item.id].children.push child if child.selected
+            originalItem = sourceOfTruth[item.id]
+            updatedItem = sourceOfTruth[item.id] = item
+
+             # Update the children as well.
+            _updateChildren(originalItem, updatedItem)
 
       _attachListenersOnCollectionChange = (viewModel, collection) ->
         # TODO: Replace this event name format with the emerging "foo:barXyz"
@@ -138,7 +149,7 @@ angular.module 'ThemisComponents'
       _attachListenerToNested = (viewModel) ->
         viewModel.on "view:changed:selected", (status) ->
           _updateSourceOfTruth() unless updatingSelections
-
+          results.allSelected = no unless status
           results.selectedItemCount = _getSelectedItemCount()
 
       _getSelectedItemCount = ->
@@ -162,8 +173,11 @@ angular.module 'ThemisComponents'
           results.actionBarModel.model[ref.parents].resetSelected()
 
           for parent in results.actionBarModel.model[ref.parents]
+            children = parent.model[ref.children]
             parent.view.selected = no
-            children.view.selected = no for children in parent.model[ref.children]
+
+            if children? # Reset children's selected values if children
+              child.view.selected = no for child in children
 
         results.selectedItemCount = 0
         results.availableActions = availableActions
@@ -177,18 +191,19 @@ angular.module 'ThemisComponents'
 
         # Spanning more than one page. We need to get all the ids.
         if results.selectedItemCount >= currentPageItems
-          _fetchAllValue()
+          _fetchAllValues()
           _returnSelectedValues()
         else
           _returnSelectedValues()
 
-      _fetchAllValue = ->
+      _fetchAllValues = ->
         allIdentifiers = results.actionBarModel.model[ref.parents].allIdentifiers
         for key of sourceOfTruth
           parent = sourceOfTruth[key]
           childrenIds = allIdentifiers[parent.id]
+
           unless parent.children?
-            if childrenIds.length > 0
+            if childrenIds?.length > 0
               parent.children = childrenIds.map (id) -> {id: id, selected: parent.selected}
 
       _returnSelectedValues = ->

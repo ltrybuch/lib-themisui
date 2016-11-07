@@ -1,7 +1,7 @@
 pluralize = require "pluralize"
 
 angular.module("ThemisComponents")
-  .directive "thTableActionBarBeta", ->
+  .directive "thActionBar", ->
     restrict: "AE"
     scope:
       delegate: "="
@@ -10,7 +10,7 @@ angular.module("ThemisComponents")
     transclude: true
     bindToController: true
     controllerAs: "actionBar"
-    template: require "./thTableActionBar.template.html"
+    template: require "./thActionBar.template.html"
     controller: ($scope, $element, $attrs) ->
 
       @toggleAll = ->
@@ -26,6 +26,9 @@ angular.module("ThemisComponents")
       @openingWords = itemName.join " "
 
       @buttonName ||= "Apply"
+
+      @isIndeterminate = ->
+        @delegate.results.selectedItemCount > 0 and !@delegate.results.allSelected
 
       @pluralizeItemName = (count) -> return pluralize @itemName, count
 

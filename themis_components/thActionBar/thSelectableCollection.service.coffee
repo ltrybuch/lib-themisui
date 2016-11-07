@@ -1,7 +1,5 @@
-EventEmitter = require "events"
-
 angular.module("ThemisComponents")
-  .factory "SelectableCollection", (ViewModel, $q) ->
+  .factory "SelectableCollection", ($rootScope, ViewModel, $q, $timeout) ->
     SelectableCollection = (params = {}) ->
       {
         array = []
@@ -12,14 +10,12 @@ angular.module("ThemisComponents")
       } = params
       selectableCollection = []
       allSelected = no
+      selectedCount = 0
       processingCollection = no
       childrenLookup = {}
       trackedCollection = []
 
       selectableCollection.parent = parent
-      selectableCollection.totalItems = totalItems
-      selectableCollection.allSelected = allSelected
-      selectableCollection.selectedCount = 0
       selectableCollection.loadingIds = no
       selectableCollection.allIdentifiers = {}
 
@@ -28,13 +24,13 @@ angular.module("ThemisComponents")
           item.selected = false
           delete item.children
 
-      selectableCollection.getSelected = ->
+      selectableCollection.collectionValues = ->
         formattedCollection = []
         for item in trackedCollection
           childSelectableCollection = childrenLookup[item.id]
 
           if childSelectableCollection?
-            childReturnItems = childSelectableCollection.getSelected()
+            childReturnItems = childSelectableCollection.collectionValues()
             clonedItem = JSON.parse(JSON.stringify(item))
             clonedItem.children = childReturnItems
             formattedCollection.push clonedItem
@@ -49,36 +45,36 @@ angular.module("ThemisComponents")
       _generateCollection = (data) ->
         data.forEach (model) ->
           viewModel = new ViewModel model,
-            selected: default: allSelected, evented: true
+            selected: default: allSelected, evented: yes
+            indeterminate: default: no, evented: yes
 
-          viewModel.model = _generateNestedCollections(viewModel)
+          model = viewModel.model
+          Object.keys(model).forEach (property) ->
+
+            if model[property].collection? # Child collection exists.
+              childCollection = _makeChildSelectableCollection(model[property], viewModel)
+              model[property] = childCollection # replace with new collection
+
+              identifier = model[trackedBy]
+              childrenLookup[identifier] = childCollection
 
           attachListener(viewModel)
           selectableCollection.push(viewModel)
+
           exists = trackedCollection.some (item) -> item.id is viewModel.model.id
           trackedCollection.push(id: viewModel.model.id, selected: allSelected) unless exists
 
         selectableCollection.parent?.emit "selectableCollectionUpdated"
 
-      _generateNestedCollections = (viewModel) ->
-        model = viewModel.model
-        Object.keys(model).forEach (key) ->
-          if model[key].collection?
+      _makeChildSelectableCollection = (property, viewModel) ->
+        collection = property.collection
+        totalItemCount = property.meta.totalItems
 
-            collection = model[key].collection
-            identifier = model[trackedBy]
-            totalItemCount = model[key].meta.totalItems
-
-            selectableChildCollection = SelectableCollection
-              array: collection
-              parent: viewModel
-              retrieveIds: retrieveIds
-              totalItems: totalItemCount
-
-            model[key] = selectableChildCollection
-            childrenLookup[identifier] = selectableChildCollection
-
-        return model
+        return SelectableCollection
+          array: collection
+          parent: viewModel
+          retrieveIds: retrieveIds
+          totalItems: totalItemCount
 
       _isSelected = (viewModel) ->
         identifier = viewModel.model[trackedBy]
@@ -102,8 +98,6 @@ angular.module("ThemisComponents")
           if item.selected then ++count else count
         , 0
 
-        selectableCollection.selectedCount = selectedCount
-
         if selectedCount is totalItems
           allSelected = yes
           unless processingCollection
@@ -112,6 +106,9 @@ angular.module("ThemisComponents")
           allSelected = no
           unless processingCollection
             selectableCollection.parent?.view.selected = no
+
+        if selectableCollection.parent?
+          allSelected = selectableCollection.parent.view.selected
 
       _updateViewModel = (viewModel) -> viewModel.view.selected = _isSelected(viewModel)
 
@@ -142,13 +139,15 @@ angular.module("ThemisComponents")
         $q (resolve, reject) ->
           return retrieveIds(viewObject).then (identifiers) ->
             trackedCollection = []
-
             # the return ids are ALL ids so this parent collection on requires the keys.
             # Example {1: [1,2,3], 2: [2,3,4], 3: [6,7,8]}
             if selectableCollection.parent.model.id is "root"
-              for key of identifiers
-                id = parseInt(key, 10)
-                trackedCollection.push id: id, selected: false
+              if identifiers instanceof Array
+                trackedCollection = identifiers.map (id) -> id: id, selected: false
+              else
+                for key of identifiers
+                  id = parseInt(key, 10)
+                  trackedCollection.push id: id, selected: false
 
               # We'll keep a cache of these in case all are requested.
               selectableCollection.allIdentifiers = identifiers
@@ -162,6 +161,17 @@ angular.module("ThemisComponents")
                   trackedCollection.push id: id, selected: false
 
             resolve()
+
+      _updateIndeterminateState = (viewModel) ->
+        $timeout ->
+          # Update the parent when the collection is partially selected
+          # or a collection item has a child which is partailly selected.
+          count = trackedCollection.reduce (count, item) ->
+            if item.selected then ++count else count
+          , 0
+          isIndeterminate = viewModel.view.indeterminate or (count < totalItems and count > 0)
+          selectableCollection.parent?.view.indeterminate = isIndeterminate
+          $rootScope.$apply()
 
       attachParentListener = ->
         selectableCollection.parent.on "view:changed:selected", (selectionState) ->
@@ -177,8 +187,13 @@ angular.module("ThemisComponents")
               viewObject.emit "selectableCollection:fetchingIds", false
 
       attachListener = (viewModel) ->
+        viewModel.on "view:changed:indeterminate", (status) ->
+          _updateIndeterminateState(this)
+
         viewModel.on "view:changed:selected", (selectionState) ->
           if selectionState then select(viewModel) else unselect(viewModel)
+
+          _updateIndeterminateState(viewModel)
 
       _generateCollection(array)
 

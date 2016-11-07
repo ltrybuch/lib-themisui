@@ -6,34 +6,23 @@ angular.module 'thDemo', ['ThemisComponents']
     $scope
     ActionBarDelegate
     FilterSet
+    $timeout
+    $q
   ) ->
-
     ################# Relevant example code here ###############################
-    # thTableActionBar: Let's set up our action bar delegate.
+    # thActionBar: Let's set up our action bar delegate.
     @actionBarDelegate = new ActionBarDelegate
+      retrieveIds: (vm) -> $q.when allIds(55)
       # Function to be called whenever our "Apply" button is clicked.
-      onApply: ({trackedCollection, allSelected, selectedAction}, triggerReset) =>
-        @ids = trackedCollection
-        @allSelected = allSelected
+      onApply: ({trackedCollection, selectedAction}, triggerReset) =>
+        @ids = trackedCollection.map((id) -> return id.id).toString()
         @selectedAction = selectedAction
         triggerReset()
-
       availableActions: [
-        {name: "Print", value: "print"}
+        {name: "print", value: "print"}
         {name: "Download Archive", value: "download"}
       ]
-      pageSize: 10
-
-    # thTableActionBar: Link to the select column on each row.
-    @toggleSelected = (viewObject) ->
-      @actionBarDelegate.toggleSelected(viewObject)
-
-    # thTableActionBar: Trigger on each table refresh.
-    updateActionBar = (data, currentPage, totalItems) =>
-      @actionBarDelegate.makeSelectable
-        data: data
-        totalItems: totalItems
-        currentPage: currentPage
+      collectionReferences: ["parent"]
 
     # Table fixture code here.
     getDataPage = (data, page, pageSize) ->
@@ -56,12 +45,14 @@ angular.module 'thDemo', ['ThemisComponents']
 
       fetchData: ({currentPage, pageSize, sortHeader}, updateData) =>
         sortedData = sort @data, sortHeader
-        paginatedSortedData = getDataPage sortedData, currentPage, pageSize
+        paginatedSortedData =
+          collection: getDataPage(sortedData, currentPage, pageSize)
+          meta: totalItems: @data.length
 
         ################# Relevant example code here ###########################
-        # thTableActionBar: On every table change lets update the action bar.
+        # thActionBar: On every table change lets update the action bar.
         paginatedSortedSelectedableData =
-          updateActionBar paginatedSortedData, currentPage, @data.length
+          @actionBarDelegate.makeSelectable paginatedSortedData
 
         updateData {data: paginatedSortedSelectedableData, totalItems: @data.length}
 
@@ -91,3 +82,5 @@ fixtures = (length) ->
       email: generateName()
 
   return people
+
+allIds = (count) -> [1 .. count].map (number) -> number

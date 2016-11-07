@@ -2,38 +2,34 @@ angular.module 'thDemo', ['ThemisComponents']
   .controller "DemoController", (
     SimpleTableDelegate
     TableHeader
-    ActionBarDelegate
     FilterSet
     $http
     $timeout
     AlertManager
+    ActionBarDelegate
+    $q
   ) ->
 
     ################# Relevant example code here ###############################
-    # thTableActionBar: Let's set up our action bar delegate.
-    @actionBarDelegate = new ActionBarDelegate
-      # Function to be called whenever our "Apply" button is clicked.
-      onApply: ({trackedCollection, allSelected, selectedAction}, reset) =>
-        @ids = trackedCollection
-        @allSelected = allSelected
+    # thActionBar: Let's set up our action bar delegate.
+    @delegate = new ActionBarDelegate
+      retrieveIds: -> fetchAllIds()
+      onApply: ({trackedCollection, selectedAction}, triggerReset) =>
+        @ids = @ids = trackedCollection.map((id) -> return id.id).toString()
         @selectedAction = selectedAction
-
-        # Simulate a bulk action process and return success message.
         $timeout ->
-          reset()
+          triggerReset()
           AlertManager.showSuccess "Your post have been processed."
         , 3000
-      pageSize: 10
+      collectionReferences: ["parent"]
 
-    # thTableActionBar: Link to the select column on each row.
-    @toggleSelected = (viewObject) ->
-      @actionBarDelegate.toggleSelected(viewObject)
-
-    updateActionBar = (data, currentPage, totalItems) =>
-      @actionBarDelegate.makeSelectable
-        data: data
-        totalItems: totalItems
-        currentPage: currentPage
+    fetchAllIds = ->
+      $timeout ->
+        return $q (resolve) ->
+          $http.get "http://jsonplaceholder.typicode.com/posts"
+            .then (data) ->
+              resolve data.data.map (item) -> item.id
+      , 200
 
     # Filter fixture code here.
     generateQueryString = (params) ->
@@ -68,14 +64,16 @@ angular.module 'thDemo', ['ThemisComponents']
 
         queryString = generateQueryString(params)
         $http.get("http://jsonplaceholder.typicode.com/posts?#{queryString}")
-          .then (response) ->
+          .then (response) =>
             data = response.data
             resCount = response.headers "X-Total-Count"
             totalItems = if data.length > resCount then data.length else resCount
 
+            data = {collection: data, meta: totalItems: totalItems}
+
             ################# Relevant example code here #######################
-            # thTableActionBar: On every table change lets update the action bar.
-            selectableData = updateActionBar data, currentPage, totalItems
+            # thActionBar: On every table change lets update the action bar.
+            selectableData = @delegate.makeSelectable data
 
             updateData {data: selectableData, totalItems: totalItems}
 
