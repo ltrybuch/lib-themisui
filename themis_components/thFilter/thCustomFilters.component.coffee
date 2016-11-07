@@ -77,6 +77,8 @@ class CustomFilters
     @_nextIdentifier += 1
     identifier.toString()
 
+CustomFilters.$inject = ["CustomFilterConverter", "$http", "$timeout"]
+
 angular.module "ThemisComponents"
 .component "thCustomFilters",
   require:

@@ -6,7 +6,8 @@ angular.module('ThemisComponents')
       lazyObjects[name].reload()
 
     addLazyObject = (lazyObject) ->
-      lazyObjects[lazyObject.name] = lazyObject
+      if lazyObject.name
+        lazyObjects[lazyObject.name] = lazyObject
 
     return {
       reload
