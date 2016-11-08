@@ -1,5 +1,6 @@
 thModalTitlebar = ($element, $scope) ->
   @type ?= "standard"
+  @showCloseButton ?= true
 
   $element.addClass "type-#{@type}"
 
@@ -16,3 +17,4 @@ angular.module('ThemisComponents')
     bindings:
       title: "@"
       type: "@"
+      showCloseButton: "<"

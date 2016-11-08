@@ -2,7 +2,11 @@
   {{ $ctrl.title }}
 </div>
 <div class="titlebar-actions">
-  <button ng-click="$ctrl.close()">
+  <button
+    ng-click="$ctrl.close()"
+    ng-if="$ctrl.showCloseButton"
+    >
+
     <i class="fa fa-times"></i>
   </button>
 </div>
