@@ -1,3 +1,3 @@
 require './thDisclosureManager.service'
-require './thDisclosureToggle.directive'
-require './thDisclosureContent.directive'
+require './thDisclosureToggle.component'
+require './thDisclosureContent.component'
