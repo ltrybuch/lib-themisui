@@ -1,4 +1,17 @@
-<ng-include onload="lazy.loadingComplete()" src="lazy.src"></ng-include>
+<ng-include ng-show="!lazy.loading" onload="lazy.loadingComplete()" src="lazy.src"></ng-include>
 <th-loader trigger="lazy.loading" size="small"></th-loader>
-<th-error ng-if="lazy.loadError && lazy.errorMessage">{{lazy.errorMessage}}</th-error>
-<th-error ng-if="lazy.loadError && !lazy.errorMessage"></th-error>
+<th-error ng-if="lazy.loadError && !lazy.errorMessage && !lazy.loading">
+  We had trouble loading your content
+  <br>
+  <a
+    href="#"
+    ng-show="lazy.name"
+    ng-click="lazy.reload()"
+    >
+    Try reloading
+  </a>
+  <span ng-hide="lazy.name">Try reloading</span>
+</th-error>
+<th-error ng-if="lazy.loadError && lazy.errorMessage && !lazy.loading">
+  {{lazy.errorMessage}}
+</th-error>

@@ -7,7 +7,9 @@ describe "ThemisComponents: Directive: thCustomFilterRow", ->
   rowContainerController = rowController = null
 
   validTemplate = """
-    <th-custom-filters options="options"></th-custom-filters>
+    <th-filter options="options">
+      <th-custom-filters></th-custom-filters>
+    </th-filter>
   """
 
   filterType = {

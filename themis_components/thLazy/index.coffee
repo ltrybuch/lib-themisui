@@ -1,2 +1,3 @@
 require './thLazyManager.service'
-require './thLazy.directive'
+require './thLazy.component'
+require './thMetaLoader.component'

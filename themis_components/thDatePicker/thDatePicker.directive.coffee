@@ -14,8 +14,8 @@ angular.module("ThemisComponents")
     controllerAs: "datepicker"
     controller: (PopoverManager, $element, $scope) ->
       tabEventCode = 9
-      # Flag to control updates to the model
-      updatingModelFromPopover = no
+      # Status flag
+      updatingModelExternally = no
 
       # Use random names, since there might be multiple date pickers in the document.
       @targetName = "datepicker-target-#{uuid.v1()}"
@@ -51,25 +51,26 @@ angular.module("ThemisComponents")
         @unregisterModelWatcher() if @unregisterModelWatcher?
         @unregisterModelWatcher = $scope.$watch "datepicker.ngModel", (newVal, oldVal) =>
           if !(newVal == oldVal)
-            updatingModelFromPopover = yes
+            updatingModelExternally = yes
             setInputFieldString()
 
             @ngChange?()
 
       # Update the model and datepicker, unless the user enters an invalid date.
       $scope.$watch "datepicker.inputFieldString", (newVal, oldVal) =>
-        if @inputFieldString == ""
-          @ngModel = null
-        else if !(newVal == oldVal) and not updatingModelFromPopover
-          # Only update the model if the new date is different than the old,
-          # a valid date, and the change is coming from the input field,
-          # not from the datepicker popover.
-          parsedDate = moment @inputFieldString, @dateFormat
-          @ngModel = parsedDate if parsedDate.isValid()
+        if !(newVal == oldVal)
+          if @inputFieldString == ""
+            @ngModel = null
+          else if not updatingModelExternally
+            # Only update the model if the change is coming from the input field
+            # (not from any external ngModel changes), the new date is different than the old,
+            # and its a valid date.
+            parsedDate = moment @inputFieldString, @dateFormat
+            @ngModel = parsedDate if parsedDate.isValid()
 
           @ngChange?()
 
-        updatingModelFromPopover = no
+        updatingModelExternally = no
 
       @registerModelWatcher()
 

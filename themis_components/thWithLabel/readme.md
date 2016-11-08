@@ -30,9 +30,11 @@ in conjunction with the `with-subtext` component.
 </th-input>`
 
 - It can only be used as an attribute in conjunction with the `with-label` component.
-- Existing labels for input types `checkbox` and `radio`,
-will be moved to the top of their container, and the new label for the subtext will appear below.
-- It can only be used with `thCheckbox` and `thRadioButton` components,
-provided they are also using the `thWithLabel` component.
+- It currently works with thCheckbox, thRadio, and thInput.
+- When added to inline elements such as `thCheckbox` and `thRadio` it will:
+  - move the existing label to the top of their container, and the subtext will appear below it.
+- When added to block elements such as `thInput` it will:
+  - position the subtext directly below the input component. 
+
 
 ---

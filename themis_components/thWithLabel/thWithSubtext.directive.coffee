@@ -12,18 +12,14 @@ angular.module("ThemisComponents")
         radioGroupEl = label[0].getElementsByClassName "th-radio-group"
         return elementObject if radioGroupEl.length > 0
 
-        # Set type to "themis" and inline to true
-        classNames = ["th-checkbox", "th-radio-button"]
+        # Set type to "themis" and inline to true/false depending on the class
+        classNames = ["th-checkbox", "th-radio-button", "th-input-wrapper"]
         classNames.map (className) ->
+          switch className
+            when "th-input-wrapper" then inline = false
+            else inline = true
           temp = label[0].getElementsByClassName(className)[0]
-          elementObject = {el: temp, type: "themis", inline: true} if temp?
-
-        # Set type to "html" and inline to true
-        if elementObject.inline
-          inputTypes = ["radio", "checkbox"]
-          inputTypes.map (type) ->
-            temp = label[0].querySelectorAll("input[type=#{type}]")[0]
-            elementObject = {el: temp, type: "html", inline: true} if temp?
+          elementObject = {el: temp, type: "themis", inline: inline} if temp?
 
         return elementObject
 
@@ -37,3 +33,11 @@ angular.module("ThemisComponents")
           span = label[0].getElementsByClassName "label-text"
           label.children().addClass 'with-subtext'
           span[0].innerHTML += "<p class='inline sublabel-text'>#{attrs.withSubtext}</p>"
+        else
+          label.addClass 'subtext-label'
+          subtextParagraph =
+            angular.element "<p class='block sublabel-text'>#{attrs.withSubtext}</p>"
+
+          input = label[0].getElementsByClassName elementObject.el.className
+          label.children().addClass 'with-subtext'
+          angular.element(input).after subtextParagraph

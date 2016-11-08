@@ -1,25 +1,37 @@
 <div class="th-tabset {{ type }}">
-  <div class="th-tab-bar">
-      <a
-        href=""
-        ng-click="processTabChange(tab)"
-        ng-repeat="tab in tabs"
-        ng-class="{active:tab.active}"
-        class="tab-name"
-        >
-        {{ tab.name }}
-        <span class="th-tab-badge" ng-if="hasBadge(tab)">
-          {{ tab.badge }}
-        </span>
-      </a>
-      <div
-        class="th-tab-action-bar"
-        ng-transclude="actionBar"
+  <ul
+    class="th-tab-bar"
+    role="tablist"
+    >
+    <li
+      ng-click="processTabChange(tab)"
+      ng-repeat="tab in tabs"
+      ng-class="{active:tab.active}"
+      class="tab-name"
+      tabindex="{{tab.active ? '0' : '-1'}}"
+      aria-controls="{{tab.ariaControlsID}}"
+      role="tab"
+      aria-selected="{{tab.active}}"
       >
-      </div>
-  </div>
+      {{ tab.name }}
+      <span
+        class="th-tab-badge"
+        ng-if="hasBadge(tab)"
+        aria-label="{{ tab.badge }} Items"
+        >
+        {{ tab.badge }}
+      </span>
+    </li>
+    <div
+      class="th-tab-action-bar"
+      ng-transclude="actionBar"
+      tabindex="-1"
+    >
+    </div>
+  </ul>
   <div
     class="th-tabset-content"
+    role="tabpanel"
     ng-transclude
     >
   </div>

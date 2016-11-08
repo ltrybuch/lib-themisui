@@ -1,4 +1,4 @@
-<div class="th-custom-filters">
+<div class="th-custom-filters" ng-if="thCustomFilters.customFilterTypes.length">
   <div class="custom-filters" with-label="{{thCustomFilters.name}} Custom Fields">
     <th-custom-filter-row
       ng-repeat="row in thCustomFilters.customFilterRows"

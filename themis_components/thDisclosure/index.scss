@@ -1,8 +1,11 @@
 th-disclosure-content {
-  width: 100%;
-  overflow: hidden;
-  height: 0;
-  display: block;
+  ng-transclude {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .3s;
+  }
 }
 
 th-disclosure-toggle {

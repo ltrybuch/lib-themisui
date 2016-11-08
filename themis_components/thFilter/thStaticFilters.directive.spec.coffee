@@ -5,7 +5,9 @@
 describe "ThemisComponents: Directive: thStaticFilters", ->
   InputFilter = SelectFilter = FilterSet = filterSet = element = null
   validTemplate = """
-    <th-static-filters options="options"></th-static-filters>
+    <th-filter options="options">
+      <th-static-filters></th-static-filters>
+    </th-filter>
   """
 
   findController = (element) ->
@@ -39,23 +41,7 @@ describe "ThemisComponents: Directive: thStaticFilters", ->
       })).toThrow()
 
   describe "when filter set is defined on th-filter", ->
-    it "should use filter set from th-filter", ->
-      {element} = compileDirective("""
-        <th-filter options="options">
-          <th-static-filters></th-static-filters>
-        </th-filter>
-      """
-      , {
-        options: {
-          filterSet: filterSet
-          staticFilters: []
-        }
-      })
-      controller = findController element
-      expect(controller.filterSet).toBe filterSet
-
-  describe "when filter set is defined on th-static-filters", ->
-    it "should use filter set from th-static-filters", ->
+    it "should use the supplied filter set", ->
       {element} = compileDirective(validTemplate, {
         options: {
           filterSet: filterSet
@@ -64,28 +50,6 @@ describe "ThemisComponents: Directive: thStaticFilters", ->
       })
       controller = findController element
       expect(controller.filterSet).toBe filterSet
-
-  describe "when filter set is defined on both th-filter and th-static-filters", ->
-    it "should use filter set from th-static-filters", ->
-      filterSet1 = new FilterSet {onFilterChange: -> return}
-      filterSet2 = new FilterSet {onFilterChange: -> return}
-      {element} = compileDirective("""
-        <th-filter options="options1">
-          <th-static-filters options="options2"></th-static-filters>
-        </th-filter>
-      """
-      , {
-        options1: {
-          filterSet: filterSet1
-          staticFilters: []
-        }
-        options2: {
-          filterSet: filterSet2
-          staticFilters: []
-        }
-      })
-      controller = findController element
-      expect(controller.filterSet).toBe filterSet2
 
   describe "when list has zero elements", ->
     it "should should add zero filters to filter set and template", ->

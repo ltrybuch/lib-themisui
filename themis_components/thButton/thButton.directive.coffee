@@ -18,7 +18,7 @@ angular.module('ThemisComponents')
           require './thButton.button.template.html'
     bindToController: true
     controllerAs: 'button'
-    controller: ($scope, $element, $attrs, $transclude) ->
+    controller: ($element, $attrs) ->
       @loading ||= no
       @ngDisabled ?= false
 

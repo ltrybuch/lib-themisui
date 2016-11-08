@@ -51,13 +51,13 @@ describe 'ThemisComponents: Directive: thTabset', ->
       expect(element.find('.th-tabset-content').length).toBe 1
 
     it 'should default to the first tab being visible', ->
-      expect(element.find('.th-tab-bar a').first().hasClass('active')).toBe true
-      expect(element.find('.th-tab-bar a').last().hasClass('active')).toBe false
+      expect(element.find('.th-tab-bar li.tab-name').first().hasClass('active')).toBe true
+      expect(element.find('.th-tab-bar li.tab-name').last().hasClass('active')).toBe false
 
     it 'should switch to the second tab if clicked', ->
-      element.find('.th-tab-bar a').last().click()
-      expect(element.find('.th-tab-bar a').first().hasClass('active')).toBe false
-      expect(element.find('.th-tab-bar a').last().hasClass('active')).toBe true
+      element.find('.th-tab-bar li.tab-name').last().click()
+      expect(element.find('.th-tab-bar li.tab-name').first().hasClass('active')).toBe false
+      expect(element.find('.th-tab-bar li.tab-name').last().hasClass('active')).toBe true
 
   describe "with an ngClick attribute", ->
     beforeEach ->
@@ -66,10 +66,10 @@ describe 'ThemisComponents: Directive: thTabset', ->
 
     it 'should trigger the ng-click function on tab click', ->
       spyOn window, 'alert'
-      element.find('.th-tab-bar a').first().triggerHandler 'click'
+      element.find('.th-tab-bar li.tab-name').first().triggerHandler 'click'
       expect(window.alert).toHaveBeenCalledWith 'one'
 
-      element.find('.th-tab-bar a').last().triggerHandler 'click'
+      element.find('.th-tab-bar li.tab-name').last().triggerHandler 'click'
       expect(window.alert).toHaveBeenCalledWith 'two'
 
   describe "with 'activeTab' attribute set", ->
@@ -78,12 +78,12 @@ describe 'ThemisComponents: Directive: thTabset', ->
       {element, scope} = compileDirective activeTabTemplate, additions
 
     it "uses the 'active-tab' attr to set the correct tab", ->
-      tabs = element.find(".th-tab-bar a")
+      tabs = element.find(".th-tab-bar li.tab-name")
       expect(tabs.first().hasClass('active')).toBe false
       expect(tabs.last().hasClass('active')).toBe true
 
     it "updating 'active-tab' attr update the active tab", ->
-      tabs = element.find(".th-tab-bar a")
+      tabs = element.find(".th-tab-bar li.tab-name")
       expect(tabs.first().hasClass('active')).toBe false
       expect(tabs.last().hasClass('active')).toBe true
       scope.$apply -> scope.activeTabName = "Tab One"
@@ -93,7 +93,7 @@ describe 'ThemisComponents: Directive: thTabset', ->
   describe "with 'badge' attribute set", ->
     beforeEach ->
       {element, scope} = compileDirective badgeTemplate
-      tabs = element.find(".th-tab-bar a")
+      tabs = element.find(".th-tab-bar li.tab-name")
 
     it "creates a badge element", ->
       firstTabBadge = tabs.first().find("span")

@@ -9,23 +9,28 @@ We can create a view model by passing our data and an object of ui properties
 to the ViewModel class. This will wrap the base model so changes in the original
 non-wrapped model will be in sync with the corresponding view model.
 
+**Note** that you must pass the view properties that you wish to include within a
+`default` property object so `thViewModel` knows this is the inital value.
+
+View Model can even extend EventEmitter to allow event emitting on view property
+changes! Just pass the `evented` property along with your `view` property. Whenever
+your view property changes an event named `view:changed:#{viewPropertyName}` will
+emit with the changed value. See below for example.
+
 ### Example:
 
 Once set up we can now access our view properties in the view and make UI decisions
 based on that state without the need to alter the attached data model.
 
-```coffeeScript
-# data from our API:
-models = [{id: 1, name: "a"}, {id: 2, name: "b"}]
+```coffeescript
+model = {id: 1, name: "a"}
 
-uiProperties = {selected: false, color: "red", fontSize: 12}
+uiProperties =
+  selected: {default: false, evented: true}
+  color: {default: "red"}
 
-viewModels = models.map (model) -> new ViewModel(model, uiProperties)
-
-# [
-#   {model: {id: 1, name: "a"}, view: {selected: false, color: "red", fontSize: 12}}
-#   {model: {id: 2, name: "b"}, view: {selected: false, color: "red", fontSize: 12}}
-# ]
+viewModel = new ViewModel(model, uiProperties)
+# ==> {model: {id: 1, name: "a"}, view: {selected: false, color: "red"}
 
 ```
 
@@ -35,20 +40,23 @@ property in the view model. See the `addItem` function to see this in action.
 View:
 
 ```html
-<div ng-repeat="vm in viewModels">
-  <th-checkbox
-    ng-model="vm.view.selected"
-    ng-change="addItem(vm)"
-    label="vm.model.name"
-    ng-class="[{green: vm.view.color == 'green'}, {red: vm.view.color == 'red'}]"
-    >
-  </th-checkbox>
-</div>
+<th-checkbox
+  ng-model="viewModel.view.selected"
+  label="viewModel.model.name"
+  ng-class="[
+    {green: viewModel.view.color == 'green'},
+    {red: viewModel.view.color == 'red'}
+  ]"
+  >
+</th-checkbox>
 ```
 Controller:
 
 ```coffeescript
-@addItem = (viewModel) ->
-  viewModel.view.color = "green"
-  selected.push viewModel.model.id
+# Because the 'selected' value is 'evented' the changed will trigger an emit.
+changeColor = (viewModel, selected) ->
+  viewModel.view.color = if selected then "green" else "red"
+
+viewModel.on "view:changed:selected", (selected) ->
+  changeColor(this, selected)
 ```

@@ -2,6 +2,7 @@
 @import "../themis_theme/index";
 
 // Oppa Component Style
+@import "thActionBar/index";
 @import "thAlert/index";
 @import "thAutocomplete/index";
 @import "thBindMarkdown/index";
@@ -16,6 +17,7 @@
 @import "thError/index";
 @import "thFilter/index";
 @import "thLoader/index";
+@import "thLazy/index";
 @import "thInput/index";
 @import "thModal/index";
 @import "thPopover/index";
@@ -23,8 +25,6 @@
 @import "thSelect/index";
 @import "thSwitch/index";
 @import "thTable/index";
-@import "thTableActionBar/index";
-@import "thTableActionBarBETA/index";
 @import "thTabset/index";
 @import "thTextarea/index";
 @import "thTruncate/index";

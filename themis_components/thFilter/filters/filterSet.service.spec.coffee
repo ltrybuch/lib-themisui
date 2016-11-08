@@ -17,15 +17,22 @@ describe "ThemisComponents: Service: FilterSet", ->
           expect(-> new FilterSet(onFilterChange: -> return)).not.toThrow()
 
       describe "when 'onInitialized' is specified", ->
-        it "should return a new FilterSet object", ->
+        it "should return a new FilterSet object", (done) ->
           test = -> return
+          ofcSpy = jasmine.createSpy "onFilterChange"
+
           filterSet = new FilterSet {
-            onFilterChange: test
+            onFilterChange: ofcSpy
             onInitialized: test
           }
-          expect(filterSet).toBe instanceof Array
-          expect(filterSet.onFilterChange).toBe test
-          expect(filterSet.onInitialized).toBe test
+          filterSet.onFilterChange() for [1..3]
+
+          setTimeout ->
+            expect(filterSet).toBe instanceof Array
+            expect(ofcSpy).toHaveBeenCalledTimes(1)
+            expect(filterSet.onInitialized).toBe test
+            done()
+          , 400 #filterSet.onFilterChange() debounces with a timeout of 300ms
 
   describe "#remove", ->
     beforeEach ->

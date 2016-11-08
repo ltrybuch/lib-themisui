@@ -1,6 +1,6 @@
 {
   "name": "lib-ThemisUI",
-  "version": "1.9.2",
+  "version": "2.0.0",
   "license": "BSD 3-clause 'New' or 'Revised' License",
   "description": "A Baseline of style and components used by Clio's web applications.",
   "repository": "https://github.com/clio/lib-themisui.git",
@@ -79,7 +79,7 @@
     "clean": "rm -rf public/build",
     "postinstall": "npm run clean && npm run build",
     "start": "gulp docs",
-    "test": "karma start",
+    "test": "TZ='UTC' karma start",
     "test-once": "karma start --single-run",
     "versionCheck": "npm outdated --depth 0"
   },

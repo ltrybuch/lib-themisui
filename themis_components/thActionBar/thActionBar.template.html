@@ -1,0 +1,56 @@
+<div class="action-bar">
+  <div class="flex-section">
+    <th-checkbox
+      ng-model="actionBar.delegate.results.allSelected"
+      ng-click="actionBar.toggleAll()"
+      with-label="Select All"
+      ng-disabled="actionBar.delegate.results.processing"
+      indeterminate="actionBar.isIndeterminate()"
+      >
+    </th-checkbox>
+    <th-loader
+      ng-if="actionBar.delegate.results.loadingIds"
+      size="mini"
+      >
+    </th-loader>
+    <div
+      class="action-menu"
+      ng-if="actionBar.delegate.results.selectedItemCount > 0
+        && !actionBar.delegate.results.loadingIds"
+      >
+      <div class="action-text">
+        <strong>{{actionBar.delegate.results.selectedItemCount}}</strong>
+          {{actionBar.openingWords}}
+          {{actionBar.lastWord | pluralize: actionBar.delegate.results.selectedItemCount}}
+          selected.
+      </div>
+      <span ng-if="actionBar.delegate.results.availableActions">
+        <th-select
+          ng-model="actionBar.delegate.results.selectedAction"
+          options="actionBar.delegate.results.availableActions"
+          placeholder="Action"
+          condensed="true"
+          ng-disabled="actionBar.delegate.results.processing"
+          >
+        </th-select>
+      </span>
+      <span class="button-wrapper"
+        ng-class="{'margin-left-10': !actionBar.delegate.results.availableActions}"
+        >
+        <th-button
+          type="standard"
+          ng-click="actionBar.triggerApply()"
+          ng-disabled="actionBar.delegate.results.processing ||
+                       (!actionBar.delegate.results.selectedAction &&
+                       !!actionBar.delegate.results.availableActions)"
+          loading="actionBar.delegate.results.processing"
+          >
+          {{actionBar.buttonName}}
+        </th-button>
+      </span>
+    </div>
+  </div>
+  <div class="flex-section">
+    <ng-transclude></ng-transclude>
+  </div>
+</div>

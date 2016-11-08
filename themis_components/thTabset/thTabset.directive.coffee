@@ -1,3 +1,5 @@
+keycode = require "keycode"
+
 angular
   .module('ThemisComponents')
   .directive "thTabset", ->
@@ -10,7 +12,7 @@ angular
     scope:
       activeTab: "="
       type: "@"
-    controller: ($scope) ->
+    controller: ($scope, $element, $timeout) ->
       tabs = $scope.tabs = []
 
       $scope.$watch (-> $scope.activeTab), -> $scope.setActiveTab()
@@ -39,5 +41,48 @@ angular
       @addTab = (tab) ->
         $scope.activateTab tab if tabs.length is 0
         tabs.push tab
+
+      $element.on 'keydown', (event) ->
+        if angular.element(event.target).hasClass('tab-name')
+          if event.keyCode == keycode('Right') ||
+             event.keyCode == keycode('Left') ||
+             event.keyCode == keycode('Up') ||
+             event.keyCode == keycode('Down')
+            event.preventDefault()
+
+          $timeout ->
+            if event.keyCode == keycode('Right') ||
+               event.keyCode == keycode('Up')
+              i = 0
+              while i < $scope.tabs.length
+                if $scope.tabs[i].active
+                  if i == $scope.tabs.length - 1
+                    firstTab = $element.find('li')[0]
+                    angular.element(firstTab).triggerHandler 'click'
+                    firstTab.focus()
+                  else
+                    nextTab = $element.find('li')[i + 1]
+                    angular.element(nextTab).triggerHandler 'click'
+                    nextTab.focus()
+                  break
+                else
+                  i++
+
+            if event.keyCode == keycode('Left') ||
+               event.keyCode == keycode('Down')
+              i = 0
+              while i < $scope.tabs.length
+                if $scope.tabs[i].active
+                  if i == 0
+                    lastTab = $element.find('li')[$scope.tabs.length - 1]
+                    angular.element(lastTab).triggerHandler 'click'
+                    lastTab.focus()
+                  else
+                    previousTab = $element.find('li')[i - 1]
+                    angular.element(previousTab).triggerHandler 'click'
+                    previousTab.focus()
+                  break
+                else
+                  i++
 
       return

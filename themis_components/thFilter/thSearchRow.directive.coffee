@@ -1,7 +1,7 @@
 angular.module 'ThemisComponents'
 .directive 'thSearchRow', (InputFilter, $timeout) ->
   restrict: 'E'
-  require: "?^^thFilter"
+  require: "^thFilter"
   scope:
     options: "="
     fieldIdentifier: "@?"
@@ -20,7 +20,7 @@ angular.module 'ThemisComponents'
       {
         filterSet
         initialState
-      } = scope.thSearchRow.options or thFilterController?.options
+      } = thFilterController?.options
 
       unless filterSet instanceof Array
         throw new Error "thSearchRow: must specify 'filterSet' attribute."

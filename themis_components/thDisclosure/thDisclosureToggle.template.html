@@ -1,6 +1,6 @@
 <a href ng-click="thDisclosureToggle.toggle()">
   <ng-transclude
-    ng-if="thDisclosureToggle.textSide == 'left'"
+    ng-if="thDisclosureToggle.textSide === 'left'"
     >
   </ng-transclude>
   <span
@@ -9,7 +9,7 @@
     aria-hidden="true">
   </span>
   <ng-transclude
-    ng-if="thDisclosureToggle.textSide == 'right'"
+    ng-if="thDisclosureToggle.textSide === 'right'"
     >
   </ng-transclude>
 </a>
