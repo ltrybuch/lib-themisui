@@ -1,14 +1,12 @@
-debounce = require "debounce"
-
 angular.module "ThemisComponents"
   .directive "thFilterDate", (DateFilter) ->
     restrict: "E"
     scope:
       filterSet: "="
       filterOptions: "="
-      operatorOptions: "="
-      defaultOperatorIndex: "@"
-      placeholder: "@"
+      operatorOptions: "=?"
+      defaultOperatorIndex: "@?"
+      placeholder: "@?"
       initialState: "=?"
     bindToController: true
     controllerAs: "thFilterDate"
@@ -16,13 +14,9 @@ angular.module "ThemisComponents"
     controller: ($scope) ->
       @hasOperator = @operatorOptions?.length > 0
 
-      debouncedChange = debounce =>
-        @filterSet.onFilterChange()
-      , 300
+      @onValueChange = => @filterSet.onFilterChange()
 
-      @onValueChange = (event) -> debouncedChange()
-
-      @onOperatorChange = ->
+      @onOperatorChange = =>
         @filterSet.onFilterChange() if @filter.model?
 
       $scope.$on "$destroy", =>

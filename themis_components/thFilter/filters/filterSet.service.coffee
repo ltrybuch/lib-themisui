@@ -1,3 +1,5 @@
+debounce = require "debounce"
+
 angular.module 'ThemisComponents'
 .factory 'FilterSet', ->
   FilterSet = (options = {}) ->
@@ -10,8 +12,13 @@ angular.module 'ThemisComponents'
       throw new Error "FilterSet needs to be passed the following " + \
                       "function: onFilterChange: ->"
 
+    # Only fire onFilterChange() once every 300ms
+    debouncedFilterChange = debounce ->
+      onFilterChange()
+    , 300
+
     filterArray = []
-    filterArray.onFilterChange = onFilterChange
+    filterArray.onFilterChange = debouncedFilterChange
     filterArray.onInitialized = onInitialized
 
     filterArray.remove = (filterBase) ->

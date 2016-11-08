@@ -109,6 +109,7 @@ All filter types require the following options:
   * `url`
   * `email`
   * `autocomplete`
+  * `date`
 
 * `name` is the string representation indicating the filter type to the user.
 
