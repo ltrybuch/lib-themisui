@@ -20,6 +20,6 @@ angular.module("thDemo", ["ThemisComponents"])
       </div>
     """
 
-    @displayModal = =>
+    @displayModal = ->
       ModalManager.show template: template, context: title: titleString
     return
