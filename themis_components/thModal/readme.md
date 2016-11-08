@@ -1,26 +1,26 @@
 Modal
 ===
 
-<!-- TOC depthFrom:1 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
+<!-- TOC depthFrom:1 depthTo:3 withLinks:0 updateOnSave:1 orderedList:0 -->
 
-- [`ModalManager`](#modalmanager)
-	- [Syntax](#syntax)
-	- [Methods](#methods)
-		- [`show(options<object>)` → `Promise`](#showoptionsobject-promise)
-		- [`dismiss(name<string>, response<object>)`](#dismissnamestring-responseobject)
-		- [`confirm(name<string>, response<object>)`](#confirmnamestring-responseobject)
-	- [Scope Properties](#scope-properties)
-		- [`modal.dismiss(response<object>)`](#modaldismissresponseobject)
-		- [`modal.confirm(response<object>)`](#modalconfirmresponseobject)
-		- [`modal.context`](#modalcontext)
-- [`thModalAnchor`](#thmodalanchor)
-	- [Syntax](#syntax)
-- [`thModalTitlebar`](#thmodaltitlebar)
-	- [Syntax](#syntax)
-	- [Attributes](#attributes)
-		- [`title<string>`](#titlestring)
-		- [`show-close-button<boolean>` [optional]](#show-close-buttonboolean-optional)
-		- [`type<string>` [optional]](#typestring-optional)
+- `ModalManager`
+	- Syntax
+	- Methods
+		- `show(options<object>)` → `Promise`
+		- `dismiss(name<string>, response<object>)`
+		- `confirm(name<string>, response<object>)`
+	- Scope Properties
+		- `modal.dismiss(response<object>)`
+		- `modal.confirm(response<object>)`
+		- `modal.context`
+- `thModalAnchor`
+	- Syntax
+- `thModalTitlebar`
+	- Syntax
+	- Attributes
+		- `title<string>`
+		- `show-close-button<boolean>` [optional]
+		- `type<string>` [optional]
 
 <!-- /TOC -->
 
