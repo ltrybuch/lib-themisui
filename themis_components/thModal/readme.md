@@ -24,6 +24,8 @@ Modal
 
 <!-- /TOC -->
 
+---
+
 # `ModalManager`
 
 `ModalManager` is the main point of interaction when showing and hiding modals.
