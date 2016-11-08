@@ -13,9 +13,9 @@ Modal
 	- [Usage](#usage)
 	- [Accessibility](#accessibility)
 	- [Attributes](#attributes)
-		- [`title` &lt;string&gt;](#title-ltstringgt)
-		- [`show-close-button` &lt;boolean&gt; [optional]](#show-close-button-ltbooleangt-optional)
-		- [`type` &lt;string&gt; [optional]](#type-ltstringgt-optional)
+		- [`title` *string*](#title-string)
+		- [`show-close-button` *boolean* [optional]](#show-close-button-boolean-optional)
+		- [`type` *string* [optional]](#type-string-optional)
 
 <!-- /TOC -->
 
@@ -130,17 +130,17 @@ TODO: Checkin with Craig on this.
 
 ## Attributes
 
-### `title` &lt;string&gt;
+### `title` *string*
 > The title text to show in the titlebar.
 >
 > A long title will be truncated with ….
 
-### `show-close-button` &lt;boolean&gt; [optional]
+### `show-close-button` *boolean* [optional]
 > Control if the close button is visible or not.
 
 Defaults to true.
 
-### `type` &lt;string&gt; [optional]
+### `type` *string* [optional]
 > Set the type of titlebar. This is used for different styles of titlebar if, for example you are
 > displaying a message of a particular type to the user.
 
