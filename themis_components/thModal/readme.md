@@ -6,7 +6,7 @@ Modal
 - [`ModalManager`](#modalmanager)
 	- [Syntax](#syntax)
 	- [Methods](#methods)
-		- [`show(options<object>)` ➡ `Promise`](#showoptionsobject-promise)
+		- [`show(options<object>)` → `Promise`](#showoptionsobject-promise)
 		- [`dismiss(name<string>, response<object>)`](#dismissnamestring-responseobject)
 		- [`confirm(name<string>, response<object>)`](#confirmnamestring-responseobject)
 	- [Scope Properties](#scope-properties)
@@ -73,7 +73,7 @@ angular.module("ExampleApp").controller "modalController", ($scope) ->
 
 ## Methods
 
-### `show(options<object>)` ➡ `Promise`
+### `show(options<object>)` → `Promise`
 > The returned promise will resolve if the modal is closed with a `confirm` action or reject if the
 > modal is closed with a `dismiss` action.
 
