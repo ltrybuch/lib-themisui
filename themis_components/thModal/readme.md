@@ -1,10 +1,29 @@
-# Modal — `thModal` / `thModalAnchor`
+Modal
+===
 
-## Description
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Overview](#overview)
+- [`ModalManager`](#modalmanager)
+	- [Promise](#promise)
+	- [Context](#context)
+- [`thModalAnchor`](#thmodalanchor)
+	- [Usage](#usage)
+- [`thModalTitlebar`](#thmodaltitlebar)
+	- [Usage](#usage)
+	- [Accessibility](#accessibility)
+	- [Attributes](#attributes)
+		- [`title` &lt;string&gt;](#title-ltstringgt)
+		- [`show-close-button` &lt;boolean&gt; [optional]](#show-close-button-ltbooleangt-optional)
+		- [`type` &lt;string&gt; [optional]](#type-ltstringgt-optional)
+
+<!-- /TOC -->
+
+# Overview
 
 Creating a simple modal for your content is easy!
 
-1. `<th-modal-anchor></th-modal-anchor>` is required in the body of your application
+1. `<th-modal-anchor></th-modal-anchor>` is required in the body of your application.
 
 2. You must inject the `ModalManager` service into your controller in order to push your modal into the queue of modals
 
@@ -22,6 +41,12 @@ Creating a simple modal for your content is easy!
   Note that one of `path` or `template` must be provided.
 
 ---
+
+# `ModalManager`
+
+
+
+
 
 ## Promise
 
@@ -58,5 +83,71 @@ Creating a simple modal for your content is easy!
         <h3>You are editing Item # {{modal.context}}</h3>
       </body>
     ```
+
+---
+
+# `thModalAnchor`
+
+This is required once in your application template. It will the anchor point from which any modals
+will be opened.
+
+## Usage
+
+```html
+<html>
+  <body>
+
+    <!-- Page Content -->
+
+    <th-modal-anchor></th-modal-anchor>
+
+  </body>
+</html>
+
+```
+
+---
+
+# `thModalTitlebar`
+
+A modal's titlebar is used to visibly name the modal and commonly provide it with a close button.
+
+## Usage
+
+`thModalTitlebar` should be the first element within your modal.
+
+```html
+<th-modal-titlebar
+  title="Foo"
+  show-close-button="true|false"
+  type="standard|destroy"
+  >
+</th-modal-titlebar>
+```
+
+## Accessibility
+TODO: Checkin with Craig on this.
+
+## Attributes
+
+### `title` &lt;string&gt;
+> The title text to show in the titlebar.
+>
+> A long title will be truncated with ….
+
+### `show-close-button` &lt;boolean&gt; [optional]
+> Control if the close button is visible or not.
+
+Defaults to true.
+
+### `type` &lt;string&gt; [optional]
+> Set the type of titlebar. This is used for different styles of titlebar if, for example you are
+> displaying a message of a particular type to the user.
+
+Accepts:
+  - `standard`
+  - `destroy`
+
+Defaults to `standard`
 
 ---

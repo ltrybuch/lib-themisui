@@ -10,15 +10,20 @@ A modal's titlebar is used to visibly name the modal and commonly provide it wit
 <th-modal-titlebar
   title="Foo"
   show-close-button="true|false"
-  type="standard|success|warn|destroy"
+  type="standard|destroy"
   >
 </th-modal-titlebar>
 ```
 
-## Attributes:
+## Accessibility
+TODO: Checkin with Craig on this.
+
+## Attributes
 
 ### `title` &lt;string&gt;
 > The title text to show in the titlebar.
+>
+> A long title will be truncated with ….
 
 ### `show-close-button` &lt;boolean&gt; [optional]
 > Control if the close button is visible or not.
@@ -31,8 +36,6 @@ Defaults to true.
 
 Accepts:
   - `standard`
-  - `success`
-  - `warn`
   - `destroy`
 
 Defaults to `standard`
