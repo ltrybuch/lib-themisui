@@ -3,12 +3,15 @@
 
   .th-tab-bar {
     border-bottom: solid 1px $grey-70;
+    margin: 0;
     padding: 0 20px;
 
     display: flex;
     align-items: center;
 
-    a.tab-name {
+    list-style: none;
+
+    li.tab-name {
       margin-right: 6px;
       line-height: 32px;
       font-size: 16px;
@@ -18,6 +21,9 @@
       text-decoration: none;
 
       border-bottom: solid 3px #fff;
+
+      cursor: pointer;
+      user-select: none;
 
       &.active {
         color: $grey;
@@ -33,7 +39,7 @@
   }
   &.header,
   &.sub-header {
-    a.tab-name {
+    li.tab-name {
       padding-top: 12px;
 
       &.active {
@@ -42,7 +48,7 @@
     }
   }
   &.header {
-    a.tab-name {
+    li.tab-name {
       margin-right: 24px;
       padding-bottom: 12px;
 
@@ -50,7 +56,7 @@
     }
   }
   &.sub-header {
-    a.tab-name {
+    li.tab-name {
       margin-right: 20px;
       padding-bottom: 8px;
 
