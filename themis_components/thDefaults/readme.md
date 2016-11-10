@@ -38,8 +38,8 @@ thDefaults.get "dateFormat"
 
 ### `set(collection<Object>)`
 > Set each key, value pair in `collection` as a default.
->
-> Note: This will merge passed defaults into the internal set.
+
+Note: This will merge passed defaults into the internal set.
 
 ### `entries()` → `collection<Object>`
 > Return a `collection` of all defaults.
