@@ -65,12 +65,22 @@ angular.module("ExampleApp").controller "modalController", ($scope) ->
 	localContext = $scope.modal.context # now you can use me in your controller
 ```
 
+#### Confirm and close a modal within a template.
+```html
+<div>
+	<th-modal-titlebar title="Foo"></th-modal-titlebar>
+	<h3>Very exciting message!</h3>
+	<button ng-click="modal.confirm('Yes!')">Confirm</button>
+	<button ng-click="modal.dismiss('Never!')">Cancel</button>
+</div>
+```
+
 #### Referencing `context` within a template.
 ```html
-<body>
-	/** the context is being used directly in the view **/
-	<h3>You are editing Item # {{modal.context}}</h3>
-</body>
+<div>
+	<th-modal-titlebar title="Foo"></th-modal-titlebar>
+	<h3>You are editing Item # {{modal.context.id}}</h3>
+</div>
 ```
 
 ## Methods
