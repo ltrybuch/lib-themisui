@@ -23,12 +23,11 @@
 
 #### Set a default.
 ```coffeescript
-thDefaults.set "dateFormat", "YYYY-MM-DD"
-```
+angular.module("thDemo", ["ThemisComponents"])
 
-#### Read a default
-```coffeescript
-thDefaults.get "dateFormat"
+angular.module "thDemo"
+  .run (thDefaults) ->
+    thDefaults.set "dateFormat", "DD/MM/YYYY"
 ```
 
 ## Methods
