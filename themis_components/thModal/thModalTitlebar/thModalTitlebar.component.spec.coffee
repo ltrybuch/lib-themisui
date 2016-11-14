@@ -1,7 +1,3 @@
-foo = """
-  <th-modal-titlebar title="Foo"></th-modal-titlebar>
-"""
-
 templates =
   simple: """
       <th-modal-titlebar title="Foo"></th-modal-titlebar>
