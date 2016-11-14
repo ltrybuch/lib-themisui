@@ -1,5 +1,7 @@
 class CustomFilters
   constructor: (@CustomFilterConverter, @$http, @$timeout) ->
+    "ngInject"
+
     @customFilterRows = []
     @_nextIdentifier = 0
 
@@ -76,8 +78,6 @@ class CustomFilters
     identifier = @_nextIdentifier
     @_nextIdentifier += 1
     identifier.toString()
-
-CustomFilters.$inject = ["CustomFilterConverter", "$http", "$timeout"]
 
 angular.module "ThemisComponents"
 .component "thCustomFilters",
