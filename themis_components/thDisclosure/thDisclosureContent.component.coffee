@@ -1,5 +1,7 @@
 class DisclosureContent
   constructor: ($element, $timeout, DisclosureManager, Utilities) ->
+    "ngInject"
+
     @_disclosureManager = DisclosureManager
     @_$element = $element
     @_$timeout = $timeout
@@ -21,8 +23,6 @@ class DisclosureContent
         @contentHeight = height
     else
       @contentHeight = 0
-
-DisclosureContent.$inject = ["$element", "$timeout", "DisclosureManager", "Utilities"]
 
 angular.module "ThemisComponents"
   .component "thDisclosureContent",

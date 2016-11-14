@@ -1,5 +1,7 @@
 class MetaLoader
   constructor: (@$q) ->
+    "ngInject"
+
     @loading = yes
     @lazyPromises = []
 
@@ -14,8 +16,6 @@ class MetaLoader
 
   $postLink: ->
     @$q.all(@lazyPromises).then => @loading = no
-
-MetaLoader.$inject = ["$q"]
 
 angular.module('ThemisComponents')
   .component "thMetaLoader",

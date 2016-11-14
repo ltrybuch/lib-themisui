@@ -1,5 +1,7 @@
 class DisclosureToggle
   constructor: ($timeout, DisclosureManager) ->
+    "ngInject"
+
     @_$timeout = $timeout
     @_DisclosureManager = DisclosureManager
 
@@ -20,8 +22,6 @@ class DisclosureToggle
   toggle: =>
     unless @ngDisabled
       @_DisclosureManager.updateState @name, not @expanded
-
-DisclosureToggle.$inject = ["$timeout", "DisclosureManager"]
 
 angular.module 'ThemisComponents'
   .component 'thDisclosureToggle',

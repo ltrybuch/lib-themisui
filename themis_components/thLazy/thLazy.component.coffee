@@ -3,6 +3,8 @@ qs = require 'qs'
 
 class LazyController
   constructor: (@$scope, @LazyManager) ->
+    "ngInject"
+
     @resolveFunc = null
     @loading = yes
     @loadError = no
@@ -34,8 +36,6 @@ class LazyController
     else
       @src = @src + "?refreshCacheBuster=" + uuid.v1()
 
-
-LazyController.$inject = ["$scope", "LazyManager"]
 
 angular.module('ThemisComponents')
   .component "thLazy",
