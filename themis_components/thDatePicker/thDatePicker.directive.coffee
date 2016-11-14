@@ -12,7 +12,7 @@ angular.module("ThemisComponents")
       condensed: "=?"
     bindToController: true
     controllerAs: "datepicker"
-    controller: (PopoverManager, $element, $scope) ->
+    controller: (PopoverManager, $element, $scope, thDefaults) ->
       tabEventCode = 9
       # Status flag
       updatingModelExternally = no
@@ -35,7 +35,7 @@ angular.module("ThemisComponents")
 
       setDateFormat = =>
         validDateFormats = ["YYYY-MM-DD", "MM/DD/YYYY", "DD/MM/YYYY"]
-        defaultDateFormat = validDateFormats[0]
+        defaultDateFormat = thDefaults.get "dateFormat"
         if @dateFormat in validDateFormats then @dateFormat else defaultDateFormat
 
       @dateFormat = setDateFormat()
