@@ -6,7 +6,7 @@ class ModalTitlebar
 
     $element.addClass "type-#{@type}"
 
-  close: =>
+  close: ->
     if @$scope.$parent.modal?
       @$scope.$parent.modal.dismiss()
 
