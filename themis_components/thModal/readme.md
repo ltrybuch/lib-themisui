@@ -4,23 +4,23 @@ Modal
 <!-- TOC depthFrom:1 depthTo:3 withLinks:0 updateOnSave:1 orderedList:0 -->
 
 - `ModalManager`
-	- Syntax
-	- Methods
-		- `show(options<object>)` → `Promise`
-		- `dismiss(name<string>, response<object>)`
-		- `confirm(name<string>, response<object>)`
-	- Scope Properties
-		- `modal.dismiss(response<object>)`
-		- `modal.confirm(response<object>)`
-		- `modal.context`
+  - Syntax
+  - Methods
+    - `show(options<object>)` → `Promise`
+    - `dismiss(name<string>, response<object>)`
+    - `confirm(name<string>, response<object>)`
+  - Scope Properties
+    - `modal.dismiss(response<object>)`
+    - `modal.confirm(response<object>)`
+    - `modal.context`
 - `thModalAnchor`
-	- Syntax
+  - Syntax
 - `thModalTitlebar`
-	- Syntax
-	- Attributes
-		- `title<string>`
-		- `show-close-button<boolean>` [optional]
-		- `type<string>` [optional]
+  - Syntax
+  - Attributes
+    - `title<string>`
+    - `show-close-button<boolean>` [optional]
+    - `type<string>` [optional]
 
 <!-- /TOC -->
 
@@ -35,51 +35,51 @@ Modal
 #### With template URL.
 ```coffeescript
 ModalManager.show
-	path: "/template-path"
-	params:
-		optional: params
-	name: "class-name"
-	context:
-		id: 100
+  path: "/template-path"
+  params:
+    optional: params
+  name: "class-name"
+  context:
+    id: 100
 ```
 
 #### With template string.
 ```coffeescript
 ModalManager.show
-	template: "<h1>Header</h1>"
-	name: "class-name"
-	context:
-		id: 100
+  template: "<h1>Header</h1>"
+  name: "class-name"
+  context:
+    id: 100
 ```
 
 #### Confirm and close a modal within a controller.
 ```coffeescript
 $scope.confirmModal = ->
-	#do stuff...
-	$scope.modal.confirm("yes!")
+  #do stuff...
+  $scope.modal.confirm("yes!")
 ```
 
 #### Referencing `context` within a controller.
 ```coffeescript
 angular.module("ExampleApp").controller "modalController", ($scope) ->
-	localContext = $scope.modal.context # now you can use me in your controller
+  localContext = $scope.modal.context # now you can use me in your controller
 ```
 
 #### Confirm and close a modal within a template.
 ```html
 <div>
-	<th-modal-titlebar title="Foo"></th-modal-titlebar>
-	<h3>Very exciting message!</h3>
-	<button ng-click="modal.confirm('Yes!')">Confirm</button>
-	<button ng-click="modal.dismiss('Never!')">Cancel</button>
+  <th-modal-titlebar title="Foo"></th-modal-titlebar>
+  <h3>Very exciting message!</h3>
+  <button ng-click="modal.confirm('Yes!')">Confirm</button>
+  <button ng-click="modal.dismiss('Never!')">Cancel</button>
 </div>
 ```
 
 #### Referencing `context` within a template.
 ```html
 <div>
-	<th-modal-titlebar title="Foo"></th-modal-titlebar>
-	<h3>You are editing Item # {{modal.context.id}}</h3>
+  <th-modal-titlebar title="Foo"></th-modal-titlebar>
+  <h3>You are editing Item # {{modal.context.id}}</h3>
 </div>
 ```
 
