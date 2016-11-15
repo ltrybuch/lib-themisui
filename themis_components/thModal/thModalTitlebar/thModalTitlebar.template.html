@@ -1,0 +1,13 @@
+<div class="titlebar-title">
+  {{ $ctrl.title }}
+</div>
+<div class="titlebar-actions">
+  <button
+    ng-click="$ctrl.close()"
+    ng-if="$ctrl.showCloseButton"
+    aria-label="Close Modal"
+    >
+
+    <i class="fa fa-times"></i>
+  </button>
+</div>

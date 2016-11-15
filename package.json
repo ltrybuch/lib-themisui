@@ -19,8 +19,8 @@
   "main": "public/build/lib-themisui.js",
   "private": true,
   "engines": {
-    "node": "^0.10.40",
-    "npm": "^2.14.4"
+    "node": "6.2.0",
+    "npm": "3.8.8"
   },
   "dependencies": {
     "angular": "1.5.7",
@@ -43,13 +43,14 @@
     "gulp-coffeelint": "^0.5.0",
     "gulp-derequire": "^2.1.0",
     "gulp-rename": "^1.2.0",
-    "gulp-sass": "^2.1.0",
+    "gulp-sass": "^2.3.2",
     "istanbul": "^0.4.4",
     "jquery": "^2.1.4",
     "keycode": "^2.1.4",
     "marked": "^0.3.3",
     "moment": "^2.14.1",
     "node-bourbon": "^4.2.1-beta1",
+    "node-sass": "^3.11.2",
     "pluralize": "^3.0.0",
     "qs": "^6.1.0",
     "stringify": "^4.0.1",

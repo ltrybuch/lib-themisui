@@ -1,0 +1,43 @@
+th-modal-titlebar {
+  display: flex;
+  height: 60px;
+  background-color: $dark-grey-4;
+
+  padding-left: 24px;
+  padding-right: 24px;
+
+  flex-wrap: nowrap;
+  align-items: center;
+
+  &.type-destroy {
+    background-color: $red;
+  }
+
+  .titlebar-title {
+    padding-right: 12px;
+
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+
+    color: $white;
+    font-size: 24px;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    overflow: hidden;
+  }
+
+  .titlebar-actions {
+    button {
+      margin: 0;
+      margin-left: 12px;
+      padding: 0;
+      color: $white;
+      font-size: 18px;
+      border: none;
+      background: none;
+    }
+  }
+}
