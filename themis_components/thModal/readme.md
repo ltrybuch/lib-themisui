@@ -173,7 +173,7 @@ A modal's titlebar is used to visibly name the modal and commonly provide it wit
 ### `title<string>`
 > The title text to show in the titlebar.
 >
-> A long title will be truncated with ….
+> A long title will be truncated with an ellipsis.
 
 ### `show-close-button<boolean>` [optional]
 > Control if the close button is visible or not.

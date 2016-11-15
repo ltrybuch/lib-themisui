@@ -2,7 +2,7 @@ angular.module("thDemo", ["ThemisComponents"])
   .controller "DemoController", (ModalManager) ->
     @path = 'exampleTemplates/thModalExampleTemplate.html'
 
-    titleString = "In a Model"
+    titleString = "In a Modal"
     template = """
       <div>
         <th-modal-titlebar title="Example Titlebar"></th-modal-titlebar>
