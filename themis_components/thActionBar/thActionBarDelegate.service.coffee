@@ -24,10 +24,10 @@ angular.module 'ThemisComponents'
         )
 
       updatingSelections = no
-      totalItemCount = 0
       ref = {}
       sourceOfTruth = {} # A dictionary of all view model selected values.
       results = {}
+      results.totalItemCount = 0
 
       _initializeDelegate = ->
         _resetResultsObject(results)
@@ -37,7 +37,7 @@ angular.module 'ThemisComponents'
         parentModel = {id: "root"}
         parentModel[ref.parents] = data
 
-        totalItemCount = data.meta.totalItems
+        results.totalItemCount = data.meta.totalItems
 
         selectableCollection = new SelectableCollection
           array: [parentModel]
@@ -140,11 +140,11 @@ angular.module 'ThemisComponents'
 
           results.selectedItemCount = _getSelectedItemCount()
 
-          if results.selectedItemCount is totalItemCount
+          if results.selectedItemCount is results.totalItemCount
             results.allSelected = yes
 
           if results.allSelected
-            results.selectedItemCount = totalItemCount
+            results.selectedItemCount = results.totalItemCount
 
       _attachListenerToNested = (viewModel) ->
         viewModel.on "view:changed:selected", (status) ->

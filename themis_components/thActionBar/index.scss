@@ -23,6 +23,15 @@
         cursor: pointer;
       }
     }
+    
+    /* We use hidden instead of ng-if or ng-show for this because it's a flex item
+      and when ng-if or ng-show is utilized, it completely removes the component, 
+      thus screwing up the structure of the filter. */
+
+    &.hidden {
+      visibility: hidden;
+    }
+
     th-disclosure-toggle.filter-toggle {
       a {
         text-decoration: none;
