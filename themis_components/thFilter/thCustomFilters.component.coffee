@@ -1,7 +1,6 @@
 class CustomFilters
+  ###@ngInject###
   constructor: (@CustomFilterConverter, @$http, @$timeout) ->
-    "ngInject"
-
     @customFilterRows = []
     @_nextIdentifier = 0
 

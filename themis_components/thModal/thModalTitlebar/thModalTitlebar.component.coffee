@@ -1,6 +1,6 @@
 class ModalTitlebar
+  ###@ngInject###
   constructor: ($element, @$scope) ->
-    "ngInject"
     @type ?= "standard"
     @showCloseButton ?= true
 

@@ -1,7 +1,6 @@
 class DisclosureToggle
+  ###@ngInject###
   constructor: ($timeout, DisclosureManager) ->
-    "ngInject"
-
     @_$timeout = $timeout
     @_DisclosureManager = DisclosureManager
 

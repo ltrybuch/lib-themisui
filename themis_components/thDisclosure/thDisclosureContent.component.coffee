@@ -1,7 +1,6 @@
 class DisclosureContent
+  ###@ngInject###
   constructor: ($element, $timeout, DisclosureManager, Utilities) ->
-    "ngInject"
-
     @_disclosureManager = DisclosureManager
     @_$element = $element
     @_$timeout = $timeout

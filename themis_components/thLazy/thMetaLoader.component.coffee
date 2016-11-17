@@ -1,7 +1,6 @@
 class MetaLoader
+  ###@ngInject###
   constructor: (@$q) ->
-    "ngInject"
-
     @loading = yes
     @lazyPromises = []
 

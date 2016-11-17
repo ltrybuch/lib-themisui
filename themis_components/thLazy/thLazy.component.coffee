@@ -2,9 +2,8 @@ uuid = require 'uuid'
 qs = require 'qs'
 
 class LazyController
+  ###@ngInject###
   constructor: (@$scope, @LazyManager) ->
-    "ngInject"
-
     @resolveFunc = null
     @loading = yes
     @loadError = no
