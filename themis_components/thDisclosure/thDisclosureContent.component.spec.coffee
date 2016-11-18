@@ -38,7 +38,7 @@ describe "ThemisComponents: Component: thDisclosureContent", ->
     beforeEach ->
       registerCall = disclosureManager.registerDisclosureContent.calls
       handleOpen = registerCall.argsFor(0)[1].handleOpen
-      expect(controller.contentHeight).not.toBeDefined()
+      expect(controller.contentHeight).toBe 0
       handleOpen()
 
     it "passes the ng-transclude element to the getElementActualHeight helper", ->
@@ -48,6 +48,7 @@ describe "ThemisComponents: Component: thDisclosureContent", ->
 
     it "sets the contentHeight to the value from Uitlities.getElementActualHeight", ->
       $timeout.flush()
+      $timeout.flush()
       $timeout.verifyNoPendingTasks()
       expect(controller.contentHeight).toBe getElementActualHeightStub()
 
@@ -55,6 +56,9 @@ describe "ThemisComponents: Component: thDisclosureContent", ->
     it "sets the contentHeight to 0", ->
       registerCall = disclosureManager.registerDisclosureContent.calls
       handleClose = registerCall.argsFor(0)[1].handleClose
-      expect(controller.contentHeight).not.toBeDefined()
+      controller.contentHeight = 999
       handleClose()
+      $timeout.flush()
+      $timeout.flush()
+      $timeout.verifyNoPendingTasks()
       expect(controller.contentHeight).toBe 0

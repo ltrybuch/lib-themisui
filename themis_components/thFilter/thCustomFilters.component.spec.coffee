@@ -1,5 +1,5 @@
 describe "ThemisComponents: Component: thCustomFilters", ->
-  FilterSet = filterSet = CustomFilterConverter = httpBackend = thFilterCtrl = $componentController = null
+  filterSet = CustomFilterConverter = httpBackend = thFilterCtrl = $componentController = null
 
   createFilterCtrl = (bindings) ->
     Object.assign bindings, registerInitPromise: jasmine.createSpy "registerInitPromise"
@@ -11,13 +11,17 @@ describe "ThemisComponents: Component: thCustomFilters", ->
 
   beforeEach angular.mock.module "ThemisComponents"
   beforeEach ->
-    inject ($injector, _FilterSet_, _CustomFilterConverter_, $httpBackend, _$componentController_) ->
-      FilterSet = _FilterSet_
+    inject (
+      $injector
+      FilterSet
+      _CustomFilterConverter_
+      $httpBackend
+      _$componentController_
+    ) ->
       CustomFilterConverter = _CustomFilterConverter_
       httpBackend = $httpBackend
       $componentController = _$componentController_
-
-    filterSet = new FilterSet {onFilterChange: -> return}
+      filterSet = new FilterSet {onFilterChange: -> return}
 
   describe "when the component controller is instantiated", ->
     it "should register an init promise with the parent Filter controller", ->
@@ -29,7 +33,8 @@ describe "ThemisComponents: Component: thCustomFilters", ->
       expect(controller.thFilterCtrl.registerInitPromise.calls.count()).toEqual 0
       controller.$onInit()
       expect(controller.thFilterCtrl.registerInitPromise.calls.count()).toEqual 1
-      expect(controller.thFilterCtrl.registerInitPromise.calls.argsFor(0)[0] instanceof Promise).toEqual true
+      expect(controller.thFilterCtrl.registerInitPromise.calls.argsFor(0)[0] instanceof Promise)
+        .toEqual true
 
   describe "when filter set is undefined", ->
     it "should throw an error", ->

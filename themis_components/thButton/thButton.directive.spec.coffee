@@ -100,4 +100,3 @@ describe 'ThemisComponents: Directive: thButton', ->
 
     it 'it is included in the element', ->
       expect(element.attr('aria-describedby')).toBe 'test-id'
-

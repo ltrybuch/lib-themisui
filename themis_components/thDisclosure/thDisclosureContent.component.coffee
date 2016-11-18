@@ -1,6 +1,10 @@
 class DisclosureContent
   ###@ngInject###
   constructor: ($element, $timeout, DisclosureManager, Utilities) ->
+    @open = no
+    @contentHeight = 0
+    @_transitionTimeout = 300
+    @_applyTransitionTimeout = 100
     @_disclosureManager = DisclosureManager
     @_$element = $element
     @_$timeout = $timeout
@@ -16,12 +20,23 @@ class DisclosureContent
         @_animateToggle off
 
   _animateToggle: (expanded) =>
+    height = @_utilities.getElementActualHeight @_disclosureContent
+
     if expanded
-      height = @_utilities.getElementActualHeight @_disclosureContent
       @_$timeout =>
         @contentHeight = height
+
+        @_$timeout =>
+          @open = yes
+        , @_transitionTimeout
     else
-      @contentHeight = 0
+      @_$timeout =>
+        @open = no
+        @contentHeight = height
+
+        @_$timeout =>
+          @contentHeight = 0
+        , @_applyTransitionTimeout
 
 angular.module "ThemisComponents"
   .component "thDisclosureContent",
