@@ -1,3 +1,5 @@
+thTableKeyboardNavigation = require "./thTableKeyboardNavigation"
+
 angular.module 'ThemisComponents'
   .directive 'thTable', ($compile, Table) ->
     restrict: 'E'
@@ -5,7 +7,11 @@ angular.module 'ThemisComponents'
       delegate: '='
     bindToController: true
     controllerAs: 'thTable'
-    controller: -> return
+    controller: ($scope, $element) ->
+      thTableKeyboardNavigation $element, $scope
+
+      return
+
     compile: (element, attrs) ->
       table = Table {element: element[0]}
       table.clear()

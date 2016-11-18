@@ -81,15 +81,27 @@ angular.module 'ThemisComponents'
       generatePaginationTemplate: ->
         return "" unless paginationEnabled options
         return """
-          <div class="th-table-pagination" ng-if="thTable.delegate.pages().length > 1">
-            <a class="th-table-pagination-link"
-               ng-class="{'th-table-pagination-inactive-link': thTable.delegate.isFirstPage()}"
-               ng-click="thTable.delegate.goToPrevPage()">
+          <div
+            class="th-table-pagination"
+            ng-if="thTable.delegate.pages().length > 1"
+            tabindex="0"
+            aria-label="Table pagination"
+            >
+            <a
+              class="th-table-pagination-link"
+              ng-class="{'th-table-pagination-inactive-link': thTable.delegate.isFirstPage()}"
+              ng-click="thTable.delegate.goToPrevPage()"
+              tabindex="0"
+              aria-label="Previous page"
+              >
               <div class="fa fa-chevron-left th-table-pagination-icon-left"></div>
               Previous
             </a>
 
             <a class="th-table-pagination-link"
+               tabindex="-1"
+               aria-label="Page #{interpolateStart}page#{interpolateEnd}"
+               aria-hidden="#{interpolateStart}page == '…'#{interpolateEnd}"
                ng-repeat="page in thTable.delegate.pages() track by $index"
                ng-click="thTable.delegate.goToPage(page)"
                ng-class="{'th-table-pagination-inactive-link':
@@ -99,7 +111,10 @@ angular.module 'ThemisComponents'
 
             <a class="th-table-pagination-link"
                ng-class="{'th-table-pagination-inactive-link': thTable.delegate.isLastPage()}"
-               ng-click="thTable.delegate.goToNextPage()">
+               ng-click="thTable.delegate.goToNextPage()"
+               tabindex="-1"
+               aria-label="Next page"
+               >
               Next
               <div class="fa fa-chevron-right th-table-pagination-icon-right"></div>
             </a>

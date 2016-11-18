@@ -7,7 +7,12 @@
     <th-table delegate="demo.tableDelegate">
       <th-table-row type="cells">
         <th-table-cell>
-          <th-checkbox ng-model="item.selected" ng-change="demo.toggleSelected(item)"></th-checkbox>
+          <th-checkbox
+            ng-model="item.selected"
+            ng-change="demo.toggleSelected(item)"
+            aria-label="Select Row Checkbox"
+            >
+          </th-checkbox>
         </th-table-cell>
 
         <th-table-cell>

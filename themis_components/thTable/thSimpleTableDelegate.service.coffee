@@ -15,11 +15,13 @@ angular.module 'ThemisComponents'
       return "" unless headers.length > 0
       return """
         <thead>
-          <tr>
+          <tr role="row">
             <th ng-repeat="header in thTable.delegate.headers track by $index"
                 ng-class="header.cssClasses()"
-                ng-show="header.visible"
+                ng-if="header.visible"
                 ng-click="thTable.delegate.sortData(header)"
+                tabindex="0"
+                role="columnheader"
                 >
               #{interpolateStart}header.name#{interpolateEnd}
               <span class="th-table-sort-icon" aria-hidden="true"></span>
@@ -34,7 +36,7 @@ angular.module 'ThemisComponents'
       return headers
         .map (header, index) ->
           width = if header.width then "style='width: #{header.width}'" else ""
-          """<col ng-show="thTable.delegate.headers[#{index}].visible" #{width}>"""
+          """<col ng-if="thTable.delegate.headers[#{index}].visible" #{width}>"""
         .join ''
 
     generateBodyTemplate = (rows) ->
@@ -61,19 +63,25 @@ angular.module 'ThemisComponents'
                 .join ''
 
       return """
-        <tr class="th-table-cells-row"
-            #{ngRepeat}="#{objectReference} in thTable.delegate.getData()"
-            ng-mouseover="hover = true"
-            ng-mouseleave="hover = false"
-            ng-class="{'th-table-hover-row': hover}"
-            >
+        <tr
+          class="th-table-cells-row"
+          #{ngRepeat}="#{objectReference} in thTable.delegate.getData()"
+          ng-mouseover="hover = true"
+          ng-mouseleave="hover = false"
+          ng-class="{'th-table-hover-row': hover}"
+          role="row"
+          >
           #{cells}
         </tr>
       """
 
     generateCellTemplate = (cell, index) ->
       return """
-        <td ng-if="thTable.delegate.headers[#{index}].visible">
+        <td
+          ng-if="thTable.delegate.headers[#{index}].visible"
+          role="gridcell"
+          tabindex="-1"
+          >
           #{cell.innerHTML}
         </td>
       """
@@ -83,36 +91,50 @@ angular.module 'ThemisComponents'
       startColumn = parseInt (actionsRow.getAttribute('start-column') ? 1), 10
       colspan = numColumns - startColumn + 1
       return """
-        <tr class="th-table-actions-row"
-            ng-repeat-end
-            ng-mouseover="hover = true"
-            ng-mouseleave="hover = false"
-            ng-class="{'th-table-hover-row': hover}"
-            ng-show="thTable.delegate.headers[#{startColumn - 1}].visible"
+        <tr
+          class="th-table-actions-row"
+          ng-repeat-end
+          ng-mouseover="hover = true"
+          ng-mouseleave="hover = false"
+          ng-class="{'th-table-hover-row': hover}"
+          ng-if="thTable.delegate.headers[#{startColumn - 1}].visible"
+          role="row"
+          data-column-start="#{startColumn}"
+          >
+          <td
+            class="th-table-actions-cell"
+            ng-class="#{startColumn - 1} == $index ? 'has-actions' : ''"
+            role="gridcell"
+            ng-repeat="header in thTable.delegate.headers track by $index"
+            tabindex="-1"
+            aria-selected="{{focused ? 'true' : 'false'}}"
+            aria-hidden="{{#{startColumn - 1} > $index}}"
+            ng-if="header.visible &&
+                   #{startColumn - 1} >= $index &&
+                   thTable.delegate.headers[#{startColumn - 1}].visible"
+            colspan="#{interpolateStart}
+                       #{startColumn - 1} == $index ? #{colspan} : 1
+                     #{interpolateEnd}"
             >
-            <td class="th-table-actions-cell"
-                ng-repeat="header in thTable.delegate.headers track by $index"
-                ng-if="header.visible &&
-                       #{startColumn - 1} >= $index &&
-                       thTable.delegate.headers[#{startColumn - 1}].visible"
-                colspan="#{interpolateStart}
-                           #{startColumn - 1} == $index ? #{colspan} : 1
-                         #{interpolateEnd}"
-                >
-                <span ng-if="#{startColumn - 1} == $index">
-                  #{actionsRow.innerHTML}
-                </span>
-            </td>
+            <span ng-if="#{startColumn - 1} == $index">
+              #{actionsRow.innerHTML}
+            </span>
+          </td>
         </tr>
       """
 
     generateNoDataRowTemplate = (noDataRow = {}, numColumns) ->
       contents = noDataRow.innerHTML ? "No Results"
       return """
-        <tr class="th-table-no-data-row"
-            ng-if="thTable.delegate.hasNoData()"
+        <tr
+          class="th-table-no-data-row"
+          ng-if="thTable.delegate.hasNoData()"
+          role="row"
+          >
+          <td
+            colspan="#{numColumns}"
+            role="gridcell"
             >
-          <td colspan="#{numColumns}">
             #{contents}
           </td>
         </tr>
@@ -120,9 +142,15 @@ angular.module 'ThemisComponents'
 
     generateErrorRowTemplate = (numColumns) ->
       return """
-        <tr class="th-table-error-row"
-            ng-if="thTable.delegate.getError()">
-          <td colspan="#{numColumns}">
+        <tr
+          class="th-table-error-row"
+          ng-if="thTable.delegate.getError()"
+          role="row"
+          >
+          <td
+            colspan="#{numColumns}"
+            role="gridcell"
+            >
             <th-error>
               <div>
                 We had trouble loading your content.
@@ -181,7 +209,12 @@ angular.module 'ThemisComponents'
           <div ng-class="{'th-table-loading': thTable.delegate.isLoading(),
                           'th-table-blank': thTable.delegate.getData().length === 0}"
                           >
-            <table class="th-table">
+            <table
+              class="th-table"
+              role="grid"
+              aria-readonly="true"
+              tabindex="0"
+              >
               #{cols}
               #{thead}
               #{tbody}
