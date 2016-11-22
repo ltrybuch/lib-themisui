@@ -53,6 +53,11 @@ angular.module 'ThemisComponents'
           _updateSelectedStatus viewModel unless results.allSelected
           _attachListeners viewModel
 
+        results.actionBarModel.on "selectableCollection:allSelected", (status) ->
+          _updateSourceOfTruth() unless updatingSelections
+          results.allSelected = no unless status
+          results.selectedItemCount = _getSelectedItemCount()
+
         return results.actionBarModel.model[ref.parents]
 
       evaluateOnApplyFunction = ->

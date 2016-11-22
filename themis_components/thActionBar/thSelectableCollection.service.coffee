@@ -177,13 +177,16 @@ angular.module("ThemisComponents")
         selectableCollection.parent.on "view:changed:selected", (selectionState) ->
           viewObject = this
           unless selectionState
-            clearAll() if selectionState isnt allSelected
+            if selectionState isnt allSelected
+              clearAll()
+              viewObject.emit "selectableCollection:allSelected", false
 
           if selectionState
             viewObject.emit "selectableCollection:fetchingIds", true
 
             fetchAllChildrenIdentifiers(this).then ->
               selectAll()
+              viewObject.emit "selectableCollection:allSelected", true
               viewObject.emit "selectableCollection:fetchingIds", false
 
       attachListener = (viewModel) ->
