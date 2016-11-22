@@ -8,6 +8,7 @@ angular.module 'ThemisComponents'
       customFilterTypes: "="
       filterSet: "="
       removeRow: "&"
+      showSearchHint: "<"
     bindToController: true
     controllerAs: 'thCustomFilterRow'
     template: require './thCustomFilterRow.template.html'
@@ -52,8 +53,9 @@ angular.module 'ThemisComponents'
             updateData(
               @customFilterTypes.filter (filterType) ->
                 filterType.name.toLowerCase().indexOf(lowerCaseSearchString) isnt -1
+              , @showSearchHint
             )
           else
-            updateData @customFilterTypes
+            updateData @customFilterTypes, @showSearchHint
 
       return

@@ -5,23 +5,17 @@ class CustomFilters
     @_nextIdentifier = 0
 
   $onInit: ->
-    {
-      filterSet
-      customFilterTypes
-      customFilterUrl
-      customFilterConverter
-      initialState
-      name
-    } = @thFilterCtrl.options
-    @name = name
-    @initialState = initialState
-    @customFilterTypes = customFilterTypes
-    @filterSet = filterSet
+    {customFilterUrl, customFilterConverter} = @thFilterCtrl.options
+    @name = @thFilterCtrl.options.name
+    @initialState = @thFilterCtrl.options.initialState
+    @customFilterTypes = @thFilterCtrl.options.customFilterTypes
+    @filterSet = @thFilterCtrl.options.filterSet
+    @showSearchHint = @thFilterCtrl.options.showSearchHint
 
-    unless filterSet instanceof Array
+    unless @filterSet instanceof Array
       throw new Error "thCustomFilters: must specify 'filterSet'."
 
-    unless customFilterTypes instanceof Array or customFilterUrl?
+    unless @customFilterTypes instanceof Array or customFilterUrl?
       throw new Error "thCustomFilters: must specify 'customFilterTypes' or 'customFilterUrl'."
 
     @registerFilterInit customFilterUrl, customFilterConverter
@@ -39,9 +33,12 @@ class CustomFilters
               unless customFilterConverter.constructor.prototype instanceof @CustomFilterConverter
                 throw new Error "customFilterConverter must be instance of 'CustomFilterConverter'."
 
-              @customFilterTypes = customFilterConverter.mapToCustomFilterArray response.data
+              [@customFilterTypes, meta] =
+                customFilterConverter.mapToCustomFilterArray response.data
+              @showSearchHint = meta.showSearchHint
             else
               @customFilterTypes = response.data
+              @showSearchHint = no
 
             @parseParams()
             resolve()

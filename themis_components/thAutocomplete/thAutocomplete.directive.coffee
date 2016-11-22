@@ -13,16 +13,33 @@ angular.module "ThemisComponents"
       icon: "@?"
       condensed: "=?"
       multiple: "@?"
+      showSearchHint: "<?"
     bindToController: true
     controllerAs: "thAutocomplete"
 
-    controller: ->
+    controller: ($element) ->
       @data = []
       @lastValue = null
+      searchHintText = "Search to find more results"
 
-      @updateData = (data) =>
+      @updateData = (data, showSearchHint) =>
         throw new Error "UpdateData: data must be of type Array" unless data instanceof Array
         @data = data
+        @showSearchHint = showSearchHint
+        @_toggleSearchHintElement()
+
+      @_toggleSearchHintElement = ->
+        $timeout =>
+          choices = angular.element($element[0].querySelectorAll(".ui-select-choices"))
+          hintExists = choices.querySelectorAll(".hint").length > 0
+          if @showSearchHint is on
+            choices.append "<div class='hint'>#{searchHintText}</div>" unless hintExists
+          else
+            angular.element($element[0].querySelectorAll(".hint")).remove()
+
+      @$postLink = ->
+        $timeout =>
+          @_toggleSearchHintElement()
 
       return
     link: (scope, element, attrs, controllerArray) ->

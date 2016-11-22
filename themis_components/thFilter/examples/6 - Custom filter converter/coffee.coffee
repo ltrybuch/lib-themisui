@@ -2,7 +2,7 @@ angular.module "thDemo", ["ThemisComponents"]
 .factory "MyCustomFilterConverter", (CustomFilterConverter) ->
   class MyCustomFilterConverter extends CustomFilterConverter
     mapToCustomFilterArray: (data) ->
-      data.map (item) ->
+      convertedResults = data.map (item) ->
         fieldIdentifier: item.name
         name: item.name
         type: do ->
@@ -28,6 +28,8 @@ angular.module "thDemo", ["ThemisComponents"]
           trackField: item.autocomplete_options?.track_field
           icon: item.autocomplete_options?.icon
           queryField: item.autocomplete_options?.query_field
+
+      return [convertedResults, showSearchHint: true]
 
 .factory "Repo", ($http) ->
   class Repo

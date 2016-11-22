@@ -141,10 +141,11 @@ describe "ThemisComponents: Component: thCustomFilters", ->
       beforeEach ->
         class TestCustomFilterConverter extends CustomFilterConverter
           mapToCustomFilterArray: (data) ->
-            data.map (item) ->
+            convertedResults = data.map (item) ->
               fieldIdentifier: idPrefix() + item.id
               name: namePrefix() + item.id
               type: typePrefix() + item.id
+            return [convertedResults, showSearchHint: true]
         testConverter = new TestCustomFilterConverter()
         convertSpy = spyOn(testConverter, "mapToCustomFilterArray").and.callThrough()
 

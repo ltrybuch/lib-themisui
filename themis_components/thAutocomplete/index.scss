@@ -331,6 +331,19 @@
           }
         }
       }
+
+      .hint {
+        padding: 9px 12px;
+        white-space: nowrap;
+        /* Replace this with $grey-5 once the colour work has been merged */
+        color: #898b8c;
+        font-style: italic;
+
+        &:hover {
+          cursor: default;
+        }
+      }
+
     }
 
     .ui-select-search {
@@ -406,6 +419,10 @@
         a {
           padding: 5px 12px;
         }
+      }
+
+      .hint {
+        padding: 5px 12px;
       }
 
       .form-control {
