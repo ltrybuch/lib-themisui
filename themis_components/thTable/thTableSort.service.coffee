@@ -9,9 +9,11 @@ TableSort = ->
       -compareResult
 
   compare = (a, b) ->
-    if typeof a in ["number", "boolean"]
+    if typeof a is "number"
       a - b
     else
+      a = if a? then "#{a}" else ""
+      b = if b? then "#{b}" else ""
       a.localeCompare b
 
   getField = (object, field) ->
