@@ -19,12 +19,6 @@ angular.module('ThemisComponents')
       throw new Error "with-message: missing form." unless formName?
       throw new Error "with-message: missing field name on input." unless attrs.name?
 
-      adjustLabelMargin = ->
-        if attrs.withLabel?
-          # For th-radio-group we need to remove margin from the last radio button.
-          $(element).find(".radio-label:last-child")?.addClass "margin-bottom-none"
-          $(element).closest("label").addClass "margin-bottom-none"
-
       compiledAndAppendMessageTemplate = (options) ->
         template = MessageService.generateNgMessagesElement(options)
         compiledTemplate = $compile(template)(scope)
@@ -33,8 +27,6 @@ angular.module('ThemisComponents')
           element.parent().append compiledTemplate
         else
           element.after compiledTemplate
-
-        adjustLabelMargin()
 
       initialMessages = scope.$eval attrs.withMessages
       messages = MessageService.extendMessages initialMessages, attrs

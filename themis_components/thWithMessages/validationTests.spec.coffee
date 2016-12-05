@@ -51,6 +51,10 @@ module.exports =
         it "displays the error message element", ->
           expect(element.find(".message-text").length).toBe 1
 
+        it "adds .has-message class to th-with-message", ->
+          thWithMessages = element.find(".th-with-message")
+          expect(thWithMessages.hasClass("has-message")).toBe true
+
         it "displays the custom '#{type}' error message", ->
           normalized = element.find(".message-text").text().trim()
           expect(messages[type]).toBe normalized

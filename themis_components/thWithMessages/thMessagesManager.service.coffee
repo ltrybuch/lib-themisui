@@ -19,7 +19,7 @@ angular.module 'ThemisComponents'
       conditional = generateInputSpecificConditional options
 
       messageWrapper = """
-        <div class="th-with-message">
+        <div class="th-with-message" ng-class="{'has-message': #{conditional}}">
           <div
             ng-messages="#{formName}.#{modelName}.$error"
             class="message-container"

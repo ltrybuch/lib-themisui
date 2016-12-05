@@ -1,15 +1,16 @@
 .th-with-message {
-  height: 20px;
-  padding-top: 5px;
-  margin-bottom: 10px;
+  display: none;
 
-  .message-container {
-    color: $red-alert;
-    font-size: 13px;
-    font-weight: 400;
+  &.has-message {
+    display: block;
+    height: 20px;
+    padding-top: 5px;
+    margin-bottom: 10px;
+
+    .message-container {
+      color: $red-alert;
+      font-size: 13px;
+      font-weight: 400;
+    }
   }
-}
-
-label.margin-bottom-none {
-  margin-bottom: 0px;
 }
