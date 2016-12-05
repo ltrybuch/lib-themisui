@@ -33,12 +33,12 @@ angular.module 'ThemisComponents'
       animateToggle = =>
         height = getActualHeight $element
         if @expanded
-          $($element).animate {
+          $($element).stop().animate {
             height: "#{height}px"
           }, 300, ->
             open $element
         else
-          $($element).animate {
+          $($element).stop().animate {
             height: "0"
           }, 300, ->
             close $element
