@@ -1,0 +1,56 @@
+<html ng-app="thDemo">
+  <body style="height: 25px;" ng-controller="DemoCtrl as demo">
+
+    <div class="example">
+      <span class="example-tag">aria-label</span>
+      <div style="margin: 12px 0;">
+
+        <th-disclosure-toggle
+          name="unique-name1"
+          expanded="demo.expanded1"
+          aria-label="Show Hidden Text"
+          >
+          Show
+        </th-disclosure-toggle>
+        <th-disclosure-content
+          name="unique-name1"
+          >
+          Hidden text
+        </th-disclosure-content>
+
+        <p>
+          A screen reader will read the aria-label property "Show Hidden Text"
+          instead of the disclosure toggle's text content. Use this when the text
+          content could use additional context.
+        </p>
+
+      </div>
+    </div>
+
+    <div class="example">
+      <span class="example-tag">aria-describedby</span>
+      <div style="margin: 12px 0;">
+
+        <th-disclosure-toggle
+          name="unique-name2"
+          expanded="demo.expanded2"
+          aria-describedby="disclosure-label"
+          >
+          Show
+        </th-disclosure-toggle>
+        <th-disclosure-content
+          name="unique-name2"
+          >
+          Hidden text
+        </th-disclosure-content>
+
+        <p id="disclosure-label">
+          This text will be read by a screen reader when the disclosure toggle receives focus.
+          Use this when a disclosure component is accompanied by additional text that describes it's functionality.
+        </p>
+
+      </div>
+    </div>
+
+  </body>
+</html>

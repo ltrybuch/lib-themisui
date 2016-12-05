@@ -1,38 +1,45 @@
-$ = require 'jquery'
+$ = require "jquery"
 
 getActualHeight = (element) ->
   previousCss = $(element).attr "style"
   $(element).css
-    position: 'absolute'
-    visibility: 'hidden'
-    display: 'block'
-    height: 'auto'
+    position: "absolute"
+    visibility: "hidden"
+    display: "block"
+    height: "auto"
   height = $(element).height()
   $(element).attr "style", previousCss ? ""
   height
 
 open = (element) ->
   $(element).css
-    height: 'auto'
-    overflow: 'visible'
+    height: "auto"
+    overflow: "visible"
+  $(element).attr "aria-hidden", "false"
 
 close = (element) ->
-  $(element).css overflow: 'hidden'
+  $(element).css
+    overflow: "hidden"
+    display: "none"
+  $(element).attr "aria-hidden", "true"
 
-angular.module 'ThemisComponents'
-  .directive 'thDisclosureContent', (DisclosureManager) ->
-    restrict: 'E'
+angular.module "ThemisComponents"
+  .directive "thDisclosureContent", (DisclosureManager) ->
+    restrict: "E"
     transclude: true
     scope:
-      name: '@'
-    template: require './thDisclosureContent.template.html'
+      name: "@"
+    template: require "./thDisclosureContent.template.html"
     bindToController: true
-    controllerAs: 'thDisclosureContent'
-    controller: ($element) ->
+    controllerAs: "thDisclosureContent"
+    controller: ($element, $scope) ->
+      $element.attr "id", $scope.thDisclosureContent.name
+      $element.attr "aria-labelledby", $scope.thDisclosureContent.name + "-toggle"
 
       animateToggle = =>
         height = getActualHeight $element
         if @expanded
+          $($element).css display: "block"
           $($element).stop().animate {
             height: "#{height}px"
           }, 300, ->

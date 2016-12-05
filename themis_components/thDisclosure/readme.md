@@ -8,6 +8,8 @@ A disclosure has 2 parts:
 * a button that the user can click: `th-disclosure-toggle`
 * a content that is being displayed or hidden on click: `th-disclosure-content`
 
+---
+
 ## Usage
 
 Both components have a mandatory, unique attribute called `name`.
@@ -40,3 +42,24 @@ for the `name` attribute of both components.
 
 * `ng-disabled`
   * Disable or enable the thDisclosure component.
+
+---
+
+## Accessibility
+
+The `thDisclosure` component borrows accessibility suggestions from the *"Accordion"* component
+in the [WAI-ARIA Authoring Practices 1.1](https://www.w3.org/TR/wai-aria-practices-1.1/#accordion) document.
+
+### Keyboard Interaction
+`thDisclosure` can be toggled with the `Enter` key.
+
+### Optional Accessibility Attributes
+* `aria-label` [string] Screen readers will read the disclosure toggle's name by
+default. Setting the `aria-label` attribute will override the text read by the
+screen reader.
+
+* `aria-describedby` [string] A description of the disclosure's functionality or contents
+can be provided by setting the `aria-describedby` attribute to that of the disclosure toggle's
+`id` on the description element.
+
+---

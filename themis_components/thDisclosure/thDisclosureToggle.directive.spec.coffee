@@ -35,6 +35,34 @@ describe "ThemisComponents: Directive: thDisclosureToggle", ->
     it "icon caret rotates clockwise 90 degrees", ->
       expect(element.find('a span').hasClass("fa fa-caret-right fa-caret-right-rotated")).toBe true
 
+  context "with an aria-label attribute", ->
+    beforeEach ->
+      element = compileDirective("""
+        <th-disclosure-toggle
+          name="unique-id"
+          aria-label="test"
+          >
+          Toggle
+        </th-disclosure-toggle>
+      """).element
+
+    it "it is included in the element", ->
+      expect(element.attr("aria-label")).toBe "test"
+
+  context "with an aria-describedby attribute", ->
+    beforeEach ->
+      element = compileDirective("""
+        <th-disclosure-toggle
+          name="unique-id"
+          aria-describedby="test-id"
+          >
+          Toggle
+        </th-disclosure-toggle>
+      """).element
+
+    it "it is included in the element", ->
+      expect(element.attr("aria-describedby")).toBe "test-id"
+
   describe "#toggle", ->
     it "calls DisclosureManager.toggle", ->
       inject (_DisclosureManager_) ->
@@ -42,5 +70,17 @@ describe "ThemisComponents: Directive: thDisclosureToggle", ->
 
       spyOn DisclosureManager, "updateState"
       a = getFirstChild element
-      a.triggerHandler 'click'
+      a.triggerHandler "click"
       expect(DisclosureManager.updateState).toHaveBeenCalled()
+
+  describe "#focus", ->
+    it "sets the tabindex to '0'", ->
+      a = getFirstChild element
+      a.triggerHandler "focus"
+      expect(a.attr("tabindex")).toEqual "0"
+
+  describe "#blur", ->
+    it "sets the tabindex to '-1'", ->
+      a = getFirstChild element
+      a.triggerHandler "blur"
+      expect(a.attr("tabindex")).toEqual "-1"

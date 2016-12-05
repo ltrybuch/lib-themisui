@@ -1,22 +1,31 @@
-angular.module 'ThemisComponents'
-  .directive 'thDisclosureToggle', (DisclosureManager) ->
-    restrict: 'E'
+angular.module "ThemisComponents"
+  .directive "thDisclosureToggle", (DisclosureManager) ->
+    restrict: "E"
     transclude: true
     scope:
-      name: '@'
-      expanded: '=?'
-      ngDisabled: '=?'
-      textSide: '@'
+      name: "@"
+      expanded: "=?"
+      ngDisabled: "=?"
+      textSide: "@"
+      ariaLabel: "@"
+      ariaDescribedby: "@"
+      tabindex: "@"
     template: require './thDisclosureToggle.template.html'
     bindToController: true
     controllerAs: 'thDisclosureToggle'
-    controller: ($scope) ->
-
-      @textSide ||= 'left'
+    controller: ($scope, $element) ->
+      @textSide ||= "left"
+      @tabindex = "-1"
 
       @toggle = =>
         unless @ngDisabled
           DisclosureManager.updateState @name, not @expanded
+
+      @focus = ->
+        @tabindex = "0"
+
+      @blur = ->
+        @tabindex = "-1"
 
       DisclosureManager.registerDisclosureToggle @name, {
         handleOpen: =>

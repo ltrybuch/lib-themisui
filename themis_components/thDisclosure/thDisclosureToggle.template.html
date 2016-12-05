@@ -1,4 +1,16 @@
-<a href ng-click="thDisclosureToggle.toggle()">
+<a
+  id="{{thDisclosureToggle.name}}-toggle"
+  href
+  ng-click="thDisclosureToggle.toggle()"
+  ng-focus="thDisclosureToggle.focus()"
+  ng-blur="thDisclosureToggle.blur()"
+  aria-controls="{{thDisclosureToggle.name}}"
+  aria-expanded="{{thDisclosureToggle.expanded}}"
+  aria-label="{{thDisclosureToggle.ariaLabel}}"
+  aria-describedby="{{thDisclosureToggle.ariaDescribedby}}"
+  tabindex="{{thDisclosureToggle.tabindex}}"
+  role="button"
+  >
   <ng-transclude
     ng-if="thDisclosureToggle.textSide == 'left'"
     >
@@ -6,7 +18,8 @@
   <span
     class="fa fa-caret-right"
     ng-class="{'fa-caret-right-rotated': thDisclosureToggle.expanded}"
-    aria-hidden="true">
+    aria-hidden="true"
+    >
   </span>
   <ng-transclude
     ng-if="thDisclosureToggle.textSide == 'right'"
