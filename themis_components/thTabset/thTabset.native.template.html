@@ -6,7 +6,10 @@
     <li
       ng-click="processTabChange(tab)"
       ng-repeat="tab in tabs"
-      ng-class="{active:tab.active}"
+      ng-class="{
+        active: tab.active,
+        'letter-spacing': tab.letterSpacing
+      }"
       class="tab-name"
       tabindex="{{tab.active ? '0' : '-1'}}"
       aria-controls="{{tab.ariaControlsID}}"

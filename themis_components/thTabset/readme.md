@@ -25,6 +25,10 @@ but just allow a click event to attach to. See example 3 below.
 [badge="number" | "string"]
 - Optional: `badge` allows a value to be displayed as a badge beside the tab. See example 7 below.
 
+[letter-spacing="boolean"]
+- Optional: When `letter-spacing` is true, tabs have reduced horizontal spacing
+to accommodate alphabet pattern (i.e. `A B C D ...`).
+
 #### thTabSet
 [type="string"]
 - `type` allows you to modify the `thTabset` styling based on it's intended purpose.

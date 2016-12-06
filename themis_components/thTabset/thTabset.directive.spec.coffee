@@ -39,6 +39,13 @@ describe 'ThemisComponents: Directive: thTabset', ->
     </div>
   """
 
+  letterSpacingTemplate = """
+    <div th-tabset>
+      <div th-tab name="Tab One" letter-spacing="true"></div>
+      <div th-tab name="Tab Two"></div>
+    </div>
+  """
+
   beforeEach angular.mock.module "ThemisComponents"
 
   describe "with a valid template", ->
@@ -102,3 +109,12 @@ describe 'ThemisComponents: Directive: thTabset', ->
       expect(firstTabBadge.length).toBe 1
       expect(parseInt firstTabBadge.text()).toBe badgeValue
       expect(secondTabBadge.length).toBe 0
+
+  describe "with 'letter-spacing' attribute set", ->
+    beforeEach ->
+      {element, scope} = compileDirective letterSpacingTemplate
+      tabs = element.find(".th-tab-bar li.tab-name")
+
+    it "should have 'letter-spacing' class on first element only", ->
+      expect(tabs.first().hasClass("letter-spacing")).toBe true
+      expect(tabs.last().hasClass("letter-spacing")).toBe false

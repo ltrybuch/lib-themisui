@@ -9,6 +9,7 @@ angular
       name: "@name"
       ngClick: "&"
       badge: "<"
+      letterSpacing: "<"
     link: (scope, element, attrs, controller) ->
       scope.active = no
       scope.ariaControlsID = scope.name.replace(/\s+/g, '-').toLowerCase() + "-tab"

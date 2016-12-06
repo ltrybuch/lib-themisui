@@ -52,6 +52,10 @@
       padding-bottom: 12px;
 
       font-size: 18px;
+
+      &.letter-spacing {
+        margin-right: 6px;
+      }
     }
   }
   &.sub-header {
@@ -60,6 +64,10 @@
       padding-bottom: 8px;
 
       font-size: 15px;
+
+      &.letter-spacing {
+        margin-right: 6px;
+      }
     }
   }
 
