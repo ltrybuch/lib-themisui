@@ -61,6 +61,10 @@
   },
   "devDependencies": {
     "angular-mocks": "^1.5.7",
+    "coffeelint": "^1.16.0",
+    "coffeelint-no-focused-jasmine-specs": "^0.1.0",
+    "coffeelint-prefer-double-quotes": "^0.1.0",
+    "coffeelint-prefer-fewer-parens": "^0.1.0",
     "express-ws": "^0.2.6",
     "jasmine-core": "^2.5.1",
     "karma": "^0.13.15",

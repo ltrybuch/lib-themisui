@@ -17,6 +17,10 @@
     "level": "error"
   },
 
+  "cyclomatic_complexity": {
+    "level": "warn"
+  },
+
   "eol_last": {
     "level": "error"
   },
@@ -56,11 +60,30 @@
     "level": "error"
   },
 
+  "prefer_english_operator": {
+    "level": "warn"
+  },
+
   "space_operators": {
     "level": "error"
   },
 
   "spacing_after_comma": {
     "level": "error"
+  },
+
+  "no_focused_jasmine_specs": {
+    "module": "coffeelint-no-focused-jasmine-specs",
+    "level": "error"
+  },
+
+  "prefer_double_quotes": {
+    "module": "coffeelint-prefer-double-quotes",
+    "level": "warn"
+  },
+
+  "prefer_fewer_parens": {
+    "module": "coffeelint-prefer-fewer-parens",
+    "level": "warn"
   }
 }
