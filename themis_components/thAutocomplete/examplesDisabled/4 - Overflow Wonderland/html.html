@@ -1,0 +1,49 @@
+<html ng-app="thDemo">
+  <body ng-controller="DemoCtrl as demo">
+
+    <div class="th-example-width-500" style="
+        border: solid 1px #444;
+        height: 400px;
+        overflow-x: hidden;
+      ">
+      <div class="th-example-width-200" style="
+          position: relative;
+          left: 100px;
+      ">
+        <th-autocomplete
+          placeholder="Type a city…"
+          ng-model="demo.cities"
+          delegate="demo.delegate"
+          icon="building"
+          multiple
+          >
+        </th-autocomplete>
+
+        <p>Selected cities: <code>{{demo.cities}}</code></p>
+      </div>
+    </div>
+
+    <div class="th-example-width-500" style="
+        border: solid 1px #444;
+        height: 400px;
+        overflow-x: hidden;
+      ">
+      <div class="th-example-width-200" style="
+          position: relative;
+          left: 150px;
+      ">
+        <th-autocomplete
+          placeholder="Type a city…"
+          ng-model="demo.cities"
+          delegate="demo.delegate"
+          icon="building"
+          multiple
+          >
+        </th-autocomplete>
+
+        <p>Selected cities: <code>{{demo.cities}}</code></p>
+      </div>
+    </div>
+
+  </body>
+</html>

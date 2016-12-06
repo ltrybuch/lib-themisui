@@ -1,6 +1,14 @@
 module.exports = ({interpolateStart, interpolateEnd, valueField, multiple}) -> """
+<style>
+  .th-autocomplete-wrapper[style-identifier="#{interpolateStart} thAutocomplete.styleIdentifier #{interpolateEnd}"]
+  .ui-select-container
+  .ui-select-choices.dropdown-menu {
+    max-width: #{interpolateStart} thAutocomplete.menuMaxWidth #{interpolateEnd}px;
+  }
+</style>
 <span
   class="th-autocomplete-wrapper"
+  style-identifier="#{interpolateStart} thAutocomplete.styleIdentifier #{interpolateEnd}"
   ng-class="[
     {'is-invalid': thAutocomplete.isInvalid()},
     {condensed: thAutocomplete.condensed},

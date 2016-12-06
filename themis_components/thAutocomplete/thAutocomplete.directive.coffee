@@ -1,5 +1,33 @@
+uuid = require "uuid"
+debounce = require "debounce"
+
+getOverflowParent = (element) ->
+  parent = element.parentElement
+
+  return element if element is window.document.body
+  return element unless parent
+
+  overflowX = window.getComputedStyle(parent).overflowX
+  if overflowX is "visible"
+    return getOverflowParent(parent)
+  else
+    return parent
+
+menuMaxWidth = (element) ->
+  elementLeft = element.getBoundingClientRect().left
+
+  overflowParent = getOverflowParent element
+  overflowParentRect = overflowParent.getBoundingClientRect()
+  overflowParentLeft = overflowParentRect.left
+  overflowParentWidth = overflowParentRect.width
+  padRight = 20
+
+  elementDistanceFromOverflowParentLeft = elementLeft - overflowParentLeft
+
+  return overflowParentWidth - elementDistanceFromOverflowParentLeft - padRight
+
 angular.module "ThemisComponents"
-  .directive "thAutocomplete", ($compile, $interpolate, $timeout) ->
+  .directive "thAutocomplete", ($compile, $interpolate, $timeout, $window) ->
     restrict: "E"
     require: ["?^form", "thAutocomplete"]
     scope:
@@ -21,6 +49,7 @@ angular.module "ThemisComponents"
       @data = []
       @lastValue = null
       searchHintText = "Search to find more results"
+      @styleIdentifier = uuid.v1()
 
       @updateData = (data, showSearchHint) =>
         throw new Error "UpdateData: data must be of type Array" unless data instanceof Array
@@ -145,6 +174,16 @@ angular.module "ThemisComponents"
           controller.lastValue = controller.data = null
           copyValueToSearchField() if not multiple
 
+      # Handle Dynamic Width
+      updateMenuMaxWidth = debounce ->
+        scope.thAutocomplete.menuMaxWidth = menuMaxWidth(element[0])
+        scope.$apply()
+      , 100
+
+      updateMenuMaxWidth()
+      $window.addEventListener "resize", updateMenuMaxWidth
+      scope.$on "$destroy", -> $window.removeEventListener "resize", updateMenuMaxWidth
+
       $timeout ->
         # Toggle container shadow when input has focus.
         search = angular.element(element[0].querySelectorAll(".ui-select-search"))
@@ -172,6 +211,7 @@ angular.module "ThemisComponents"
           search[0].focus() if multiple
 
         search.on "focus", ->
+          updateMenuMaxWidth()
           container.addClass("has-focus") if multiple
         search.on "blur", ->
           # This is to account for the search input blurring when the user
