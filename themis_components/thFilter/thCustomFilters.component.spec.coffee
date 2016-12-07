@@ -1,5 +1,6 @@
 describe "ThemisComponents: Component: thCustomFilters", ->
-  filterSet = CustomFilterConverter = httpBackend = thFilterCtrl = $componentController = null
+  filterSet = CustomFilterConverter = httpBackend = null
+  thFilterCtrl = $componentController = null
 
   createFilterCtrl = (bindings) ->
     Object.assign bindings, registerInitPromise: jasmine.createSpy "registerInitPromise"
@@ -32,9 +33,9 @@ describe "ThemisComponents: Component: thCustomFilters", ->
 
       expect(controller.thFilterCtrl.registerInitPromise.calls.count()).toEqual 0
       controller.$onInit()
-      expect(controller.thFilterCtrl.registerInitPromise.calls.count()).toEqual 1
-      expect(controller.thFilterCtrl.registerInitPromise.calls.argsFor(0)[0] instanceof Promise)
-        .toEqual true
+      initPromiseCalls = controller.thFilterCtrl.registerInitPromise.calls
+      expect(initPromiseCalls.count()).toEqual 1
+      expect(initPromiseCalls.argsFor(0)[0] instanceof Promise).toEqual true
 
   describe "when filter set is undefined", ->
     it "should throw an error", ->

@@ -1,5 +1,8 @@
 <div class="th-custom-filters" ng-if="thCustomFilters.customFilterTypes.length">
-  <div class="custom-filters" with-label="{{thCustomFilters.name}} Custom Fields">
+  <div class="custom-filters">
+    <div class="custom-filters-label">
+      {{thCustomFilters.name}} Custom Fields
+    </div>
     <th-custom-filter-row
       ng-repeat="row in thCustomFilters.customFilterRows"
       row-select-value="row.type"

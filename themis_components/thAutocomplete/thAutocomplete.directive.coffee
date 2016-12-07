@@ -186,8 +186,9 @@ angular.module "ThemisComponents"
 
       $timeout ->
         # Toggle container shadow when input has focus.
+        focusser = angular.element(element[0].querySelectorAll(".ui-select-focusser"))
         search = angular.element(element[0].querySelectorAll(".ui-select-search"))
-        choices = angular.element(element[0].querySelectorAll(".ui-select-choices"))
+        choicesDropdown = angular.element(element[0].querySelectorAll(".ui-select-choices"))
         container = angular.element(element[0].querySelectorAll(".ui-select-container"))
 
         triggerInputTouched = ->
@@ -197,12 +198,17 @@ angular.module "ThemisComponents"
           enterKeyCode = 13
           if not multiple and event.which is enterKeyCode
             checkForEmptySearchField()
+            # Set the focus back on the search element on enter.
+            $timeout ->
+              focusser[0].focus()
+            , 50
 
         choicesMouseDown = no
 
-        choices.on "mousedown", ->
+        choicesDropdown.on "mousedown", ->
           choicesMouseDown = yes
-        choices.on "mouseup", ->
+
+        choicesDropdown.on "mouseup", ->
           choicesMouseDown = no
           triggerInputTouched()
 
@@ -213,7 +219,20 @@ angular.module "ThemisComponents"
         search.on "focus", ->
           updateMenuMaxWidth()
           container.addClass("has-focus") if multiple
+
         search.on "blur", ->
+          $timeout ->
+            # If focussed element is the dropdown list then…
+            activeElement = document.activeElement # Looking for dropdown list.
+                              ?.parentElement
+                              ?.parentElement
+                              ?.parentElement
+
+            focusOnDropdown = activeElement is choicesDropdown[0]
+            # …set the focus back on the search element.
+            if not multiple and focusOnDropdown
+              $timeout (-> focusser[0].focus()), 150
+
           # This is to account for the search input blurring when the user
           # clicks on the choices dropdown. If the user is mid-click, we don't
           # set the field to `touched` until mouse-up (and the item is
