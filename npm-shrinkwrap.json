@@ -1,6 +1,6 @@
 {
   "name": "lib-ThemisUI",
-  "version": "2.1.6",
+  "version": "2.2.1",
   "dependencies": {
     "abbrev": {
       "version": "1.0.9",
@@ -49,7 +49,7 @@
     },
     "angular-datepicker": {
       "version": "2.2.1",
-      "from": "mbuckley/angular-datepicker#v2.2.1",
+      "from": "git://github.com/mbuckley/angular-datepicker.git#v2.2.1",
       "resolved": "git://github.com/mbuckley/angular-datepicker.git#df580165b669216538305a8f7940360f87edca17"
     },
     "angular-messages": {

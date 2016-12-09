@@ -1,6 +1,6 @@
 {
   "name": "lib-ThemisUI",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "license": "BSD 3-clause 'New' or 'Revised' License",
   "description": "A Baseline of style and components used by Clio's web applications.",
   "repository": "https://github.com/clio/lib-themisui.git",
@@ -26,7 +26,7 @@
     "angular": "~1.5.9",
     "angular-animate": "~1.5.9",
     "angular-aria": "~1.5.9",
-    "angular-datepicker": "mbuckley/angular-datepicker.git#v2.2.1",
+    "angular-datepicker": "git://github.com/mbuckley/angular-datepicker.git#v2.2.1",
     "angular-messages": "~1.5.9",
     "angular-sanitize": "~1.5.9",
     "body-parser": "^1.14.1",
