@@ -10,7 +10,7 @@ angular
       actionBar: '?thTabActionBar'
     }
     scope:
-      activeTab: "="
+      activeTab: "<"
       type: "@"
     controller: ($scope, $element, $timeout) ->
       tabs = $scope.tabs = []
@@ -40,6 +40,7 @@ angular
 
       @addTab = (tab) ->
         $scope.activateTab tab if tabs.length is 0
+        $scope.activateTab tab if tab.name is $scope.activeTab
         tabs.push tab
 
       $element.on 'keydown', (event) ->

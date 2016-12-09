@@ -31,6 +31,11 @@ describe 'ThemisComponents: Directive: thTabset', ->
       <div th-tab name="Tab Two"></div>
     </div>
   """
+  activeTabWithRepeatTemplate = """
+    <div th-tabset active-tab="activeTabName">
+      <div th-tab name="{{letter}}" ng-repeat="letter in alphabet""></div>
+    </div>
+  """
 
   badgeTemplate = """
     <div th-tabset>
@@ -96,6 +101,20 @@ describe 'ThemisComponents: Directive: thTabset', ->
       scope.$apply -> scope.activeTabName = "Tab One"
       expect(tabs.first().hasClass('active')).toBe true
       expect(tabs.last().hasClass('active')).toBe false
+
+  describe "with 'activeTab' and tabs created using ng-repeat", ->
+    beforeEach ->
+      alphabet = ["a", "b", "c"]
+      additions =
+        alphabet: alphabet
+        activeTabName: alphabet[1]
+      {element, scope} = compileDirective activeTabWithRepeatTemplate, additions
+
+    it "sets the correct active tab", ->
+      tabs = element.find(".th-tab-bar li.tab-name")
+      expect(tabs.first().hasClass("active")).toBe false
+      expect(tabs.first().next().hasClass("active")).toBe true
+      expect(tabs.last().hasClass("active")).toBe false
 
   describe "with 'badge' attribute set", ->
     beforeEach ->

@@ -1,0 +1,18 @@
+<html ng-app="thDemo">
+  <body ng-controller="DemoController as demo">
+
+    <th-tabset
+      type="sub-header"
+      active-tab="demo.initialLetter"
+      >
+      <th-tab
+        name="{{letter}}"
+        ng-repeat="letter in demo.alphabet"
+        >
+        <br>
+        Content - {{letter}}
+      </th-tab>
+    </th-tabset>
+
+  </body>
+</html>
