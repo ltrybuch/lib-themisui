@@ -28,7 +28,7 @@ We're running in stealth mode for now meaning we don't yet want to list on NPM. 
 install run:
 
 ```bash
-npm install --save github:clio/lib-themisui#<release-tag>
+npm install --save git://github.com/clio/lib-themisui#<release-tag>
 ```
 
 You can specify [any other release](https://github.com/clio/lib-themisui/releases) as
@@ -62,14 +62,14 @@ command with your desired [release-tag](https://github.com/clio/lib-themisui/rel
 shrinkwrap file.
 
 ```bash
-npm install --save github:clio/lib-themisui#<release-tag>
+npm install --save git://github.com/clio/lib-themisui#<release-tag>
 ```
 
 For example to install version [`v0.9.0 — No More Mr Nice Guy`](https://github.com/clio/lib-themisui/releases/tag/v0.9.0)
 you would run the following command.
 
 ```bash
-npm install --save github:clio/lib-themisui#v0.9.0
+npm install --save git://github.com/clio/lib-themisui#v0.9.0
 ```
 
 ## Development
