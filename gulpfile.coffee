@@ -12,10 +12,10 @@ autoprefixerOptions =
   cascade: false
 
 # creates gulp.task 'docs-server' and 'docs-restart'
-require('./gulp/tasks/docsServer')
+require('./tools/gulp/tasks/docsServer')
 
 # creates gulp.task 'docs-browserify' and 'docs-watchify'
-require './gulp/tasks/docsBrowserify'
+require './tools/gulp/tasks/docsBrowserify'
 
 
 gulp.task 'default', ->
@@ -38,47 +38,47 @@ gulp.task 'docs-style', ->
   console.log "docs-app.css is building"
 
   gulp
-    .src path.join('public', 'stylesheets', 'docs-app.scss')
+    .src path.join('src', 'docs-app', 'stylesheets', 'docs-app.scss')
     .pipe sass(includePaths: require('node-bourbon').includePaths)
     .pipe autoprefixer autoprefixerOptions
 
     .pipe rename('docs-app.css')
-    .pipe gulp.dest path.join('public', 'build')
+    .pipe gulp.dest path.join('dist')
 
 
 gulp.task 'docs-examples-style', ->
   console.log "examples-app.css is building"
 
   gulp
-    .src path.join('public', 'stylesheets', 'examples.scss')
+    .src path.join('src', 'docs-app', 'stylesheets', 'examples.scss')
     .pipe sass(includePaths: require('node-bourbon').includePaths)
     .pipe autoprefixer autoprefixerOptions
     .pipe rename('examples-app.css')
-    .pipe gulp.dest path.join('public', 'build')
+    .pipe gulp.dest path.join('dist')
 
 
 gulp.task 'lib-themisui-style', ->
   console.log "lib-themisui.css is building"
 
   gulp
-    .src path.join('themis_components', 'index.scss')
+    .src path.join('src', 'lib', 'index.scss')
     .pipe sass(includePaths: require('node-bourbon').includePaths)
     .pipe autoprefixer autoprefixerOptions
     .pipe rename('lib-themisui.css')
-    .pipe gulp.dest path.join('public', 'build')
+    .pipe gulp.dest path.join('dist')
 
 
 gulp.task 'docs-lint', ->
   console.log "Running coffeelint"
 
   gulp
-    .src ['./themis_components/**/*.coffee', './public/javascript/**/*.coffee']
+    .src ['./src/lib/**/*.coffee', './src/docs-app/javascript/**/*.coffee']
     .pipe coffeelint()
     .pipe coffeelint.reporter()
 
 
 gulp.task 'docs-watch', ['docs-watchify', 'docs-style', 'docs-examples-style', 'docs-lint'], ->
-  gulp.watch ['public/javascript/**/*.coffee', 'themis_components/**/*.coffee'],
+  gulp.watch ['src/docs-app/javascript/**/*.coffee', 'src/lib/**/*.coffee'],
              ['docs-lint']
-  gulp.watch ['themis_components/**/*.scss', 'public/**/*.scss'],
+  gulp.watch ['src/lib/**/*.scss', 'src/docs-app/**/*.scss'],
              ['docs-style', 'docs-examples-style']

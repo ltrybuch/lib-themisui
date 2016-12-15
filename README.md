@@ -46,8 +46,8 @@ angular.module 'YourApp', [
 
 You must include the stylesheets as well:
 
-* `node_modules/lib-ThemisUI/public/build/lib-temisui.css`: the entire CSS
-* `node_modules/lib-ThemisUI/themis_theme/index.scss`: optional, SCSS variables
+* `node_modules/lib-ThemisUI/dist/lib-themisui.css`: the entire CSS
+* `node_modules/lib-ThemisUI/src/themes/themis/index.scss`: optional, SCSS variables
 defined for the Themis theme
 
 You can now use any of our components in your application. The APIs for each
@@ -99,7 +99,7 @@ get notifications of the test state as you work.
 
 Give the [Running Docs](#running-docs) and [Running Tests](#running-tests) sections
 above a quick read through. All the components, their css and tests are kept in the
-`themis_components` directory. If you want to look at a simple component to get
+`src/lib` directory. If you want to look at a simple component to get
 started I'd recommend `th-switch`.
 
 If you are integrating ThemisUI into an external project and would like to test a new
@@ -133,9 +133,9 @@ enforced by our CI system.
 
 ## Package Contents
 
-- `themis_components`
+- `src/lib`
   - A library of reusable components.
-- `themis_theme`
+- `src/themes/themis`
   - Our base brand / fonts / icons / colours.
 
 

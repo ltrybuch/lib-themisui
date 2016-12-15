@@ -7,7 +7,7 @@ coffeescript = require 'coffee-script'
 express = require 'express'
 bodyParser = require 'body-parser'
 
-componentsRoot = path.join 'themis_components'
+componentsRoot = path.join 'src', 'lib'
 
 metaFor = (componentPath) ->
   try
@@ -45,7 +45,9 @@ gulp.task 'docs-server', ->
   webSocketApp = expressWs(app)
   app.ws '/channel', -> # no-op
 
-  gulp.watch ['themis_components/**/*', 'public/**/*'], ['docs-restart']
+  gulp.watch ['src/lib/**/*',
+              'src/docs-app/**/*',
+              'src/themes/**/*'], ['docs-restart']
 
   app.get '/readme.md', (request, response) ->
     response.sendFile path.resolve(path.join('README.md'))
@@ -86,12 +88,14 @@ gulp.task 'docs-server', ->
     response.set('Content-Type', 'application/javascript').send coffeescript.compile exampleCoffee
 
   serveIndex = (request, response) ->
-    response.sendFile path.resolve(path.join('public', 'index.html'))
+    response.sendFile path.resolve(path.join('src', 'docs-app', 'index.html'))
 
   app.get '', serveIndex
   app.get '/:componentName', serveIndex
 
-  app.use express.static 'public'
+  app.use "/public", express.static 'src/docs-app'
+  app.use "/build", express.static 'dist'
+  app.use "/exampleTemplates", express.static 'src/docs-app/exampleTemplates'
 
   # Start server on port 3042
   server = null

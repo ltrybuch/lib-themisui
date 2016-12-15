@@ -1,5 +1,5 @@
 .th-autocomplete-wrapper {
-  @import "../../node_modules/ui-select/dist/select";
+  @import "../../../node_modules/ui-select/dist/select";
 
   @mixin invalid-visual {
     border-color: $red-alert;

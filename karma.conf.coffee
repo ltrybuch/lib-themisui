@@ -15,12 +15,12 @@ module.exports = (config) ->
     # list of files / patterns to load in the browser
     files: [
       'http://code.jquery.com/jquery-2.1.4.js'
-      'node_modules/angular/angular.js'
-      'themis_components/index.coffee'
-      'node_modules/angular-mocks/angular-mocks.js'
-      'themis_components/**/*.spec.coffee'
+      './node_modules/angular/angular.js'
+      './src/lib/index.coffee'
+      './node_modules/angular-mocks/angular-mocks.js'
+      './src/lib/**/*.spec.coffee'
       {
-        pattern: 'themis_components/**/*.+(directive|service|template).coffee'
+        pattern: './src/lib/**/*.+(directive|service|template).coffee'
         watched: true
         included: false
         served: false
@@ -36,11 +36,11 @@ module.exports = (config) ->
     # preprocess matching files before serving them to the browser
     # available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'themis_components/**/*.coffee': ['coffeelint']
-      'themis_components/index.coffee': ['browserify']
-      'themis_components/**/*.mock.coffee': ['browserify']
-      'themis_components/**/*.spec.coffee': ['browserify']
-      'spec_helper/*.coffee': ['browserify']
+      './src/lib/**/*.coffee': ['coffeelint']
+      './src/lib/index.coffee': ['browserify']
+      './src/lib/**/*.mock.coffee': ['browserify']
+      './src/lib/**/*.spec.coffee': ['browserify']
+      './spec_helper/*.coffee': ['browserify']
     }
 
 
@@ -85,7 +85,7 @@ module.exports = (config) ->
       debug: true
       watch: true
       extensions: ['.coffee']
-      paths: ['./spec_modules']
+      paths: ['./test/spec_modules']
       # fix for dbl karma compiling of coffeescript
       # https://github.com/nikku/karma-browserify/issues/130
       postFilter: (id, file, pkg) ->

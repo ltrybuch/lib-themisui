@@ -1,5 +1,5 @@
-require '../public/javascript/prism.js'
-require '../polyfills/'
+require '../../src/docs-app/javascript/prism.js'
+require '../../src/polyfills/'
 
 angular.module 'ThemisComponents', [
   require 'angular-animate'

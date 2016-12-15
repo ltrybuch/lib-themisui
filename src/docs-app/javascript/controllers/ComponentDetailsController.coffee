@@ -36,5 +36,5 @@ angular.module('ThemisComponentsApp')
         html: example.html
         js: example.coffee
         js_pre_processor: "coffeescript"
-        js_external: "http://localhost:3000/assets/themis_components/index.js"
-        css_external: "http://localhost:3000/assets/themis_components/index.css"
+        js_external: "http://localhost:3000/assets/src/lib/index.js"
+        css_external: "http://localhost:3000/assets/src/lib/index.css"

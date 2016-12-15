@@ -1,6 +1,6 @@
 {
   "name": "lib-ThemisUI",
-  "version": "2.2.1",
+  "version": "3.0.0",
   "license": "BSD 3-clause 'New' or 'Revised' License",
   "description": "A Baseline of style and components used by Clio's web applications.",
   "repository": "https://github.com/clio/lib-themisui.git",
@@ -16,7 +16,7 @@
     "Sean Healy <sean.healy@clio.com>",
     "Terry White <terry.white@clio.com>"
   ],
-  "main": "public/build/lib-themisui.js",
+  "main": "dist/lib-themisui.js",
   "private": true,
   "engines": {
     "node": "6.2.0",
@@ -80,11 +80,11 @@
   },
   "scripts": {
     "build": "gulp lib-themisui lib-themisui-style",
-    "clean": "rm -rf public/build",
+    "clean": "rm -rf dist",
     "postinstall": "npm run clean && npm run build",
     "start": "gulp docs",
     "test": "TZ='UTC' karma start",
-    "test-once": "karma start --single-run",
+    "test-once": "TZ='UTC' karma start --single-run",
     "versionCheck": "npm outdated --depth 0"
   },
   "browserify": {

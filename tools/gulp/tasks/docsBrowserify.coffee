@@ -11,28 +11,28 @@ isWatching = no
 
 docsFiles = [
   {
-    input: ['./public/javascript/examples.coffee']
+    input: ['./src/docs-app/javascript/examples.coffee']
     output: 'examples-app.js'
     extensions: ['.coffee', '.html']
     transform: [templates]
-    destination: './public/build/'
+    destination: './dist/'
   }
   {
-    input: ['./public/javascript/docs.coffee']
+    input: ['./src/docs-app/javascript/docs.coffee']
     output: 'docs-app.js'
     extensions: ['.coffee', '.html']
     transform: [templates]
-    destination: './public/build/'
+    destination: './dist/'
   }
 ]
 
 libraryFiles = [
   {
-    input: ['./themis_components/index.coffee']
+    input: ['./src/lib/index.coffee']
     output: 'lib-themisui.js'
     extensions: ['.coffee', '.html']
     transform: [templates]
-    destination: './public/build/'
+    destination: './dist/'
     standalone: 'lib-ThemisUI'
   }
 ]
