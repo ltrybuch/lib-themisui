@@ -9,6 +9,10 @@ th-modal-titlebar {
   flex-wrap: nowrap;
   align-items: center;
 
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
   &.type-destroy {
     background-color: $red;
   }
