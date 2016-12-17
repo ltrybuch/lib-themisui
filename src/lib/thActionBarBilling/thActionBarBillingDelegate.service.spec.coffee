@@ -1,13 +1,13 @@
 context = describe
 
-describe 'ThemisComponents: Service: ActionBarDelegate', ->
-  ActionBarDelegate = selectables = delegate = ViewModel = q = scope = null
+describe 'ThemisComponents: Service: ActionBarBillingDelegate', ->
+  ActionBarBillingDelegate = selectables = delegate = ViewModel = q = scope = null
 
   beforeEach angular.mock.module 'ThemisComponents'
 
   fixtures = {}
   fixtures.validDelegate = ->
-    new ActionBarDelegate
+    new ActionBarBillingDelegate
       onApply: ({trackedCollection, selectedAction}, reset) -> return
       availableActions: [{name: "one", value: 1}]
       retrieveIds: (vm) -> return
@@ -33,8 +33,8 @@ describe 'ThemisComponents: Service: ActionBarDelegate', ->
     }
     return JSON.parse(JSON.stringify(data))
 
-  beforeEach inject (_ActionBarDelegate_, _ViewModel_, $q, $rootScope) ->
-    ActionBarDelegate = _ActionBarDelegate_
+  beforeEach inject (_ActionBarBillingDelegate_, _ViewModel_, $q, $rootScope) ->
+    ActionBarBillingDelegate = _ActionBarBillingDelegate_
     ViewModel = _ViewModel_
     q = $q
     scope = $rootScope
@@ -42,7 +42,7 @@ describe 'ThemisComponents: Service: ActionBarDelegate', ->
   describe "#constuctor", ->
     it "throws error without 'onApply'", ->
       delegate = ->
-        new ActionBarDelegate
+        new ActionBarBillingDelegate
           retrieveIds: -> return
           collectionReferences: ["parent"]
 
@@ -50,7 +50,7 @@ describe 'ThemisComponents: Service: ActionBarDelegate', ->
 
     it "throws error without 'retrieveIds'", ->
       delegate = ->
-        new ActionBarDelegate
+        new ActionBarBillingDelegate
           onApply: -> return
           collectionReferences: ["parent"]
 
@@ -58,7 +58,7 @@ describe 'ThemisComponents: Service: ActionBarDelegate', ->
 
     it "throws error without 'collectionReferences'", ->
       delegate = ->
-        new ActionBarDelegate
+        new ActionBarBillingDelegate
           onApply: -> return
           retrieveIds: -> return
 
@@ -101,7 +101,7 @@ describe 'ThemisComponents: Service: ActionBarDelegate', ->
     trackedData = resetFunc = action = null
 
     beforeEach ->
-      delegate = new ActionBarDelegate
+      delegate = new ActionBarBillingDelegate
         onApply: ({trackedCollection, selectedAction}, reset) ->
           called = true
           trackedData = trackedCollection
@@ -161,7 +161,7 @@ describe 'ThemisComponents: Service: ActionBarDelegate', ->
       trackedData = resetFunc = null
 
       beforeEach ->
-        delegate = new ActionBarDelegate
+        delegate = new ActionBarBillingDelegate
           onApply: ({trackedCollection, selectedAction}, reset) ->
             trackedData = trackedCollection
             resetFunc = reset

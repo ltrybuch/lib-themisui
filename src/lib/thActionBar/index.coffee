@@ -1,3 +1,2 @@
-require './thActionBar.directive'
+require './thActionBar.component'
 require './thActionBarDelegate.service'
-require './thSelectableCollection.service'

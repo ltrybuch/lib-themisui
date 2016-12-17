@@ -3,25 +3,26 @@ angular.module 'thDemo', ['ThemisComponents']
     SimpleTableDelegate
     TableHeader
     TableSort
-    ActionBarDelegate
+    $scope
+    ActionBarBillingDelegate
     FilterSet
     $timeout
+    $q
   ) ->
     ################# Relevant example code here ###############################
     # thActionBar: Let's set up our action bar delegate.
-    @delegate = new ActionBarDelegate
-      buttonName: "Generate"
-      onApply: ({ids, selectedAction}, reset) =>
-        @ids = ids
+    @actionBarDelegate = new ActionBarBillingDelegate
+      retrieveIds: (vm) -> $q.when allIds(55)
+      # Function to be called whenever our "Apply" button is clicked.
+      onApply: ({trackedCollection, selectedAction}, triggerReset) =>
+        @ids = trackedCollection.map((id) -> return id.id).toString()
         @selectedAction = selectedAction
-        console.log "selectedAction in controller: ", selectedAction
-        $timeout ->
-          reset()
-        , 3000
+        triggerReset()
       availableActions: [
         {name: "print", value: "print"}
         {name: "Download Archive", value: "download"}
       ]
+      collectionReferences: ["parent"]
 
     # Table fixture code here.
     getDataPage = (data, page, pageSize) ->
@@ -44,11 +45,14 @@ angular.module 'thDemo', ['ThemisComponents']
 
       fetchData: ({currentPage, pageSize, sortHeader}, updateData) =>
         sortedData = sort @data, sortHeader
-        paginatedSortedData = getDataPage(sortedData, currentPage, pageSize)
+        paginatedSortedData =
+          collection: getDataPage(sortedData, currentPage, pageSize)
+          meta: totalItems: @data.length
 
         ################# Relevant example code here ###########################
         # thActionBar: On every table change lets update the action bar.
-        paginatedSortedSelectedableData = @delegate.makeSelectable paginatedSortedData
+        paginatedSortedSelectedableData =
+          @actionBarDelegate.makeSelectable paginatedSortedData
 
         updateData {data: paginatedSortedSelectedableData, totalItems: @data.length}
 
@@ -78,3 +82,5 @@ fixtures = (length) ->
       email: generateName()
 
   return people
+
+allIds = (count) -> [1 .. count].map (number) -> number

@@ -23,9 +23,9 @@
         cursor: pointer;
       }
     }
-
+    
     /* We use hidden instead of ng-if or ng-show for this because it's a flex item
-      and when ng-if or ng-show is utilized, it completely removes the component,
+      and when ng-if or ng-show is utilized, it completely removes the component, 
       thus screwing up the structure of the filter. */
 
     &.hidden {
@@ -68,6 +68,19 @@
       .load-wrapper {
         top: 7px;
       }
+    }
+
+    .action-text {
+      display: inline-block;
+
+      font-weight: normal;
+      color: #898b8c;
+      vertical-align: middle;
+    }
+    a {
+      color: $blue;
+
+      cursor: pointer;
     }
   }
 

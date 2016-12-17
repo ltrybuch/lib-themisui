@@ -5,11 +5,11 @@
     .result-list {font-family: monospace; margin: 0 0 5px 10px;}
     .th-checkbox {margin-left: 10px;}
     .action-bar .th-checkbox {margin-left: 0;}
-    .th-example-blue {padding-right: 15px;}
+    .th-example-blue {overflow-wrap: break-word; padding-right: 15px;}
   </style>
-    <th-action-bar delegate="demo.delegate">
+    <th-action-bar-billing delegate="demo.actionBarDelegate">
       <th-button type="secondary">export</th-button>
-    </th-action-bar>
+    </th-action-bar-billing>
 
     <th-table delegate="demo.tableDelegate">
       <th-table-row type="cells">
@@ -30,8 +30,9 @@
       </div>
       <div class="selected-results">
         <span class='th-example-grey'>IDs:</span>
-        <span class="th-example-blue">{{demo.ids}}</span>
+        <div class="th-example-blue">{{demo.ids}}</div>
       </div>
     </div>
   </body>
 </html>
+

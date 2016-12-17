@@ -11,6 +11,7 @@ angular.module 'ThemisComponents', [
 ]
 require './services/'
 require './thActionBar/'
+require './thActionBarBilling/'
 require './thAlert/'
 require './thAutocomplete/'
 require './thBindMarkdown/'

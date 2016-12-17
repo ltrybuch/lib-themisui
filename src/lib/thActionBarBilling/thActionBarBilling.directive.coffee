@@ -1,7 +1,7 @@
 pluralize = require "pluralize"
 
 angular.module("ThemisComponents")
-  .directive "thActionBar", ->
+  .directive "thActionBarBilling", ->
     restrict: "AE"
     scope:
       delegate: "="
@@ -10,7 +10,7 @@ angular.module("ThemisComponents")
     transclude: true
     bindToController: true
     controllerAs: "actionBar"
-    template: require "./thActionBar.template.html"
+    template: require "./thActionBarBilling.template.html"
     controller: ($scope, $element, $attrs) ->
 
       @toggleAll = ->

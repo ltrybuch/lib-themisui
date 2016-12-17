@@ -1,9 +1,9 @@
 angular.module 'thDemo', ['ThemisComponents']
-  .controller "DemoController", ($scope, $q, ActionBarDelegate, $timeout) ->
+  .controller "DemoController", ($scope, $q, ActionBarBillingDelegate, $timeout) ->
     pageSize = 5
     @currentPage = 1
 
-    @actionBarDelegate = new ActionBarDelegate
+    @actionBarDelegate = new ActionBarBillingDelegate
       retrieveIds: (viewObject) ->
         if viewObject.model.id is "root"
           $timeout ->

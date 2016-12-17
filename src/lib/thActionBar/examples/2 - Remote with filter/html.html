@@ -1,15 +1,28 @@
 <html ng-app="thDemo">
   <body ng-controller="DemoController as demo" style="padding-right: 0; padding-left: 0;">
   <style type="text/css">
+    .selected-item {padding: 5px;}
     .selected-results {margin-bottom: 15px;}
     .result-list {font-family: monospace; margin: 0 0 5px 10px;}
     .th-checkbox {margin-left: 10px;}
     .action-bar .th-checkbox {margin-left: 0;}
     .th-example-blue {padding-right: 15px;}
+
   </style>
+    <th-alert-anchor></th-alert-anchor>
     <th-action-bar delegate="demo.delegate">
-      <th-button type="secondary">export</th-button>
+      <th-disclosure-toggle name="unique-name" class="filter-toggle">
+      Filter
+      </th-disclosure-toggle>
     </th-action-bar>
+
+    <th-disclosure-content style="width: 100%;"
+      name="unique-name"
+      >
+      <th-filter options="demo.filterOptions">
+        <th-search-row field-identifier="q"></th-search-row>
+      </th-filter>
+    </th-disclosure-content>
 
     <th-table delegate="demo.tableDelegate">
       <th-table-row type="cells">
@@ -17,21 +30,19 @@
           <th-checkbox ng-model="item.view.selected"></th-checkbox>
         </th-table-cell>
         <th-table-cell>{{item.model.id}}</th-table-cell>
-        <th-table-cell>{{item.model.firstName}}</th-table-cell>
-        <th-table-cell>{{item.model.lastName}}</th-table-cell>
-        <th-table-cell>{{item.model.email}}</th-table-cell>
+        <th-table-cell>{{item.model.title}}</th-table-cell>
+        <th-table-cell>{{item.model.body}}</th-table-cell>
       </th-table-row>
     </th-table>
 
     <div class="result-list" ng-if="demo.ids">
       <div class="selected-results">
-        <span class="th-example-grey">Selected Action:</span>
-        <span class="th-example-blue">{{demo.selectedAction}}</span>
-      </div>
-      <div class="selected-results">
-        <span class='th-example-grey'>IDs:</span>
+        <span class="th-example-grey">IDs:</span>
         <span class="th-example-blue">{{demo.ids}}</span>
       </div>
     </div>
   </body>
 </html>
+
+
+

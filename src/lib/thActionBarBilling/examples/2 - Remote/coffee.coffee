@@ -6,13 +6,13 @@ angular.module 'thDemo', ['ThemisComponents']
     $http
     $timeout
     AlertManager
-    ActionBarDelegate
+    ActionBarBillingDelegate
     $q
   ) ->
 
     ################# Relevant example code here ###############################
     # thActionBar: Let's set up our action bar delegate.
-    @delegate = new ActionBarDelegate
+    @delegate = new ActionBarBillingDelegate
       retrieveIds: -> fetchAllIds()
       onApply: ({trackedCollection, selectedAction}, triggerReset) =>
         @ids = @ids = trackedCollection.map((id) -> return id.id).toString()

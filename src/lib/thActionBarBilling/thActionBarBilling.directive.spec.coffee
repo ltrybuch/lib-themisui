@@ -4,8 +4,8 @@ context = describe
 
 normalizeText = (text) -> text.trim().replace /\s+/g, ' '
 
-describe 'ThemisComponents: Directive: thActionBar', ->
-  scope = element = delegate = fixtures = controller = ActionBarDelegate = q = null
+describe 'ThemisComponents: Directive: thActionBarBilling', ->
+  scope = element = delegate = fixtures = controller = ActionBarBillingDelegate = q = null
 
   fixtures =
     resetFunction: null
@@ -36,7 +36,7 @@ describe 'ThemisComponents: Directive: thActionBar', ->
       actionBarOptions.collectionReferences = ["parents", "children"]
       if addActions
         actionBarOptions.availableActions = [{name: "a", value: 1}]
-      return new ActionBarDelegate actionBarOptions
+      return new ActionBarBillingDelegate actionBarOptions
     setUp: (template, options) ->
       scopeAdditions = delegate: fixtures.delegate(options)
       {element, scope} = compileDirective(template, scopeAdditions)
@@ -45,16 +45,16 @@ describe 'ThemisComponents: Directive: thActionBar', ->
       scope.$apply()
 
   beforeEach angular.mock.module 'ThemisComponents'
-  beforeEach inject (_ActionBarDelegate_, $timeout, $q) ->
-    ActionBarDelegate = _ActionBarDelegate_
+  beforeEach inject (_ActionBarBillingDelegate_, $timeout, $q) ->
+    ActionBarBillingDelegate = _ActionBarBillingDelegate_
     q = $q
 
   context "when the select all checkbox is selected", ->
     beforeEach ->
       template = """
-        <th-action-bar delegate="delegate">
+        <th-action-bar-billing delegate="delegate">
           <span class="find-me"></span>
-        </th-action-bar>
+        </th-action-bar-billing>
       """
       fixtures.setUp(template)
       controller = scope.$$childHead.actionBar
@@ -105,13 +105,13 @@ describe 'ThemisComponents: Directive: thActionBar', ->
   context "with an item-name attr and button-name attr", ->
     beforeEach ->
       template = """
-        <th-action-bar
+        <th-action-bar-billing
           delegate="delegate"
           item-name="recent contact"
           button-name="update"
           >
           <span class="find-me"></span>
-        </th-action-bar>
+        </th-action-bar-billing>
       """
       fixtures.setUp(template)
 
@@ -135,9 +135,9 @@ describe 'ThemisComponents: Directive: thActionBar', ->
   context "when the apply button is clicked", ->
     beforeEach ->
       template = """
-        <th-action-bar delegate="delegate">
+        <th-action-bar-billing delegate="delegate">
           <span class="find-me"></span>
-        </th-action-bar>
+        </th-action-bar-billing>
       """
       fixtures.setUp(template)
       controller = scope.$$childHead.actionBar
@@ -164,9 +164,9 @@ describe 'ThemisComponents: Directive: thActionBar', ->
   context "when 'availableActions' are not provided", ->
     beforeEach ->
       template = """
-        <th-action-bar delegate="delegate">
+        <th-action-bar-billing delegate="delegate">
           <span class="find-me"></span>
-        </th-action-bar>
+        </th-action-bar-billing>
       """
       fixtures.setUp(template, {addActions: no})
 
