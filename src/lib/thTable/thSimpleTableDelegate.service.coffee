@@ -66,9 +66,8 @@ angular.module 'ThemisComponents'
         <tr
           class="th-table-cells-row"
           #{ngRepeat}="#{objectReference} in thTable.delegate.getData()"
-          ng-mouseover="hover = true"
-          ng-mouseleave="hover = false"
-          ng-class="{'th-table-hover-row': hover}"
+          ng-mouseover="thTable.mouseOver($event)"
+          ng-mouseleave="thTable.mouseLeave($event)"
           role="row"
           >
           #{cells}
@@ -94,9 +93,8 @@ angular.module 'ThemisComponents'
         <tr
           class="th-table-actions-row"
           ng-repeat-end
-          ng-mouseover="hover = true"
-          ng-mouseleave="hover = false"
-          ng-class="{'th-table-hover-row': hover}"
+          ng-mouseover="thTable.mouseOver($event)"
+          ng-mouseleave="thTable.mouseLeave($event)"
           ng-if="thTable.delegate.headers[#{startColumn - 1}].visible"
           role="row"
           data-column-start="#{startColumn}"

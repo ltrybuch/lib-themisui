@@ -1,14 +1,36 @@
 thTableKeyboardNavigation = require "./thTableKeyboardNavigation"
 
-angular.module 'ThemisComponents'
-  .directive 'thTable', ($compile, Table) ->
-    restrict: 'E'
+angular.module "ThemisComponents"
+  .directive "thTable", ($compile, Table) ->
+    restrict: "E"
     scope:
-      delegate: '='
+      delegate: "="
     bindToController: true
-    controllerAs: 'thTable'
+    controllerAs: "thTable"
     controller: ($scope, $element) ->
       thTableKeyboardNavigation $element, $scope
+
+      @mouseOver = (event) ->
+        eventRows = getEventRows event
+        angular.element(eventRows.hoverRow).addClass "th-table-hover-row"
+        angular.element(eventRows.partnerRow).addClass "th-table-hover-row"
+        return
+
+      @mouseLeave = (event) ->
+        eventRows = getEventRows event
+        angular.element(eventRows.hoverRow).removeClass "th-table-hover-row"
+        angular.element(eventRows.partnerRow).removeClass "th-table-hover-row"
+        return
+
+      getEventRows = (event) ->
+        hoverRow = angular.element(event.target).closest "tr"
+        partnerRow =
+          if angular.element(hoverRow).hasClass "th-table-cells-row"
+            nextRow = angular.element(hoverRow).next()
+            nextRow if nextRow.hasClass "th-table-actions-row"
+          else if angular.element(hoverRow).hasClass "th-table-actions-row"
+            hoverRow.previousElementSibling
+        return {hoverRow, partnerRow}
 
       return
 
