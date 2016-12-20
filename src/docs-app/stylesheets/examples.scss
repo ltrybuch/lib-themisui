@@ -35,9 +35,13 @@ body {
   }
 }
 
-.th-example-grey { color: $light-grey; }
+.th-example-grey {
+  color: $grey-5;
+}
 
-.th-example-blue { color: $blue; }
+.th-example-blue {
+  color: $blue;
+}
 
 .title {
   padding-bottom: 3px;

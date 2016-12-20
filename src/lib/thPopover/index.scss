@@ -13,7 +13,7 @@
 
   box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.2);
   border-radius: $border-radius;
-  background-color: #fff;
+  background-color: $white;
 
   overflow: auto;
 
@@ -52,7 +52,7 @@ i.th-popover-arrow {
       -ms-transform: scaleX(2);
       -o-transform: scaleX(2);
       transform: scaleX(2);
-      color: #fff;
+      color: $white;
       top: -13px;
       text-shadow: 0 -2px 3px rgba(0, 0, 0, 0.2);
     }

@@ -17,14 +17,14 @@ th-table {
   }
 
   table.th-table {
-    background: #fff;
+    background: $white;
     border-collapse: collapse;
     width: 100%;
     font-size: inherit;
     margin-bottom: $th-table-margin-bottom;
 
     tbody {
-      border-bottom: 1px solid #d9dada;
+      border-bottom: 1px solid $table-border-color;
     }
 
     th, td {
@@ -34,13 +34,13 @@ th-table {
     }
 
     th {
-      border: 1px solid $border-color;
+      border: 1px solid $table-border-color;
       border-left: none;
       border-right: none;
 
       font-weight: bold;
       white-space: nowrap;
-      background: $light-grey-1;
+      background: $grey-2;
 
       &.th-table-align-right {
         text-align: right;
@@ -65,13 +65,13 @@ th-table {
       }
 
       &.th-table-sortable.th-table-sort-ascending .th-table-sort-icon {
-        color: #b8b8b6;
+        color: $grey-4;
         visibility: visible;
       }
 
       &.th-table-sortable.th-table-sort-descending .th-table-sort-icon {
         @extend .fa-caret-up;
-        color: #b8b8b6;
+        color: $grey-4;
         visibility: visible;
       }
 
@@ -81,7 +81,7 @@ th-table {
     }
 
     tr {
-      border-top: 1px solid #d9dada;
+      border-top: 1px solid $table-border-color;
 
       &.th-table-cells-row + .th-table-actions-row {
         border-top: none;
@@ -90,22 +90,22 @@ th-table {
 
     td {
       border: 0 none;
-      color: $light-grey;
+      color: $grey-5;
       margin: 0;
       vertical-align: top;
     }
 
     .th-table-hover-row {
-      background: #fafdff;
+      background: $blue-light;
     }
 
     .th-table-cells-row,
     .th-table-no-data-row {
-      color: $medium-grey;
+      color: $grey-5;
 
       a {
         text-decoration: underline;
-        color: $grey;
+        color: $grey-6;
       }
     }
 
@@ -135,14 +135,14 @@ th-table {
     padding: 6px 20px 6px 0px;
 
     .th-table-pagination-link {
-      color: #2d2d2d;
+      color: $link-dark-color;
       padding: 16px 8px;
       text-decoration: none;
       cursor: pointer;
     }
 
     .th-table-pagination-inactive-link {
-      color: $light-grey;
+      color: $grey-5;
       cursor: initial;
     }
 

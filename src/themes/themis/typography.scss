@@ -100,7 +100,7 @@
     margin-bottom:1.1429em;
   }
   h3.bottom-border {
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid $grey-6;
     padding-bottom: 1.133em;
   }
   p, fieldset, table, pre {
@@ -113,13 +113,16 @@
     color: $green;
   }
   .header-title{
-    border-bottom:1px solid #333;
+    border-bottom:1px solid $grey-6;
     .action {
       font-family: $sans-serif;
       font-size: 1.4rem;
       margin-right: 1.8rem;
-      color: $grey-20;
-      &:hover { color: $grey }
+      color: $grey-5;
+
+      &:hover {
+        color: $grey-6;
+      }
     }
   }
   h2.header-title {
@@ -185,4 +188,25 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}
+
+/**
+ * Remove these vendor prefixes when autoprefixer is in and supports the
+ * ::-ms-input- prefix for Edge #deadmanwalking
+ */
+::-moz-placeholder {
+  opacity: 1;
+  color: $input-placeholder-color;
+}
+
+:-ms-input-placeholder {
+  color: $input-placeholder-color;
+}
+
+::-ms-input-placeholder {
+  color: $input-placeholder-color;
+}
+
+:placeholder-shown, ::placeholder {
+  color: $input-placeholder-color;
 }

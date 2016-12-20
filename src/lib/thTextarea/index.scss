@@ -4,7 +4,7 @@ th-textarea {
   height: auto;
   position: relative;
   border-radius: 4px;
-  border: 1px solid #fff;
+  border: 1px solid $white;
   @include animated(100ms);
 
   textarea {
@@ -14,8 +14,8 @@ th-textarea {
     font-size: 13px;
     margin: 0;
     padding: 13px;
-    background: $off-white;
-    border: 1px solid $grey-70;
+    background: $input-background-color;
+    border: $border;
     border-radius: 4px;
     box-sizing: border-box;
     resize: vertical;
@@ -24,12 +24,12 @@ th-textarea {
       transition: border-color .3s ease-out;
       transition: box-shadow .3s ease-out;
       box-shadow: 0 0 10px rgba($blue-shadow, .7);
-      border-color: $blue-tint;
+      border-color: $blue;
     }
 
     &.disabled {
-      background: $grey-90;
-      color: $grey-40;
+      background: $input-disabled-background-color;
+      color: $input-disabled-text-color;
     }
 
     &.with-icon {
@@ -37,8 +37,8 @@ th-textarea {
     }
 
     &.is-invalid {
-      box-shadow: 0px 0px 0px 1px rgba($red-alert, .7);
-      border-color: $red-alert;
+      box-shadow: 0px 0px 0px 1px rgba($alert-color, .7);
+      border-color: $alert-color;
     }
   }
 
@@ -46,6 +46,6 @@ th-textarea {
     position: absolute;
     top: 12px;
     right: 20px;
-    color: $grey-40;
+    color: $grey-5;
   }
 }

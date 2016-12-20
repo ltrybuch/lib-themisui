@@ -51,7 +51,7 @@
     table thead tr:nth-child(1) th:nth-child(3):after {
       display: block;
       position: absolute;
-      color: $dark-grey-2;
+      color: $grey-5;
       font-size: 18px;
       visibility: visible;
     }
@@ -70,7 +70,7 @@
 
     table thead tr:nth-child(2) th {
       font-size: 11px;
-      color: $dark-grey-2;
+      color: $grey-5;
       text-transform: uppercase;
     }
 
@@ -98,9 +98,9 @@
     .active[disabled],
     .now[disabled] {
       font-weight: bold;
-      color: #fff;
+      color: $white;
       background-image: none;
-      background-color: $dark-grey-3;
+      background-color: $grey-5;
       filter: none;
     }
 
@@ -110,13 +110,13 @@
       font-weight: bold;
       text-shadow: none;
       color: $blue;
-      background-color: #fff;
+      background-color: $white;
       background-image: none;
     }
 
     //today selected
     .active.now {
-      color: #fff;
+      color: $white;
       font-weight: bold;
       text-shadow: none;
       background-color: $blue;

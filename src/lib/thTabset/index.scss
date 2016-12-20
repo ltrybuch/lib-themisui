@@ -2,7 +2,7 @@
   display: block;
 
   .th-tab-bar {
-    border-bottom: solid 1px $grey-70;
+    border-bottom: solid 1px $grey-4;
     margin: 0;
     padding: 0 20px;
 
@@ -14,24 +14,24 @@
       line-height: 32px;
       font-size: 16px;
 
-      color: $grey-40;
+      color: $grey-5;
       @include gibson-regular;
       text-decoration: none;
 
-      border-bottom: solid 3px #fff;
+      border-bottom: solid 3px $white;
 
       cursor: pointer;
       user-select: none;
       list-style: none;
 
       &.active {
-        color: $grey;
+        color: $grey-6;
         @include gibson-semibold;
         border-color: $blue;
 
         .th-tab-badge {
           color: $white;
-          background: $grey;
+          background: $grey-6;
         }
       }
     }
@@ -85,7 +85,7 @@
     margin-left: 10px;
     padding: 3px 8px;
 
-    color: $grey;
+    color: $grey-6;
     font-size: 0.7896em;
     line-height: 14px;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -93,6 +93,6 @@
     vertical-align: baseline;
 
     border-radius: $border-radius;
-    background: $light-grey-2;
+    background: $grey-3;
   }
 }

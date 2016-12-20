@@ -15,8 +15,8 @@
     line-height: 40px;
     font-size: 13px;
 
-    background: $off-white;
-    border: 1px solid $grey-70;
+    background: $input-background-color;
+    border: $border;
     border-radius: 4px;
     -webkit-appearance: none;
     white-space: nowrap;
@@ -24,25 +24,25 @@
     text-overflow: ellipsis;
 
     &.has-focus {
-      border-color: $blue-tint;
+      border-color: $blue;
       outline: none;
       box-shadow: 0 0 10px rgba($blue-shadow, .7);
     }
 
     &.is-invalid {
-      box-shadow: 0px 0px 0px 1px rgba($red-alert, .7);
-      border-color: $red-alert;
+      box-shadow: 0px 0px 0px 1px rgba($alert-color, .7);
+      border-color: $alert-color;
     }
 
     .fa-caret-down {
       position: absolute;
       right: 12px;
       line-height: 40px;
-      color: $dark-grey;
+      color: $grey-6;
     }
     &.disabled {
-      background: $grey-90;
-      color: $light-grey-5;
+      background: $input-disabled-background-color;
+      color: $grey-4;
     }
   }
   select {
@@ -74,6 +74,6 @@
     }
   }
   .light-grey {
-    color: $light-grey-5;
+    color: $input-placeholder-color;
   }
 }

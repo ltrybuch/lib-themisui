@@ -9,7 +9,7 @@ $dismiss-icon-size: 16px;
   top: 0;
   left: 0;
   right: 0;
-  color: #fff;
+  color: $white;
   z-index: $notification-plane;
   min-height: $height;
   padding-left: $padding;
@@ -25,22 +25,22 @@ $dismiss-icon-size: 16px;
   }
 
   &.th-alert-success {
-    background: $green-3;
+    background: $green;
   }
 
   &.th-alert-error {
-    background: $red-3;
+    background: $alert-color;
 
     .fa-warning {
-      background: $red-5;
+      background: $red-dark;
     }
   }
 
   &.th-alert-warning {
-    background: $yellow-4;
+    background: $deprecated-yellow-4;
 
     .fa-warning {
-      background: $yellow-5;
+      background: $deprecated-yellow-5;
     }
   }
 
@@ -49,7 +49,7 @@ $dismiss-icon-size: 16px;
     margin-top: $padding;
 
     a {
-      color: #fff;
+      color: $white;
     }
   }
 
@@ -58,7 +58,7 @@ $dismiss-icon-size: 16px;
     font-size: 18px;
 
     &.alert-icon {
-      color: #fff;
+      color: $white;
       text-align: center;
       width: $alert-icon-size;
       height: $alert-icon-size;
@@ -69,7 +69,7 @@ $dismiss-icon-size: 16px;
     }
 
     &.fa-check {
-      background: $green-5;
+      background: $success-color;
     }
 
     &.dismiss-icon {

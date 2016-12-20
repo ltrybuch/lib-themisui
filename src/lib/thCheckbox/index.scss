@@ -13,17 +13,17 @@
   height: $size;
   vertical-align: middle;
   cursor: pointer;
-  background-color: #fff;
+  background-color: $white;
   border-radius: $border-radius;
-  border: solid $border $subtext-color;
+  border: solid $border $grey-5;
 
   &.checked, &.indeterminate {
-    background-color: $dark-blue;
-    border: solid $border $dark-blue;
+    background-color: $blue;
+    border: solid $border $blue;
     i {
       width: $icon-width;
       height: $icon-height;
-      color: #fff;
+      color: $white;
       opacity: 1;
     }
   }
@@ -42,7 +42,7 @@
   }
 
   &.disabled {
-    background-color: $grey-90;
+    background-color: $input-disabled-background-color;
     cursor: initial;
   }
 

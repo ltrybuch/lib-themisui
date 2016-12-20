@@ -13,9 +13,9 @@
   vertical-align: middle;
   font-size: 12px;
   border-radius: $size / 2 + $border;
-  border: solid $border $grey;
-  box-shadow: inset 0px 0px 1px $grey;
-  background-color: $grey-40;
+  border: solid $border $grey-6;
+  box-shadow: inset 0px 0px 1px $grey-6;
+  background-color: $grey-5;
   overflow: hidden;
   cursor: pointer;
 
@@ -34,8 +34,8 @@
     font-style: normal;
     @include animated;
     border-radius: $size / 2;
-    box-shadow: 0px 0px 1px $grey;
-    background-color: white;
+    box-shadow: 0px 0px 1px $grey-6;
+    background-color: $white;
 
     &:before,
     &:after {
@@ -49,7 +49,7 @@
       line-height: $size;
       font-size: 9px;
       text-align: center;
-      color: #fff;
+      color: $white;
     }
 
     &:before {
@@ -64,14 +64,14 @@
   }
 
   &.active {
-    background-color: $green-3;
+    background-color: $green;
 
     i {
       left: $size*1.5 - $handleSize + $inset*2;
 
       &:before,
       &:after {
-        color: #fff;
+        color: $white;
       }
     }
   }

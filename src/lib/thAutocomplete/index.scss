@@ -2,8 +2,8 @@
   @import "../../../node_modules/ui-select/dist/select";
 
   @mixin invalid-visual {
-    border-color: $red-alert;
-    box-shadow: 0px 0px 0px 1px rgba($red-alert, .7);
+    border-color: $alert-color;
+    box-shadow: 0px 0px 0px 1px rgba($alert-color, .7);
   }
 
   position: relative;
@@ -36,15 +36,15 @@
 
     font: inherit;
 
-    background: $off-white;
-    border: 1px solid $grey-70;
+    background: $input-background-color;
+    border: $border;
     border-radius: 4px;
 
     &:not([disabled]) {
       &:focus,
       &.has-focus {
         box-shadow: 0 0 5px $blue-shadow;
-        border: 1px solid $focus-blue;
+        border: 1px solid $focus-color;
         outline: none;
       }
     }
@@ -131,34 +131,6 @@
         background-color: rgba(241, 241, 241, 1);
       }
 
-      .ui-select-match-item.dropping .ui-select-match-close {
-        pointer-events: none;
-      }
-
-      &:hover .ui-select-match-item.dropping-before:before {
-        position: absolute;
-        top: 0;
-        right: 100%;
-
-        height: 100%;
-        margin-right: 2px;
-
-        border-left: 1px solid #428bca;
-        content: "";
-      }
-
-      &:hover .ui-select-match-item.dropping-after:after {
-        position: absolute;
-        top: 0;
-        left: 100%;
-
-        height: 100%;
-        margin-left: 2px;
-
-        border-right: 1px solid #428bca;
-        content: "";
-      }
-
       .btn {
         height: 21px;
         padding: 3px 20px 3px 5px;
@@ -167,7 +139,7 @@
         white-space: nowrap;
         vertical-align: middle;
 
-        border: 1px solid #d1d1d1;
+        border: 1px solid $border-color;
         border-radius: 3px;
         box-sizing: border-box;
 
@@ -207,12 +179,12 @@
     }
 
     a {
-      color: $red-1;
+      color: $red;
       text-decoration: none;
     }
 
     .text-muted {
-      color: $placeholder-grey;
+      color: $input-placeholder-color;
     }
 
     .btn {
@@ -230,14 +202,14 @@
 
       span.ui-select-toggle {
         box-shadow: 0 0 5px $blue-shadow;
-        border: 1px solid $focus-blue;
+        border: 1px solid $focus-color;
         outline: none;
       }
     }
 
     .btn-link {
       font-weight: normal;
-      color: $red-1;
+      color: $red;
       border-radius: 0;
     }
 
@@ -300,7 +272,7 @@
       height: 1px;
       margin: 9px 0;
       overflow: hidden;
-      background-color: $red-1;
+      background-color: $red;
     }
 
     &.open > .dropdown-menu {
@@ -312,7 +284,7 @@
       padding: 3px 20px;
 
       line-height: 1.42857143;
-      color: $red-1;
+      color: $red;
       white-space: nowrap;
     }
 
@@ -342,8 +314,7 @@
       .hint {
         padding: 9px 12px;
         white-space: nowrap;
-        /* Replace this with $grey-5 once the colour work has been merged */
-        color: #898b8c;
+        color: $grey-5;
         font-style: italic;
 
         &:hover {
@@ -354,7 +325,7 @@
     }
 
     .ui-select-search {
-      background: $off-white;
+      background: $input-background-color;
       min-width: 100%;
       padding: 12px 10px;
       margin: 0;
@@ -378,7 +349,7 @@
     top: 14px;
     right: 16px;
 
-    color: $grey-40;
+    color: $grey-5;
 
     pointer-events: none;
   }

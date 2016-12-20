@@ -25,7 +25,7 @@ body {
     padding-left: 12px;
     padding-right: 12px;
 
-    color: #fff;
+    color: $white;
     line-height: $header-height;
     text-align: center;
 
@@ -79,17 +79,17 @@ h1, h2, h3 {
     right: 0px;
     height: $header-height;
 
-    color: $grey;
+    color: $grey-6;
     line-height: $header-height;
     text-align: center;
     text-decoration: none;
 
-    border-top: solid 1px $grey-70;
-    border-right: solid 1px $grey-70;
-    background-color: $grey-90;
+    border-top: $border;
+    border-right: $border;
+    background-color: $grey-2;
 
     &:hover {
-      background-color: $grey-80;
+      background-color: $grey-3;
     }
 
     i {
@@ -108,28 +108,28 @@ h1, h2, h3 {
 
     padding: 0.6rem 0px;
 
-    color: $grey-90;
-    border-right: solid 1px $grey-70;
-    background-color: $grey-95;
+    color: $grey-2;
+    border-right: $border;
+    background-color: $grey-2;
 
     overflow: auto;
 
     hr {
-      border: solid 1px $grey-10;
+      border: solid 1px $grey-6;
     }
 
     a {
       box-sizing: border-box;
       cursor: pointer;
-      color: $grey;
+      color: $grey-6;
       text-decoration: none;
 
       &:hover {
-        background-color: $grey-90;
+        background-color: $grey-2;
       }
 
       &.selected {
-        background-color: $grey-80;
+        background-color: $grey-3;
       }
     }
 
@@ -145,7 +145,7 @@ h1, h2, h3 {
         line-height: $size;
 
         &:nth-child(odd) {
-          border-right: 1px solid $grey-70;
+          border-right: $border;
         }
       }
     }
