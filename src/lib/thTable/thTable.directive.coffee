@@ -23,13 +23,18 @@ angular.module "ThemisComponents"
         return
 
       getEventRows = (event) ->
-        hoverRow = angular.element(event.target).closest "tr"
+        hoverRow = Array::slice.call $element[0].querySelectorAll "tr"
+          .find (element) -> element.contains event.target
+
+        $hoverRow = angular.element hoverRow
+
         partnerRow =
-          if angular.element(hoverRow).hasClass "th-table-cells-row"
-            nextRow = angular.element(hoverRow).next()
+          if $hoverRow.hasClass "th-table-cells-row"
+            nextRow = $hoverRow.next()
             nextRow if nextRow.hasClass "th-table-actions-row"
-          else if angular.element(hoverRow).hasClass "th-table-actions-row"
+          else if $hoverRow.hasClass "th-table-actions-row"
             hoverRow.previousElementSibling
+
         return {hoverRow, partnerRow}
 
       return
