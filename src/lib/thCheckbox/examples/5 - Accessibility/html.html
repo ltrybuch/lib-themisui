@@ -1,0 +1,23 @@
+<html ng-app="thDemo">
+  <body ng-controller="DemoCtrl as demo">
+
+    <div class="example">
+      <span class="example-tag">aria-describedby</span>
+      <div style="margin: 12px 0;">
+
+        <th-checkbox
+          ng-model="demo.checked2"
+          with-label="Lorem Ipsum"
+          aria-describedby="describedby-label"
+          >
+        </th-checkbox>
+        <p id="describedby-label">
+          This text will be read by a screen reader when the checkbox receives
+          focus. Use this when a checkbox is accompanied by additional text that
+          describes it's functionality.
+        </p>
+      </div>
+    </div>
+
+  </body>
+</html>

@@ -24,6 +24,8 @@ is clicked.
 - This **requires** ngModel to be present.
 [ng-change Angular docs](https://docs.angularjs.org/api/ng/directive/ngChange).
 
+---
+
 ## Usage
 
 ### Markup
@@ -35,3 +37,19 @@ Specify an optional expression to evaluate using `ng-change` and/or `ng-click`.
 <th-checkbox ng-model="state" ng-change="someAction()"></th-checkbox>
 
 ```
+
+---
+
+## Accessibility
+
+The `thCheckbox` component adheres to the standards set in the [WAI-ARIA Authoring Practices 1.1](https://www.w3.org/TR/wai-aria-practices-1.1/#checkbox) document.
+
+### Keyboard Interaction
+`thCheckbox` can be toggled with the `Space` key.
+
+### Optional Accessibility Attributes
+* `aria-describedby` [string] A description of a checkbox's function can be
+provided by setting the `aria-describedby` attribute to that of the `id` of the
+description element.
+
+---
