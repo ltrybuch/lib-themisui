@@ -38,6 +38,37 @@ angular
       $scope.hasBadge = (tab) ->
         tab.badge?
 
+      # If the newly visible tab is the ONLY tab visible we'll
+      # set it as the active tab.
+      @setActiveIfOnlyVisibleTab = (tabAdded) ->
+        activeTab = tabs.find (tab) -> tab.active
+        if activeTab and not activeTab.show
+          $scope.processTabChange tabAdded
+
+      # When a tab that was active is removed. We need to replace the
+      # active state with the next in line. Similar to how browser tabs work.
+      @setNextActiveTab = (tabRemoved) ->
+        idx = tabs.indexOf tabRemoved
+
+        # We'll just check to see if we can assign the active state to
+        # the tab to the left of the just hidden tab.
+        if idx > 0 and tabRemoved.active
+          tabToActivate = checkForVisibleTabsRightToLeft idx
+          $scope.processTabChange tabToActivate if tabToActivate
+
+        # If there is NOT a tab to the left we'll then check the right side.
+        if idx < (tabs.length - 1) and tabRemoved.active
+          tabToActivate = checkForVisibleTabsLeftToRight idx
+          $scope.processTabChange tabToActivate if tabToActivate
+
+      checkForVisibleTabsRightToLeft = (idx) ->
+        for index in [(idx - 1) .. 0]
+          return tabs[index] if tabs[index].show
+
+      checkForVisibleTabsLeftToRight = (idx) ->
+        for index in [(idx + 1) .. (tabs.length - 1)]
+          return tabs[index] if tabs[index].show
+
       @addTab = (tab) ->
         $scope.activateTab tab if tabs.length is 0
         $scope.activateTab tab if tab.name is $scope.activeTab

@@ -51,6 +51,13 @@ describe 'ThemisComponents: Directive: thTabset', ->
     </div>
   """
 
+  showTemplate = """
+    <div th-tabset>
+      <div th-tab name="Tab One" show="show"></div>
+      <div th-tab name="Tab Two"></div>
+    </div>
+  """
+
   beforeEach angular.mock.module "ThemisComponents"
 
   describe "with a valid template", ->
@@ -70,6 +77,31 @@ describe 'ThemisComponents: Directive: thTabset', ->
       element.find('.th-tab-bar li.tab-name').last().click()
       expect(element.find('.th-tab-bar li.tab-name').first().hasClass('active')).toBe false
       expect(element.find('.th-tab-bar li.tab-name').last().hasClass('active')).toBe true
+
+  describe "with a show attribute", ->
+    beforeEach ->
+      additions = show: true
+      {element, scope} = compileDirective showTemplate, additions
+      tabs = element.find ".th-tab-bar li.tab-name"
+
+    it "should add/remove the tab set conditionally with the show attribute", ->
+      expect(tabs.length).toEqual 2
+
+      scope.$apply -> scope.show = false
+      tabs = element.find ".th-tab-bar li.tab-name"
+      expect(tabs.length).toEqual 1
+
+    it "should move active tab to next tab if another tab is visible", ->
+      firstTab = angular.element tabs[0]
+      expect(firstTab.hasClass "active").toEqual true
+
+      scope.$apply -> scope.show = false
+
+      tabs = element.find ".th-tab-bar li.tab-name"
+      expect(tabs.length).toEqual 1
+
+      remainingTab = angular.element tabs[0]
+      expect(remainingTab.hasClass "active").toEqual true
 
   describe "with an ngClick attribute", ->
     beforeEach ->

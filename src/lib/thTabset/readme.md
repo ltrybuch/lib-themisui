@@ -29,6 +29,11 @@ but just allow a click event to attach to. See example 3 below.
 - Optional: When `letter-spacing` is true, tabs have reduced horizontal spacing
 to accommodate alphabet pattern (i.e. `A B C D ...`).
 
+[show="boolean"]
+- Optional: When `show` is false, the tab and its content are removed from the DOM.
+When true it is included in the DOM. Note that when an active tab is removed the
+next available tab to the left will be selected. Similar to how browser tabs work.
+
 #### thTabSet
 [type="string"]
 - `type` allows you to modify the `thTabset` styling based on it's intended purpose.

@@ -1,0 +1,32 @@
+<html ng-app="thDemo">
+  <body ng-controller="DemoController as demo" class="th-example-height-200">
+    <style type="text/css">
+      .th-example-width-100, .th-example-width-200 {display: inline-block;}
+    </style>
+
+    <div class="th-example-width-100">
+      <th-switch ng-model="demo.one" with-label="Tab One"></th-switch>
+    </div>
+    <div class="th-example-width-100">
+      <th-switch ng-model="demo.two" with-label="Tab Two"></th-switch>
+    </div>
+    <div class="th-example-width-200">
+      <th-switch ng-model="demo.three" with-label="Tab Three"></th-switch>
+    </div>
+    <th-tabset>
+      <th-tab name="Tab One" show="demo.one">
+        <h4>Tab One</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      </th-tab>
+      <th-tab name="Tab Two" show="demo.two" ng-click="demo.clickEvent()">
+        <h4>Tab Two</h4>
+        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </th-tab>
+      <th-tab name="Tab Three" show="demo.three">
+        <h4>Tab Three</h4>
+        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </th-tab>
+    </th-tabset>
+
+  </body>
+</html>
