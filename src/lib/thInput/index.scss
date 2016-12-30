@@ -10,7 +10,7 @@
   &.has-focus {
     transition: border-color .3s ease-out;
     transition: box-shadow .3s ease-out;
-    box-shadow: 0 0 10px rgba($blue-shadow, .7);
+    box-shadow: 0 0 10px rgba($deprecated-blue-shadow, .7);
     border-color: $blue;
   }
 

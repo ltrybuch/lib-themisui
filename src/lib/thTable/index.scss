@@ -90,7 +90,6 @@ th-table {
 
     td {
       border: 0 none;
-      color: $grey-5;
       margin: 0;
       vertical-align: top;
     }
@@ -101,8 +100,6 @@ th-table {
 
     .th-table-cells-row,
     .th-table-no-data-row {
-      color: $grey-5;
-
       a {
         text-decoration: underline;
         color: $grey-6;

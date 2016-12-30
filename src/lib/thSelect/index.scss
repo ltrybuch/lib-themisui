@@ -26,7 +26,7 @@
     &.has-focus {
       border-color: $blue;
       outline: none;
-      box-shadow: 0 0 10px rgba($blue-shadow, .7);
+      box-shadow: 0 0 10px rgba($deprecated-blue-shadow, .7);
     }
 
     &.is-invalid {
