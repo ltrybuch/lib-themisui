@@ -85,25 +85,25 @@ describe "ThemisComponents: Service: FilterSet", ->
 
         describe "when filter value is defined", ->
           beforeEach ->
-            selectFilter1.model = {value: "value1"}
+            selectFilter1.model = {name: "name1", value: "value1"}
 
           it "should return the query string", ->
             params = filterSet.getState()
             expect(Object.keys(params).length).toBe 1
-            expect(params.name1).toEqual {value: "value1"}
+            expect(params.name1).toEqual {name: "name1", value: "value1"}
 
       describe "when filter set has more than one filter", ->
         beforeEach ->
-          selectFilter1.model = {value: "value1"}
-          selectFilter2.model = {value: "value2"}
+          selectFilter1.model = {name: "name1", value: "value1"}
+          selectFilter2.model = {name: "name2", value: "value2"}
           filterSet.push selectFilter1
           filterSet.push selectFilter2
 
         it "should return the query string", ->
           params = filterSet.getState()
           expect(Object.keys(params).length).toBe 2
-          expect(params.name1).toEqual {value: "value1"}
-          expect(params.name2).toEqual {value: "value2"}
+          expect(params.name1).toEqual {name: "name1", value: "value1"}
+          expect(params.name2).toEqual {name: "name2", value: "value2"}
 
   describe "#getMetadata", ->
     beforeEach ->

@@ -33,19 +33,19 @@ describe "ThemisComponents: Directive: thFilterSelect", ->
     }
 
     filterOptions = {
-      name: 'name'
+      name: "name"
       value: 1
-      type: 'select'
+      type: "select"
 
-      fieldIdentifier: 'id'
+      fieldIdentifier: "id"
       selectOptions: options
     }
 
-    {element, scope} = compileDirective(validTemplate, {
+    {element, scope} = compileDirective validTemplate, {
       filterSet
       filterOptions
       initialState: {value: "two"}
-    })
+    }
 
   it "should have 'select' element", ->
     expect(element[0].querySelector("select")).not.toBe null
@@ -56,7 +56,7 @@ describe "ThemisComponents: Directive: thFilterSelect", ->
   it "should add filter to filter set", ->
     expect(filterSet.length).toBe 1
     expect(filterSet[0]).toBe instanceof SelectFilter
-    expect(filterSet[0].getState()).toEqual {value: "two"}
+    expect(filterSet[0].getState()).toEqual {name: "Two", value: "two"}
 
   describe "when value is changed", ->
     beforeEach ->
@@ -67,7 +67,10 @@ describe "ThemisComponents: Directive: thFilterSelect", ->
       select.val options[1].value
       select.triggerHandler "change"
       timeout.flush()
-      expect(filterSet[0].getState()).toEqual {value: options[1].value}
+      expect(filterSet[0].getState()).toEqual
+        name: options[1].name
+        value: options[1].value
+      
       expect(filterSet.onFilterChange).toHaveBeenCalled()
 
   describe "when scope is destroyed", ->
@@ -99,7 +102,7 @@ describe "ThemisComponents: Directive: thFilterSelect", ->
   describe "when 'th.filters.clear' event is received", ->
     it "should clear model", ->
       filter = angular.element(
-        element.find("div")
+        element.find "div"
       ).scope().thFilterSelect.filter
       spyOn filter, "clearState"
       scope.$broadcast "th.filters.clear"

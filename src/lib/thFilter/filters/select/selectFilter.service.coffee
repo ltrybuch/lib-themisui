@@ -10,10 +10,10 @@ angular.module "ThemisComponents"
       @valueField = options.selectOptionsValueField or "value"
 
       if options.selectOptionsUrl?
-        @model = if initialState? then {value: initialState.value} else null
+        @model = initialState ? null
 
         $http
-          method: 'GET'
+          method: "GET"
           url: options.selectOptionsUrl
         .then (response) =>
           @options = if options.selectOptionsCallback
@@ -35,7 +35,11 @@ angular.module "ThemisComponents"
 
     getState: =>
       if @model
-        return value: @model.value
+        return {
+          name: @model.name
+          value: @model.value
+        }
+
       else return null
 
     clearState: =>
