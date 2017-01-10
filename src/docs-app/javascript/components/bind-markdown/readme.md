@@ -1,6 +1,6 @@
-# `thBindMarkdown`
+# `bindMarkdown`
 
-The `thBindMarkdown` component evaluates a Markdown string and binds it to the contents of the given element.
+The `bindMarkdown` component evaluates a Markdown string and binds it to the contents of the given element.
 
 ## Usage
 
@@ -14,7 +14,7 @@ $scope.markdownText = """
 
 ### Markup
 ```html
-<span th-bind-markdown="markdownText"></span>
+<span docs-bind-markdown="markdownText"></span>
 ```
 
 ### Result

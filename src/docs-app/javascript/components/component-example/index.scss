@@ -1,5 +1,5 @@
-th-component-example,
-*.th-component-example {
+docs-component-example,
+*.docs-component-example {
   margin-bottom: 3rem;
 
   form {
@@ -42,6 +42,22 @@ th-component-example,
       border: none;
       border-left: solid 1px $deprecated-light-blue;
       background-color: transparent;
+    }
+
+    button[type="submit"] {
+      float: right;
+      background-color: transparent;
+      border: none;
+      border-left: solid 1px $deprecated-light-blue;
+      cursor: pointer;
+      width: 34px;
+      height: 28px;
+      outline: none;
+
+      i {
+        font-size: 2em;
+        color: #fff;
+      }
     }
   }
 

@@ -1,62 +1,52 @@
-coverage = require 'browserify-istanbul'
+ENV = process.env.npm_lifecycle_event
+singleRun = ENV is "test-once"
+webpack = require "webpack"
+webpackConfig = require("./tools/webpack/webpack.config") test: true, coverage: singleRun
+ExtractTextPlugin = require "extract-text-webpack-plugin"
 
 module.exports = (config) ->
-  config.set
-
-    # base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: ''
-
+  karmaConfig =
 
     # frameworks to use
     # available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['browserify', 'jasmine']
-
+    frameworks: ["jasmine"]
 
     # list of files / patterns to load in the browser
     files: [
-      'http://code.jquery.com/jquery-2.1.4.js'
-      './node_modules/angular/angular.js'
-      './src/lib/index.coffee'
-      './node_modules/angular-mocks/angular-mocks.js'
-      './src/lib/**/*.spec.coffee'
-      {
-        pattern: './src/lib/**/*.+(directive|service|template).coffee'
-        watched: true
-        included: false
-        served: false
-      }
+      {pattern: "src/lib/index.spec.coffee", watched: false}
     ]
 
+    webpack:
+      module: webpackConfig.module
+      devtool: webpackConfig.devtool
+      resolve: webpackConfig.resolve
+      plugins: webpackConfig.plugins
 
-    # list of files to exclude
-    exclude: [
+    webpackMiddleware:
+      stats: "errors-only"
+
+    beforeMiddleware: [
+      "webpackBlocker"
     ]
 
+    webpackServer:
+      noInfo: true
 
     # preprocess matching files before serving them to the browser
     # available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
-      './src/lib/**/*.coffee': ['coffeelint']
-      './src/lib/index.coffee': ['browserify']
-      './src/lib/**/*.mock.coffee': ['browserify']
-      './src/lib/**/*.spec.coffee': ['browserify']
-      './spec_helper/*.coffee': ['browserify']
-    }
-
+    preprocessors:
+      "./src/lib/index.spec.coffee": ["webpack", "sourcemap"]
 
     # test results reporter to use
-    # possible values: 'dots', 'progress'
+    # possible values: "dots", "progress"
     # available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'notify', 'coverage', 'coveralls']
-
+    reporters: ["progress", "notify"]
 
     # web server port
     port: 9876
 
-
     # enable / disable colors in the output (reporters and logs)
     colors: true
-
 
     # level of logging
     # possible values:
@@ -67,49 +57,38 @@ module.exports = (config) ->
     # - config.LOG_DEBUG
     logLevel: config.LOG_INFO
 
-
     # enable / disable watching file and executing tests whenever any file changes
     autoWatch: true
 
-
     # start these browsers
     # available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS']
-
+    browsers: ["PhantomJS"]
 
     # Continuous Integration mode
     # if true, Karma captures browsers, runs the tests and exits
     singleRun: false
 
-    browserify:
-      debug: true
-      watch: true
-      extensions: ['.coffee']
-      paths: ['./test/spec_modules']
-      # fix for dbl karma compiling of coffeescript
-      # https://github.com/nikku/karma-browserify/issues/130
-      postFilter: (id, file, pkg) ->
-        if pkg.name == "lib-ThemisUI"
-          pkg.browserify.transform = []
-        true
-      transform: [
-        'coffeeify'
-        'stringify'
-        coverage
-      ]
-
     coverageReporter:
-      dir: 'coverage/'
+      dir: "coverage/"
       reporters: [
-        {type: 'lcovonly', subdir: 'report-lcov'}
-        {type: 'text', subdir: '.', file: 'text.txt'}
+        {type: "lcovonly", subdir: "report-lcov"}
+        {type: "text", subdir: ".", file: "text.txt"}
       ]
 
     coffeelint:
       onStart: true
       onChange: true
-      options: './coffeelint.json'
+      options: "./coffeelint.json"
       reporter:
-        type: 'default'
+        type: "default"
         options:
           colorize: true
+
+  if singleRun
+    karmaConfig.reporters = [
+      karmaConfig.reporters...
+      "coverage"
+      "coveralls"
+    ]
+
+  config.set karmaConfig

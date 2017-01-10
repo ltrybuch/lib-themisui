@@ -1,5 +1,8 @@
 @import "../../themes/themis/index";
 @import "../../lib/index";
+@import "../javascript/components/bind-markdown/index";
+@import "../javascript/components/component-example/index";
+@import "./prism";
 
 $header-height: 40px;
 $list-view-width: 120px * 2;

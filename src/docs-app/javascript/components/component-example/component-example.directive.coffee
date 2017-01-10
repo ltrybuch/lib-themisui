@@ -1,20 +1,21 @@
-angular.module('ThemisComponents')
-  .directive "thComponentExample", ($location) ->
+angular.module('ThemisComponentsApp')
+  .directive "docsComponentExample", ($location) ->
     restrict: "EA"
     scope:
       componentName: '=componentName'
       example: '=componentExample'
     replace: true
-    template: require './thComponentExample.template.html'
+    template: require './component-example.template.html'
     controller: ($scope, $element, $timeout) ->
       example = $scope.example
 
       includeBase = "#{$location.protocol()}://#{$location.host()}:#{$location.port()}"
       includeJS  = [
-        "#{includeBase}/build/examples-app.js"
+        "#{includeBase}/assets/docs-vendor.js"
+        "#{includeBase}/assets/examples.js"
       ]
       includeCSS = [
-        "#{includeBase}/build/examples-app.css"
+        "#{includeBase}/assets/examples.css"
         "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
       ]
 

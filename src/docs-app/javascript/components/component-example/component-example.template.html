@@ -1,4 +1,4 @@
-<div class="th-component-example">
+<div class="docs-component-example">
 <h3>{{ example.name }}</h3>
 <form
   action="http://codepen.io/pen/define"
@@ -13,7 +13,13 @@
     </a><a href="" ng-click="showTab('coffee')">CoffeeScript
     </a>
 
-    <!--<input type="submit" value="Run in CodePen">-->
+    <button
+      type="submit"
+      class="code-pen-submit"
+      ng-if="!hideCodePen"
+      >
+      <i class="fa fa-codepen" aria-hidden="true"></i>
+    </button>
   </header>
   <iframe
     ng-show="mode == 'example'"

@@ -1,5 +1,11 @@
-angular = require 'angular'
+angular = require "angular"
+require "prismjs"
+require "prismjs/components/prism-coffeescript"
+require "prismjs/components/prism-json"
+require "prismjs/plugins/line-numbers/prism-line-numbers"
 
-angular.module 'ThemisComponentsExample', [
-  require '../../lib/index.coffee' # requiring ThemisComponents
+require "../stylesheets/examples.scss"
+
+angular.module "ThemisComponentsExample", [
+  require "../../lib/index.coffee" # requiring ThemisComponents
 ]

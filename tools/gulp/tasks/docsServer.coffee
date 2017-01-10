@@ -45,9 +45,9 @@ gulp.task 'docs-server', ->
   webSocketApp = expressWs(app)
   app.ws '/channel', -> # no-op
 
-  gulp.watch ['src/lib/**/*',
+   gulp.watch ['src/lib/**/*',
               'src/docs-app/**/*',
-              'src/themes/**/*'], ['docs-restart']
+              'src/themes/**/*'], ['docs-webpack', 'docs-restart']
 
   app.get '/readme.md', (request, response) ->
     response.sendFile path.resolve(path.join('README.md'))
@@ -90,13 +90,17 @@ gulp.task 'docs-server', ->
   serveIndex = (request, response) ->
     response.sendFile path.resolve(path.join('src', 'docs-app', 'index.html'))
 
+
   app.get '', serveIndex
   app.get '/:componentName', serveIndex
 
   app.use "/public", express.static 'src/docs-app'
   app.use "/build", express.static 'dist'
+  app.use '/assets', express.static '.tmp/assets'
   app.use "/exampleTemplates", express.static 'src/docs-app/exampleTemplates'
   app.use "/json", express.static 'src/docs-app/json'
+
+
 
   # Start server on port 3042
   server = null

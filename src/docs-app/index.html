@@ -6,7 +6,7 @@
     <style type="text/css">
       [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {display: none !important;}
     </style>
-    <link rel="stylesheet" type="text/css" href="/build/docs-app.css">
+    <link rel="stylesheet" type="text/css" href="/assets/docs-app.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <base href="/">
   </head>
@@ -38,17 +38,18 @@
       class="component-details-view"
       ng-controller="ComponentDetailsController"
       >
-      <div th-bind-markdown="readme.markdown"></div>
+      <div docs-bind-markdown="readme.markdown"></div>
       <div ng-bind-html="readme.html"></div>
 
       <h2 class="example-title" ng-if="examples.length > 0">Examples</h2>
-      <th-component-example
+      <docs-component-example
         ng-repeat="example in examples"
         component-name="name"
         component-example="example"/>
     </div>
 
-    <script src="/build/docs-app.js"></script>
+    <script src="/assets/docs-vendor.js"></script>
+    <script src="/assets/docs-app.js"></script>
 
     <script>
       (function(){

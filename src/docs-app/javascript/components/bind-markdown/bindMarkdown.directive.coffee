@@ -27,11 +27,11 @@ marked.setOptions
   highlight: (code, language) ->
     Prism.highlight(code, prismHelper.grammar(language))
 
-angular.module('ThemisComponents')
-  .directive "thBindMarkdown", ->
+angular.module('ThemisComponentsApp')
+  .directive "docsBindMarkdown", ->
     restrict: "A"
     link: ($scope, element, attributes) ->
-      $scope.$watch attributes.thBindMarkdown, (newMarkdownText) ->
+      $scope.$watch attributes.docsBindMarkdown, (newMarkdownText) ->
         return unless newMarkdownText?
 
         markdownHtml = marked(newMarkdownText)

@@ -31,10 +31,7 @@
     "angular-messages": "1.5.9",
     "angular-sanitize": "1.5.9",
     "body-parser": "^1.14.1",
-    "browserify": "^12.0.1",
-    "browserify-istanbul": "^2.0.0",
     "coffee-script": "^1.10.0",
-    "coffeeify": "^2.0.1",
     "debounce": "^1.0.0",
     "es6-promise": "~3.0.2",
     "express": "^4.12.4",
@@ -50,48 +47,54 @@
     "keycode": "^2.1.4",
     "marked": "^0.3.3",
     "moment": "^2.14.1",
-    "node-bourbon": "^4.2.1-beta1",
-    "node-sass": "^3.11.2",
     "pluralize": "^3.0.0",
     "qs": "^6.1.0",
-    "stringify": "^4.0.1",
     "ui-select": "^0.18.1",
     "uuid": "^2.0.2",
-    "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.2.1"
+    "vinyl-source-stream": "^1.1.0"
   },
   "devDependencies": {
     "angular-mocks": "1.5.9",
+    "clean-webpack-plugin": "^0.1.14",
+    "coffee-loader": "^0.7.2",
     "coffeelint": "^1.16.0",
     "coffeelint-no-focused-jasmine-specs": "^0.1.0",
     "coffeelint-prefer-double-quotes": "^0.1.0",
     "coffeelint-prefer-fewer-parens": "^0.1.0",
+    "css-loader": "^0.14.5",
     "express-ws": "^0.2.6",
+    "extract-text-webpack-plugin": "^2.0.0-beta",
+    "gulp-sequence": "^0.4.6",
+    "istanbul-instrumenter-loader": "^1.1.0",
     "jasmine-core": "^2.5.1",
+    "json-loader": "^0.5.4",
     "karma": "^0.13.15",
-    "karma-browserify": "^4.1.2",
-    "karma-coffee-preprocessor": "^0.3.0",
+    "node-bourbon": "^4.2.1-beta1",
+    "node-sass": "^3.11.2",
     "karma-coffeelint": "0.0.1",
     "karma-coverage": "^0.5.3",
     "karma-coveralls": "^1.1.2",
     "karma-jasmine": "^0.3.5",
     "karma-notify-reporter": "^0.1.1",
     "karma-phantomjs-launcher": "1.0.0",
-    "phantomjs-prebuilt": "2.1.7"
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^1.8.0",
+    "ng-annotate-loader": "^0.2.0",
+    "phantomjs-prebuilt": "2.1.7",
+    "postcss-loader": "^1.2.0",
+    "prismjs": "^1.5.1",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^4.0.2",
+    "stats-webpack-plugin": "^0.4.2",
+    "webpack": "^2.1.0-beta.27"
   },
   "scripts": {
-    "build": "gulp lib-themisui lib-themisui-style",
-    "clean": "rm -rf dist",
-    "postinstall": "npm run clean && npm run build",
+    "build": "webpack --progress --env.dist --config tools/webpack/webpack.config.js",
+    "postinstall": "npm run build",
     "start": "gulp docs",
     "test": "TZ='UTC' karma start",
     "test-once": "TZ='UTC' karma start --single-run",
-    "versionCheck": "npm outdated --depth 0"
-  },
-  "browserify": {
-    "transform": [
-      "coffeeify",
-      "stringify"
-    ]
+    "versionCheck": "npm outdated --depth 0",
+    "stats": "webpack --progress --env.stats --config tools/webpack/webpack.config.js"
   }
 }
