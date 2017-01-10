@@ -63,7 +63,10 @@ angular.module "ThemisComponents"
 
       isDisabled = ->
         actionsExist = not not availableActions
-        results.processing or (not results.selectedAction and actionsExist)
+        if actionsExist
+          results.processing or (not results.selectedAction and actionsExist)
+        else
+          results.processing
 
       triggerApply = ->
         results.processing = yes

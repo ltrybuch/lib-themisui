@@ -71,6 +71,7 @@ describe 'ThemisComponents: Directive: thButton', ->
 
         textElement = element.find('ng-transclude')
         expect(textElement.hasClass("hide")).toBe true
+        expect(element[0].hasAttribute("disabled")).toBe true
 
     context "when loading is false", ->
       it 'should set the trancluded content to visible', ->
@@ -86,6 +87,7 @@ describe 'ThemisComponents: Directive: thButton', ->
         loaderElement = element.find(".load-wrapper")
         expect(loaderElement.length).toBe 0
         expect(textElement.hasClass("show")).toBe true
+        expect(element[0].hasAttribute("disabled")).toBe false
 
   context 'with an aria-label attribute', ->
     beforeEach ->
