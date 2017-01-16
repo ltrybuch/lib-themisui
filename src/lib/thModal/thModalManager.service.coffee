@@ -33,7 +33,6 @@ angular.module("ThemisComponents")
 
     dismiss = (name, response) ->
       modal = findByName(name)
-      modal.deferred.reject(response) if modal isnt undefined
       remove(name)
 
     findByName = (name) ->
