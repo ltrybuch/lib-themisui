@@ -86,8 +86,7 @@ angular.module("ExampleApp").controller "modalController", ($scope) ->
 ## Methods
 
 ### `show(options<object>)` → `Promise`
-> The returned promise will resolve if the modal is closed with a `confirm` action or reject if the
-> modal is closed with a `dismiss` action.
+> The returned promise will resolve if the modal is closed with a `confirm` action.
 
 #### Options
 **Note:** When creating a modal you are required to provide one of `path` or `template`.
@@ -104,8 +103,8 @@ angular.module("ExampleApp").controller "modalController", ($scope) ->
   - Any required params for your template URL.
 
 ### `dismiss(name<string>, response<object>)`
-> Close the modal named `name`. This will also *reject* the promise that was returned when creating
-> this modal with the contents of `response`.
+> Close the modal named `name`. **Note:** The `response` parameter is deprecated and will be
+> removed in a future release.
 
 ### `confirm(name<string>, response<object>)`
 > Close the modal named `name`. This will also *resove* the promise that was returned when creating
@@ -118,7 +117,8 @@ injecting `$scope`.
 
 ### `modal.dismiss(response<object>)`
 > This an alias to `ModalManager.dismiss` referencing the context of the current modal and passing
-> `response` through.
+> `response` through. **Note:** The `response` parameter is deprecated and will be removed in a 
+> future release.
 
 ### `modal.confirm(response<object>)`
 > This an alias to `ModalManager.confirm` referencing the context of the current modal and passing
