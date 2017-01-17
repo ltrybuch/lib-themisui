@@ -111,7 +111,7 @@ module.exports = function(env={}) {
       modules: resolveModules
     },
     performance: {
-      hints: env.dist ? true : false
+      hints: env.dist ? "warning" : false
     },
     plugins
   };
