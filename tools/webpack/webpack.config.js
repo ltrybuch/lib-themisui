@@ -110,9 +110,6 @@ module.exports = function(env={}) {
       extensions,
       modules: resolveModules
     },
-    performance: {
-      hints: env.dist ? "warning" : false
-    },
     plugins
   };
 };
