@@ -43,15 +43,15 @@ describe "ThemisComponents: Directive: thFilterNumber", ->
     }
 
     filterOptions = {
-      fieldIdentifier: 'id'
-      name: 'number'
+      fieldIdentifier: "id"
+      name: "number"
     }
 
-    {element, scope} = compileDirective(validTemplate, {
+    {element, scope} = compileDirective validTemplate, {
       filterSet
       filterOptions
       operatorOptions
-    })
+    }
 
   it "should add filter to filter set", ->
     expect(filterSet.length).toBe 1
@@ -63,7 +63,7 @@ describe "ThemisComponents: Directive: thFilterNumber", ->
         onFilterChange: -> return
       }
 
-      {element, scope} = compileDirective("""
+      {element, scope} = compileDirective """
         <th-filter-number
           filter-set="filterSet"
           filter-options="filterOptions"
@@ -79,11 +79,45 @@ describe "ThemisComponents: Directive: thFilterNumber", ->
         initialState:
           value: -1234.56
           operator: ">"
-      })
+      }
 
     it "should parse initial value", ->
       expect(filterSet[0].operator.value).toEqual ">"
       expect(filterSet[0].model).toBe -1234.56
+
+  describe "when value is not changed", ->
+    beforeEach ->
+      filterSet = new FilterSet {
+        onFilterChange: -> return
+      }
+
+      {element, scope} = compileDirective """
+        <th-filter-number
+          filter-set="filterSet"
+          filter-options="filterOptions"
+          operator-options="operatorOptions"
+          initial-state="initialState"
+          >
+        </th-filter-number>
+      """
+      , {
+        filterSet
+        filterOptions
+        operatorOptions
+        initialState:
+          value: -1234.56
+          operator: "<"
+      }
+      spyOn filterSet, "onFilterChange"
+
+    it "should NOT call onFilterChange and update filter value", ->
+      keypress = angular.element.Event "keypress"
+      keypress.which = 13
+      input = element.find "input"
+      input.trigger keypress
+      timeout.flush()
+      expect(filterSet.onFilterChange).not.toHaveBeenCalled()
+      expect(filterSet[0].getState()).toEqual {value: -1234.56, operator: "<"}
 
   describe "when value is changed", ->
     beforeEach ->
@@ -91,7 +125,7 @@ describe "ThemisComponents: Directive: thFilterNumber", ->
 
     it "should call onFilterChange and update filter value", ->
       setInputValue "1000"
-      keypress = angular.element.Event("keypress")
+      keypress = angular.element.Event "keypress"
       keypress.which = 13
       input = element.find "input"
       input.trigger keypress
@@ -139,7 +173,7 @@ describe "ThemisComponents: Directive: thFilterNumber", ->
   describe "when 'th.filters.clear' event is received", ->
     it "should clear model", ->
       filter = angular.element(
-        element.find("div")
+        element.find "div"
       ).scope().thFilterNumber.filter
       spyOn filter, "clearState"
       scope.$broadcast "th.filters.clear"

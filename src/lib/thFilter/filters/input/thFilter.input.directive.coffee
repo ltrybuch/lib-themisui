@@ -1,20 +1,39 @@
-angular.module 'ThemisComponents'
-  .directive 'thFilterInput', (InputFilter) ->
-    restrict: 'E'
+angular.module "ThemisComponents"
+  .directive "thFilterInput", (InputFilter) ->
+    restrict: "E"
     scope:
-      filterSet: '='
-      filterOptions: '='
-      ngBlur: '&'
-      placeholder: '@'
-      initialState: '=?'
+      filterSet: "="
+      filterOptions: "="
+      ignoreBlurEvents: "<?"
+      placeholder: "@"
+      initialState: "=?"
     bindToController: true
-    controllerAs: 'thFilterInput'
-    template: require './thFilter.input.template.html'
+    controllerAs: "thFilterInput"
+    template: require "./thFilter.input.template.html"
     controller: ($scope) ->
+      lastValue = undefined
       enterEventCode = 13
 
-      @ngKeypress = (event) ->
-        @filterSet.onFilterChange() if event.which is enterEventCode
+      isUpdatedValue = =>
+        newValue = @filter.getState()?.value
+
+        if newValue isnt lastValue
+          lastValue = newValue
+          return true
+        return false
+
+      @onKeypress = (event) =>
+        if isUpdatedValue()
+          @filterSet.onFilterChange() if event.which is enterEventCode
+
+      @onBlur = (event) =>
+        if isUpdatedValue()
+          unless @ignoreBlurEvents
+            @filterSet.onFilterChange()
+
+      @$onInit = ->
+        lastValue = @initialState?.value
+        @ignoreBlurEvents or= false
 
       $scope.$on "$destroy", =>
         @filterSet.remove @filter
@@ -32,4 +51,5 @@ angular.module 'ThemisComponents'
           controller.filterOptions
           controller.initialState
         )
+
         controller.filterSet.push controller.filter

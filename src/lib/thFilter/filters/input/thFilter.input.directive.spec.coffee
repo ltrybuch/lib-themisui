@@ -27,18 +27,18 @@ describe "ThemisComponents: Directive: thFilterInput", ->
     }
 
     filterOptions = {
-      name: 'name'
+      name: "name"
       value: 1
-      type: 'input'
+      type: "input"
 
-      fieldIdentifier: 'id'
+      fieldIdentifier: "id"
     }
 
-    {element, scope} = compileDirective(validTemplate, {
+    {element, scope} = compileDirective validTemplate, {
       filterSet
       filterOptions
       initialState: {value: "value"}
-    })
+    }
 
   it "should have 'input' element", ->
     expect(element[0].querySelector("input")).not.toBe null
@@ -60,11 +60,26 @@ describe "ThemisComponents: Directive: thFilterInput", ->
       input.val "test"
       input.triggerHandler "change"
       expect(filterSet[0].getState()).toEqual {value: "test"}
-      keypress = angular.element.Event("keypress")
+      keypress = angular.element.Event "keypress"
       keypress.which = 13
       input.trigger keypress
       timeout.flush()
       expect(filterSet.onFilterChange).toHaveBeenCalled()
+
+  describe "when value is NOT changed", ->
+    beforeEach ->
+      spyOn filterSet, "onFilterChange"
+
+    it "should NOT call onFilterChange and update filter", ->
+      input = element.find "input"
+      input.val "value"
+      input.triggerHandler "change"
+      expect(filterSet[0].getState()).toEqual {value: "value"}
+      keypress = angular.element.Event "keypress"
+      keypress.which = 13
+      input.trigger keypress
+      timeout.flush()
+      expect(filterSet.onFilterChange).not.toHaveBeenCalled()
 
   describe "when scope is destroyed", ->
     beforeEach ->
@@ -91,7 +106,7 @@ describe "ThemisComponents: Directive: thFilterInput", ->
   describe "when 'th.filters.clear' event is received", ->
     it "should clear model", ->
       filter = angular.element(
-        element.find("div")
+        element.find "div"
       ).scope().thFilterInput.filter
       spyOn filter, "clearState"
       scope.$broadcast "th.filters.clear"

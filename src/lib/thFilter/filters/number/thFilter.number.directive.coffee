@@ -1,21 +1,37 @@
-angular.module 'ThemisComponents'
-  .directive 'thFilterNumber', (NumberFilter) ->
-    restrict: 'E'
+angular.module "ThemisComponents"
+  .directive "thFilterNumber", (NumberFilter) ->
+    restrict: "E"
     scope:
-      filterSet: '='
-      filterOptions: '='
-      ngBlur: '&'
-      operatorOptions: '='
-      defaultOperatorIndex: '@'
-      initialState: '=?'
+      filterSet: "="
+      filterOptions: "="
+      operatorOptions: "="
+      defaultOperatorIndex: "@"
+      initialState: "=?"
     bindToController: true
-    controllerAs: 'thFilterNumber'
-    template: require './thFilter.number.template.html'
+    controllerAs: "thFilterNumber"
+    template: require "./thFilter.number.template.html"
     controller: ($scope) ->
+      lastValue = undefined
       enterEventCode = 13
 
+      isUpdatedValue = =>
+        newValue = @filter.getState()?.value
+
+        if newValue isnt lastValue
+          lastValue = newValue
+          return true
+        return false
+
       @onKeypress = (event) ->
-        @filterSet.onFilterChange() if event.which is enterEventCode
+        if isUpdatedValue()
+          @filterSet.onFilterChange() if event.which is enterEventCode
+
+      @onBlur = (event) =>
+        if isUpdatedValue()
+          @filterSet.onFilterChange()
+
+      @$onInit = ->
+        lastValue = @initialState?.value
 
       @onOperatorChange = ->
         @filterSet.onFilterChange() if @filter.model?
@@ -38,4 +54,5 @@ angular.module 'ThemisComponents'
           controller.defaultOperatorIndex
           controller.initialState
         )
+
         controller.filterSet.push controller.filter

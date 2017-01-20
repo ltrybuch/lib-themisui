@@ -44,15 +44,15 @@ describe "ThemisComponents: Directive: thFilterTime", ->
     }
 
     filterOptions = {
-      fieldIdentifier: 'time'
-      name: 'time'
+      fieldIdentifier: "time"
+      name: "time"
     }
 
-    {element, scope} = compileDirective(validTemplate, {
+    {element, scope} = compileDirective validTemplate, {
       filterSet
       filterOptions
       operatorOptions
-    })
+    }
     @controller = angular.element(element.querySelectorAll(".inner")[0]).scope().thFilterTime
 
   it "should add filter to filter set", ->
@@ -68,7 +68,7 @@ describe "ThemisComponents: Directive: thFilterTime", ->
         value: "16:21"
         operator: ">"
 
-      {element, scope} = compileDirective("""
+      {element, scope} = compileDirective """
         <th-filter-time
           filter-set="filterSet"
           filter-options="filterOptions"
@@ -82,7 +82,7 @@ describe "ThemisComponents: Directive: thFilterTime", ->
         filterOptions
         operatorOptions
         @initialState
-      })
+      }
 
     it "should parse initial value", ->
       expect(filterSet[0].getState()).toEqual @initialState
@@ -94,8 +94,15 @@ describe "ThemisComponents: Directive: thFilterTime", ->
 
     it "should validate filter and call 'onFilterChange'", ->
       @controller.validateInput()
+      setInputValue "22:12"
+      @controller.validateInput()
       expect(@controller.filter.validate).toHaveBeenCalled()
       expect(@controller.filterSet.onFilterChange).toHaveBeenCalled()
+
+    it "should do nothing if the value has not changed", ->
+      @controller.validateInput()
+      expect(@controller.filter.validate).toHaveBeenCalled()
+      expect(@controller.filterSet.onFilterChange).not.toHaveBeenCalled()
 
   describe "when enter is pressed on input", ->
     beforeEach ->
@@ -103,7 +110,7 @@ describe "ThemisComponents: Directive: thFilterTime", ->
 
     it "should call 'validateInput'", ->
       setInputValue "10:00"
-      keypress = angular.element.Event("keypress")
+      keypress = angular.element.Event "keypress"
       keypress.which = 13
       input = element.find "input"
       input.trigger keypress

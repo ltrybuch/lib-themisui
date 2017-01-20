@@ -2,8 +2,8 @@
   <th-input
     ng-model="thFilterInput.filter.model"
     ng-attr-placeholder="{{thFilterInput.filter.placeholder || thFilterInput.placeholder || 'Enter filter term…'}}"
-    ng-keypress="thFilterInput.ngKeypress($event)"
-    ng-blur="thFilterInput.ngBlur($event)"
+    ng-keypress="thFilterInput.onKeypress($event)"
+    ng-blur="thFilterInput.onBlur($event)"
     condensed="true"
     >
   </th-input>

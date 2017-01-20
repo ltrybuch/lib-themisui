@@ -10,6 +10,7 @@ angular.module "ThemisComponents"
     controllerAs: "thFilterTime"
     template: require "./thFilter.time.template.html"
     controller: ($scope, $element) ->
+      lastValue = undefined
       enterEventCode = 13
       @operatorOptions = [
         {name: "Before", value: "<"}
@@ -18,21 +19,33 @@ angular.module "ThemisComponents"
       ]
       @defaultOperatorIndex = 1
 
+      isUpdatedValue = =>
+        newValue = @filter.model or undefined
+
+        if newValue isnt lastValue
+          lastValue = newValue
+          return true
+        return false
+
       setValid = ->
-        $timeout -> $element.querySelectorAll(".th-input-wrapper").removeClass("is-invalid")
+        $timeout -> $element.querySelectorAll(".th-input-wrapper").removeClass "is-invalid"
 
       setInvalid = ->
-        $timeout -> $element.querySelectorAll(".th-input-wrapper").addClass("is-invalid")
+        $timeout -> $element.querySelectorAll(".th-input-wrapper").addClass "is-invalid"
 
       @validateInput = ->
         if @filter.validate() then setValid() else setInvalid()
-        @filterSet.onFilterChange()
+        if isUpdatedValue()
+          @filterSet.onFilterChange()
 
       @onKeypress = (event) ->
         @validateInput() if event.which is enterEventCode
 
       @onOperatorChange = ->
         @filterSet.onFilterChange() if @filter.time
+
+      @$onInit = ->
+        lastValue = @initialState?.value
 
       $scope.$on "$destroy", =>
         @filterSet.remove @filter
