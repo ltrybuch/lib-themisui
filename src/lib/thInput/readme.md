@@ -28,10 +28,6 @@ font can be used by just passing in the relevant name. ex: `icon="dollar"` for `
 [placeholder="string"]
 - The placeholder attribute specifies a short hint that describes the expected value.
 
-[value="string"]
-- The value attribute specifies the value of `th-input`. When using `ng-model` this
-attribute is ignored.
-
 [type="string"]
 - The type attribute specifies the type of element to display. The default type is: text.
 [HTML docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)

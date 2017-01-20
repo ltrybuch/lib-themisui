@@ -15,7 +15,6 @@ describe 'thInput', ->
       element = compileDirective("""
         <th-input type="text"
                   name="nickname"
-                  value="Steve-o"
                   placeholder="Enter your nickname"
                   condensed="true"
                   >
@@ -52,7 +51,6 @@ describe 'thInput', ->
 
         expect(input.attr("type")).toBe 'text'
         expect(input.attr("name")).toBe 'nickname'
-        expect(input.attr("value")).toBe 'Steve-o'
         expect(input.attr("placeholder")).toBe 'Enter your nickname'
 
   ["text", "password"].forEach (type) ->

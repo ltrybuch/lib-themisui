@@ -7,7 +7,6 @@ angular.module('ThemisComponents').directive "thInput", (Utilities) ->
   scope:
     type: '@'
     name: '@'
-    value: '@'
     icon: '@'
     prefix: '@'
     postfix: '@'
