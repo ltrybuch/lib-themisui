@@ -1,8 +1,8 @@
-angular.module('thDemo', ['ThemisComponents'])
-  .controller 'DemoController', (ModalManager) ->
+angular.module("thModalDemo")
+  .controller "thModalDemoCtrl2", (ModalManager) ->
     @state = off
     @modal =
-      path: "exampleTemplates/thModalExampleTemplate2.html"
+      path: "/components/thModal/examples/2 - Small confirm/thModalExampleTemplate.html"
       name: "first-template"
 
     @displayModal = =>
@@ -18,8 +18,8 @@ angular.module('thDemo', ['ThemisComponents'])
   # Unnecessary in this situation. Just a simple example
   .controller "ConfirmModalController", ($scope) ->
     @yes = ->
-      $scope.modal.confirm("yes")
+      $scope.modal.confirm "yes"
     @no = ->
-      $scope.modal.dismiss("no")
+      $scope.modal.dismiss "no"
 
     return

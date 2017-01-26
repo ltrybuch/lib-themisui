@@ -1,5 +1,5 @@
-angular.module('thDemo', ['ThemisComponents'])
-  .controller 'DemoCtrl', ->
+angular.module("thAutocompleteDemo")
+  .controller "thAutocompleteDemoCtrl1", ->
     @cities = null
     @cityOptions = [
       {id: 0, name: 'Toronto'}

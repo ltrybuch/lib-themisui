@@ -1,4 +1,4 @@
-angular.module "thDemo", ["ThemisComponents"]
+angular.module("thFilterDemo")
 .factory "MyCustomFilterConverter", (CustomFilterConverter) ->
   class MyCustomFilterConverter extends CustomFilterConverter
     mapToCustomFilterArray: (data) ->
@@ -50,7 +50,7 @@ angular.module "thDemo", ["ThemisComponents"]
 
       return result
 
-.controller "DemoController", (
+.controller "thFilterDemoCtrl6", (
   SimpleTableDelegate
   TableHeader
   TableSort
@@ -70,7 +70,7 @@ angular.module "thDemo", ["ThemisComponents"]
 
   @filterOptions = {
     filterSet: @filterSet
-    customFilterUrl: "./json/customFields.json"
+    customFilterUrl: "/components/thFilter/examples/6 - Custom filter converter/customFields.json"
     customFilterConverter: new MyCustomFilterConverter
     initialState:
       numeric:

@@ -1,0 +1,73 @@
+@import "../../../themes/themis/index";
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: $sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  margin: 0;
+  padding: 2rem;
+
+  &.no-horizontal-padding {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+// Convenient width & height classes for examples.
+//FIXME: .th- needs to be renamed to .docs- and then all component
+// examples need to have the class names updated (Mike/Frankie)
+@for $i from 1 through 11 {
+  .th-example-height-#{$i}00 {
+    vertical-align: bottom;
+
+    height: #{$i}00px;
+  }
+}
+
+@for $i from 1 through 11 {
+  .th-example-width-#{$i}00 {
+    vertical-align: bottom;
+
+    width: #{$i}00px;
+  }
+}
+
+.th-example-grey { color: $grey-5; }
+
+.th-example-blue { color: $blue; }
+
+.title {
+  padding-bottom: 3px;
+  padding-left: 3px;
+
+  color: grey;
+
+  border-bottom: 2px solid #77B7FA;
+
+  font-weight: inherit;
+  font-size:20px;
+}
+.example {
+  margin: 10px 0 20px 0;
+  padding: 0 30px 0 15px;
+
+  border: 2px solid #C4E1FF;
+}
+.example-tag {
+  display: inline-block;
+
+  margin-bottom: 15px;
+  padding: 2px 15px 5px 10px;
+  margin-left: -15px;
+
+  border-bottom-right-radius: 5px;
+  background: #C4E1FF;
+  color: #5E5E5E;
+
+  font-weight: bold;
+  font-size: 12px;
+}

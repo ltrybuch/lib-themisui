@@ -1,5 +1,5 @@
-angular.module('thDemo', ['ThemisComponents'])
-  .controller "DemoController", ->
+angular.module("thTabsetDemo")
+  .controller "thTabsetDemoCtrl4", ->
     @tabOptions = [
       {name: "Tab One", value: "Tab One"}
       {name: "Tab Two", value: "Tab Two"}

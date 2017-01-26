@@ -1,5 +1,5 @@
-angular.module("thDemo", ["ThemisComponents"])
-  .controller "DemoCtrl", (ModalManager) ->
+angular.module("thModalDemo")
+  .controller "thModalDemoCtrl5", (ModalManager) ->
     headerString = "thModal Example 5"
     template = """
       <div>

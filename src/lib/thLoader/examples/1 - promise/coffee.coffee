@@ -1,5 +1,5 @@
-angular.module('thDemo', ['ThemisComponents'])
-  .controller 'DemoController', ($q, $timeout, $interval) ->
+angular.module("thLoaderDemo")
+  .controller "thLoaderDemoCtrl1", ($q, $timeout, $interval) ->
 
     @delay = 4000
     @seconds = @delay / 1000

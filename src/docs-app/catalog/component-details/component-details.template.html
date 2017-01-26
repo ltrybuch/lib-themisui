@@ -1,0 +1,12 @@
+<div docs-bind-markdown="$ctrl.readme.markdown"></div>
+<div ng-bind-html="$ctrl.readme.html"></div>
+
+<h2 class="example-title" ng-if="$ctrl.examples.length > 0">Examples</h2>
+<docs-component-example
+  ng-repeat="example in $ctrl.examples track by example.name"
+  component-name="$ctrl.name"
+  component-example="example"
+  component-whitelist-local="$ctrl.exampleWhitelistLocal($index + 1)"
+  example-index="$index"
+  >
+</docs-component-example>

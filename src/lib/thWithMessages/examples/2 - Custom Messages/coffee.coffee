@@ -1,5 +1,5 @@
-angular.module('thDemo', ['ThemisComponents'])
-  .controller "DemoController", ->
+angular.module("thWithMessagesDemo")
+  .controller "thWithMessagesDemoCtrl2", ->
     @messages =
       minlength: "This is a custom minLength message."
       maxlength: "This is a custom maxLength message."

@@ -1,1 +1,1 @@
-angular.module('thDemo', ['ThemisComponents'])
+angular.module("thLazyDemo")

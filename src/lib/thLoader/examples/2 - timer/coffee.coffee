@@ -1,5 +1,5 @@
-angular.module('thDemo', ['ThemisComponents'])
-  .controller 'DemoController', ->
+angular.module("thLoaderDemo")
+  .controller "thLoaderDemoCtrl2", ->
     @timeout = 0
 
     @updateTimeout = ->

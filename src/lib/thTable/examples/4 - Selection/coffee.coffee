@@ -1,5 +1,5 @@
-angular.module 'thDemo', ['ThemisComponents']
-  .controller "DemoController", (SimpleTableDelegate, TableHeader, TableSort) ->
+angular.module("thTableDemo")
+  .controller "thTableDemoCtrl4", (SimpleTableDelegate, TableHeader, TableSort) ->
     viewObject = (object) -> {object, selected: isSelected(object)}
 
     @selectedObjects = []

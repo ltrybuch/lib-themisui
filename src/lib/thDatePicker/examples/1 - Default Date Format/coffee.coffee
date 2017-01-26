@@ -1,3 +1,3 @@
-angular.module("thDemo", ["ThemisComponents"])
-  .controller "DemoCtrl", ->
+angular.module("thDatePickerDemo")
+  .controller "thDatePickerDemoCtrl1", ->
     return

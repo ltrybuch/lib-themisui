@@ -1,5 +1,5 @@
-angular.module('thDemo', ['ThemisComponents'])
-  .controller "DemoController", ->
+angular.module("thDropdownDemo")
+  .controller "thDropdownDemoCtrl1", ->
     @genres = [
       {name: "Action", href: "#"}
       {name: "Science Fiction", href: "#"}

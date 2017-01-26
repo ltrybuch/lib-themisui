@@ -1,5 +1,5 @@
-angular.module 'thDemo', ['ThemisComponents']
-  .controller "DemoController", (SimpleTableDelegate, TableHeader) ->
+angular.module("thTableDemo")
+  .controller "thTableDemoCtrl7", (SimpleTableDelegate, TableHeader) ->
     @tableDelegate = SimpleTableDelegate
       headers: [
         TableHeader

@@ -1,0 +1,1 @@
+import "./colourPalette.component";

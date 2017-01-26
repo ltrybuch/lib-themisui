@@ -1,5 +1,5 @@
-angular.module 'thDemo', ['ThemisComponents']
-  .controller "DemoController", (
+angular.module("thActionBarBillingDemo")
+  .controller "thActionBarBillingDemoCtrl2", (
     SimpleTableDelegate
     TableHeader
     FilterSet

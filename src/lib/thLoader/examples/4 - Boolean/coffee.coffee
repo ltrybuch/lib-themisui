@@ -1,5 +1,5 @@
-angular.module('thDemo', ['ThemisComponents'])
-  .controller 'DemoController', ->
+angular.module("thLoaderDemo")
+  .controller "thLoaderDemoCtrl4", ->
     @state = on
     @toggle = -> @state = !@state
 

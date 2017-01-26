@@ -1,3 +1,3 @@
-angular.module("thDemo", ["ThemisComponents"])
-  .controller "DemoController", (ModalManager) ->
+angular.module("thModalDemo")
+  .controller "thModalDemoCtrl6", (ModalManager) ->
     return

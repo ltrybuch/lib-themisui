@@ -85,6 +85,10 @@ Whilst inside the `lib-ThemisUI` directory.
 5. ???
 6. Profit
 
+**Note:** Certain demos will require access to files hosted from your local server when viewed on CodePen.
+You may install browser extensions like [Allow-Control-Allow-Origin:*](https://github.com/vitvad/Access-Control-Allow-Origin)
+to temporarily allow CORS.
+
 ### Running Tests
 
 1. Ensure you have npm installed.

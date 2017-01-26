@@ -1,5 +1,5 @@
-angular.module 'thDemo', ['ThemisComponents']
-  .controller "DemoController", (SimpleTableDelegate, TableHeader, TableSort, $timeout) ->
+angular.module("thTableDemo")
+  .controller "thTableDemoCtrl3", (SimpleTableDelegate, TableHeader, TableSort, $timeout) ->
     data = fixtures 102
     {sort} = TableSort
 

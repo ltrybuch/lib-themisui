@@ -2,7 +2,6 @@ ENV = process.env.npm_lifecycle_event
 singleRun = ENV is "test-once"
 webpack = require "webpack"
 webpackConfig = require("./tools/webpack/webpack.config") test: true, coverage: singleRun
-ExtractTextPlugin = require "extract-text-webpack-plugin"
 
 module.exports = (config) ->
   karmaConfig =
@@ -24,13 +23,11 @@ module.exports = (config) ->
 
     webpackMiddleware:
       stats: "errors-only"
+      noInfo: true
 
     beforeMiddleware: [
       "webpackBlocker"
     ]
-
-    webpackServer:
-      noInfo: true
 
     # preprocess matching files before serving them to the browser
     # available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor

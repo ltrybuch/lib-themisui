@@ -1,5 +1,5 @@
-angular.module('thDemo', ['ThemisComponents'])
-  .controller "DemoController", ->
+angular.module("thSelectDemo")
+  .controller "thSelectDemoCtrl5", ->
     @options = [
       {name: "Canada", group: "North America", value: "can"}
       {name: "United States", group: "North America", value: "usa"}

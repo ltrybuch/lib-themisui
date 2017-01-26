@@ -1,5 +1,5 @@
-angular.module 'thDemo', ['ThemisComponents']
-  .controller "DemoController", (SimpleTableDelegate, TableHeader) ->
+angular.module("thTableDemo")
+  .controller "thTableDemoCtrl5", (SimpleTableDelegate, TableHeader) ->
     reveal = false
 
     @revealData = =>

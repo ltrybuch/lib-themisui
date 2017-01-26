@@ -1,3 +1,3 @@
-angular.module('thDemo', ['ThemisComponents'])
-  .controller 'DemoCtrl', ->
+angular.module("thRadioGroupDemo")
+  .controller "thRadioGroupDemoCtrl3", ->
     @avatar = 'one'

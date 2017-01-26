@@ -13,6 +13,10 @@ module.exports = function(env={}) {
       loader: "ng-annotate-loader!coffee-loader"
     },
     {
+      test: /\.ts$/,
+      loader: "ng-annotate-loader!ts-loader!tslint-loader"
+    },
+    {
       test: /\.json$/,
       loader: "json-loader"
     },

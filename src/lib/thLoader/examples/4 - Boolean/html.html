@@ -1,5 +1,5 @@
-<html ng-app="thDemo">
-  <body ng-controller="DemoController as demo">
+<html ng-app="thLoaderDemo">
+  <body ng-controller="thLoaderDemoCtrl4 as demo">
     <button ng-if="demo.state" ng-click="demo.toggle()" style="color: red;">OFF</button>
     <button ng-if="!demo.state" ng-click="demo.toggle()" style="color: green;">ON</button>
     <th-loader trigger="demo.state"></th-loader>

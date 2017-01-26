@@ -1,3 +1,3 @@
-angular.module('thDemo', ['ThemisComponents'])
-  .controller 'DemoController', ->
+angular.module("thSwitchDemo")
+  .controller "thSwitchDemoCtrl1", ->
     @state = off

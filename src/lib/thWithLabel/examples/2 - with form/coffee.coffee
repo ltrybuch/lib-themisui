@@ -1,5 +1,5 @@
-angular.module('thDemo', ['ThemisComponents'])
-  .controller "DemoController", ($http) ->
+angular.module("thWithLabelDemo")
+  .controller "thWithLabelDemoCtrl2", ($http) ->
     @subscription = {}
     @options = [
       {name: "Angular", value: "angular"}

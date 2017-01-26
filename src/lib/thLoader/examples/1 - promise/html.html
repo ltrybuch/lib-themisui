@@ -1,5 +1,5 @@
-<html ng-app="thDemo">
-  <body ng-controller='DemoController as demo'>
+<html ng-app="thLoaderDemo">
+  <body ng-controller='thLoaderDemoCtrl1 as demo'>
 
     <button ng-click="demo.startTimer()">Resolve promise in {{demo.seconds}} secs.</button>
     <th-loader size="large" promise="demo.promise"></th-loader>

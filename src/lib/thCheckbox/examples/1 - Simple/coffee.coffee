@@ -1,3 +1,3 @@
-angular.module('thDemo', ['ThemisComponents'])
-  .controller 'DemoCtrl', ->
+angular.module("thCheckboxDemo")
+  .controller "thCheckboxDemoCtrl1", ->
     @checked = false

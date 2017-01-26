@@ -5,4 +5,11 @@ dist/*
 coverage/*
 npm-debug.log
 .vagrant
+.vscode
 .tmp
+catalog.json
+src/lib/*/examples/index.ts
+src/lib/index.examples.ts
+*.js.map
+gulpfile.js
+Config.js

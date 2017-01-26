@@ -1,6 +1,6 @@
-angular.module("thDemo", ["ThemisComponents"])
-  .controller "DemoController", (ModalManager) ->
-    @path = "exampleTemplates/thModalExampleTemplate3.html"
+angular.module("thModalDemo")
+  .controller "thModalDemoCtrl3", (ModalManager) ->
+    @path = "/components/thModal/examples/3 - Prompt/thModalExampleTemplate.html"
     @user =
       name: "stranger"
 

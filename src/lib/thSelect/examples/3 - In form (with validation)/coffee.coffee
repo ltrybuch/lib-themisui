@@ -1,5 +1,5 @@
-angular.module("thDemo", ["ThemisComponents"])
-  .controller "DemoController", ($http) ->
+angular.module("thSelectDemo")
+  .controller "thSelectDemoCtrl3", ($http) ->
 
     @submission = ""
     @required = true

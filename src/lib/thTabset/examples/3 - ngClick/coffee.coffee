@@ -1,5 +1,5 @@
-angular.module('thDemo', ['ThemisComponents'])
-  .controller "DemoController", ->
+angular.module("thTabsetDemo")
+  .controller "thTabsetDemoCtrl3", ->
     @editing = no
     @toggleEditState = -> @editing = !@editing
 

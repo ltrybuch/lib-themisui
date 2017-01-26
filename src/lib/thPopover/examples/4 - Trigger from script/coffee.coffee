@@ -1,5 +1,5 @@
-angular.module('thDemo', ['ThemisComponents'])
-  .controller 'DemoCtrl', (PopoverManager) ->
+angular.module("thPopoverDemo")
+  .controller "thPopoverDemoCtrl4", (PopoverManager) ->
     @headerString = 'thPopover Example 4'
     @clickHandler = ->
       PopoverManager.showPopover(

@@ -1,5 +1,5 @@
-angular.module("thDemo", ["ThemisComponents"])
-  .controller "DemoController", (ModalManager) ->
+angular.module("thModalDemo")
+  .controller "thModalDemoCtrl7", (ModalManager) ->
     @path = 'exampleTemplates/thModalExampleTemplate.html'
 
     titleString = "In a Modal"

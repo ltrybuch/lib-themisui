@@ -1,5 +1,5 @@
-angular.module('thDemo', ['ThemisComponents'])
-  .controller "DemoController", ->
+angular.module("thInputDemo")
+  .controller "thInputDemoCtrl4", ->
     @reset = ->
       @form.$setPristine()
       @form.$setUntouched()

@@ -1,5 +1,5 @@
-angular.module('thDemo', ['ThemisComponents'])
-  .controller 'DemoCtrl', ->
+angular.module("thPopoverDemo")
+  .controller "thPopoverDemoCtrl3", ->
     @headerString = "thPopover Example 3"
 
     return

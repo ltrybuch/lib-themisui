@@ -1,0 +1,26 @@
+.colour-palette-container {
+  columns: 300px;
+}
+
+.colour-palette {
+  display: inline-block;
+  margin-bottom: $base-unit;
+  min-width: 200px;
+
+  .swatch {
+    float: left;
+    width: 48px;
+    height: 48px;
+    margin-right: $base-unit;
+  }
+
+  .hex, .variable {
+    margin: 0;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}

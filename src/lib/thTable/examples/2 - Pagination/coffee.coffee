@@ -1,5 +1,5 @@
-angular.module 'thDemo', ['ThemisComponents']
-  .controller "DemoController", (SimpleTableDelegate, TableHeader) ->
+angular.module("thTableDemo")
+  .controller "thTableDemoCtrl2", (SimpleTableDelegate, TableHeader) ->
     data = fixtures 102
 
     getDataPage = (data, page, pageSize) ->

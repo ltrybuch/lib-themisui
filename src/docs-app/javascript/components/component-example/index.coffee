@@ -1,1 +1,0 @@
-require './component-example.directive'

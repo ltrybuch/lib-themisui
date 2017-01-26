@@ -1,5 +1,5 @@
-angular.module('thDemo', ['ThemisComponents'])
-  .controller "DemoController", ->
+angular.module("thDropdownDemo")
+  .controller "thDropdownDemoCtrl3", ->
     @foo = ->
       alert "foo"
 

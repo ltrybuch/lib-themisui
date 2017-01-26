@@ -1,3 +1,3 @@
-angular.module 'thDemo', ['ThemisComponents']
-  .controller 'DemoCtrl', ->
+angular.module("thDisclosureDemo")
+  .controller "thDisclosureDemoCtrl1", ->
     @expanded = true

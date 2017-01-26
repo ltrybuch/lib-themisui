@@ -1,4 +1,4 @@
-angular.module('thDemo', ['ThemisComponents'])
-  .controller "DemoController", ->
+angular.module("thTabsetDemo")
+  .controller "thTabsetDemoCtrl9", ->
     @one = yes; @two = yes; @three = yes
     return

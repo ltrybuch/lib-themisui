@@ -1,5 +1,5 @@
-angular.module('thDemo', ['ThemisComponents'])
-  .controller "DemoController", ->
+angular.module("thInputDemo")
+  .controller "thInputDemoCtrl5", ->
     @counter = 0
 
     @reset = ->

@@ -1,5 +1,5 @@
-angular.module('thDemo', ['ThemisComponents'])
-  .controller 'DemoCtrl', ($http) ->
+angular.module("thAutocompleteDemo")
+  .controller "thAutocompleteDemoCtrl3", ($http) ->
     @repo = null
 
     @reset = ->

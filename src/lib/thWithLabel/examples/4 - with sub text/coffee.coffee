@@ -1,3 +1,3 @@
-angular.module('thDemo', ['ThemisComponents'])
-  .controller 'DemoCtrl', ->
+angular.module("thWithLabelDemo")
+  .controller "thWithLabelDemoCtrl4", ->
     return

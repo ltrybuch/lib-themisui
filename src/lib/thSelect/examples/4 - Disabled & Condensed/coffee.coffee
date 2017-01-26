@@ -1,5 +1,5 @@
-angular.module("thDemo", ["ThemisComponents"])
-  .controller "DemoController", ->
+angular.module("thSelectDemo")
+  .controller "thSelectDemoCtrl4", ->
 
     @options = [
       {name: "No", value: 0}

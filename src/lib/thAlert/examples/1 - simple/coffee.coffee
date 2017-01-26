@@ -1,5 +1,5 @@
-angular.module 'thDemo', ['ThemisComponents']
-  .controller "DemoController", (AlertManager) ->
+angular.module("thAlertDemo")
+  .controller "thAlertDemoCtrl1", (AlertManager) ->
 
     @displaySuccess = ->
       AlertManager.showSuccess(

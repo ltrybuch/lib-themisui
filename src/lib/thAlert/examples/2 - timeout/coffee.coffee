@@ -1,5 +1,5 @@
-angular.module 'thDemo', ['ThemisComponents']
-  .controller "DemoController", (AlertManager) ->
+angular.module("thAlertDemo")
+  .controller "thAlertDemoCtrl2", (AlertManager) ->
 
     @defaultTimeout = ->
       AlertManager.showSuccess(

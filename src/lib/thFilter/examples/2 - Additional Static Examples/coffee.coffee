@@ -1,4 +1,4 @@
-angular.module "thDemo", ["ThemisComponents"]
+angular.module("thFilterDemo")
   .factory "Repo", ($http) ->
     class Repo
       @query: (params) ->
@@ -18,7 +18,7 @@ angular.module "thDemo", ["ThemisComponents"]
 
         return result
 
-  .controller "DemoController", (
+  .controller "thFilterDemoCtrl2", (
     FilterSet
   ) ->
     filterTypes = [

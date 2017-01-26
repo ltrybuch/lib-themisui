@@ -1,5 +1,5 @@
-angular.module 'thDemo', ['ThemisComponents']
-  .controller "DemoController", ($scope, $q, ActionBarBillingDelegate, $timeout) ->
+angular.module("thActionBarBillingDemo")
+  .controller "thActionBarBillingDemoCtrl3", ($scope, $q, ActionBarBillingDelegate, $timeout) ->
     pageSize = 5
     @currentPage = 1
 
@@ -120,7 +120,7 @@ Matter.ids = (clientID) ->
 
 ####################################################################################################
 ## UNRELATED COMPONENT TO SET UP EXAMPLE ##
-angular.module("thDemo")
+angular.module("thActionBarBillingDemo")
   .component "ccPagination",
     controllerAs: "ccPagination"
     bindings:

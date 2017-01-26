@@ -8,7 +8,7 @@ module.exports = function(env={}) {
   const sourcePath = path.join(rootSrc, "src", "lib");
   const distRoot = path.join(root, "dist");
   const publicAssetsRoot = path.join(root, ".tmp/assets");
-  const docsAppRoot = path.join(rootSrc, "docs-app", "javascript");
+  const docsAppRoot = path.join(rootSrc, "docs-app");
   const sourcesRegex = /\.(ts|coffee)($|\?)/i;
 
   env.distRoot = distRoot;
@@ -84,7 +84,7 @@ module.exports = function(env={}) {
     output.library = "lib-ThemisUI";
   }
 
-  const devtool = env.dist ? "source-map" : "cheap-module-eval-source-map";
+  const devtool = "source-map";
   const extensions = [".js", ".coffee", ".ts", ".json", ".md"];
   const resolveModules = [
     sourcePath,
