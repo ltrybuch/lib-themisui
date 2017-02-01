@@ -10,6 +10,7 @@ interface PackageJson {
 
 interface ComponentMeta {
   private: boolean;
+  prettyName?: string;
   whitelistLocal?: boolean | number[];
 }
 

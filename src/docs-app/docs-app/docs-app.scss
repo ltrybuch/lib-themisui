@@ -1,6 +1,10 @@
 @import "./prism";
 @import "../../themes/themis/index";
-@import "../documentation/colourPalette/index";
+
+// Documentation components
+@import "../documentation/colorPalette/index";
+
+// Catalog components
 @import "../catalog/component-example/index";
 
 $header-height: 40px;

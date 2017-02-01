@@ -1,0 +1,18 @@
+<h1>Colors</h1>
+
+<section class="color-palette-container">
+  <p>The following color variables are available as a part of ThemisUI and are in use across the Themis suite of applications. Utilize the semantic variables when building out features, as they target a specific use case with a descriptive name. If a feature you're building is not already available as a semantic variable, please add them to the following file and submit a pull request:</p>
+
+  <span docs-bind-markdown="'`/src/themes/themis/colors.scss`'"></span>
+
+  <h2>Semantic Color Variables</h2>
+  <color-swatch colors="$ctrl.semanticColors"></color-swatch>
+
+  <h2>Base Color Variables</h2>
+  <p>These are the base colors available as part of the Themis brand. These should never be referenced directly, and instead should be pointed to via semantic variables.</p>
+  <color-swatch colors="$ctrl.rawColors"></color-swatch>
+
+  <h2>Deprecated Color Variables</h2>
+  <p>These colors are deprecated and will be removed in the future.</p>
+  <color-swatch colors="$ctrl.deprecatedColors"></color-swatch>
+</section>

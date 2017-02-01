@@ -1,0 +1,8 @@
+<div
+  class="color-palette"
+  ng-repeat="color in $ctrl.colors"
+  >
+  <div class="swatch" ng-style="{background: color.hex}"></div>
+  <h4 class="variable">{{color.variable}}</h4>
+  <p class="hex">{{color.hex}}</p>
+</div>

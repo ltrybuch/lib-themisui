@@ -1,1 +1,1 @@
-import "./colourPalette";
+import "./colorPalette";

@@ -1,0 +1,30 @@
+color-swatch {
+  $swatch-column-width: 300px;
+
+  display: block;
+  columns: $swatch-column-width;
+  margin-bottom: $base-unit;
+
+  .color-palette {
+    display: inline-block;
+    margin-bottom: $base-unit;
+    min-width: $swatch-column-width;
+
+    .swatch {
+      float: left;
+      width: 48px;
+      height: 48px;
+      margin-right: $base-unit;
+    }
+
+    .hex, .variable {
+      margin: 0;
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+  }
+}
