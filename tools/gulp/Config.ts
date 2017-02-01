@@ -3,9 +3,37 @@ const historyApiFallback = require("connect-history-api-fallback");
 const root = path.resolve(__dirname, "../../");
 const rootSrc = path.join(root, "src");
 
+declare const process: any;
+
+// type declarations
+type UIOptions = {
+  port: number
+};
+
+type GhostOptions = {
+  clicks: boolean,
+  forms: boolean,
+  scroll: boolean
+};
+
+let ui: UIOptions | boolean = {
+  port: 3001
+};
+
+let ghostMode: GhostOptions | boolean = {
+  clicks: true,
+  forms: true,
+  scroll: false
+};
+
+if (process.env.PORT) {
+  ui = false;
+  ghostMode = false;
+}
+
 const ConfigObj = {
   browserSync: {
-    port: 3042,
+    port: process.env.PORT || 3042,
     server: {
       baseDir: "src/docs-app",
       index: "index.html",
@@ -21,9 +49,8 @@ const ConfigObj = {
     files: [
       "./src/docs-app/index.html"
     ],
-    ui: {
-      port: 3001
-    },
+    ui,
+    ghostMode,
     instanceName: "Themis"
   },
 
