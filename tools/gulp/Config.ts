@@ -13,7 +13,8 @@ const ConfigObj = {
         "/assets": ".tmp/assets",
         "/images": ".tmp/assets/images",
         "/exampleTemplates": "src/docs-app/exampleTemplates",
-        "/components": "src/lib"
+        "/components": "src/lib",
+        "/node_modules/jquery": "node_modules/jquery"
       },
       middleware: [historyApiFallback()]
     },

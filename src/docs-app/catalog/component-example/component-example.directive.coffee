@@ -15,6 +15,7 @@ angular.module("ThemisComponentsApp")
       includeBase = $location.protocol() + "://" + $location.host() \
           + (if $location.port()? then ":" + $location.port()) + "/"
       includeJS  = [
+        "#{includeBase}node_modules/jquery/dist/jquery.js"
         "#{includeBase}assets/docs-vendor.js",
         "#{includeBase}assets/examples.js"
       ]
