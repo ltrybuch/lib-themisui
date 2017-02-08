@@ -1,0 +1,19 @@
+{
+  "env": {
+    "BUILDKITE_DISABLE_GIT_SUBMODULES": "true",
+    "LANG": "en_US.UTF-8"
+  },
+  "steps": [
+    {
+      "name": "Clean NPM Install & Test",
+      "command": [
+        "echo '--- npm install'",
+        "npm install",
+        "echo '--- npm test-once'",
+        "npm run test-once"
+      ],
+      "artifact_paths": "npm-debug.log",
+      "timeout_in_minutes": 10
+    }
+  ]
+}
