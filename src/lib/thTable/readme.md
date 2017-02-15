@@ -203,6 +203,10 @@ It accepts a dictionary of options as an argument:
   * An array of TableHeader instances that define the name and sorting
     capabilities of each table header.
 
+* `footers` (optional)
+  * An array of TableFooter instances that appends a table footer to the table using
+    the included TableFooter values.
+
 * `pageSize` (optional)
   * Number, tells the table how many objects to display on one page.
   * When this is set, the table will display pagination controls at the bottom.
@@ -215,6 +219,10 @@ that you can use:
 
 * `headers`
   * Reference to the TableHeader objects array that you pass to the delegate
+    on creation.
+
+* `footers`
+  * Reference to the TableFooter objects array that you pass to the delegate
     on creation.
 
 * `totalRecords`
@@ -261,6 +269,11 @@ that you can use:
 * `setVisibleColumns([true, true, false])`
   * Toggle which columns you want to be visible by passing in an array of either
     `true` or `false` values. Array length must match the number of columns.
+
+* `updateFooters([{column: 2, value: newValue}])`
+  * Update the footer values by passing in an array of objects with the format above.
+    The column property corresponds to the column in the table. Column values outside of
+    the scope of the table will be ignored.
 
 
 ## TableHeader

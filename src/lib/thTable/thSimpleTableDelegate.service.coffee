@@ -8,6 +8,7 @@ angular.module 'ThemisComponents'
 
     {
       headers = []
+      footers = []
       generatePaginationTemplate
     } = delegate
 
@@ -28,6 +29,23 @@ angular.module 'ThemisComponents'
             </th>
           </tr>
         </thead>
+      """
+
+    generateFootersTemplate = ->
+      return "" unless footers.length > 0
+      return """
+        <tfoot>
+          <tr role="row">
+            <td ng-repeat="footer in thTable.delegate.footers track by $index"
+              ng-class="footer.AlignCssClass()"
+              ng-if="footer.visible"
+              tabindex="0"
+              role="columnfooter"
+              >
+              #{interpolateStart}footer.value#{interpolateEnd}
+            </td>
+          </tr>
+        </tfoot>
       """
 
     generateColTemplate = ->
@@ -200,6 +218,7 @@ angular.module 'ThemisComponents'
       generateTableTemplate: (rows = {}) ->
         checkValidRows rows
         thead = generateHeadersTemplate()
+        tfoot = generateFootersTemplate()
         tbody = generateBodyTemplate rows
         pagination = generatePaginationTemplate()
         cols = generateColTemplate()
@@ -215,6 +234,7 @@ angular.module 'ThemisComponents'
               >
               #{cols}
               #{thead}
+              #{tfoot}
               #{tbody}
             </table>
 

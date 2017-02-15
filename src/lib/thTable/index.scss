@@ -27,6 +27,27 @@ th-table {
       border-bottom: 1px solid $table-border-color;
     }
 
+    tfoot {
+      border-bottom: 1px solid $table-border-color;
+
+      td {
+        padding: 12px 9px;
+        font-weight: bold;
+
+        &.th-table-align-right {
+          text-align: right;
+        }
+
+        &.th-table-align-center {
+          text-align: center;
+        }
+
+        &.th-table-align-left {
+          text-align: left;
+        }
+      }
+    }
+
     th, td {
       max-width: 255px;
       word-wrap: break-word;

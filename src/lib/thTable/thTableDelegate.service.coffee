@@ -1,8 +1,9 @@
-angular.module 'ThemisComponents'
-.factory 'TableDelegate', (TablePagination) ->
+angular.module "ThemisComponents"
+.factory "TableDelegate", (TablePagination, TableFooter) ->
   TableDelegate = (options = {}) ->
     {
       headers = []
+      footers = []
       currentPage
       pageSize
       fetchData
@@ -59,19 +60,37 @@ angular.module 'ThemisComponents'
         currentSortHeader = newSortHeader
 
     setVisibleColumns = (visibleColumns) ->
-      unless visibleColumns.length == headers.length
+      unless visibleColumns.length is headers.length
         throw new Error "Array length does not match the number of columns."
       visibleColumns.forEach (visibility, index) ->
-        headers[index].visible = visibility
+        headers[index]?.visible = visibility
+        footers[index]?.visible = visibility
+
+    generateFooterColumns = ->
+      return [] unless footers.length > 0
+      footersNeeded = headers.length
+      allFooters = [0...footersNeeded].map -> TableFooter()
+      footers.forEach (footer) -> allFooters[footer.column - 1] = footer.footer
+      return allFooters
+
+    footers = generateFooterColumns()
+
+    updateFooters = (footerColumns) ->
+      footerColumns.forEach (footer) ->
+        footers[footer.column - 1]?.value = footer.value
 
     reload()
 
     return Object.freeze {
       headers
 
+      footers
+
       reload
 
       setVisibleColumns
+
+      updateFooters
 
       getData: -> data
 

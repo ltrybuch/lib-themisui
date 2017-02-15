@@ -4,12 +4,13 @@
 context = describe
 
 describe 'ThemisComponents: Service: thSimpleTableDelegate', ->
-  SimpleTableDelegate = TableHeader = null
+  SimpleTableDelegate = TableHeader = TableFooter = null
 
   beforeEach angular.mock.module 'ThemisComponents'
-  beforeEach inject (_SimpleTableDelegate_, _TableHeader_) ->
+  beforeEach inject (_SimpleTableDelegate_, _TableHeader_, _TableFooter_) ->
     SimpleTableDelegate = _SimpleTableDelegate_
     TableHeader = _TableHeader_
+    TableFooter = _TableFooter_
 
   it 'exists', ->
     expect(SimpleTableDelegate?).toBe true
@@ -43,6 +44,20 @@ describe 'ThemisComponents: Service: thSimpleTableDelegate', ->
     node = createDOMElement template
     expect(node.getElementsByTagName('thead').length).toBe 1
     expect(node.getElementsByClassName('th-table-sort-icon').length).toBe 1
+
+  it "generates footers", ->
+    fetchData = -> return
+    headers = [TableHeader {name: "First"}]
+    footers = [TableFooter {value: 1}]
+    cellsTemplate = """
+      <th-table-row type="cells"></th-table-row>
+    """
+    cells = createDOMElement cellsTemplate
+    rows = {cells}
+    delegate = SimpleTableDelegate {headers, footers, fetchData}
+    template = delegate.generateTableTemplate rows
+    node = createDOMElement template
+    expect(node.getElementsByTagName("tfoot").length).toBe 1
 
   it 'generates <col> elements', ->
     fetchData = -> return
