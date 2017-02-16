@@ -56,7 +56,7 @@ const ConfigObj = {
 
   assetPaths: {
     lib: path.join(rootSrc, "lib", "**", "*.{coffee,ts,html,scss}"),
-    examples: path.join(rootSrc, "lib", "**", "examples", "**", "*.{coffee,html}"),
+    examples: path.join(rootSrc, "lib", "**", "examples", "**", "*.{coffee,html,ts}"),
     meta: path.join(rootSrc, "lib", "**", "**", "*.{md,json}"),
     docs: path.join(rootSrc, "docs-app", "**", "*.{coffee,ts,html,scss}"),
     docsMeta: path.join(rootSrc, "docs-app", "**", "*.{md,json}"),

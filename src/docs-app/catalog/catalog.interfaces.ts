@@ -18,6 +18,7 @@ interface ComponentExamples {
     name: string;
     html: string;
     coffee: string;
+    typescript: string;
     others: Dictionary;
 }
 

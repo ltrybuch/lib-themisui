@@ -35,8 +35,10 @@ function generateExampleIndex() {
     // For each example
     const exampleDirectories = glob.sync(path.join(exampleDirectory, "*", "/"));
     exampleDirectories.forEach(examplePath => {
-      if (fs.existsSync(path.join(examplePath, "coffee.coffee"))) {
-        componentExampleIndex += `require("./${path.basename(examplePath)}/coffee");${os.EOL}`;
+      if (fs.existsSync(path.join(examplePath, "ts.ts"))) {
+        componentExampleIndex += `import "./${path.basename(examplePath)}/ts";${os.EOL}`;
+      } else if (fs.existsSync(path.join(examplePath, "coffee.coffee"))) {
+        componentExampleIndex += `import "./${path.basename(examplePath)}/coffee";${os.EOL}`;
       }
     });
 

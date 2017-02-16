@@ -5,8 +5,15 @@
     <header>
       <a href ng-click="showTab('example')">Example</a>
       <a href ng-click="showTab('html')">HTML</a>
-      <a href ng-repeat="(key, value) in example.others track by key" ng-click="showTab(key)">{{key}}</a>
-      <a href ng-click="showTab('coffee')">CoffeeScript</a>
+      <a href ng-if="example.coffee" ng-click="showTab('coffee')">CoffeeScript</a>
+      <a href ng-if="example.typescript" ng-click="showTab('typescript')">TypeScript</a>
+      <a
+        href
+        ng-repeat="(key, value) in example.others track by key"
+        ng-click="showTab(key)"
+        >
+        {{key}}
+      </a>
 
       <button
         type="submit"
@@ -25,13 +32,34 @@
       scrolling="no"
       >
     </iframe>
-    <pre ng-show="mode === 'html'" class="line-numbers"><code class="language-markup">{{example.html}}</code></pre>
+
     <pre
+      data-manual
+      class="line-numbers"
+      ng-show="mode === 'html'"
+      ><code class="language-markup">{{example.html}}</code></pre>
+
+    <pre
+      data-manual
       class="line-numbers"
       ng-show="mode === key"
       ng-repeat="(key, value) in example.others track by key"
       ><code ng-class="getLanguage(key)">{{value}}</code></pre>
-    <pre ng-show="mode === 'coffee'" class="line-numbers"><code class="language-coffeescript">{{example.coffee}}</code></pre>
+
+    <pre
+      data-manual
+      class="line-numbers"
+      ng-if="example.coffee"
+      ng-show="mode === 'coffee'"
+      ><code class="language-coffeescript">{{example.coffee}}</code></pre>
+
+    <pre
+      data-manual
+      class="line-numbers"
+      ng-if="example.typescript"
+      ng-show="mode === 'typescript'"
+      ><code class="language-typescript">{{example.typescript}}</code></pre>
+
     <div class="loading" ng-show="mode == ''">Loading…</div>
   </form>
 </div>

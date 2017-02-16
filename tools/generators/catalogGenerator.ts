@@ -74,6 +74,8 @@ function getComponentExamples(componentName: string): ComponentExamples[] {
   const exampleDirectory = path.join(componentsRoot, componentName, "examples");
   const coffeeFileName = "coffee.coffee";
   const htmlFileName = "html.html";
+  const typescriptFileName = "ts.ts";
+  const exampleFileNames = [coffeeFileName, htmlFileName, typescriptFileName];
 
   if (!fs.existsSync(exampleDirectory) || !fs.statSync(exampleDirectory).isDirectory()) {
     return [];
@@ -83,7 +85,7 @@ function getComponentExamples(componentName: string): ComponentExamples[] {
     .map(exampleDirectory => {
       const otherFilesHash: Dictionary = glob.sync(path.join(exampleDirectory, "*"))
         .map(filePath => path.basename(filePath))
-        .filter(fileName => fileName !== coffeeFileName && fileName !== htmlFileName)
+        .filter(fileName => !exampleFileNames.includes(fileName))
         .reduce((files, fileName) => {
           return Object.assign(files, {[fileName]: getExampleFiles(exampleDirectory, fileName)});
         }, {});
@@ -92,6 +94,7 @@ function getComponentExamples(componentName: string): ComponentExamples[] {
         name: path.basename(exampleDirectory),
         html: getExampleFiles(exampleDirectory, htmlFileName),
         coffee: getExampleFiles(exampleDirectory, coffeeFileName),
+        typescript: getExampleFiles(exampleDirectory, typescriptFileName),
         others: otherFilesHash
       };
   });

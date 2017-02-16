@@ -8,23 +8,27 @@ angular.module("ThemisComponentsApp")
       exampleIndex: "<"
     template: require "./component-example.template.html"
     controller: ($scope, $element, $timeout, $location) ->
+      penExampleTypescript = penExampleCoffee = penExampleHtml = null
       example = $scope.example
       externalFilePathRegex = /("|')\/(components.+)("|')/g
-      moduleRegex = /angular.module\(("|')(.+)("|')\)/ #angular.module("thTabsetDemo")
+      moduleRegex = /angular.module\(("|')(.+)("|')\)/
       prependHost = (match, $1, $2, $3) -> $1 + includeBase + $2 + $3
       includeBase = $location.protocol() + "://" + $location.host() \
-          + (if $location.port()? then ":" + $location.port()) + "/"
+        + (if $location.port() isnt 80 then ":" + $location.port() else "") + "/"
+
       includeJS  = [
         "#{includeBase}node_modules/jquery/dist/jquery.js"
         "#{includeBase}assets/docs-vendor.js",
         "#{includeBase}assets/examples.js"
       ]
+
       includeCSS = [
         "#{includeBase}assets/examples.css",
         "#{includeBase}assets/lib-themisui-styles.css"
         "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
       ]
-      configBlock = """
+
+      configBlockCS = """
         .config(($sceDelegateProvider) ->
           $sceDelegateProvider.resourceUrlWhitelist [
             "self"
@@ -32,12 +36,32 @@ angular.module("ThemisComponentsApp")
           ]
         )
       """
-      penExampleCoffee = example.coffee
-        .replace moduleRegex, (match) -> match + if $scope.whitelistLocal then configBlock else ""
-        .replace externalFilePathRegex, prependHost
+
+      configBlockTS = """
+        .config(function($sceDelegateProvider) {
+          $sceDelegateProvider.resourceUrlWhitelist([
+            "self",
+            "#{includeBase}**"
+          ]);
+        })
+      """
+
+      if example.typescript
+        penExampleTypescript = example.typescript
+          .replace externalFilePathRegex, prependHost
+          .replace moduleRegex, (match) ->
+            match + if $scope.whitelistLocal then configBlockTS else ""
+
+      else if example.coffee
+        penExampleCoffee = example.coffee
+          .replace externalFilePathRegex, prependHost
+          .replace moduleRegex, (match) ->
+            match + if $scope.whitelistLocal then configBlockCS else ""
+
       penExampleHtml = example.html.replace externalFilePathRegex, prependHost
 
       exampleInitialized = no
+
       initializeExample = ->
         exampleInitialized = yes
         $scope.mode = ""
@@ -51,7 +75,6 @@ angular.module("ThemisComponentsApp")
           html = html.replace "</body>", "#{styles.join("")}</body>"
 
           js = includeJS[..]
-          # js.push "#{includeBase}/components/#{$scope.componentName}/examples/#{example.name}.js"
           scripts = for scriptSrc in js
             "<script src=\"#{scriptSrc}\"></script>"
           html = html.replace "</body>", "#{scripts.join("")}</body>"
@@ -69,16 +92,11 @@ angular.module("ThemisComponentsApp")
             $timeout ->
               if exampleFrame.contentWindow isnt null
                 scrollingElement = exampleFrame
-                                    .ownerDocument
-                                    .scrollingElement
-                                    .querySelector ".component-details-view"
+                  .ownerDocument.scrollingElement.querySelector ".component-details-view"
                 scroll = scrollingElement.scrollTop
                 exampleFrame.style.height = "0px"
                 exampleFrame.style.height = exampleFrame
-                                              .contentWindow
-                                              .document
-                                              .body
-                                              .scrollHeight + 10 + "px"
+                  .contentWindow?.document.body.scrollHeight + 10 + "px"
                 scrollingElement.scrollTop = scroll
             , 1500
 
@@ -90,10 +108,7 @@ angular.module("ThemisComponentsApp")
           $timeout ->
             $scope.mode = "example"
             exampleFrame.style.height = exampleFrame
-                                          .contentWindow
-                                          .document
-                                          .body
-                                          .scrollHeight + 10 + "px"
+              .contentWindow?.document.body.scrollHeight + 10 + "px"
           , 1500
 
           $timeout -> Prism.highlightAll()
@@ -106,12 +121,14 @@ angular.module("ThemisComponentsApp")
           return "language-coffeescript"
         else if extension is "json"
           return "language-json"
+        else if extension is "ts"
+          return "language-typescript"
 
       $scope.penData = JSON.stringify
         title: "#{$scope.componentName} - #{example.name}"
         html: penExampleHtml
-        js: penExampleCoffee
-        js_pre_processor: "coffeescript"
+        js: penExampleTypescript or penExampleCoffee
+        js_pre_processor: if penExampleTypescript then "typescript" else "coffeescript"
         js_external: includeJS.join ";"
         css_external: includeCSS.join ";"
 
