@@ -52,6 +52,16 @@ ModalManager.show
     id: 100
 ```
 
+#### Showing a full page modal
+**Note:** This is not ready for production launch yet. Do not use this feature
+unless you are behind an Apollo related feature flag, and do not launch to public yet.
+```coffeescript
+ModalManager.show
+  template: "<h1>Full Page Modal</h1>"
+  name: "my-fullpage-modal"
+  size: "fullpage"
+```
+
 #### Confirm and close a modal within a controller.
 ```coffeescript
 $scope.confirmModal = ->
@@ -96,11 +106,15 @@ angular.module("ExampleApp").controller "modalController", ($scope) ->
 - `template<string>`
   - Template string to be passed into the modal as its template.
 - `name<string>` [optional]
-  - The name will be added as a class to the modal/
+  - The name will be added as a class to the modal.
 - `context<object>` [optional]
   - Values in this object will be made available within the modal.
 - `params` [optional]
   - Any required params for your template URL.
+- `size` [optional]
+  - **NOT READY FOR PRODUCTION LAUNCH** Do not use this feature unless you are behind an
+  Apollo related feature flag, and do not launch to public yet.
+  - Set to "fullpage" for a Full Page Modal. Defaults to "medium" if not specified.
 
 ### `dismiss(name<string>, response<object>)`
 > Close the modal named `name`. **Note:** The `response` parameter is deprecated and will be
@@ -117,7 +131,7 @@ injecting `$scope`.
 
 ### `modal.dismiss(response<object>)`
 > This an alias to `ModalManager.dismiss` referencing the context of the current modal and passing
-> `response` through. **Note:** The `response` parameter is deprecated and will be removed in a 
+> `response` through. **Note:** The `response` parameter is deprecated and will be removed in a
 > future release.
 
 ### `modal.confirm(response<object>)`

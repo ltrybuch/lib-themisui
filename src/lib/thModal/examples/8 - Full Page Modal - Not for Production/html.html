@@ -1,0 +1,19 @@
+<html ng-app="thModalDemo">
+  <style type="text/css">
+    .sample { font-size: 14px; }
+    .sample > div { padding-bottom: 8px; }
+    .sample > div > span:first-child { font-weight: bold; color: #3a3d3f; width: 90px; display: inline-block; text-align: right; margin-right: 8px; font-size: 16px;}
+  </style>
+  <body ng-controller="thModalDemoCtrl8 as demo" style="height: 1024px;">
+    <th-modal-anchor></th-modal-anchor>
+    <th-button ng-click="demo.displayFPModal()">
+      display modal that contains another modal
+    </th-button>
+    <div class="sample" ng-if="demo.fromModal.firstName">
+      <h4>Returned data from our modal form:</h4>
+      <div><span>first name: </span>{{demo.fromModal.firstName}}</div>
+      <div><span>last name: </span>{{demo.fromModal.lastName}}</div>
+      <div><span>email: </span>{{demo.fromModal.email}}</div>
+    </div>
+  </body>
+</html>
