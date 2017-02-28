@@ -47,7 +47,7 @@ angular.module "ThemisComponents"
       @$onInit = ->
         lastValue = @initialState?.value
 
-      $scope.$on "$destroy", =>
+      $scope.$on "thFilter:destroyed", =>
         @filterSet.remove @filter
 
         if @filter.getState()?

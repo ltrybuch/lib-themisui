@@ -73,7 +73,7 @@ describe "ThemisComponents: Directive: thFilterSelect", ->
       
       expect(filterSet.onFilterChange).toHaveBeenCalled()
 
-  describe "when scope is destroyed", ->
+  describe "when `thFilter:destroyed` is broadcast", ->
     beforeEach ->
       spyOn filterSet, "remove"
       spyOn filterSet, "onFilterChange"
@@ -83,7 +83,7 @@ describe "ThemisComponents: Directive: thFilterSelect", ->
         filterSet[0].clearState()
 
       it "should remove filter from filter set and not call onFilterChange", ->
-        scope.$destroy()
+        scope.$broadcast "thFilter:destroyed"
         expect(filterSet.remove).toHaveBeenCalled()
         expect(filterSet.onFilterChange).not.toHaveBeenCalled()
 
@@ -95,7 +95,7 @@ describe "ThemisComponents: Directive: thFilterSelect", ->
         timeout.flush()
 
       it "should remove filter from filter set and call onFilterChange", ->
-        scope.$destroy()
+        scope.$broadcast "thFilter:destroyed"
         expect(filterSet.remove).toHaveBeenCalled()
         expect(filterSet.onFilterChange).toHaveBeenCalled()
 

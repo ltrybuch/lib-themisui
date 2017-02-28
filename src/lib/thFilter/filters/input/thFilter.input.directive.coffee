@@ -35,7 +35,7 @@ angular.module "ThemisComponents"
         lastValue = @initialState?.value
         @ignoreBlurEvents or= false
 
-      $scope.$on "$destroy", =>
+      $scope.$on "thFilter:destroyed", =>
         @filterSet.remove @filter
 
         if @filter.getState()?

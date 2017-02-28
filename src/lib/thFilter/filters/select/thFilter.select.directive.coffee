@@ -15,7 +15,7 @@ angular.module 'ThemisComponents'
         $timeout =>
           @filterSet.onFilterChange()
 
-      $scope.$on "$destroy", =>
+      $scope.$on "thFilter:destroyed", =>
         @filterSet.remove @filter
 
         if @filter.getState()?

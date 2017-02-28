@@ -36,7 +36,7 @@ angular.module "ThemisComponents"
       @onOperatorChange = ->
         @filterSet.onFilterChange() if @filter.model?
 
-      $scope.$on "$destroy", =>
+      $scope.$on "thFilter:destroyed", =>
         @filterSet.remove @filter
 
         if @filter.getState()?

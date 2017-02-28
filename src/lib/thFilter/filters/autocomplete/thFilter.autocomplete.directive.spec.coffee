@@ -145,14 +145,14 @@ describe "ThemisComponents: Directive: thFilterAutocomplete", ->
         Object.assign(queryParams, searchParam)
         expect(@updateData).toHaveBeenCalledWith queryParams
 
-  describe "when scope is destroyed", ->
+  describe "when `thFilter:destroyed` is broadcast", ->
     beforeEach ->
       spyOn @filterSet, "remove"
       spyOn @filterSet, "onFilterChange"
 
     describe "when value is undefined", ->
       it "should remove filter from filter set and not call onFilterChange", ->
-        @scope.$destroy()
+        @scope.$broadcast "thFilter:destroyed"
         expect(@filterSet.remove).toHaveBeenCalled()
         expect(@filterSet.onFilterChange).not.toHaveBeenCalled()
 
@@ -161,7 +161,7 @@ describe "ThemisComponents: Directive: thFilterAutocomplete", ->
         @controller.filter.model = {id: "123"}
 
       it "should remove filter from filter set and call onFilterChange", ->
-        @scope.$destroy()
+        @scope.$broadcast "thFilter:destroyed"
         expect(@filterSet.remove).toHaveBeenCalled()
         expect(@filterSet.onFilterChange).toHaveBeenCalled()
 

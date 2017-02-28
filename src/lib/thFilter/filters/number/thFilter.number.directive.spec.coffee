@@ -150,14 +150,14 @@ describe "ThemisComponents: Directive: thFilterNumber", ->
         selectOperator operatorOptions[1]
         expect(filterSet.onFilterChange).toHaveBeenCalled()
 
-  describe "when scope is destroyed", ->
+  describe "when `thFilter:destroyed` is broadcast", ->
     beforeEach ->
       spyOn filterSet, "remove"
       spyOn filterSet, "onFilterChange"
 
     describe "when value is undefined", ->
       it "should remove filter from filter set and not call onFilterChange", ->
-        scope.$destroy()
+        scope.$broadcast "thFilter:destroyed"
         expect(filterSet.remove).toHaveBeenCalled()
         expect(filterSet.onFilterChange).not.toHaveBeenCalled()
 
@@ -166,7 +166,7 @@ describe "ThemisComponents: Directive: thFilterNumber", ->
         setInputValue "1000"
 
       it "should remove filter from filter set and call onFilterChange", ->
-        scope.$destroy()
+        scope.$broadcast "thFilter:destroyed"
         expect(filterSet.remove).toHaveBeenCalled()
         expect(filterSet.onFilterChange).toHaveBeenCalled()
 

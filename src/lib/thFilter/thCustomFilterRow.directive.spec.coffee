@@ -51,24 +51,7 @@ describe "ThemisComponents: Directive: thCustomFilterRow", ->
     rowScope = angular.element(rowElement).scope()
     rowController = rowScope.thCustomFilterRow
 
-  describe "#onRowSelectChanged", ->
-    describe "when selected value is null or undefined", ->
-      beforeEach ->
-        rowController.rowSelectValue = undefined
-
-      it "should set to empty array", ->
-        rowController.onRowSelectChange()
-        timeout.flush()
-        expect(rowController.rowFilterOptions.length).toBe 0
-
-    describe "when selected value is filter", ->
-      beforeEach ->
-        rowController.rowSelectValue = filterType
-
-      it "should add filter to array as only element", ->
-        rowController.onRowSelectChange()
-        timeout.flush()
-        expect(rowController.rowFilterOptions.length).toBe 1
-        rowController.onRowSelectChange()
-        timeout.flush()
-        expect(rowController.rowFilterOptions.length).toBe 1
+  describe "initialization", ->
+    it "compiles the directive", ->
+      expect(rowController).toBeDefined()
+      expect(rowController.onRowSelectChange).toBeDefined()
