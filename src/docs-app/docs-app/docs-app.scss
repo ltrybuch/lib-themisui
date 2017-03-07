@@ -1,8 +1,9 @@
 @import "./prism";
-@import "../../themes/themis/index";
+@import "src/themes/themis/index";
 
 // Documentation components
 @import "../documentation/colorPalette/index";
+@import "../documentation/spacing/index";
 
 // Catalog components
 @import "../catalog/component-example/index";

@@ -1,20 +1,22 @@
+@import "src/themes/base/spacing.scss";
+
 color-swatch {
+  @include spacing-stack-l;
   $swatch-column-width: 300px;
 
   display: block;
   columns: $swatch-column-width;
-  margin-bottom: $base-unit;
 
   .color-palette {
+    @include spacing-stack-l;
     display: inline-block;
-    margin-bottom: $base-unit;
     min-width: $swatch-column-width;
 
     .swatch {
+      @include spacing-inline-l;
       float: left;
       width: 48px;
       height: 48px;
-      margin-right: $base-unit;
     }
 
     .hex, .variable {

@@ -1,0 +1,40 @@
+@import "src/themes/themis/colors.scss";
+@import "src/themes/themis/variables.scss";
+
+spacing-demo {
+  .demo-container {
+      border: $border;
+  }
+
+  .demo {
+    .card {
+      overflow: auto;
+      background-color: transparent;
+    }
+
+    h1, h2, h3, h4, h5, h6, p {
+      margin: 0;
+      background-color: $white;
+    }
+
+    p {
+      font-size: 14px;
+    }
+
+    &.inline {
+      display: table;
+
+      .card {
+        border: none;
+      }
+
+      [class*="spacing-"] {
+        background-clip: initial;
+      }
+    }
+  }
+
+  .block-wrapper {
+    background-color: $white;
+  }
+}

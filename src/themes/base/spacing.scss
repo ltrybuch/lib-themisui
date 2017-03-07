@@ -1,0 +1,374 @@
+////
+/// This file defines spacing mixins and classes
+/// @group Spacing
+////
+
+/// x-small
+/// @example scss
+///   .some-class {
+///     padding-top: $spacing-xs;
+///   }
+$spacing-xs: 4px;
+
+/// small
+/// @example scss
+///   .some-class {
+///     padding-top: $spacing-s;
+///   }
+$spacing-s: 8px;
+
+/// medium
+/// @example scss
+///   .some-class {
+///     padding-top: $spacing-m;
+///   }
+$spacing-m: 12px;
+
+/// large
+/// @example scss
+///   .some-class {
+///     padding-top: $spacing-l;
+///   }
+$spacing-l: 20px;
+
+/// x-large
+/// @example scss
+///   .some-class {
+///     padding-top: $spacing-xl;
+///   }
+$spacing-xl: 32px;
+
+/// x-small
+/// @example scss
+///   .card {
+///     @include spacing-inset-xs;
+///   }
+@mixin spacing-inset-xs {
+  padding: $spacing-xs !important;
+}
+
+/// small
+/// @example scss
+///   .card {
+///     @include spacing-inset-s;
+///   }
+@mixin spacing-inset-s {
+  padding: $spacing-s !important;
+}
+
+/// medium
+/// @example scss
+///   .card {
+///     @include spacing-inset-m;
+///   }
+@mixin spacing-inset-m {
+  padding: $spacing-m !important;
+}
+
+/// large
+/// @example scss
+///   .card {
+///     @include spacing-inset-l;
+///   }
+@mixin spacing-inset-l {
+  padding: $spacing-l !important;
+}
+
+/// x-large
+/// @example scss
+///   .card {
+///     @include spacing-inset-xl;
+///   }
+@mixin spacing-inset-xl {
+  padding: $spacing-xl !important;
+}
+
+/// x-small
+/// @example scss
+///   .card p {
+///     @include spacing-stack-xs;
+///   }
+@mixin spacing-stack-xs {
+  margin-bottom: $spacing-xs !important;
+}
+
+/// small
+/// @example scss
+///   .card p {
+///     @include spacing-stack-s;
+///   }
+@mixin spacing-stack-s {
+  margin-bottom: $spacing-s !important;
+}
+
+/// medium
+/// @example scss
+///   .card p {
+///     @include spacing-stack-m;
+///   }
+@mixin spacing-stack-m {
+  margin-bottom: $spacing-m !important;
+}
+
+/// large
+/// @example scss
+///   .card p {
+///     @include spacing-stack-l;
+///   }
+@mixin spacing-stack-l {
+  margin-bottom: $spacing-l !important;
+}
+
+/// x-large
+/// @example scss
+///   .card p {
+///     @include spacing-stack-xl;
+///   }
+@mixin spacing-stack-xl {
+  margin-bottom: $spacing-xl !important;
+}
+
+/// x-small
+/// @example scss
+///   .card button:not(:last-child) {
+///     @include spacing-inline-xs;
+///   }
+@mixin spacing-inline-xs {
+  margin-right: $spacing-xs !important;
+}
+
+/// small
+/// @example scss
+///   .card button:not(:last-child) {
+///     @include spacing-inline-s;
+///   }
+@mixin spacing-inline-s {
+  margin-right: $spacing-s !important;
+}
+
+/// medium
+/// @example scss
+///   .card button:not(:last-child) {
+///     @include spacing-inline-m;
+///   }
+@mixin spacing-inline-m {
+  margin-right: $spacing-m !important;
+}
+
+/// large
+/// @example scss
+///   .card button:not(:last-child) {
+///     @include spacing-inline-l;
+///   }
+@mixin spacing-inline-l {
+  margin-right: $spacing-l !important;
+}
+
+/// x-large
+/// @example scss
+///   .card button:not(:last-child) {
+///     @include spacing-inline-xl;
+///   }
+@mixin spacing-inline-xl {
+  margin-right: $spacing-xl !important;
+}
+
+/// x-small
+/// @example html
+///   <div class="card spacing-inset-xs">
+///     <h5>Header</h5>
+///     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi distinctio pariatur
+///     temporibus facere, labore id in consectetur. Quasi illum voluptate eaque velit, itaque, qui
+///     provident, est quis nam consequuntur ratione pariatur alias.</p>
+///   </div>
+.spacing-inset-xs {
+  @include spacing-inset-xs;
+}
+
+/// small
+/// @example html
+///   <div class="card spacing-inset-s">
+///     <h5>Header</h5>
+///     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi distinctio pariatur
+///     temporibus facere, labore id in consectetur. Quasi illum voluptate eaque velit, itaque, qui
+///     provident, est quis nam consequuntur ratione pariatur alias.</p>
+///   </div>
+.spacing-inset-s {
+  @include spacing-inset-s;
+}
+
+/// medium
+/// @example html
+///   <div class="card spacing-inset-m">
+///     <h5>Header</h5>
+///     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi distinctio pariatur
+///     temporibus facere, labore id in consectetur. Quasi illum voluptate eaque velit, itaque, qui
+///     provident, est quis nam consequuntur ratione pariatur alias.</p>
+///   </div>
+.spacing-inset-m {
+  @include spacing-inset-m;
+}
+
+/// large
+/// @example html
+///   <div class="card spacing-inset-l">
+///     <h5>Header</h5>
+///     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi distinctio pariatur
+///     temporibus facere, labore id in consectetur. Quasi illum voluptate eaque velit, itaque, qui
+///     provident, est quis nam consequuntur ratione pariatur alias.</p>
+///   </div>
+.spacing-inset-l {
+  @include spacing-inset-l;
+}
+
+/// x-large
+/// @example html
+///   <div class="card spacing-inset-xl">
+///     <h5>Header</h5>
+///     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi distinctio pariatur
+///     temporibus facere, labore id in consectetur. Quasi illum voluptate eaque velit, itaque, qui
+///     provident, est quis nam consequuntur ratione pariatur alias.</p>
+///   </div>
+.spacing-inset-xl {
+  @include spacing-inset-xl;
+}
+
+/// x-small
+/// @example html
+///   <div class="card">
+///     <h5>Paragraph</h5>
+///     <p class="spacing-stack-xs">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+///     Veritatis culpa neque, alias harum suscipit sed incidunt nemo. Fugiat ut earum similique
+///     quaerat. Neque impedit, quaerat!</p>
+///     <h5>Paragraph</h5>
+///     <p class="spacing-stack-xs">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+///     Veritatis culpa neque, alias harum suscipit sed incidunt nemo. Fugiat ut earum similique
+///     quaerat. Neque impedit, quaerat!</p>
+///   </div>
+.spacing-stack-xs{
+  @include spacing-stack-xs;
+}
+
+/// small
+/// @example html
+///   <div class="card">
+///     <h5>Paragraph</h5>
+///     <p class="spacing-stack-s">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+///     Veritatis culpa neque, alias harum suscipit sed incidunt nemo. Fugiat ut earum similique
+///     quaerat. Neque impedit, quaerat!</p>
+///     <h5>Paragraph</h5>
+///     <p class="spacing-stack-s">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+///     Veritatis culpa neque, alias harum suscipit sed incidunt nemo. Fugiat ut earum similique
+///     quaerat. Neque impedit, quaerat!</p>
+///   </div>
+.spacing-stack-s{
+  @include spacing-stack-s;
+}
+
+/// medium
+/// @example html
+///   <div class="card">
+///     <h5>Paragraph</h5>
+///     <p class="spacing-stack-m">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+///     Veritatis culpa neque, alias harum suscipit sed incidunt nemo. Fugiat ut earum similique
+///     quaerat. Neque impedit, quaerat!</p>
+///     <h5>Paragraph</h5>
+///     <p class="spacing-stack-m">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+///     Veritatis culpa neque, alias harum suscipit sed incidunt nemo. Fugiat ut earum similique
+///     quaerat. Neque impedit, quaerat!</p>
+///   </div>
+.spacing-stack-m {
+  @include spacing-stack-m;
+}
+
+/// large
+/// @example html
+///   <div class="card">
+///     <h5>Paragraph</h5>
+///     <p class="spacing-stack-l">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+///     Veritatis culpa neque, alias harum suscipit sed incidunt nemo. Fugiat ut earum similique
+///     quaerat. Neque impedit, quaerat!</p>
+///     <h5>Paragraph</h5>
+///     <p class="spacing-stack-l">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+///     Veritatis culpa neque, alias harum suscipit sed incidunt nemo. Fugiat ut earum similique
+///     quaerat. Neque impedit, quaerat!</p>
+///   </div>
+.spacing-stack-l {
+  @include spacing-stack-l;
+}
+
+/// x-large
+/// @example html
+///   <div class="card">
+///     <h5>Paragraph</h5>
+///     <p class="spacing-stack-xl">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+///     Veritatis culpa neque, alias harum suscipit sed incidunt nemo. Fugiat ut earum similique
+///     quaerat. Neque impedit, quaerat!</p>
+///     <h5>Paragraph</h5>
+///     <p class="spacing-stack-xl">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+///     Veritatis culpa neque, alias harum suscipit sed incidunt nemo. Fugiat ut earum similique
+///     quaerat. Neque impedit, quaerat!</p>
+///   </div>
+.spacing-stack-xl {
+  @include spacing-stack-xl;
+}
+
+/// x-small
+/// @example html
+///   <div class="card">
+///     <th-button type="create" class="spacing-inline-xs">Button</th-button>
+///     <th-button type="secondary" class="spacing-inline-xs">Button</th-button>
+///     <th-button type="secondary" class="spacing-inline-xs">Button</th-button>
+///     <th-button type="secondary">Button</th-button>
+///   </div>
+.spacing-inline-xs {
+  @include spacing-inline-xs;
+}
+
+/// small
+/// @example html
+///   <div class="card">
+///     <th-button type="create" class="spacing-inline-s">Button</th-button>
+///     <th-button type="secondary" class="spacing-inline-s">Button</th-button>
+///     <th-button type="secondary" class="spacing-inline-s">Button</th-button>
+///     <th-button type="secondary">Button</th-button>
+///   </div>
+.spacing-inline-s {
+  @include spacing-inline-s;
+}
+
+/// medium
+/// @example html
+///   <div class="card">
+///     <th-button type="create" class="spacing-inline-m">Button</th-button>
+///     <th-button type="secondary" class="spacing-inline-m">Button</th-button>
+///     <th-button type="secondary" class="spacing-inline-m">Button</th-button>
+///     <th-button type="secondary">Button</th-button>
+///   </div>
+.spacing-inline-m {
+  @include spacing-inline-m;
+}
+
+/// large
+/// @example html
+///   <div class="card">
+///     <th-button type="create" class="spacing-inline-l">Button</th-button>
+///     <th-button type="secondary" class="spacing-inline-l">Button</th-button>
+///     <th-button type="secondary" class="spacing-inline-l">Button</th-button>
+///     <th-button type="secondary">Button</th-button>
+///   </div>
+.spacing-inline-l {
+  @include spacing-inline-l;
+}
+
+/// x-large
+/// @example html
+///   <div class="card">
+///     <th-button type="create" class="spacing-inline-xl">Button</th-button>
+///     <th-button type="secondary" class="spacing-inline-xl">Button</th-button>
+///     <th-button type="secondary" class="spacing-inline-xl">Button</th-button>
+///     <th-button type="secondary">Button</th-button>
+///   </div>
+.spacing-inline-xl {
+  @include spacing-inline-xl;
+}

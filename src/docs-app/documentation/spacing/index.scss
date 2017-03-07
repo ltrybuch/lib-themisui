@@ -1,0 +1,41 @@
+@import "src/themes/base/spacing.scss";
+@import "src/themes/themis/variables.scss";
+@import "./spacingDiagram/index";
+@import "./spacingDemo/index";
+
+spacing {
+  .inset {
+    background-color: rgba($secondary-purple-1, 0.2);
+  }
+
+  .stack {
+    background-color: rgba($secondary-orange-2, 0.2);
+  }
+
+  .inline {
+    background-color: rgba($secondary-green-1, 0.2);
+  }
+
+  .spacing-section {
+    @include spacing-stack-xl;
+  }
+
+  table.th-table {
+    display: table;
+  }
+
+  thead, tbody {
+    border-left: $border;
+    border-right: $border;
+  }
+
+  .spacing-diagram-container {
+    @include spacing-stack-xl;
+    display: flex;
+
+    spacing-diagram {
+      display: block;
+      @include spacing-inline-m;
+    }
+  }
+}

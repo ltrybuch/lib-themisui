@@ -1,0 +1,9 @@
+<div class="demo-container"
+  ng-if="$ctrl.codeDemo"
+  ng-class="{'spacing-inset-xl': $ctrl.type === 'margin'}"
+  >
+  <div class="demo"
+    ng-class="[$ctrl.spacingType, $ctrl.type]"
+    th-compile="$ctrl.codeDemo">
+  </div>
+</div>

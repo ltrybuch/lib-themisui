@@ -1,0 +1,137 @@
+<h1>Spacing System</h1>
+<section class="spacing-section">
+  <p>Our spacing system is built off of a base unit of 4.<br>
+  We have 5 default sizes available for re-use in our spacing system, based on t-shirt sizes:</p>
+
+  <th-table delegate="$ctrl.variableTableData">
+    <th-table-row type="cells">
+      <th-table-cell>{{item.description}}</th-table-cell>
+      <th-table-cell>{{item.context.value}}</th-table-cell>
+      <th-table-cell>${{item.context.name}}</th-table-cell>
+    </th-table-row>
+  </th-table>
+
+  <section ng-if="$ctrl.variables.length">
+    <h5>Example usage</h5>
+    <spacing-demo-code sass-data="$ctrl.variables"></spacing-demo-code>
+  </section>
+
+  <h3>Dos</h3>
+  <ul>
+    <li>Reuse helper classes and/or variables when possible.</li>
+    <li>When a rare or non-reusable spacing pattern is required (e.g. 64px) encapsulate those within a component’s or page’s styles.</li>
+  </ul>
+
+  <h3>Don'ts</h3>
+  <ul>
+    <li>Don’t define spacing on global elements (p, h1, h2, etc).</li>
+  </ul>
+</section>
+
+<section class="spacing-section">
+  <h3>Spacing helpers</h3>
+  <p>There are 3 types of helpers used for building spacing in layouts.</p>
+  <ol>
+    <li><strong>Insets:</strong> used for adding padding to all four sides of an element.</li>
+    <li><strong>Stacks:</strong> used for adding bottom margin to an element for vertical spacing.</li>
+    <li><strong>Inlines:</strong> used for adding right margin to an element for horizontal spacing.</li>
+  </ol>
+
+  <h4>Insets</h4>
+  <section class="spacing-diagram-container">
+    <spacing-diagram
+      ng-repeat="inset in $ctrl.insets track by inset.context.name"
+      sass-doc-obj="inset"
+      value="$ctrl.getMixinValue(inset)"
+      spacing-type="'inset'"
+      ></spacing-diagram>
+  </section>
+
+  <th-table delegate="$ctrl.insetsTableData">
+    <th-table-row type="cells">
+      <th-table-cell>{{item.description}}</th-table-cell>
+      <th-table-cell>{{item.context.code}}</th-table-cell>
+      <th-table-cell>{{item.context.name}}</th-table-cell>
+      <th-table-cell>{{$ctrl.getCssClassObjFromMixin(item).context.name}}</th-table-cell>
+    </th-table-row>
+  </th-table>
+
+  <section ng-if="$ctrl.sassObjectsByType.insets.length">
+    <h5>Example {{"usage" | pluralize: $ctrl.sassObjectsByType.insets.length}}</h5>
+    <spacing-demo-code
+      sass-data="$ctrl.sassObjectsByType.insets"
+      example-size="'xl'"
+      show-render="true"
+      spacing-type="'inset'"
+      >
+    </spacing-demo-code>
+  </section>
+
+  <h4>Stacks</h4>
+  <section class="spacing-diagram-container">
+    <spacing-diagram
+      ng-repeat="stack in $ctrl.stacks track by stack.context.name"
+      sass-doc-obj="stack"
+      value="$ctrl.getMixinValue(stack)"
+      spacing-type="'stack'"
+      ></spacing-diagram>
+  </section>
+
+  <th-table delegate="$ctrl.stacksTableData">
+    <th-table-row type="cells">
+      <th-table-cell>{{item.description}}</th-table-cell>
+      <th-table-cell>{{item.context.code}}</th-table-cell>
+      <th-table-cell>{{item.context.name}}</th-table-cell>
+      <th-table-cell>{{$ctrl.getCssClassObjFromMixin(item).context.name}}</th-table-cell>
+    </th-table-row>
+  </th-table>
+
+  <section ng-if="$ctrl.sassObjectsByType.stacks.length">
+    <h5>Example {{"usage" | pluralize: $ctrl.sassObjectsByType.stacks.length}}</h5>
+    <spacing-demo-code
+      sass-data="$ctrl.sassObjectsByType.stacks"
+      example-size="'l'"
+      show-render="true"
+      spacing-type="'stack'"
+      >
+    </spacing-demo-code>
+  </section>
+
+  <h4>Inlines</h4>
+  <section class="spacing-diagram-container">
+    <spacing-diagram
+      ng-repeat="inline in $ctrl.inlines track by inline.context.name"
+      sass-doc-obj="inline"
+      value="$ctrl.getMixinValue(inline)"
+      spacing-type="'inline'"
+      ></spacing-diagram>
+  </section>
+
+  <th-table delegate="$ctrl.inlinesTableData">
+    <th-table-row type="cells">
+      <th-table-cell>{{item.description}}</th-table-cell>
+      <th-table-cell>{{item.context.code}}</th-table-cell>
+      <th-table-cell>{{item.context.name}}</th-table-cell>
+      <th-table-cell>{{$ctrl.getCssClassObjFromMixin(item).context.name}}</th-table-cell>
+    </th-table-row>
+  </th-table>
+
+  <section ng-if="$ctrl.sassObjectsByType.inlines.length">
+    <h5>Example {{"usage" | pluralize: $ctrl.sassObjectsByType.inlines.length}}</h5>
+    <spacing-demo-code
+      sass-data="$ctrl.sassObjectsByType.inlines"
+      example-size="'m'"
+      show-render="true"
+      spacing-type="'inline'"
+      ></spacing-demo-code>
+  </section>
+
+  <h4>Putting it all together</h4>
+  <p>Combine insets, stacks, and inlines to build layouts:</p>
+  <section>
+    <h5>Example usages</h5>
+    <spacing-demo-code full-demo="true"></spacing-demo-code>
+    <spacing-demo spacing-type="'inset'" full-demo="true"></spacing-demo>
+  </section>
+
+</section>

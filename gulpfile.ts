@@ -12,6 +12,7 @@
 
 import "./tools/gulp/tasks/Catalog";
 import "./tools/gulp/tasks/BrowserSync";
+import "./tools/gulp/tasks/SassDoc";
 import "./tools/gulp/tasks/Watch";
 import "./tools/gulp/tasks/Webpack";
 import "./tools/gulp/tasks/Default";

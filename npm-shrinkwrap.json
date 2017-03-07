@@ -1,6 +1,6 @@
 {
   "name": "lib-ThemisUI",
-  "version": "7.1.0",
+  "version": "7.2.0",
   "dependencies": {
     "abbrev": {
       "version": "1.0.9",

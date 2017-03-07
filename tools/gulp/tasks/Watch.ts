@@ -12,9 +12,13 @@ export class Watch {
       Config.assetPaths.meta,
       Config.assetPaths.docsMeta
     ], ["regenerateCatalogAndReload"]);
+
+    gulp.watch([
+      Config.assetPaths.theme
+    ], ["generateSassDocs"]);
+
     gulp.watch([
       Config.assetPaths.lib,
-      Config.assetPaths.theme,
       Config.assetPaths.docs,
       Config.assetPaths.readme
     ], ["webpackAndReload"]);

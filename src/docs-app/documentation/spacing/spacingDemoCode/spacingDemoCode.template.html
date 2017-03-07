@@ -1,0 +1,15 @@
+<pre
+  data-manual
+  class="line-numbers"
+  ng-repeat-start="example in $ctrl.examplesToDisplay track by $index"
+  ><code
+    ng-class="'language-' + example.type"
+    >{{example.code}}</code></pre>
+<p ng-repeat-end ng-if="!$last">or</p>
+
+<spacing-demo
+  ng-if="$ctrl.showRender"
+  code-demo="$ctrl.markupToRender"
+  spacing-type="$ctrl.spacingType"
+  >
+</spacing-demo>

@@ -7,6 +7,7 @@ export class Default {
   default() {
     return [
       "generateCatalogAndIndexes",
+      "generateSassDocs",
       "webpackDev",
       "watch",
       "bs:start"

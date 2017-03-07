@@ -1,0 +1,11 @@
+.card {
+  @include spacing-inset-xl;
+
+  p {
+    @include spacing-stack-l;
+  }
+
+  button:not(:last-child) {
+    @include spacing-inline-m;
+  }
+}
