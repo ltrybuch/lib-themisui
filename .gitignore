@@ -1,7 +1,6 @@
 .DS_Store
 node_modules/*
 public/build/*
-dist/*
 coverage/*
 npm-debug.log
 .vagrant
@@ -14,3 +13,6 @@ src/lib/index.examples.ts
 *.js.map
 gulpfile.js
 Config.js
+dist/debugging
+dist/docs-vendor.js
+dist/lib-themisui-styles.js

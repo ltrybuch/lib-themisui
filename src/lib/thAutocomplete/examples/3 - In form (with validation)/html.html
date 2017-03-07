@@ -1,23 +1,66 @@
 <html ng-app="thAutocompleteDemo">
   <body ng-controller="thAutocompleteDemoCtrl3 as demo">
+
     <div class="th-example-width-400">
-      <form name="demo.form" novalidate>
-        <th-autocomplete
-          name="repo"
-          placeholder="Type a GitHub Repo…"
-          ng-model="demo.repo"
-          ng-required="true"
-          with-label="GitHub Repository"
-          with-messages
-          delegate="demo.delegate"
-          icon="github"
-          >
-        </th-autocomplete>
-        <br>
-        <th-button type="default" ng-click="demo.submit()" submit>Submit</th-button>
-        <th-button ng-click="demo.reset()">reset</th-button>
+      <form name="demo.form" novalidate ng-submit="demo.validate($event)">
+
+        <div class="example" style="width: 400px;">
+          <span class="example-tag">Default</span>
+          <div style="margin: 12px 0;">
+
+            <th-autocomplete
+              name="repo"
+              placeholder="Type a GitHub Repo…"
+              ng-model="demo.defaultModel"
+              ng-required="demo.required"
+              delegate="demo.defaultDelegate"
+              >
+            </th-autocomplete>
+
+          </div>
+        </div>
+
+        <div class="example" style="width: 400px;">
+          <span class="example-tag">Multi-Select</span>
+          <div style="margin: 12px 0;">
+
+            <th-autocomplete
+              name="github1"
+              placeholder="Type a GitHub Repo…"
+              ng-model="demo.multipleModel"
+              ng-required="demo.required"
+              delegate="demo.multipleDelegate"
+              multiple="true"
+              >
+            </th-autocomplete>
+
+          </div>
+        </div>
+
+        <div class="example" style="width: 400px;">
+          <span class="example-tag">Combobox</span>
+          <div style="margin: 12px 0;">
+
+            <th-autocomplete
+              name="github2"
+              placeholder="Type a GitHub Repo…"
+              ng-model="demo.comboModel"
+              ng-required="demo.required"
+              delegate="demo.comboDelegate"
+              combobox="true"
+              >
+            </th-autocomplete>
+
+          </div>
+        </div>
+
+        <p>{{ demo.required ? "Field is required" : "Field is not required"}}</p>
+        <th-button ng-click="demo.submit()" submit>Submit</th-button>
+        <th-button ng-click="demo.reset()">Reset</th-button>
+        <th-button type="secondary" ng-click="demo.toggleRequired()">Toggle Required</th-button>
         <pre ng-if="demo.response">{{demo.response | json}}</pre>
       </form>
     </div>
+
   </body>
 </html>

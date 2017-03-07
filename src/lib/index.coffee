@@ -1,3 +1,5 @@
+angular = require 'angular'
+
 require '../polyfills/'
 
 angular.module 'ThemisComponents', [

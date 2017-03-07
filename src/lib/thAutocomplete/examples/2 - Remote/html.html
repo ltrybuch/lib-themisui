@@ -1,20 +1,66 @@
 <html ng-app="thAutocompleteDemo">
   <body ng-controller="thAutocompleteDemoCtrl2 as demo">
 
-    <div class="th-example-width-400">
-      <th-autocomplete
-        placeholder="Type a GitHub Repo…"
-        ng-model="demo.repo"
-        delegate="demo.delegate"
-        ng-change="demo.onChange()"
-        icon="github"
-        condensed="true"
-        >
-      </th-autocomplete>
+    <div class="example" style="width: 400px;">
+      <span class="example-tag">Default</span>
+      <div style="margin: 12px 0;">
 
-      <p>Selected repo: <code>{{demo.repo.id}}</code></p>
-      <br>
-      <div># of change events: <code>{{demo.counter}}</code></div>
+        <th-autocomplete
+          name="github"
+          placeholder="Type a GitHub Repo…"
+          ng-model="demo.defaultModel"
+          delegate="demo.delegate"
+          condensed="true"
+          >
+        </th-autocomplete>
+
+        <p>Selected repo: <code ng-if="demo.defaultModel">id: {{demo.defaultModel.id}}</code></p>
+
+      </div>
+    </div>
+
+    <div class="example" style="width: 400px;">
+      <span class="example-tag">Multi-Select</span>
+      <div style="margin: 12px 0;">
+
+        <th-autocomplete
+          name="github"
+          placeholder="Type a GitHub Repo…"
+          ng-model="demo.multipleModel"
+          delegate="demo.delegate"
+          multiple="true"
+          condensed="true"
+          >
+        </th-autocomplete>
+
+        <p>
+          Selected repos:
+          <ul ng-repeat="(key, value) in demo.multipleModel">
+            <li ng-if="value">id: {{value.id}}, name: {{value.full_name}}</li>
+          </ul>
+        </p>
+
+      </div>
+    </div>
+
+    <div class="example" style="width: 400px;">
+      <span class="example-tag">Combobox</span>
+      <div style="margin: 12px 0;">
+
+        <th-autocomplete
+          name="github"
+          placeholder="Type a GitHub Repo…"
+          ng-model="demo.comboModel"
+          delegate="demo.delegate"
+          combobox="true"
+          condensed="true"
+          >
+        </th-autocomplete>
+
+        <p>Selected repo: <code ng-if="demo.comboModel">{id: {{demo.comboModel.id}}, name: {{demo.comboModel.full_name}}}</code></p>
+
+
+      </div>
     </div>
 
   </body>

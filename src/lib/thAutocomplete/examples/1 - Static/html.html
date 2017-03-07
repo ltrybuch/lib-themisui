@@ -1,17 +1,60 @@
 <html ng-app="thAutocompleteDemo">
   <body ng-controller="thAutocompleteDemoCtrl1 as demo">
 
-    <div class="th-example-width-400">
-      <th-autocomplete
-        placeholder="Type a city…"
-        ng-model="demo.cities"
-        delegate="demo.delegate"
-        icon="building"
-        multiple
-        >
-      </th-autocomplete>
+    <div class="example" style="width: 400px;">
+      <span class="example-tag">Default</span>
+      <div style="margin: 12px 0;">
 
-      <p>Selected cities: <code>{{demo.cities}}</code></p>
+        <th-autocomplete
+          placeholder="Type a city…"
+          ng-model="demo.defaultModel"
+          delegate="demo.defaultDelegate"
+          name="test-name"
+          condensed="true"
+          >
+        </th-autocomplete>
+
+        <p>Selected city: <code>{{demo.defaultModel.id}}</code></p>
+
+      </div>
+    </div>
+
+    <div class="example" style="width: 400px;">
+      <span class="example-tag">Multi-Select</span>
+      <div style="margin: 12px 0;">
+
+        <th-autocomplete
+          placeholder="Type a city…"
+          ng-model="demo.multiModel"
+          delegate="demo.multiDelegate"
+          name="test-name"
+          multiple="true"
+          condensed="true"
+          >
+        </th-autocomplete>
+
+        <p>Selected cities: <code>{{demo.multiModel}}</code></p>
+
+      </div>
+    </div>
+
+    <div class="example" style="width: 400px;">
+      <span class="example-tag">Combobox</span>
+      <div style="margin: 12px 0;">
+
+        <th-autocomplete
+          placeholder="Type a city…"
+          ng-model="demo.comboModel"
+          delegate="demo.comboDelegate"
+          name="test-name"
+          combobox="true"
+          condensed="true"
+          >
+        </th-autocomplete>
+
+        <p>Selected city: <code>{{demo.comboModel}}</code></p>
+
+      </div>
     </div>
 
   </body>

@@ -1,5 +1,5 @@
 module.exports =
-  # Returns an angular element after it's compiled with scope.
+  # Returns an angular element after it's compiled with scope
   compileDirective: (template, scopeAdditions) ->
     compile = scope = null
 

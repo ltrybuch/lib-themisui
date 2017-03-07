@@ -4,8 +4,8 @@
     ng-attr-placeholder="{{thFilterAutocomplete.filter.placeholder || thFilterAutocomplete.placeholder || 'Type some text…'}}"
     delegate="thFilterAutocomplete.delegate"
     ng-change="thFilterAutocomplete.filterSet.onFilterChange()"
-    icon="{{thFilterAutocomplete.filterOptions.autocompleteOptions.icon}}"
     condensed="true"
+    row-template="thFilterAutocomplete.rowTemplate"
     >
   </th-autocomplete>
 </div>

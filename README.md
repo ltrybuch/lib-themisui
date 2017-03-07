@@ -74,6 +74,16 @@ npm install --save git://github.com/clio/lib-themisui#v0.9.0
 
 ## Development
 
+### KendoUI Authentication
+ThemisUI depends on the kendoUI component library. In order to develop, you are
+required to have a valid license assigned to your email. Once you have been
+granted a license, do the following to authenticate your license with npm.
+
+```bash
+npm login --registry=https://registry.npm.telerik.com/ --scope=@progress
+```
+You should be prompted for a username/password.
+
 ### Running Docs
 
 Whilst inside the `lib-ThemisUI` directory.

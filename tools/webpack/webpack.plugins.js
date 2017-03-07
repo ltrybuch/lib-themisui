@@ -29,11 +29,6 @@ module.exports = function(env={}) {
   }
 
   const testPlugins = [
-    new webpack.SourceMapDevToolPlugin({
-      filename: null,
-      test: env.sourcesRegex
-    }),
-
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",
@@ -61,7 +56,7 @@ module.exports = function(env={}) {
         "process.env": { NODE_ENV: JSON.stringify("production") }
       })
     );
-    plugins.push(new webpack.NoErrorsPlugin());
+    plugins.push(new webpack.NoEmitOnErrorsPlugin());
   }
 
   return plugins;

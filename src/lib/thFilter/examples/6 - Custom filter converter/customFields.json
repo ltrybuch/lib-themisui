@@ -9,9 +9,18 @@
     "field_type": "autocomplete",
     "id": "1",
     "autocomplete_options": {
-      "model_class": "Repo",
-      "icon": "github",
-      "query_field": "searchString"
+      "model_class": "Repo2",
+      "display_field": "full_name"
+    }
+  },
+  {
+    "name": "autocomplete with rowTemplate",
+    "field_type": "autocomplete",
+    "id": "1",
+    "autocomplete_options": {
+      "model_class": "Repo2",
+      "display_field": "full_name",
+      "row_template": "<span class=\"k-state-default\">#: data.full_name #, <strong>Forks</strong>: #: data.forks #</span>"
     }
   },
   {

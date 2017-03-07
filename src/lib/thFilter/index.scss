@@ -46,6 +46,35 @@
   .th-autocomplete-wrapper .form-control {
     background: $white;
   }
+
+  // thFilter-specific styles for thAutocomplete
+  th-autocomplete {
+    .k-autocomplete,
+    .k-combobox .k-input {
+      background: $white;
+
+      &:hover {
+        background: $white;
+      }
+    }
+
+    .k-combobox {
+      .k-select {
+        border-color: $border-color;
+        
+        background: $white;
+      }
+
+      .k-state-hover:not(.k-state-focused) {
+        .k-select {
+          border-color: $border-color;
+
+          background: $grey-2;
+          color: inherit;
+        }
+      }
+    }
+  }
 }
 
 .th-custom-filters {

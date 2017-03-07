@@ -1,5 +1,5 @@
 angular.module 'ThemisComponents'
-  .controller 'thCustomFilterRow.controller', ($timeout, $scope) ->
+  .controller 'thCustomFilterRow.controller', ($timeout, $scope, DataSource) ->
     @rowFilterOptions = if @rowSelectValue then [@rowSelectValue] else []
 
     @checkboxOptions = [
@@ -38,17 +38,10 @@ angular.module 'ThemisComponents'
         @rowFilterOptions = if @rowSelectValue? then [@rowSelectValue] else []
 
     @customFieldDelegate =
+      autoBind: true,
       displayField: 'name'
       trackField: 'fieldIdentifier'
-      fetchData: ({searchString}, updateData) =>
-        if searchString?.length > 1
-          lowerCaseSearchString = searchString.toLowerCase()
-          updateData(
-            @customFilterTypes.filter (filterType) ->
-              filterType.name.toLowerCase().indexOf(lowerCaseSearchString) isnt -1
-            , @showSearchHint
-          )
-        else
-          updateData @customFilterTypes, @showSearchHint
+      filterType: "contains"
+      dataSource: DataSource.createDataSource data: @customFilterTypes
 
     return

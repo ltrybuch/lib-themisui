@@ -1,13 +1,16 @@
 {
   "env": {
     "BUILDKITE_DISABLE_GIT_SUBMODULES": "true",
-    "LANG": "en_US.UTF-8"
+    "LANG": "en_US.UTF-8",
+    "PROGRESS_REGISTRY_TOKEN": "LcYJZJAYWdxWQeGTAr/Ba9vyBlVEqR4SPOzSiju6YqlcxAPQJiDbseqQGxkKfoYi"
   },
   "steps": [
     {
       "name": "Clean NPM Install & Test",
       "command": [
         "echo '--- npm install'",
+        "echo \"@progress:registry=https://registry.npm.telerik.com/\" > .npmrc",
+        "echo \"//registry.npm.telerik.com/:_authToken=\"$PROGRESS_REGISTRY_TOKEN\"\" >> .npmrc",
         "npm install",
         "echo '--- npm test-once'",
         "npm run test-once"

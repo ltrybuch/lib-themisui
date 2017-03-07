@@ -25,30 +25,34 @@ angular.module("thFilterDemo")
         autocompleteOptions:
           modelClass: item.autocomplete_options?.model_class
           displayField: item.autocomplete_options?.display_field
-          trackField: item.autocomplete_options?.track_field
-          icon: item.autocomplete_options?.icon
-          queryField: item.autocomplete_options?.query_field
+          rowTemplate: item.autocomplete_options?.row_template
 
       return [convertedResults, showSearchHint: true]
 
-.factory "Repo", ($http) ->
-  class Repo
-    @query: (params) ->
-      result = []
-      result.loading = true
-      result.promise =
-        $http
-          method: 'GET'
-          url: 'https://api.github.com/search/repositories'
-          params:
-            q: params.searchString
-        .then (response) ->
-          response.data.items.forEach (item) ->
-            result.push item
-          result.loading = false
-          return {collection: result}
-
-      return result
+.service "Repo2", (DataSource) ->
+  {
+    create: ->
+      DataSource.createDataSource {
+        serverFiltering: true
+        transport: {
+          read: {
+            url: "//api.github.com/search/repositories"
+            type: "get"
+            dataType: "json"
+          },
+          parameterMap: (data, action) ->
+            if action is "read" and data.filter
+              return {
+                q: if data.filter.filters[0] then data.filter.filters[0].value else ""
+              }
+            else
+              return data
+        },
+        schema: {
+          data: "items"
+        }
+    }
+  }
 
 .controller "thFilterDemoCtrl6", (
   SimpleTableDelegate

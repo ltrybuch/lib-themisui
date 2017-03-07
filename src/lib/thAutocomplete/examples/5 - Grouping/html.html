@@ -1,0 +1,55 @@
+<html ng-app="thAutocompleteDemo">
+  <body ng-controller="thAutocompleteDemoCtrl5 as demo">
+
+    <div class="example" style="width: 400px;">
+      <span class="example-tag">Default</span>
+      <div style="margin: 0 0 15px 0;">
+
+        <th-autocomplete
+          name="github"
+          placeholder="Type a GitHub Repo…"
+          ng-model="demo.defaultModelSimple"
+          delegate="demo.defaultDelegate"
+          group-by="language"
+          >
+        </th-autocomplete>
+
+      </div>
+    </div>
+
+    <div class="example" style="width: 400px;">
+      <span class="example-tag">Multi-Select</span>
+      <div style="margin: 0 0 15px 0;">
+
+        <th-autocomplete
+          placeholder="Type a city…"
+          ng-model="demo.defaultModelMultiple"
+          delegate="demo.delegate"
+          name="test-name"
+          group-by="province"
+          multiple="true"
+          >
+        </th-autocomplete>
+
+      </div>
+    </div>
+
+    <div class="example" style="width: 400px;">
+      <span class="example-tag">Combobox</span>
+      <div style="margin: 0 0 15px 0;">
+
+        <th-autocomplete
+          placeholder="Type a city…"
+          ng-model="demo.defaultModelCombobox"
+          delegate="demo.delegate"
+          name="test-name"
+          group-by="province"
+          combobox="true"
+          >
+        </th-autocomplete>
+
+      </div>
+    </div>
+
+  </body>
+</html>

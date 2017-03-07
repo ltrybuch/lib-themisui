@@ -4,16 +4,28 @@
 
 # Defined here because the directive uses $injector to instantiate model class.
 angular.module "ThemisComponents"
-.factory "Repo", ($q) ->
-  class Repo
-    # Pass through parameters for validating.
-    @query: (params) ->
-      deferred = $q.defer()
-      deferred.resolve collection: params
-
-      result = []
-      result.promise = deferred.promise
-      return result
+.service "Repo", (DataSource) ->
+  create: ->
+    DataSource.createDataSource {
+      serverFiltering: true
+      transport: {
+        read: {
+          url: "//fake.url/bork"
+          type: "get"
+          dataType: "json"
+        },
+        parameterMap: (data, action) ->
+          if action is "read" and data.filter
+            return {
+              q: if data.filter.filters[0] then data.filter.filters[0].value else ""
+            }
+          else
+            return data
+      },
+      schema: {
+        data: "items"
+      }
+    }
 
 describe "ThemisComponents: Directive: thFilterAutocomplete", ->
   AutocompleteFilter = FilterSet = timeout = null
@@ -110,40 +122,6 @@ describe "ThemisComponents: Directive: thFilterAutocomplete", ->
 
     it "should set 'displayField' option on delegate", ->
       expect(@controller.delegate.displayField).toBe "displayer"
-
-  describe "#fetchData", ->
-    beforeEach ->
-      @updateData = -> return
-      spyOn this, "updateData"
-
-    describe "without query params", ->
-      it "should call updateData with search term", ->
-        searchParam = {searchString: "test"}
-        @controller.delegate.fetchData(searchParam, @updateData)
-        timeout.flush()
-        expect(@updateData).toHaveBeenCalledWith searchParam
-
-    describe "with query params", ->
-      it "should call updateData with search term and query params", ->
-        searchParam = {searchString: "test"}
-        queryParams =
-          param1: "test1"
-          param2: "test2"
-        @filterOptions.autocompleteOptions.queryParams = queryParams
-
-        {@element} = compileDirective(validTemplate, {
-          @filterSet
-          @filterOptions
-        })
-        @controller = angular.element(
-          @element.find("div")
-        ).scope().thFilterAutocomplete
-
-        @controller.delegate.fetchData(searchParam, @updateData)
-        timeout.flush()
-
-        Object.assign(queryParams, searchParam)
-        expect(@updateData).toHaveBeenCalledWith queryParams
 
   describe "when `thFilter:destroyed` is broadcast", ->
     beforeEach ->

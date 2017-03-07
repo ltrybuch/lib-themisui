@@ -16,6 +16,7 @@ angular.module 'ThemisComponents'
 
       try
         ModelClass = $injector.get @filterOptions.autocompleteOptions.modelClass
+        dataSource = ModelClass.create()
       catch
         throw new Error "thFilterAutocomplete: cannot inject class '" + \
           "#{@filterOptions.autocompleteOptions.modelClass}'."
@@ -26,17 +27,15 @@ angular.module 'ThemisComponents'
       @displayField = @filterOptions.autocompleteOptions?.displayField or "name"
       @trackField = @filterOptions.autocompleteOptions?.trackField or "id"
 
+      @combobox = @filterOptions.autocompleteOptions?.combobox or "false"
+      @multiple = @filterOptions.autocompleteOptions?.multiple or "false"
+
+      @rowTemplate = @filterOptions.autocompleteOptions?.rowTemplate or undefined
+
       @delegate = {
-        @displayField
-        @trackField
-        fetchData: ({searchString}, updateData) =>
-          if searchString?.length > 1
-            params = @filterOptions.autocompleteOptions.queryParams or {}
-            params[fieldIdentifier] = searchString
-            ModelClass.query(params).promise.then ({collection}) ->
-              updateData collection
-          else
-            updateData []
+        displayField: @displayField
+        trackField: @trackField
+        dataSource: dataSource
       }
 
       $scope.$on "thFilter:destroyed", =>
