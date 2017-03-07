@@ -13,10 +13,10 @@ angular.module("ThemisComponents")
         return elementObject if radioGroupEl.length > 0
 
         # Set type to "themis" and inline to true/false depending on the class
-        classNames = ["th-checkbox", "th-radio-button", "th-input-wrapper"]
+        classNames = ["select-wrapper", "th-checkbox", "th-radio-button", "th-input-wrapper"]
         classNames.map (className) ->
           switch className
-            when "th-input-wrapper" then inline = false
+            when "select-wrapper", "th-input-wrapper" then inline = false
             else inline = true
           temp = label[0].getElementsByClassName(className)[0]
           elementObject = {el: temp, type: "themis", inline: inline} if temp?

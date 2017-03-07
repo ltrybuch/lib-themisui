@@ -24,19 +24,16 @@ module.exports =
     it "adds 'with-subtext' value to nested sub label", ->
       expect(element.next().text()).toMatch "label subtext"
 
-  testingBlockSubLabel: (compileElementFn) ->
+  testingBlockSubLabel: (compileElementFn, subtextContent) ->
     element = null
     beforeEach ->
       {element} = compileElementFn()
-
-    it "adds subtext class to container", ->
-      expect(element.is("span.with-subtext")).toBe true
 
     it "adds nested sub label", ->
       expect(element.next().is("p.block.sublabel-text")).toBe true
 
     it "adds 'with-subtext' value to nested sub label", ->
-      expect(element.next().text()).toMatch "label subtext"
+      expect(element.next().text()).toMatch subtextContent
 
   testingNgChange: (compileElementFn) ->
     element = null
