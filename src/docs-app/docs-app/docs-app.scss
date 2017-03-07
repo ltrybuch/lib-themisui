@@ -1,4 +1,4 @@
-@import "./prism";
+@import "~prismjs/themes/prism.css";
 @import "src/themes/themis/index";
 
 // Documentation components
@@ -128,6 +128,14 @@ h1, h2, h3 {
 
     hr {
       border: solid 1px $grey-6;
+    }
+
+    th-disclosure-toggle span {
+      font-weight: bold;
+    }
+
+    th-disclosure-content {
+      padding-left: 16px;
     }
 
     a {
