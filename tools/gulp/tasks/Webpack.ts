@@ -6,7 +6,8 @@ import * as webpack from "webpack";
 
 const webpackConfig = require("../../webpack/webpack.config.js")({
   cache: true,
-  dev: true
+  dev: true,
+  skipCleanup: true
 });
 
 @Gulpclass()

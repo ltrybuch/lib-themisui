@@ -4,13 +4,11 @@ import {Gulpclass, SequenceTask} from "../../../node_modules/gulpclass/Decorator
 export class Default {
 
   @SequenceTask()
-  default() {
+  herokuPreBuild() {
     return [
       "generateCatalogAndIndexes",
       "generateSassDocs",
-      "webpackDev",
-      "watch",
-      "bs:start"
+      "webpackDev"
     ];
   }
 

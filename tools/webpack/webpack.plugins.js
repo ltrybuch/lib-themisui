@@ -5,18 +5,22 @@ const StatsPlugin = require("stats-webpack-plugin");
 
 module.exports = function(env={}) {
 
-  const buildPlugins = [
-    new CleanWebpackPlugin([env.dist ? env.distRoot : env.publicAssetsRoot], {
+  const buildPlugins = [];
+  
+  if (!env.skipCleanup) {
+    buildPlugins.push(new CleanWebpackPlugin([env.dist ? env.distRoot : env.publicAssetsRoot], {
       root: env.root,
       verbose: true,
       dry: false
-    }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: false,
-      debug: !env.dist
-    }),
-    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/)
-  ];
+    }));
+  }
+    
+  buildPlugins.push(new webpack.LoaderOptionsPlugin({
+    minimize: false,
+    debug: !env.dist
+  }));
+
+  buildPlugins.push(new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/));
 
   if(!env.dist) {
     buildPlugins.push(

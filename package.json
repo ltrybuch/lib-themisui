@@ -110,7 +110,8 @@
     "webpack": "2.2.0"
   },
   "scripts": {
-    "heroku-prebuild": "bash tools/heroku/preinstall.sh",
+    "heroku-prebuild": "bash tools/heroku/preinstall.sh && TS_NODE_PROJECT=tools gulp herokuPreBuild",
+    "heroku-start": "TS_NODE_PROJECT=tools gulp bs:start",
     "build": "NODE_ENV=production webpack --progress --env.dist --config tools/webpack/webpack.config.js",
     "build-indexes": "TS_NODE_PROJECT=tools gulp generateCatalogAndIndexes",
     "start": "TS_NODE_PROJECT=tools gulp",
