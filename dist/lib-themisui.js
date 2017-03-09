@@ -94819,9 +94819,15 @@ angular.module("ThemisComponents").directive("thModal", function() {
       this.content = this.modalData.content;
       this.context = this.modalData.context;
       this.size = this.modalData.size;
-      this.dismiss = function(response) {
-        return ModalManager.dismiss(this.name, response);
-      };
+      this.dismiss = (function(_this) {
+        return function(response) {
+          if (_this.size === "fullpage") {
+            return ModalManager.dismissWithRejectedPromise(_this.name, response);
+          } else {
+            return ModalManager.dismiss(_this.name, response);
+          }
+        };
+      })(this);
       this.confirm = function(response) {
         return ModalManager.confirm(this.name, response);
       };
@@ -94867,7 +94873,7 @@ angular.module("ThemisComponents").directive("thModalAnchor", function() {
 /***/ (function(module, exports) {
 
 angular.module("ThemisComponents").factory("ModalManager", ["$http", "$q", function($http, $q) {
-  var addModal, confirm, dismiss, findByName, modals, remove, show;
+  var addModal, confirm, dismiss, dismissWithRejectedPromise, findByName, modals, remove, show;
   modals = [];
   show = function(options) {
     var context, deferred, modalPromise, name, params, path, ref, ref1, ref2, ref3, ref4, ref5, size, template;
@@ -94897,7 +94903,7 @@ angular.module("ThemisComponents").factory("ModalManager", ["$http", "$q", funct
   confirm = function(name, response) {
     var modal;
     modal = findByName(name);
-    if (modal !== void 0) {
+    if (modal != null) {
       modal.deferred.resolve(response);
     }
     return remove(name);
@@ -94905,6 +94911,14 @@ angular.module("ThemisComponents").factory("ModalManager", ["$http", "$q", funct
   dismiss = function(name, response) {
     var modal;
     modal = findByName(name);
+    return remove(name);
+  };
+  dismissWithRejectedPromise = function(name, response) {
+    var modal;
+    modal = findByName(name);
+    if (modal != null) {
+      modal.deferred.reject(response);
+    }
     return remove(name);
   };
   findByName = function(name) {
@@ -94939,6 +94953,7 @@ angular.module("ThemisComponents").factory("ModalManager", ["$http", "$q", funct
   return {
     show: show,
     dismiss: dismiss,
+    dismissWithRejectedPromise: dismissWithRejectedPromise,
     confirm: confirm,
     _modals: modals
   };
