@@ -81,6 +81,17 @@ describe "ThemisComponents: Service: thModalManager", ->
       ModalManager.dismiss("invalid")
       expect(ModalManager._modals.length).toBe 1
 
+    it "rejects deferred", ->
+      rejected = 2; pending = 0
+      rejectionReason = "rejected promise"
+
+      promise.catch (reason) ->
+        expect(reason).toEqual rejectionReason
+
+      expect(promise.$$state.status).toEqual pending
+      ModalManager.dismissWithRejectedPromise "valid", rejectionReason
+      expect(promise.$$state.status).toEqual rejected
+
   describe "#confirm()", ->
 
     beforeEach ->

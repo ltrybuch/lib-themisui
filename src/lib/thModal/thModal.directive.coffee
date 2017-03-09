@@ -13,8 +13,11 @@ angular.module("ThemisComponents")
       @context = @modalData.context
       @size = @modalData.size
 
-      @dismiss = (response) ->
-        ModalManager.dismiss @name, response
+      @dismiss = (response) =>
+        if (@size is "fullpage")
+          ModalManager.dismissWithRejectedPromise @name, response
+        else
+          ModalManager.dismiss @name, response
 
       @confirm = (response) ->
         ModalManager.confirm @name, response

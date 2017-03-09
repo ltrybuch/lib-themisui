@@ -30,11 +30,16 @@ angular.module("ThemisComponents")
 
     confirm = (name, response) ->
       modal = findByName name
-      modal.deferred.resolve(response) if modal isnt undefined
+      modal.deferred.resolve(response) if modal?
       remove name
 
     dismiss = (name, response) ->
       modal = findByName name
+      remove name
+
+    dismissWithRejectedPromise = (name, response) ->
+      modal = findByName name
+      modal.deferred.reject(response) if modal?
       remove name
 
     findByName = (name) ->
@@ -57,6 +62,7 @@ angular.module("ThemisComponents")
     return {
       show
       dismiss
+      dismissWithRejectedPromise
       confirm
       _modals: modals
     }
