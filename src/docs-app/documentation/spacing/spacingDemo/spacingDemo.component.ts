@@ -17,13 +17,14 @@ class SpacingDemo {
   }
 }
 
-angular.module("ThemisComponentsApp")
-  .component("spacingDemo", {
-    controller: SpacingDemo,
-    template,
-    bindings: {
-      spacingType: "<",
-      codeDemo: "<",
-      fullDemo: "<"
-    }
-});
+const spacingDemoComponent: angular.IComponentOptions = {
+  controller: SpacingDemo,
+  template,
+  bindings: {
+    spacingType: "<",
+    codeDemo: "<",
+    fullDemo: "<"
+  }
+};
+
+export default spacingDemoComponent;

@@ -1,10 +1,11 @@
 import * as angular from "angular";
 const template = require("./colorSwatch.template.html") as string;
 
-angular.module("ThemisComponentsApp")
-  .component("colorSwatch", {
-    template,
-    bindings: {
-      colors: "<"
-    }
-  });
+const colorSwatchComponent: angular.IComponentOptions = {
+  template,
+  bindings: {
+    colors: "<"
+  }
+};
+
+export default colorSwatchComponent;

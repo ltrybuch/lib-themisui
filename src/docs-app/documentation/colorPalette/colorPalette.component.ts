@@ -1,6 +1,5 @@
 import * as angular from "angular";
 import {ScssVariables, ColorData, variableFilterCallback} from "./colorPalette.interfaces";
-import "./colorSwatch/colorSwatch.component";
 
 // tslint:disable-next-line:max-line-length
 const scssVariables = require("!!sass-variable-loader?preserveVariableNames!../../../themes/themis/colors.scss") as ScssVariables;
@@ -44,8 +43,9 @@ class ColorPalette {
   }
 }
 
-angular.module("ThemisComponentsApp")
-  .component("colorPalette", {
-    controller: ColorPalette,
-    template
-  });
+const colorPaletteComponent: angular.IComponentOptions = {
+  template,
+  controller: ColorPalette
+};
+
+export default colorPaletteComponent;

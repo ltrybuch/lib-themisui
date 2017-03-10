@@ -6,6 +6,8 @@ interface PackageJson {
   name: string;
   version: string;
   license: string;
+  dependencies: Dictionary;
+  devDependencies: Dictionary;
 }
 
 interface ComponentMeta {

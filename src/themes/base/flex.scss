@@ -1,0 +1,16 @@
+@import "node_modules/bootstrap/scss/variables";
+@import "./breakpoints";
+
+@import "node_modules/bootstrap/scss/mixins/clearfix";
+@import "node_modules/bootstrap/scss/mixins/breakpoints";
+@import "node_modules/bootstrap/scss/utilities/display";
+@import "node_modules/bootstrap/scss/utilities/spacing";
+@import "node_modules/bootstrap/scss/utilities/flex";
+
+/// This loop creates additional flexbox helper classes to support flex-grow
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    .flex#{$infix}-grow     { flex: 1; }
+  }
+}

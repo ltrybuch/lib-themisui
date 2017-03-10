@@ -1,5 +1,5 @@
 import * as angular from "angular";
-import { SassDoc, SassDocExample } from "../sassdoc.types";
+import { SassDoc, SassDocExample } from "../../../catalog/sassdoc.interfaces";
 import "../spacingDemo/spacingDemo.component";
 
 const fullDemoMarkup = require("!!raw-loader!./fullDemo/fullDemo.html") as string;
@@ -46,15 +46,16 @@ class SpacingDemoCode {
   }
 }
 
-angular.module("ThemisComponentsApp")
-  .component("spacingDemoCode", {
-    controller: SpacingDemoCode,
-    template,
-    bindings: {
-      sassData: "<",
-      exampleSize: "<",
-      showRender: "<",
-      spacingType: "<",
-      fullDemo: "<"
-    }
-});
+const spacingDemoCodeComponent: angular.IComponentOptions = {
+  controller: SpacingDemoCode,
+  template,
+  bindings: {
+    sassData: "<",
+    exampleSize: "<",
+    showRender: "<",
+    spacingType: "<",
+    fullDemo: "<"
+  }
+};
+
+export default spacingDemoCodeComponent;

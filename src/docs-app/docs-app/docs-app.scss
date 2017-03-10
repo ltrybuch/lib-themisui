@@ -4,6 +4,7 @@
 // Documentation components
 @import "../documentation/colorPalette/index";
 @import "../documentation/spacing/index";
+@import "../documentation/flex/index";
 
 // Catalog components
 @import "../catalog/component-example/index";
@@ -29,8 +30,8 @@ body {
     right: 0;
     height: $header-height;
 
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: $spacing-m;
+    padding-right: $spacing-m;
 
     color: $white;
     line-height: $header-height;
@@ -68,7 +69,7 @@ body {
 
 h1, h2, h3, p {
   margin: 0;
-  margin-bottom: 1.2rem;
+  margin-bottom: $spacing-m;
   padding: 0;
 }
 
@@ -78,17 +79,17 @@ h1, h2, h3 {
 
 .sidebar {
   position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
+  top: 0;
+  bottom: 0;
+  left: 0;
   width: $list-view-width;
 
   .github-link {
     display: block;
     position: absolute;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
+    bottom: 0;
+    left: 0;
+    right: 0;
     height: $header-height;
 
     color: $grey-6;
@@ -106,7 +107,7 @@ h1, h2, h3 {
 
     i {
       margin-top: -3px;
-      margin-right: 6px;
+      margin-right: $spacing-s;
       vertical-align: middle;
     }
   }
@@ -118,7 +119,7 @@ h1, h2, h3 {
     left: 0px;
     right: 0px;
 
-    padding: 0.6rem 0px;
+    padding: $spacing-s 0;
 
     color: $grey-2;
     border-right: $border;
@@ -127,15 +128,11 @@ h1, h2, h3 {
     overflow: auto;
 
     hr {
-      border: solid 1px $grey-6;
+      border: $border;
     }
 
     th-disclosure-toggle span {
       font-weight: bold;
-    }
-
-    th-disclosure-content {
-      padding-left: 16px;
     }
 
     a {
@@ -155,10 +152,6 @@ h1, h2, h3 {
 
     th-disclosure-toggle span {
       font-weight: bold;
-    }
-
-    th-disclosure-content {
-      padding-left: 16px;
     }
 
     &.as-icons {
@@ -184,9 +177,13 @@ h1, h2, h3 {
 
         display: block;
         height: $size;
-        padding-left: 1.2rem;
+        padding-left: $spacing-m;
 
         line-height: $size;
+
+        &[ui-sref] {
+          padding-left: $spacing-xl;
+        }
       }
     }
   }

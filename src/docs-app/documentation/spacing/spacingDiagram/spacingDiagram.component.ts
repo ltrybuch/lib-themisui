@@ -1,5 +1,5 @@
 import * as angular from "angular";
-import { SassDoc } from "../sassdoc.types";
+import { SassDoc } from "../../../catalog/sassdoc.interfaces";
 const template = require("./spacingDiagram.template.html") as string;
 
 class SpacingDiagram {
@@ -27,13 +27,14 @@ class SpacingDiagram {
   }
 }
 
-angular.module("ThemisComponentsApp")
-  .component("spacingDiagram", {
-    controller: SpacingDiagram,
-    template,
-    bindings: {
-      sassDocObj: "<",
-      value: "<",
-      spacingType: "<"
-    }
-});
+const spacingDiagramComponent: angular.IComponentOptions = {
+  controller: SpacingDiagram,
+  template,
+  bindings: {
+    sassDocObj: "<",
+    value: "<",
+    spacingType: "<"
+  }
+};
+
+export default spacingDiagramComponent;

@@ -1,0 +1,10 @@
+flex {
+  table.th-table {
+    display: table;
+
+    thead, tbody {
+      border-left: $border;
+      border-right: $border;
+    }
+  }
+}

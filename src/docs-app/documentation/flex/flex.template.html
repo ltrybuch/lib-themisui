@@ -1,0 +1,20 @@
+<div docs-bind-markdown="$ctrl.readme"></div>
+
+<h3>Breakpoints <a id="breakpoints"></a></h3>
+<p>The breakpoints available are:</p>
+<th-table delegate="$ctrl.breakPointsTableData">
+  <th-table-row type="cells">
+    <th-table-cell>{{item.name}}</th-table-cell>
+    <th-table-cell>{{item.value}}</th-table-cell>
+  </th-table-row>
+</th-table>
+
+<hr>
+<p>
+  Current Bootstrap version:
+  <a target="_blank"
+    href="https://github.com/twbs/bootstrap/releases/tag/v{{$ctrl.bootstrapVersion}}"
+    >
+    {{$ctrl.bootstrapVersion}}
+  </a>
+</p>

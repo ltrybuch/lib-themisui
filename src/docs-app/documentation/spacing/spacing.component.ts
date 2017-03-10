@@ -1,8 +1,6 @@
 import * as angular from "angular";
-import { SassDoc } from "./sassdoc.types";
+import { SassDoc } from "../../catalog/sassdoc.interfaces";
 import "prismjs";
-import "./spacingDiagram/spacingDiagram.component";
-import "./spacingDemoCode/spacingDemoCode.component";
 
 const template = require("./spacing.template.html") as string;
 const sassDoc = require("../../catalog/sassdoc.json") as SassDoc[];
@@ -127,8 +125,9 @@ class Spacing {
   }
 }
 
-angular.module("ThemisComponentsApp")
-  .component("spacing", {
-    controller: Spacing,
-    template
-});
+const spacingDocComponent: angular.IComponentOptions = {
+  controller: Spacing,
+  template
+};
+
+export default spacingDocComponent;
