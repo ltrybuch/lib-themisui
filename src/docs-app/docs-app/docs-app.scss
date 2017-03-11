@@ -5,6 +5,7 @@
 
 // Documentation components
 @import "../documentation/colorPalette/index";
+@import "../documentation/flex/index";
 @import "../documentation/spacing/index";
 
 // Catalog components
@@ -83,7 +84,7 @@ h1, h2, h3 {
     hr {
       border: solid 1px $grey-6;
     }
-    
+
     th-disclosure-toggle {
       a {
         position: relative;
@@ -124,7 +125,7 @@ h1, h2, h3 {
           font-weight: 400;
         }
       }
-      
+
     }
 
     &.as-icons {
