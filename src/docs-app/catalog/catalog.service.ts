@@ -9,7 +9,7 @@ export class CatalogService {
 
   /* @ngInject */
   constructor() {
-    this.version = componentCatalog.version;
+    this.version = `v ${componentCatalog.version}`;
     this.components = componentCatalog.components;
     this.docs = componentCatalog.docs;
   }

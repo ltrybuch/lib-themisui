@@ -107,9 +107,11 @@ function getComponents(type: componentType): Component[] {
   return allDirectories.map(directory => {
     const componentMeta = getComponentMeta(directory);
     const componentName = path.basename(directory);
+    const componentDisplayName = componentName.replace(/([A-Z])/g, " $1").slice(3);
 
     return Object.assign(componentMeta, {
       name: componentName,
+      displayName: componentDisplayName,
       readme: getComponentReadme(directory, componentName),
       examples: type === componentType.components ? getComponentExamples(componentName) : null
     });

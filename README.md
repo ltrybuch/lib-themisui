@@ -1,8 +1,8 @@
 # ThemisUI
 
 [![Usage Docs](https://img.shields.io/badge/%E2%96%B6-Usage_Docs-3D7BBA.svg)](http://themisui-docs.clio.com/)
-[![Build Status](https://travis-ci.org/clio/lib-themisui.svg)](https://travis-ci.org/clio/lib-themisui)
-[![Coverage Status](https://coveralls.io/repos/clio/lib-themisui/badge.svg?branch=master&service=github)](https://coveralls.io/github/clio/lib-themisui?branch=master)
+[![GitHub](https://img.shields.io/github/forks/badges/shields.svg?style=social&label=Fork)](https://github.com/clio/lib-themisui/)
+
 
 ThemisUI is a shareable suite of components and brand assets to be shared across Themis projects. ThemisUI also contains a docs viewer to allow for simple consumption of components.
 

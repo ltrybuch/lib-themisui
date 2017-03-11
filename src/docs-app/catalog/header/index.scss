@@ -1,0 +1,58 @@
+@import "../../docs-app/settings";
+
+docs-header {
+    header {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        
+        height: $header-height;
+        padding-left: 30px;
+        padding-right: 30px;
+
+        color: $white;
+        line-height: $header-height;
+        text-align: left;
+
+        background-color: $blue;
+
+        i.clio-logo {
+            position: absolute;
+            top: 15px;
+
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            
+            color: $white;
+
+            background: url("../catalog/header/clio-logo.svg") no-repeat;
+        }
+
+        h1 {
+            display: inline-block;
+            width: 160px;
+            margin: 0;
+            margin-left: 40px;
+            
+            font-size: 14px;
+            font-weight: bold;
+            line-height: inherit;
+
+            a {
+                color: $white;
+                text-decoration: none;
+            }
+        }
+
+        .version {
+            display: inline-block;
+            width: $header-height;
+
+            font-size: 14px;
+            line-height: normal;
+            text-align: center;
+        }
+    }
+}

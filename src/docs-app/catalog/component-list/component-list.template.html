@@ -1,14 +1,6 @@
 <div class="sidebar">
-  <header class="main">
-    <h1>
-      <a ui-sref="index">ThemisUI</a>
-    </h1>
-    <div class="version">{{$ctrl.version}}</div>
-  </header>
-  <div
-    ng-cloak
-    class="component-list-view {{$ctrl.viewType}}"
-    >
+  <div ng-cloak class="component-list-view {{$ctrl.viewType}}">
+    
     <th-disclosure-toggle name="th-guidelines" expanded="true">Guidelines</th-disclosure-toggle>
     <th-disclosure-content name="th-guidelines">
       <a
@@ -29,11 +21,8 @@
         ui-sref="component({name: componentObj.name})"
         ng-if="!componentObj.private"
         >
-        {{componentObj.name}}
+        {{componentObj.displayName}}
       </a>
     </th-disclosure-content>
   </div>
-  <a class="github-link" href="https://github.com/clio/lib-themisui" target="_blank">
-    <i class="fa fa-2x fa-github"></i> View on Github
-  </a>
 </div>

@@ -38,12 +38,16 @@ module.exports = function(env={}) {
       }
     },
     {
+      test: /\.svg$/,
+      loader: "svg-url-loader"
+    },
+    {
       test: /\.md$/,
       exclude: /node_modules/,
       loader: "raw-loader"
     },
     {
-      test: /\.ttf|\.eot|\.woff|\.svg$/,
+      test: /\.ttf|\.eot|\.woff$/,
       exclude: /node_modules/,
       loader: "file-loader",
       query: {
