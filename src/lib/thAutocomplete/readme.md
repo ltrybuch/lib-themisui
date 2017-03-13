@@ -36,5 +36,5 @@ The th-autocomplete delegate supplies configuration options for the component. R
 * `delegate` (**required**) represents a dictionary of arguments passed to the component.
   * `dataSource` (**required**) - Use ```DataSource.createDataSource({})``` 
   which takes any valid [kendo.data.DataSource](http://docs.telerik.com/kendo-ui/api/javascript/data/datasource) options.
-  * `dataTextField` (*optional*) the item field to display (defaults to `name`).
-  * `dataValueField` (*optional*) defines the unique key to use for indexing list items internally (defaults to `id`).
+  * `displayField` (*required*) the item field to display (ex: `name`).
+  * `trackField` (*optional*) defines the unique key to use for indexing list items internally (defaults to `id`).
