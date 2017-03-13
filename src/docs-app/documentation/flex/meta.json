@@ -1,3 +1,4 @@
 {
-  "prettyName": "Flexbox Helpers"
+  "prettyName": "Flexbox Helpers",
+  "private": true
 }
