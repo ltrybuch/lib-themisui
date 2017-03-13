@@ -111,7 +111,8 @@
     "tslint-loader": "3.3.0",
     "typescript": "2.2.1",
     "url-loader": "^0.5.8",
-    "webpack": "2.2.0"
+    "webpack": "2.2.0",
+    "xhook": "1.4.0"
   },
   "scripts": {
     "heroku-prebuild": "bash tools/heroku/preinstall.sh && TS_NODE_PROJECT=tools gulp herokuPreBuild",

@@ -1,7 +1,7 @@
 const SpecHelpers: any = require("spec_helpers");
+import * as expectedEntries from "./fixtures/entries";
 import * as angular from "angular";
 import "angular-mocks";
-import { entries as fixtureEntries, date as fixtureDate } from "../fixtures/entries";
 import SchedulerDataSource from "../../services/scheduler-data-source.service";
 import { SchedulerController } from "../scheduler.component";
 
@@ -25,16 +25,18 @@ describe("ThemisComponents: Component: SchedulerController", () => {
 
     describe(`when "options" is not specified`, () => {
       it("throws an error", () => {
-        const ctrl = $componentController("thScheduler", null) as SchedulerController;
-        expect(() => ctrl.$onInit())
+        const $ctrl = $componentController("thScheduler", null) as SchedulerController;
+        expect(() => $ctrl.$onInit())
           .toThrowError(`thScheduler: You must provide the "options" parameter.`);
       });
     });
 
     describe(`when "options.dataSource" is not provided`, () => {
       it("throws an error", () => {
-        const ctrl = $componentController("thScheduler", null, {options: {}}) as SchedulerController;
-        expect(() => ctrl.$onInit())
+        /* tslint:disable:max-line-length */
+        const $ctrl = $componentController("thScheduler", null, {options: {}}) as SchedulerController;
+        /* tslint:enable:max-line-length */
+        expect(() => $ctrl.$onInit())
           .toThrowError(`thScheduler: You must provide the "options.dataSource" property.`);
       });
     });
@@ -45,14 +47,14 @@ describe("ThemisComponents: Component: SchedulerController", () => {
   describe("when all required parameters are provided", () => {
 
     beforeEach(() => {
-      let schedulerDataSource = new SchedulerDataSource();
+      const schedulerDataSource = new SchedulerDataSource();
 
       scope = {
         options: {
           dataSource: schedulerDataSource.createDataSource({
-            data: fixtureEntries
+            data: expectedEntries.items
           }),
-          date: new Date(fixtureDate)
+          date: new Date(expectedEntries.date)
         }
       };
     });

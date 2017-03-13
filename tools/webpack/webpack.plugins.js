@@ -6,7 +6,7 @@ const StatsPlugin = require("stats-webpack-plugin");
 module.exports = function(env={}) {
 
   const buildPlugins = [];
-  
+
   if (!env.skipCleanup) {
     buildPlugins.push(new CleanWebpackPlugin([env.dist ? env.distRoot : env.publicAssetsRoot], {
       root: env.root,
@@ -14,7 +14,7 @@ module.exports = function(env={}) {
       dry: false
     }));
   }
-    
+
   buildPlugins.push(new webpack.LoaderOptionsPlugin({
     minimize: false,
     debug: !env.dist

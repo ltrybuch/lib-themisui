@@ -17,13 +17,13 @@ module.exports =
 
     # Compile template.
     wrappedTemplate = "<html ng-app>#{template}</html>"
-    compiledElement = compile(wrappedTemplate)(scope)
+    compiledElement = compile(wrappedTemplate) scope
     scope.$digest()
     return element: jQuery(compiledElement), scope: scope
 
   # Creates a raw DOM element from a string template.
   # Only works for templates with a single root node.
   createDOMElement: (template) ->
-    div = document.createElement 'div'
+    div = document.createElement "div"
     div.innerHTML = template
     return div.firstChild

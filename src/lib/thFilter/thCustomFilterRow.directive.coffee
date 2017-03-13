@@ -1,8 +1,8 @@
-require './thCustomFilterRow.controller'
+require "./thCustomFilterRow.controller"
 
-angular.module 'ThemisComponents'
-  .directive 'thCustomFilterRow', ->
-    restrict: 'E'
+angular.module "ThemisComponents"
+  .directive "thCustomFilterRow", ->
+    restrict: "E"
     require: "^thCustomFilters"
     scope:
       rowSelectValue: "="
@@ -12,6 +12,6 @@ angular.module 'ThemisComponents'
       onRemoveRow: "&"
       showSearchHint: "<"
     bindToController: true
-    controllerAs: 'thCustomFilterRow'
-    template: require './thCustomFilterRow.template.html'
+    controllerAs: "thCustomFilterRow"
+    template: require "./thCustomFilterRow.template.html"
     controller: "thCustomFilterRow.controller"
