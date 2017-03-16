@@ -1,0 +1,21 @@
+<html ng-app="thDatePickerDemo">
+  <body ng-controller="thDatePickerDemoCtrl3 as demo" class="th-example-height-500">
+    <p>Date Selected: {{ demo.date }}</p>
+    <th-date-picker
+      name="dateA"
+      ng-model="demo.date"
+      date-format="mm/dd/yyyy"
+      on-change="demo.onchange"
+      >
+    </th-date-picker>
+
+    <p>Date Selected: {{ demo.date }}</p>
+    <th-date-picker
+      name="dateB"
+      ng-model="demo.date"
+      date-format="dd/mm/yyyy"
+      on-change="demo.onchange"
+      >
+    </th-date-picker>
+  </body>
+</html>

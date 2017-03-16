@@ -23,8 +23,9 @@ describe "ThemisComponents: Directive: thFilterDate", ->
 
   setInputValue = (value) ->
     input = element.find "input"
-    input.val value
-    input.triggerHandler "change"
+    datepicker = input.data "kendoDatePicker"
+    datepicker.value value
+    datepicker.trigger "change"
 
   selectOperator = (option) ->
     select = element.find "select"
@@ -115,16 +116,26 @@ describe "ThemisComponents: Directive: thFilterDate", ->
       spyOn filterSet, "onFilterChange"
 
     it "should call onFilterChange and update filter value", ->
-      setInputValue "2016-09-19T00:00:00+00:00"
-      keypress = angular.element.Event("keypress")
-      keypress.which = 9
+      dateFormat = "MM/DD/YYYY"
       input = element.find "input"
-      input.trigger keypress
+      today = moment().date().toString()
+      $(input).triggerHandler "click"
+      $today = $("a:contains(#{ today })")
+      expectedOperator = "<"
+      expectedFilterValue = moment().format dateFormat
+
+      # execute
+      $today.click()
+
+      # assert
+      actualFilterSet = filterSet[0].getState()
+      actualFilterValue = moment(actualFilterSet.value).format dateFormat
+      actualFilterOperator = actualFilterSet.operator
 
       expect(filterSet.onFilterChange).toHaveBeenCalled()
-      expect(filterSet[0].getState()).toEqual
-        value: "2016-09-19T00:00:00+00:00"
-        operator: "<"
+      expect(actualFilterValue).toEqual expectedFilterValue
+      expect(actualFilterOperator).toEqual expectedOperator
+
 
   describe "when operator is changed", ->
     beforeEach ->

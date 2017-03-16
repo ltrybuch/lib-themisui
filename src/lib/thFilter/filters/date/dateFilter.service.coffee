@@ -22,6 +22,7 @@ angular.module "ThemisComponents"
           throw new Error "DateFilter: must specify valid default operator index."
 
       if initialState?
+
         @model = moment initialState.value
         @operator = @operatorOptions?.find (item) ->
           item.value is initialState.operator
@@ -32,7 +33,8 @@ angular.module "ThemisComponents"
     type: "date"
 
     getState: =>
-      if @model?.isValid
+
+      if @model?.isValid()
         state = {value: @model.format()}
 
         if @operator?.value?

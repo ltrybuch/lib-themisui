@@ -22,8 +22,14 @@ angular.module("thAutocompleteDemo")
 
     this.validate = function(event: any) {
       event.preventDefault();
+      // FIXME: CRAIG: This is an incorrect usage of
+      // the validator service. It should not be instantiated
+      // on the html form... (Mike/Lucia)
       this.validator = ValidatorService.create({
         element: jQuery("form")[0],
+        attrs: {
+          required: true
+        }
       });
 
       this.validator.validate();

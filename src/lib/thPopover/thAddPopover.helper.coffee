@@ -76,9 +76,6 @@ module.exports = ($compile, $timeout) -> (target, contentCallback) ->
       arrow.removeClass 'th-popover-hidden'
 
   dismissPopover = ->
-    # There is an issue when using thPopover with thDatePicker which causes
-    # a major slowdown. Manually clearing the watchers is a temporary fix
-    # while we migrate away from angular-datepicker as a library.
     scope.$$watchers = []
 
     overlay?.remove()

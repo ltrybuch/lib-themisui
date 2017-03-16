@@ -1,7 +1,7 @@
 angular.module 'ThemisComponents'
   .factory 'thDefaults', ->
     defaults = {
-      dateFormat: "YYYY-MM-DD"
+      dateFormat: "yyyy-MM-dd"
     }
 
     setSingleKey = (key, value) ->

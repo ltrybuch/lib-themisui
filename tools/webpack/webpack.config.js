@@ -10,7 +10,7 @@ module.exports = function(env={}) {
   const publicAssetsRoot = path.join(root, ".tmp/assets");
   const docsAppRoot = path.join(rootSrc, "docs-app");
   const sourcesRegex = /\.(ts|coffee)($|\?)/i;
-  
+
   env.distRoot = distRoot;
   env.publicAssetsRoot = publicAssetsRoot;
   env.root = root;
@@ -34,7 +34,6 @@ module.exports = function(env={}) {
     "angular",
     "angular-animate",
     "angular-aria",
-    "angular-datepicker",
     "angular-messages",
     "angular-sanitize",
     "debounce",

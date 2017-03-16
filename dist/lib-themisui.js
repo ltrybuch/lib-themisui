@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 274);
+/******/ 	return __webpack_require__(__webpack_require__.s = 272);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -140,7 +140,7 @@ module.exports =
 /***/ 573:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! jquery */ 3);
+	module.exports = __webpack_require__(/*! jquery */ 2);
 
 /***/ },
 
@@ -6304,7 +6304,7 @@ function loadLocale(name) {
             module && module.exports) {
         try {
             oldLocale = globalLocale._abbr;
-            __webpack_require__(/*! ./locale */ 37)("./" + name);
+            __webpack_require__(/*! ./locale */ 35)("./" + name);
             // because defineLocale currently also sets the global locale, we
             // want to undo that for lazy loaded locales
             getSetGlobalLocale(oldLocale);
@@ -8792,21 +8792,10 @@ return hooks;
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../webpack/buildin/module.js */ 40)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../webpack/buildin/module.js */ 39)(module)))
 
 /***/ }),
 /* 2 */
-/* unknown exports provided */
-/* all exports used */
-/*!**************************!*\
-  !*** external "angular" ***!
-  \**************************/
-/***/ (function(module, exports) {
-
-module.exports = require("angular");
-
-/***/ }),
-/* 3 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************!*\
@@ -19840,6 +19829,17 @@ return jQuery;
 
 
 /***/ }),
+/* 3 */
+/* unknown exports provided */
+/* all exports used */
+/*!**************************!*\
+  !*** external "angular" ***!
+  \**************************/
+/***/ (function(module, exports) {
+
+module.exports = require("angular");
+
+/***/ }),
 /* 4 */
 /* unknown exports provided */
 /* all exports used */
@@ -20833,14 +20833,14 @@ module.exports =
 /***/ 614:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.fx */ 30);
+	module.exports = __webpack_require__(/*! ./kendo.fx */ 29);
 
 /***/ },
 
 /***/ 619:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.draganddrop */ 54);
+	module.exports = __webpack_require__(/*! ./kendo.draganddrop */ 53);
 
 /***/ },
 
@@ -24959,41 +24959,17 @@ return enNz;
 /* 14 */
 /* unknown exports provided */
 /* all exports used */
-/*!***********************!*\
-  !*** external "uuid" ***!
-  \***********************/
-/***/ (function(module, exports) {
-
-module.exports = require("uuid");
-
-/***/ }),
-/* 15 */
-/* unknown exports provided */
-/* all exports used */
 /*!*********************************!*\
   !*** ./~/angular-aria/index.js ***!
   \*********************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./angular-aria */ 32);
+__webpack_require__(/*! ./angular-aria */ 31);
 module.exports = 'ngAria';
 
 
 /***/ }),
-/* 16 */
-/* unknown exports provided */
-/* all exports used */
-/*!***************************************!*\
-  !*** ./~/angular-datepicker/index.js ***!
-  \***************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(/*! ./dist/angular-datepicker.js */ 33);
-module.exports = 'datePicker';
-
-
-/***/ }),
-/* 17 */
+/* 15 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************!*\
@@ -25001,12 +24977,12 @@ module.exports = 'datePicker';
   \*************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./angular-messages */ 34);
+__webpack_require__(/*! ./angular-messages */ 32);
 module.exports = 'ngMessages';
 
 
 /***/ }),
-/* 18 */
+/* 16 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************!*\
@@ -25014,27 +24990,27 @@ module.exports = 'ngMessages';
   \************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! es6-promise */ 36).polyfill();
+__webpack_require__(/*! es6-promise */ 34).polyfill();
 
-__webpack_require__(/*! ./Array.find.polyfill */ 41);
+__webpack_require__(/*! ./Array.find.polyfill */ 40);
 
-__webpack_require__(/*! ./Array.findIndex.polyfill */ 42);
+__webpack_require__(/*! ./Array.findIndex.polyfill */ 41);
 
-__webpack_require__(/*! ./Array.includes.polyfill */ 43);
+__webpack_require__(/*! ./Array.includes.polyfill */ 42);
 
-__webpack_require__(/*! ./Element.matches.polyfill */ 44);
+__webpack_require__(/*! ./Element.matches.polyfill */ 43);
 
-__webpack_require__(/*! ./jQuery.typeAttribute.patch */ 47);
+__webpack_require__(/*! ./jQuery.typeAttribute.patch */ 46);
 
-__webpack_require__(/*! ./Object.assign.polyfill */ 45);
+__webpack_require__(/*! ./Object.assign.polyfill */ 44);
 
-__webpack_require__(/*! ./scrollingElement.polyfill */ 48);
+__webpack_require__(/*! ./scrollingElement.polyfill */ 47);
 
-__webpack_require__(/*! ./String.includes.polyfill */ 46);
+__webpack_require__(/*! ./String.includes.polyfill */ 45);
 
 
 /***/ }),
-/* 19 */
+/* 17 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************!*\
@@ -25045,7 +25021,7 @@ __webpack_require__(/*! ./String.includes.polyfill */ 46);
 module.exports = require("angular-animate");
 
 /***/ }),
-/* 20 */
+/* 18 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************!*\
@@ -25056,7 +25032,7 @@ module.exports = require("angular-animate");
 module.exports = require("angular-sanitize");
 
 /***/ }),
-/* 21 */
+/* 19 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************!*\
@@ -25067,7 +25043,7 @@ module.exports = require("angular-sanitize");
 module.exports = require("ui-select");
 
 /***/ }),
-/* 22 */
+/* 20 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -34872,28 +34848,28 @@ module.exports =
 /***/ 498:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./util */ 51);
+	module.exports = __webpack_require__(/*! ./util */ 50);
 
 /***/ },
 
 /***/ 499:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ../kendo.color */ 53);
+	module.exports = __webpack_require__(/*! ../kendo.color */ 52);
 
 /***/ },
 
 /***/ 500:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ../util/text-metrics */ 124);
+	module.exports = __webpack_require__(/*! ../util/text-metrics */ 123);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 23 */
+/* 21 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -39983,21 +39959,826 @@ module.exports =
 /***/ 607:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.data.odata */ 104);
+	module.exports = __webpack_require__(/*! ./kendo.data.odata */ 103);
 
 /***/ },
 
 /***/ 608:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.data.xml */ 105);
+	module.exports = __webpack_require__(/*! ./kendo.data.xml */ 104);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 24 */
+/* 22 */
+/* unknown exports provided */
+/* all exports used */
+/*!*****************************************************!*\
+  !*** ./~/@progress/kendo-ui/js/kendo.datepicker.js ***!
+  \*****************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 0:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(672);
+
+
+/***/ },
+
+/***/ 3:
+/***/ function(module, exports) {
+
+	module.exports = function() { throw new Error("define cannot be used indirect"); };
+
+
+/***/ },
+
+/***/ 596:
+/***/ function(module, exports) {
+
+	module.exports = __webpack_require__(/*! ./kendo.popup */ 5);
+
+/***/ },
+
+/***/ 672:
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(f, define){
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(673), __webpack_require__(596) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (f), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	})(function(){
+
+	var __meta__ = { // jshint ignore:line
+	    id: "datepicker",
+	    name: "DatePicker",
+	    category: "web",
+	    description: "The DatePicker widget allows the user to select a date from a calendar or by direct input.",
+	    depends: [ "calendar", "popup" ]
+	};
+
+	(function($, undefined) {
+	    var kendo = window.kendo,
+	    ui = kendo.ui,
+	    Widget = ui.Widget,
+	    parse = kendo.parseDate,
+	    keys = kendo.keys,
+	    template = kendo.template,
+	    activeElement = kendo._activeElement,
+	    DIV = "<div />",
+	    SPAN = "<span />",
+	    ns = ".kendoDatePicker",
+	    CLICK = "click" + ns,
+	    OPEN = "open",
+	    CLOSE = "close",
+	    CHANGE = "change",
+	    DISABLED = "disabled",
+	    READONLY = "readonly",
+	    DEFAULT = "k-state-default",
+	    FOCUSED = "k-state-focused",
+	    SELECTED = "k-state-selected",
+	    STATEDISABLED = "k-state-disabled",
+	    HOVER = "k-state-hover",
+	    HOVEREVENTS = "mouseenter" + ns + " mouseleave" + ns,
+	    MOUSEDOWN = "mousedown" + ns,
+	    ID = "id",
+	    MIN = "min",
+	    MAX = "max",
+	    MONTH = "month",
+	    ARIA_DISABLED = "aria-disabled",
+	    ARIA_EXPANDED = "aria-expanded",
+	    ARIA_HIDDEN = "aria-hidden",
+	    calendar = kendo.calendar,
+	    isInRange = calendar.isInRange,
+	    restrictValue = calendar.restrictValue,
+	    isEqualDatePart = calendar.isEqualDatePart,
+	    extend = $.extend,
+	    proxy = $.proxy,
+	    DATE = Date;
+
+	    function normalize(options) {
+	        var parseFormats = options.parseFormats,
+	            format = options.format;
+
+	        calendar.normalize(options);
+
+
+	        parseFormats = $.isArray(parseFormats) ? parseFormats : [parseFormats];
+
+	        if (!parseFormats.length) {
+	            parseFormats.push("yyyy-MM-dd");
+	        }
+
+	        if ($.inArray(format, parseFormats) === -1) {
+	            parseFormats.splice(0, 0, options.format);
+	        }
+
+	        options.parseFormats = parseFormats;
+	    }
+
+	    function preventDefault(e) {
+	        e.preventDefault();
+	    }
+
+	    var DateView = function(options) {
+	        var that = this, id,
+	            body = document.body,
+	            div = $(DIV).attr(ARIA_HIDDEN, "true")
+	                        .addClass("k-calendar-container")
+	                        .appendTo(body);
+
+	        that.options = options = options || {};
+	        id = options.id;
+
+	        if (id) {
+	            id += "_dateview";
+
+	            div.attr(ID, id);
+	            that._dateViewID = id;
+	        }
+
+	        that.popup = new ui.Popup(div, extend(options.popup, options, { name: "Popup", isRtl: kendo.support.isRtl(options.anchor) }));
+	        that.div = div;
+
+	        that.value(options.value);
+	    };
+
+	    DateView.prototype = {
+	        _calendar: function() {
+	            var that = this;
+	            var calendar = that.calendar;
+	            var options = that.options;
+	            var div;
+
+	            if (!calendar) {
+	                div = $(DIV).attr(ID, kendo.guid())
+	                            .appendTo(that.popup.element)
+	                            .on(MOUSEDOWN, preventDefault)
+	                            .on(CLICK, "td:has(.k-link)", proxy(that._click, that));
+
+	                that.calendar = calendar = new ui.Calendar(div);
+	                that._setOptions(options);
+
+	                kendo.calendar.makeUnselectable(calendar.element);
+
+	                calendar.navigate(that._value || that._current, options.start);
+
+	                that.value(that._value);
+	            }
+	        },
+
+	        _setOptions: function(options) {
+	            this.calendar.setOptions({
+	                focusOnNav: false,
+	                change: options.change,
+	                culture: options.culture,
+	                dates: options.dates,
+	                depth: options.depth,
+	                footer: options.footer,
+	                format: options.format,
+	                max: options.max,
+	                min: options.min,
+	                month: options.month,
+	                weekNumber: options.weekNumber,
+	                start: options.start,
+	                disableDates: options.disableDates
+	            });
+	        },
+
+	        setOptions: function(options) {
+	            var old = this.options;
+	            var disableDates = options.disableDates;
+
+	            if (disableDates) {
+	                options.disableDates = calendar.disabled(disableDates);
+	            }
+
+	            this.options = extend(old, options, {
+	                change: old.change,
+	                close: old.close,
+	                open: old.open
+	            });
+
+	            if (this.calendar) {
+	                this._setOptions(this.options);
+	            }
+	        },
+
+	        destroy: function() {
+	            this.popup.destroy();
+	        },
+
+	        open: function() {
+	            var that = this;
+
+	            that._calendar();
+	            that.popup.open();
+	        },
+
+	        close: function() {
+	            this.popup.close();
+	        },
+
+	        min: function(value) {
+	            this._option(MIN, value);
+	        },
+
+	        max: function(value) {
+	            this._option(MAX, value);
+	        },
+
+	        toggle: function() {
+	            var that = this;
+
+	            that[that.popup.visible() ? CLOSE : OPEN]();
+	        },
+
+	        move: function(e) {
+	            var that = this,
+	                key = e.keyCode,
+	                calendar = that.calendar,
+	                selectIsClicked = e.ctrlKey && key == keys.DOWN || key == keys.ENTER,
+	                handled = false;
+
+	            if (e.altKey) {
+	                if (key == keys.DOWN) {
+	                    that.open();
+	                    e.preventDefault();
+	                    handled = true;
+	                } else if (key == keys.UP) {
+	                    that.close();
+	                    e.preventDefault();
+	                    handled = true;
+	                }
+
+	            } else if (that.popup.visible()) {
+
+	                if (key == keys.ESC || (selectIsClicked && calendar._cell.hasClass(SELECTED))) {
+	                    that.close();
+	                    e.preventDefault();
+	                    return true;
+	                }
+
+	                that._current = calendar._move(e);
+	                handled = true;
+	            }
+
+	            return handled;
+	        },
+
+	        current: function(date) {
+	            this._current = date;
+	            this.calendar._focus(date);
+	        },
+
+	        value: function(value) {
+	            var that = this,
+	                calendar = that.calendar,
+	                options = that.options,
+	                disabledDate = options.disableDates;
+
+	            if (disabledDate && disabledDate(value)) {
+	                value = null;
+	            }
+
+	            that._value = value;
+	            that._current = new DATE(+restrictValue(value, options.min, options.max));
+
+	            if (calendar) {
+	                calendar.value(value);
+	            }
+	        },
+
+	        _click: function(e) {
+
+	            if (e.currentTarget.className.indexOf(SELECTED) !== -1) {
+	                this.close();
+	            }
+	        },
+
+	        _option: function(option, value) {
+	            var that = this;
+	            var calendar = that.calendar;
+
+	            that.options[option] = value;
+
+	            if (calendar) {
+	                calendar[option](value);
+	            }
+	        }
+	    };
+
+	    DateView.normalize = normalize;
+
+	    kendo.DateView = DateView;
+
+	    var DatePicker = Widget.extend({
+	        init: function(element, options) {
+	            var that = this,
+	                disabled,
+	                div;
+
+	            Widget.fn.init.call(that, element, options);
+	            element = that.element;
+	            options = that.options;
+
+	            options.disableDates = kendo.calendar.disabled(options.disableDates);
+
+	            options.min = parse(element.attr("min")) || parse(options.min);
+	            options.max = parse(element.attr("max")) || parse(options.max);
+
+	            normalize(options);
+
+	            that._initialOptions = extend({}, options);
+
+	            that._wrapper();
+
+	            that.dateView = new DateView(extend({}, options, {
+	                id: element.attr(ID),
+	                anchor: that.wrapper,
+	                change: function() {
+	                    // calendar is the current scope
+	                    that._change(this.value());
+	                    that.close();
+	                },
+	                close: function(e) {
+	                    if (that.trigger(CLOSE)) {
+	                        e.preventDefault();
+	                    } else {
+	                        element.attr(ARIA_EXPANDED, false);
+	                        div.attr(ARIA_HIDDEN, true);
+	                    }
+	                },
+	                open: function(e) {
+	                    var options = that.options,
+	                        date;
+
+	                    if (that.trigger(OPEN)) {
+	                        e.preventDefault();
+	                    } else {
+	                        if (that.element.val() !== that._oldText) {
+	                            date = parse(element.val(), options.parseFormats, options.culture);
+
+	                            that.dateView[date ? "current" : "value"](date);
+	                        }
+
+	                        element.attr(ARIA_EXPANDED, true);
+	                        div.attr(ARIA_HIDDEN, false);
+
+	                        that._updateARIA(date);
+
+	                    }
+	                }
+	            }));
+	            div = that.dateView.div;
+
+	            that._icon();
+
+	            try {
+	                element[0].setAttribute("type", "text");
+	            } catch(e) {
+	                element[0].type = "text";
+	            }
+
+	            element
+	                .addClass("k-input")
+	                .attr({
+	                    role: "combobox",
+	                    "aria-expanded": false,
+	                    "aria-owns": that.dateView._dateViewID
+	                });
+
+	            that._reset();
+	            that._template();
+
+	            disabled = element.is("[disabled]") || $(that.element).parents("fieldset").is(':disabled');
+	            if (disabled) {
+	                that.enable(false);
+	            } else {
+	                that.readonly(element.is("[readonly]"));
+	            }
+
+	            that._old = that._update(options.value || that.element.val());
+	            that._oldText = element.val();
+
+	            kendo.notify(that);
+	        },
+	        events: [
+	        OPEN,
+	        CLOSE,
+	        CHANGE],
+	        options: {
+	            name: "DatePicker",
+	            value: null,
+	            footer: "",
+	            format: "",
+	            culture: "",
+	            parseFormats: [],
+	            min: new Date(1900, 0, 1),
+	            max: new Date(2099, 11, 31),
+	            start: MONTH,
+	            depth: MONTH,
+	            animation: {},
+	            month : {},
+	            dates: [],
+	            ARIATemplate: 'Current focused date is #=kendo.toString(data.current, "D")#'
+	        },
+
+	        setOptions: function(options) {
+	            var that = this;
+	            var value = that._value;
+
+	            Widget.fn.setOptions.call(that, options);
+
+	            options = that.options;
+
+	            options.min = parse(options.min);
+	            options.max = parse(options.max);
+
+	            normalize(options);
+
+	            that.dateView.setOptions(options);
+
+	            if (value) {
+	                that.element.val(kendo.toString(value, options.format, options.culture));
+	                that._updateARIA(value);
+	            }
+	        },
+
+	        _editable: function(options) {
+	            var that = this,
+	                icon = that._dateIcon.off(ns),
+	                element = that.element.off(ns),
+	                wrapper = that._inputWrapper.off(ns),
+	                readonly = options.readonly,
+	                disable = options.disable;
+
+	            if (!readonly && !disable) {
+	                wrapper
+	                    .addClass(DEFAULT)
+	                    .removeClass(STATEDISABLED)
+	                    .on(HOVEREVENTS, that._toggleHover);
+
+	                element.removeAttr(DISABLED)
+	                       .removeAttr(READONLY)
+	                       .attr(ARIA_DISABLED, false)
+	                       .on("keydown" + ns, proxy(that._keydown, that))
+	                       .on("focusout" + ns, proxy(that._blur, that))
+	                       .on("focus" + ns, function() {
+	                           that._inputWrapper.addClass(FOCUSED);
+	                       });
+
+	               icon.on(CLICK, proxy(that._click, that))
+	                   .on(MOUSEDOWN, preventDefault);
+	            } else {
+	                wrapper
+	                    .addClass(disable ? STATEDISABLED : DEFAULT)
+	                    .removeClass(disable ? DEFAULT : STATEDISABLED);
+
+	                element.attr(DISABLED, disable)
+	                       .attr(READONLY, readonly)
+	                       .attr(ARIA_DISABLED, disable);
+	            }
+	        },
+
+	        readonly: function(readonly) {
+	            this._editable({
+	                readonly: readonly === undefined ? true : readonly,
+	                disable: false
+	            });
+	        },
+
+	        enable: function(enable) {
+	            this._editable({
+	                readonly: false,
+	                disable: !(enable = enable === undefined ? true : enable)
+	            });
+	        },
+
+	        destroy: function() {
+	            var that = this;
+
+	            Widget.fn.destroy.call(that);
+
+	            that.dateView.destroy();
+
+	            that.element.off(ns);
+	            that._dateIcon.off(ns);
+	            that._inputWrapper.off(ns);
+
+	            if (that._form) {
+	                that._form.off("reset", that._resetHandler);
+	            }
+	        },
+
+	        open: function() {
+	            this.dateView.open();
+	        },
+
+	        close: function() {
+	            this.dateView.close();
+	        },
+
+	        min: function(value) {
+	            return this._option(MIN, value);
+	        },
+
+	        max: function(value) {
+	            return this._option(MAX, value);
+	        },
+
+	        value: function(value) {
+	            var that = this;
+
+	            if (value === undefined) {
+	                return that._value;
+	            }
+
+	            that._old = that._update(value);
+
+	            if (that._old === null) {
+	                that.element.val("");
+	            }
+
+	            that._oldText = that.element.val();
+	        },
+
+	        _toggleHover: function(e) {
+	            $(e.currentTarget).toggleClass(HOVER, e.type === "mouseenter");
+	        },
+
+	        _blur: function() {
+	            var that = this,
+	                value = that.element.val();
+
+	            that.close();
+	            if (value !== that._oldText) {
+	                that._change(value);
+	            }
+
+	            that._inputWrapper.removeClass(FOCUSED);
+	        },
+
+	        _click: function() {
+	            var that = this,
+	                element = that.element;
+
+	            that.dateView.toggle();
+
+	            if (!kendo.support.touch && element[0] !== activeElement()) {
+	                element.focus();
+	            }
+	        },
+
+	        _change: function(value) {
+	            var that = this,
+	            oldValue = that.element.val(),
+	            dateChanged;
+
+	            value = that._update(value);
+	            dateChanged = !kendo.calendar.isEqualDate(that._old, value);
+
+	            var valueUpdated = dateChanged && !that._typing;
+	            var textFormatted = oldValue !== that.element.val();
+
+	            if (valueUpdated || textFormatted) {
+	                that.element.trigger(CHANGE);
+	            }
+
+	            if (dateChanged) {
+	                that._old = value;
+	                that._oldText = that.element.val();
+
+	                that.trigger(CHANGE);
+	            }
+
+	            that._typing = false;
+	        },
+
+	        _keydown: function(e) {
+	            var that = this,
+	                dateView = that.dateView,
+	                value = that.element.val(),
+	                handled = false;
+
+	            if (!dateView.popup.visible() && e.keyCode == keys.ENTER && value !== that._oldText) {
+	                that._change(value);
+	            } else {
+	                handled = dateView.move(e);
+	                that._updateARIA(dateView._current);
+
+	                if (!handled) {
+	                    that._typing = true;
+	                }
+	            }
+	        },
+
+	        _icon: function() {
+	            var that = this,
+	                element = that.element,
+	                icon;
+
+	            icon = element.next("span.k-select");
+
+	            if (!icon[0]) {
+	                icon = $('<span unselectable="on" class="k-select" aria-label="select"><span class="k-icon k-i-calendar"></span></span>').insertAfter(element);
+	            }
+
+	            that._dateIcon = icon.attr({
+	                "role": "button",
+	                "aria-controls": that.dateView._dateViewID
+	            });
+	        },
+
+	        _option: function(option, value) {
+	            var that = this,
+	                options = that.options;
+
+	            if (value === undefined) {
+	                return options[option];
+	            }
+
+	            value = parse(value, options.parseFormats, options.culture);
+
+	            if (!value) {
+	                return;
+	            }
+
+	            options[option] = new DATE(+value);
+	            that.dateView[option](value);
+	        },
+
+	        _update: function(value) {
+	            var that = this,
+	                options = that.options,
+	                min = options.min,
+	                max = options.max,
+	                current = that._value,
+	                date = parse(value, options.parseFormats, options.culture),
+	                isSameType = (date === null && current === null) || (date instanceof Date && current instanceof Date),
+	                formattedValue;
+
+	            if (options.disableDates(date)) {
+	                date = null;
+	                if (!that._old && !that.element.val()) {
+	                    value = null;
+	                }
+	            }
+
+	            if (+date === +current && isSameType) {
+	                formattedValue = kendo.toString(date, options.format, options.culture);
+
+	                if (formattedValue !== value) {
+	                    that.element.val(date === null ? value : formattedValue);
+	                }
+
+	                return date;
+	            }
+
+	            if (date !== null && isEqualDatePart(date, min)) {
+	                date = restrictValue(date, min, max);
+	            } else if (!isInRange(date, min, max)) {
+	                date = null;
+	            }
+
+	            that._value = date;
+	            that.dateView.value(date);
+	            that.element.val(kendo.toString(date || value, options.format, options.culture));
+	            that._updateARIA(date);
+
+	            return date;
+	        },
+
+	        _wrapper: function() {
+	            var that = this,
+	                element = that.element,
+	                wrapper;
+
+	            wrapper = element.parents(".k-datepicker");
+
+	            if (!wrapper[0]) {
+	                wrapper = element.wrap(SPAN).parent().addClass("k-picker-wrap k-state-default");
+	                wrapper = wrapper.wrap(SPAN).parent();
+	            }
+
+	            wrapper[0].style.cssText = element[0].style.cssText;
+	            element.css({
+	                width: "100%",
+	                height: element[0].style.height
+	            });
+
+	            that.wrapper = wrapper.addClass("k-widget k-datepicker k-header")
+	                                  .addClass(element[0].className);
+
+	            that._inputWrapper = $(wrapper[0].firstChild);
+	        },
+
+	        _reset: function() {
+	            var that = this,
+	                element = that.element,
+	                formId = element.attr("form"),
+	                form = formId ? $("#" + formId) : element.closest("form");
+
+	            if (form[0]) {
+	                that._resetHandler = function() {
+	                    that.value(element[0].defaultValue);
+	                    that.max(that._initialOptions.max);
+	                    that.min(that._initialOptions.min);
+	                };
+
+	                that._form = form.on("reset", that._resetHandler);
+	            }
+	        },
+
+	        _template: function() {
+	            this._ariaTemplate = template(this.options.ARIATemplate);
+	        },
+
+	        _updateARIA: function(date) {
+	            var cell;
+	            var that = this;
+	            var calendar = that.dateView.calendar;
+
+	            that.element.removeAttr("aria-activedescendant");
+
+	            if (calendar) {
+	                cell = calendar._cell;
+	                cell.attr("aria-label", that._ariaTemplate({ current: date || calendar.current() }));
+
+	                that.element.attr("aria-activedescendant", cell.attr("id"));
+	            }
+	        }
+	    });
+
+	    ui.plugin(DatePicker);
+
+	})(window.kendo.jQuery);
+
+	return window.kendo;
+
+	}, __webpack_require__(3));
+
+
+/***/ },
+
+/***/ 673:
+/***/ function(module, exports) {
+
+	module.exports = __webpack_require__(/*! ./kendo.calendar */ 101);
+
+/***/ }
+
+/******/ });
+
+/***/ }),
+/* 23 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -40069,7 +40850,7 @@ module.exports =
 /***/ 581:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.data */ 23);
+	module.exports = __webpack_require__(/*! ./kendo.data */ 21);
 
 /***/ },
 
@@ -42464,7 +43245,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 25 */
+/* 24 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************!*\
@@ -42496,7 +43277,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 26 */
+/* 25 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************!*\
@@ -42509,7 +43290,7 @@ module.exports = g;
  * Module dependencies.
  */
 
-var now = __webpack_require__(/*! date-now */ 35);
+var now = __webpack_require__(/*! date-now */ 33);
 
 /**
  * Returns a function, that, as long as it continues to be invoked, will not
@@ -42560,7 +43341,7 @@ module.exports = function debounce(func, wait, immediate){
 
 
 /***/ }),
-/* 27 */
+/* 26 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************!*\
@@ -42873,7 +43654,7 @@ function isUndefined(arg) {
 
 
 /***/ }),
-/* 28 */
+/* 27 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************!*\
@@ -42884,812 +43665,18 @@ function isUndefined(arg) {
 module.exports = require("qs");
 
 /***/ }),
-/* 29 */
+/* 28 */
 /* unknown exports provided */
 /* all exports used */
-/*!*****************************************************!*\
-  !*** ./~/@progress/kendo-ui/js/kendo.datepicker.js ***!
-  \*****************************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports =
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
-
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
-
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-
-
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ({
-
-/***/ 0:
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(672);
-
-
-/***/ },
-
-/***/ 3:
-/***/ function(module, exports) {
-
-	module.exports = function() { throw new Error("define cannot be used indirect"); };
-
-
-/***/ },
-
-/***/ 596:
-/***/ function(module, exports) {
-
-	module.exports = __webpack_require__(/*! ./kendo.popup */ 5);
-
-/***/ },
-
-/***/ 672:
-/***/ function(module, exports, __webpack_require__) {
-
-	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(f, define){
-	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(673), __webpack_require__(596) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (f), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	})(function(){
-
-	var __meta__ = { // jshint ignore:line
-	    id: "datepicker",
-	    name: "DatePicker",
-	    category: "web",
-	    description: "The DatePicker widget allows the user to select a date from a calendar or by direct input.",
-	    depends: [ "calendar", "popup" ]
-	};
-
-	(function($, undefined) {
-	    var kendo = window.kendo,
-	    ui = kendo.ui,
-	    Widget = ui.Widget,
-	    parse = kendo.parseDate,
-	    keys = kendo.keys,
-	    template = kendo.template,
-	    activeElement = kendo._activeElement,
-	    DIV = "<div />",
-	    SPAN = "<span />",
-	    ns = ".kendoDatePicker",
-	    CLICK = "click" + ns,
-	    OPEN = "open",
-	    CLOSE = "close",
-	    CHANGE = "change",
-	    DISABLED = "disabled",
-	    READONLY = "readonly",
-	    DEFAULT = "k-state-default",
-	    FOCUSED = "k-state-focused",
-	    SELECTED = "k-state-selected",
-	    STATEDISABLED = "k-state-disabled",
-	    HOVER = "k-state-hover",
-	    HOVEREVENTS = "mouseenter" + ns + " mouseleave" + ns,
-	    MOUSEDOWN = "mousedown" + ns,
-	    ID = "id",
-	    MIN = "min",
-	    MAX = "max",
-	    MONTH = "month",
-	    ARIA_DISABLED = "aria-disabled",
-	    ARIA_EXPANDED = "aria-expanded",
-	    ARIA_HIDDEN = "aria-hidden",
-	    calendar = kendo.calendar,
-	    isInRange = calendar.isInRange,
-	    restrictValue = calendar.restrictValue,
-	    isEqualDatePart = calendar.isEqualDatePart,
-	    extend = $.extend,
-	    proxy = $.proxy,
-	    DATE = Date;
-
-	    function normalize(options) {
-	        var parseFormats = options.parseFormats,
-	            format = options.format;
-
-	        calendar.normalize(options);
-
-
-	        parseFormats = $.isArray(parseFormats) ? parseFormats : [parseFormats];
-
-	        if (!parseFormats.length) {
-	            parseFormats.push("yyyy-MM-dd");
-	        }
-
-	        if ($.inArray(format, parseFormats) === -1) {
-	            parseFormats.splice(0, 0, options.format);
-	        }
-
-	        options.parseFormats = parseFormats;
-	    }
-
-	    function preventDefault(e) {
-	        e.preventDefault();
-	    }
-
-	    var DateView = function(options) {
-	        var that = this, id,
-	            body = document.body,
-	            div = $(DIV).attr(ARIA_HIDDEN, "true")
-	                        .addClass("k-calendar-container")
-	                        .appendTo(body);
-
-	        that.options = options = options || {};
-	        id = options.id;
-
-	        if (id) {
-	            id += "_dateview";
-
-	            div.attr(ID, id);
-	            that._dateViewID = id;
-	        }
-
-	        that.popup = new ui.Popup(div, extend(options.popup, options, { name: "Popup", isRtl: kendo.support.isRtl(options.anchor) }));
-	        that.div = div;
-
-	        that.value(options.value);
-	    };
-
-	    DateView.prototype = {
-	        _calendar: function() {
-	            var that = this;
-	            var calendar = that.calendar;
-	            var options = that.options;
-	            var div;
-
-	            if (!calendar) {
-	                div = $(DIV).attr(ID, kendo.guid())
-	                            .appendTo(that.popup.element)
-	                            .on(MOUSEDOWN, preventDefault)
-	                            .on(CLICK, "td:has(.k-link)", proxy(that._click, that));
-
-	                that.calendar = calendar = new ui.Calendar(div);
-	                that._setOptions(options);
-
-	                kendo.calendar.makeUnselectable(calendar.element);
-
-	                calendar.navigate(that._value || that._current, options.start);
-
-	                that.value(that._value);
-	            }
-	        },
-
-	        _setOptions: function(options) {
-	            this.calendar.setOptions({
-	                focusOnNav: false,
-	                change: options.change,
-	                culture: options.culture,
-	                dates: options.dates,
-	                depth: options.depth,
-	                footer: options.footer,
-	                format: options.format,
-	                max: options.max,
-	                min: options.min,
-	                month: options.month,
-	                weekNumber: options.weekNumber,
-	                start: options.start,
-	                disableDates: options.disableDates
-	            });
-	        },
-
-	        setOptions: function(options) {
-	            var old = this.options;
-	            var disableDates = options.disableDates;
-
-	            if (disableDates) {
-	                options.disableDates = calendar.disabled(disableDates);
-	            }
-
-	            this.options = extend(old, options, {
-	                change: old.change,
-	                close: old.close,
-	                open: old.open
-	            });
-
-	            if (this.calendar) {
-	                this._setOptions(this.options);
-	            }
-	        },
-
-	        destroy: function() {
-	            this.popup.destroy();
-	        },
-
-	        open: function() {
-	            var that = this;
-
-	            that._calendar();
-	            that.popup.open();
-	        },
-
-	        close: function() {
-	            this.popup.close();
-	        },
-
-	        min: function(value) {
-	            this._option(MIN, value);
-	        },
-
-	        max: function(value) {
-	            this._option(MAX, value);
-	        },
-
-	        toggle: function() {
-	            var that = this;
-
-	            that[that.popup.visible() ? CLOSE : OPEN]();
-	        },
-
-	        move: function(e) {
-	            var that = this,
-	                key = e.keyCode,
-	                calendar = that.calendar,
-	                selectIsClicked = e.ctrlKey && key == keys.DOWN || key == keys.ENTER,
-	                handled = false;
-
-	            if (e.altKey) {
-	                if (key == keys.DOWN) {
-	                    that.open();
-	                    e.preventDefault();
-	                    handled = true;
-	                } else if (key == keys.UP) {
-	                    that.close();
-	                    e.preventDefault();
-	                    handled = true;
-	                }
-
-	            } else if (that.popup.visible()) {
-
-	                if (key == keys.ESC || (selectIsClicked && calendar._cell.hasClass(SELECTED))) {
-	                    that.close();
-	                    e.preventDefault();
-	                    return true;
-	                }
-
-	                that._current = calendar._move(e);
-	                handled = true;
-	            }
-
-	            return handled;
-	        },
-
-	        current: function(date) {
-	            this._current = date;
-	            this.calendar._focus(date);
-	        },
-
-	        value: function(value) {
-	            var that = this,
-	                calendar = that.calendar,
-	                options = that.options,
-	                disabledDate = options.disableDates;
-
-	            if (disabledDate && disabledDate(value)) {
-	                value = null;
-	            }
-
-	            that._value = value;
-	            that._current = new DATE(+restrictValue(value, options.min, options.max));
-
-	            if (calendar) {
-	                calendar.value(value);
-	            }
-	        },
-
-	        _click: function(e) {
-
-	            if (e.currentTarget.className.indexOf(SELECTED) !== -1) {
-	                this.close();
-	            }
-	        },
-
-	        _option: function(option, value) {
-	            var that = this;
-	            var calendar = that.calendar;
-
-	            that.options[option] = value;
-
-	            if (calendar) {
-	                calendar[option](value);
-	            }
-	        }
-	    };
-
-	    DateView.normalize = normalize;
-
-	    kendo.DateView = DateView;
-
-	    var DatePicker = Widget.extend({
-	        init: function(element, options) {
-	            var that = this,
-	                disabled,
-	                div;
-
-	            Widget.fn.init.call(that, element, options);
-	            element = that.element;
-	            options = that.options;
-
-	            options.disableDates = kendo.calendar.disabled(options.disableDates);
-
-	            options.min = parse(element.attr("min")) || parse(options.min);
-	            options.max = parse(element.attr("max")) || parse(options.max);
-
-	            normalize(options);
-
-	            that._initialOptions = extend({}, options);
-
-	            that._wrapper();
-
-	            that.dateView = new DateView(extend({}, options, {
-	                id: element.attr(ID),
-	                anchor: that.wrapper,
-	                change: function() {
-	                    // calendar is the current scope
-	                    that._change(this.value());
-	                    that.close();
-	                },
-	                close: function(e) {
-	                    if (that.trigger(CLOSE)) {
-	                        e.preventDefault();
-	                    } else {
-	                        element.attr(ARIA_EXPANDED, false);
-	                        div.attr(ARIA_HIDDEN, true);
-	                    }
-	                },
-	                open: function(e) {
-	                    var options = that.options,
-	                        date;
-
-	                    if (that.trigger(OPEN)) {
-	                        e.preventDefault();
-	                    } else {
-	                        if (that.element.val() !== that._oldText) {
-	                            date = parse(element.val(), options.parseFormats, options.culture);
-
-	                            that.dateView[date ? "current" : "value"](date);
-	                        }
-
-	                        element.attr(ARIA_EXPANDED, true);
-	                        div.attr(ARIA_HIDDEN, false);
-
-	                        that._updateARIA(date);
-
-	                    }
-	                }
-	            }));
-	            div = that.dateView.div;
-
-	            that._icon();
-
-	            try {
-	                element[0].setAttribute("type", "text");
-	            } catch(e) {
-	                element[0].type = "text";
-	            }
-
-	            element
-	                .addClass("k-input")
-	                .attr({
-	                    role: "combobox",
-	                    "aria-expanded": false,
-	                    "aria-owns": that.dateView._dateViewID
-	                });
-
-	            that._reset();
-	            that._template();
-
-	            disabled = element.is("[disabled]") || $(that.element).parents("fieldset").is(':disabled');
-	            if (disabled) {
-	                that.enable(false);
-	            } else {
-	                that.readonly(element.is("[readonly]"));
-	            }
-
-	            that._old = that._update(options.value || that.element.val());
-	            that._oldText = element.val();
-
-	            kendo.notify(that);
-	        },
-	        events: [
-	        OPEN,
-	        CLOSE,
-	        CHANGE],
-	        options: {
-	            name: "DatePicker",
-	            value: null,
-	            footer: "",
-	            format: "",
-	            culture: "",
-	            parseFormats: [],
-	            min: new Date(1900, 0, 1),
-	            max: new Date(2099, 11, 31),
-	            start: MONTH,
-	            depth: MONTH,
-	            animation: {},
-	            month : {},
-	            dates: [],
-	            ARIATemplate: 'Current focused date is #=kendo.toString(data.current, "D")#'
-	        },
-
-	        setOptions: function(options) {
-	            var that = this;
-	            var value = that._value;
-
-	            Widget.fn.setOptions.call(that, options);
-
-	            options = that.options;
-
-	            options.min = parse(options.min);
-	            options.max = parse(options.max);
-
-	            normalize(options);
-
-	            that.dateView.setOptions(options);
-
-	            if (value) {
-	                that.element.val(kendo.toString(value, options.format, options.culture));
-	                that._updateARIA(value);
-	            }
-	        },
-
-	        _editable: function(options) {
-	            var that = this,
-	                icon = that._dateIcon.off(ns),
-	                element = that.element.off(ns),
-	                wrapper = that._inputWrapper.off(ns),
-	                readonly = options.readonly,
-	                disable = options.disable;
-
-	            if (!readonly && !disable) {
-	                wrapper
-	                    .addClass(DEFAULT)
-	                    .removeClass(STATEDISABLED)
-	                    .on(HOVEREVENTS, that._toggleHover);
-
-	                element.removeAttr(DISABLED)
-	                       .removeAttr(READONLY)
-	                       .attr(ARIA_DISABLED, false)
-	                       .on("keydown" + ns, proxy(that._keydown, that))
-	                       .on("focusout" + ns, proxy(that._blur, that))
-	                       .on("focus" + ns, function() {
-	                           that._inputWrapper.addClass(FOCUSED);
-	                       });
-
-	               icon.on(CLICK, proxy(that._click, that))
-	                   .on(MOUSEDOWN, preventDefault);
-	            } else {
-	                wrapper
-	                    .addClass(disable ? STATEDISABLED : DEFAULT)
-	                    .removeClass(disable ? DEFAULT : STATEDISABLED);
-
-	                element.attr(DISABLED, disable)
-	                       .attr(READONLY, readonly)
-	                       .attr(ARIA_DISABLED, disable);
-	            }
-	        },
-
-	        readonly: function(readonly) {
-	            this._editable({
-	                readonly: readonly === undefined ? true : readonly,
-	                disable: false
-	            });
-	        },
-
-	        enable: function(enable) {
-	            this._editable({
-	                readonly: false,
-	                disable: !(enable = enable === undefined ? true : enable)
-	            });
-	        },
-
-	        destroy: function() {
-	            var that = this;
-
-	            Widget.fn.destroy.call(that);
-
-	            that.dateView.destroy();
-
-	            that.element.off(ns);
-	            that._dateIcon.off(ns);
-	            that._inputWrapper.off(ns);
-
-	            if (that._form) {
-	                that._form.off("reset", that._resetHandler);
-	            }
-	        },
-
-	        open: function() {
-	            this.dateView.open();
-	        },
-
-	        close: function() {
-	            this.dateView.close();
-	        },
-
-	        min: function(value) {
-	            return this._option(MIN, value);
-	        },
-
-	        max: function(value) {
-	            return this._option(MAX, value);
-	        },
-
-	        value: function(value) {
-	            var that = this;
-
-	            if (value === undefined) {
-	                return that._value;
-	            }
-
-	            that._old = that._update(value);
-
-	            if (that._old === null) {
-	                that.element.val("");
-	            }
-
-	            that._oldText = that.element.val();
-	        },
-
-	        _toggleHover: function(e) {
-	            $(e.currentTarget).toggleClass(HOVER, e.type === "mouseenter");
-	        },
-
-	        _blur: function() {
-	            var that = this,
-	                value = that.element.val();
-
-	            that.close();
-	            if (value !== that._oldText) {
-	                that._change(value);
-	            }
-
-	            that._inputWrapper.removeClass(FOCUSED);
-	        },
-
-	        _click: function() {
-	            var that = this,
-	                element = that.element;
-
-	            that.dateView.toggle();
-
-	            if (!kendo.support.touch && element[0] !== activeElement()) {
-	                element.focus();
-	            }
-	        },
-
-	        _change: function(value) {
-	            var that = this,
-	            oldValue = that.element.val(),
-	            dateChanged;
-
-	            value = that._update(value);
-	            dateChanged = !kendo.calendar.isEqualDate(that._old, value);
-
-	            var valueUpdated = dateChanged && !that._typing;
-	            var textFormatted = oldValue !== that.element.val();
-
-	            if (valueUpdated || textFormatted) {
-	                that.element.trigger(CHANGE);
-	            }
-
-	            if (dateChanged) {
-	                that._old = value;
-	                that._oldText = that.element.val();
-
-	                that.trigger(CHANGE);
-	            }
-
-	            that._typing = false;
-	        },
-
-	        _keydown: function(e) {
-	            var that = this,
-	                dateView = that.dateView,
-	                value = that.element.val(),
-	                handled = false;
-
-	            if (!dateView.popup.visible() && e.keyCode == keys.ENTER && value !== that._oldText) {
-	                that._change(value);
-	            } else {
-	                handled = dateView.move(e);
-	                that._updateARIA(dateView._current);
-
-	                if (!handled) {
-	                    that._typing = true;
-	                }
-	            }
-	        },
-
-	        _icon: function() {
-	            var that = this,
-	                element = that.element,
-	                icon;
-
-	            icon = element.next("span.k-select");
-
-	            if (!icon[0]) {
-	                icon = $('<span unselectable="on" class="k-select" aria-label="select"><span class="k-icon k-i-calendar"></span></span>').insertAfter(element);
-	            }
-
-	            that._dateIcon = icon.attr({
-	                "role": "button",
-	                "aria-controls": that.dateView._dateViewID
-	            });
-	        },
-
-	        _option: function(option, value) {
-	            var that = this,
-	                options = that.options;
-
-	            if (value === undefined) {
-	                return options[option];
-	            }
-
-	            value = parse(value, options.parseFormats, options.culture);
-
-	            if (!value) {
-	                return;
-	            }
-
-	            options[option] = new DATE(+value);
-	            that.dateView[option](value);
-	        },
-
-	        _update: function(value) {
-	            var that = this,
-	                options = that.options,
-	                min = options.min,
-	                max = options.max,
-	                current = that._value,
-	                date = parse(value, options.parseFormats, options.culture),
-	                isSameType = (date === null && current === null) || (date instanceof Date && current instanceof Date),
-	                formattedValue;
-
-	            if (options.disableDates(date)) {
-	                date = null;
-	                if (!that._old && !that.element.val()) {
-	                    value = null;
-	                }
-	            }
-
-	            if (+date === +current && isSameType) {
-	                formattedValue = kendo.toString(date, options.format, options.culture);
-
-	                if (formattedValue !== value) {
-	                    that.element.val(date === null ? value : formattedValue);
-	                }
-
-	                return date;
-	            }
-
-	            if (date !== null && isEqualDatePart(date, min)) {
-	                date = restrictValue(date, min, max);
-	            } else if (!isInRange(date, min, max)) {
-	                date = null;
-	            }
-
-	            that._value = date;
-	            that.dateView.value(date);
-	            that.element.val(kendo.toString(date || value, options.format, options.culture));
-	            that._updateARIA(date);
-
-	            return date;
-	        },
-
-	        _wrapper: function() {
-	            var that = this,
-	                element = that.element,
-	                wrapper;
-
-	            wrapper = element.parents(".k-datepicker");
-
-	            if (!wrapper[0]) {
-	                wrapper = element.wrap(SPAN).parent().addClass("k-picker-wrap k-state-default");
-	                wrapper = wrapper.wrap(SPAN).parent();
-	            }
-
-	            wrapper[0].style.cssText = element[0].style.cssText;
-	            element.css({
-	                width: "100%",
-	                height: element[0].style.height
-	            });
-
-	            that.wrapper = wrapper.addClass("k-widget k-datepicker k-header")
-	                                  .addClass(element[0].className);
-
-	            that._inputWrapper = $(wrapper[0].firstChild);
-	        },
-
-	        _reset: function() {
-	            var that = this,
-	                element = that.element,
-	                formId = element.attr("form"),
-	                form = formId ? $("#" + formId) : element.closest("form");
-
-	            if (form[0]) {
-	                that._resetHandler = function() {
-	                    that.value(element[0].defaultValue);
-	                    that.max(that._initialOptions.max);
-	                    that.min(that._initialOptions.min);
-	                };
-
-	                that._form = form.on("reset", that._resetHandler);
-	            }
-	        },
-
-	        _template: function() {
-	            this._ariaTemplate = template(this.options.ARIATemplate);
-	        },
-
-	        _updateARIA: function(date) {
-	            var cell;
-	            var that = this;
-	            var calendar = that.dateView.calendar;
-
-	            that.element.removeAttr("aria-activedescendant");
-
-	            if (calendar) {
-	                cell = calendar._cell;
-	                cell.attr("aria-label", that._ariaTemplate({ current: date || calendar.current() }));
-
-	                that.element.attr("aria-activedescendant", cell.attr("id"));
-	            }
-	        }
-	    });
-
-	    ui.plugin(DatePicker);
-
-	})(window.kendo.jQuery);
-
-	return window.kendo;
-
-	}, __webpack_require__(3));
-
-
-/***/ },
-
-/***/ 673:
-/***/ function(module, exports) {
-
-	module.exports = __webpack_require__(/*! ./kendo.calendar */ 102);
-
-/***/ }
-
-/******/ });
+/*!***********************!*\
+  !*** external "uuid" ***!
+  \***********************/
+/***/ (function(module, exports) {
+
+module.exports = require("uuid");
 
 /***/ }),
-/* 30 */
+/* 29 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************!*\
@@ -45359,7 +45346,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 31 */
+/* 30 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -45903,7 +45890,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 32 */
+/* 31 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************!*\
@@ -46321,1064 +46308,7 @@ ngAriaModule.directive('ngShow', ['$aria', function($aria) {
 
 
 /***/ }),
-/* 33 */
-/* unknown exports provided */
-/* all exports used */
-/*!*********************************************************!*\
-  !*** ./~/angular-datepicker/dist/angular-datepicker.js ***!
-  \*********************************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-(function (global, factory) {'use strict';var fnc;fnc = ( true) ? module.exports = factory(window.angular, __webpack_require__(/*! moment */ 1)) :(typeof define === 'function' && define.amd) ? define(['angular', 'moment'], factory) :factory(global.angular, global.moment);}(this, function (angular, moment) {
-// define module
-angular.module('datePicker', [])
-  .constant('datePickerConfig', {
-    template: 'templates/datepicker.html',
-    view: 'month',
-    views: ['year', 'month', 'date', 'hours', 'minutes'],
-    momentNames: {
-      year: 'year',
-      month: 'month',
-      date: 'day',
-      hours: 'hours',
-      minutes: 'minutes',
-    },
-    viewConfig: {
-      year: ['years', 'isSameYear'],
-      month: ['months', 'isSameMonth'],
-      hours: ['hours', 'isSameHour'],
-      minutes: ['minutes', 'isSameMinutes'],
-    },
-    step: 5
-  })
-  //Moment format filter.
-  .filter('mFormat', function () {
-    return function (m, format, tz) {
-      if (!(moment.isMoment(m))) {
-        return moment(m).format(format);
-      }
-      return tz ? moment.tz(m, tz).format(format) : m.format(format);
-    };
-  })
-  .directive('datePicker', ['datePickerConfig', 'datePickerUtils', function datePickerDirective(datePickerConfig, datePickerUtils) {
-
-    //noinspection JSUnusedLocalSymbols
-    return {
-      // this is a bug ?
-      require: '?ngModel',
-      template: '<div ng-include="template"></div>',
-      scope: {
-        model: '=datePicker',
-        after: '=?',
-        before: '=?'
-      },
-      link: function (scope, element, attrs, ngModel) {
-        function prepareViews() {
-          scope.views = datePickerConfig.views.concat();
-          scope.view = attrs.view || datePickerConfig.view;
-
-          scope.views = scope.views.slice(
-            scope.views.indexOf(attrs.maxView || 'year'),
-            scope.views.indexOf(attrs.minView || 'minutes') + 1
-          );
-
-          if (scope.views.length === 1 || scope.views.indexOf(scope.view) === -1) {
-            scope.view = scope.views[0];
-          }
-        }
-
-        function getDate(name) {
-          return datePickerUtils.getDate(scope, attrs, name);
-        }
-
-        var arrowClick = false,
-          tz = scope.tz = attrs.timezone,
-          createMoment = datePickerUtils.createMoment,
-          eventIsForPicker = datePickerUtils.eventIsForPicker,
-          step = parseInt(attrs.step || datePickerConfig.step, 10),
-          partial = !!attrs.partial,
-          minDate = getDate('minDate'),
-          maxDate = getDate('maxDate'),
-          pickerID = element[0].id,
-          now = scope.now = createMoment(),
-          selected = scope.date = createMoment(scope.model || now),
-          autoclose = attrs.autoClose === 'true',
-        // Either gets the 1st day from the attributes, or asks moment.js to give it to us as it is localized.
-          firstDay = attrs.firstDay && attrs.firstDay >= 0 && attrs.firstDay <= 6 ? parseInt(attrs.firstDay, 10) : moment().weekday(0).day(),
-          setDate,
-          prepareViewData,
-          isSame,
-          clipDate,
-          isNow,
-          inValidRange;
-
-        datePickerUtils.setParams(tz, firstDay);
-
-        if (!scope.model) {
-          selected.minute(Math.ceil(selected.minute() / step) * step).second(0);
-        }
-
-        scope.template = attrs.template || datePickerConfig.template;
-
-        scope.watchDirectChanges = attrs.watchDirectChanges !== undefined;
-        scope.callbackOnSetDate = attrs.dateChange ? datePickerUtils.findFunction(scope, attrs.dateChange) : undefined;
-
-        prepareViews();
-
-        scope.setView = function (nextView) {
-          if (scope.views.indexOf(nextView) !== -1) {
-            scope.view = nextView;
-          }
-        };
-
-        scope.selectDate = function (date) {
-          if (attrs.disabled) {
-            return false;
-          }
-          if (isSame(scope.date, date)) {
-            date = scope.date;
-          }
-          date = clipDate(date);
-          if (!date) {
-            return false;
-          }
-          scope.date = date;
-
-          var nextView = scope.views[scope.views.indexOf(scope.view) + 1];
-          if ((!nextView || partial) || scope.model) {
-            setDate(date);
-          }
-
-          if (nextView) {
-            scope.setView(nextView);
-          } else if (autoclose) {
-            element.addClass('hidden');
-            scope.$emit('hidePicker');
-          } else {
-            prepareViewData();
-          }
-        };
-
-        setDate = function (date) {
-          if (date) {
-            scope.model = date;
-            if (ngModel) {
-              ngModel.$setViewValue(date);
-            }
-          }
-          scope.$emit('setDate', scope.model, scope.view);
-
-          //This is duplicated in the new functionality.
-          if (scope.callbackOnSetDate) {
-            scope.callbackOnSetDate(attrs.datePicker, scope.date);
-          }
-        };
-
-        function update() {
-          var view = scope.view;
-          datePickerUtils.setParams(tz, firstDay);
-
-          if (scope.model && !arrowClick) {
-            scope.date = createMoment(scope.model);
-            arrowClick = false;
-          }
-
-          var date = scope.date;
-
-          switch (view) {
-            case 'year':
-              scope.years = datePickerUtils.getVisibleYears(date);
-              break;
-            case 'month':
-              scope.months = datePickerUtils.getVisibleMonths(date);
-              break;
-            case 'date':
-              scope.weekdays = scope.weekdays || datePickerUtils.getDaysOfWeek();
-              scope.weeks = datePickerUtils.getVisibleWeeks(date);
-              break;
-            case 'hours':
-              scope.hours = datePickerUtils.getVisibleHours(date);
-              break;
-            case 'minutes':
-              scope.minutes = datePickerUtils.getVisibleMinutes(date, step);
-              break;
-          }
-
-          prepareViewData();
-        }
-
-        function watch() {
-          if (scope.view !== 'date') {
-            return scope.view;
-          }
-          return scope.date ? scope.date.month() : null;
-        }
-
-        scope.$watch(watch, update);
-
-        if (scope.watchDirectChanges) {
-          scope.$watch('model', function () {
-            arrowClick = false;
-            update();
-          });
-        }
-
-        prepareViewData = function () {
-          var view = scope.view,
-            date = scope.date,
-            classes = [], classList = '',
-            i, j;
-
-          datePickerUtils.setParams(tz, firstDay);
-
-          if (view === 'date') {
-            var weeks = scope.weeks, week;
-            for (i = 0; i < weeks.length; i++) {
-              week = weeks[i];
-              classes.push([]);
-              for (j = 0; j < week.length; j++) {
-                classList = '';
-                if (datePickerUtils.isSameDay(date, week[j])) {
-                  classList += 'active';
-                }
-                if (isNow(week[j], view)) {
-                  classList += ' now';
-                }
-                //if (week[j].month() !== date.month()) classList += ' disabled';
-                if (week[j].month() !== date.month() || !inValidRange(week[j])) {
-                  classList += ' disabled';
-                }
-                classes[i].push(classList);
-              }
-            }
-          } else {
-            var params = datePickerConfig.viewConfig[view],
-              dates = scope[params[0]],
-              compareFunc = params[1];
-
-            for (i = 0; i < dates.length; i++) {
-              classList = '';
-              if (datePickerUtils[compareFunc](date, dates[i])) {
-                classList += 'active';
-              }
-              if (isNow(dates[i], view)) {
-                classList += ' now';
-              }
-              if (!inValidRange(dates[i])) {
-                classList += ' disabled';
-              }
-              classes.push(classList);
-            }
-          }
-          scope.classes = classes;
-        };
-
-        scope.next = function (delta) {
-          var date = moment(scope.date);
-          delta = delta || 1;
-          switch (scope.view) {
-            case 'year':
-            /*falls through*/
-            case 'month':
-              date.year(date.year() + delta);
-              break;
-            case 'date':
-              date.month(date.month() + delta);
-              break;
-            case 'hours':
-            /*falls through*/
-            case 'minutes':
-              date.hours(date.hours() + delta);
-              break;
-          }
-          date = clipDate(date);
-          if (date) {
-            scope.date = date;
-            arrowClick = true;
-            update();
-          }
-        };
-
-        inValidRange = function (date) {
-          var valid = true;
-          if (minDate && minDate.isAfter(date)) {
-            valid = isSame(minDate, date);
-          }
-          if (maxDate && maxDate.isBefore(date)) {
-            valid &= isSame(maxDate, date);
-          }
-          return valid;
-        };
-
-        isSame = function (date1, date2) {
-          return date1.isSame(date2, datePickerConfig.momentNames[scope.view]) ? true : false;
-        };
-
-        clipDate = function (date) {
-          if (minDate && minDate.isAfter(date)) {
-            return minDate;
-          } else if (maxDate && maxDate.isBefore(date)) {
-            return maxDate;
-          } else {
-            return date;
-          }
-        };
-
-        isNow = function (date, view) {
-          var is = true;
-
-          switch (view) {
-            case 'minutes':
-              is &= ~~(now.minutes() / step) === ~~(date.minutes() / step);
-            /* falls through */
-            case 'hours':
-              is &= now.hours() === date.hours();
-            /* falls through */
-            case 'date':
-              is &= now.date() === date.date();
-            /* falls through */
-            case 'month':
-              is &= now.month() === date.month();
-            /* falls through */
-            case 'year':
-              is &= now.year() === date.year();
-          }
-          return is;
-        };
-
-        scope.prev = function (delta) {
-          return scope.next(-delta || -1);
-        };
-
-        if (pickerID) {
-          scope.$on('pickerUpdate', function (event, pickerIDs, data) {
-            if (eventIsForPicker(pickerIDs, pickerID)) {
-              var updateViews = false, updateViewData = false;
-
-              if (angular.isDefined(data.minDate)) {
-                minDate = data.minDate ? data.minDate : false;
-                updateViewData = true;
-              }
-              if (angular.isDefined(data.maxDate)) {
-                maxDate = data.maxDate ? data.maxDate : false;
-                updateViewData = true;
-              }
-
-              if (angular.isDefined(data.minView)) {
-                attrs.minView = data.minView;
-                updateViews = true;
-              }
-              if (angular.isDefined(data.maxView)) {
-                attrs.maxView = data.maxView;
-                updateViews = true;
-              }
-              attrs.view = data.view || attrs.view;
-
-              if (updateViews) {
-                prepareViews();
-              }
-
-              if (updateViewData) {
-                update();
-              }
-            }
-          });
-        }
-      }
-    };
-  }]);
-
-angular.module('datePicker')
-  .factory('datePickerUtils', function () {
-    var tz, firstDay;
-    var createNewDate = function (year, month, day, hour, minute) {
-      var utc = Date.UTC(year | 0, month | 0, day | 0, hour | 0, minute | 0);
-      return tz ? moment.tz(utc, tz) : moment(utc);
-    };
-
-    return {
-      getVisibleMinutes: function (m, step) {
-        var year = m.year(),
-          month = m.month(),
-          day = m.date(),
-          hour = m.hours(), pushedDate,
-          offset = m.utcOffset() / 60,
-          minutes = [], minute;
-
-        for (minute = 0; minute < 60; minute += step) {
-          pushedDate = createNewDate(year, month, day, hour - offset, minute);
-          minutes.push(pushedDate);
-        }
-        return minutes;
-      },
-      getVisibleWeeks: function (m) {
-        m = moment(m);
-        var startYear = m.year(),
-          startMonth = m.month();
-
-        //Set date to the first day of the month
-        m.date(1);
-
-        //Grab day of the week
-        var day = m.day();
-
-        //Go back the required number of days to arrive at the previous week start
-        m.date(firstDay - (day + (firstDay >= day ? 6 : -1)));
-
-        var weeks = [];
-
-        while (weeks.length < 6) {
-          if (m.year() === startYear && m.month() > startMonth) {
-            break;
-          }
-          weeks.push(this.getDaysOfWeek(m));
-          m.add(7, 'd');
-        }
-        return weeks;
-      },
-      getVisibleYears: function (d) {
-        var m = moment(d),
-          year = m.year();
-
-        m.year(year - (year % 10));
-        year = m.year();
-
-        var offset = m.utcOffset() / 60,
-          years = [],
-          pushedDate,
-          actualOffset;
-
-        for (var i = 0; i < 12; i++) {
-          pushedDate = createNewDate(year, 0, 1, 0 - offset);
-          actualOffset = pushedDate.utcOffset() / 60;
-          if (actualOffset !== offset) {
-            pushedDate = createNewDate(year, 0, 1, 0 - actualOffset);
-            offset = actualOffset;
-          }
-          years.push(pushedDate);
-          year++;
-        }
-        return years;
-      },
-      getDaysOfWeek: function (m) {
-        m = m ? m : (tz ? moment.tz(tz).day(firstDay) : moment().day(firstDay));
-
-        var year = m.year(),
-          month = m.month(),
-          day = m.date(),
-          days = [],
-          pushedDate,
-          offset = m.utcOffset() / 60,
-          actualOffset;
-
-        for (var i = 0; i < 7; i++) {
-          pushedDate = createNewDate(year, month, day, 0 - offset, 0, false);
-          actualOffset = pushedDate.utcOffset() / 60;
-          if (actualOffset !== offset) {
-            pushedDate = createNewDate(year, month, day, 0 - actualOffset, 0, false);
-          }
-          days.push(pushedDate);
-          day++;
-        }
-        return days;
-      },
-      getVisibleMonths: function (m) {
-        var year = m.year(),
-          offset = m.utcOffset() / 60,
-          months = [],
-          pushedDate,
-          actualOffset;
-
-        for (var month = 0; month < 12; month++) {
-          pushedDate = createNewDate(year, month, 1, 0 - offset, 0, false);
-          actualOffset = pushedDate.utcOffset() / 60;
-          if (actualOffset !== offset) {
-            pushedDate = createNewDate(year, month, 1, 0 - actualOffset, 0, false);
-          }
-          months.push(pushedDate);
-        }
-        return months;
-      },
-      getVisibleHours: function (m) {
-        var year = m.year(),
-          month = m.month(),
-          day = m.date(),
-          hours = [],
-          hour, pushedDate, actualOffset,
-          offset = m.utcOffset() / 60;
-
-        for (hour = 0; hour < 24; hour++) {
-          pushedDate = createNewDate(year, month, day, hour - offset, 0, false);
-          actualOffset = pushedDate.utcOffset() / 60;
-          if (actualOffset !== offset) {
-            pushedDate = createNewDate(year, month, day, hour - actualOffset, 0, false);
-          }
-          hours.push(pushedDate);
-        }
-
-        return hours;
-      },
-      isAfter: function (model, date) {
-        return model && model.unix() >= date.unix();
-      },
-      isBefore: function (model, date) {
-        return model.unix() <= date.unix();
-      },
-      isSameYear: function (model, date) {
-        return model && model.year() === date.year();
-      },
-      isSameMonth: function (model, date) {
-        return this.isSameYear(model, date) && model.month() === date.month();
-      },
-      isSameDay: function (model, date) {
-        return this.isSameMonth(model, date) && model.date() === date.date();
-      },
-      isSameHour: function (model, date) {
-        return this.isSameDay(model, date) && model.hours() === date.hours();
-      },
-      isSameMinutes: function (model, date) {
-        return this.isSameHour(model, date) && model.minutes() === date.minutes();
-      },
-      setParams: function (zone, fd) {
-        tz = zone;
-        firstDay = fd;
-      },
-      scopeSearch: function (scope, name, comparisonFn) {
-        var parentScope = scope,
-          nameArray = name.split('.'),
-          target, i, j = nameArray.length;
-
-        do {
-          target = parentScope = parentScope.$parent;
-
-          //Loop through provided names.
-          for (i = 0; i < j; i++) {
-            target = target[nameArray[i]];
-            if (!target) {
-              continue;
-            }
-          }
-
-          //If we reached the end of the list for this scope,
-          //and something was found, trigger the comparison
-          //function. If the comparison function is happy, return
-          //found result. Otherwise, continue to the next parent scope
-          if (target && comparisonFn(target)) {
-            return target;
-          }
-
-        } while (parentScope.$parent);
-
-        return false;
-      },
-      findFunction: function (scope, name) {
-        //Search scope ancestors for a matching function.
-        return this.scopeSearch(scope, name, function (target) {
-          //Property must also be a function
-          return angular.isFunction(target);
-        });
-      },
-      findParam: function (scope, name) {
-        //Search scope ancestors for a matching parameter.
-        return this.scopeSearch(scope, name, function () {
-          //As long as the property exists, we're good
-          return true;
-        });
-      },
-      createMoment: function (m) {
-        if (tz) {
-          return moment.tz(m, tz);
-        } else {
-          //If input is a moment, and we have no TZ info, we need to remove TZ
-          //info from the moment, otherwise the newly created moment will take
-          //the timezone of the input moment. The easiest way to do that is to
-          //take the unix timestamp, and use that to create a new moment.
-          //The new moment will use the local timezone of the user machine.
-          return moment.isMoment(m) ? moment.unix(m.unix()) : moment(m);
-        }
-      },
-      getDate: function (scope, attrs, name) {
-        var result = false;
-        if (attrs[name]) {
-          result = this.createMoment(attrs[name]);
-          if (!result.isValid()) {
-            result = this.findParam(scope, attrs[name]);
-            if (result) {
-              result = this.createMoment(result);
-            }
-          }
-        }
-
-        return result;
-      },
-      //Checks if an event targeted at a specific picker, via either a string name, or an array of strings.
-      eventIsForPicker: function (targetIDs, pickerID) {
-        function matches(id) {
-          if (id instanceof RegExp) {
-            return id.test(pickerID);
-          }
-          return id === pickerID;
-        }
-
-        if (angular.isArray(targetIDs)) {
-          return targetIDs.some(matches);
-        }
-        return matches(targetIDs);
-      }
-    };
-  });
-
-angular.module('datePicker')
-  .directive('dateRange', ['$compile', 'datePickerUtils', 'dateTimeConfig', function ($compile, datePickerUtils, dateTimeConfig) {
-    function getTemplate(attrs, id, model, min, max) {
-      return dateTimeConfig.template(angular.extend(attrs, {
-        ngModel: model,
-        minDate: min && moment.isMoment(min) ? min.format() : false,
-        maxDate: max && moment.isMoment(max) ? max.format() : false
-      }), id);
-    }
-
-    function randomName() {
-      return 'picker' + Math.random().toString().substr(2);
-    }
-
-    return {
-      scope: {
-        start: '=',
-        end: '='
-      },
-      link: function (scope, element, attrs) {
-        var dateChange = null,
-          pickerRangeID = element[0].id,
-          pickerIDs = [randomName(), randomName()],
-          createMoment = datePickerUtils.createMoment,
-          eventIsForPicker = datePickerUtils.eventIsForPicker;
-
-        scope.dateChange = function (modelName, newDate) {
-          //Notify user if callback exists.
-          if (dateChange) {
-            dateChange(modelName, newDate);
-          }
-        };
-
-        function setMax(date) {
-          scope.$broadcast('pickerUpdate', pickerIDs[0], {
-            maxDate: date
-          });
-        }
-
-        function setMin(date) {
-          scope.$broadcast('pickerUpdate', pickerIDs[1], {
-            minDate: date
-          });
-        }
-
-        if (pickerRangeID) {
-          scope.$on('pickerUpdate', function (event, targetIDs, data) {
-            if (eventIsForPicker(targetIDs, pickerRangeID)) {
-              //If we received an update event, dispatch it to the inner pickers using their IDs.
-              scope.$broadcast('pickerUpdate', pickerIDs, data);
-            }
-          });
-        }
-
-        datePickerUtils.setParams(attrs.timezone);
-
-        scope.start = createMoment(scope.start);
-        scope.end = createMoment(scope.end);
-
-        scope.$watchGroup(['start', 'end'], function (dates) {
-          //Scope data changed, update picker min/max
-          setMin(dates[0]);
-          setMax(dates[1]);
-        });
-
-        if (angular.isDefined(attrs.dateChange)) {
-          dateChange = datePickerUtils.findFunction(scope, attrs.dateChange);
-        }
-
-        attrs.onSetDate = 'dateChange';
-
-        var template = '<div><table class="date-range"><tr><td valign="top">' +
-          getTemplate(attrs, pickerIDs[0], 'start', false, scope.end) +
-          '</td><td valign="top">' +
-          getTemplate(attrs, pickerIDs[1], 'end', scope.start, false) +
-          '</td></tr></table></div>';
-
-        var picker = $compile(template)(scope);
-        element.append(picker);
-      }
-    };
-  }]);
-
-var PRISTINE_CLASS = 'ng-pristine',
-    DIRTY_CLASS = 'ng-dirty';
-
-angular.module('datePicker')
-  .constant('dateTimeConfig', {
-    template: function (attrs, id) {
-      return '' +
-        '<div ' +
-        (id ? 'id="' + id + '" ' : '') +
-        'date-picker="' + attrs.ngModel + '" ' +
-        (attrs.view ? 'view="' + attrs.view + '" ' : '') +
-        (attrs.maxView ? 'max-view="' + attrs.maxView + '" ' : '') +
-        (attrs.maxDate ? 'max-date="' + attrs.maxDate + '" ' : '') +
-        (attrs.autoClose ? 'auto-close="' + attrs.autoClose + '" ' : '') +
-        (attrs.template ? 'template="' + attrs.template + '" ' : '') +
-        (attrs.minView ? 'min-view="' + attrs.minView + '" ' : '') +
-        (attrs.minDate ? 'min-date="' + attrs.minDate + '" ' : '') +
-        (attrs.partial ? 'partial="' + attrs.partial + '" ' : '') +
-        (attrs.step ? 'step="' + attrs.step + '" ' : '') +
-        (attrs.onSetDate ? 'date-change="' + attrs.onSetDate + '" ' : '') +
-        (attrs.ngModel ? 'ng-model="' + attrs.ngModel + '" ' : '') +
-        (attrs.firstDay ? 'first-day="' + attrs.firstDay + '" ' : '') +
-        (attrs.timezone ? 'timezone="' + attrs.timezone + '" ' : '') +
-        'class="date-picker-date-time"></div>';
-    },
-    format: 'YYYY-MM-DD HH:mm',
-    views: ['date', 'year', 'month', 'hours', 'minutes'],
-    autoClose: false,
-    position: 'relative'
-  })
-  .directive('dateTimeAppend', function () {
-    return {
-      link: function (scope, element) {
-        element.bind('click', function () {
-          element.find('input')[0].focus();
-        });
-      }
-    };
-  })
-  .directive('dateTime', ['$compile', '$document', '$filter', 'dateTimeConfig', '$parse', 'datePickerUtils', function ($compile, $document, $filter, dateTimeConfig, $parse, datePickerUtils) {
-    var body = $document.find('body');
-    var dateFilter = $filter('mFormat');
-
-    return {
-      require: 'ngModel',
-      scope: true,
-      link: function (scope, element, attrs, ngModel) {
-        var format = attrs.format || dateTimeConfig.format,
-          parentForm = element.inheritedData('$formController'),
-          views = $parse(attrs.views)(scope) || dateTimeConfig.views.concat(),
-          view = attrs.view || views[0],
-          index = views.indexOf(view),
-          dismiss = attrs.autoClose ? $parse(attrs.autoClose)(scope) : dateTimeConfig.autoClose,
-          picker = null,
-          pickerID = element[0].id,
-          position = attrs.position || dateTimeConfig.position,
-          container = null,
-          minDate = null,
-          minValid = null,
-          maxDate = null,
-          maxValid = null,
-          timezone = attrs.timezone || false,
-          eventIsForPicker = datePickerUtils.eventIsForPicker,
-          dateChange = null,
-          shownOnce = false,
-          template;
-
-        if (index === -1) {
-          views.splice(index, 1);
-        }
-
-        views.unshift(view);
-
-        function formatter(value) {
-          if (value) {
-            return dateFilter(value, format, timezone);
-          }
-        }
-
-        function parser(viewValue) {
-          if (!viewValue) {
-            return '';
-          }
-          var parsed = moment(viewValue, format);
-          if (parsed.isValid()) {
-            return parsed;
-          }
-        }
-
-        function setMin(date) {
-          minDate = date;
-          attrs.minDate = date ? date.format() : date;
-          minValid = moment.isMoment(date);
-        }
-
-        function setMax(date) {
-          maxDate = date;
-          attrs.maxDate = date ? date.format() : date;
-          maxValid = moment.isMoment(date);
-        }
-
-        ngModel.$formatters.push(formatter);
-        ngModel.$parsers.unshift(parser);
-
-        if (angular.isDefined(attrs.minDate)) {
-          setMin(datePickerUtils.findParam(scope, attrs.minDate));
-
-          ngModel.$validators.min = function (value) {
-            //If we don't have a min / max value, then any value is valid.
-            return minValid ? moment.isMoment(value) && (minDate.isSame(value) || minDate.isBefore(value)) : true;
-          };
-        }
-
-        if (angular.isDefined(attrs.maxDate)) {
-          setMax(datePickerUtils.findParam(scope, attrs.maxDate));
-
-          ngModel.$validators.max = function (value) {
-            return maxValid ? moment.isMoment(value) && (maxDate.isSame(value) || maxDate.isAfter(value)) : true;
-          };
-        }
-
-        if (angular.isDefined(attrs.dateChange)) {
-          dateChange = datePickerUtils.findFunction(scope, attrs.dateChange);
-        }
-
-        function getTemplate() {
-          template = dateTimeConfig.template(attrs);
-        }
-
-
-        function updateInput(event) {
-          event.stopPropagation();
-          if (ngModel.$pristine) {
-            ngModel.$dirty = true;
-            ngModel.$pristine = false;
-            element.removeClass(PRISTINE_CLASS).addClass(DIRTY_CLASS);
-            if (parentForm) {
-              parentForm.$setDirty();
-            }
-            ngModel.$render();
-          }
-        }
-
-        function clear() {
-          if (picker) {
-            picker.remove();
-            picker = null;
-          }
-          if (container) {
-            container.remove();
-            container = null;
-          }
-        }
-
-        if (pickerID) {
-          scope.$on('pickerUpdate', function (event, pickerIDs, data) {
-            if (eventIsForPicker(pickerIDs, pickerID)) {
-              if (picker) {
-                //Need to handle situation where the data changed but the picker is currently open.
-                //To handle this, we can create the inner picker with a random ID, then forward
-                //any events received to it.
-              } else {
-                var validateRequired = false;
-                if (angular.isDefined(data.minDate)) {
-                  setMin(data.minDate);
-                  validateRequired = true;
-                }
-                if (angular.isDefined(data.maxDate)) {
-                  setMax(data.maxDate);
-                  validateRequired = true;
-                }
-
-                if (angular.isDefined(data.minView)) {
-                  attrs.minView = data.minView;
-                }
-                if (angular.isDefined(data.maxView)) {
-                  attrs.maxView = data.maxView;
-                }
-                attrs.view = data.view || attrs.view;
-
-                if (validateRequired) {
-                  ngModel.$validate();
-                }
-                if (angular.isDefined(data.format)) {
-                  format = attrs.format = data.format || dateTimeConfig.format;
-                  ngModel.$modelValue = -1; //Triggers formatters. This value will be discarded.
-                }
-                getTemplate();
-              }
-            }
-          });
-        }
-
-        function showPicker() {
-          if (picker) {
-            return;
-          }
-          // create picker element
-          picker = $compile(template)(scope);
-          scope.$digest();
-
-          //If the picker has already been shown before then we shouldn't be binding to events, as these events are already bound to in this scope.
-          if (!shownOnce) {
-            scope.$on('setDate', function (event, date, view) {
-              updateInput(event);
-              if (dateChange) {
-                dateChange(attrs.ngModel, date);
-              }
-              if (dismiss && views[views.length - 1] === view) {
-                clear();
-              }
-            });
-
-            scope.$on('hidePicker', function () {
-              element[0].blur();
-            });
-
-            scope.$on('$destroy', clear);
-
-            shownOnce = true;
-          }
-
-
-          // move picker below input element
-
-          if (position === 'absolute') {
-            var pos = element[0].getBoundingClientRect();
-            // Support IE8
-            var height = pos.height || element[0].offsetHeight;
-            picker.css({top: (pos.top + height) + 'px', left: pos.left + 'px', display: 'block', position: position});
-            body.append(picker);
-          } else {
-            // relative
-            container = angular.element('<div date-picker-wrapper></div>');
-            element[0].parentElement.insertBefore(container[0], element[0]);
-            container.append(picker);
-            //          this approach doesn't work
-            //          element.before(picker);
-            picker.css({top: element[0].offsetHeight + 'px', display: 'block'});
-          }
-          picker.bind('mousedown', function (evt) {
-            evt.preventDefault();
-          });
-        }
-
-        element.bind('focus', showPicker);
-        element.bind('blur', clear);
-        getTemplate();
-      }
-    };
-  }]);
-
-angular.module('datePicker').run(['$templateCache', function($templateCache) {
-$templateCache.put('templates/datepicker.html',
-    "<div ng-switch=\"view\">\n" +
-    "  <div ng-switch-when=\"date\">\n" +
-    "    <table>\n" +
-    "      <thead>\n" +
-    "      <tr>\n" +
-    "        <th ng-click=\"prev()\">&lsaquo;</th>\n" +
-    "        <th colspan=\"5\" class=\"switch\" ng-click=\"setView('month')\" ng-bind=\"date|mFormat:'YYYY MMMM':tz\"></th>\n" +
-    "        <th ng-click=\"next()\">&rsaquo;</i></th>\n" +
-    "      </tr>\n" +
-    "      <tr>\n" +
-    "        <th ng-repeat=\"day in weekdays\" style=\"overflow: hidden\" ng-bind=\"day|mFormat:'ddd':tz\"></th>\n" +
-    "      </tr>\n" +
-    "      </thead>\n" +
-    "      <tbody>\n" +
-    "      <tr ng-repeat=\"week in weeks\" ng-init=\"$index2 = $index\">\n" +
-    "        <td ng-repeat=\"day in week\">\n" +
-    "          <span\n" +
-    "            ng-class=\"classes[$index2][$index]\"\n" +
-    "            ng-click=\"selectDate(day)\" ng-bind=\"day|mFormat:'DD':tz\"></span>\n" +
-    "        </td>\n" +
-    "      </tr>\n" +
-    "      </tbody>\n" +
-    "    </table>\n" +
-    "  </div>\n" +
-    "  <div ng-switch-when=\"year\">\n" +
-    "    <table>\n" +
-    "      <thead>\n" +
-    "      <tr>\n" +
-    "        <th ng-click=\"prev(10)\">&lsaquo;</th>\n" +
-    "        <th colspan=\"5\" class=\"switch\"ng-bind=\"years[0].year()+' - '+years[years.length-1].year()\"></th>\n" +
-    "        <th ng-click=\"next(10)\">&rsaquo;</i></th>\n" +
-    "      </tr>\n" +
-    "      </thead>\n" +
-    "      <tbody>\n" +
-    "      <tr>\n" +
-    "        <td colspan=\"7\">\n" +
-    "          <span ng-class=\"classes[$index]\"\n" +
-    "                ng-repeat=\"year in years\"\n" +
-    "                ng-click=\"selectDate(year)\" ng-bind=\"year.year()\"></span>\n" +
-    "        </td>\n" +
-    "      </tr>\n" +
-    "      </tbody>\n" +
-    "    </table>\n" +
-    "  </div>\n" +
-    "  <div ng-switch-when=\"month\">\n" +
-    "    <table>\n" +
-    "      <thead>\n" +
-    "      <tr>\n" +
-    "        <th ng-click=\"prev()\">&lsaquo;</th>\n" +
-    "        <th colspan=\"5\" class=\"switch\" ng-click=\"setView('year')\" ng-bind=\"date|mFormat:'YYYY':tz\"></th>\n" +
-    "        <th ng-click=\"next()\">&rsaquo;</i></th>\n" +
-    "      </tr>\n" +
-    "      </thead>\n" +
-    "      <tbody>\n" +
-    "      <tr>\n" +
-    "        <td colspan=\"7\">\n" +
-    "          <span ng-repeat=\"month in months\"\n" +
-    "                ng-class=\"classes[$index]\"\n" +
-    "                ng-click=\"selectDate(month)\"\n" +
-    "                ng-bind=\"month|mFormat:'MMM':tz\"></span>\n" +
-    "        </td>\n" +
-    "      </tr>\n" +
-    "      </tbody>\n" +
-    "    </table>\n" +
-    "  </div>\n" +
-    "  <div ng-switch-when=\"hours\">\n" +
-    "    <table>\n" +
-    "      <thead>\n" +
-    "      <tr>\n" +
-    "        <th ng-click=\"prev(24)\">&lsaquo;</th>\n" +
-    "        <th colspan=\"5\" class=\"switch\" ng-click=\"setView('date')\" ng-bind=\"date|mFormat:'DD MMMM YYYY':tz\"></th>\n" +
-    "        <th ng-click=\"next(24)\">&rsaquo;</i></th>\n" +
-    "      </tr>\n" +
-    "      </thead>\n" +
-    "      <tbody>\n" +
-    "      <tr>\n" +
-    "        <td colspan=\"7\">\n" +
-    "          <span ng-repeat=\"hour in hours\"\n" +
-    "                ng-class=\"classes[$index]\"\n" +
-    "                ng-click=\"selectDate(hour)\" ng-bind=\"hour|mFormat:'HH:mm':tz\"></span>\n" +
-    "        </td>\n" +
-    "      </tr>\n" +
-    "      </tbody>\n" +
-    "    </table>\n" +
-    "  </div>\n" +
-    "  <div ng-switch-when=\"minutes\">\n" +
-    "    <table>\n" +
-    "      <thead>\n" +
-    "      <tr>\n" +
-    "        <th ng-click=\"prev()\">&lsaquo;</th>\n" +
-    "        <th colspan=\"5\" class=\"switch\" ng-click=\"setView('hours')\" ng-bind=\"date|mFormat:'DD MMMM YYYY':tz\"></th>\n" +
-    "        <th ng-click=\"next()\">&rsaquo;</i></th>\n" +
-    "      </tr>\n" +
-    "      </thead>\n" +
-    "      <tbody>\n" +
-    "      <tr>\n" +
-    "        <td colspan=\"7\">\n" +
-    "          <span ng-repeat=\"minute in minutes\"\n" +
-    "                ng-class=\"classes[$index]\"\n" +
-    "                ng-click=\"selectDate(minute)\"\n" +
-    "                ng-bind=\"minute|mFormat:'HH:mm':tz\"></span>\n" +
-    "        </td>\n" +
-    "      </tr>\n" +
-    "      </tbody>\n" +
-    "    </table>\n" +
-    "  </div>\n" +
-    "</div>"
-  );
-
-}]);
-}));
-
-/***/ }),
-/* 34 */
+/* 32 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************!*\
@@ -48130,7 +47060,7 @@ function ngMessageDirectiveFactory() {
 
 
 /***/ }),
-/* 35 */
+/* 33 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************!*\
@@ -48146,7 +47076,7 @@ function now() {
 
 
 /***/ }),
-/* 36 */
+/* 34 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************!*\
@@ -48285,7 +47215,7 @@ function now() {
     function lib$es6$promise$asap$$attemptVertx() {
       try {
         var r = require;
-        var vertx = __webpack_require__(/*! vertx */ 49);
+        var vertx = __webpack_require__(/*! vertx */ 48);
         lib$es6$promise$asap$$vertxNext = vertx.runOnLoop || vertx.runOnContext;
         return lib$es6$promise$asap$$useVertxTimer();
       } catch(e) {
@@ -49123,10 +48053,10 @@ function now() {
 }).call(this);
 
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 39), __webpack_require__(/*! ./../../webpack/buildin/global.js */ 25)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 38), __webpack_require__(/*! ./../../webpack/buildin/global.js */ 24)))
 
 /***/ }),
-/* 37 */
+/* 35 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************!*\
@@ -49160,11 +48090,57 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 37;
+webpackContext.id = 35;
 
 
 /***/ }),
-/* 38 */
+/* 36 */
+/* unknown exports provided */
+/* all exports used */
+/*!***********************************************!*\
+  !*** ./src/lib/services/validator.service.ts ***!
+  \***********************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var $ = __webpack_require__(/*! jquery */ 2);
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.validator.js */ 30);
+var ValidatorService = (function () {
+    function ValidatorService() {
+    }
+    ValidatorService.prototype.create = function (options) {
+        var defaultOpts = {
+            rules: {
+                required: function (ele) {
+                    if (options.attrs.required) {
+                        return ele[0].value; // if <input> has value, valid.
+                    }
+                    else {
+                        return true;
+                    }
+                }
+            },
+            messages: {
+                required: "Required"
+            }
+        };
+        this.options = $.extend(true, {}, defaultOpts, options, options.customOptions);
+        var validator = new kendo.ui.Validator(options.element, {
+            messages: this.options.messages,
+            rules: this.options.rules,
+        });
+        validator.bind("validateInput", this.options.validateInput);
+        return validator;
+    };
+    return ValidatorService;
+}());
+exports.ValidatorService = ValidatorService;
+
+
+/***/ }),
+/* 37 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************************!*\
@@ -49175,8 +48151,8 @@ webpackContext.id = 37;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var $ = __webpack_require__(/*! jquery */ 3);
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.validator.js */ 31);
+var $ = __webpack_require__(/*! jquery */ 2);
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.validator.js */ 30);
 var AbstractAutocomplete = (function () {
     function AbstractAutocomplete(options) {
         this.options = options;
@@ -49244,7 +48220,7 @@ exports.AbstractAutocomplete = AbstractAutocomplete;
 
 
 /***/ }),
-/* 39 */
+/* 38 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************!*\
@@ -49435,7 +48411,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 40 */
+/* 39 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************!*\
@@ -49468,7 +48444,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 41 */
+/* 40 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************!*\
@@ -49503,7 +48479,7 @@ if (!Array.prototype.find) {
 
 
 /***/ }),
-/* 42 */
+/* 41 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -49545,7 +48521,7 @@ if (!Array.prototype.findIndex) {
 
 
 /***/ }),
-/* 43 */
+/* 42 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************!*\
@@ -49586,7 +48562,7 @@ if (!Array.prototype.includes) {
 
 
 /***/ }),
-/* 44 */
+/* 43 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -49616,7 +48592,7 @@ if (!Array.prototype.includes) {
 
 
 /***/ }),
-/* 45 */
+/* 44 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -49661,7 +48637,7 @@ if (!Object.assign) {
 
 
 /***/ }),
-/* 46 */
+/* 45 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -49679,7 +48655,7 @@ if (!String.prototype.includes) {
 
 
 /***/ }),
-/* 47 */
+/* 46 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -49719,7 +48695,7 @@ if (typeof jQuery == 'function') {
 
 
 /***/ }),
-/* 48 */
+/* 47 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -49842,7 +48818,7 @@ if (!('scrollingElement' in document)) (function() {
 
 
 /***/ }),
-/* 49 */
+/* 48 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************!*\
@@ -49853,7 +48829,7 @@ if (!('scrollingElement' in document)) (function() {
 /* (ignored) */
 
 /***/ }),
-/* 50 */
+/* 49 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************!*\
@@ -49926,7 +48902,7 @@ module.exports =
 /***/ 496:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo-drawing */ 22);
+	module.exports = __webpack_require__(/*! ./kendo-drawing */ 20);
 
 /***/ },
 
@@ -50288,7 +49264,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 51 */
+/* 50 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -50399,7 +49375,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 52 */
+/* 51 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -50478,7 +49454,7 @@ module.exports =
 /***/ 581:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.data */ 23);
+	module.exports = __webpack_require__(/*! ./kendo.data */ 21);
 
 /***/ },
 
@@ -52377,7 +51353,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 53 */
+/* 52 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************!*\
@@ -53020,7 +51996,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 54 */
+/* 53 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -53099,7 +52075,7 @@ module.exports =
 /***/ 598:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.userevents */ 60);
+	module.exports = __webpack_require__(/*! ./kendo.userevents */ 59);
 
 /***/ },
 
@@ -54234,7 +53210,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 55 */
+/* 54 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************!*\
@@ -54331,42 +53307,42 @@ module.exports =
 /***/ 681:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./drawing/util */ 51);
+	module.exports = __webpack_require__(/*! ./drawing/util */ 50);
 
 /***/ },
 
 /***/ 682:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./drawing/kendo-drawing */ 22);
+	module.exports = __webpack_require__(/*! ./drawing/kendo-drawing */ 20);
 
 /***/ },
 
 /***/ 683:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./drawing/surface-tooltip */ 50);
+	module.exports = __webpack_require__(/*! ./drawing/surface-tooltip */ 49);
 
 /***/ },
 
 /***/ 684:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./drawing/surface */ 100);
+	module.exports = __webpack_require__(/*! ./drawing/surface */ 99);
 
 /***/ },
 
 /***/ 685:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./drawing/html */ 99);
+	module.exports = __webpack_require__(/*! ./drawing/html */ 98);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 56 */
+/* 55 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -54438,7 +53414,7 @@ module.exports =
 /***/ 588:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.list */ 24);
+	module.exports = __webpack_require__(/*! ./kendo.list */ 23);
 
 /***/ },
 
@@ -55844,7 +54820,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 57 */
+/* 56 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -55916,14 +54892,14 @@ module.exports =
 /***/ 766:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.mobile.loader */ 109);
+	module.exports = __webpack_require__(/*! ./kendo.mobile.loader */ 108);
 
 /***/ },
 
 /***/ 767:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.mobile.view */ 112);
+	module.exports = __webpack_require__(/*! ./kendo.mobile.view */ 111);
 
 /***/ },
 
@@ -56307,7 +55283,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 58 */
+/* 57 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -56379,7 +55355,7 @@ module.exports =
 /***/ 588:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.list */ 24);
+	module.exports = __webpack_require__(/*! ./kendo.list */ 23);
 
 /***/ },
 
@@ -57649,7 +56625,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 59 */
+/* 58 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************!*\
@@ -57728,7 +56704,7 @@ module.exports =
 /***/ 598:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.userevents */ 60);
+	module.exports = __webpack_require__(/*! ./kendo.userevents */ 59);
 
 /***/ },
 
@@ -58479,7 +57455,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 60 */
+/* 59 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -59192,7 +58168,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 61 */
+/* 60 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************!*\
@@ -59265,7 +58241,7 @@ module.exports =
 /***/ 499:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ../kendo.color */ 53);
+	module.exports = __webpack_require__(/*! ../kendo.color */ 52);
 
 /***/ },
 
@@ -63201,14 +62177,14 @@ module.exports =
 /***/ 975:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ../kendo.drawing */ 55);
+	module.exports = __webpack_require__(/*! ../kendo.drawing */ 54);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 62 */
+/* 61 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -63219,21 +62195,16 @@ module.exports =
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.data.js */ 23);
-/**
- * FIXME: Rename to DataSourceFactory and return a type of "DataSource"
- * that exposes the fetch method and anything else required from kendo.data.DataSource
- */
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.data.js */ 21);
 var DataSource = (function () {
     function DataSource() {
     }
     /* tslint:disable:max-line-length */
-    /**
+    /*
      * Local Data Source
      * @see {@link http://docs.telerik.com/kendo-ui/framework/datasource/overview#to-local-data|To Local Data}
      * @see {@link http://docs.telerik.com/kendo-ui/framework/datasource/overview#to-remote-service|To Remote Service}
      */
-    // FIXME: This should be changed to a "static" method, as other DataSources now do
     /* tslint:enable:max-line-length */
     DataSource.prototype.createDataSource = function (options) {
         return new kendo.data.DataSource(options);
@@ -63244,8 +62215,8 @@ exports.default = DataSource;
 
 
 /***/ }),
-/* 63 */,
-/* 64 */
+/* 62 */,
+/* 63 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************!*\
@@ -63253,13 +62224,13 @@ exports.default = DataSource;
   \******************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thActionBar.component */ 125);
+__webpack_require__(/*! ./thActionBar.component */ 124);
 
-__webpack_require__(/*! ./thActionBarDelegate.service */ 126);
+__webpack_require__(/*! ./thActionBarDelegate.service */ 125);
 
 
 /***/ }),
-/* 65 */
+/* 64 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -63267,15 +62238,15 @@ __webpack_require__(/*! ./thActionBarDelegate.service */ 126);
   \*************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thActionBarBilling.directive */ 127);
+__webpack_require__(/*! ./thActionBarBilling.directive */ 126);
 
-__webpack_require__(/*! ./thActionBarBillingDelegate.service */ 128);
+__webpack_require__(/*! ./thActionBarBillingDelegate.service */ 127);
 
-__webpack_require__(/*! ./thSelectableCollection.service */ 129);
+__webpack_require__(/*! ./thSelectableCollection.service */ 128);
 
 
 /***/ }),
-/* 66 */
+/* 65 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************!*\
@@ -63283,13 +62254,13 @@ __webpack_require__(/*! ./thSelectableCollection.service */ 129);
   \**************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thAlertManager.service */ 131);
+__webpack_require__(/*! ./thAlertManager.service */ 130);
 
-__webpack_require__(/*! ./thAlertAnchor.directive */ 130);
+__webpack_require__(/*! ./thAlertAnchor.directive */ 129);
 
 
 /***/ }),
-/* 67 */
+/* 66 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************!*\
@@ -63297,11 +62268,11 @@ __webpack_require__(/*! ./thAlertAnchor.directive */ 130);
   \***************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thButton.directive */ 132);
+__webpack_require__(/*! ./thButton.directive */ 131);
 
 
 /***/ }),
-/* 68 */
+/* 67 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************!*\
@@ -63309,11 +62280,11 @@ __webpack_require__(/*! ./thButton.directive */ 132);
   \*****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thCheckbox.directive */ 133);
+__webpack_require__(/*! ./thCheckbox.directive */ 132);
 
 
 /***/ }),
-/* 69 */
+/* 68 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************!*\
@@ -63321,11 +62292,11 @@ __webpack_require__(/*! ./thCheckbox.directive */ 133);
   \****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thCompile.directive */ 134);
+__webpack_require__(/*! ./thCompile.directive */ 133);
 
 
 /***/ }),
-/* 70 */
+/* 69 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************!*\
@@ -63333,11 +62304,11 @@ __webpack_require__(/*! ./thCompile.directive */ 134);
   \**********************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thContentHeader.directive */ 135);
+__webpack_require__(/*! ./thContentHeader.directive */ 134);
 
 
 /***/ }),
-/* 71 */
+/* 70 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************!*\
@@ -63345,25 +62316,13 @@ __webpack_require__(/*! ./thContentHeader.directive */ 135);
   \**************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thContextualMessage.service */ 137);
+__webpack_require__(/*! ./thContextualMessage.service */ 136);
 
-__webpack_require__(/*! ./thContextualMessage.directive */ 136);
-
-
-/***/ }),
-/* 72 */
-/* unknown exports provided */
-/* all exports used */
-/*!*******************************************!*\
-  !*** ./src/lib/thDatePicker/index.coffee ***!
-  \*******************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(/*! ./thDatePicker.directive */ 138);
+__webpack_require__(/*! ./thContextualMessage.directive */ 135);
 
 
 /***/ }),
-/* 73 */
+/* 71 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************!*\
@@ -63371,11 +62330,11 @@ __webpack_require__(/*! ./thDatePicker.directive */ 138);
   \*****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thDefaults.service */ 139);
+__webpack_require__(/*! ./thDefaults.service */ 137);
 
 
 /***/ }),
-/* 74 */
+/* 72 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************!*\
@@ -63383,15 +62342,15 @@ __webpack_require__(/*! ./thDefaults.service */ 139);
   \*******************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thDisclosureManager.service */ 141);
+__webpack_require__(/*! ./thDisclosureManager.service */ 139);
 
-__webpack_require__(/*! ./thDisclosureToggle.directive */ 142);
+__webpack_require__(/*! ./thDisclosureToggle.directive */ 140);
 
-__webpack_require__(/*! ./thDisclosureContent.directive */ 140);
+__webpack_require__(/*! ./thDisclosureContent.directive */ 138);
 
 
 /***/ }),
-/* 75 */
+/* 73 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************!*\
@@ -63399,15 +62358,15 @@ __webpack_require__(/*! ./thDisclosureContent.directive */ 140);
   \*****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thDropdown.directive */ 144);
+__webpack_require__(/*! ./thDropdown.directive */ 142);
 
-__webpack_require__(/*! ./thItem.directive */ 145);
+__webpack_require__(/*! ./thItem.directive */ 143);
 
-__webpack_require__(/*! ./thDivider.directive */ 143);
+__webpack_require__(/*! ./thDivider.directive */ 141);
 
 
 /***/ }),
-/* 76 */
+/* 74 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************!*\
@@ -63415,11 +62374,11 @@ __webpack_require__(/*! ./thDivider.directive */ 143);
   \**************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thError.directive */ 146);
+__webpack_require__(/*! ./thError.directive */ 144);
 
 
 /***/ }),
-/* 77 */
+/* 75 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************!*\
@@ -63427,23 +62386,23 @@ __webpack_require__(/*! ./thError.directive */ 146);
   \***************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./filters/ */ 155);
+__webpack_require__(/*! ./filters/ */ 153);
 
-__webpack_require__(/*! ./thFilter.directive */ 172);
+__webpack_require__(/*! ./thFilter.directive */ 170);
 
-__webpack_require__(/*! ./thCustomFilterRow.directive */ 170);
+__webpack_require__(/*! ./thCustomFilterRow.directive */ 168);
 
-__webpack_require__(/*! ./thCustomFilters.component */ 171);
+__webpack_require__(/*! ./thCustomFilters.component */ 169);
 
-__webpack_require__(/*! ./thSearchRow.directive */ 173);
+__webpack_require__(/*! ./thSearchRow.directive */ 171);
 
-__webpack_require__(/*! ./thStaticFilters.directive */ 174);
+__webpack_require__(/*! ./thStaticFilters.directive */ 172);
 
-__webpack_require__(/*! ./thCustomFilterConverter.service */ 168);
+__webpack_require__(/*! ./thCustomFilterConverter.service */ 166);
 
 
 /***/ }),
-/* 78 */
+/* 76 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************!*\
@@ -63451,11 +62410,11 @@ __webpack_require__(/*! ./thCustomFilterConverter.service */ 168);
   \**************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thInput.directive */ 175);
+__webpack_require__(/*! ./thInput.directive */ 173);
 
 
 /***/ }),
-/* 79 */
+/* 77 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************!*\
@@ -63463,15 +62422,15 @@ __webpack_require__(/*! ./thInput.directive */ 175);
   \*************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thLazyManager.service */ 177);
+__webpack_require__(/*! ./thLazyManager.service */ 175);
 
-__webpack_require__(/*! ./thLazy.component */ 176);
+__webpack_require__(/*! ./thLazy.component */ 174);
 
-__webpack_require__(/*! ./thMetaLoader.component */ 178);
+__webpack_require__(/*! ./thMetaLoader.component */ 176);
 
 
 /***/ }),
-/* 80 */
+/* 78 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************!*\
@@ -63479,11 +62438,11 @@ __webpack_require__(/*! ./thMetaLoader.component */ 178);
   \***************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thLoader.directive */ 179);
+__webpack_require__(/*! ./thLoader.directive */ 177);
 
 
 /***/ }),
-/* 81 */
+/* 79 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************!*\
@@ -63491,17 +62450,17 @@ __webpack_require__(/*! ./thLoader.directive */ 179);
   \**************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thModalTitlebar/ */ 183);
+__webpack_require__(/*! ./thModalTitlebar/ */ 181);
 
-__webpack_require__(/*! ./thModalManager.service */ 182);
+__webpack_require__(/*! ./thModalManager.service */ 180);
 
-__webpack_require__(/*! ./thModal.directive */ 180);
+__webpack_require__(/*! ./thModal.directive */ 178);
 
-__webpack_require__(/*! ./thModalAnchor.directive */ 181);
+__webpack_require__(/*! ./thModalAnchor.directive */ 179);
 
 
 /***/ }),
-/* 82 */
+/* 80 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************!*\
@@ -63509,11 +62468,11 @@ __webpack_require__(/*! ./thModalAnchor.directive */ 181);
   \***************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thPlural.filter */ 185);
+__webpack_require__(/*! ./thPlural.filter */ 183);
 
 
 /***/ }),
-/* 83 */
+/* 81 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************!*\
@@ -63521,19 +62480,19 @@ __webpack_require__(/*! ./thPlural.filter */ 185);
   \****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thPopoverManager.service */ 189);
+__webpack_require__(/*! ./thPopoverManager.service */ 187);
 
-__webpack_require__(/*! ./thPopover.directive */ 187);
+__webpack_require__(/*! ./thPopover.directive */ 185);
 
-__webpack_require__(/*! ./thPopoverUrl.directive */ 191);
+__webpack_require__(/*! ./thPopoverUrl.directive */ 189);
 
-__webpack_require__(/*! ./thPopoverContent.directive */ 188);
+__webpack_require__(/*! ./thPopoverContent.directive */ 186);
 
-__webpack_require__(/*! ./thPopoverTarget.directive */ 190);
+__webpack_require__(/*! ./thPopoverTarget.directive */ 188);
 
 
 /***/ }),
-/* 84 */
+/* 82 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************!*\
@@ -63541,13 +62500,13 @@ __webpack_require__(/*! ./thPopoverTarget.directive */ 190);
   \*******************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thRadioGroup.directive */ 193);
+__webpack_require__(/*! ./thRadioGroup.directive */ 191);
 
-__webpack_require__(/*! ./thRadioButton.directive */ 192);
+__webpack_require__(/*! ./thRadioButton.directive */ 190);
 
 
 /***/ }),
-/* 85 */
+/* 83 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************!*\
@@ -63555,11 +62514,11 @@ __webpack_require__(/*! ./thRadioButton.directive */ 192);
   \***************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thSelect.directive */ 194);
+__webpack_require__(/*! ./thSelect.directive */ 192);
 
 
 /***/ }),
-/* 86 */
+/* 84 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************!*\
@@ -63567,11 +62526,11 @@ __webpack_require__(/*! ./thSelect.directive */ 194);
   \***************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thSwitch.directive */ 195);
+__webpack_require__(/*! ./thSwitch.directive */ 193);
 
 
 /***/ }),
-/* 87 */
+/* 85 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************!*\
@@ -63579,29 +62538,29 @@ __webpack_require__(/*! ./thSwitch.directive */ 195);
   \**************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thTable.directive */ 197);
+__webpack_require__(/*! ./thTable.directive */ 195);
 
-__webpack_require__(/*! ./thTableCell.directive */ 199);
+__webpack_require__(/*! ./thTableCell.directive */ 197);
 
-__webpack_require__(/*! ./thTableRow.directive */ 205);
+__webpack_require__(/*! ./thTableRow.directive */ 203);
 
-__webpack_require__(/*! ./thSimpleTableDelegate.service */ 196);
+__webpack_require__(/*! ./thSimpleTableDelegate.service */ 194);
 
-__webpack_require__(/*! ./thTable.service */ 198);
+__webpack_require__(/*! ./thTable.service */ 196);
 
-__webpack_require__(/*! ./thTableDelegate.service */ 200);
+__webpack_require__(/*! ./thTableDelegate.service */ 198);
 
-__webpack_require__(/*! ./thTableHeader.service */ 202);
+__webpack_require__(/*! ./thTableHeader.service */ 200);
 
-__webpack_require__(/*! ./thTableFooter.service */ 201);
+__webpack_require__(/*! ./thTableFooter.service */ 199);
 
-__webpack_require__(/*! ./thTablePagination.service */ 204);
+__webpack_require__(/*! ./thTablePagination.service */ 202);
 
-__webpack_require__(/*! ./thTableSort.service */ 206);
+__webpack_require__(/*! ./thTableSort.service */ 204);
 
 
 /***/ }),
-/* 88 */
+/* 86 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************!*\
@@ -63609,13 +62568,13 @@ __webpack_require__(/*! ./thTableSort.service */ 206);
   \***************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thTabset.directive */ 208);
+__webpack_require__(/*! ./thTabset.directive */ 206);
 
-__webpack_require__(/*! ./thTab.directive */ 207);
+__webpack_require__(/*! ./thTab.directive */ 205);
 
 
 /***/ }),
-/* 89 */
+/* 87 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************!*\
@@ -63623,11 +62582,11 @@ __webpack_require__(/*! ./thTab.directive */ 207);
   \*****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thTextarea.directive */ 209);
+__webpack_require__(/*! ./thTextarea.directive */ 207);
 
 
 /***/ }),
-/* 90 */
+/* 88 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************!*\
@@ -63635,11 +62594,11 @@ __webpack_require__(/*! ./thTextarea.directive */ 209);
   \*****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thTruncate.directive */ 210);
+__webpack_require__(/*! ./thTruncate.directive */ 208);
 
 
 /***/ }),
-/* 91 */
+/* 89 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************!*\
@@ -63647,11 +62606,11 @@ __webpack_require__(/*! ./thTruncate.directive */ 210);
   \******************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thViewModel.service */ 211);
+__webpack_require__(/*! ./thViewModel.service */ 209);
 
 
 /***/ }),
-/* 92 */
+/* 90 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************!*\
@@ -63659,11 +62618,11 @@ __webpack_require__(/*! ./thViewModel.service */ 211);
   \******************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thWithFocus.directive */ 212);
+__webpack_require__(/*! ./thWithFocus.directive */ 210);
 
 
 /***/ }),
-/* 93 */
+/* 91 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************!*\
@@ -63671,13 +62630,13 @@ __webpack_require__(/*! ./thWithFocus.directive */ 212);
   \******************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thWithLabel.directive */ 213);
+__webpack_require__(/*! ./thWithLabel.directive */ 211);
 
-__webpack_require__(/*! ./thWithSubtext.directive */ 214);
+__webpack_require__(/*! ./thWithSubtext.directive */ 212);
 
 
 /***/ }),
-/* 94 */
+/* 92 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************!*\
@@ -63685,13 +62644,13 @@ __webpack_require__(/*! ./thWithSubtext.directive */ 214);
   \*********************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thWithMessages.directive */ 216);
+__webpack_require__(/*! ./thWithMessages.directive */ 214);
 
-__webpack_require__(/*! ./thMessagesManager.service */ 215);
+__webpack_require__(/*! ./thMessagesManager.service */ 213);
 
 
 /***/ }),
-/* 95 */
+/* 93 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************!*\
@@ -63702,18 +62661,20 @@ __webpack_require__(/*! ./thMessagesManager.service */ 215);
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var angular = __webpack_require__(/*! angular */ 2);
-var utilities_service_1 = __webpack_require__(/*! ./utilities.service */ 218);
-var data_source_service_1 = __webpack_require__(/*! ./data-source.service */ 62);
-var scheduler_data_source_service_1 = __webpack_require__(/*! ./scheduler-data-source.service */ 217);
+var angular = __webpack_require__(/*! angular */ 3);
+var utilities_service_1 = __webpack_require__(/*! ./utilities.service */ 216);
+var validator_service_1 = __webpack_require__(/*! ./validator.service */ 36);
+var data_source_service_1 = __webpack_require__(/*! ./data-source.service */ 61);
+var scheduler_data_source_service_1 = __webpack_require__(/*! ./scheduler-data-source.service */ 215);
 angular.module("ThemisComponents")
     .service("DataSource", data_source_service_1.default)
     .service("SchedulerDataSource", scheduler_data_source_service_1.default)
-    .service("Utilities", utilities_service_1.default);
+    .service("Utilities", utilities_service_1.default)
+    .service("ValidatorService", validator_service_1.ValidatorService);
 
 
 /***/ }),
-/* 96 */
+/* 94 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************!*\
@@ -63724,12 +62685,32 @@ angular.module("ThemisComponents")
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-__webpack_require__(/*! ./autocomplete.component */ 220);
-__webpack_require__(/*! ../services/validator.service */ 219);
+__webpack_require__(/*! ./autocomplete.component */ 217);
+__webpack_require__(/*! ../services/validator.service */ 36);
 
 
 /***/ }),
-/* 97 */
+/* 95 */
+/* unknown exports provided */
+/* all exports used */
+/*!***************************************!*\
+  !*** ./src/lib/thDatePicker/index.ts ***!
+  \***************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var angular = __webpack_require__(/*! angular */ 3);
+var thDatePicker_service_1 = __webpack_require__(/*! ./thDatePicker.service */ 223);
+__webpack_require__(/*! ../services/validator.service */ 36);
+__webpack_require__(/*! ./thDatePicker.component */ 222);
+angular.module("ThemisComponents")
+    .service("DatepickerService", thDatePicker_service_1.DatepickerService);
+
+
+/***/ }),
+/* 96 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************!*\
@@ -63740,17 +62721,17 @@ __webpack_require__(/*! ../services/validator.service */ 219);
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var angular = __webpack_require__(/*! angular */ 2);
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.scheduler.js */ 116);
-var scheduler_component_1 = __webpack_require__(/*! ./scheduler.component */ 227);
-var calendar_entries_service_1 = __webpack_require__(/*! ./multipleCalendars/calendar-entries.service */ 226);
+var angular = __webpack_require__(/*! angular */ 3);
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.scheduler.js */ 115);
+var scheduler_component_1 = __webpack_require__(/*! ./scheduler.component */ 226);
+var calendar_entries_service_1 = __webpack_require__(/*! ./multipleCalendars/calendar-entries.service */ 225);
 angular.module("ThemisComponents")
     .service("CalendarEntriesService", calendar_entries_service_1.default)
     .component("thScheduler", scheduler_component_1.SchedulerComponent);
 
 
 /***/ }),
-/* 98 */
+/* 97 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************************!*\
@@ -65326,7 +64307,7 @@ module.exports =
 /***/ 573:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! jquery */ 3);
+	module.exports = __webpack_require__(/*! jquery */ 2);
 
 /***/ },
 
@@ -65341,7 +64322,7 @@ module.exports =
 
 
 /***/ }),
-/* 99 */
+/* 98 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -65441,14 +64422,14 @@ module.exports =
 /***/ 496:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo-drawing */ 22);
+	module.exports = __webpack_require__(/*! ./kendo-drawing */ 20);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 100 */
+/* 99 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -65521,7 +64502,7 @@ module.exports =
 /***/ 496:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo-drawing */ 22);
+	module.exports = __webpack_require__(/*! ./kendo-drawing */ 20);
 
 /***/ },
 
@@ -65692,14 +64673,14 @@ module.exports =
 /***/ 502:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./surface-tooltip */ 50);
+	module.exports = __webpack_require__(/*! ./surface-tooltip */ 49);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 101 */
+/* 100 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -66556,7 +65537,7 @@ module.exports =
 /***/ 588:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.list */ 24);
+	module.exports = __webpack_require__(/*! ./kendo.list */ 23);
 
 /***/ },
 
@@ -66570,7 +65551,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 102 */
+/* 101 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -68159,7 +67140,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 103 */
+/* 102 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -68231,7 +67212,7 @@ module.exports =
 /***/ 588:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.list */ 24);
+	module.exports = __webpack_require__(/*! ./kendo.list */ 23);
 
 /***/ },
 
@@ -69237,7 +68218,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 104 */
+/* 103 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -69639,7 +68620,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 105 */
+/* 104 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -69991,7 +68972,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 106 */
+/* 105 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************!*\
@@ -70858,21 +69839,21 @@ module.exports =
 /***/ 675:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.datepicker */ 29);
+	module.exports = __webpack_require__(/*! ./kendo.datepicker */ 22);
 
 /***/ },
 
 /***/ 676:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.timepicker */ 120);
+	module.exports = __webpack_require__(/*! ./kendo.timepicker */ 119);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 107 */
+/* 106 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -70944,21 +69925,21 @@ module.exports =
 /***/ 580:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.validator */ 31);
+	module.exports = __webpack_require__(/*! ./kendo.validator */ 30);
 
 /***/ },
 
 /***/ 618:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.binder */ 52);
+	module.exports = __webpack_require__(/*! ./kendo.binder */ 51);
 
 /***/ },
 
 /***/ 675:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.datepicker */ 29);
+	module.exports = __webpack_require__(/*! ./kendo.datepicker */ 22);
 
 /***/ },
 
@@ -71314,14 +70295,14 @@ module.exports =
 /***/ 688:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.numerictextbox */ 59);
+	module.exports = __webpack_require__(/*! ./kendo.numerictextbox */ 58);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 108 */
+/* 107 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************************!*\
@@ -71393,14 +70374,14 @@ module.exports =
 /***/ 764:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.mobile.shim */ 111);
+	module.exports = __webpack_require__(/*! ./kendo.mobile.shim */ 110);
 
 /***/ },
 
 /***/ 765:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.mobile.popover */ 110);
+	module.exports = __webpack_require__(/*! ./kendo.mobile.popover */ 109);
 
 /***/ },
 
@@ -71583,7 +70564,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 109 */
+/* 108 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -71767,7 +70748,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 110 */
+/* 109 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************!*\
@@ -71846,7 +70827,7 @@ module.exports =
 /***/ 751:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.mobile.pane */ 57);
+	module.exports = __webpack_require__(/*! ./kendo.mobile.pane */ 56);
 
 /***/ },
 
@@ -72136,7 +71117,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 111 */
+/* 110 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -72354,7 +71335,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 112 */
+/* 111 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -72440,14 +71421,14 @@ module.exports =
 /***/ 614:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.fx */ 30);
+	module.exports = __webpack_require__(/*! ./kendo.fx */ 29);
 
 /***/ },
 
 /***/ 616:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.view */ 121);
+	module.exports = __webpack_require__(/*! ./kendo.view */ 120);
 
 /***/ },
 
@@ -73178,7 +72159,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 113 */
+/* 112 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************!*\
@@ -73250,7 +72231,7 @@ module.exports =
 /***/ 570:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.drawing */ 55);
+	module.exports = __webpack_require__(/*! ./kendo.drawing */ 54);
 
 /***/ },
 
@@ -73286,21 +72267,21 @@ module.exports =
 /***/ 806:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./pdf/core */ 61);
+	module.exports = __webpack_require__(/*! ./pdf/core */ 60);
 
 /***/ },
 
 /***/ 807:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./pdf/mixins */ 123);
+	module.exports = __webpack_require__(/*! ./pdf/mixins */ 122);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 114 */
+/* 113 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************************!*\
@@ -74153,7 +73134,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 115 */
+/* 114 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************!*\
@@ -76187,7 +75168,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 116 */
+/* 115 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -76259,56 +75240,56 @@ module.exports =
 /***/ 578:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.dropdownlist */ 56);
+	module.exports = __webpack_require__(/*! ./kendo.dropdownlist */ 55);
 
 /***/ },
 
 /***/ 579:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.multiselect */ 58);
+	module.exports = __webpack_require__(/*! ./kendo.multiselect */ 57);
 
 /***/ },
 
 /***/ 692:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.window */ 122);
+	module.exports = __webpack_require__(/*! ./kendo.window */ 121);
 
 /***/ },
 
 /***/ 736:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.pdf */ 113);
+	module.exports = __webpack_require__(/*! ./kendo.pdf */ 112);
 
 /***/ },
 
 /***/ 740:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.datetimepicker */ 106);
+	module.exports = __webpack_require__(/*! ./kendo.datetimepicker */ 105);
 
 /***/ },
 
 /***/ 741:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.editable */ 107);
+	module.exports = __webpack_require__(/*! ./kendo.editable */ 106);
 
 /***/ },
 
 /***/ 750:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.mobile.actionsheet */ 108);
+	module.exports = __webpack_require__(/*! ./kendo.mobile.actionsheet */ 107);
 
 /***/ },
 
 /***/ 751:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.mobile.pane */ 57);
+	module.exports = __webpack_require__(/*! ./kendo.mobile.pane */ 56);
 
 /***/ },
 
@@ -80507,14 +79488,14 @@ module.exports =
 /***/ 820:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.scheduler.dayview */ 115);
+	module.exports = __webpack_require__(/*! ./kendo.scheduler.dayview */ 114);
 
 /***/ },
 
 /***/ 821:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.scheduler.recurrence */ 118);
+	module.exports = __webpack_require__(/*! ./kendo.scheduler.recurrence */ 117);
 
 /***/ },
 
@@ -80528,28 +79509,28 @@ module.exports =
 /***/ 823:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.scheduler.agendaview */ 114);
+	module.exports = __webpack_require__(/*! ./kendo.scheduler.agendaview */ 113);
 
 /***/ },
 
 /***/ 824:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.scheduler.monthview */ 117);
+	module.exports = __webpack_require__(/*! ./kendo.scheduler.monthview */ 116);
 
 /***/ },
 
 /***/ 825:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.scheduler.timelineview */ 119);
+	module.exports = __webpack_require__(/*! ./kendo.scheduler.timelineview */ 118);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 117 */
+/* 116 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************!*\
@@ -82002,7 +80983,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 118 */
+/* 117 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************************!*\
@@ -82074,21 +81055,21 @@ module.exports =
 /***/ 578:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.dropdownlist */ 56);
+	module.exports = __webpack_require__(/*! ./kendo.dropdownlist */ 55);
 
 /***/ },
 
 /***/ 675:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.datepicker */ 29);
+	module.exports = __webpack_require__(/*! ./kendo.datepicker */ 22);
 
 /***/ },
 
 /***/ 688:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.numerictextbox */ 59);
+	module.exports = __webpack_require__(/*! ./kendo.numerictextbox */ 58);
 
 /***/ },
 
@@ -84973,7 +83954,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 119 */
+/* 118 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************************!*\
@@ -87458,7 +86439,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 120 */
+/* 119 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -88467,7 +87448,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 121 */
+/* 120 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -88546,14 +87527,14 @@ module.exports =
 /***/ 614:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.fx */ 30);
+	module.exports = __webpack_require__(/*! ./kendo.fx */ 29);
 
 /***/ },
 
 /***/ 618:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.binder */ 52);
+	module.exports = __webpack_require__(/*! ./kendo.binder */ 51);
 
 /***/ },
 
@@ -88946,7 +87927,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 122 */
+/* 121 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -89018,7 +87999,7 @@ module.exports =
 /***/ 619:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.draganddrop */ 54);
+	module.exports = __webpack_require__(/*! ./kendo.draganddrop */ 53);
 
 /***/ },
 
@@ -90605,7 +89586,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 123 */
+/* 122 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -90833,14 +89814,14 @@ module.exports =
 /***/ 977:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./core */ 61);
+	module.exports = __webpack_require__(/*! ./core */ 60);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 124 */
+/* 123 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -91111,7 +90092,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 125 */
+/* 124 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -91163,7 +90144,7 @@ ActionBarController = (function() {
 })();
 
 angular.module('ThemisComponents').component("thActionBar", {
-  template: __webpack_require__(/*! ./thActionBar.template.html */ 228),
+  template: __webpack_require__(/*! ./thActionBar.template.html */ 227),
   transclude: true,
   bindings: {
     delegate: "=?"
@@ -91173,7 +90154,7 @@ angular.module('ThemisComponents').component("thActionBar", {
 
 
 /***/ }),
-/* 126 */
+/* 125 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************************!*\
@@ -91288,7 +90269,7 @@ angular.module("ThemisComponents").factory("ActionBarDelegate", ["ViewModel", fu
 
 
 /***/ }),
-/* 127 */
+/* 126 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************************!*\
@@ -91311,7 +90292,7 @@ angular.module("ThemisComponents").directive("thActionBarBilling", function() {
     transclude: true,
     bindToController: true,
     controllerAs: "actionBar",
-    template: __webpack_require__(/*! ./thActionBarBilling.template.html */ 229),
+    template: __webpack_require__(/*! ./thActionBarBilling.template.html */ 228),
     controller: ["$scope", "$element", "$attrs", function($scope, $element, $attrs) {
       var itemName;
       this.toggleAll = function() {
@@ -91343,7 +90324,7 @@ angular.module("ThemisComponents").directive("thActionBarBilling", function() {
 
 
 /***/ }),
-/* 128 */
+/* 127 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************************************!*\
@@ -91679,7 +90660,7 @@ angular.module('ThemisComponents').factory('ActionBarBillingDelegate', ["ViewMod
 
 
 /***/ }),
-/* 129 */
+/* 128 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************************!*\
@@ -91972,7 +90953,7 @@ angular.module("ThemisComponents").factory("SelectableCollection", ["$rootScope"
 
 
 /***/ }),
-/* 130 */
+/* 129 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -91985,7 +90966,7 @@ angular.module('ThemisComponents').directive("thAlertAnchor", function() {
     restrict: "E",
     bindToController: true,
     controllerAs: 'alertAnchor',
-    template: __webpack_require__(/*! ./thAlertAnchor.template.html */ 230),
+    template: __webpack_require__(/*! ./thAlertAnchor.template.html */ 229),
     controller: ["AlertManager", function(AlertManager) {
       this.alertMessage = AlertManager.alertMessage;
       this.dismiss = function() {
@@ -91997,7 +90978,7 @@ angular.module('ThemisComponents').directive("thAlertAnchor", function() {
 
 
 /***/ }),
-/* 131 */
+/* 130 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -92055,7 +91036,7 @@ angular.module('ThemisComponents').factory('AlertManager', ["$timeout", function
 
 
 /***/ }),
-/* 132 */
+/* 131 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -92082,9 +91063,9 @@ angular.module("ThemisComponents").directive("thButton", function() {
     template: function(element, attrs) {
       switch (false) {
         case attrs.href == null:
-          return __webpack_require__(/*! ./thButton.anchor.template.html */ 231);
+          return __webpack_require__(/*! ./thButton.anchor.template.html */ 230);
         default:
-          return __webpack_require__(/*! ./thButton.button.template.html */ 232);
+          return __webpack_require__(/*! ./thButton.button.template.html */ 231);
       }
     },
     bindToController: true,
@@ -92134,7 +91115,7 @@ angular.module("ThemisComponents").directive("thButton", function() {
 
 
 /***/ }),
-/* 133 */
+/* 132 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -92150,7 +91131,7 @@ angular.module('ThemisComponents').directive("thCheckbox", function() {
   return {
     restrict: "EA",
     replace: true,
-    template: __webpack_require__(/*! ./thCheckbox.template.html */ 233),
+    template: __webpack_require__(/*! ./thCheckbox.template.html */ 232),
     scope: {
       name: "@",
       change: "&ngChange",
@@ -92192,7 +91173,7 @@ angular.module('ThemisComponents').directive("thCheckbox", function() {
 
 
 /***/ }),
-/* 134 */
+/* 133 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -92213,7 +91194,7 @@ angular.module("ThemisComponents").directive("thCompile", ["$compile", function(
 
 
 /***/ }),
-/* 135 */
+/* 134 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************************!*\
@@ -92229,13 +91210,13 @@ angular.module('ThemisComponents').directive('thContentHeader', function() {
     },
     transclude: true,
     controllerAs: 'thContentHeader',
-    template: __webpack_require__(/*! ./thContentHeader.template.html */ 234)
+    template: __webpack_require__(/*! ./thContentHeader.template.html */ 233)
   };
 });
 
 
 /***/ }),
-/* 136 */
+/* 135 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************************!*\
@@ -92279,7 +91260,7 @@ angular.module('ThemisComponents').directive("thContextualMessageAnchor", ["Cont
 
 
 /***/ }),
-/* 137 */
+/* 136 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************************!*\
@@ -92324,142 +91305,7 @@ angular.module('ThemisComponents').factory('ContextualMessageManager', ["$timeou
 
 
 /***/ }),
-/* 138 */
-/* unknown exports provided */
-/* all exports used */
-/*!************************************************************!*\
-  !*** ./src/lib/thDatePicker/thDatePicker.directive.coffee ***!
-  \************************************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-var moment, uuid,
-  indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
-
-moment = __webpack_require__(/*! moment */ 1);
-
-uuid = __webpack_require__(/*! uuid */ 14);
-
-angular.module("ThemisComponents").directive("thDatePicker", function() {
-  return {
-    restrict: "E",
-    template: __webpack_require__(/*! ./thDatePicker.template.html */ 235),
-    scope: {
-      ngModel: "=",
-      dateFormat: "@",
-      ngChange: "&",
-      condensed: "=?"
-    },
-    bindToController: true,
-    controllerAs: "datepicker",
-    controller: ["PopoverManager", "$element", "$scope", "thDefaults", function(PopoverManager, $element, $scope, thDefaults) {
-      var dateInputField, ref, setDateFormat, setInputFieldString, tabEventCode, updatingModelExternally;
-      tabEventCode = 9;
-      updatingModelExternally = false;
-      this.targetName = "datepicker-target-" + (uuid.v1());
-      this.contentName = "datepicker-content-" + (uuid.v1());
-      this.showPopover = (function(_this) {
-        return function() {
-          return PopoverManager.showPopover({
-            targetName: _this.targetName,
-            contentCallback: function() {
-              return PopoverManager.getContent(_this.contentName);
-            }
-          });
-        };
-      })(this);
-      this.hidePopover = (function(_this) {
-        return function() {
-          return PopoverManager.hidePopover(_this.targetName);
-        };
-      })(this);
-      if (!((ref = this.ngModel) != null ? typeof ref.isValid === "function" ? ref.isValid() : void 0 : void 0)) {
-        this.ngModel = null;
-      }
-      setDateFormat = (function(_this) {
-        return function() {
-          var defaultDateFormat, ref1, validDateFormats;
-          validDateFormats = ["YYYY-MM-DD", "MM/DD/YYYY", "DD/MM/YYYY"];
-          defaultDateFormat = thDefaults.get("dateFormat");
-          if (ref1 = _this.dateFormat, indexOf.call(validDateFormats, ref1) >= 0) {
-            return _this.dateFormat;
-          } else {
-            return defaultDateFormat;
-          }
-        };
-      })(this);
-      this.dateFormat = setDateFormat();
-      setInputFieldString = (function(_this) {
-        return function() {
-          var ref1;
-          return _this.inputFieldString = ((ref1 = _this.ngModel) != null ? ref1.format(_this.dateFormat) : void 0) || "";
-        };
-      })(this);
-      setInputFieldString();
-      this.registerModelWatcher = (function(_this) {
-        return function() {
-          if (_this.unregisterModelWatcher != null) {
-            _this.unregisterModelWatcher();
-          }
-          return _this.unregisterModelWatcher = $scope.$watch("datepicker.ngModel", function(newVal, oldVal) {
-            if (!(newVal === oldVal)) {
-              updatingModelExternally = true;
-              setInputFieldString();
-              return typeof _this.ngChange === "function" ? _this.ngChange() : void 0;
-            }
-          });
-        };
-      })(this);
-      $scope.$watch("datepicker.inputFieldString", (function(_this) {
-        return function(newVal, oldVal) {
-          var parsedDate;
-          if (!(newVal === oldVal)) {
-            if (_this.inputFieldString === "") {
-              _this.ngModel = null;
-            } else if (!updatingModelExternally) {
-              parsedDate = moment(_this.inputFieldString, _this.dateFormat);
-              if (parsedDate.isValid()) {
-                _this.ngModel = parsedDate;
-              }
-            }
-            if (typeof _this.ngChange === "function") {
-              _this.ngChange();
-            }
-          }
-          return updatingModelExternally = false;
-        };
-      })(this));
-      this.registerModelWatcher();
-      dateInputField = $element.find("input");
-      dateInputField.on("keydown", (function(_this) {
-        return function(event) {
-          if (event.which === tabEventCode) {
-            return _this.hidePopover();
-          }
-        };
-      })(this));
-      dateInputField.on("blur", (function(_this) {
-        return function() {
-          return $scope.$apply(function() {
-            setInputFieldString();
-            return _this.registerModelWatcher();
-          });
-        };
-      })(this));
-      dateInputField.on("focus", (function(_this) {
-        return function() {
-          return $scope.$apply(function() {
-            _this.showPopover();
-            return _this.unregisterModelWatcher();
-          });
-        };
-      })(this));
-    }]
-  };
-});
-
-
-/***/ }),
-/* 139 */
+/* 137 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -92470,7 +91316,7 @@ angular.module("ThemisComponents").directive("thDatePicker", function() {
 angular.module('ThemisComponents').factory('thDefaults', function() {
   var defaults, entries, get, set, setBulkKeys, setSingleKey;
   defaults = {
-    dateFormat: "YYYY-MM-DD"
+    dateFormat: "yyyy-MM-dd"
   };
   setSingleKey = function(key, value) {
     return defaults[key] = value;
@@ -92506,7 +91352,7 @@ angular.module('ThemisComponents').factory('thDefaults', function() {
 
 
 /***/ }),
-/* 140 */
+/* 138 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************************!*\
@@ -92516,7 +91362,7 @@ angular.module('ThemisComponents').factory('thDefaults', function() {
 
 var $, close, getActualHeight, open;
 
-$ = __webpack_require__(/*! jquery */ 3);
+$ = __webpack_require__(/*! jquery */ 2);
 
 getActualHeight = function(element) {
   var height, previousCss;
@@ -92555,7 +91401,7 @@ angular.module("ThemisComponents").directive("thDisclosureContent", ["Disclosure
     scope: {
       name: "@"
     },
-    template: __webpack_require__(/*! ./thDisclosureContent.template.html */ 236),
+    template: __webpack_require__(/*! ./thDisclosureContent.template.html */ 234),
     bindToController: true,
     controllerAs: "thDisclosureContent",
     controller: ["$element", "$scope", function($element, $scope) {
@@ -92606,7 +91452,7 @@ angular.module("ThemisComponents").directive("thDisclosureContent", ["Disclosure
 
 
 /***/ }),
-/* 141 */
+/* 139 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************************!*\
@@ -92664,7 +91510,7 @@ angular.module('ThemisComponents').factory('DisclosureManager', function() {
 
 
 /***/ }),
-/* 142 */
+/* 140 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************************!*\
@@ -92685,7 +91531,7 @@ angular.module("ThemisComponents").directive("thDisclosureToggle", ["DisclosureM
       ariaDescribedby: "@",
       tabindex: "@"
     },
-    template: __webpack_require__(/*! ./thDisclosureToggle.template.html */ 237),
+    template: __webpack_require__(/*! ./thDisclosureToggle.template.html */ 235),
     bindToController: true,
     controllerAs: 'thDisclosureToggle',
     controller: ["$scope", "$element", function($scope, $element) {
@@ -92735,7 +91581,7 @@ angular.module("ThemisComponents").directive("thDisclosureToggle", ["DisclosureM
 
 
 /***/ }),
-/* 143 */
+/* 141 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -92748,13 +91594,13 @@ angular.module("ThemisComponents").directive("thDivider", function() {
     restrict: "E",
     replace: true,
     scope: {},
-    template: __webpack_require__(/*! ./thDivider.template.html */ 238)
+    template: __webpack_require__(/*! ./thDivider.template.html */ 236)
   };
 });
 
 
 /***/ }),
-/* 144 */
+/* 142 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -92769,7 +91615,7 @@ keycode = __webpack_require__(/*! keycode */ 4);
 angular.module("ThemisComponents").directive("thDropdown", function() {
   return {
     restrict: "E",
-    template: __webpack_require__(/*! ./thDropdown.template.html */ 239),
+    template: __webpack_require__(/*! ./thDropdown.template.html */ 237),
     replace: true,
     controllerAs: "dropdown",
     bindToController: true,
@@ -92930,7 +91776,7 @@ angular.module("ThemisComponents").directive("thDropdown", function() {
 
 
 /***/ }),
-/* 145 */
+/* 143 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -92951,9 +91797,9 @@ angular.module("ThemisComponents").directive("thItem", function() {
     template: function(element, attrs) {
       switch (false) {
         case attrs.href == null:
-          return __webpack_require__(/*! ./thItem.link.template.html */ 241);
+          return __webpack_require__(/*! ./thItem.link.template.html */ 239);
         default:
-          return __webpack_require__(/*! ./thItem.action.template.html */ 240);
+          return __webpack_require__(/*! ./thItem.action.template.html */ 238);
       }
     },
     controller: ["$element", "$attrs", function($element, $attrs) {
@@ -92968,7 +91814,7 @@ angular.module("ThemisComponents").directive("thItem", function() {
 
 
 /***/ }),
-/* 146 */
+/* 144 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************!*\
@@ -92980,7 +91826,7 @@ angular.module("ThemisComponents").directive("thError", function() {
   return {
     restrict: "E",
     transclude: true,
-    template: __webpack_require__(/*! ./thError.template.html */ 242),
+    template: __webpack_require__(/*! ./thError.template.html */ 240),
     scope: {
       message: "@"
     },
@@ -92999,7 +91845,7 @@ angular.module("ThemisComponents").directive("thError", function() {
 
 
 /***/ }),
-/* 147 */
+/* 145 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************************************!*\
@@ -93064,7 +91910,7 @@ angular.module("ThemisComponents").factory("AutocompleteFilter", ["FilterBase", 
 
 
 /***/ }),
-/* 148 */
+/* 146 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************!*\
@@ -93072,13 +91918,13 @@ angular.module("ThemisComponents").factory("AutocompleteFilter", ["FilterBase", 
   \************************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./autocompleteFilter.service */ 147);
+__webpack_require__(/*! ./autocompleteFilter.service */ 145);
 
-__webpack_require__(/*! ./thFilter.autocomplete.directive */ 149);
+__webpack_require__(/*! ./thFilter.autocomplete.directive */ 147);
 
 
 /***/ }),
-/* 149 */
+/* 147 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************************************!*\
@@ -93097,7 +91943,7 @@ angular.module('ThemisComponents').directive('thFilterAutocomplete', ["Autocompl
     },
     bindToController: true,
     controllerAs: 'thFilterAutocomplete',
-    template: __webpack_require__(/*! ./thFilter.autocomplete.template.html */ 243),
+    template: __webpack_require__(/*! ./thFilter.autocomplete.template.html */ 241),
     controller: ["$scope", "$injector", function($scope, $injector) {
       var ModelClass, dataSource, fieldIdentifier, ref, ref1, ref2, ref3, ref4, ref5, ref6;
       if (!((ref = this.filterOptions.autocompleteOptions) != null ? ref.modelClass : void 0)) {
@@ -93147,7 +91993,7 @@ angular.module('ThemisComponents').directive('thFilterAutocomplete', ["Autocompl
 
 
 /***/ }),
-/* 150 */
+/* 148 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************************!*\
@@ -93202,7 +92048,7 @@ angular.module("ThemisComponents").factory("DateFilter", ["FilterBase", function
 
     DateFilter.prototype.getState = function() {
       var ref, ref1, state;
-      if ((ref = this.model) != null ? ref.isValid : void 0) {
+      if ((ref = this.model) != null ? ref.isValid() : void 0) {
         state = {
           value: this.model.format()
         };
@@ -93228,7 +92074,7 @@ angular.module("ThemisComponents").factory("DateFilter", ["FilterBase", function
 
 
 /***/ }),
-/* 151 */
+/* 149 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -93236,19 +92082,23 @@ angular.module("ThemisComponents").factory("DateFilter", ["FilterBase", function
   \****************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./dateFilter.service */ 150);
+__webpack_require__(/*! ./dateFilter.service */ 148);
 
-__webpack_require__(/*! ./thFilter.date.directive */ 152);
+__webpack_require__(/*! ./thFilter.date.directive */ 150);
 
 
 /***/ }),
-/* 152 */
+/* 150 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************************!*\
   !*** ./src/lib/thFilter/filters/date/thFilter.date.directive.coffee ***!
   \**********************************************************************/
 /***/ (function(module, exports, __webpack_require__) {
+
+var moment;
+
+moment = __webpack_require__(/*! moment */ 1);
 
 angular.module("ThemisComponents").directive("thFilterDate", ["DateFilter", function(DateFilter) {
   return {
@@ -93263,12 +92113,13 @@ angular.module("ThemisComponents").directive("thFilterDate", ["DateFilter", func
     },
     bindToController: true,
     controllerAs: "thFilterDate",
-    template: __webpack_require__(/*! ./thFilter.date.template.html */ 244),
+    template: __webpack_require__(/*! ./thFilter.date.template.html */ 242),
     controller: ["$scope", function($scope) {
       var ref;
       this.hasOperator = ((ref = this.operatorOptions) != null ? ref.length : void 0) > 0;
       this.onValueChange = (function(_this) {
-        return function() {
+        return function(newVal) {
+          _this.filter.model = newVal;
           return _this.filterSet.onFilterChange();
         };
       })(this);
@@ -93306,7 +92157,7 @@ angular.module("ThemisComponents").directive("thFilterDate", ["DateFilter", func
 
 
 /***/ }),
-/* 153 */
+/* 151 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************!*\
@@ -93339,7 +92190,7 @@ angular.module("ThemisComponents").factory("FilterBase", function() {
 
 
 /***/ }),
-/* 154 */
+/* 152 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************!*\
@@ -93349,7 +92200,7 @@ angular.module("ThemisComponents").factory("FilterBase", function() {
 
 var debounce;
 
-debounce = __webpack_require__(/*! debounce */ 26);
+debounce = __webpack_require__(/*! debounce */ 25);
 
 angular.module('ThemisComponents').factory('FilterSet', function() {
   var FilterSet;
@@ -93399,7 +92250,7 @@ angular.module('ThemisComponents').factory('FilterSet', function() {
 
 
 /***/ }),
-/* 155 */
+/* 153 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -93407,25 +92258,25 @@ angular.module('ThemisComponents').factory('FilterSet', function() {
   \***********************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./autocomplete/ */ 148);
+__webpack_require__(/*! ./autocomplete/ */ 146);
 
-__webpack_require__(/*! ./date/ */ 151);
+__webpack_require__(/*! ./date/ */ 149);
 
-__webpack_require__(/*! ./input/ */ 156);
+__webpack_require__(/*! ./input/ */ 154);
 
-__webpack_require__(/*! ./number/ */ 159);
+__webpack_require__(/*! ./number/ */ 157);
 
-__webpack_require__(/*! ./select/ */ 162);
+__webpack_require__(/*! ./select/ */ 160);
 
-__webpack_require__(/*! ./time/ */ 165);
+__webpack_require__(/*! ./time/ */ 163);
 
-__webpack_require__(/*! ./filterBase.service */ 153);
+__webpack_require__(/*! ./filterBase.service */ 151);
 
-__webpack_require__(/*! ./filterSet.service */ 154);
+__webpack_require__(/*! ./filterSet.service */ 152);
 
 
 /***/ }),
-/* 156 */
+/* 154 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -93433,13 +92284,13 @@ __webpack_require__(/*! ./filterSet.service */ 154);
   \*****************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./inputFilter.service */ 157);
+__webpack_require__(/*! ./inputFilter.service */ 155);
 
-__webpack_require__(/*! ./thFilter.input.directive */ 158);
+__webpack_require__(/*! ./thFilter.input.directive */ 156);
 
 
 /***/ }),
-/* 157 */
+/* 155 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************************!*\
@@ -93491,7 +92342,7 @@ angular.module("ThemisComponents").factory("InputFilter", ["FilterBase", functio
 
 
 /***/ }),
-/* 158 */
+/* 156 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************************!*\
@@ -93511,7 +92362,7 @@ angular.module("ThemisComponents").directive("thFilterInput", ["InputFilter", fu
     },
     bindToController: true,
     controllerAs: "thFilterInput",
-    template: __webpack_require__(/*! ./thFilter.input.template.html */ 245),
+    template: __webpack_require__(/*! ./thFilter.input.template.html */ 243),
     controller: ["$scope", function($scope) {
       var enterEventCode, isUpdatedValue, lastValue;
       lastValue = void 0;
@@ -93577,7 +92428,7 @@ angular.module("ThemisComponents").directive("thFilterInput", ["InputFilter", fu
 
 
 /***/ }),
-/* 159 */
+/* 157 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -93585,13 +92436,13 @@ angular.module("ThemisComponents").directive("thFilterInput", ["InputFilter", fu
   \******************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./numberFilter.service */ 160);
+__webpack_require__(/*! ./numberFilter.service */ 158);
 
-__webpack_require__(/*! ./thFilter.number.directive */ 161);
+__webpack_require__(/*! ./thFilter.number.directive */ 159);
 
 
 /***/ }),
-/* 160 */
+/* 158 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************************!*\
@@ -93664,7 +92515,7 @@ angular.module("ThemisComponents").factory("NumberFilter", ["FilterBase", functi
 
 
 /***/ }),
-/* 161 */
+/* 159 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************************!*\
@@ -93684,7 +92535,7 @@ angular.module("ThemisComponents").directive("thFilterNumber", ["NumberFilter", 
     },
     bindToController: true,
     controllerAs: "thFilterNumber",
-    template: __webpack_require__(/*! ./thFilter.number.template.html */ 246),
+    template: __webpack_require__(/*! ./thFilter.number.template.html */ 244),
     controller: ["$scope", function($scope) {
       var enterEventCode, isUpdatedValue, lastValue;
       lastValue = void 0;
@@ -93750,7 +92601,7 @@ angular.module("ThemisComponents").directive("thFilterNumber", ["NumberFilter", 
 
 
 /***/ }),
-/* 162 */
+/* 160 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -93758,13 +92609,13 @@ angular.module("ThemisComponents").directive("thFilterNumber", ["NumberFilter", 
   \******************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./selectFilter.service */ 163);
+__webpack_require__(/*! ./selectFilter.service */ 161);
 
-__webpack_require__(/*! ./thFilter.select.directive */ 164);
+__webpack_require__(/*! ./thFilter.select.directive */ 162);
 
 
 /***/ }),
-/* 163 */
+/* 161 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************************!*\
@@ -93850,7 +92701,7 @@ angular.module("ThemisComponents").factory("SelectFilter", ["$http", "FilterBase
 
 
 /***/ }),
-/* 164 */
+/* 162 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************************!*\
@@ -93870,7 +92721,7 @@ angular.module('ThemisComponents').directive('thFilterSelect', ["SelectFilter", 
     },
     bindToController: true,
     controllerAs: 'thFilterSelect',
-    template: __webpack_require__(/*! ./thFilter.select.template.html */ 247),
+    template: __webpack_require__(/*! ./thFilter.select.template.html */ 245),
     controller: ["$scope", function($scope) {
       this.onValueChange = function() {
         return $timeout((function(_this) {
@@ -93906,7 +92757,7 @@ angular.module('ThemisComponents').directive('thFilterSelect', ["SelectFilter", 
 
 
 /***/ }),
-/* 165 */
+/* 163 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -93914,13 +92765,13 @@ angular.module('ThemisComponents').directive('thFilterSelect', ["SelectFilter", 
   \****************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./timeFilter.service */ 167);
+__webpack_require__(/*! ./timeFilter.service */ 165);
 
-__webpack_require__(/*! ./thFilter.time.directive */ 166);
+__webpack_require__(/*! ./thFilter.time.directive */ 164);
 
 
 /***/ }),
-/* 166 */
+/* 164 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************************!*\
@@ -93939,7 +92790,7 @@ angular.module("ThemisComponents").directive("thFilterTime", ["TimeFilter", "$ti
     },
     bindToController: true,
     controllerAs: "thFilterTime",
-    template: __webpack_require__(/*! ./thFilter.time.template.html */ 248),
+    template: __webpack_require__(/*! ./thFilter.time.template.html */ 246),
     controller: ["$scope", "$element", function($scope, $element) {
       var enterEventCode, isUpdatedValue, lastValue, setInvalid, setValid;
       lastValue = void 0;
@@ -94030,7 +92881,7 @@ angular.module("ThemisComponents").directive("thFilterTime", ["TimeFilter", "$ti
 
 
 /***/ }),
-/* 167 */
+/* 165 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************************!*\
@@ -94125,7 +92976,7 @@ angular.module("ThemisComponents").factory("TimeFilter", ["FilterBase", function
 
 
 /***/ }),
-/* 168 */
+/* 166 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************************!*\
@@ -94149,7 +93000,7 @@ angular.module('ThemisComponents').factory('CustomFilterConverter', function() {
 
 
 /***/ }),
-/* 169 */
+/* 167 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************!*\
@@ -94243,7 +93094,7 @@ angular.module('ThemisComponents').controller('thCustomFilterRow.controller', ["
 
 
 /***/ }),
-/* 170 */
+/* 168 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************************!*\
@@ -94251,7 +93102,7 @@ angular.module('ThemisComponents').controller('thCustomFilterRow.controller', ["
   \*************************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thCustomFilterRow.controller */ 169);
+__webpack_require__(/*! ./thCustomFilterRow.controller */ 167);
 
 angular.module("ThemisComponents").directive("thCustomFilterRow", function() {
   return {
@@ -94267,14 +93118,14 @@ angular.module("ThemisComponents").directive("thCustomFilterRow", function() {
     },
     bindToController: true,
     controllerAs: "thCustomFilterRow",
-    template: __webpack_require__(/*! ./thCustomFilterRow.template.html */ 249),
+    template: __webpack_require__(/*! ./thCustomFilterRow.template.html */ 247),
     controller: "thCustomFilterRow.controller"
   };
 });
 
 
 /***/ }),
-/* 171 */
+/* 169 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************!*\
@@ -94400,13 +93251,13 @@ angular.module("ThemisComponents").component("thCustomFilters", {
     thFilterCtrl: "^thFilter"
   },
   controllerAs: "thCustomFilters",
-  template: __webpack_require__(/*! ./thCustomFilters.template.html */ 250),
+  template: __webpack_require__(/*! ./thCustomFilters.template.html */ 248),
   controller: CustomFilters
 });
 
 
 /***/ }),
-/* 172 */
+/* 170 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -94423,7 +93274,7 @@ angular.module("ThemisComponents").directive("thFilter", ["FilterSet", "$q", fun
     bindToController: true,
     transclude: true,
     controllerAs: "thFilter",
-    template: __webpack_require__(/*! ./thFilter.template.html */ 251),
+    template: __webpack_require__(/*! ./thFilter.template.html */ 249),
     controller: ["$scope", "$element", function($scope, $element) {
       this.initPromises = [];
       this.filterSet = this.options.filterSet;
@@ -94453,7 +93304,7 @@ angular.module("ThemisComponents").directive("thFilter", ["FilterSet", "$q", fun
 
 
 /***/ }),
-/* 173 */
+/* 171 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -94471,7 +93322,7 @@ angular.module('ThemisComponents').directive('thSearchRow', ["InputFilter", "$ti
     },
     bindToController: true,
     controllerAs: 'thSearchRow',
-    template: __webpack_require__(/*! ./thSearchRow.template.html */ 252),
+    template: __webpack_require__(/*! ./thSearchRow.template.html */ 250),
     controller: ["$scope", function($scope) {
       this.queryFilterOptions = {
         fieldIdentifier: this.fieldIdentifier || "query",
@@ -94501,7 +93352,7 @@ angular.module('ThemisComponents').directive('thSearchRow', ["InputFilter", "$ti
 
 
 /***/ }),
-/* 174 */
+/* 172 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************!*\
@@ -94518,7 +93369,7 @@ angular.module("ThemisComponents").directive("thStaticFilters", ["FilterSet", "$
     },
     bindToController: true,
     controllerAs: "thStaticFilters",
-    template: __webpack_require__(/*! ./thStaticFilters.template.html */ 253),
+    template: __webpack_require__(/*! ./thStaticFilters.template.html */ 251),
     controller: function() {},
     compile: function() {
       return {
@@ -94554,7 +93405,7 @@ angular.module("ThemisComponents").directive("thStaticFilters", ["FilterSet", "$
 
 
 /***/ }),
-/* 175 */
+/* 173 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************!*\
@@ -94590,7 +93441,7 @@ angular.module('ThemisComponents').directive("thInput", ["Utilities", function(U
       step: '=',
       ngChange: '&'
     },
-    template: __webpack_require__(/*! ./thInput.template.html */ 254),
+    template: __webpack_require__(/*! ./thInput.template.html */ 252),
     controller: function() {
       this.thOnChange = function() {
         return Utilities.onChange(this.ngChange);
@@ -94620,7 +93471,7 @@ angular.module('ThemisComponents').directive("thInput", ["Utilities", function(U
 
 
 /***/ }),
-/* 176 */
+/* 174 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************!*\
@@ -94630,9 +93481,9 @@ angular.module('ThemisComponents').directive("thInput", ["Utilities", function(U
 
 var LazyController, qs, uuid;
 
-uuid = __webpack_require__(/*! uuid */ 14);
+uuid = __webpack_require__(/*! uuid */ 28);
 
-qs = __webpack_require__(/*! qs */ 28);
+qs = __webpack_require__(/*! qs */ 27);
 
 LazyController = (function() {
 
@@ -94689,7 +93540,7 @@ LazyController = (function() {
 })();
 
 angular.module('ThemisComponents').component("thLazy", {
-  template: __webpack_require__(/*! ./thLazy.template.html */ 255),
+  template: __webpack_require__(/*! ./thLazy.template.html */ 253),
   controllerAs: "lazy",
   require: {
     metaLoader: "?^thMetaLoader"
@@ -94704,7 +93555,7 @@ angular.module('ThemisComponents').component("thLazy", {
 
 
 /***/ }),
-/* 177 */
+/* 175 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -94732,7 +93583,7 @@ angular.module('ThemisComponents').factory('LazyManager', function() {
 
 
 /***/ }),
-/* 178 */
+/* 176 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -94777,13 +93628,13 @@ MetaLoader = (function() {
 angular.module('ThemisComponents').component("thMetaLoader", {
   transclude: true,
   controllerAs: "meta",
-  template: __webpack_require__(/*! ./thMetaLoader.template.html */ 256),
+  template: __webpack_require__(/*! ./thMetaLoader.template.html */ 254),
   controller: MetaLoader
 });
 
 
 /***/ }),
-/* 179 */
+/* 177 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -94794,7 +93645,7 @@ angular.module('ThemisComponents').component("thMetaLoader", {
 angular.module('ThemisComponents').directive("thLoader", function() {
   return {
     restrict: "EA",
-    template: __webpack_require__(/*! ./thLoader.template.html */ 257),
+    template: __webpack_require__(/*! ./thLoader.template.html */ 255),
     transclude: true,
     replace: true,
     controllerAs: 'loader',
@@ -94834,7 +93685,7 @@ angular.module('ThemisComponents').directive("thLoader", function() {
 
 
 /***/ }),
-/* 180 */
+/* 178 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************!*\
@@ -94851,7 +93702,7 @@ angular.module("ThemisComponents").directive("thModal", function() {
     scope: {
       modalData: "="
     },
-    template: __webpack_require__(/*! ./thModal.template.html */ 258),
+    template: __webpack_require__(/*! ./thModal.template.html */ 256),
     controller: ["ModalManager", function(ModalManager) {
       this.name = this.modalData.name;
       this.content = this.modalData.content;
@@ -94875,7 +93726,7 @@ angular.module("ThemisComponents").directive("thModal", function() {
 
 
 /***/ }),
-/* 181 */
+/* 179 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -94889,7 +93740,7 @@ angular.module("ThemisComponents").directive("thModalAnchor", function() {
     replace: true,
     controllerAs: "anchor",
     bindToController: true,
-    template: __webpack_require__(/*! ./thModalAnchor.template.html */ 259),
+    template: __webpack_require__(/*! ./thModalAnchor.template.html */ 257),
     controller: ["ModalManager", function(ModalManager) {
       this.modals = ModalManager._modals;
       if (this.modals.length > 0) {
@@ -94902,7 +93753,7 @@ angular.module("ThemisComponents").directive("thModalAnchor", function() {
 
 
 /***/ }),
-/* 182 */
+/* 180 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -94999,7 +93850,7 @@ angular.module("ThemisComponents").factory("ModalManager", ["$http", "$q", funct
 
 
 /***/ }),
-/* 183 */
+/* 181 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -95007,11 +93858,11 @@ angular.module("ThemisComponents").factory("ModalManager", ["$http", "$q", funct
   \******************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thModalTitlebar.component */ 184);
+__webpack_require__(/*! ./thModalTitlebar.component */ 182);
 
 
 /***/ }),
-/* 184 */
+/* 182 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************************!*\
@@ -95047,7 +93898,7 @@ ModalTitlebar = (function() {
 })();
 
 angular.module('ThemisComponents').component('thModalTitlebar', {
-  template: __webpack_require__(/*! ./thModalTitlebar.template.html */ 260),
+  template: __webpack_require__(/*! ./thModalTitlebar.template.html */ 258),
   controller: ModalTitlebar,
   bindings: {
     title: "@",
@@ -95058,7 +93909,7 @@ angular.module('ThemisComponents').component('thModalTitlebar', {
 
 
 /***/ }),
-/* 185 */
+/* 183 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -95084,7 +93935,7 @@ angular.module('ThemisComponents').filter("pluralize", function() {
 
 
 /***/ }),
-/* 186 */
+/* 184 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -95181,13 +94032,13 @@ module.exports = function($compile, $timeout) {
       return scope.$apply(function() {
         var body;
         if (view == null) {
-          view = angular.element(__webpack_require__(/*! ./thPopover.template.html */ 263));
+          view = angular.element(__webpack_require__(/*! ./thPopover.template.html */ 261));
         }
         if (overlay == null) {
-          overlay = angular.element(__webpack_require__(/*! ./thPopover.overlay.template.html */ 262));
+          overlay = angular.element(__webpack_require__(/*! ./thPopover.overlay.template.html */ 260));
         }
         if (arrow == null) {
-          arrow = angular.element(__webpack_require__(/*! ./thPopover.arrow.template.html */ 261));
+          arrow = angular.element(__webpack_require__(/*! ./thPopover.arrow.template.html */ 259));
         }
         body = angular.element(document.body);
         body.append(overlay);
@@ -95229,7 +94080,7 @@ module.exports = function($compile, $timeout) {
 
 
 /***/ }),
-/* 187 */
+/* 185 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -95254,7 +94105,7 @@ angular.module('ThemisComponents').directive("thPopover", ["PopoverManager", fun
 
 
 /***/ }),
-/* 188 */
+/* 186 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************************!*\
@@ -95278,7 +94129,7 @@ angular.module("ThemisComponents").directive("thPopoverContent", ["PopoverManage
 
 
 /***/ }),
-/* 189 */
+/* 187 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************!*\
@@ -95357,7 +94208,7 @@ angular.module('ThemisComponents').factory('PopoverManager', ["$compile", "$time
       return renderPopover();
     });
   };
-  addPopoverToTarget = __webpack_require__(/*! ./thAddPopover.helper */ 186)($compile, $timeout);
+  addPopoverToTarget = __webpack_require__(/*! ./thAddPopover.helper */ 184)($compile, $timeout);
   return {
     attachPopover: attachPopover,
     showPopover: showPopover,
@@ -95370,7 +94221,7 @@ angular.module('ThemisComponents').factory('PopoverManager', ["$compile", "$time
 
 
 /***/ }),
-/* 190 */
+/* 188 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************!*\
@@ -95393,7 +94244,7 @@ angular.module("ThemisComponents").directive("thPopoverTarget", ["PopoverManager
 
 
 /***/ }),
-/* 191 */
+/* 189 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************!*\
@@ -95423,7 +94274,7 @@ angular.module("ThemisComponents").directive("thPopoverUrl", ["$http", "PopoverM
 
 
 /***/ }),
-/* 192 */
+/* 190 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************************!*\
@@ -95436,7 +94287,7 @@ angular.module('ThemisComponents').directive("thRadioButton", function() {
     require: '^thRadioGroup',
     restrict: "EA",
     replace: true,
-    template: __webpack_require__(/*! ./thRadioButton.template.html */ 264),
+    template: __webpack_require__(/*! ./thRadioButton.template.html */ 262),
     scope: {
       value: '@',
       change: '&ngChange'
@@ -95453,7 +94304,7 @@ angular.module('ThemisComponents').directive("thRadioButton", function() {
 
 
 /***/ }),
-/* 193 */
+/* 191 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************!*\
@@ -95468,7 +94319,7 @@ angular.module('ThemisComponents').directive('thRadioGroup', function() {
     transclude: true,
     bindToController: true,
     controllerAs: 'radioGroup',
-    template: __webpack_require__(/*! ./thRadioGroup.template.html */ 265),
+    template: __webpack_require__(/*! ./thRadioGroup.template.html */ 263),
     scope: {
       name: '@',
       change: '&ngChange',
@@ -95537,7 +94388,7 @@ angular.module('ThemisComponents').directive('thRadioGroup', function() {
 
 
 /***/ }),
-/* 194 */
+/* 192 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -95548,7 +94399,7 @@ angular.module('ThemisComponents').directive('thRadioGroup', function() {
 angular.module('ThemisComponents').directive("thSelect", ["Utilities", function(Utilities) {
   return {
     restrict: "EA",
-    template: __webpack_require__(/*! ./thSelect.template.html */ 267),
+    template: __webpack_require__(/*! ./thSelect.template.html */ 265),
     controllerAs: "select",
     replace: true,
     bindToController: true,
@@ -95683,7 +94534,7 @@ angular.module('ThemisComponents').directive("thSelect", ["Utilities", function(
 
 
 /***/ }),
-/* 195 */
+/* 193 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -95695,7 +94546,7 @@ angular.module('ThemisComponents').directive("thSwitch", function() {
   return {
     restrict: "EA",
     replace: true,
-    template: __webpack_require__(/*! ./thSwitch.template.html */ 268),
+    template: __webpack_require__(/*! ./thSwitch.template.html */ 266),
     scope: {
       name: '@',
       change: '&ngChange',
@@ -95728,7 +94579,7 @@ angular.module('ThemisComponents').directive("thSwitch", function() {
 
 
 /***/ }),
-/* 196 */
+/* 194 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************!*\
@@ -95872,7 +94723,7 @@ angular.module('ThemisComponents').factory('SimpleTableDelegate', ["TableDelegat
 
 
 /***/ }),
-/* 197 */
+/* 195 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************!*\
@@ -95882,7 +94733,7 @@ angular.module('ThemisComponents').factory('SimpleTableDelegate', ["TableDelegat
 
 var thTableKeyboardNavigation;
 
-thTableKeyboardNavigation = __webpack_require__(/*! ./thTableKeyboardNavigation */ 203);
+thTableKeyboardNavigation = __webpack_require__(/*! ./thTableKeyboardNavigation */ 201);
 
 angular.module("ThemisComponents").directive("thTable", ["$compile", "Table", function($compile, Table) {
   return {
@@ -95943,7 +94794,7 @@ angular.module("ThemisComponents").directive("thTable", ["$compile", "Table", fu
 
 
 /***/ }),
-/* 198 */
+/* 196 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************!*\
@@ -96026,7 +94877,7 @@ Table = function(options) {
 
 
 /***/ }),
-/* 199 */
+/* 197 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -96042,7 +94893,7 @@ angular.module('ThemisComponents').directive('thTableCell', function() {
 
 
 /***/ }),
-/* 200 */
+/* 198 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -96203,7 +95054,7 @@ angular.module("ThemisComponents").factory("TableDelegate", ["TablePagination", 
 
 
 /***/ }),
-/* 201 */
+/* 199 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -96237,7 +95088,7 @@ TableFooter = function(options) {
 
 
 /***/ }),
-/* 202 */
+/* 200 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -96310,7 +95161,7 @@ TableHeader = function(options) {
 
 
 /***/ }),
-/* 203 */
+/* 201 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -96499,7 +95350,7 @@ module.exports = function($element, $scope) {
 
 
 /***/ }),
-/* 204 */
+/* 202 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -96634,7 +95485,7 @@ angular.module('ThemisComponents').factory('TablePagination', ["$interpolate", f
 
 
 /***/ }),
-/* 205 */
+/* 203 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -96650,7 +95501,7 @@ angular.module('ThemisComponents').directive('thTableRow', function() {
 
 
 /***/ }),
-/* 206 */
+/* 204 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -96711,7 +95562,7 @@ TableSort = function() {
 
 
 /***/ }),
-/* 207 */
+/* 205 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -96723,7 +95574,7 @@ angular.module('ThemisComponents').directive("thTab", function() {
   return {
     require: "^thTabset",
     restrict: "EA",
-    template: __webpack_require__(/*! ./thTab.template.html */ 269),
+    template: __webpack_require__(/*! ./thTab.template.html */ 267),
     transclude: true,
     scope: {
       name: "@name",
@@ -96754,7 +95605,7 @@ angular.module('ThemisComponents').directive("thTab", function() {
 
 
 /***/ }),
-/* 208 */
+/* 206 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -96771,7 +95622,7 @@ angular.module('ThemisComponents').directive("thTabset", function() {
   return {
     restrict: "EA",
     replace: true,
-    template: __webpack_require__(/*! ./thTabset.native.template.html */ 270),
+    template: __webpack_require__(/*! ./thTabset.native.template.html */ 268),
     transclude: {
       actionBar: '?thTabActionBar'
     },
@@ -96931,7 +95782,7 @@ angular.module('ThemisComponents').directive("thTabset", function() {
 
 
 /***/ }),
-/* 209 */
+/* 207 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -96958,7 +95809,7 @@ angular.module('ThemisComponents').directive("thTextarea", ["Utilities", functio
       ngPattern: '=',
       ngChange: '&'
     },
-    template: __webpack_require__(/*! ./thTextarea.template.html */ 271),
+    template: __webpack_require__(/*! ./thTextarea.template.html */ 269),
     controller: function() {
       this.thOnChange = function() {
         return Utilities.onChange(this.ngChange);
@@ -97000,7 +95851,7 @@ angular.module('ThemisComponents').directive("thTextarea", ["Utilities", functio
 
 
 /***/ }),
-/* 210 */
+/* 208 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -97012,7 +95863,7 @@ angular.module('ThemisComponents').directive('thTruncate', function() {
   return {
     restrict: 'E',
     transclude: true,
-    template: __webpack_require__(/*! ./thTruncate.template.html */ 272),
+    template: __webpack_require__(/*! ./thTruncate.template.html */ 270),
     bindToController: true,
     controllerAs: 'truncate',
     scope: {
@@ -97046,7 +95897,7 @@ angular.module('ThemisComponents').directive('thTruncate', function() {
 
 
 /***/ }),
-/* 211 */
+/* 209 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -97058,7 +95909,7 @@ var EventEmitter,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
 
-EventEmitter = __webpack_require__(/*! events */ 27);
+EventEmitter = __webpack_require__(/*! events */ 26);
 
 angular.module('ThemisComponents').factory('ViewModel', function() {
   var ViewModel;
@@ -97105,7 +95956,7 @@ angular.module('ThemisComponents').factory('ViewModel', function() {
 
 
 /***/ }),
-/* 212 */
+/* 210 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -97136,7 +95987,7 @@ angular.module("ThemisComponents").directive("withFocus", ["$timeout", function(
 
 
 /***/ }),
-/* 213 */
+/* 211 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -97241,7 +96092,7 @@ angular.module('ThemisComponents').directive("withLabel", function() {
 
 
 /***/ }),
-/* 214 */
+/* 212 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************!*\
@@ -97310,7 +96161,7 @@ angular.module("ThemisComponents").directive("withSubtext", function() {
 
 
 /***/ }),
-/* 215 */
+/* 213 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************************!*\
@@ -97371,7 +96222,7 @@ angular.module('ThemisComponents').factory('MessageService', function() {
 
 
 /***/ }),
-/* 216 */
+/* 214 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************************!*\
@@ -97381,7 +96232,7 @@ angular.module('ThemisComponents').factory('MessageService', function() {
 
 var $;
 
-$ = __webpack_require__(/*! jquery */ 3);
+$ = __webpack_require__(/*! jquery */ 2);
 
 angular.module('ThemisComponents').directive("withMessages", ["$compile", "MessageService", function($compile, MessageService) {
   return {
@@ -97426,7 +96277,7 @@ angular.module('ThemisComponents').directive("withMessages", ["$compile", "Messa
 
 
 /***/ }),
-/* 217 */
+/* 215 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************!*\
@@ -97437,7 +96288,7 @@ angular.module('ThemisComponents').directive("withMessages", ["$compile", "Messa
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.data.js */ 23);
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.data.js */ 21);
 /**
  * FIXME: Rename to DataSourceFactory and return a type of "SchedulerDataSource"
  * that exposes the fetch method and anything else required from kendo.data.SchedulerDataSource
@@ -97462,7 +96313,7 @@ exports.default = SchedulerDataSource;
 
 
 /***/ }),
-/* 218 */
+/* 216 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -97510,42 +96361,7 @@ exports.default = Utilities;
 
 
 /***/ }),
-/* 219 */
-/* unknown exports provided */
-/* all exports used */
-/*!***********************************************!*\
-  !*** ./src/lib/services/validator.service.ts ***!
-  \***********************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var angular = __webpack_require__(/*! angular */ 2);
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.validator.js */ 31);
-var ValidatorService = (function () {
-    function ValidatorService() {
-    }
-    ValidatorService.prototype.create = function (options) {
-        var defaultOpts = {
-            messages: {
-                required: "This field is required."
-            }
-        };
-        this.options = jQuery.extend(true, {}, defaultOpts, options);
-        return new kendo.ui.Validator(options.element, {
-            messages: this.options.messages,
-            rules: this.options.rules
-        });
-    };
-    return ValidatorService;
-}());
-angular.module("ThemisComponents")
-    .service("ValidatorService", ValidatorService);
-
-
-/***/ }),
-/* 220 */
+/* 217 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -97556,8 +96372,8 @@ angular.module("ThemisComponents")
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var angular = __webpack_require__(/*! angular */ 2);
-var autocomplete_factory_1 = __webpack_require__(/*! ./autocomplete.factory */ 221);
+var angular = __webpack_require__(/*! angular */ 3);
+var autocomplete_factory_1 = __webpack_require__(/*! ./autocomplete.factory */ 218);
 var AutocompleteController = (function () {
     /* @ngInject */
     AutocompleteController.$inject = ["$scope", "$element", "$timeout", "$attrs"];
@@ -97664,7 +96480,7 @@ angular.module("ThemisComponents")
 
 
 /***/ }),
-/* 221 */
+/* 218 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -97675,9 +96491,9 @@ angular.module("ThemisComponents")
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var autocomplete_1 = __webpack_require__(/*! ./providers/autocomplete */ 222);
-var combo_box_autocomplete_1 = __webpack_require__(/*! ./providers/combo-box-autocomplete */ 223);
-var multi_select_autocomplete_1 = __webpack_require__(/*! ./providers/multi-select-autocomplete */ 224);
+var autocomplete_1 = __webpack_require__(/*! ./providers/autocomplete */ 219);
+var combo_box_autocomplete_1 = __webpack_require__(/*! ./providers/combo-box-autocomplete */ 220);
+var multi_select_autocomplete_1 = __webpack_require__(/*! ./providers/multi-select-autocomplete */ 221);
 var AutocompleteFactory = (function () {
     function AutocompleteFactory() {
     }
@@ -97698,7 +96514,7 @@ exports.AutocompleteFactory = AutocompleteFactory;
 
 
 /***/ }),
-/* 222 */
+/* 219 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -97719,8 +96535,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var autocomplete_abstract_1 = __webpack_require__(/*! ./autocomplete.abstract */ 38);
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.autocomplete.js */ 101);
+var autocomplete_abstract_1 = __webpack_require__(/*! ./autocomplete.abstract */ 37);
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.autocomplete.js */ 100);
 var Autocomplete = (function (_super) {
     __extends(Autocomplete, _super);
     function Autocomplete(options) {
@@ -97778,7 +96594,7 @@ exports.Autocomplete = Autocomplete;
 
 
 /***/ }),
-/* 223 */
+/* 220 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************************!*\
@@ -97799,8 +96615,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var autocomplete_abstract_1 = __webpack_require__(/*! ./autocomplete.abstract */ 38);
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.combobox.js */ 103);
+var autocomplete_abstract_1 = __webpack_require__(/*! ./autocomplete.abstract */ 37);
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.combobox.js */ 102);
 var ComboBoxAutocomplete = (function (_super) {
     __extends(ComboBoxAutocomplete, _super);
     function ComboBoxAutocomplete(options) {
@@ -97856,7 +96672,7 @@ exports.ComboBoxAutocomplete = ComboBoxAutocomplete;
 
 
 /***/ }),
-/* 224 */
+/* 221 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************************!*\
@@ -97877,8 +96693,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var autocomplete_abstract_1 = __webpack_require__(/*! ./autocomplete.abstract */ 38);
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.multiselect.js */ 58);
+var autocomplete_abstract_1 = __webpack_require__(/*! ./autocomplete.abstract */ 37);
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.multiselect.js */ 57);
 var MultiSelectAutocomplete = (function (_super) {
     __extends(MultiSelectAutocomplete, _super);
     function MultiSelectAutocomplete(options) {
@@ -97921,7 +96737,233 @@ exports.MultiSelectAutocomplete = MultiSelectAutocomplete;
 
 
 /***/ }),
-/* 225 */
+/* 222 */
+/* unknown exports provided */
+/* all exports used */
+/*!********************************************************!*\
+  !*** ./src/lib/thDatePicker/thDatePicker.component.ts ***!
+  \********************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var $ = __webpack_require__(/*! jquery */ 2);
+var moment = __webpack_require__(/*! moment */ 1);
+var angular = __webpack_require__(/*! angular */ 3);
+var DatepickerController = (function () {
+    DatepickerController.$inject = ["$scope", "$element", "$attrs", "DatepickerService", "ValidatorService", "thDefaults"];
+    function DatepickerController($scope, $element, $attrs, DatepickerService, ValidatorService, thDefaults) {
+        this.$scope = $scope;
+        this.$element = $element;
+        this.$attrs = $attrs;
+        this.DatepickerService = DatepickerService;
+        this.ValidatorService = ValidatorService;
+        this.thDefaults = thDefaults;
+        this.neverValidated = true; // for detecting the first change of formCtrl.$submitted
+        var oriDateFormat = this.dateFormat || this.thDefaults.get("dateFormat") || "yyyy-mm-dd";
+        this.dateFormat = oriDateFormat.replace(/Y/g, "y").replace(/m/g, "M").replace(/D/g, "d");
+    }
+    DatepickerController.prototype.normalizeDate = function (date, info) {
+        if (moment.isMoment(date)) {
+            return date.toDate();
+        }
+        else if (typeof date !== "undefined" && date !== null) {
+            throw Error("The value passed into thDatePicker should be a moment object: " + info);
+        }
+    };
+    DatepickerController.prototype.createDatepicker = function () {
+        var _this = this;
+        this.datepicker = this.DatepickerService.create({
+            element: this.inputElement[0],
+            dateFormat: this.dateFormat,
+            min: this.normalizeDate(this.min, "min"),
+            max: this.normalizeDate(this.max, "max"),
+            name: this.name,
+            value: this.value,
+            ngDisabled: this.ngDisabled,
+            change: function (newVal) {
+                if (newVal !== null) {
+                    newVal = moment(newVal);
+                    _this.lastValidDate = newVal;
+                }
+                if (typeof _this.onChange === "function") {
+                    _this.$scope.$apply(function () {
+                        _this.onChange(newVal);
+                    });
+                }
+            },
+            close: function () {
+                if (_this.ngModelCtrl.$untouched) {
+                    _this.$scope.$apply(function () {
+                        _this.ngModelCtrl.$setTouched();
+                    });
+                }
+                _this.validator.validateInput(_this.inputElement);
+            }
+        });
+    };
+    DatepickerController.prototype.createValidator = function () {
+        var _this = this;
+        this.validator = this.ValidatorService.create({
+            element: this.inputElement[0],
+            attrs: this.$attrs,
+            customOptions: this.customValidator,
+            rules: {
+                valid: function (ele) {
+                    var inputValue = ele[0].value;
+                    var modelValue = _this.ngModel;
+                    var inputValueIsEmpty = inputValue === "";
+                    var ngModelIsValidMoment = modelValue && modelValue.isValid();
+                    var inputIsValid = inputValueIsEmpty || ngModelIsValidMoment;
+                    if (inputIsValid) {
+                        if (inputValueIsEmpty && _this.revertToValid) {
+                            _this.revertToLastValidDate();
+                        }
+                        return true;
+                    }
+                    if (_this.revertToValid) {
+                        _this.revertToLastValidDate();
+                        return true;
+                    }
+                    return false;
+                }
+            },
+            messages: {
+                valid: "Not a valid date"
+            },
+            validateInput: function (e) {
+                // watch validity change and apply component class change, since other than ngRequire validators aren't part of ngModelCtrl
+                _this.ngModelCtrl.$setValidity(_this.name, e.valid);
+                // if the validation request comes from formCtrl, $apply is already taken care of by angular.
+                if (_this.neverValidated && _this.formCtrl && _this.formCtrl.$submitted) {
+                    _this.neverValidated = false;
+                }
+                else {
+                    _this.$scope.$apply();
+                }
+            }
+        });
+    };
+    DatepickerController.prototype.revertToLastValidDate = function () {
+        this.lastValidDate = this.lastValidDate || moment();
+        this.datepicker.value(this.lastValidDate.toDate());
+    };
+    DatepickerController.prototype.$onInit = function () {
+        this.inputElement = $(this.$element[0]).find("input");
+    };
+    DatepickerController.prototype.$postLink = function () {
+        var _this = this;
+        this.createDatepicker();
+        this.createValidator();
+        this.inputElement.attr("name", this.name);
+        this.inputElement.attr("condensed", this.condensed);
+        this.inputElement.attr("placeholder", (this.placeholder || this.dateFormat.toLowerCase()));
+        // click input box toggle date picker
+        this.inputElement.on("click", function () { return _this.datepicker.open(); });
+    };
+    DatepickerController.prototype.$doCheck = function () {
+        // because form submit doesn't have event, and we can't $watch it from component:
+        // trigger validation when form submits without touching input, for one time only.
+        if (this.neverValidated && this.formCtrl && this.formCtrl.$submitted) {
+            this.validator.validateInput(this.inputElement);
+        }
+    };
+    DatepickerController.prototype.$onChanges = function (changesObj) {
+        if (!this.datepicker) {
+            if (changesObj.ngModel) {
+                this.value = this.normalizeDate(changesObj.ngModel.currentValue, "ng-model");
+            }
+            return;
+        }
+        if (changesObj.ngModel) {
+            var valuePassedIn = changesObj.ngModel.currentValue;
+            var kendoValidDate = this.normalizeDate(valuePassedIn, "kendo value");
+            this.datepicker.value(kendoValidDate);
+        }
+        if (changesObj.min) {
+            this.datepicker.min(changesObj.min.currentValue);
+        }
+        if (changesObj.max) {
+            this.datepicker.max(changesObj.max.currentValue);
+        }
+        if (changesObj.ngDisabled) {
+            this.datepicker.enable(!changesObj.ngDisabled.currentValue);
+        }
+        if (changesObj.condensed) {
+            this.inputElement.attr("condensed", this.condensed);
+        }
+    };
+    DatepickerController.prototype.$onDestroy = function () {
+        this.inputElement.off("click");
+    };
+    return DatepickerController;
+}());
+;
+angular.module("ThemisComponents").component("thDatePicker", {
+    template: "<input />",
+    require: {
+        ngModelCtrl: "ngModel",
+        formCtrl: "?^^form"
+    },
+    bindings: {
+        name: "@?",
+        min: "<?",
+        max: "<?",
+        ngModel: "<",
+        onChange: "<?",
+        ngDisabled: "<?",
+        placeholder: "@?",
+        dateFormat: "@?",
+        condensed: "@?",
+        revertToValid: "<?",
+        customValidator: "<?"
+    },
+    controller: DatepickerController
+});
+
+
+/***/ }),
+/* 223 */
+/* unknown exports provided */
+/* all exports used */
+/*!******************************************************!*\
+  !*** ./src/lib/thDatePicker/thDatePicker.service.ts ***!
+  \******************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.datepicker.js */ 22);
+var DatepickerService = (function () {
+    function DatepickerService() {
+    }
+    DatepickerService.prototype.create = function (options) {
+        var datepicker = new kendo.ui.DatePicker(options.element, {
+            min: options.min,
+            max: options.max,
+            value: options.value,
+            format: options.dateFormat,
+            footer: "Today",
+            change: function () {
+                if (options["change"]) {
+                    options["change"](this.value());
+                }
+            },
+            close: options["close"],
+            open: options["open"]
+        });
+        datepicker.enable(!options.ngDisabled); // calling enable after init, because no corresponding option when creating kendo-datepicker
+        return datepicker;
+    };
+    return DatepickerService;
+}());
+exports.DatepickerService = DatepickerService;
+
+
+/***/ }),
+/* 224 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************************!*\
@@ -97932,7 +96974,7 @@ exports.MultiSelectAutocomplete = MultiSelectAutocomplete;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var data_source_service_1 = __webpack_require__(/*! ../services/data-source.service */ 62);
+var data_source_service_1 = __webpack_require__(/*! ../services/data-source.service */ 61);
 var CalendarDataSource = (function () {
     function CalendarDataSource() {
         this.init();
@@ -97977,7 +97019,7 @@ exports.default = CalendarDataSource;
 
 
 /***/ }),
-/* 226 */
+/* 225 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************************************!*\
@@ -97988,7 +97030,7 @@ exports.default = CalendarDataSource;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var calendar_data_source_service_1 = __webpack_require__(/*! ../calendar-data-source.service */ 225);
+var calendar_data_source_service_1 = __webpack_require__(/*! ../calendar-data-source.service */ 224);
 var CalendarEntriesService = (function () {
     /* @ngInject */
     CalendarEntriesService.$inject = ["$http"];
@@ -98038,7 +97080,7 @@ exports.default = CalendarEntriesService;
 
 
 /***/ }),
-/* 227 */
+/* 226 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -98049,7 +97091,7 @@ exports.default = CalendarEntriesService;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var template = __webpack_require__(/*! ./scheduler.template.html */ 266);
+var template = __webpack_require__(/*! ./scheduler.template.html */ 264);
 var SchedulerController = (function () {
     function SchedulerController() {
     }
@@ -98086,7 +97128,7 @@ exports.SchedulerComponent = SchedulerComponent;
 
 
 /***/ }),
-/* 228 */
+/* 227 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -98097,7 +97139,7 @@ exports.SchedulerComponent = SchedulerComponent;
 module.exports = "<div class=\"action-bar\">\n  <div class=\"flex-section\">\n    <th-checkbox\n      ng-model=\"$ctrl.checked\"\n      ng-change=\"$ctrl.toggleAll()\"\n      with-label=\"Select Page\"\n      ng-disabled=\"$ctrl.delegate.results.processing\"\n      >\n    </th-checkbox>\n    <div class=\"action-menu\" ng-if=\"$ctrl.delegate.results.hasSelection\">\n      <span ng-if=\"$ctrl.delegate.availableActions\">\n        <th-select\n          ng-model=\"$ctrl.delegate.results.selectedAction\"\n          options=\"$ctrl.delegate.availableActions\"\n          placeholder=\"Action\"\n          condensed=\"true\"\n          ng-disabled=\"$ctrl.delegate.results.processing\"\n          >\n        </th-select>\n      </span>\n      <span class=\"button-wrapper\" ng-class=\"{'margin-left-10': !$ctrl.availableActions}\">\n        <th-button\n          type=\"standard\"\n          ng-click=\"$ctrl.triggerApply()\"\n          ng-disabled=\"$ctrl.delegate.isDisabled()\"\n          loading=\"$ctrl.delegate.results.processing\"\n          >\n          {{$ctrl.delegate.buttonName}}\n        </th-button>\n      </span>\n    </div>\n  </div>\n  <div class=\"flex-section\">\n    <ng-transclude></ng-transclude>\n  </div>\n</div>\n"
 
 /***/ }),
-/* 229 */
+/* 228 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************************!*\
@@ -98108,7 +97150,7 @@ module.exports = "<div class=\"action-bar\">\n  <div class=\"flex-section\">\n  
 module.exports = "<div class=\"action-bar\">\n\n  <div\n    class=\"flex-section\"\n    ng-class=\"{hidden: actionBar.delegate.results.totalItemCount <= 0}\"\n    >\n    <th-checkbox\n      ng-model=\"actionBar.delegate.results.allSelected\"\n      ng-click=\"actionBar.toggleAll()\"\n      with-label=\"Select All\"\n      ng-disabled=\"actionBar.delegate.results.processing\"\n      indeterminate=\"actionBar.isIndeterminate()\"\n      >\n    </th-checkbox>\n    <th-loader\n      ng-if=\"actionBar.delegate.results.loadingIds\"\n      size=\"mini\"\n      >\n    </th-loader>\n    <div\n      class=\"action-menu\"\n      ng-if=\"actionBar.delegate.results.selectedItemCount > 0\n        && !actionBar.delegate.results.loadingIds\"\n      >\n      <div class=\"action-text\">\n        <strong>{{actionBar.delegate.results.selectedItemCount}}</strong>\n          {{actionBar.openingWords}}\n          {{actionBar.lastWord | pluralize: actionBar.delegate.results.selectedItemCount}}\n          selected.\n      </div>\n      <span ng-if=\"actionBar.delegate.results.availableActions\">\n        <th-select\n          ng-model=\"actionBar.delegate.results.selectedAction\"\n          options=\"actionBar.delegate.results.availableActions\"\n          placeholder=\"Action\"\n          condensed=\"true\"\n          ng-disabled=\"actionBar.delegate.results.processing\"\n          >\n        </th-select>\n      </span>\n      <span class=\"button-wrapper\"\n        ng-class=\"{'margin-left-10': !actionBar.delegate.results.availableActions}\"\n        >\n        <th-button\n          type=\"standard\"\n          ng-click=\"actionBar.triggerApply()\"\n          ng-disabled=\"actionBar.delegate.results.processing ||\n                       (!actionBar.delegate.results.selectedAction &&\n                       !!actionBar.delegate.results.availableActions)\"\n          loading=\"actionBar.delegate.results.processing\"\n          >\n          {{actionBar.buttonName}}\n        </th-button>\n      </span>\n    </div>\n  </div>\n  <div class=\"flex-section\">\n    <ng-transclude></ng-transclude>\n  </div>\n</div>\n"
 
 /***/ }),
-/* 230 */
+/* 229 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -98119,7 +97161,7 @@ module.exports = "<div class=\"action-bar\">\n\n  <div\n    class=\"flex-section
 module.exports = "<div\n  ng-show=\"alertAnchor.alertMessage.message\"\n  ng-class=\"'th-alert th-alert-' + alertAnchor.alertMessage.type\"\n  >\n  <i\n    class=\"fa alert-icon\"\n    ng-class=\"{ 'fa-check': alertAnchor.alertMessage.type == 'success',\n                'fa-warning': alertAnchor.alertMessage.type == 'error' ||\n                              alertAnchor.alertMessage.type == 'warning' }\"\n    >\n  </i>\n  <p\n    ng-bind-html=\"alertAnchor.alertMessage.message\"\n    >\n    {{alertAnchor.alertMessage.message}}\n  </p>\n  <i\n    class=\"fa fa-times-circle dismiss-icon\"\n    ng-click=\"alertAnchor.dismiss()\"\n    >\n  </i>\n</div>\n"
 
 /***/ }),
-/* 231 */
+/* 230 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -98130,7 +97172,7 @@ module.exports = "<div\n  ng-show=\"alertAnchor.alertMessage.message\"\n  ng-cla
 module.exports = "<a\n  class=\"th-button {{button.type}}\"\n  aria-disabled=\"{{button.ngDisabled}}\"\n  href=\"{{button.href}}\"\n  role=\"button\"\n  >\n  <span\n    class=\"load-wrapper\"\n    ng-if=\"button.loading\"\n    >\n    <th-loader\n      theme=\"button.theme\"\n      size=\"mini\"\n      >\n    </th-loader>\n  </span>\n  <ng-transclude\n    ng-class=\"button.loading ? 'hide' : 'show'\"\n    >\n  </ng-transclude>\n</a>\n"
 
 /***/ }),
-/* 232 */
+/* 231 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -98141,7 +97183,7 @@ module.exports = "<a\n  class=\"th-button {{button.type}}\"\n  aria-disabled=\"{
 module.exports = "<button\n  class=\"th-button {{button.type}}\"\n  aria-disabled=\"{{button.ngDisabled}}\"\n  >\n  <span\n    class=\"load-wrapper\"\n    ng-if=\"button.loading\"\n    >\n    <th-loader\n      theme=\"button.theme\"\n      size=\"mini\"\n      >\n    </th-loader>\n  </span>\n  <ng-transclude\n    ng-class=\"button.loading ? 'hide' : 'show'\"\n    >\n  </ng-transclude>\n</button>\n"
 
 /***/ }),
-/* 233 */
+/* 232 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -98152,7 +97194,7 @@ module.exports = "<button\n  class=\"th-button {{button.type}}\"\n  aria-disable
 module.exports = "<span\n  class=\"th-checkbox\"\n  ng-class=\"[\n    {disabled: checkbox.ngDisabled},\n    {checked: checkbox.checked && !checkbox.indeterminate},\n    {indeterminate: checkbox.indeterminate}\n  ]\"\n  role=\"checkbox\"\n  aria-checked=\"{{checkbox.checked}}\"\n  tabindex=\"0\"\n  >\n  <input\n    type=\"checkbox\"\n    name=\"{{checkbox.name}}\"\n    ng-model=\"checkbox.checked\"\n    ng-required=\"checkbox.ngRequired\"\n    ng-disabled=\"checkbox.ngDisabled\"\n    value=\"{{checkbox.checked}}\"\n    >\n  <i></i>\n</span>\n"
 
 /***/ }),
-/* 234 */
+/* 233 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************************!*\
@@ -98163,18 +97205,7 @@ module.exports = "<span\n  class=\"th-checkbox\"\n  ng-class=\"[\n    {disabled:
 module.exports = "<h1 class=\"th-header-title th-header-flex-item\">{{ title }}</h1>\n<div class=\"th-header-flex-item\"></div>\n<ng-transclude class=\"th-header-flex-item\"></ng-transclude>"
 
 /***/ }),
-/* 235 */
-/* unknown exports provided */
-/* all exports used */
-/*!*********************************************************!*\
-  !*** ./src/lib/thDatePicker/thDatePicker.template.html ***!
-  \*********************************************************/
-/***/ (function(module, exports) {
-
-module.exports = "<span class=\"th-date-picker\">\n  <div th-input\n    ng-model=\"datepicker.inputFieldString\"\n    type=\"text\"\n    placeholder=\"{{datepicker.dateFormat}}\"\n    icon=\"calendar\"\n    th-popover-target=\"{{datepicker.targetName}}\"\n    condensed=\"datepicker.condensed\"\n    >\n  </div>\n  <th-popover-content name=\"{{datepicker.contentName}}\">\n    <span class=\"date-picker-widget\">\n      <div\n        date-picker=\"datepicker.ngModel\"\n        watch-direct-changes\n        view=\"date\"\n        min-view=\"date\"\n        max-view=\"date\"\n        >\n      </div>\n    </span>\n  </th-popover-content>\n</span>\n"
-
-/***/ }),
-/* 236 */
+/* 234 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************************!*\
@@ -98185,7 +97216,7 @@ module.exports = "<span class=\"th-date-picker\">\n  <div th-input\n    ng-model
 module.exports = "<ng-transclude></ng-transclude>\n"
 
 /***/ }),
-/* 237 */
+/* 235 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************************!*\
@@ -98196,7 +97227,7 @@ module.exports = "<ng-transclude></ng-transclude>\n"
 module.exports = "<a\n  id=\"{{thDisclosureToggle.name}}-toggle\"\n  href\n  ng-click=\"thDisclosureToggle.toggle()\"\n  ng-focus=\"thDisclosureToggle.focus()\"\n  ng-blur=\"thDisclosureToggle.blur()\"\n  aria-controls=\"{{thDisclosureToggle.name}}\"\n  aria-expanded=\"{{thDisclosureToggle.expanded}}\"\n  aria-label=\"{{thDisclosureToggle.ariaLabel}}\"\n  aria-describedby=\"{{thDisclosureToggle.ariaDescribedby}}\"\n  tabindex=\"{{thDisclosureToggle.tabindex}}\"\n  role=\"button\"\n  >\n  <ng-transclude\n    ng-if=\"thDisclosureToggle.textSide == 'left'\"\n    >\n  </ng-transclude>\n  <span\n    class=\"fa fa-caret-right\"\n    ng-class=\"{'fa-caret-right-rotated': thDisclosureToggle.expanded}\"\n    aria-hidden=\"true\"\n    >\n  </span>\n  <ng-transclude\n    ng-if=\"thDisclosureToggle.textSide == 'right'\"\n    >\n  </ng-transclude>\n</a>\n"
 
 /***/ }),
-/* 238 */
+/* 236 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -98207,7 +97238,7 @@ module.exports = "<a\n  id=\"{{thDisclosureToggle.name}}-toggle\"\n  href\n  ng-
 module.exports = "<hr class=\"th-divider\" aria-hidden=\"true\"></hr>\n"
 
 /***/ }),
-/* 239 */
+/* 237 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -98218,7 +97249,7 @@ module.exports = "<hr class=\"th-divider\" aria-hidden=\"true\"></hr>\n"
 module.exports = "<div\n  class=\"button-dropdown\"\n  ng-keydown=\"dropdown.keyboardToggle($event)\"\n  >\n  <div\n    class=\"dd-overlay\"\n    ng-click=\"dropdown.toggle()\"\n    ng-if=\"dropdown.visible\"\n    >\n  </div>\n  <button\n    ng-class=\"dropdown.type\"\n    ng-click=\"dropdown.toggle()\"\n    aria-haspopup=\"true\"\n    aria-owns=\"{{dropdown.name|lowercase}}-listbox\"\n    aria-label=\"{{dropdown.ariaLabel}}\"\n    aria-describedby=\"{{dropdown.ariaDescribedby}}\"\n    tabindex=\"{{dropdown.visible ? '-1' : '0'}}\"\n    >\n    {{dropdown.name}}\n    <i\n      class=\"fa\"\n      ng-class=\"dropdown.toggleCaret()\"\n      >\n    </i>\n  </button>\n  <ul\n    id=\"{{dropdown.name|lowercase}}-listbox\"\n    ng-click=\"dropdown.toggle()\"\n    ng-if=\"dropdown.visible\"\n    class=\"dropdown-menu\"\n    ng-class=\"dropdown.type\"\n    aria-role=\"listbox\"\n    tabindex=\"{{dropdown.visible ? '0' : '-1'}}\"\n    >\n    <ng-switch\n      on=\"item.type\"\n      ng-repeat=\"item in dropdown.processedItems\"\n      >\n      <th-item ng-switch-when='link'\n        name=\"{{item.name}}\"\n        href=\"{{item.href}}\"\n        icon=\"{{item.icon}}\"\n        aria-role=\"option\"\n        ng-class=\"{'selected' : item.selected}\"\n        >\n      </th-item>\n      <th-item ng-switch-when='action'\n        name=\"{{item.name}}\"\n        ng-click=\"item.ngClick()\"\n        icon=\"{{item.icon}}\"\n        aria-role=\"option\"\n        ng-class=\"{'selected' : item.selected}\"\n        >\n      </th-item>\n      <th-divider\n        ng-switch-default\n        aria-hidden=\"true\"\n      >\n      </th-divider>\n    </ng-switch>\n    <ng-transclude></ng-transclude>\n  </ul>\n</div>\n"
 
 /***/ }),
-/* 240 */
+/* 238 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -98229,7 +97260,7 @@ module.exports = "<div\n  class=\"button-dropdown\"\n  ng-keydown=\"dropdown.key
 module.exports = "<li>\n  <a class=\"dropdown-item\" href=\"#\">\n    <i ng-if=\"icon\" class=\"fa fa-{{icon}}\"></i>\n    {{name}}\n  </a>\n</li>\n"
 
 /***/ }),
-/* 241 */
+/* 239 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -98240,7 +97271,7 @@ module.exports = "<li>\n  <a class=\"dropdown-item\" href=\"#\">\n    <i ng-if=\
 module.exports = "<li>\n  <a class=\"dropdown-item\" href=\"{{href}}\">\n    <i ng-if=\"icon\" class=\"fa fa-{{icon}}\"></i>\n    {{name}}\n  </a>\n</li>\n"
 
 /***/ }),
-/* 242 */
+/* 240 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -98251,7 +97282,7 @@ module.exports = "<li>\n  <a class=\"dropdown-item\" href=\"{{href}}\">\n    <i 
 module.exports = "<div class=\"th-error-container\">\n  <i class=\"fa fa-exclamation-triangle\"></i>\n  <span ng-if=\"!ctrl.message\">\n    We had trouble loading your content.<br>Try reloading the page.\n  </span>\n  <ng-transclude ng-if=\"ctrl.message\"></ng-transclude>\n</div>\n"
 
 /***/ }),
-/* 243 */
+/* 241 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************************************!*\
@@ -98262,7 +97293,7 @@ module.exports = "<div class=\"th-error-container\">\n  <i class=\"fa fa-exclama
 module.exports = "<div>\n  <th-autocomplete\n    ng-model=\"thFilterAutocomplete.filter.model\"\n    ng-attr-placeholder=\"{{thFilterAutocomplete.filter.placeholder || thFilterAutocomplete.placeholder || 'Type some text…'}}\"\n    delegate=\"thFilterAutocomplete.delegate\"\n    ng-change=\"thFilterAutocomplete.filterSet.onFilterChange()\"\n    condensed=\"true\"\n    row-template=\"thFilterAutocomplete.rowTemplate\"\n    >\n  </th-autocomplete>\n</div>\n"
 
 /***/ }),
-/* 244 */
+/* 242 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************************!*\
@@ -98270,10 +97301,10 @@ module.exports = "<div>\n  <th-autocomplete\n    ng-model=\"thFilterAutocomplete
   \*******************************************************************/
 /***/ (function(module, exports) {
 
-module.exports = "<div ng-class=\"{inner: thFilterDate.hasOperator}\">\n  <th-select\n    ng-if=\"thFilterDate.hasOperator\"\n    ng-model=\"thFilterDate.filter.operator\"\n    ng-change=\"thFilterDate.onOperatorChange()\"\n    options=\"thFilterDate.filter.operatorOptions\"\n    condensed=\"true\"\n    class=\"operator\"\n    >\n  </th-select>\n  <th-date-picker\n    ng-model=\"thFilterDate.filter.model\"\n    ng-attr-placeholder=\"{{thFilterDate.filter.placeholder || thFilterDate.placeholder || 'Enter filter date…'}}\"\n    ng-change=\"thFilterDate.onValueChange()\"\n    condensed=\"true\"\n    ng-class=\"{value: thFilterDate.hasOperator}\"\n    >\n  </th-date-picker>\n</div>\n"
+module.exports = "<div ng-class=\"{inner: thFilterDate.hasOperator}\">\n  <th-select\n    ng-if=\"thFilterDate.hasOperator\"\n    ng-model=\"thFilterDate.filter.operator\"\n    ng-change=\"thFilterDate.onOperatorChange()\"\n    options=\"thFilterDate.filter.operatorOptions\"\n    condensed=\"true\"\n    class=\"operator\"\n    >\n  </th-select>\n  <th-date-picker\n    ng-model=\"thFilterDate.filter.model\"\n    ng-attr-placeholder=\"{{thFilterDate.filter.placeholder || thFilterDate.placeholder || 'Enter filter date…'}}\"\n    on-change=\"thFilterDate.onValueChange\"\n    condensed=\"true\"\n    ng-class=\"{value: thFilterDate.hasOperator}\"\n    >\n  </th-date-picker>\n</div>\n"
 
 /***/ }),
-/* 245 */
+/* 243 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************************!*\
@@ -98284,7 +97315,7 @@ module.exports = "<div ng-class=\"{inner: thFilterDate.hasOperator}\">\n  <th-se
 module.exports = "<div>\n  <th-input\n    ng-model=\"thFilterInput.filter.model\"\n    ng-attr-placeholder=\"{{thFilterInput.filter.placeholder || thFilterInput.placeholder || 'Enter filter term…'}}\"\n    ng-keypress=\"thFilterInput.onKeypress($event)\"\n    ng-blur=\"thFilterInput.onBlur($event)\"\n    condensed=\"true\"\n    >\n  </th-input>\n</div>\n"
 
 /***/ }),
-/* 246 */
+/* 244 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************************!*\
@@ -98295,7 +97326,7 @@ module.exports = "<div>\n  <th-input\n    ng-model=\"thFilterInput.filter.model\
 module.exports = "<div class=\"inner\">\n  <th-select\n    ng-model=\"thFilterNumber.filter.operator\"\n    ng-change=\"thFilterNumber.onOperatorChange()\"\n    options=\"thFilterNumber.filter.operatorOptions\"\n    condensed=\"true\"\n    class=\"operator\"\n    >\n  </th-select>\n  <th-input\n    ng-model=\"thFilterNumber.filter.model\"\n    ng-attr-placeholder=\"{{thFilterNumber.filter.placeholder || 'Type a number…'}}\"\n    ng-keypress=\"thFilterNumber.onKeypress($event)\"\n    ng-blur=\"thFilterNumber.onBlur($event)\"\n    condensed=\"true\"\n    class=\"value\"\n    type=\"number\"\n    >\n  </th-input>\n</div>\n"
 
 /***/ }),
-/* 247 */
+/* 245 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************************!*\
@@ -98306,7 +97337,7 @@ module.exports = "<div class=\"inner\">\n  <th-select\n    ng-model=\"thFilterNu
 module.exports = "<div>\n  <th-select\n    ng-model=\"thFilterSelect.filter.model\"\n    ng-change=\"thFilterSelect.onValueChange()\"\n    options=\"thFilterSelect.filter.options\"\n    ng-attr-placeholder=\"{{thFilterSelect.filter.placeholder || thFilterSelect.placeholder || 'Select an option'}}\"\n    condensed=\"true\"\n    >\n  </th-select>\n</div>\n"
 
 /***/ }),
-/* 248 */
+/* 246 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************************!*\
@@ -98317,7 +97348,7 @@ module.exports = "<div>\n  <th-select\n    ng-model=\"thFilterSelect.filter.mode
 module.exports = "<div class=\"inner\">\n  <th-select\n    ng-model=\"thFilterTime.filter.operator\"\n    ng-change=\"thFilterTime.onOperatorChange()\"\n    options=\"thFilterTime.operatorOptions\"\n    condensed=\"true\"\n    class=\"operator\"\n    >\n  </th-select>\n  <th-input\n    ng-model=\"thFilterTime.filter.model\"\n    ng-attr-placeholder=\"{{thFilterTime.filter.placeholder || '4am, 16:13'}}\"\n    ng-keypress=\"thFilterTime.onKeypress($event)\"\n    ng-blur=\"thFilterTime.validateInput()\"\n    condensed=\"true\"\n    class=\"value\"\n    >\n  </th-input>\n</div>\n"
 
 /***/ }),
-/* 249 */
+/* 247 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -98328,7 +97359,7 @@ module.exports = "<div class=\"inner\">\n  <th-select\n    ng-model=\"thFilterTi
 module.exports = "<div class=\"row\">\n  <div class=\"field\">\n    <th-autocomplete\n      ng-model=\"thCustomFilterRow.rowSelectValue\"\n      ng-change=\"thCustomFilterRow.onRowSelectChange()\"\n      delegate=\"thCustomFilterRow.customFieldDelegate\"\n      placeholder=\"Select or search fields…\"\n      show-search-hint=\"thCustomFilterRow.showSearchHint\"\n      condensed=\"true\"\n      icon=\"caret-down\"\n      combobox=\"true\"\n      >\n    </th-autocomplete>\n  </div>\n  <div\n    ng-repeat=\"filter in thCustomFilterRow.rowFilterOptions\"\n    ng-switch on=\"filter.type\"\n    class=\"wide field filter-container\"\n    >\n    <th-filter-select\n      ng-switch-when=\"select\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-select>\n    <th-filter-input\n      ng-switch-when=\"input\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-input>\n    <th-filter-number\n      ng-switch-when=\"number\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      operator-options=\"thCustomFilterRow.numberOperatorOptions\"\n      default-operator-index=\"2\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-number>\n    <th-filter-number\n      ng-switch-when=\"currency\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      operator-options=\"thCustomFilterRow.currencyOperatorOptions\"\n      default-operator-index=\"1\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-number>\n    <th-filter-select\n      ng-switch-when=\"checkbox\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      options=\"thCustomFilterRow.checkboxOptions\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-select>\n    <th-filter-input\n      ng-switch-when=\"email\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      placeholder=\"email@example.com\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-input>\n    <th-filter-input\n      ng-switch-when=\"url\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      placeholder=\"webaddress.com\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-input>\n    <th-filter-autocomplete\n      ng-switch-when=\"autocomplete\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-autocomplete>\n    <th-filter-date\n      ng-switch-when=\"date\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      operator-options=\"thCustomFilterRow.dateOperatorOptions\"\n      default-operator-index=\"1\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-date>\n    <th-filter-time\n      ng-switch-when=\"time\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-time>\n  </div>\n  <div class=\"field\">\n    <div class=\"link\" ng-click=\"thCustomFilterRow.removeRow()\">\n      Remove\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
-/* 250 */
+/* 248 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -98339,7 +97370,7 @@ module.exports = "<div class=\"row\">\n  <div class=\"field\">\n    <th-autocomp
 module.exports = "<div class=\"th-custom-filters\" ng-if=\"thCustomFilters.customFilterTypes.length\">\n  <div class=\"custom-filters\">\n    <div class=\"custom-filters-label\">\n      {{thCustomFilters.name}} Custom Fields\n    </div>\n    <th-custom-filter-row\n      ng-repeat=\"row in thCustomFilters.customFilterRows\"\n      row-select-value=\"row.type\"\n      initial-state=\"row.initialState\"\n      custom-filter-types=\"thCustomFilters.customFilterTypes\"\n      show-search-hint=\"thCustomFilters.showSearchHint\"\n      filter-set=\"thCustomFilters.filterSet\"\n      on-remove-row=\"thCustomFilters.removeCustomFilterRow(row.identifier)\"\n      >\n    </th-custom-filter-row>\n  </div>\n  <div class=\"link add-custom-filter\" ng-click=\"thCustomFilters.addCustomFilterRow()\">\n    <i class=\"fa right-space fa-plus-circle\"></i>\n    Add {{thCustomFilters.name}} Custom Field\n  </div>\n</div>\n"
 
 /***/ }),
-/* 251 */
+/* 249 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -98350,7 +97381,7 @@ module.exports = "<div class=\"th-custom-filters\" ng-if=\"thCustomFilters.custo
 module.exports = "<div class=\"th-filter\" ng-class=\"{'th-filter-loading': thFilter.isLoading}\">\n  <div class=\"th-filter-header\">\n    <div class=\"filter-header-text\">Filters</div>\n    <th-button\n      class=\"clear-filters\"\n      ng-click=\"thFilter.clearFilters()\"\n      type=\"secondary\"\n      >\n      Clear Filters\n    </th-button>\n  </div>\n  <div ng-transclude></div>\n\n  <div class=\"th-filter-overlay\" ng-if=\"thFilter.isLoading\">\n    <th-loader class=\"th-filter-loader\" size=\"small\">&nbsp;</th-loader>\n  </div>\n</div>\n"
 
 /***/ }),
-/* 252 */
+/* 250 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -98361,7 +97392,7 @@ module.exports = "<div class=\"th-filter\" ng-class=\"{'th-filter-loading': thFi
 module.exports = "<div class=\"th-search-row\">\n  <div class=\"row\">\n    <div class=\"field\">\n      <th-filter-input\n        filter-set=\"thSearchRow.filterSet\"\n        filter-options=\"thSearchRow.queryFilterOptions\"\n        with-label=\"Search\"\n        ignore-blur-events=\"true\"\n        initial-state=\"thSearchRow.initialState\"\n        >\n      </th-filter-input>\n    </div>\n    <div class=\"bottom field\">\n      <th-button\n        ng-click=\"thSearchRow.filterSet.onFilterChange()\"\n        type=\"default\"\n        >\n        Search\n      </th-button>\n    </div>\n    <div class=\"field\"></div>\n    <div class=\"field\"></div>\n  </div>\n</div>\n"
 
 /***/ }),
-/* 253 */
+/* 251 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -98372,7 +97403,7 @@ module.exports = "<div class=\"th-search-row\">\n  <div class=\"row\">\n    <div
 module.exports = "<div class=\"th-static-filters\">\n  <div class=\"row\">\n    <div\n      class=\"field\"\n      ng-repeat=\"filter in thStaticFilters.staticFilters track by filter.filterOptions.fieldIdentifier\"\n      ng-switch on=\"filter.filterOptions.type\"\n      >\n      <th-filter-select\n        ng-switch-when=\"select\"\n        class=\"field\"\n        filter-set=\"thStaticFilters.filterSet\"\n        filter-options=\"filter.filterOptions\"\n        with-label=\"{{filter.filterOptions.name}}\"\n        initial-state=\"filter.initialState\"\n        >\n      </th-filter-select>\n      <th-filter-input\n        ng-switch-when=\"input\"\n        class=\"field\"\n        filter-set=\"thStaticFilters.filterSet\"\n        filter-options=\"filter.filterOptions\"\n        with-label=\"{{filter.filterOptions.name}}\"\n        initial-state=\"filter.initialState\"\n        >\n      </th-filter-input>\n      <th-filter-date\n        ng-switch-when=\"date\"\n        class=\"field\"\n        filter-set=\"thStaticFilters.filterSet\"\n        filter-options=\"filter.filterOptions\"\n        with-label=\"{{filter.filterOptions.name}}\"\n        >\n      </th-filter-date>\n      <th-filter-autocomplete\n        ng-switch-when=\"autocomplete\"\n        class=\"field\"\n        filter-set=\"thStaticFilters.filterSet\"\n        filter-options=\"filter.filterOptions\"\n        with-label=\"{{filter.filterOptions.name}}\"\n        initial-value=\"{{filter.initialValue}}\"\n        >\n      </th-filter-autocomplete>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
-/* 254 */
+/* 252 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -98383,7 +97414,7 @@ module.exports = "<div class=\"th-static-filters\">\n  <div class=\"row\">\n    
 module.exports = "<span\n  class=\"th-input-wrapper\"\n  ng-class=\"[\n    {'is-invalid': input.isInvalid()},\n    {condensed: input.condensed}\n  ]\"\n  >\n  <span ng-if=\"input.prefix\" class=\"th-input-prefix\">{{input.prefix}}</span>\n  <input\n    ng-model=\"input.ngModel\"\n    class=\"th-input\"\n    ng-class=\"[\n      {'with-icon': input.icon},\n      {'with-prefix': input.prefix},\n      {'with-postfix': input.postfix},\n      {'disabled': input.ngDisabled}\n    ]\"\n    id=\"{{input.id}}\"\n    type=\"{{input.type}}\"\n    name=\"{{input.name}}\"\n    placeholder=\"{{input.placeholder}}\"\n    ng-required=\"input.ngRequired\"\n    ng-disabled=\"input.ngDisabled\"\n    ng-blur=\"input.ngBlur()\"\n    ng-keypress=\"input.ngKeypress\"\n    ng-minlength=\"input.ngMinlength\"\n    ng-maxlength=\"input.ngMaxlength\"\n    ng-pattern=\"input.ngPattern\"\n    ng-attr-min=\"{{input.min}}\"\n    ng-attr-max=\"{{input.max}}\"\n    ng-attr-step=\"{{input.step}}\"\n    ng-change=\"input.thOnChange()\"\n    >\n  <i ng-if=\"input.icon\" class=\"th-input-icon fa fa-{{input.icon}}\"></i>\n  <span ng-if=\"input.postfix\" class=\"th-input-postfix\">{{input.postfix}}</span>\n</span>\n"
 
 /***/ }),
-/* 255 */
+/* 253 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************!*\
@@ -98394,7 +97425,7 @@ module.exports = "<span\n  class=\"th-input-wrapper\"\n  ng-class=\"[\n    {'is-
 module.exports = "<ng-include ng-show=\"!lazy.loading\" onload=\"lazy.loadingComplete()\" src=\"lazy.src\"></ng-include>\n<th-loader trigger=\"lazy.loading\" size=\"small\"></th-loader>\n<th-error ng-if=\"lazy.loadError && !lazy.errorMessage && !lazy.loading\">\n  We had trouble loading your content\n  <br>\n  <a\n    href=\"#\"\n    ng-show=\"lazy.name\"\n    ng-click=\"lazy.reload()\"\n    >\n    Try reloading\n  </a>\n  <span ng-hide=\"lazy.name\">Try reloading</span>\n</th-error>\n<th-error ng-if=\"lazy.loadError && lazy.errorMessage && !lazy.loading\">\n  {{lazy.errorMessage}}\n</th-error>\n"
 
 /***/ }),
-/* 256 */
+/* 254 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -98405,7 +97436,7 @@ module.exports = "<ng-include ng-show=\"!lazy.loading\" onload=\"lazy.loadingCom
 module.exports = "<div>\n  <th-loader class=\"meta-spinner\" trigger=\"meta.loading\"></th-loader>\n  <div ng-show=\"!meta.loading\">\n    <ng-transclude></ng-transclude>\n  </div>\n</div>\n"
 
 /***/ }),
-/* 257 */
+/* 255 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -98416,7 +97447,7 @@ module.exports = "<div>\n  <th-loader class=\"meta-spinner\" trigger=\"meta.load
 module.exports = "<div\n  class=\"th-loader {{loader.theme}}\"\n  ng-show=\"loader.visible\"\n  >\n  <div class=\"progress {{loader.size}}\">\n    <div></div>\n  </div>\n  <p ng-hide=\"loader.size == 'mini'\" class=\"loading-text\" ng-transclude></p>\n</div>\n"
 
 /***/ }),
-/* 258 */
+/* 256 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -98427,7 +97458,7 @@ module.exports = "<div\n  class=\"th-loader {{loader.theme}}\"\n  ng-show=\"load
 module.exports = "<div class=\"th-modal {{ modal.name }} {{ modal.size }}\">\n  <div th-compile=\"modal.content\"></div>\n</div>\n"
 
 /***/ }),
-/* 259 */
+/* 257 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -98438,7 +97469,7 @@ module.exports = "<div class=\"th-modal {{ modal.name }} {{ modal.size }}\">\n  
 module.exports = "<div class=\"th-modal-backdrop\" ng-class=\"{visible: anchor.modals.length > 0}\">\n  <div\n    class=\"th-modal-container\"\n    ng-repeat=\"modal in anchor.modals | limitTo:anchor.modalLimit\"\n    >\n    <div class=\"cell\">\n      <th-modal modal-data=\"modal\"></th-modal>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
-/* 260 */
+/* 258 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************************!*\
@@ -98449,7 +97480,7 @@ module.exports = "<div class=\"th-modal-backdrop\" ng-class=\"{visible: anchor.m
 module.exports = "<div class=\"titlebar-title\">\n  {{ $ctrl.title }}\n</div>\n<div class=\"titlebar-actions\">\n  <button\n    ng-click=\"$ctrl.close()\"\n    ng-if=\"$ctrl.showCloseButton\"\n    aria-label=\"Close Modal\"\n    >\n\n    <i class=\"fa fa-times\"></i>\n  </button>\n</div>\n"
 
 /***/ }),
-/* 261 */
+/* 259 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************!*\
@@ -98460,7 +97491,7 @@ module.exports = "<div class=\"titlebar-title\">\n  {{ $ctrl.title }}\n</div>\n<
 module.exports = "<i class=\"th-popover-arrow th-popover-hidden\"></i>\n"
 
 /***/ }),
-/* 262 */
+/* 260 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************!*\
@@ -98471,7 +97502,7 @@ module.exports = "<i class=\"th-popover-arrow th-popover-hidden\"></i>\n"
 module.exports = "<div class=\"th-popover-overlay th-popover-hidden\"></div>\n"
 
 /***/ }),
-/* 263 */
+/* 261 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -98482,7 +97513,7 @@ module.exports = "<div class=\"th-popover-overlay th-popover-hidden\"></div>\n"
 module.exports = "<div\n  class=\"th-popover-view th-popover-hidden\"\n  ng-class=\"{\n              loading: !loaded,\n              'overflow-visible': overflow == 'visible',\n              'overflow-hidden': overflow == 'hidden'\n            }\"\n  >\n  <div\n    class=\"th-popover-content\"\n    th-compile=\"content\"\n    ></div>\n</div>\n"
 
 /***/ }),
-/* 264 */
+/* 262 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -98493,7 +97524,7 @@ module.exports = "<div\n  class=\"th-popover-view th-popover-hidden\"\n  ng-clas
 module.exports = "<span\n  class=\"th-radio-button\"\n  ng-class=\"{\n    checked: checked\n    }\"\n  ng-model=\"group.value\"\n  >\n  <input\n    type=\"radio\"\n    name=\"{{group.name}}\"\n    value=\"{{value}}\"\n    ng-checked=\"checked\"\n    ng-required=\"group.ngRequired\"\n    >\n  <i></i>\n</span>\n"
 
 /***/ }),
-/* 265 */
+/* 263 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************!*\
@@ -98504,7 +97535,7 @@ module.exports = "<span\n  class=\"th-radio-button\"\n  ng-class=\"{\n    checke
 module.exports = "<ng-transclude class=\"th-radio-group\"></ng-transclude>\n"
 
 /***/ }),
-/* 266 */
+/* 264 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -98515,7 +97546,7 @@ module.exports = "<ng-transclude class=\"th-radio-group\"></ng-transclude>\n"
 module.exports = "<kendo-scheduler k-options=\"$ctrl.options\">\n  <div class=\"product\" k-event-template data-calendar-id=\"{{dataItem.calendar_id}}\">\n    <h3>{{dataItem.title}}</h3>\n  </div>\n</kendo-scheduler>\n"
 
 /***/ }),
-/* 267 */
+/* 265 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -98526,7 +97557,7 @@ module.exports = "<kendo-scheduler k-options=\"$ctrl.options\">\n  <div class=\"
 module.exports = "<div class=\"select-wrapper\"\n  ng-class=\"{condensed: select.condensed}\"\n  >\n  <div\n    class=\"text-wrapper\"\n    ng-class=\"[\n      {disabled: select.ngDisabled},\n      {'is-invalid': select.isInvalid()}\n    ]\"\n    >\n    <span class=\"selected-text\">\n      {{select.selectedText}}\n    </span>\n    <i class=\"fa fa-caret-down\"></i>\n  </div>\n  <select\n    ng-disabled=\"select.ngDisabled\"\n    ng-attr-name=\"{{select.name || undefined}}\"\n    ng-model=\"select.ngModel\"\n    ng-change=\"select.thOnChange()\"\n    ng-options=\"option.{{select.nameField}} group by option.group for option in select.options track by option.{{select.valueField}}\"\n    ng-required=\"select.ngRequired\"\n    >\n    <option\n      ng-show=\"select.placeholder\"\n      value=\"\"\n      >\n      {{select.placeholder}}\n    </option>\n  </select>\n</div>\n"
 
 /***/ }),
-/* 268 */
+/* 266 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -98537,7 +97568,7 @@ module.exports = "<div class=\"select-wrapper\"\n  ng-class=\"{condensed: select
 module.exports = "<span\n  class=\"th-switch\"\n  ng-class=\"{active: switch.state}\"\n  >\n  <input\n    type=\"checkbox\"\n    name=\"{{switch.name}}\"\n    ng-model=\"switch.state\"\n    ng-required=\"switch.ngRequired\"\n    >\n  <i></i>\n</span>\n"
 
 /***/ }),
-/* 269 */
+/* 267 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************!*\
@@ -98548,7 +97579,7 @@ module.exports = "<span\n  class=\"th-switch\"\n  ng-class=\"{active: switch.sta
 module.exports = "<div\n  id=\"{{ariaControlsID}}\"\n  class=\"th-tab\"\n  ng-if=\"show && active\"\n  tabindex=\"0\"\n  ng-transclude\n  >\n</div>\n"
 
 /***/ }),
-/* 270 */
+/* 268 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -98559,7 +97590,7 @@ module.exports = "<div\n  id=\"{{ariaControlsID}}\"\n  class=\"th-tab\"\n  ng-if
 module.exports = "<div class=\"th-tabset {{ type }}\">\n  <ul\n    class=\"th-tab-bar\"\n    role=\"tablist\"\n    >\n    <li\n      ng-click=\"processTabChange(tab)\"\n      ng-repeat=\"tab in tabs\"\n      ng-class=\"{\n        active: tab.active,\n        'letter-spacing': tab.letterSpacing\n      }\"\n      class=\"tab-name\"\n      tabindex=\"{{tab.active ? '0' : '-1'}}\"\n      aria-controls=\"{{tab.ariaControlsID}}\"\n      role=\"tab\"\n      aria-selected=\"{{tab.active}}\"\n      ng-if=\"tab.show\"\n      >\n      {{ tab.name }}\n      <span\n        class=\"th-tab-badge\"\n        ng-if=\"hasBadge(tab)\"\n        aria-label=\"{{ tab.badge }} Items\"\n        >\n        {{ tab.badge }}\n      </span>\n    </li>\n    <div\n      class=\"th-tab-action-bar\"\n      ng-transclude=\"actionBar\"\n      tabindex=\"-1\"\n    >\n    </div>\n  </ul>\n  <div\n    class=\"th-tabset-content\"\n    role=\"tabpanel\"\n    ng-transclude\n    >\n  </div>\n</div>\n"
 
 /***/ }),
-/* 271 */
+/* 269 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -98570,7 +97601,7 @@ module.exports = "<div class=\"th-tabset {{ type }}\">\n  <ul\n    class=\"th-ta
 module.exports = "<textarea\n  ng-model=\"ctrl.model\"\n  ng-required=\"ctrl.ngRequired\"\n  ng-disabled=\"ctrl.ngDisabled\"\n  ng-minlength=\"ctrl.ngMinlength\"\n  ng-maxlength=\"ctrl.ngMaxlength\"\n  ng-pattern=\"ctrl.ngPattern\"\n  ng-change=\"ctrl.thOnChange()\"\n  ng-class=\"[\n    {'with-icon': ctrl.icon},\n    {'disabled': ctrl.ngDisabled},\n    {'is-invalid': ctrl.isInvalid()}\n  ]\"\n  ng-attr-name=\"{{ctrl.name}}\"\n  ng-attr-rows=\"{{ctrl.rows}}\"\n  ng-attr-placeholder=\"{{ctrl.placeholder}}\"\n  >\n</textarea>\n<i ng-if=\"ctrl.icon\" class=\"th-textarea-icon fa fa-{{ctrl.icon}}\"></i>\n"
 
 /***/ }),
-/* 272 */
+/* 270 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -98581,8 +97612,8 @@ module.exports = "<textarea\n  ng-model=\"ctrl.model\"\n  ng-required=\"ctrl.ngR
 module.exports = "<span\n  ng-class=\"{'expanded':truncate.expanded,\n             'th-truncate':truncate.hasTruncateControl}\"\n  >\n  {{ truncate.truncatedText }}\n</span>\n<a\n  href=\"\"\n  class=\"truncate-control\"\n  ng-click=\"truncate.toggleTruncation()\"\n  ng-if=\"truncate.hasTruncateControl\"\n  >\n  ({{ truncate.expanded ? 'close' : 'more' }})\n</a>\n"
 
 /***/ }),
-/* 273 */,
-/* 274 */
+/* 271 */,
+/* 272 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************!*\
@@ -98592,83 +97623,83 @@ module.exports = "<span\n  ng-class=\"{'expanded':truncate.expanded,\n          
 
 var angular;
 
-angular = __webpack_require__(/*! angular */ 2);
+angular = __webpack_require__(/*! angular */ 3);
 
 __webpack_require__(/*! @progress/kendo-ui/js/kendo.core.js */ 0);
 
-__webpack_require__(/*! ../vendor_overrides/@progress/kendo-ui/js/kendo.angular.js */ 98);
+__webpack_require__(/*! ../vendor_overrides/@progress/kendo-ui/js/kendo.angular.js */ 97);
 
-__webpack_require__(/*! ../polyfills/ */ 18);
+__webpack_require__(/*! ../polyfills/ */ 16);
 
-angular.module("ThemisComponents", [__webpack_require__(/*! angular-animate */ 19), __webpack_require__(/*! angular-aria */ 15), __webpack_require__(/*! angular-datepicker */ 16), __webpack_require__(/*! angular-messages */ 17), __webpack_require__(/*! angular-sanitize */ 20), "kendo.directives", __webpack_require__(/*! ui-select */ 21)]);
+angular.module("ThemisComponents", [__webpack_require__(/*! angular-animate */ 17), __webpack_require__(/*! angular-aria */ 14), __webpack_require__(/*! angular-messages */ 15), __webpack_require__(/*! angular-sanitize */ 18), "kendo.directives", __webpack_require__(/*! ui-select */ 19)]);
 
-__webpack_require__(/*! ./services/ */ 95);
+__webpack_require__(/*! ./services/ */ 93);
 
-__webpack_require__(/*! ./thActionBar/ */ 64);
+__webpack_require__(/*! ./thActionBar/ */ 63);
 
-__webpack_require__(/*! ./thActionBarBilling/ */ 65);
+__webpack_require__(/*! ./thActionBarBilling/ */ 64);
 
-__webpack_require__(/*! ./thAlert/ */ 66);
+__webpack_require__(/*! ./thAlert/ */ 65);
 
-__webpack_require__(/*! ./thAutocomplete/ */ 96);
+__webpack_require__(/*! ./thAutocomplete/ */ 94);
 
-__webpack_require__(/*! ./thButton/ */ 67);
+__webpack_require__(/*! ./thButton/ */ 66);
 
-__webpack_require__(/*! ./thCheckbox/ */ 68);
+__webpack_require__(/*! ./thCheckbox/ */ 67);
 
-__webpack_require__(/*! ./thCompile/ */ 69);
+__webpack_require__(/*! ./thCompile/ */ 68);
 
-__webpack_require__(/*! ./thContentHeader/ */ 70);
+__webpack_require__(/*! ./thContentHeader/ */ 69);
 
-__webpack_require__(/*! ./thContextualMessage/ */ 71);
+__webpack_require__(/*! ./thContextualMessage/ */ 70);
 
-__webpack_require__(/*! ./thDatePicker/ */ 72);
+__webpack_require__(/*! ./thDatePicker/ */ 95);
 
-__webpack_require__(/*! ./thDefaults/ */ 73);
+__webpack_require__(/*! ./thDefaults/ */ 71);
 
-__webpack_require__(/*! ./thDisclosure/ */ 74);
+__webpack_require__(/*! ./thDisclosure/ */ 72);
 
-__webpack_require__(/*! ./thDropdown/ */ 75);
+__webpack_require__(/*! ./thDropdown/ */ 73);
 
-__webpack_require__(/*! ./thError/ */ 76);
+__webpack_require__(/*! ./thError/ */ 74);
 
-__webpack_require__(/*! ./thFilter/ */ 77);
+__webpack_require__(/*! ./thFilter/ */ 75);
 
-__webpack_require__(/*! ./thInput/ */ 78);
+__webpack_require__(/*! ./thInput/ */ 76);
 
-__webpack_require__(/*! ./thLazy/ */ 79);
+__webpack_require__(/*! ./thLazy/ */ 77);
 
-__webpack_require__(/*! ./thLoader/ */ 80);
+__webpack_require__(/*! ./thLoader/ */ 78);
 
-__webpack_require__(/*! ./thModal/ */ 81);
+__webpack_require__(/*! ./thModal/ */ 79);
 
-__webpack_require__(/*! ./thPlural/ */ 82);
+__webpack_require__(/*! ./thPlural/ */ 80);
 
-__webpack_require__(/*! ./thPopover/ */ 83);
+__webpack_require__(/*! ./thPopover/ */ 81);
 
-__webpack_require__(/*! ./thRadioGroup/ */ 84);
+__webpack_require__(/*! ./thRadioGroup/ */ 82);
 
-__webpack_require__(/*! ./thScheduler/ */ 97);
+__webpack_require__(/*! ./thScheduler/ */ 96);
 
-__webpack_require__(/*! ./thSelect/ */ 85);
+__webpack_require__(/*! ./thSelect/ */ 83);
 
-__webpack_require__(/*! ./thSwitch/ */ 86);
+__webpack_require__(/*! ./thSwitch/ */ 84);
 
-__webpack_require__(/*! ./thTable/ */ 87);
+__webpack_require__(/*! ./thTable/ */ 85);
 
-__webpack_require__(/*! ./thTabset/ */ 88);
+__webpack_require__(/*! ./thTabset/ */ 86);
 
-__webpack_require__(/*! ./thTextarea/ */ 89);
+__webpack_require__(/*! ./thTextarea/ */ 87);
 
-__webpack_require__(/*! ./thTruncate/ */ 90);
+__webpack_require__(/*! ./thTruncate/ */ 88);
 
-__webpack_require__(/*! ./thViewModel/ */ 91);
+__webpack_require__(/*! ./thViewModel/ */ 89);
 
-__webpack_require__(/*! ./thWithFocus/ */ 92);
+__webpack_require__(/*! ./thWithFocus/ */ 90);
 
-__webpack_require__(/*! ./thWithLabel/ */ 93);
+__webpack_require__(/*! ./thWithLabel/ */ 91);
 
-__webpack_require__(/*! ./thWithMessages/ */ 94);
+__webpack_require__(/*! ./thWithMessages/ */ 92);
 
 module.exports = "ThemisComponents";
 

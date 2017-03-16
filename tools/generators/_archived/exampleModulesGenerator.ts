@@ -1,20 +1,23 @@
 import * as glob from "glob";
 import * as path from "path";
 import * as fs from "fs";
+import * as os from "os";
 
 const componentsRoot = path.join("src", "lib");
 const componentDirectories = glob.sync(path.join(componentsRoot, "!(theme)", "/"));
 
 /**
- * One-off demo module rename:
- *  - Iterate through example subfolders in themis_components
- *  - coffee.coffee ->
- *    - Update from angular.module('thDemo', ['ThemisComponents'])
- *      to angular.module("{component}Demo")
- *  - html.html ->
- *    - Update ng-app attribute to the module defined above
+ * Iterate through themis_components subfolders
+ *  - Build themis_components/index.examples.ts requiring each "{component}/examples"
+ *  - In each example folder, build index.ts which:
+ *    - Defines module for component example:
+ *        angular.module("{component}Demo", ["ThemisComponents"])
+ *    - Require each example subfolder: require "./1 - Styles/coffee.coffee"
  */
-function updateDemoModules() {
+function generateExampleIndex() {
+  const exampleIndexPath = path.join(componentsRoot, "index.examples.ts");
+  let exampleIndex = "";
+
   // For each component
   componentDirectories.forEach(componentPath => {
     const componentName = path.basename(componentPath);
@@ -23,56 +26,37 @@ function updateDemoModules() {
       return;
     }
 
+    exampleIndex += `import "./${componentName}/examples";${os.EOL}`;
+    const componentExampleIndexPath = path.join(exampleDirectory, "index.ts");
+    let componentExampleIndex = `import * as angular from "angular";${os.EOL}`;
+    componentExampleIndex += `angular.module("${componentName}Demo", ["ThemisComponents"]);`;
+    componentExampleIndex += os.EOL;
+
     // For each example
     const exampleDirectories = glob.sync(path.join(exampleDirectory, "*", "/"));
-    exampleDirectories.forEach((examplePath, index) => {
-      const htmlPath = path.join(examplePath, "html.html");
-      const coffeePath = path.join(examplePath, "coffee.coffee");
-      const controllerName = `${componentName}DemoCtrl${index + 1}`;
-
-      // Template
-      if (fs.existsSync(htmlPath)) {
-        const htmlFile = fs.readFileSync(htmlPath, "utf8");
-        const updatedHtmlFile = htmlFile
-          .replace(/ng-app=\"[a-zA-Z]+\"/, `ng-app="${componentName}Demo"`)
-          .replace(/ng-controller=\"(DemoCtrl|DemoController)\s/,
-            `ng-controller="${controllerName} `);
-
-        if (htmlFile !== updatedHtmlFile) {
-          fs.writeFile(htmlPath, updatedHtmlFile, err => {
-            if (err) {
-              console.log(err);
-            }
-            console.log(`${htmlPath} updated.`);
-          });
-        } else {
-          console.log(`*** ${htmlPath} was NOT updated. ***`);
-        }
-      }
-
-      // Controller
-      if (fs.existsSync(coffeePath)) {
-        const coffeeFile = fs.readFileSync(coffeePath, "utf8");
-        const updatedCoffeeFile = coffeeFile
-          .replace(/angular\.module(\(|\s)('|")[a-zA-Z]+('|"), \[('|")ThemisComponents('|")\]\)?/,
-            `angular.module("${componentName}Demo")`)
-          .replace(/\.controller(\(|\s)('|")(DemoCtrl|DemoController)('|")(\)|\s)?/,
-            `.controller "${controllerName}"`);
-
-        if (coffeeFile !== updatedCoffeeFile) {
-          fs.writeFile(coffeePath, updatedCoffeeFile, err => {
-            if (err) {
-              console.log(err);
-            }
-            console.log(`${coffeePath} updated.`);
-          });
-        } else {
-          console.log(`*** ${coffeePath} was NOT updated.***`);
-        }
+    exampleDirectories.forEach(examplePath => {
+      if (fs.existsSync(path.join(examplePath, "ts.ts"))) {
+        componentExampleIndex += `import "./${path.basename(examplePath)}/ts";${os.EOL}`;
+      } else if (fs.existsSync(path.join(examplePath, "coffee.coffee"))) {
+        componentExampleIndex += `import "./${path.basename(examplePath)}/coffee";${os.EOL}`;
       }
     });
 
+    fs.writeFile(componentExampleIndexPath, componentExampleIndex, err => {
+      if (err) {
+        console.log(err);
+      }
+    });
+  });
+
+  fs.writeFile(exampleIndexPath, exampleIndex, err => {
+    if (err) {
+      console.log(err);
+    }
+    console.log("indexes done");
   });
 }
 
-updateDemoModules();
+export {
+  generateExampleIndex as generateExampleIndex
+};

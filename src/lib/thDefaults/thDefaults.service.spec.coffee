@@ -33,6 +33,6 @@ describe "ThemisComponents: Service: thDefaults", ->
       expect(thDefaults.get("sean")).toBe "is awesome"
 
   describe "Preset defaults", ->
-    it "dateFormat should be 'YYYY-MM-DD'", ->
+    it "dateFormat should be 'yyyy-MM-dd'", ->
       thDefaults = getDefaults()
-      expect(thDefaults.get("dateFormat")).toBe "YYYY-MM-DD"
+      expect(thDefaults.get("dateFormat")).toBe "yyyy-MM-dd"

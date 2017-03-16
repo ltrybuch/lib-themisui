@@ -1,6 +1,6 @@
 {
   "name": "lib-ThemisUI",
-  "version": "8.0.0",
+  "version": "8.1.0",
   "dependencies": {
     "abbrev": {
       "version": "1.0.9",
@@ -31,11 +31,6 @@
       "version": "1.5.9",
       "from": "angular-aria@1.5.9",
       "resolved": "https://registry.npmjs.org/angular-aria/-/angular-aria-1.5.9.tgz"
-    },
-    "angular-datepicker": {
-      "version": "2.2.1",
-      "from": "git://github.com/mbuckley/angular-datepicker.git#v2.2.1",
-      "resolved": "git://github.com/mbuckley/angular-datepicker.git#df580165b669216538305a8f7940360f87edca17"
     },
     "angular-messages": {
       "version": "1.5.9",
@@ -76,6 +71,11 @@
       "version": "0.4.2",
       "from": "balanced-match@>=0.4.1 <0.5.0",
       "resolved": "https://registry.npmjs.org/balanced-match/-/balanced-match-0.4.2.tgz"
+    },
+    "bootstrap": {
+      "version": "4.0.0-alpha.6",
+      "from": "bootstrap@4.0.0-alpha.6",
+      "resolved": "https://registry.npmjs.org/bootstrap/-/bootstrap-4.0.0-alpha.6.tgz"
     },
     "brace-expansion": {
       "version": "1.1.6",
@@ -153,7 +153,7 @@
     },
     "debounce": {
       "version": "1.0.0",
-      "from": "debounce@1.0.0",
+      "from": "debounce@>=1.0.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/debounce/-/debounce-1.0.0.tgz"
     },
     "decamelize": {
@@ -400,9 +400,9 @@
       "resolved": "https://registry.npmjs.org/pluralize/-/pluralize-3.1.0.tgz"
     },
     "postcss": {
-      "version": "5.2.16",
+      "version": "5.2.15",
       "from": "postcss@>=5.2.5 <6.0.0",
-      "resolved": "https://registry.npmjs.org/postcss/-/postcss-5.2.16.tgz"
+      "resolved": "https://registry.npmjs.org/postcss/-/postcss-5.2.15.tgz"
     },
     "postcss-value-parser": {
       "version": "3.3.0",
@@ -464,6 +464,11 @@
       "from": "supports-color@>=3.2.3 <4.0.0",
       "resolved": "https://registry.npmjs.org/supports-color/-/supports-color-3.2.3.tgz"
     },
+    "tether": {
+      "version": "1.4.0",
+      "from": "tether@>=1.4.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/tether/-/tether-1.4.0.tgz"
+    },
     "through2": {
       "version": "0.6.5",
       "from": "through2@>=0.6.1 <0.7.0",
@@ -475,9 +480,9 @@
       "resolved": "https://registry.npmjs.org/type-check/-/type-check-0.3.2.tgz"
     },
     "uglify-js": {
-      "version": "2.8.8",
+      "version": "2.8.7",
       "from": "uglify-js@>=2.6.0 <3.0.0",
-      "resolved": "https://registry.npmjs.org/uglify-js/-/uglify-js-2.8.8.tgz"
+      "resolved": "https://registry.npmjs.org/uglify-js/-/uglify-js-2.8.7.tgz"
     },
     "uglify-to-browserify": {
       "version": "1.0.2",

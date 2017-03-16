@@ -7,7 +7,6 @@ require "../polyfills/"
 angular.module "ThemisComponents", [
   require "angular-animate"
   require "angular-aria"
-  require "angular-datepicker"
   require "angular-messages"
   require "angular-sanitize"
   "kendo.directives"

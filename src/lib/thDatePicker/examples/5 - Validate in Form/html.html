@@ -1,0 +1,33 @@
+<html ng-app="thDatePickerDemo">
+  <body ng-controller="thDatePickerDemoCtrl5 as demo" class="th-example-height-500">
+
+    <p>Date Selected: {{ demo.date }}</p>
+
+    <!-- for the Green "Required" on the right (with-label component) to work, we need "ng-required" instead of "required" -->
+    <form name="demo.form" novalidate="novalidate" class="th-example-width-300">
+      <th-date-picker
+        name="dateA"
+        ng-model="demo.dateA"
+        on-change="demo.onchangeA"
+        with-label="Default Validator"
+        ng-required="true"
+        >
+      </th-date-picker>
+
+      <th-date-picker
+        name="dateB"
+        ng-model="demo.dateB"
+        on-change="demo.onchangeB"
+        with-label="Custom Validator"
+        ng-required="true"
+        custom-validator="demo.validatorObj"
+        >
+      </th-date-picker>
+      
+      <th-button type="submit" ng-click="demo.submit()">Submit</th-button>
+    </form>
+
+    <pre ng-if="demo.response">{{demo.response | json}}</pre>
+
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<html ng-app="thDatePickerDemo">
+  <head>
+    <style type="text/css">
+      .label-text {
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+
+  <body ng-controller="thDatePickerDemoCtrl4 as demo" class="th-example-height-500">
+    <th-date-picker
+      name="date"
+      ng-model="demo.date"
+      on-change="demo.onchange"
+      with-label="Disabled:"
+      ng-disabled="true"
+      >
+    </th-date-picker>
+
+    <th-date-picker
+      name="date"
+      ng-model="demo.date"
+      on-change="demo.onchange"
+      with-label="Placeholder:"
+      placeholder="Please select date"
+      >
+    </th-date-picker>
+
+    <th-date-picker
+      name="date"
+      ng-model="demo.date"
+      on-change="demo.onchange"
+      with-label="Min: 2017/01/12"
+      min="demo.minDate"
+      >
+    </th-date-picker>
+
+    <th-date-picker
+      name="date"
+      ng-model="demo.date"
+      on-change="demo.onchange"
+      with-label="Max: 2017/01/12"
+      max="demo.maxDate"
+      >
+    </th-date-picker>
+
+    <th-date-picker
+      name="date"
+      ng-model="demo.date"
+      on-change="demo.onchange"
+      with-label="Revert To Last Valid Date"
+      revert-to-valid="true"
+      >
+    </th-date-picker>
+  </body>
+</html>

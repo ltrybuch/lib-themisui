@@ -267,8 +267,7 @@ th-autocomplete .k-multiselect.k-state-active .k-icon.k-clear-value,
 th-autocomplete .k-combobox input.k-state-focused .k-icon.k-clear-value,
 th-autocomplete .k-combobox input.k-state-hover .k-icon.k-clear-value,
 th-autocomplete .k-combobox input.k-state-active .k-icon.k-clear-value, th-autocomplete .k-multiselect .k-button .k-i-close, th-autocomplete .k-multiselect .k-button .k-i-group-delete::before, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .k-icon.k-clear-value, .th-checkbox i:before,
-*[th-checkbox] i:before, .date-picker-widget [date-picker] table thead tr:nth-child(1) th:nth-child(1),
-.date-picker-widget [date-picker] table thead tr:nth-child(1) th:nth-child(3), .th-switch i:before, .th-switch i:after,
+*[th-checkbox] i:before, .th-switch i:before, .th-switch i:after,
 *[th-switch] i:before,
 *[th-switch] i:after, th-table table.th-table th .th-table-sort-icon {
   display: inline-block;
@@ -337,8 +336,7 @@ th-autocomplete .k-multiselect.k-state-active .pull-left.k-icon.k-clear-value,
 th-autocomplete .k-combobox input.k-state-focused .pull-left.k-icon.k-clear-value,
 th-autocomplete .k-combobox input.k-state-hover .pull-left.k-icon.k-clear-value,
 th-autocomplete .k-combobox input.k-state-active .pull-left.k-icon.k-clear-value, th-autocomplete .k-multiselect .k-button .pull-left.k-i-close, th-autocomplete .k-multiselect .k-button .pull-left.k-i-group-delete::before, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .pull-left.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .pull-left.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .pull-left.k-icon.k-clear-value, .th-checkbox i.pull-left:before,
-*[th-checkbox] i.pull-left:before, .date-picker-widget [date-picker] table thead tr:nth-child(1) th.pull-left:nth-child(1),
-.date-picker-widget [date-picker] table thead tr:nth-child(1) th.pull-left:nth-child(3), .th-switch i.pull-left:before, .th-switch i.pull-left:after,
+*[th-checkbox] i.pull-left:before, .th-switch i.pull-left:before, .th-switch i.pull-left:after,
 *[th-switch] i.pull-left:before,
 *[th-switch] i.pull-left:after, th-table table.th-table th .pull-left.th-table-sort-icon {
   margin-right: .3em; }
@@ -350,8 +348,7 @@ th-autocomplete .k-multiselect.k-state-active .pull-right.k-icon.k-clear-value,
 th-autocomplete .k-combobox input.k-state-focused .pull-right.k-icon.k-clear-value,
 th-autocomplete .k-combobox input.k-state-hover .pull-right.k-icon.k-clear-value,
 th-autocomplete .k-combobox input.k-state-active .pull-right.k-icon.k-clear-value, th-autocomplete .k-multiselect .k-button .pull-right.k-i-close, th-autocomplete .k-multiselect .k-button .pull-right.k-i-group-delete::before, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .pull-right.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .pull-right.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .pull-right.k-icon.k-clear-value, .th-checkbox i.pull-right:before,
-*[th-checkbox] i.pull-right:before, .date-picker-widget [date-picker] table thead tr:nth-child(1) th.pull-right:nth-child(1),
-.date-picker-widget [date-picker] table thead tr:nth-child(1) th.pull-right:nth-child(3), .th-switch i.pull-right:before, .th-switch i.pull-right:after,
+*[th-checkbox] i.pull-right:before, .th-switch i.pull-right:before, .th-switch i.pull-right:after,
 *[th-switch] i.pull-right:before,
 *[th-switch] i.pull-right:after, th-table table.th-table th .pull-right.th-table-sort-icon {
   margin-left: .3em; }
@@ -363,8 +360,7 @@ th-autocomplete .k-multiselect.k-state-active .right-space.k-icon.k-clear-value,
 th-autocomplete .k-combobox input.k-state-focused .right-space.k-icon.k-clear-value,
 th-autocomplete .k-combobox input.k-state-hover .right-space.k-icon.k-clear-value,
 th-autocomplete .k-combobox input.k-state-active .right-space.k-icon.k-clear-value, th-autocomplete .k-multiselect .k-button .right-space.k-i-close, th-autocomplete .k-multiselect .k-button .right-space.k-i-group-delete::before, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .right-space.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .right-space.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .right-space.k-icon.k-clear-value, .th-checkbox i.right-space:before,
-*[th-checkbox] i.right-space:before, .date-picker-widget [date-picker] table thead tr:nth-child(1) th.right-space:nth-child(1),
-.date-picker-widget [date-picker] table thead tr:nth-child(1) th.right-space:nth-child(3), .th-switch i.right-space:before, .th-switch i.right-space:after,
+*[th-checkbox] i.right-space:before, .th-switch i.right-space:before, .th-switch i.right-space:after,
 *[th-switch] i.right-space:before,
 *[th-switch] i.right-space:after, th-table table.th-table th .right-space.th-table-sort-icon {
   margin-right: 3px;
@@ -377,8 +373,7 @@ th-autocomplete .k-multiselect.k-state-active .left-space.k-icon.k-clear-value,
 th-autocomplete .k-combobox input.k-state-focused .left-space.k-icon.k-clear-value,
 th-autocomplete .k-combobox input.k-state-hover .left-space.k-icon.k-clear-value,
 th-autocomplete .k-combobox input.k-state-active .left-space.k-icon.k-clear-value, th-autocomplete .k-multiselect .k-button .left-space.k-i-close, th-autocomplete .k-multiselect .k-button .left-space.k-i-group-delete::before, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .left-space.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .left-space.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .left-space.k-icon.k-clear-value, .th-checkbox i.left-space:before,
-*[th-checkbox] i.left-space:before, .date-picker-widget [date-picker] table thead tr:nth-child(1) th.left-space:nth-child(1),
-.date-picker-widget [date-picker] table thead tr:nth-child(1) th.left-space:nth-child(3), .th-switch i.left-space:before, .th-switch i.left-space:after,
+*[th-checkbox] i.left-space:before, .th-switch i.left-space:before, .th-switch i.left-space:after,
 *[th-switch] i.left-space:before,
 *[th-switch] i.left-space:after, th-table table.th-table th .left-space.th-table-sort-icon {
   margin-left: 3px;
@@ -1831,9 +1826,7 @@ th-autocomplete .k-combobox input.k-state-active .k-icon.k-clear-value:before, t
   th-autocomplete .k-combobox input.k-state-active .k-icon.k-clear-value,
   th-autocomplete .k-combobox input.k-state-active .th-alert .k-icon.k-clear-value, .th-alert th-autocomplete .k-multiselect .k-button .k-i-close, th-autocomplete .k-multiselect .k-button .th-alert .k-i-close, .th-alert th-autocomplete .k-multiselect .k-button .k-i-group-delete::before, th-autocomplete .k-multiselect .k-button .th-alert .k-i-group-delete::before, .th-alert th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .th-alert .k-icon.k-clear-value, .th-alert th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .th-alert .k-icon.k-clear-value, .th-alert th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .th-alert .k-icon.k-clear-value, .th-alert .th-checkbox i:before, .th-checkbox .th-alert i:before, .th-alert
   *[th-checkbox] i:before,
-  *[th-checkbox] .th-alert i:before, .th-alert .date-picker-widget [date-picker] table thead tr:nth-child(1) th:nth-child(1), .date-picker-widget [date-picker] table thead tr:nth-child(1) .th-alert th:nth-child(1), .th-alert
-  .date-picker-widget [date-picker] table thead tr:nth-child(1) th:nth-child(3),
-  .date-picker-widget [date-picker] table thead tr:nth-child(1) .th-alert th:nth-child(3), .th-alert .th-switch i:before, .th-switch .th-alert i:before, .th-alert .th-switch i:after, .th-switch .th-alert i:after, .th-alert
+  *[th-checkbox] .th-alert i:before, .th-alert .th-switch i:before, .th-switch .th-alert i:before, .th-alert .th-switch i:after, .th-switch .th-alert i:after, .th-alert
   *[th-switch] i:before,
   *[th-switch] .th-alert i:before, .th-alert
   *[th-switch] i:after,
@@ -1854,9 +1847,7 @@ th-autocomplete .k-combobox input.k-state-active .k-icon.k-clear-value:before, t
     th-autocomplete .k-combobox input.k-state-active .alert-icon.k-icon.k-clear-value,
     th-autocomplete .k-combobox input.k-state-active .th-alert .alert-icon.k-icon.k-clear-value, .th-alert th-autocomplete .k-multiselect .k-button .alert-icon.k-i-close, th-autocomplete .k-multiselect .k-button .th-alert .alert-icon.k-i-close, .th-alert th-autocomplete .k-multiselect .k-button .alert-icon.k-i-group-delete::before, th-autocomplete .k-multiselect .k-button .th-alert .alert-icon.k-i-group-delete::before, .th-alert th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .alert-icon.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .th-alert .alert-icon.k-icon.k-clear-value, .th-alert th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .alert-icon.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .th-alert .alert-icon.k-icon.k-clear-value, .th-alert th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .alert-icon.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .th-alert .alert-icon.k-icon.k-clear-value, .th-alert .th-checkbox i.alert-icon:before, .th-checkbox .th-alert i.alert-icon:before, .th-alert
     *[th-checkbox] i.alert-icon:before,
-    *[th-checkbox] .th-alert i.alert-icon:before, .th-alert .date-picker-widget [date-picker] table thead tr:nth-child(1) th.alert-icon:nth-child(1), .date-picker-widget [date-picker] table thead tr:nth-child(1) .th-alert th.alert-icon:nth-child(1), .th-alert
-    .date-picker-widget [date-picker] table thead tr:nth-child(1) th.alert-icon:nth-child(3),
-    .date-picker-widget [date-picker] table thead tr:nth-child(1) .th-alert th.alert-icon:nth-child(3), .th-alert .th-switch i.alert-icon:before, .th-switch .th-alert i.alert-icon:before, .th-alert .th-switch i.alert-icon:after, .th-switch .th-alert i.alert-icon:after, .th-alert
+    *[th-checkbox] .th-alert i.alert-icon:before, .th-alert .th-switch i.alert-icon:before, .th-switch .th-alert i.alert-icon:before, .th-alert .th-switch i.alert-icon:after, .th-switch .th-alert i.alert-icon:after, .th-alert
     *[th-switch] i.alert-icon:before,
     *[th-switch] .th-alert i.alert-icon:before, .th-alert
     *[th-switch] i.alert-icon:after,
@@ -1883,9 +1874,7 @@ th-autocomplete .k-combobox input.k-state-active .k-icon.k-clear-value:before, t
     th-autocomplete .k-combobox input.k-state-active .fa-check.k-icon.k-clear-value,
     th-autocomplete .k-combobox input.k-state-active .th-alert .fa-check.k-icon.k-clear-value, .th-alert th-autocomplete .k-multiselect .k-button .fa-check.k-i-close, th-autocomplete .k-multiselect .k-button .th-alert .fa-check.k-i-close, .th-alert th-autocomplete .k-multiselect .k-button .fa-check.k-i-group-delete::before, th-autocomplete .k-multiselect .k-button .th-alert .fa-check.k-i-group-delete::before, .th-alert th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .fa-check.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .th-alert .fa-check.k-icon.k-clear-value, .th-alert th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .fa-check.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .th-alert .fa-check.k-icon.k-clear-value, .th-alert th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .fa-check.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .th-alert .fa-check.k-icon.k-clear-value, .th-alert .th-checkbox i.fa-check:before, .th-checkbox .th-alert i.fa-check:before, .th-alert
     *[th-checkbox] i.fa-check:before,
-    *[th-checkbox] .th-alert i.fa-check:before, .th-alert .date-picker-widget [date-picker] table thead tr:nth-child(1) th.fa-check:nth-child(1), .date-picker-widget [date-picker] table thead tr:nth-child(1) .th-alert th.fa-check:nth-child(1), .th-alert
-    .date-picker-widget [date-picker] table thead tr:nth-child(1) th.fa-check:nth-child(3),
-    .date-picker-widget [date-picker] table thead tr:nth-child(1) .th-alert th.fa-check:nth-child(3), .th-alert .th-switch i.fa-check:before, .th-switch .th-alert i.fa-check:before, .th-alert .th-switch i.fa-check:after, .th-switch .th-alert i.fa-check:after, .th-alert
+    *[th-checkbox] .th-alert i.fa-check:before, .th-alert .th-switch i.fa-check:before, .th-switch .th-alert i.fa-check:before, .th-alert .th-switch i.fa-check:after, .th-switch .th-alert i.fa-check:after, .th-alert
     *[th-switch] i.fa-check:before,
     *[th-switch] .th-alert i.fa-check:before, .th-alert
     *[th-switch] i.fa-check:after,
@@ -1905,9 +1894,7 @@ th-autocomplete .k-combobox input.k-state-active .k-icon.k-clear-value:before, t
     th-autocomplete .k-combobox input.k-state-active .dismiss-icon.k-icon.k-clear-value,
     th-autocomplete .k-combobox input.k-state-active .th-alert .dismiss-icon.k-icon.k-clear-value, .th-alert th-autocomplete .k-multiselect .k-button .dismiss-icon.k-i-close, th-autocomplete .k-multiselect .k-button .th-alert .dismiss-icon.k-i-close, .th-alert th-autocomplete .k-multiselect .k-button .dismiss-icon.k-i-group-delete::before, th-autocomplete .k-multiselect .k-button .th-alert .dismiss-icon.k-i-group-delete::before, .th-alert th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .dismiss-icon.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .th-alert .dismiss-icon.k-icon.k-clear-value, .th-alert th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .dismiss-icon.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .th-alert .dismiss-icon.k-icon.k-clear-value, .th-alert th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .dismiss-icon.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .th-alert .dismiss-icon.k-icon.k-clear-value, .th-alert .th-checkbox i.dismiss-icon:before, .th-checkbox .th-alert i.dismiss-icon:before, .th-alert
     *[th-checkbox] i.dismiss-icon:before,
-    *[th-checkbox] .th-alert i.dismiss-icon:before, .th-alert .date-picker-widget [date-picker] table thead tr:nth-child(1) th.dismiss-icon:nth-child(1), .date-picker-widget [date-picker] table thead tr:nth-child(1) .th-alert th.dismiss-icon:nth-child(1), .th-alert
-    .date-picker-widget [date-picker] table thead tr:nth-child(1) th.dismiss-icon:nth-child(3),
-    .date-picker-widget [date-picker] table thead tr:nth-child(1) .th-alert th.dismiss-icon:nth-child(3), .th-alert .th-switch i.dismiss-icon:before, .th-switch .th-alert i.dismiss-icon:before, .th-alert .th-switch i.dismiss-icon:after, .th-switch .th-alert i.dismiss-icon:after, .th-alert
+    *[th-checkbox] .th-alert i.dismiss-icon:before, .th-alert .th-switch i.dismiss-icon:before, .th-switch .th-alert i.dismiss-icon:before, .th-alert .th-switch i.dismiss-icon:after, .th-switch .th-alert i.dismiss-icon:after, .th-alert
     *[th-switch] i.dismiss-icon:before,
     *[th-switch] .th-alert i.dismiss-icon:before, .th-alert
     *[th-switch] i.dismiss-icon:after,
@@ -12116,273 +12103,210 @@ th-content-header,
     border-width: 0 8px 8px 8px;
     border-color: transparent transparent #263238 transparent; }
 
-.date-picker-widget {
-  margin: 0;
-  padding: 0; }
-  .date-picker-widget .clearfix {
-    *zoom: 1; }
-  .date-picker-widget .clearfix:before,
-  .date-picker-widget .clearfix:after {
-    display: table;
-    content: "";
-    line-height: 0; }
-  .date-picker-widget .clearfix:after {
-    clear: both; }
-  .date-picker-widget .hide-text {
-    font: 0/0 a;
-    color: transparent;
-    text-shadow: none;
-    background-color: transparent;
-    border: 0; }
-  .date-picker-widget .input-block-level {
-    display: block;
-    width: 100%;
-    min-height: 30px;
+th-date-picker {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 42px;
+  min-width: 150px; }
+  th-date-picker * {
     box-sizing: border-box; }
-  .date-picker-widget .date-picker-date-time {
-    position: absolute; }
-  .date-picker-widget .date-range .date-picker-date-time {
-    position: inherit; }
-  .date-picker-widget [date-picker-wrapper] {
-    position: absolute;
-    min-width: 220px;
-    z-index: 10;
-    display: block;
-    font-size: 14px; }
-  .date-picker-widget [date-time-append] [date-picker-wrapper] [date-picker] {
-    margin-top: -30px; }
-  .date-picker-widget [date-time-append] [date-picker] {
-    position: relative;
-    margin-right: -1000px;
-    margin-bottom: -1000px; }
-  .date-picker-widget [date-range] [date-picker] .after.before {
-    color: #ffffff;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-    background-color: #499dcd;
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#5bc0de), to(#2f6ab4));
-    background-image: -webkit-linear-gradient(top, #5bc0de, #2f6ab4);
-    background-image: linear-gradient(to bottom, #5bc0de, #2f6ab4);
-    background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5bc0de', endColorstr='#ff2f6ab4', GradientType=0);
-    border-color: #2f6ab4 #2f6ab4 #1f4677;
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-    *background-color: #2f6ab4;
-    /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false); }
-  .date-picker-widget [date-range] [date-picker] .after.before:hover,
-  .date-picker-widget [date-range] [date-picker] .after.before:active,
-  .date-picker-widget [date-range] [date-picker] .after.before.active,
-  .date-picker-widget [date-range] [date-picker] .after.before.disabled,
-  .date-picker-widget [date-range] [date-picker] .after.before[disabled] {
-    color: #ffffff;
-    background-color: #2f6ab4;
-    *background-color: #2a5ea0; }
-  .date-picker-widget [date-range] [date-picker] .after.before:active,
-  .date-picker-widget [date-range] [date-picker] .after.before.active {
-    background-color: #24528c \9; }
-  .date-picker-widget [date-picker].hidden {
-    display: none; }
-  .date-picker-widget [date-picker] {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-    user-select: none;
-    border-radius: 4px;
-    background-color: #fff;
-    /* GENERAL */
-    padding: 4px;
-    /* SPECIFIC */ }
-  .date-picker-widget [date-picker] table {
-    margin: 0; }
-  .date-picker-widget [date-picker] td,
-  .date-picker-widget [date-picker] th {
-    padding: 4px 5px;
-    text-align: center;
-    width: 20px;
-    height: 20px;
-    border-radius: 4px;
-    border: none; }
-  .date-picker-widget [date-picker] .switch {
-    width: 145px; }
-  .date-picker-widget [date-picker] span {
-    display: block;
-    width: 23%;
-    height: 26px;
-    line-height: 25px;
-    float: left;
-    margin: 1%;
-    cursor: pointer;
-    border-radius: 4px; }
-  .date-picker-widget [date-picker] span:hover {
-    background: #eeeeee; }
-  .date-picker-widget [date-picker] span.disabled,
-  .date-picker-widget [date-picker] span.disabled:hover {
-    background: none;
-    color: #999999;
-    cursor: default; }
-  .date-picker-widget [date-picker] .active,
-  .date-picker-widget [date-picker] .now {
-    color: #ffffff;
-    background-color: #006dcc;
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
-    background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
-    background-image: linear-gradient(to bottom, #0088cc, #0044cc);
-    background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
-    border-color: #0044cc #0044cc #002a80;
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-    *background-color: #0044cc;
-    /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-    color: #fff;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); }
-  .date-picker-widget [date-picker] .active:hover,
-  .date-picker-widget [date-picker] .now:hover,
-  .date-picker-widget [date-picker] .active:active,
-  .date-picker-widget [date-picker] .now:active,
-  .date-picker-widget [date-picker] .active.active,
-  .date-picker-widget [date-picker] .now.active,
-  .date-picker-widget [date-picker] .active.disabled,
-  .date-picker-widget [date-picker] .now.disabled,
-  .date-picker-widget [date-picker] .active[disabled],
-  .date-picker-widget [date-picker] .now[disabled] {
-    color: #ffffff;
-    background-color: #0044cc;
-    *background-color: #003bb3; }
-  .date-picker-widget [date-picker] .active:active,
-  .date-picker-widget [date-picker] .now:active,
-  .date-picker-widget [date-picker] .active.active,
-  .date-picker-widget [date-picker] .now.active {
-    background-color: #003399 \9; }
-  .date-picker-widget [date-picker] .now {
-    color: #ffffff;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-    background-color: #ee735b;
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ee5f5b), to(#ee905b));
-    background-image: -webkit-linear-gradient(top, #ee5f5b, #ee905b);
-    background-image: linear-gradient(to bottom, #ee5f5b, #ee905b);
-    background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffee5f5b', endColorstr='#ffee905b', GradientType=0);
-    border-color: #ee905b #ee905b #e56218;
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-    *background-color: #ee905b;
-    /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false); }
-  .date-picker-widget [date-picker] .now:hover,
-  .date-picker-widget [date-picker] .now:active,
-  .date-picker-widget [date-picker] .now.active,
-  .date-picker-widget [date-picker] .now.disabled,
-  .date-picker-widget [date-picker] .now[disabled] {
-    color: #ffffff;
-    background-color: #ee905b;
-    *background-color: #ec8044; }
-  .date-picker-widget [date-picker] .now:active,
-  .date-picker-widget [date-picker] .now.active {
-    background-color: #e9712d \9; }
-  .date-picker-widget [date-picker] .disabled {
-    background: none;
-    color: #999999 !important;
-    cursor: default; }
-  .date-picker-widget [date-picker] [ng-switch-when="year"] span,
-  .date-picker-widget [date-picker] [ng-switch-when="month"] span,
-  .date-picker-widget [date-picker] [ng-switch-when="minutes"] span {
-    height: 54px;
-    line-height: 54px; }
-  .date-picker-widget [date-picker] [ng-switch-when="date"] td {
-    padding: 0; }
-  .date-picker-widget [date-picker] [ng-switch-when="date"] span {
+  th-date-picker .k-datepicker {
     width: 100%;
-    height: 26px;
-    line-height: 26px; }
-  .date-picker-widget [date-picker] th:hover,
-  .date-picker-widget [date-picker] [ng-switch-when="date"] td span:hover {
-    background: #eeeeee;
-    cursor: pointer; }
-  .date-picker-widget [date-picker] th,
-  .date-picker-widget [date-picker] th:hover {
-    cursor: default;
-    background: none; }
-  .date-picker-widget [date-picker] table {
-    position: relative;
-    padding: 0;
-    width: 300px;
-    margin: 6px auto;
-    font-family: inherit;
-    font-size: 13px;
-    border-spacing: 0;
-    border-collapse: collapse; }
-  .date-picker-widget [date-picker] td,
-  .date-picker-widget [date-picker] th,
-  .date-picker-widget [date-picker] span {
-    margin: 0;
-    padding: 0;
-    border-radius: 2px; }
-  .date-picker-widget [date-picker] th {
-    width: 14.25%;
-    padding: 0 2%;
-    margin-bottom: 8px;
-    vertical-align: top;
-    font-size: 16px; }
-  .date-picker-widget [date-picker] table thead tr:nth-child(1) th:nth-child(1),
-  .date-picker-widget [date-picker] table thead tr:nth-child(1) th:nth-child(3) {
-    color: transparent;
-    cursor: pointer; }
-  .date-picker-widget [date-picker] table thead tr:nth-child(1) th:nth-child(1):before,
-  .date-picker-widget [date-picker] table thead tr:nth-child(1) th:nth-child(3):after {
-    display: block;
-    position: absolute;
-    color: #667881;
-    font-size: 18px;
-    visibility: visible; }
-  .date-picker-widget [date-picker] table thead tr:nth-child(1) th:nth-child(1):before {
-    content: "\F137";
-    top: 2px;
-    left: 10px; }
-  .date-picker-widget [date-picker] table thead tr:nth-child(1) th:nth-child(3):after {
-    content: "\F138";
-    top: 2px;
-    right: 10px; }
-  .date-picker-widget [date-picker] table thead tr:nth-child(2) th {
-    font-size: 11px;
-    color: #667881;
-    text-transform: uppercase; }
-  .date-picker-widget [date-picker] td {
-    width: 14.25%;
-    padding: 0 2%;
-    margin: 0;
-    line-height: 30px;
-    border-radius: 0;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box; }
-  .date-picker-widget [date-picker] .active .active:hover,
-  .date-picker-widget [date-picker] .now:hover,
-  .date-picker-widget [date-picker] .active:active,
-  .date-picker-widget [date-picker] .now:active,
-  .date-picker-widget [date-picker] .active.active,
-  .date-picker-widget [date-picker] .now.active,
-  .date-picker-widget [date-picker] .active[disabled],
-  .date-picker-widget [date-picker] .now[disabled] {
-    font-weight: bold;
-    color: white;
-    background-image: none;
-    background-color: #667881;
-    -webkit-filter: none;
-    filter: none; }
-  .date-picker-widget [date-picker] .now,
-  .date-picker-widget [date-picker] .now.disabled {
-    font-weight: bold;
-    text-shadow: none;
-    color: #0075bb;
-    background-color: white;
-    background-image: none; }
-  .date-picker-widget [date-picker] .active.now {
-    color: white;
-    font-weight: bold;
-    text-shadow: none;
-    background-color: #0075bb;
-    background-image: none; }
+    height: 100%;
+    background: transparent; }
+    th-date-picker .k-datepicker .k-picker-wrap {
+      border: solid 1px #B0BEC5;
+      border-radius: 4px;
+      box-shadow: none;
+      z-index: 1; }
+      th-date-picker .k-datepicker .k-picker-wrap .k-input {
+        height: 40px;
+        padding: 0 12px;
+        color: #263238;
+        border-radius: 4px 0 0 4px;
+        font-size: 13px;
+        background: #F5F7F8; }
+        th-date-picker .k-datepicker .k-picker-wrap .k-input::-moz-selection {
+          color: #263238;
+          background: #ACCEF7; }
+        th-date-picker .k-datepicker .k-picker-wrap .k-input::selection {
+          color: #263238;
+          background: #ACCEF7; }
+        th-date-picker .k-datepicker .k-picker-wrap .k-input::-ms-clear {
+          display: none; }
+      th-date-picker .k-datepicker .k-picker-wrap .k-select {
+        width: 42px;
+        border-left: solid 1px #B0BEC5;
+        border-radius: 0 3px 3px 0;
+        background: #F5F7F8; }
+        th-date-picker .k-datepicker .k-picker-wrap .k-select .k-icon {
+          color: #667881;
+          font-family: FontAwesome;
+          font-size: 13px; }
+          th-date-picker .k-datepicker .k-picker-wrap .k-select .k-icon::before {
+            content: "\F073"; }
+      th-date-picker .k-datepicker .k-picker-wrap.k-state-hover .k-picker-wrap {
+        background: white; }
+      th-date-picker .k-datepicker .k-picker-wrap.k-state-hover .k-select {
+        background: #D7DEE2; }
+        th-date-picker .k-datepicker .k-picker-wrap.k-state-hover .k-select .k-icon {
+          color: #263238; }
+      th-date-picker .k-datepicker .k-picker-wrap.k-state-focused {
+        box-shadow: 0 0 10px rgba(97, 179, 227, 0.7);
+        border-color: #0075bb; }
+        th-date-picker .k-datepicker .k-picker-wrap.k-state-focused .k-input {
+          background: white; }
+        th-date-picker .k-datepicker .k-picker-wrap.k-state-focused .k-select {
+          background: #0075bb;
+          border-color: #0075bb; }
+          th-date-picker .k-datepicker .k-picker-wrap.k-state-focused .k-select .k-icon {
+            color: white; }
+        th-date-picker .k-datepicker .k-picker-wrap.k-state-focused.k-state-border-down {
+          border-radius: 4px 4px 4px 0; }
+        th-date-picker .k-datepicker .k-picker-wrap.k-state-focused.k-state-border-up {
+          border-radius: 0 4px 4px 4px; }
+  th-date-picker[condensed], th-date-picker.condensed {
+    height: 34px; }
+    th-date-picker[condensed] .k-datepicker .k-picker-wrap .k-input, th-date-picker.condensed .k-datepicker .k-picker-wrap .k-input {
+      height: 32px; }
+
+.ng-submitted th-date-picker.ng-invalid .k-picker-wrap, th-date-picker.ng-touched.ng-invalid .k-picker-wrap {
+  border: 1px solid #E41B28;
+  box-shadow: 0 0 0 1px #E41B28; }
+  .ng-submitted th-date-picker.ng-invalid .k-picker-wrap .k-select, th-date-picker.ng-touched.ng-invalid .k-picker-wrap .k-select {
+    border-left: 1px solid #E41B28;
+    box-shadow: -1px 0 0 0 #E41B28; }
+
+.ng-submitted th-date-picker.ng-invalid .k-invalid-msg, th-date-picker.ng-touched.ng-invalid .k-invalid-msg {
+  position: absolute;
+  bottom: -22px;
+  left: -2px;
+  padding: 0;
+  color: #E41B28;
+  border: none;
+  background: transparent;
+  font-size: 12px; }
+  .ng-submitted th-date-picker.ng-invalid .k-invalid-msg .k-icon.k-i-warning, th-date-picker.ng-touched.ng-invalid .k-invalid-msg .k-icon.k-i-warning {
+    display: none; }
+
+.k-calendar-container {
+  border: solid 1px #0075bb;
+  box-shadow: 0 1px 10px rgba(97, 179, 227, 0.7); }
+  .k-calendar-container .k-calendar {
+    width: 300px; }
+    .k-calendar-container .k-calendar .k-header {
+      padding: 8px 12px;
+      background: white; }
+      .k-calendar-container .k-calendar .k-header .k-link {
+        padding: 0;
+        color: #263238;
+        background: #F5F7F8; }
+        .k-calendar-container .k-calendar .k-header .k-link.k-state-hover {
+          background: #EBF4F9; }
+        .k-calendar-container .k-calendar .k-header .k-link.k-state-disabled {
+          opacity: .6;
+          background: #F5F7F8; }
+      .k-calendar-container .k-calendar .k-header .k-nav-prev, .k-calendar-container .k-calendar .k-header .k-nav-next {
+        width: 32px;
+        height: 32px;
+        font-size: 14px; }
+        .k-calendar-container .k-calendar .k-header .k-nav-prev .k-icon, .k-calendar-container .k-calendar .k-header .k-nav-next .k-icon {
+          font-family: FontAwesome; }
+      .k-calendar-container .k-calendar .k-header .k-nav-prev .k-icon::before {
+        content: "\F0D9"; }
+      .k-calendar-container .k-calendar .k-header .k-nav-next .k-icon::before {
+        content: "\F0DA"; }
+      .k-calendar-container .k-calendar .k-header .k-nav-fast {
+        margin: 0 12px;
+        font-size: 13px; }
+    .k-calendar-container .k-calendar .k-content {
+      width: 100%;
+      height: 192px; }
+      .k-calendar-container .k-calendar .k-content thead th {
+        padding: 4px 13px;
+        line-height: 14px;
+        color: #667881;
+        border-bottom: none;
+        font-size: 13px;
+        font-weight: bold;
+        background: #F5F7F8; }
+      .k-calendar-container .k-calendar .k-content tbody tr td {
+        text-align: center;
+        border: 0;
+        padding: 0;
+        font-size: 13px; }
+        .k-calendar-container .k-calendar .k-content tbody tr td a {
+          padding: 0;
+          line-height: 28px; }
+        .k-calendar-container .k-calendar .k-content tbody tr td.k-today {
+          color: #263238; }
+          .k-calendar-container .k-calendar .k-content tbody tr td.k-today .k-link {
+            box-shadow: inset 0 0 0 1px #0075bb; }
+        .k-calendar-container .k-calendar .k-content tbody tr td.k-weekend {
+          opacity: 1;
+          background: white; }
+        .k-calendar-container .k-calendar .k-content tbody tr td.k-state-focused .k-link {
+          box-shadow: none; }
+        .k-calendar-container .k-calendar .k-content tbody tr td.k-state-hover .k-link {
+          color: #004670;
+          background: #EBF4F9; }
+        .k-calendar-container .k-calendar .k-content tbody tr td.k-state-selected {
+          background: none; }
+          .k-calendar-container .k-calendar .k-content tbody tr td.k-state-selected .k-link {
+            box-shadow: none;
+            background: #0075bb; }
+          .k-calendar-container .k-calendar .k-content tbody tr td.k-state-selected.k-state-hover .k-link {
+            color: white;
+            background: #004670; }
+        .k-calendar-container .k-calendar .k-content tbody tr td.k-other-month {
+          color: #B0BEC5; }
+      .k-calendar-container .k-calendar .k-content.k-year tbody tr td a, .k-calendar-container .k-calendar .k-content.k-decade tbody tr td a, .k-calendar-container .k-calendar .k-content.k-century tbody tr td a {
+        line-height: 64px; }
+      .k-calendar-container .k-calendar .k-content.k-year tbody tr td.k-state-focused a, .k-calendar-container .k-calendar .k-content.k-decade tbody tr td.k-state-focused a, .k-calendar-container .k-calendar .k-content.k-century tbody tr td.k-state-focused a {
+        color: white;
+        box-shadow: none;
+        background: #0075bb; }
+        .k-calendar-container .k-calendar .k-content.k-year tbody tr td.k-state-focused a:hover, .k-calendar-container .k-calendar .k-content.k-decade tbody tr td.k-state-focused a:hover, .k-calendar-container .k-calendar .k-content.k-century tbody tr td.k-state-focused a:hover {
+          background: #004670; }
+      .k-calendar-container .k-calendar .k-content.k-year.k-century tbody tr td a, .k-calendar-container .k-calendar .k-content.k-decade.k-century tbody tr td a, .k-calendar-container .k-calendar .k-content.k-century.k-century tbody tr td a {
+        width: 38px;
+        height: 24px;
+        padding: 20px 18px;
+        line-height: 14px;
+        text-align: left; }
+    .k-calendar-container .k-calendar .k-footer {
+      height: 32px;
+      padding: 0;
+      text-decoration: underline;
+      -webkit-text-decoration-color: #0075bb;
+      text-decoration-color: #0075bb;
+      font-size: 13px; }
+      .k-calendar-container .k-calendar .k-footer .k-state-disabled {
+        display: none; }
+      .k-calendar-container .k-calendar .k-footer .k-nav-today {
+        color: #0075bb;
+        background: #F5F7F8; }
+        .k-calendar-container .k-calendar .k-footer .k-nav-today:hover {
+          background: #EBF4F9; }
+  .k-calendar-container.k-state-border-up {
+    border-radius: 0 0 2px 2px;
+    top: -1px; }
+  .k-calendar-container.k-state-border-down {
+    border-radius: 2px 2px 0 0;
+    bottom: -1px; }
+
+.th-filter th-date-picker .k-datepicker .k-picker-wrap .k-input {
+  background: white; }
+
+.th-filter th-date-picker .k-datepicker .k-picker-wrap .k-select {
+  background: white; }
+
+.th-filter th-date-picker .k-datepicker .k-picker-wrap.k-state-hover .k-select {
+  background: #ECEFF1; }
+
+.th-filter th-date-picker .k-datepicker .k-picker-wrap.k-state-focused .k-select {
+  background: #0075bb; }
 
 th-disclosure-content {
   width: 100%;

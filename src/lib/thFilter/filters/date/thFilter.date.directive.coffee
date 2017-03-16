@@ -1,3 +1,5 @@
+moment = require "moment"
+
 angular.module "ThemisComponents"
   .directive "thFilterDate", (DateFilter) ->
     restrict: "E"
@@ -14,7 +16,9 @@ angular.module "ThemisComponents"
     controller: ($scope) ->
       @hasOperator = @operatorOptions?.length > 0
 
-      @onValueChange = => @filterSet.onFilterChange()
+      @onValueChange = (newVal) =>
+        @filter.model = newVal
+        @filterSet.onFilterChange()
 
       @onOperatorChange = =>
         @filterSet.onFilterChange() if @filter.model?

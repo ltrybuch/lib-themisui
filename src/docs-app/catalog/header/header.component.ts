@@ -5,12 +5,10 @@ class HeaderController {
     private version: string;
 
     /* @ngInject */
-    constructor(catalogService: CatalogService) {
-        this.version = catalogService.version;
-    }
+    constructor(public catalogService: CatalogService) {}
 
     $onInit() {
-        console.log("header controller onInit");
+        this.version = this.catalogService.version;
     }
 }
 

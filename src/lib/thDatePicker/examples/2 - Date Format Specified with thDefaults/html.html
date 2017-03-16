@@ -1,6 +1,6 @@
 <html ng-app="thDatePickerDemo">
   <body ng-controller="thDatePickerDemoCtrl2 as demo" class="th-example-height-500">
     <p>Date Selected: {{ demo.date }}</p>
-    <th-date-picker ng-model="demo.date"></th-date-picker>
+    <th-date-picker name="date" ng-model="demo.date" on-change="demo.onchange"></th-date-picker>
   </body>
 </html>
