@@ -15,6 +15,7 @@ const catalogOutPath = "src/docs-app/catalog/catalog.json";
 const docsComponentsRoot = path.join("src", "docs-app", "documentation");
 const componentsRoot = path.join("src", "lib");
 enum componentType {
+  globalDocs,
   docs,
   components
 }
@@ -28,9 +29,7 @@ function getComponentMeta(componentPath: string): ComponentMeta {
   try {
     return JSON.parse(fs.readFileSync(path.join(componentPath, "meta.json"), "utf8"));
   } catch (error) {
-    return {
-      private: false
-    };
+    return {};
   }
 }
 
@@ -53,20 +52,33 @@ function getComponentReadme(componentPath: string, componentName: string): Readm
 
   const markdownPath = path.join(componentPath, "readme.md");
   const htmlPath = path.join(componentPath, "readme.html");
-  let markdownContents: string;
-  let htmlContents: string;
+  let markdownContent: string;
+  let htmlContent: string;
 
   if (fs.existsSync(markdownPath)) {
-    markdownContents = fs.readFileSync(markdownPath, "utf8");
+    markdownContent = fs.readFileSync(markdownPath, "utf8");
   }
 
   if (fs.existsSync(htmlPath)) {
-    htmlContents = fs.readFileSync(htmlPath, "utf8");
+    htmlContent = fs.readFileSync(htmlPath, "utf8");
   }
 
   return {
-    markdown: markdownContents || emptyMd,
-    html: htmlContents || ""
+    markdown: markdownContent || emptyMd,
+    html: htmlContent || ""
+  };
+}
+
+function getDocumentationMarkdown(markdownPath: string): Readme {
+  let markdownContent: string;
+
+  if (fs.existsSync(markdownPath)) {
+    markdownContent = fs.readFileSync(markdownPath, "utf8");
+  }
+
+  return {
+    markdown: markdownContent,
+    html: ""
   };
 }
 
@@ -87,7 +99,7 @@ function getComponentExamples(componentName: string): ComponentExamples[] {
         .map(filePath => path.basename(filePath))
         .filter(fileName => !exampleFileNames.includes(fileName))
         .reduce((files, fileName) => {
-          return Object.assign(files, {[fileName]: getExampleFiles(exampleDirectory, fileName)});
+          return {...files, [fileName]: getExampleFiles(exampleDirectory, fileName)};
         }, {});
 
       return {
@@ -101,21 +113,64 @@ function getComponentExamples(componentName: string): ComponentExamples[] {
 }
 
 function getComponents(type: componentType): Component[] {
-  const root = type === componentType.components ? componentsRoot : docsComponentsRoot;
-  const allDirectories = glob.sync(path.join(root, "!(theme)", "/"));
+  const isDoc = type === componentType.docs;
+  const isGlobalDoc = type === componentType.globalDocs;
+  const isComponent = type === componentType.components;
+  const root = isComponent ? componentsRoot : docsComponentsRoot;
+  const allDirectories = !isGlobalDoc && glob.sync(path.join(root, "*", "/"));
+  const allMarkdownFiles = isGlobalDoc && glob.sync(path.join(root, "*.md"));
 
-  return allDirectories.map(directory => {
+  function scrapeComponentData(directory: string) {
     const componentMeta = getComponentMeta(directory);
-    const componentName = path.basename(directory);
-    const componentDisplayName = componentName.replace(/([A-Z])/g, " $1").slice(3);
+    const name = path.basename(directory);
+    const componentFileList = isDoc && glob.sync(path.join(directory, "*"));
 
-    return Object.assign(componentMeta, {
-      name: componentName,
-      displayName: componentDisplayName,
-      readme: getComponentReadme(directory, componentName),
-      examples: type === componentType.components ? getComponentExamples(componentName) : null
-    });
-  });
+    const isMarkdownDoc = componentFileList
+      && componentFileList.length === 1
+      && componentFileList[0].endsWith(".md");
+    const markDownDocMeta = isMarkdownDoc ? {isMarkdownDoc} : {};
+
+    const displayName = componentMeta.displayName || (isComponent
+      ? name.replace(/([A-Z])/g, " $1").slice(3)
+      : name.replace(/^\w/, match => match.toUpperCase()).replace(/([A-Z])/g, " $1"));
+
+    const readme = isComponent
+      ? getComponentReadme(directory, name)
+      : isMarkdownDoc ? getDocumentationMarkdown(componentFileList[0]) : null;
+
+    const examples = isComponent ? getComponentExamples(name) : null;
+
+    return  {
+      ...componentMeta,
+      ...markDownDocMeta,
+      name,
+      displayName,
+      readme,
+      examples
+    };
+  };
+
+  function scrapeDocumentData(path: string): Component {
+    const readme = getDocumentationMarkdown(path);
+    const name = path.replace(/.+\/(.+)(.md$)/, "$1");
+    const displayName = name
+      .replace(/^\w/, match => match.toUpperCase())
+      .replace(/([A-Z])/g, " $1");
+
+    return {
+      examples: null,
+      isMarkdownDoc: true,
+      name,
+      displayName,
+      readme,
+    };
+  }
+
+  if (isGlobalDoc) {
+    return allMarkdownFiles.map(scrapeDocumentData);
+  } else {
+    return allDirectories.map(scrapeComponentData);
+  }
 }
 
 function generateCatalog() {
@@ -127,7 +182,8 @@ function generateCatalog() {
     version: projectMeta.version,
     license: projectMeta.license,
     components: getComponents(componentType.components),
-    docs: getComponents(componentType.docs)
+    docs: getComponents(componentType.docs),
+    globalDocs: getComponents(componentType.globalDocs)
   };
 
   // write catalogObj to file

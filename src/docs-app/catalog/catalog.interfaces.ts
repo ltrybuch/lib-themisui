@@ -11,8 +11,8 @@ interface PackageJson {
 }
 
 interface ComponentMeta {
-  private: boolean;
-  prettyName?: string;
+  private?: boolean;
+  displayName?: string;
   whitelistLocal?: boolean | number[];
 }
 
@@ -26,6 +26,7 @@ interface ComponentExamples {
 
 interface Component extends ComponentMeta {
   name: string;
+  isMarkdownDoc?: boolean;
   readme: Readme;
   examples: ComponentExamples[];
 }
@@ -41,6 +42,7 @@ interface Catalog {
     license: string;
     components: Component[];
     docs: Component[];
+    globalDocs: Component[];
 }
 
 export {

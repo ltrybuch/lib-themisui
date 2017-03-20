@@ -120,7 +120,7 @@ describe "ThemisComponents: Directive: thFilterDate", ->
       input = element.find "input"
       today = moment().date().toString()
       $(input).triggerHandler "click"
-      $today = $("a:contains(#{ today })")
+      $today = $ "table td a:contains('#{ today }')"
       expectedOperator = "<"
       expectedFilterValue = moment().format dateFormat
 

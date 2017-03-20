@@ -7,10 +7,12 @@ class ComponentList {
   viewType: string;
   components: Component[];
   docs: Component[];
+  globalDocs: Component[];
 
   /* @ngInject */
   constructor(catalogService: CatalogService) {
     this.components = catalogService.components;
+    this.globalDocs = catalogService.globalDocs;
     this.docs = catalogService.docs;
     this.viewType = "as-list";
   }

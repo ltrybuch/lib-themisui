@@ -81,8 +81,36 @@ h1, h2, h3 {
 
     overflow: auto;
 
+    @mixin heading {
+      color: $text-color;
+
+      &, &.selected {
+        font-weight: 600;
+      }
+    }
+
+    @mixin link {
+      text-decoration: none;
+
+      &:hover, &.selected {
+          color: $blue;
+        }
+
+      &.selected {
+        background-color: rgba($blue, 0.1);
+        border-radius: 4px;
+
+        font-weight: 400;
+      }
+    }
+
     hr {
       border: solid 1px $grey-6;
+    }
+
+    > a {
+      @include link;
+      @include heading;
     }
 
     th-disclosure-toggle {
@@ -91,8 +119,7 @@ h1, h2, h3 {
       }
 
       span {
-        color: $grey-6;
-        font-weight: 600;
+        @include heading;
 
         &.fa-caret-right {
           color: $grey-5;
@@ -111,19 +138,9 @@ h1, h2, h3 {
         box-sizing: border-box;
         cursor: pointer;
         color: $grey-6;
-        text-decoration: none;
         margin-right: 20px;
 
-        &:hover, &.selected {
-          color: $blue;
-        }
-
-        &.selected {
-          background-color: rgba($blue, 0.1);
-          border-radius: 4px;
-
-          font-weight: 400;
-        }
+        @include link;
       }
 
     }
