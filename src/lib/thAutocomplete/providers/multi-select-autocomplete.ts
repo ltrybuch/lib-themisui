@@ -30,9 +30,6 @@ export class MultiSelectAutocomplete extends AbstractAutocomplete {
         if (this.options.multiple || component.sender.value() === "") {
           this.options.change(component.sender.value());
         }
-        if (this.options["ngChange"]) {
-          this.options["ngChange"]();
-        }
       }
     } as kendo.ui.MultiSelectOptions;
 

@@ -99,5 +99,19 @@ describe("ThemisComponents: Abstract Factory: AbstractAutocomplete", () => {
 
       });
 
+      describe("setValue", () => {
+        it("sets the kendo autocomplete value when called", () => {
+          const expectedValue = {id: 1, name: "Stanley"};
+          opts.value = expectedValue;
+
+          const mockAutocomplete = new AbstractAutocompleteMock(opts);
+          mockAutocomplete.create();
+          expect(mockAutocomplete.getValue()).toEqual("");
+
+          mockAutocomplete.setValue(expectedValue);
+          expect(mockAutocomplete.getValue()).toEqual(expectedValue.name);
+        });
+      });
+
   });
 });

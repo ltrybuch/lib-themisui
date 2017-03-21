@@ -7,7 +7,6 @@ export class AutocompleteController {
   private name: string;
   private placeholder: string;
   private ngModel: any;
-  private ngChange: any;
   private ngDisabled: any;
   private ngRequired: any;
   private combobox: boolean;
@@ -17,6 +16,7 @@ export class AutocompleteController {
   private rowTemplate: string;
   private trackField: string;
   private validationNameAttr: string;
+  private onChange: (newVal: any) => void;
   private autoComplete: AbstractAutocomplete;
 
   /* @ngInject */
@@ -25,7 +25,16 @@ export class AutocompleteController {
     private $element: angular.IAugmentedJQuery,
     public $timeout: angular.ITimeoutService,
     private $attrs: angular.IAttributes,
-  ) {}
+  ) {
+    $scope.$watch(() => {
+      return this.ngModel;
+    }, (newModel) => {
+      // Wait for the current digest cycle to end before triggering the update
+      $timeout(() => {
+        this.autoComplete.setValue(newModel);
+      });
+    });
+  }
 
   $onChanges(change: any) {
     this.$timeout(() => {
@@ -68,7 +77,6 @@ export class AutocompleteController {
       delegate: this.delegate,
       placeholder: this.placeholder,
       value: this.ngModel,
-      ngChange: this.ngChange,
       ngDisabled: this.ngDisabled,
       ngRequired: this.ngRequired,
       combobox: this.combobox,
@@ -78,6 +86,9 @@ export class AutocompleteController {
         this.$scope.$apply(() => {
           this.ngModel = newValue;
         });
+        if (this.onChange) {
+          this.onChange(newValue);
+        }
       }
     });
 
@@ -121,11 +132,11 @@ angular.module("ThemisComponents")
       multiple: "@",
       name: "@?",
       condensed: "@?",
-      ngChange: "&?",
       ngDisabled: "<?",
       ngRequired: "<?",
       combobox: "@",
-      rowTemplate: "<?"
+      rowTemplate: "<?",
+      onChange: "<?"
     },
     controller: AutocompleteController
   });

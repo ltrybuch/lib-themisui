@@ -2,7 +2,7 @@
   <div class="field">
     <th-autocomplete
       ng-model="thCustomFilterRow.rowSelectValue"
-      ng-change="thCustomFilterRow.onRowSelectChange()"
+      on-change="thCustomFilterRow.onRowSelectChange"
       delegate="thCustomFilterRow.customFieldDelegate"
       placeholder="Select or search fields…"
       show-search-hint="thCustomFilterRow.showSearchHint"

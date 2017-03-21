@@ -11,10 +11,12 @@
           delegate="demo.defaultDelegate"
           name="test-name"
           condensed="true"
+          on-change="demo.onChange"
           >
         </th-autocomplete>
 
         <p>Selected city: <code>{{demo.defaultModel.id}}</code></p>
+        <p><button ng-click="demo.clearDefaultModel()">Clear Model</button></p>
       </div>
     </div>
 
@@ -33,6 +35,7 @@
         </th-autocomplete>
 
         <p>Selected cities: <code>{{demo.multiModel}}</code></p>
+        <p><button ng-click="demo.clearMultiModel()">Clear Model</button></p>
 
       </div>
     </div>
@@ -52,6 +55,7 @@
         </th-autocomplete>
 
         <p>Selected city: <code>{{demo.comboModel}}</code></p>
+        <p><button ng-click="demo.clearComboModel()">Clear Model</button></p>
 
       </div>
     </div>

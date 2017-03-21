@@ -19,7 +19,6 @@ type AutocompleteOptions = {
   dataSource?: Object,
   minLength?: number,
   multiple: boolean,
-  ngChange: any,
   ngDisabled: any,
   ngRequired: any,
   placeholder: string,

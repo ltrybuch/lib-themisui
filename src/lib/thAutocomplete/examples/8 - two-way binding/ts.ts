@@ -68,6 +68,22 @@ angular.module("thAutocompleteDemo")
       }
     ];
 
+    this.clearDefaultModel = () => {
+      this.defaultModel = null;
+    }
+
+    this.clearMultiModel = () => {
+      this.multiModel = null;
+    }
+
+    this.clearComboModel = () => {
+      this.comboModel = null;
+    }
+
+    this.onChange = () => {
+      console.log("Changed!");
+    }
+
     this.defaultDelegate = {
       displayField: "name",
       dataSource: DataSource.createDataSource({

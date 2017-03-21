@@ -48186,6 +48186,15 @@ var AbstractAutocomplete = (function () {
         enumerable: true,
         configurable: true
     });
+    AbstractAutocomplete.prototype.setValue = function (theValue) {
+        if (this.kendoComponent) {
+            var newValue = theValue ? theValue : "";
+            if (theValue instanceof Object) {
+                newValue = theValue[this.options.delegate.displayField];
+            }
+            this.kendoComponent.value(newValue);
+        }
+    };
     AbstractAutocomplete.prototype.toggleEnabled = function () {
         this.enabled = !this.enabled;
         if (this.kendoComponent) {
@@ -93071,13 +93080,13 @@ angular.module('ThemisComponents').controller('thCustomFilterRow.controller', ["
     };
   })(this);
   this.onRowSelectChange = (function(_this) {
-    return function() {
+    return function(value) {
       return $timeout(function() {
         _this.initialState = null;
-        if (_this.rowFilterOptions.length > 0) {
+        if (value === "") {
           _this.broadcastFilterDestroyed();
         }
-        return _this.rowFilterOptions = _this.rowSelectValue != null ? [_this.rowSelectValue] : [];
+        return _this.rowFilterOptions = _this.rowSelectValue ? [_this.rowSelectValue] : [];
       });
     };
   })(this);
@@ -96378,10 +96387,19 @@ var AutocompleteController = (function () {
     /* @ngInject */
     AutocompleteController.$inject = ["$scope", "$element", "$timeout", "$attrs"];
     function AutocompleteController($scope, $element, $timeout, $attrs) {
+        var _this = this;
         this.$scope = $scope;
         this.$element = $element;
         this.$timeout = $timeout;
         this.$attrs = $attrs;
+        $scope.$watch(function () {
+            return _this.ngModel;
+        }, function (newModel) {
+            // Wait for the current digest cycle to end before triggering the update
+            $timeout(function () {
+                _this.autoComplete.setValue(newModel);
+            });
+        });
     }
     AutocompleteController.prototype.$onChanges = function (change) {
         var _this = this;
@@ -96421,7 +96439,6 @@ var AutocompleteController = (function () {
             delegate: this.delegate,
             placeholder: this.placeholder,
             value: this.ngModel,
-            ngChange: this.ngChange,
             ngDisabled: this.ngDisabled,
             ngRequired: this.ngRequired,
             combobox: this.combobox,
@@ -96431,6 +96448,9 @@ var AutocompleteController = (function () {
                 _this.$scope.$apply(function () {
                     _this.ngModel = newValue;
                 });
+                if (_this.onChange) {
+                    _this.onChange(newValue);
+                }
             }
         });
         this.validationNameAttr = "validation-" + this.name;
@@ -96469,11 +96489,11 @@ angular.module("ThemisComponents")
         multiple: "@",
         name: "@?",
         condensed: "@?",
-        ngChange: "&?",
         ngDisabled: "<?",
         ngRequired: "<?",
         combobox: "@",
-        rowTemplate: "<?"
+        rowTemplate: "<?",
+        onChange: "<?"
     },
     controller: AutocompleteController
 });
@@ -96572,17 +96592,13 @@ var Autocomplete = (function (_super) {
                 }
             },
             select: function (e) {
-                if (e.item) {
-                    var dataItem = _this.kendoComponent.dataItem(e.item.index());
-                    _this.options.change(dataItem);
+                if (e.dataItem) {
+                    _this.options.change(e.dataItem);
                 }
             },
             change: function (component) {
-                if (_this.options.multiple || component.sender.value() === "") {
+                if (component.sender.value() === "") {
                     _this.options.change(component.sender.value());
-                }
-                if (_this.options["ngChange"]) {
-                    _this.options["ngChange"]();
                 }
             }
         };
@@ -96650,17 +96666,13 @@ var ComboBoxAutocomplete = (function (_super) {
                 }
             },
             select: function (e) {
-                if (e.item) {
-                    var dataItem = _this.kendoComponent.dataItem(e.item.index());
-                    _this.options.change(dataItem);
+                if (e.dataItem) {
+                    _this.options.change(e.dataItem);
                 }
             },
             change: function (component) {
-                if (_this.options.multiple || component.sender.value() === "") {
+                if (component.sender.value() === "") {
                     _this.options.change(component.sender.value());
-                }
-                if (_this.options["ngChange"]) {
-                    _this.options["ngChange"]();
                 }
             }
         };
@@ -96723,9 +96735,6 @@ var MultiSelectAutocomplete = (function (_super) {
             change: function (component) {
                 if (_this.options.multiple || component.sender.value() === "") {
                     _this.options.change(component.sender.value());
-                }
-                if (_this.options["ngChange"]) {
-                    _this.options["ngChange"]();
                 }
             }
         };
@@ -97290,7 +97299,7 @@ module.exports = "<div class=\"th-error-container\">\n  <i class=\"fa fa-exclama
   \***********************************************************************************/
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <th-autocomplete\n    ng-model=\"thFilterAutocomplete.filter.model\"\n    ng-attr-placeholder=\"{{thFilterAutocomplete.filter.placeholder || thFilterAutocomplete.placeholder || 'Type some text…'}}\"\n    delegate=\"thFilterAutocomplete.delegate\"\n    ng-change=\"thFilterAutocomplete.filterSet.onFilterChange()\"\n    condensed=\"true\"\n    row-template=\"thFilterAutocomplete.rowTemplate\"\n    >\n  </th-autocomplete>\n</div>\n"
+module.exports = "<div>\n  <th-autocomplete\n    ng-model=\"thFilterAutocomplete.filter.model\"\n    ng-attr-placeholder=\"{{thFilterAutocomplete.filter.placeholder || thFilterAutocomplete.placeholder || 'Type some text…'}}\"\n    delegate=\"thFilterAutocomplete.delegate\"\n    on-change=\"thFilterAutocomplete.filterSet.onFilterChange\"\n    condensed=\"true\"\n    row-template=\"thFilterAutocomplete.rowTemplate\"\n    >\n  </th-autocomplete>\n</div>\n"
 
 /***/ }),
 /* 242 */
@@ -97356,7 +97365,7 @@ module.exports = "<div class=\"inner\">\n  <th-select\n    ng-model=\"thFilterTi
   \**********************************************************/
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"field\">\n    <th-autocomplete\n      ng-model=\"thCustomFilterRow.rowSelectValue\"\n      ng-change=\"thCustomFilterRow.onRowSelectChange()\"\n      delegate=\"thCustomFilterRow.customFieldDelegate\"\n      placeholder=\"Select or search fields…\"\n      show-search-hint=\"thCustomFilterRow.showSearchHint\"\n      condensed=\"true\"\n      icon=\"caret-down\"\n      combobox=\"true\"\n      >\n    </th-autocomplete>\n  </div>\n  <div\n    ng-repeat=\"filter in thCustomFilterRow.rowFilterOptions\"\n    ng-switch on=\"filter.type\"\n    class=\"wide field filter-container\"\n    >\n    <th-filter-select\n      ng-switch-when=\"select\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-select>\n    <th-filter-input\n      ng-switch-when=\"input\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-input>\n    <th-filter-number\n      ng-switch-when=\"number\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      operator-options=\"thCustomFilterRow.numberOperatorOptions\"\n      default-operator-index=\"2\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-number>\n    <th-filter-number\n      ng-switch-when=\"currency\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      operator-options=\"thCustomFilterRow.currencyOperatorOptions\"\n      default-operator-index=\"1\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-number>\n    <th-filter-select\n      ng-switch-when=\"checkbox\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      options=\"thCustomFilterRow.checkboxOptions\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-select>\n    <th-filter-input\n      ng-switch-when=\"email\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      placeholder=\"email@example.com\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-input>\n    <th-filter-input\n      ng-switch-when=\"url\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      placeholder=\"webaddress.com\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-input>\n    <th-filter-autocomplete\n      ng-switch-when=\"autocomplete\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-autocomplete>\n    <th-filter-date\n      ng-switch-when=\"date\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      operator-options=\"thCustomFilterRow.dateOperatorOptions\"\n      default-operator-index=\"1\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-date>\n    <th-filter-time\n      ng-switch-when=\"time\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-time>\n  </div>\n  <div class=\"field\">\n    <div class=\"link\" ng-click=\"thCustomFilterRow.removeRow()\">\n      Remove\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"row\">\n  <div class=\"field\">\n    <th-autocomplete\n      ng-model=\"thCustomFilterRow.rowSelectValue\"\n      on-change=\"thCustomFilterRow.onRowSelectChange\"\n      delegate=\"thCustomFilterRow.customFieldDelegate\"\n      placeholder=\"Select or search fields…\"\n      show-search-hint=\"thCustomFilterRow.showSearchHint\"\n      condensed=\"true\"\n      icon=\"caret-down\"\n      combobox=\"true\"\n      >\n    </th-autocomplete>\n  </div>\n  <div\n    ng-repeat=\"filter in thCustomFilterRow.rowFilterOptions\"\n    ng-switch on=\"filter.type\"\n    class=\"wide field filter-container\"\n    >\n    <th-filter-select\n      ng-switch-when=\"select\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-select>\n    <th-filter-input\n      ng-switch-when=\"input\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-input>\n    <th-filter-number\n      ng-switch-when=\"number\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      operator-options=\"thCustomFilterRow.numberOperatorOptions\"\n      default-operator-index=\"2\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-number>\n    <th-filter-number\n      ng-switch-when=\"currency\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      operator-options=\"thCustomFilterRow.currencyOperatorOptions\"\n      default-operator-index=\"1\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-number>\n    <th-filter-select\n      ng-switch-when=\"checkbox\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      options=\"thCustomFilterRow.checkboxOptions\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-select>\n    <th-filter-input\n      ng-switch-when=\"email\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      placeholder=\"email@example.com\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-input>\n    <th-filter-input\n      ng-switch-when=\"url\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      placeholder=\"webaddress.com\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-input>\n    <th-filter-autocomplete\n      ng-switch-when=\"autocomplete\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-autocomplete>\n    <th-filter-date\n      ng-switch-when=\"date\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      operator-options=\"thCustomFilterRow.dateOperatorOptions\"\n      default-operator-index=\"1\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-date>\n    <th-filter-time\n      ng-switch-when=\"time\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-time>\n  </div>\n  <div class=\"field\">\n    <div class=\"link\" ng-click=\"thCustomFilterRow.removeRow()\">\n      Remove\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 /* 248 */

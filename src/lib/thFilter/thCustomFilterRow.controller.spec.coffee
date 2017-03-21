@@ -48,6 +48,6 @@ describe "ThemisComponents: Controller: thCustomFilterRow", ->
         beforeEach -> controller.rowFilterOptions = [{another: "filter"}]
 
         it "broadcasts `thFilter:destroyed`", ->
-          controller.onRowSelectChange()
+          controller.onRowSelectChange ""
           timeout.flush()
-          expect(scope.$broadcast).toHaveBeenCalledWith("thFilter:destroyed")
+          expect(scope.$broadcast).toHaveBeenCalledWith "thFilter:destroyed"

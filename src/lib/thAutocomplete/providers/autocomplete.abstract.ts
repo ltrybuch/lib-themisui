@@ -40,6 +40,16 @@ abstract class AbstractAutocomplete {
     return this.enabled;
   }
 
+  public setValue(theValue: any) {
+    if (this.kendoComponent) {
+      let newValue = theValue ? theValue : "";
+      if (theValue instanceof Object) {
+        newValue = theValue[this.options.delegate.displayField];
+      }
+      this.kendoComponent.value(newValue);
+    }
+  }
+
   abstract create(): void;
 
   public toggleEnabled() {

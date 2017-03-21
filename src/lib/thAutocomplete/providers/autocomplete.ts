@@ -37,17 +37,13 @@ export class Autocomplete extends AbstractAutocomplete {
         }
       },
       select: (e: any) => {
-        if (e.item) {
-          let dataItem = this.kendoComponent.dataItem(e.item.index());
-          this.options.change(dataItem);
+        if (e.dataItem) {
+          this.options.change(e.dataItem);
         }
       },
       change: (component: any) => {
-        if (this.options.multiple || component.sender.value() === "") {
+        if (component.sender.value() === "") {
           this.options.change(component.sender.value());
-        }
-        if (this.options["ngChange"]) {
-          this.options["ngChange"]();
         }
       }
     } as kendo.ui.AutoCompleteOptions;

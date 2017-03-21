@@ -15,7 +15,6 @@ export class AutocompleteOptionsTestFixture {
       delegate: delegate,
       placeholder: "Type a foo...",
       value: null,
-      ngChange: null,
       ngDisabled: false,
       ngRequired: false,
       combobox: false,

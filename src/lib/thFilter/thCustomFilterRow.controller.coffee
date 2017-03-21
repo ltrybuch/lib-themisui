@@ -30,12 +30,12 @@ angular.module 'ThemisComponents'
       @onRemoveRow()
       @broadcastFilterDestroyed()
 
-    @onRowSelectChange = =>
+    @onRowSelectChange = (value) =>
       $timeout =>
         @initialState = null
-        if @rowFilterOptions.length > 0
+        if value is ""
           @broadcastFilterDestroyed()
-        @rowFilterOptions = if @rowSelectValue? then [@rowSelectValue] else []
+        @rowFilterOptions = if @rowSelectValue then [@rowSelectValue] else []
 
     @customFieldDelegate =
       autoBind: true,

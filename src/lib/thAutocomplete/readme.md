@@ -7,7 +7,7 @@
 ```html
 <th-autocomplete delegate="demo.delegate"></th-autocomplete>
 <th-autocomplete delegate="demo.delegate" ng-model="demo.value"></th-autocomplete>
-<th-autocomplete delegate="demo.delegate" ng-change="demo.onChange"></th-autocomplete>
+<th-autocomplete delegate="demo.delegate" on-change="demo.onChange"></th-autocomplete>
 <th-autocomplete delegate="demo.delegate" placeholder="Select an option"></th-autocomplete>
 <th-autocomplete delegate="demo.delegate" combobox="true"></th-autocomplete>
 <th-autocomplete delegate="demo.delegate" multiple="true"></th-autocomplete>
@@ -19,7 +19,7 @@
 | Property         | Type        | Description   |   |
 |:-------------    |:-------     | :-------------|---|
 | **ng-model**     | Object      | Updated to `value` when the user selects an option from the component. | *optional* |
-| **ng-change**    | Function    | Called whenever `value` is updated. | *optional* |
+| **on-change**    | Function    | Called whenever `value` is updated within the component. | *optional* |
 | **ng-disabled**  | Boolean     | Disables the component when true. | *optional* |
 | **placeholder**  | String      | Default text that is displayed prior to the user selecting an option. | *optional* |
 | **name**         | String      | The name used when submitting `th-autocomplete` as part of a form. | *optional* |

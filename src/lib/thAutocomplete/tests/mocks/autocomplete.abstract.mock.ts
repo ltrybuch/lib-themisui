@@ -21,6 +21,10 @@ export class AbstractAutocompleteMock extends AbstractAutocomplete {
     return this.initialValue;
   }
 
+  getValue() {
+    return this.kendoComponent.value();
+  }
+
   getAutoBind() {
     return this.autoBind;
   }
