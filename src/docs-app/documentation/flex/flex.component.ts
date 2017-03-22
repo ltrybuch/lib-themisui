@@ -21,7 +21,7 @@ class Flex {
   ) {}
 
   $onInit() {
-    this.bootstrapVersion = packageJson.devDependencies.bootstrap;
+    this.bootstrapVersion = packageJson.dependencies.bootstrap;
     this.breakPoints = this.parseBreakPointValues(
       sassDoc.find(variable => variable.context.name === "grid-breakpoints")
     );
