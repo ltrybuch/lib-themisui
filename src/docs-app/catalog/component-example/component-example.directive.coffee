@@ -23,8 +23,6 @@ angular.module("ThemisComponentsApp")
       ]
 
       includeCSS = [
-        "#{includeBase}assets/examples.css",
-        "#{includeBase}assets/lib-themisui-styles.css"
         "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
       ]
 

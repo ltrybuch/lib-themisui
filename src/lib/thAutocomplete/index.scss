@@ -1,4 +1,8 @@
-@import "~@progress/kendo-theme-default/scss/all";
+@import "~@progress/kendo-theme-default/scss/autocomplete";
+@import "~@progress/kendo-theme-default/scss/combobox";
+@import "~@progress/kendo-theme-default/scss/multiselect";
+@import "~@progress/kendo-theme-default/scss/popup";
+
 $font-size: 13px;
 
 th-autocomplete {

@@ -1,12 +1,7 @@
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const bourbon = require("node-bourbon").includePaths;
-const sassIncludePaths = [
-  "includePaths[]=engines/titan/app/assets/stylesheets&",
-  "includePaths[]=vendor/assets/stylesheets&",
-  "includePaths[]=" + bourbon
-];
 
 module.exports = function(env={}) {
+
   const loaders = [
     {
       test: /\.coffee$/,
@@ -23,10 +18,6 @@ module.exports = function(env={}) {
     {
       test: /\.template\.html$/,
       loader: "raw-loader"
-    },
-    {
-      test: /\.scss$/,
-      loader: ExtractTextPlugin.extract("css-loader!postcss-loader!sass-loader?sourceMap&" + sassIncludePaths.join(""))
     },
     {
       test: /\.(png|jpg|jpeg|gif)$/,
@@ -55,6 +46,19 @@ module.exports = function(env={}) {
       }
     }
   ];
+
+  // scss
+  if (env.dist) {
+    loaders.push({
+      test: /\.scss$/,
+      loader: ExtractTextPlugin.extract("raw-loader!postcss-loader!sass-loader")
+    })
+  } else {
+    loaders.push({
+      test: /\.scss$/,
+      loader: "style-loader!raw-loader!postcss-loader!sass-loader?sourceMap"
+    });
+  }
 
   //-- karma coverage
   if(env.coverage) {
