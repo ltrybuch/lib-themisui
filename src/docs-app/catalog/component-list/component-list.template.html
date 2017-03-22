@@ -14,7 +14,7 @@
       <a
         ng-repeat="docsObj in $ctrl.docs"
         ui-sref-active="selected"
-        ui-sref="docs({name: docsObj.name})"
+        ui-sref="doc({name: docsObj.name})"
         ng-if="!docsObj.private"
         >
         {{docsObj.displayName}}

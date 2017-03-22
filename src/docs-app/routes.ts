@@ -29,7 +29,7 @@ angular.module("ThemisComponentsApp")
       })
 
       .state({
-        name: "docs",
+        name: "doc",
         url: "/doc/:name",
         templateProvider: function(catalogService: CatalogService, $transition$: Transition) {
           const route = $transition$.params().name;

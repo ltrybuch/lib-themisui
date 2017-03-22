@@ -1,0 +1,11 @@
+docs-search {
+  th-autocomplete {
+    display: inline-block;
+    width: 280px;
+
+    .k-autocomplete {
+      border-color: $white !important;
+      background-color: $white !important;
+    }
+  }
+}

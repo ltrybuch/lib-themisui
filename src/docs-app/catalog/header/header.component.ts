@@ -1,18 +1,19 @@
-import {CatalogService} from "../catalog.service";
+import * as angular from "angular";
+import { CatalogService } from "../catalog.service";
 const template = require("./header.template.html") as string;
 
 class HeaderController {
-    private version: string;
+  private version: string;
 
-    /* @ngInject */
-    constructor(public catalogService: CatalogService) {}
+  /* @ngInject */
+  constructor(private catalogService: CatalogService) {}
 
-    $onInit() {
-        this.version = this.catalogService.version;
-    }
+  $onInit() {
+    this.version = this.catalogService.version;
+  }
 }
 
-const HeaderComponent = {
+const HeaderComponent: angular.IComponentOptions = {
   template,
   controller: HeaderController
 };

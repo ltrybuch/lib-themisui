@@ -6,7 +6,7 @@ docs-header {
         top: 0;
         right: 0;
         left: 0;
-        
+
         height: $header-height;
         padding-left: 30px;
         padding-right: 30px;
@@ -24,7 +24,7 @@ docs-header {
             display: inline-block;
             width: 30px;
             height: 30px;
-            
+
             color: $white;
 
             background: url("../catalog/header/clio-logo.svg") no-repeat;
@@ -32,10 +32,9 @@ docs-header {
 
         h1 {
             display: inline-block;
-            width: 160px;
             margin: 0;
             margin-left: 40px;
-            
+
             font-size: 14px;
             font-weight: bold;
             line-height: inherit;
@@ -47,8 +46,8 @@ docs-header {
         }
 
         .version {
-            display: inline-block;
-            width: $header-height;
+            display: inline;
+            padding: 0 $spacing-l;
 
             font-size: 14px;
             line-height: normal;

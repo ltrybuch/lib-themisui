@@ -26,6 +26,7 @@ interface ComponentExamples {
 
 interface Component extends ComponentMeta {
   name: string;
+  displayName: string;
   isMarkdownDoc?: boolean;
   readme: Readme;
   examples: ComponentExamples[];
