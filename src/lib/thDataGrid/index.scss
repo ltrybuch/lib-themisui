@@ -1,0 +1,9 @@
+// TODO: Component styling
+
+@import "node_modules/@progress/kendo-theme-default/scss/grid";
+@import "node_modules/@progress/kendo-theme-default/scss/pager";
+@import "toolbar/toolbar";
+
+th-data-grid {
+  display: block;
+}

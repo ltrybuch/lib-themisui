@@ -1,0 +1,10 @@
+th-data-grid-toolbar {
+  display: block;
+  background: $input-dark-background-color;
+  padding: 10px;
+  border: $table-border-color;
+
+  ng-transclude {
+    display: inline-block;
+  }
+}
