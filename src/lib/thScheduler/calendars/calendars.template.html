@@ -1,0 +1,12 @@
+<div class="calendars-widget">
+  <ul>
+    <li ng-repeat="calendar in $ctrl.calendars">
+      <th-checkbox
+        ng-model="calendar.visible"
+        ng-change="$ctrl.toggleVisibility(calendar)"
+        with-label="{{calendar.name}}"
+        >
+      </th-checkbox>
+    </li>
+  </ul>
+</div>

@@ -2,17 +2,19 @@ const items = [
   {
     id: 1,
     name: "Personal",
+    visible: false
   },
   {
     id: 2,
     name: "Shared",
-  },
+    visible: true
+  }
 ];
 
 const ids = [1, 2];
 
 const apiNestedItems = {
-  calendars: items,
+  data: items
 };
 
 export {

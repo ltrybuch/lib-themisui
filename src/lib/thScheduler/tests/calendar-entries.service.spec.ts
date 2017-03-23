@@ -1,78 +1,96 @@
-import * as angular from "angular";
-import * as expectedCalendars from "./fixtures/calendars";
 import * as expectedEntries from "./fixtures/entries";
-import CalendarEntriesService from "../multipleCalendars/calendar-entries.service";
-import CalendarDataSourceMock from "../calendar-data-source.service.mock";
+import * as expectedCalendars from "./fixtures/calendars";
+import CalendarEntriesService from "../calendar-entries.service";
+import CalendarDataSourceMock from "./calendar-data-source.service.mock";
+import {fakeResponse} from "../../services/http-mocking.service";
 
 describe("ThemisComponents: thScheduler : CalendarEntriesService", function() {
-
   let calendarEntryService: CalendarEntriesService;
-  let $http: angular.IHttpService;
-  let $httpBackend: angular.IHttpBackendService;
-
-  beforeEach(angular.mock.module("ThemisComponents"));
-
-  beforeEach(inject(function(
-    _$http_: angular.IHttpService,
-    _$httpBackend_: angular.IHttpBackendService,
-    ) {
-      $http = _$http_;
-      $httpBackend = _$httpBackend_;
-    }),
-  );
+  let calendarDataSourceMock: CalendarDataSourceMock;
 
   beforeEach(function() {
-    calendarEntryService = new CalendarEntriesService($http);
-    calendarEntryService.calendarDataSource = new CalendarDataSourceMock();
-  });
-
-  describe("#getCalendarIds", function() {
-
-    it("returns the calendar ids", function(done) {
-      calendarEntryService.getCalendarIds()
-        .then(function(data) {
-          expect(data).toEqual(expectedCalendars.ids);
-          done();
-        });
-    });
-
+    calendarDataSourceMock = new CalendarDataSourceMock();
+    calendarEntryService = new CalendarEntriesService({
+      schema: {
+        data: "data"
+        ,
+        model: {
+          fields: {
+            end: { from: "end", type: "date" },
+            id: { from: "id", type: "number" },
+            start: { from: "start", type: "date" },
+            title: { from: "title" },
+            calendar_id: { from: "calendar_id" }
+          },
+          id: "id"
+        }
+      }
+    }, calendarDataSourceMock);
   });
 
   describe("#getEntriesForCalendar", function() {
 
     it("returns the entries for one calendar", function(done) {
+      fakeResponse(/calendar_id=1/, expectedEntries.apiNestedOneCalendarEntriesItems);
+
       calendarEntryService.getEntriesForCalendar(expectedEntries.oneCalendarEntriesId)
         .then(function(data) {
           expect(data).toEqual(expectedEntries.oneCalendarEntriesItems);
           done();
         });
-
-      $httpBackend
-        .expectGET("calendar_entries?calendar_id=1")
-        .respond(expectedEntries.oneCalendarEntriesItems);
-      $httpBackend.flush();
     });
-
   });
 
   describe("#getEntriesForCalendars", function() {
 
-    it("returns entries for two calendars", function(done) {
+    it("returns entries for visible calendars", function(done) {
+      fakeResponse(/calendar_id=2/, expectedEntries.apiNestedSecondCalendarEntriesItems);
+
       calendarEntryService.getEntriesForCalendars()
         .then(function(data) {
-          expect(data).toEqual(expectedEntries.items);
+          expect(data).toEqual(expectedEntries.secondCalendarEntriesItems);
           done();
         });
+    });
 
-      $httpBackend
-        .expectGET("calendar_entries?calendar_id=1")
-        .respond(expectedEntries.firstCalendarEntriesItems);
+  });
 
-      $httpBackend
-        .expectGET("calendar_entries?calendar_id=2")
-        .respond(expectedEntries.secondCalendarEntriesItems);
+  describe("#addEntriesForCalendars", function() {
 
-      setTimeout(() => $httpBackend.flush());
+    it("appends newly retrieved entries to instance entries data source", function(done) {
+      fakeResponse(/calendar_id=1/, expectedEntries.oneCalendarEntriesItems);
+
+      const entriesDataSource = calendarEntryService.getEntriesDataSource();
+      expect(entriesDataSource.data().length).toEqual(0);
+      calendarEntryService.addEntriesForCalendar(expectedCalendars.ids[0])
+        .then(function() {
+          const firstEntryRaw = expectedEntries.firstCalendarEntriesItems[0];
+          /**
+           * #kendo-coupling
+           * We're using kendo model objects directly here, should consider adding accessors.
+           */
+          const {id, calendar_id, title} = <any>entriesDataSource.get(firstEntryRaw.id).toJSON();
+          expect(entriesDataSource.data().length).toBe(2);
+          expect(id).toEqual(firstEntryRaw.id);
+          expect(calendar_id).toEqual(firstEntryRaw.calendar_id);
+          expect(title).toEqual(firstEntryRaw.title);
+          done();
+        });
+    });
+
+  });
+
+  describe("#onVisibilityChanged", function() {
+
+    it("calls addEntriesForCalendar once for each calendar", function(done) {
+      fakeResponse(/calendar_id=2/, expectedEntries.secondCalendarEntriesItems);
+
+      spyOn(calendarEntryService, "addEntriesForCalendar");
+      calendarDataSourceMock.triggerVisibilityEvent().then(function() {
+        expect(calendarEntryService.addEntriesForCalendar).toHaveBeenCalledTimes(1);
+        expect(calendarEntryService.addEntriesForCalendar).toHaveBeenCalledWith(2);
+        done();
+      });
     });
 
   });

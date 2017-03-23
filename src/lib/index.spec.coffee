@@ -1,5 +1,6 @@
 require "angular"
 require "angular-mocks"
+require "whatwg-fetch"
 require "./index"
 
 specContext = require.context "./", true, /spec$/

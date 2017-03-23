@@ -108,8 +108,9 @@
     "tslint": "4.0.2",
     "tslint-loader": "3.3.0",
     "typescript": "2.2.1",
-    "url-loader": "^0.5.8",
+    "url-loader": "0.5.8",
     "webpack": "2.2.0",
+    "whatwg-fetch": "2.0.3",
     "xhook": "1.4.0"
   },
   "scripts": {

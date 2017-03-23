@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 292);
+/******/ 	return __webpack_require__(__webpack_require__.s = 294);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -25851,14 +25851,14 @@ module.exports =
 /***/ 607:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.data.odata */ 114);
+	module.exports = __webpack_require__(/*! ./kendo.data.odata */ 115);
 
 /***/ },
 
 /***/ 608:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.data.xml */ 115);
+	module.exports = __webpack_require__(/*! ./kendo.data.xml */ 116);
 
 /***/ }
 
@@ -27877,7 +27877,7 @@ module.exports =
 /***/ 673:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.calendar */ 110);
+	module.exports = __webpack_require__(/*! ./kendo.calendar */ 111);
 
 /***/ }
 
@@ -41985,7 +41985,7 @@ module.exports =
 /***/ 500:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ../util/text-metrics */ 139);
+	module.exports = __webpack_require__(/*! ../util/text-metrics */ 140);
 
 /***/ }
 
@@ -50088,14 +50088,14 @@ module.exports =
 /***/ 766:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.mobile.loader */ 120);
+	module.exports = __webpack_require__(/*! ./kendo.mobile.loader */ 121);
 
 /***/ },
 
 /***/ 767:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.mobile.view */ 123);
+	module.exports = __webpack_require__(/*! ./kendo.mobile.view */ 124);
 
 /***/ },
 
@@ -56821,14 +56821,14 @@ module.exports =
 /***/ 684:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./drawing/surface */ 108);
+	module.exports = __webpack_require__(/*! ./drawing/surface */ 109);
 
 /***/ },
 
 /***/ 685:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./drawing/html */ 107);
+	module.exports = __webpack_require__(/*! ./drawing/html */ 108);
 
 /***/ }
 
@@ -58792,7 +58792,7 @@ module.exports =
 /***/ 691:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.resizable */ 127);
+	module.exports = __webpack_require__(/*! ./kendo.resizable */ 128);
 
 /***/ },
 
@@ -58820,7 +58820,7 @@ module.exports =
 /***/ 739:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.columnsorter */ 112);
+	module.exports = __webpack_require__(/*! ./kendo.columnsorter */ 113);
 
 /***/ },
 
@@ -66978,42 +66978,42 @@ module.exports =
 /***/ 744:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.sortable */ 135);
+	module.exports = __webpack_require__(/*! ./kendo.sortable */ 136);
 
 /***/ },
 
 /***/ 745:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.columnmenu */ 111);
+	module.exports = __webpack_require__(/*! ./kendo.columnmenu */ 112);
 
 /***/ },
 
 /***/ 746:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.groupable */ 118);
+	module.exports = __webpack_require__(/*! ./kendo.groupable */ 119);
 
 /***/ },
 
 /***/ 747:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.pager */ 124);
+	module.exports = __webpack_require__(/*! ./kendo.pager */ 125);
 
 /***/ },
 
 /***/ 748:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.selectable */ 134);
+	module.exports = __webpack_require__(/*! ./kendo.selectable */ 135);
 
 /***/ },
 
 /***/ 749:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.reorderable */ 126);
+	module.exports = __webpack_require__(/*! ./kendo.reorderable */ 127);
 
 /***/ },
 
@@ -67034,14 +67034,14 @@ module.exports =
 /***/ 752:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.excel */ 117);
+	module.exports = __webpack_require__(/*! ./kendo.excel */ 118);
 
 /***/ },
 
 /***/ 753:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.progressbar */ 125);
+	module.exports = __webpack_require__(/*! ./kendo.progressbar */ 126);
 
 /***/ }
 
@@ -67120,14 +67120,14 @@ module.exports =
 /***/ 764:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.mobile.shim */ 122);
+	module.exports = __webpack_require__(/*! ./kendo.mobile.shim */ 123);
 
 /***/ },
 
 /***/ 765:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.mobile.popover */ 121);
+	module.exports = __webpack_require__(/*! ./kendo.mobile.popover */ 122);
 
 /***/ },
 
@@ -69934,7 +69934,7 @@ module.exports =
 /***/ 807:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./pdf/mixins */ 138);
+	module.exports = __webpack_require__(/*! ./pdf/mixins */ 139);
 
 /***/ }
 
@@ -75650,6 +75650,42 @@ exports.default = DataSource;
 /* 69 */
 /* unknown exports provided */
 /* all exports used */
+/*!***********************************************************!*\
+  !*** ./src/lib/services/scheduler-data-source.service.ts ***!
+  \***********************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.data.js */ 6);
+/**
+ * FIXME: Rename to DataSourceFactory and return a type of "SchedulerDataSource"
+ * that exposes the fetch method and anything else required from kendo.data.SchedulerDataSource
+ */
+var SchedulerDataSource = (function () {
+    function SchedulerDataSource() {
+    }
+    /* tslint:disable:max-line-length */
+    /**
+     * Local Data Source
+     * @see {@link http://docs.telerik.com/kendo-ui/framework/datasource/overview#to-local-data|To Local Data}
+     * @see {@link http://docs.telerik.com/kendo-ui/framework/datasource/overview#to-remote-service|To Remote Service}
+     * @see {@link http://docs.telerik.com/kendo-ui/api/javascript/data/schedulerdatasource|SchedulerDataSource}
+     */
+    /* tslint:enable:max-line-length */
+    SchedulerDataSource.prototype.createDataSource = function (options) {
+        return new kendo.data.SchedulerDataSource(options);
+    };
+    return SchedulerDataSource;
+}());
+exports.default = SchedulerDataSource;
+
+
+/***/ }),
+/* 70 */
+/* unknown exports provided */
+/* all exports used */
 /*!*************************************************!*\
   !*** ./src/lib/thDataGrid/data-grid.service.ts ***!
   \*************************************************/
@@ -75713,8 +75749,8 @@ exports.DataGridService = DataGridService;
 
 
 /***/ }),
-/* 70 */,
-/* 71 */
+/* 71 */,
+/* 72 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************!*\
@@ -75722,13 +75758,13 @@ exports.DataGridService = DataGridService;
   \******************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thActionBar.component */ 140);
+__webpack_require__(/*! ./thActionBar.component */ 141);
 
-__webpack_require__(/*! ./thActionBarDelegate.service */ 141);
+__webpack_require__(/*! ./thActionBarDelegate.service */ 142);
 
 
 /***/ }),
-/* 72 */
+/* 73 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -75736,15 +75772,15 @@ __webpack_require__(/*! ./thActionBarDelegate.service */ 141);
   \*************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thActionBarBilling.directive */ 142);
+__webpack_require__(/*! ./thActionBarBilling.directive */ 143);
 
-__webpack_require__(/*! ./thActionBarBillingDelegate.service */ 143);
+__webpack_require__(/*! ./thActionBarBillingDelegate.service */ 144);
 
-__webpack_require__(/*! ./thSelectableCollection.service */ 144);
+__webpack_require__(/*! ./thSelectableCollection.service */ 145);
 
 
 /***/ }),
-/* 73 */
+/* 74 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************!*\
@@ -75752,13 +75788,13 @@ __webpack_require__(/*! ./thSelectableCollection.service */ 144);
   \**************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thAlertManager.service */ 146);
+__webpack_require__(/*! ./thAlertManager.service */ 147);
 
-__webpack_require__(/*! ./thAlertAnchor.directive */ 145);
+__webpack_require__(/*! ./thAlertAnchor.directive */ 146);
 
 
 /***/ }),
-/* 74 */
+/* 75 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************!*\
@@ -75766,11 +75802,11 @@ __webpack_require__(/*! ./thAlertAnchor.directive */ 145);
   \***************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thButton.directive */ 147);
+__webpack_require__(/*! ./thButton.directive */ 148);
 
 
 /***/ }),
-/* 75 */
+/* 76 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************!*\
@@ -75778,11 +75814,11 @@ __webpack_require__(/*! ./thButton.directive */ 147);
   \*****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thCheckbox.directive */ 148);
+__webpack_require__(/*! ./thCheckbox.directive */ 149);
 
 
 /***/ }),
-/* 76 */
+/* 77 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************!*\
@@ -75790,11 +75826,11 @@ __webpack_require__(/*! ./thCheckbox.directive */ 148);
   \****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thCompile.directive */ 149);
+__webpack_require__(/*! ./thCompile.directive */ 150);
 
 
 /***/ }),
-/* 77 */
+/* 78 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************!*\
@@ -75802,11 +75838,11 @@ __webpack_require__(/*! ./thCompile.directive */ 149);
   \**********************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thContentHeader.directive */ 150);
+__webpack_require__(/*! ./thContentHeader.directive */ 151);
 
 
 /***/ }),
-/* 78 */
+/* 79 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************!*\
@@ -75814,13 +75850,13 @@ __webpack_require__(/*! ./thContentHeader.directive */ 150);
   \**************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thContextualMessage.service */ 152);
+__webpack_require__(/*! ./thContextualMessage.service */ 153);
 
-__webpack_require__(/*! ./thContextualMessage.directive */ 151);
+__webpack_require__(/*! ./thContextualMessage.directive */ 152);
 
 
 /***/ }),
-/* 79 */
+/* 80 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************!*\
@@ -75828,11 +75864,11 @@ __webpack_require__(/*! ./thContextualMessage.directive */ 151);
   \*****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thDefaults.service */ 153);
+__webpack_require__(/*! ./thDefaults.service */ 154);
 
 
 /***/ }),
-/* 80 */
+/* 81 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************!*\
@@ -75840,15 +75876,15 @@ __webpack_require__(/*! ./thDefaults.service */ 153);
   \*******************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thDisclosureManager.service */ 155);
+__webpack_require__(/*! ./thDisclosureManager.service */ 156);
 
-__webpack_require__(/*! ./thDisclosureToggle.directive */ 156);
+__webpack_require__(/*! ./thDisclosureToggle.directive */ 157);
 
-__webpack_require__(/*! ./thDisclosureContent.directive */ 154);
+__webpack_require__(/*! ./thDisclosureContent.directive */ 155);
 
 
 /***/ }),
-/* 81 */
+/* 82 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************!*\
@@ -75856,15 +75892,15 @@ __webpack_require__(/*! ./thDisclosureContent.directive */ 154);
   \*****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thDropdown.directive */ 158);
+__webpack_require__(/*! ./thDropdown.directive */ 159);
 
-__webpack_require__(/*! ./thItem.directive */ 159);
+__webpack_require__(/*! ./thItem.directive */ 160);
 
-__webpack_require__(/*! ./thDivider.directive */ 157);
+__webpack_require__(/*! ./thDivider.directive */ 158);
 
 
 /***/ }),
-/* 82 */
+/* 83 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************!*\
@@ -75872,11 +75908,11 @@ __webpack_require__(/*! ./thDivider.directive */ 157);
   \**************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thError.directive */ 160);
+__webpack_require__(/*! ./thError.directive */ 161);
 
 
 /***/ }),
-/* 83 */
+/* 84 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************!*\
@@ -75884,23 +75920,23 @@ __webpack_require__(/*! ./thError.directive */ 160);
   \***************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./filters/ */ 169);
+__webpack_require__(/*! ./filters/ */ 170);
 
-__webpack_require__(/*! ./thFilter.directive */ 186);
+__webpack_require__(/*! ./thFilter.directive */ 187);
 
-__webpack_require__(/*! ./thCustomFilterRow.directive */ 184);
+__webpack_require__(/*! ./thCustomFilterRow.directive */ 185);
 
-__webpack_require__(/*! ./thCustomFilters.component */ 185);
+__webpack_require__(/*! ./thCustomFilters.component */ 186);
 
-__webpack_require__(/*! ./thSearchRow.directive */ 187);
+__webpack_require__(/*! ./thSearchRow.directive */ 188);
 
-__webpack_require__(/*! ./thStaticFilters.directive */ 188);
+__webpack_require__(/*! ./thStaticFilters.directive */ 189);
 
-__webpack_require__(/*! ./thCustomFilterConverter.service */ 182);
+__webpack_require__(/*! ./thCustomFilterConverter.service */ 183);
 
 
 /***/ }),
-/* 84 */
+/* 85 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************!*\
@@ -75908,11 +75944,11 @@ __webpack_require__(/*! ./thCustomFilterConverter.service */ 182);
   \**************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thInput.directive */ 189);
+__webpack_require__(/*! ./thInput.directive */ 190);
 
 
 /***/ }),
-/* 85 */
+/* 86 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************!*\
@@ -75920,15 +75956,15 @@ __webpack_require__(/*! ./thInput.directive */ 189);
   \*************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thLazyManager.service */ 191);
+__webpack_require__(/*! ./thLazyManager.service */ 192);
 
-__webpack_require__(/*! ./thLazy.component */ 190);
+__webpack_require__(/*! ./thLazy.component */ 191);
 
-__webpack_require__(/*! ./thMetaLoader.component */ 192);
+__webpack_require__(/*! ./thMetaLoader.component */ 193);
 
 
 /***/ }),
-/* 86 */
+/* 87 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************!*\
@@ -75936,11 +75972,11 @@ __webpack_require__(/*! ./thMetaLoader.component */ 192);
   \***************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thLoader.directive */ 193);
+__webpack_require__(/*! ./thLoader.directive */ 194);
 
 
 /***/ }),
-/* 87 */
+/* 88 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************!*\
@@ -75948,17 +75984,17 @@ __webpack_require__(/*! ./thLoader.directive */ 193);
   \**************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thModalTitlebar/ */ 197);
+__webpack_require__(/*! ./thModalTitlebar/ */ 198);
 
-__webpack_require__(/*! ./thModalManager.service */ 196);
+__webpack_require__(/*! ./thModalManager.service */ 197);
 
-__webpack_require__(/*! ./thModal.directive */ 194);
+__webpack_require__(/*! ./thModal.directive */ 195);
 
-__webpack_require__(/*! ./thModalAnchor.directive */ 195);
+__webpack_require__(/*! ./thModalAnchor.directive */ 196);
 
 
 /***/ }),
-/* 88 */
+/* 89 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************!*\
@@ -75966,11 +76002,11 @@ __webpack_require__(/*! ./thModalAnchor.directive */ 195);
   \***************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thPlural.filter */ 199);
+__webpack_require__(/*! ./thPlural.filter */ 200);
 
 
 /***/ }),
-/* 89 */
+/* 90 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************!*\
@@ -75978,19 +76014,19 @@ __webpack_require__(/*! ./thPlural.filter */ 199);
   \****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thPopoverManager.service */ 203);
+__webpack_require__(/*! ./thPopoverManager.service */ 204);
 
-__webpack_require__(/*! ./thPopover.directive */ 201);
+__webpack_require__(/*! ./thPopover.directive */ 202);
 
-__webpack_require__(/*! ./thPopoverUrl.directive */ 205);
+__webpack_require__(/*! ./thPopoverUrl.directive */ 206);
 
-__webpack_require__(/*! ./thPopoverContent.directive */ 202);
+__webpack_require__(/*! ./thPopoverContent.directive */ 203);
 
-__webpack_require__(/*! ./thPopoverTarget.directive */ 204);
+__webpack_require__(/*! ./thPopoverTarget.directive */ 205);
 
 
 /***/ }),
-/* 90 */
+/* 91 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************!*\
@@ -75998,21 +76034,9 @@ __webpack_require__(/*! ./thPopoverTarget.directive */ 204);
   \*******************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thRadioGroup.directive */ 207);
+__webpack_require__(/*! ./thRadioGroup.directive */ 208);
 
-__webpack_require__(/*! ./thRadioButton.directive */ 206);
-
-
-/***/ }),
-/* 91 */
-/* unknown exports provided */
-/* all exports used */
-/*!***************************************!*\
-  !*** ./src/lib/thSelect/index.coffee ***!
-  \***************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(/*! ./thSelect.directive */ 208);
+__webpack_require__(/*! ./thRadioButton.directive */ 207);
 
 
 /***/ }),
@@ -76020,15 +76044,27 @@ __webpack_require__(/*! ./thSelect.directive */ 208);
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************!*\
-  !*** ./src/lib/thSwitch/index.coffee ***!
+  !*** ./src/lib/thSelect/index.coffee ***!
   \***************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thSwitch.directive */ 209);
+__webpack_require__(/*! ./thSelect.directive */ 209);
 
 
 /***/ }),
 /* 93 */
+/* unknown exports provided */
+/* all exports used */
+/*!***************************************!*\
+  !*** ./src/lib/thSwitch/index.coffee ***!
+  \***************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! ./thSwitch.directive */ 210);
+
+
+/***/ }),
+/* 94 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************!*\
@@ -76036,29 +76072,29 @@ __webpack_require__(/*! ./thSwitch.directive */ 209);
   \**************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thTable.directive */ 211);
+__webpack_require__(/*! ./thTable.directive */ 212);
 
-__webpack_require__(/*! ./thTableCell.directive */ 213);
+__webpack_require__(/*! ./thTableCell.directive */ 214);
 
-__webpack_require__(/*! ./thTableRow.directive */ 219);
+__webpack_require__(/*! ./thTableRow.directive */ 220);
 
-__webpack_require__(/*! ./thSimpleTableDelegate.service */ 210);
+__webpack_require__(/*! ./thSimpleTableDelegate.service */ 211);
 
-__webpack_require__(/*! ./thTable.service */ 212);
+__webpack_require__(/*! ./thTable.service */ 213);
 
-__webpack_require__(/*! ./thTableDelegate.service */ 214);
+__webpack_require__(/*! ./thTableDelegate.service */ 215);
 
-__webpack_require__(/*! ./thTableHeader.service */ 216);
+__webpack_require__(/*! ./thTableHeader.service */ 217);
 
-__webpack_require__(/*! ./thTableFooter.service */ 215);
+__webpack_require__(/*! ./thTableFooter.service */ 216);
 
-__webpack_require__(/*! ./thTablePagination.service */ 218);
+__webpack_require__(/*! ./thTablePagination.service */ 219);
 
-__webpack_require__(/*! ./thTableSort.service */ 220);
+__webpack_require__(/*! ./thTableSort.service */ 221);
 
 
 /***/ }),
-/* 94 */
+/* 95 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************!*\
@@ -76066,21 +76102,9 @@ __webpack_require__(/*! ./thTableSort.service */ 220);
   \***************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thTabset.directive */ 222);
+__webpack_require__(/*! ./thTabset.directive */ 223);
 
-__webpack_require__(/*! ./thTab.directive */ 221);
-
-
-/***/ }),
-/* 95 */
-/* unknown exports provided */
-/* all exports used */
-/*!*****************************************!*\
-  !*** ./src/lib/thTextarea/index.coffee ***!
-  \*****************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(/*! ./thTextarea.directive */ 223);
+__webpack_require__(/*! ./thTab.directive */ 222);
 
 
 /***/ }),
@@ -76088,23 +76112,23 @@ __webpack_require__(/*! ./thTextarea.directive */ 223);
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************!*\
-  !*** ./src/lib/thTruncate/index.coffee ***!
+  !*** ./src/lib/thTextarea/index.coffee ***!
   \*****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thTruncate.directive */ 224);
+__webpack_require__(/*! ./thTextarea.directive */ 224);
 
 
 /***/ }),
 /* 97 */
 /* unknown exports provided */
 /* all exports used */
-/*!******************************************!*\
-  !*** ./src/lib/thViewModel/index.coffee ***!
-  \******************************************/
+/*!*****************************************!*\
+  !*** ./src/lib/thTruncate/index.coffee ***!
+  \*****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thViewModel.service */ 225);
+__webpack_require__(/*! ./thTruncate.directive */ 225);
 
 
 /***/ }),
@@ -76112,11 +76136,11 @@ __webpack_require__(/*! ./thViewModel.service */ 225);
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************!*\
-  !*** ./src/lib/thWithFocus/index.coffee ***!
+  !*** ./src/lib/thViewModel/index.coffee ***!
   \******************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thWithFocus.directive */ 226);
+__webpack_require__(/*! ./thViewModel.service */ 226);
 
 
 /***/ }),
@@ -76124,17 +76148,29 @@ __webpack_require__(/*! ./thWithFocus.directive */ 226);
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************!*\
-  !*** ./src/lib/thWithLabel/index.coffee ***!
+  !*** ./src/lib/thWithFocus/index.coffee ***!
   \******************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thWithLabel.directive */ 227);
-
-__webpack_require__(/*! ./thWithSubtext.directive */ 228);
+__webpack_require__(/*! ./thWithFocus.directive */ 227);
 
 
 /***/ }),
 /* 100 */
+/* unknown exports provided */
+/* all exports used */
+/*!******************************************!*\
+  !*** ./src/lib/thWithLabel/index.coffee ***!
+  \******************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! ./thWithLabel.directive */ 228);
+
+__webpack_require__(/*! ./thWithSubtext.directive */ 229);
+
+
+/***/ }),
+/* 101 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************!*\
@@ -76142,13 +76178,13 @@ __webpack_require__(/*! ./thWithSubtext.directive */ 228);
   \*********************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thWithMessages.directive */ 230);
+__webpack_require__(/*! ./thWithMessages.directive */ 231);
 
-__webpack_require__(/*! ./thMessagesManager.service */ 229);
+__webpack_require__(/*! ./thMessagesManager.service */ 230);
 
 
 /***/ }),
-/* 101 */
+/* 102 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************!*\
@@ -76163,7 +76199,7 @@ var angular = __webpack_require__(/*! angular */ 2);
 var utilities_service_1 = __webpack_require__(/*! ./utilities.service */ 232);
 var validator_service_1 = __webpack_require__(/*! ./validator.service */ 42);
 var data_source_service_1 = __webpack_require__(/*! ./data-source.service */ 68);
-var scheduler_data_source_service_1 = __webpack_require__(/*! ./scheduler-data-source.service */ 231);
+var scheduler_data_source_service_1 = __webpack_require__(/*! ./scheduler-data-source.service */ 69);
 angular.module("ThemisComponents")
     .service("DataSource", data_source_service_1.default)
     .service("SchedulerDataSource", scheduler_data_source_service_1.default)
@@ -76172,7 +76208,7 @@ angular.module("ThemisComponents")
 
 
 /***/ }),
-/* 102 */
+/* 103 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************!*\
@@ -76188,7 +76224,7 @@ __webpack_require__(/*! ../services/validator.service */ 42);
 
 
 /***/ }),
-/* 103 */
+/* 104 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************!*\
@@ -76202,7 +76238,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var angular = __webpack_require__(/*! angular */ 2);
 __webpack_require__(/*! @progress/kendo-ui/js/kendo.grid.js */ 61);
 var data_grid_component_1 = __webpack_require__(/*! ./data-grid.component */ 238);
-var data_grid_service_1 = __webpack_require__(/*! ./data-grid.service */ 69);
+var data_grid_service_1 = __webpack_require__(/*! ./data-grid.service */ 70);
 var toolbar_component_1 = __webpack_require__(/*! ./toolbar/toolbar.component */ 239);
 angular.module("ThemisComponents")
     .component("thDataGrid", data_grid_component_1.DataGridComponent)
@@ -76211,7 +76247,7 @@ angular.module("ThemisComponents")
 
 
 /***/ }),
-/* 104 */
+/* 105 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************!*\
@@ -76231,7 +76267,7 @@ angular.module("ThemisComponents")
 
 
 /***/ }),
-/* 105 */
+/* 106 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************!*\
@@ -76243,16 +76279,20 @@ angular.module("ThemisComponents")
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var angular = __webpack_require__(/*! angular */ 2);
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.scheduler.js */ 130);
-var scheduler_component_1 = __webpack_require__(/*! ./scheduler.component */ 244);
-var calendar_entries_service_1 = __webpack_require__(/*! ./multipleCalendars/calendar-entries.service */ 243);
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.scheduler.js */ 131);
+var scheduler_component_1 = __webpack_require__(/*! ./scheduler.component */ 245);
+var calendar_entries_service_1 = __webpack_require__(/*! ./calendar-entries.service */ 242);
+var calendar_data_source_service_1 = __webpack_require__(/*! ./calendars/calendar-data-source.service */ 243);
+var calendars_component_1 = __webpack_require__(/*! ./calendars/calendars.component */ 244);
 angular.module("ThemisComponents")
-    .service("CalendarEntriesService", calendar_entries_service_1.default)
+    .service("CalendarEntriesServiceFactory", calendar_entries_service_1.CalendarEntriesServiceFactory)
+    .service("CalendarDataSourceFactory", calendar_data_source_service_1.CalendarDataSourceFactory)
+    .component("thCalendars", calendars_component_1.CalendarsComponent)
     .component("thScheduler", scheduler_component_1.SchedulerComponent);
 
 
 /***/ }),
-/* 106 */
+/* 107 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************************!*\
@@ -77843,7 +77883,7 @@ module.exports =
 
 
 /***/ }),
-/* 107 */
+/* 108 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -77950,7 +77990,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 108 */
+/* 109 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -78201,7 +78241,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 109 */
+/* 110 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -79072,7 +79112,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 110 */
+/* 111 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -80661,7 +80701,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 111 */
+/* 112 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -81524,14 +81564,14 @@ module.exports =
 /***/ 602:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.menu */ 119);
+	module.exports = __webpack_require__(/*! ./kendo.menu */ 120);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 112 */
+/* 113 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -81777,7 +81817,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 113 */
+/* 114 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -82855,7 +82895,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 114 */
+/* 115 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -83257,7 +83297,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 115 */
+/* 116 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -83609,7 +83649,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 116 */
+/* 117 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************!*\
@@ -84483,14 +84523,14 @@ module.exports =
 /***/ 676:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.timepicker */ 136);
+	module.exports = __webpack_require__(/*! ./kendo.timepicker */ 137);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 117 */
+/* 118 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************!*\
@@ -85081,7 +85121,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 118 */
+/* 119 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -85587,7 +85627,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 119 */
+/* 120 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -87242,7 +87282,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 120 */
+/* 121 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -87426,7 +87466,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 121 */
+/* 122 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************!*\
@@ -87795,7 +87835,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 122 */
+/* 123 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -88013,7 +88053,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 123 */
+/* 124 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -88106,7 +88146,7 @@ module.exports =
 /***/ 616:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.view */ 137);
+	module.exports = __webpack_require__(/*! ./kendo.view */ 138);
 
 /***/ },
 
@@ -88837,7 +88877,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 124 */
+/* 125 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************!*\
@@ -89355,7 +89395,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 125 */
+/* 126 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -89903,7 +89943,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 126 */
+/* 127 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -90232,7 +90272,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 127 */
+/* 128 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -90521,7 +90561,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 128 */
+/* 129 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************************!*\
@@ -91374,7 +91414,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 129 */
+/* 130 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************!*\
@@ -93408,7 +93448,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 130 */
+/* 131 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -93508,7 +93548,7 @@ module.exports =
 /***/ 740:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.datetimepicker */ 116);
+	module.exports = __webpack_require__(/*! ./kendo.datetimepicker */ 117);
 
 /***/ },
 
@@ -97728,14 +97768,14 @@ module.exports =
 /***/ 820:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.scheduler.dayview */ 129);
+	module.exports = __webpack_require__(/*! ./kendo.scheduler.dayview */ 130);
 
 /***/ },
 
 /***/ 821:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.scheduler.recurrence */ 132);
+	module.exports = __webpack_require__(/*! ./kendo.scheduler.recurrence */ 133);
 
 /***/ },
 
@@ -97749,28 +97789,28 @@ module.exports =
 /***/ 823:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.scheduler.agendaview */ 128);
+	module.exports = __webpack_require__(/*! ./kendo.scheduler.agendaview */ 129);
 
 /***/ },
 
 /***/ 824:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.scheduler.monthview */ 131);
+	module.exports = __webpack_require__(/*! ./kendo.scheduler.monthview */ 132);
 
 /***/ },
 
 /***/ 825:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.scheduler.timelineview */ 133);
+	module.exports = __webpack_require__(/*! ./kendo.scheduler.timelineview */ 134);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 131 */
+/* 132 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************!*\
@@ -99223,7 +99263,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 132 */
+/* 133 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************************!*\
@@ -102194,7 +102234,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 133 */
+/* 134 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************************!*\
@@ -104679,7 +104719,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 134 */
+/* 135 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -105196,7 +105236,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 135 */
+/* 136 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -105805,7 +105845,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 136 */
+/* 137 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -106814,7 +106854,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 137 */
+/* 138 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -107293,7 +107333,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 138 */
+/* 139 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -107528,7 +107568,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 139 */
+/* 140 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -107799,7 +107839,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 140 */
+/* 141 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -107851,7 +107891,7 @@ ActionBarController = (function() {
 })();
 
 angular.module('ThemisComponents').component("thActionBar", {
-  template: __webpack_require__(/*! ./thActionBar.template.html */ 245),
+  template: __webpack_require__(/*! ./thActionBar.template.html */ 246),
   transclude: true,
   bindings: {
     delegate: "=?"
@@ -107861,7 +107901,7 @@ angular.module('ThemisComponents').component("thActionBar", {
 
 
 /***/ }),
-/* 141 */
+/* 142 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************************!*\
@@ -107976,7 +108016,7 @@ angular.module("ThemisComponents").factory("ActionBarDelegate", ["ViewModel", fu
 
 
 /***/ }),
-/* 142 */
+/* 143 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************************!*\
@@ -107999,7 +108039,7 @@ angular.module("ThemisComponents").directive("thActionBarBilling", function() {
     transclude: true,
     bindToController: true,
     controllerAs: "actionBar",
-    template: __webpack_require__(/*! ./thActionBarBilling.template.html */ 246),
+    template: __webpack_require__(/*! ./thActionBarBilling.template.html */ 247),
     controller: ["$scope", "$element", "$attrs", function($scope, $element, $attrs) {
       var itemName;
       this.toggleAll = function() {
@@ -108031,7 +108071,7 @@ angular.module("ThemisComponents").directive("thActionBarBilling", function() {
 
 
 /***/ }),
-/* 143 */
+/* 144 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************************************!*\
@@ -108367,7 +108407,7 @@ angular.module('ThemisComponents').factory('ActionBarBillingDelegate', ["ViewMod
 
 
 /***/ }),
-/* 144 */
+/* 145 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************************!*\
@@ -108660,7 +108700,7 @@ angular.module("ThemisComponents").factory("SelectableCollection", ["$rootScope"
 
 
 /***/ }),
-/* 145 */
+/* 146 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -108673,7 +108713,7 @@ angular.module('ThemisComponents').directive("thAlertAnchor", function() {
     restrict: "E",
     bindToController: true,
     controllerAs: 'alertAnchor',
-    template: __webpack_require__(/*! ./thAlertAnchor.template.html */ 247),
+    template: __webpack_require__(/*! ./thAlertAnchor.template.html */ 248),
     controller: ["AlertManager", function(AlertManager) {
       this.alertMessage = AlertManager.alertMessage;
       this.dismiss = function() {
@@ -108685,7 +108725,7 @@ angular.module('ThemisComponents').directive("thAlertAnchor", function() {
 
 
 /***/ }),
-/* 146 */
+/* 147 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -108743,7 +108783,7 @@ angular.module('ThemisComponents').factory('AlertManager', ["$timeout", function
 
 
 /***/ }),
-/* 147 */
+/* 148 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -108770,9 +108810,9 @@ angular.module("ThemisComponents").directive("thButton", function() {
     template: function(element, attrs) {
       switch (false) {
         case attrs.href == null:
-          return __webpack_require__(/*! ./thButton.anchor.template.html */ 248);
+          return __webpack_require__(/*! ./thButton.anchor.template.html */ 249);
         default:
-          return __webpack_require__(/*! ./thButton.button.template.html */ 249);
+          return __webpack_require__(/*! ./thButton.button.template.html */ 250);
       }
     },
     bindToController: true,
@@ -108822,7 +108862,7 @@ angular.module("ThemisComponents").directive("thButton", function() {
 
 
 /***/ }),
-/* 148 */
+/* 149 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -108838,7 +108878,7 @@ angular.module('ThemisComponents').directive("thCheckbox", function() {
   return {
     restrict: "EA",
     replace: true,
-    template: __webpack_require__(/*! ./thCheckbox.template.html */ 250),
+    template: __webpack_require__(/*! ./thCheckbox.template.html */ 251),
     scope: {
       name: "@",
       change: "&ngChange",
@@ -108880,7 +108920,7 @@ angular.module('ThemisComponents').directive("thCheckbox", function() {
 
 
 /***/ }),
-/* 149 */
+/* 150 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -108901,7 +108941,7 @@ angular.module("ThemisComponents").directive("thCompile", ["$compile", function(
 
 
 /***/ }),
-/* 150 */
+/* 151 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************************!*\
@@ -108917,13 +108957,13 @@ angular.module('ThemisComponents').directive('thContentHeader', function() {
     },
     transclude: true,
     controllerAs: 'thContentHeader',
-    template: __webpack_require__(/*! ./thContentHeader.template.html */ 251)
+    template: __webpack_require__(/*! ./thContentHeader.template.html */ 252)
   };
 });
 
 
 /***/ }),
-/* 151 */
+/* 152 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************************!*\
@@ -108967,7 +109007,7 @@ angular.module('ThemisComponents').directive("thContextualMessageAnchor", ["Cont
 
 
 /***/ }),
-/* 152 */
+/* 153 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************************!*\
@@ -109012,7 +109052,7 @@ angular.module('ThemisComponents').factory('ContextualMessageManager', ["$timeou
 
 
 /***/ }),
-/* 153 */
+/* 154 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -109059,7 +109099,7 @@ angular.module('ThemisComponents').factory('thDefaults', function() {
 
 
 /***/ }),
-/* 154 */
+/* 155 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************************!*\
@@ -109108,7 +109148,7 @@ angular.module("ThemisComponents").directive("thDisclosureContent", ["Disclosure
     scope: {
       name: "@"
     },
-    template: __webpack_require__(/*! ./thDisclosureContent.template.html */ 254),
+    template: __webpack_require__(/*! ./thDisclosureContent.template.html */ 255),
     bindToController: true,
     controllerAs: "thDisclosureContent",
     controller: ["$element", "$scope", function($element, $scope) {
@@ -109159,7 +109199,7 @@ angular.module("ThemisComponents").directive("thDisclosureContent", ["Disclosure
 
 
 /***/ }),
-/* 155 */
+/* 156 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************************!*\
@@ -109217,7 +109257,7 @@ angular.module('ThemisComponents').factory('DisclosureManager', function() {
 
 
 /***/ }),
-/* 156 */
+/* 157 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************************!*\
@@ -109238,7 +109278,7 @@ angular.module("ThemisComponents").directive("thDisclosureToggle", ["DisclosureM
       ariaDescribedby: "@",
       tabindex: "@"
     },
-    template: __webpack_require__(/*! ./thDisclosureToggle.template.html */ 255),
+    template: __webpack_require__(/*! ./thDisclosureToggle.template.html */ 256),
     bindToController: true,
     controllerAs: 'thDisclosureToggle',
     controller: ["$scope", "$element", function($scope, $element) {
@@ -109288,7 +109328,7 @@ angular.module("ThemisComponents").directive("thDisclosureToggle", ["DisclosureM
 
 
 /***/ }),
-/* 157 */
+/* 158 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -109301,13 +109341,13 @@ angular.module("ThemisComponents").directive("thDivider", function() {
     restrict: "E",
     replace: true,
     scope: {},
-    template: __webpack_require__(/*! ./thDivider.template.html */ 256)
+    template: __webpack_require__(/*! ./thDivider.template.html */ 257)
   };
 });
 
 
 /***/ }),
-/* 158 */
+/* 159 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -109322,7 +109362,7 @@ keycode = __webpack_require__(/*! keycode */ 5);
 angular.module("ThemisComponents").directive("thDropdown", function() {
   return {
     restrict: "E",
-    template: __webpack_require__(/*! ./thDropdown.template.html */ 257),
+    template: __webpack_require__(/*! ./thDropdown.template.html */ 258),
     replace: true,
     controllerAs: "dropdown",
     bindToController: true,
@@ -109483,7 +109523,7 @@ angular.module("ThemisComponents").directive("thDropdown", function() {
 
 
 /***/ }),
-/* 159 */
+/* 160 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -109504,9 +109544,9 @@ angular.module("ThemisComponents").directive("thItem", function() {
     template: function(element, attrs) {
       switch (false) {
         case attrs.href == null:
-          return __webpack_require__(/*! ./thItem.link.template.html */ 259);
+          return __webpack_require__(/*! ./thItem.link.template.html */ 260);
         default:
-          return __webpack_require__(/*! ./thItem.action.template.html */ 258);
+          return __webpack_require__(/*! ./thItem.action.template.html */ 259);
       }
     },
     controller: ["$element", "$attrs", function($element, $attrs) {
@@ -109521,7 +109561,7 @@ angular.module("ThemisComponents").directive("thItem", function() {
 
 
 /***/ }),
-/* 160 */
+/* 161 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************!*\
@@ -109533,7 +109573,7 @@ angular.module("ThemisComponents").directive("thError", function() {
   return {
     restrict: "E",
     transclude: true,
-    template: __webpack_require__(/*! ./thError.template.html */ 260),
+    template: __webpack_require__(/*! ./thError.template.html */ 261),
     scope: {
       message: "@"
     },
@@ -109552,7 +109592,7 @@ angular.module("ThemisComponents").directive("thError", function() {
 
 
 /***/ }),
-/* 161 */
+/* 162 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************************************!*\
@@ -109617,7 +109657,7 @@ angular.module("ThemisComponents").factory("AutocompleteFilter", ["FilterBase", 
 
 
 /***/ }),
-/* 162 */
+/* 163 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************!*\
@@ -109625,13 +109665,13 @@ angular.module("ThemisComponents").factory("AutocompleteFilter", ["FilterBase", 
   \************************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./autocompleteFilter.service */ 161);
+__webpack_require__(/*! ./autocompleteFilter.service */ 162);
 
-__webpack_require__(/*! ./thFilter.autocomplete.directive */ 163);
+__webpack_require__(/*! ./thFilter.autocomplete.directive */ 164);
 
 
 /***/ }),
-/* 163 */
+/* 164 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************************************!*\
@@ -109650,7 +109690,7 @@ angular.module('ThemisComponents').directive('thFilterAutocomplete', ["Autocompl
     },
     bindToController: true,
     controllerAs: 'thFilterAutocomplete',
-    template: __webpack_require__(/*! ./thFilter.autocomplete.template.html */ 261),
+    template: __webpack_require__(/*! ./thFilter.autocomplete.template.html */ 262),
     controller: ["$scope", "$injector", function($scope, $injector) {
       var ModelClass, dataSource, fieldIdentifier, ref, ref1, ref2, ref3, ref4, ref5, ref6;
       if (!((ref = this.filterOptions.autocompleteOptions) != null ? ref.modelClass : void 0)) {
@@ -109700,7 +109740,7 @@ angular.module('ThemisComponents').directive('thFilterAutocomplete', ["Autocompl
 
 
 /***/ }),
-/* 164 */
+/* 165 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************************!*\
@@ -109781,7 +109821,7 @@ angular.module("ThemisComponents").factory("DateFilter", ["FilterBase", function
 
 
 /***/ }),
-/* 165 */
+/* 166 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -109789,13 +109829,13 @@ angular.module("ThemisComponents").factory("DateFilter", ["FilterBase", function
   \****************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./dateFilter.service */ 164);
+__webpack_require__(/*! ./dateFilter.service */ 165);
 
-__webpack_require__(/*! ./thFilter.date.directive */ 166);
+__webpack_require__(/*! ./thFilter.date.directive */ 167);
 
 
 /***/ }),
-/* 166 */
+/* 167 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************************!*\
@@ -109820,7 +109860,7 @@ angular.module("ThemisComponents").directive("thFilterDate", ["DateFilter", func
     },
     bindToController: true,
     controllerAs: "thFilterDate",
-    template: __webpack_require__(/*! ./thFilter.date.template.html */ 262),
+    template: __webpack_require__(/*! ./thFilter.date.template.html */ 263),
     controller: ["$scope", function($scope) {
       var ref;
       this.hasOperator = ((ref = this.operatorOptions) != null ? ref.length : void 0) > 0;
@@ -109864,7 +109904,7 @@ angular.module("ThemisComponents").directive("thFilterDate", ["DateFilter", func
 
 
 /***/ }),
-/* 167 */
+/* 168 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************!*\
@@ -109897,7 +109937,7 @@ angular.module("ThemisComponents").factory("FilterBase", function() {
 
 
 /***/ }),
-/* 168 */
+/* 169 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************!*\
@@ -109957,7 +109997,7 @@ angular.module('ThemisComponents').factory('FilterSet', function() {
 
 
 /***/ }),
-/* 169 */
+/* 170 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -109965,25 +110005,25 @@ angular.module('ThemisComponents').factory('FilterSet', function() {
   \***********************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./autocomplete/ */ 162);
+__webpack_require__(/*! ./autocomplete/ */ 163);
 
-__webpack_require__(/*! ./date/ */ 165);
+__webpack_require__(/*! ./date/ */ 166);
 
-__webpack_require__(/*! ./input/ */ 170);
+__webpack_require__(/*! ./input/ */ 171);
 
-__webpack_require__(/*! ./number/ */ 173);
+__webpack_require__(/*! ./number/ */ 174);
 
-__webpack_require__(/*! ./select/ */ 176);
+__webpack_require__(/*! ./select/ */ 177);
 
-__webpack_require__(/*! ./time/ */ 179);
+__webpack_require__(/*! ./time/ */ 180);
 
-__webpack_require__(/*! ./filterBase.service */ 167);
+__webpack_require__(/*! ./filterBase.service */ 168);
 
-__webpack_require__(/*! ./filterSet.service */ 168);
+__webpack_require__(/*! ./filterSet.service */ 169);
 
 
 /***/ }),
-/* 170 */
+/* 171 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -109991,13 +110031,13 @@ __webpack_require__(/*! ./filterSet.service */ 168);
   \*****************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./inputFilter.service */ 171);
+__webpack_require__(/*! ./inputFilter.service */ 172);
 
-__webpack_require__(/*! ./thFilter.input.directive */ 172);
+__webpack_require__(/*! ./thFilter.input.directive */ 173);
 
 
 /***/ }),
-/* 171 */
+/* 172 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************************!*\
@@ -110049,7 +110089,7 @@ angular.module("ThemisComponents").factory("InputFilter", ["FilterBase", functio
 
 
 /***/ }),
-/* 172 */
+/* 173 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************************!*\
@@ -110069,7 +110109,7 @@ angular.module("ThemisComponents").directive("thFilterInput", ["InputFilter", fu
     },
     bindToController: true,
     controllerAs: "thFilterInput",
-    template: __webpack_require__(/*! ./thFilter.input.template.html */ 263),
+    template: __webpack_require__(/*! ./thFilter.input.template.html */ 264),
     controller: ["$scope", function($scope) {
       var enterEventCode, isUpdatedValue, lastValue;
       lastValue = void 0;
@@ -110135,7 +110175,7 @@ angular.module("ThemisComponents").directive("thFilterInput", ["InputFilter", fu
 
 
 /***/ }),
-/* 173 */
+/* 174 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -110143,13 +110183,13 @@ angular.module("ThemisComponents").directive("thFilterInput", ["InputFilter", fu
   \******************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./numberFilter.service */ 174);
+__webpack_require__(/*! ./numberFilter.service */ 175);
 
-__webpack_require__(/*! ./thFilter.number.directive */ 175);
+__webpack_require__(/*! ./thFilter.number.directive */ 176);
 
 
 /***/ }),
-/* 174 */
+/* 175 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************************!*\
@@ -110222,7 +110262,7 @@ angular.module("ThemisComponents").factory("NumberFilter", ["FilterBase", functi
 
 
 /***/ }),
-/* 175 */
+/* 176 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************************!*\
@@ -110242,7 +110282,7 @@ angular.module("ThemisComponents").directive("thFilterNumber", ["NumberFilter", 
     },
     bindToController: true,
     controllerAs: "thFilterNumber",
-    template: __webpack_require__(/*! ./thFilter.number.template.html */ 264),
+    template: __webpack_require__(/*! ./thFilter.number.template.html */ 265),
     controller: ["$scope", function($scope) {
       var enterEventCode, isUpdatedValue, lastValue;
       lastValue = void 0;
@@ -110308,7 +110348,7 @@ angular.module("ThemisComponents").directive("thFilterNumber", ["NumberFilter", 
 
 
 /***/ }),
-/* 176 */
+/* 177 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -110316,13 +110356,13 @@ angular.module("ThemisComponents").directive("thFilterNumber", ["NumberFilter", 
   \******************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./selectFilter.service */ 177);
+__webpack_require__(/*! ./selectFilter.service */ 178);
 
-__webpack_require__(/*! ./thFilter.select.directive */ 178);
+__webpack_require__(/*! ./thFilter.select.directive */ 179);
 
 
 /***/ }),
-/* 177 */
+/* 178 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************************!*\
@@ -110408,7 +110448,7 @@ angular.module("ThemisComponents").factory("SelectFilter", ["$http", "FilterBase
 
 
 /***/ }),
-/* 178 */
+/* 179 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************************!*\
@@ -110428,7 +110468,7 @@ angular.module('ThemisComponents').directive('thFilterSelect', ["SelectFilter", 
     },
     bindToController: true,
     controllerAs: 'thFilterSelect',
-    template: __webpack_require__(/*! ./thFilter.select.template.html */ 265),
+    template: __webpack_require__(/*! ./thFilter.select.template.html */ 266),
     controller: ["$scope", function($scope) {
       this.onValueChange = function() {
         return $timeout((function(_this) {
@@ -110464,7 +110504,7 @@ angular.module('ThemisComponents').directive('thFilterSelect', ["SelectFilter", 
 
 
 /***/ }),
-/* 179 */
+/* 180 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -110472,13 +110512,13 @@ angular.module('ThemisComponents').directive('thFilterSelect', ["SelectFilter", 
   \****************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./timeFilter.service */ 181);
+__webpack_require__(/*! ./timeFilter.service */ 182);
 
-__webpack_require__(/*! ./thFilter.time.directive */ 180);
+__webpack_require__(/*! ./thFilter.time.directive */ 181);
 
 
 /***/ }),
-/* 180 */
+/* 181 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************************!*\
@@ -110497,7 +110537,7 @@ angular.module("ThemisComponents").directive("thFilterTime", ["TimeFilter", "$ti
     },
     bindToController: true,
     controllerAs: "thFilterTime",
-    template: __webpack_require__(/*! ./thFilter.time.template.html */ 266),
+    template: __webpack_require__(/*! ./thFilter.time.template.html */ 267),
     controller: ["$scope", "$element", function($scope, $element) {
       var enterEventCode, isUpdatedValue, lastValue, setInvalid, setValid;
       lastValue = void 0;
@@ -110588,7 +110628,7 @@ angular.module("ThemisComponents").directive("thFilterTime", ["TimeFilter", "$ti
 
 
 /***/ }),
-/* 181 */
+/* 182 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************************!*\
@@ -110683,7 +110723,7 @@ angular.module("ThemisComponents").factory("TimeFilter", ["FilterBase", function
 
 
 /***/ }),
-/* 182 */
+/* 183 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************************!*\
@@ -110707,7 +110747,7 @@ angular.module('ThemisComponents').factory('CustomFilterConverter', function() {
 
 
 /***/ }),
-/* 183 */
+/* 184 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************!*\
@@ -110801,7 +110841,7 @@ angular.module('ThemisComponents').controller('thCustomFilterRow.controller', ["
 
 
 /***/ }),
-/* 184 */
+/* 185 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************************!*\
@@ -110809,7 +110849,7 @@ angular.module('ThemisComponents').controller('thCustomFilterRow.controller', ["
   \*************************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thCustomFilterRow.controller */ 183);
+__webpack_require__(/*! ./thCustomFilterRow.controller */ 184);
 
 angular.module("ThemisComponents").directive("thCustomFilterRow", function() {
   return {
@@ -110825,14 +110865,14 @@ angular.module("ThemisComponents").directive("thCustomFilterRow", function() {
     },
     bindToController: true,
     controllerAs: "thCustomFilterRow",
-    template: __webpack_require__(/*! ./thCustomFilterRow.template.html */ 267),
+    template: __webpack_require__(/*! ./thCustomFilterRow.template.html */ 268),
     controller: "thCustomFilterRow.controller"
   };
 });
 
 
 /***/ }),
-/* 185 */
+/* 186 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************!*\
@@ -110958,13 +110998,13 @@ angular.module("ThemisComponents").component("thCustomFilters", {
     thFilterCtrl: "^thFilter"
   },
   controllerAs: "thCustomFilters",
-  template: __webpack_require__(/*! ./thCustomFilters.template.html */ 268),
+  template: __webpack_require__(/*! ./thCustomFilters.template.html */ 269),
   controller: CustomFilters
 });
 
 
 /***/ }),
-/* 186 */
+/* 187 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -110981,7 +111021,7 @@ angular.module("ThemisComponents").directive("thFilter", ["FilterSet", "$q", fun
     bindToController: true,
     transclude: true,
     controllerAs: "thFilter",
-    template: __webpack_require__(/*! ./thFilter.template.html */ 269),
+    template: __webpack_require__(/*! ./thFilter.template.html */ 270),
     controller: ["$scope", "$element", function($scope, $element) {
       this.initPromises = [];
       this.filterSet = this.options.filterSet;
@@ -111011,7 +111051,7 @@ angular.module("ThemisComponents").directive("thFilter", ["FilterSet", "$q", fun
 
 
 /***/ }),
-/* 187 */
+/* 188 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -111029,7 +111069,7 @@ angular.module('ThemisComponents').directive('thSearchRow', ["InputFilter", "$ti
     },
     bindToController: true,
     controllerAs: 'thSearchRow',
-    template: __webpack_require__(/*! ./thSearchRow.template.html */ 270),
+    template: __webpack_require__(/*! ./thSearchRow.template.html */ 271),
     controller: ["$scope", function($scope) {
       this.queryFilterOptions = {
         fieldIdentifier: this.fieldIdentifier || "query",
@@ -111059,7 +111099,7 @@ angular.module('ThemisComponents').directive('thSearchRow', ["InputFilter", "$ti
 
 
 /***/ }),
-/* 188 */
+/* 189 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************!*\
@@ -111076,7 +111116,7 @@ angular.module("ThemisComponents").directive("thStaticFilters", ["FilterSet", "$
     },
     bindToController: true,
     controllerAs: "thStaticFilters",
-    template: __webpack_require__(/*! ./thStaticFilters.template.html */ 271),
+    template: __webpack_require__(/*! ./thStaticFilters.template.html */ 272),
     controller: function() {},
     compile: function() {
       return {
@@ -111112,7 +111152,7 @@ angular.module("ThemisComponents").directive("thStaticFilters", ["FilterSet", "$
 
 
 /***/ }),
-/* 189 */
+/* 190 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************!*\
@@ -111148,7 +111188,7 @@ angular.module('ThemisComponents').directive("thInput", ["Utilities", function(U
       step: '=',
       ngChange: '&'
     },
-    template: __webpack_require__(/*! ./thInput.template.html */ 272),
+    template: __webpack_require__(/*! ./thInput.template.html */ 273),
     controller: function() {
       this.thOnChange = function() {
         return Utilities.onChange(this.ngChange);
@@ -111178,7 +111218,7 @@ angular.module('ThemisComponents').directive("thInput", ["Utilities", function(U
 
 
 /***/ }),
-/* 190 */
+/* 191 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************!*\
@@ -111247,7 +111287,7 @@ LazyController = (function() {
 })();
 
 angular.module('ThemisComponents').component("thLazy", {
-  template: __webpack_require__(/*! ./thLazy.template.html */ 273),
+  template: __webpack_require__(/*! ./thLazy.template.html */ 274),
   controllerAs: "lazy",
   require: {
     metaLoader: "?^thMetaLoader"
@@ -111262,7 +111302,7 @@ angular.module('ThemisComponents').component("thLazy", {
 
 
 /***/ }),
-/* 191 */
+/* 192 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -111290,7 +111330,7 @@ angular.module('ThemisComponents').factory('LazyManager', function() {
 
 
 /***/ }),
-/* 192 */
+/* 193 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -111335,13 +111375,13 @@ MetaLoader = (function() {
 angular.module('ThemisComponents').component("thMetaLoader", {
   transclude: true,
   controllerAs: "meta",
-  template: __webpack_require__(/*! ./thMetaLoader.template.html */ 274),
+  template: __webpack_require__(/*! ./thMetaLoader.template.html */ 275),
   controller: MetaLoader
 });
 
 
 /***/ }),
-/* 193 */
+/* 194 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -111352,7 +111392,7 @@ angular.module('ThemisComponents').component("thMetaLoader", {
 angular.module('ThemisComponents').directive("thLoader", function() {
   return {
     restrict: "EA",
-    template: __webpack_require__(/*! ./thLoader.template.html */ 275),
+    template: __webpack_require__(/*! ./thLoader.template.html */ 276),
     transclude: true,
     replace: true,
     controllerAs: 'loader',
@@ -111392,7 +111432,7 @@ angular.module('ThemisComponents').directive("thLoader", function() {
 
 
 /***/ }),
-/* 194 */
+/* 195 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************!*\
@@ -111409,7 +111449,7 @@ angular.module("ThemisComponents").directive("thModal", function() {
     scope: {
       modalData: "="
     },
-    template: __webpack_require__(/*! ./thModal.template.html */ 276),
+    template: __webpack_require__(/*! ./thModal.template.html */ 277),
     controller: ["ModalManager", function(ModalManager) {
       this.name = this.modalData.name;
       this.content = this.modalData.content;
@@ -111433,7 +111473,7 @@ angular.module("ThemisComponents").directive("thModal", function() {
 
 
 /***/ }),
-/* 195 */
+/* 196 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -111447,7 +111487,7 @@ angular.module("ThemisComponents").directive("thModalAnchor", function() {
     replace: true,
     controllerAs: "anchor",
     bindToController: true,
-    template: __webpack_require__(/*! ./thModalAnchor.template.html */ 277),
+    template: __webpack_require__(/*! ./thModalAnchor.template.html */ 278),
     controller: ["ModalManager", function(ModalManager) {
       this.modals = ModalManager._modals;
       if (this.modals.length > 0) {
@@ -111460,7 +111500,7 @@ angular.module("ThemisComponents").directive("thModalAnchor", function() {
 
 
 /***/ }),
-/* 196 */
+/* 197 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -111557,7 +111597,7 @@ angular.module("ThemisComponents").factory("ModalManager", ["$http", "$q", funct
 
 
 /***/ }),
-/* 197 */
+/* 198 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -111565,11 +111605,11 @@ angular.module("ThemisComponents").factory("ModalManager", ["$http", "$q", funct
   \******************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thModalTitlebar.component */ 198);
+__webpack_require__(/*! ./thModalTitlebar.component */ 199);
 
 
 /***/ }),
-/* 198 */
+/* 199 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************************!*\
@@ -111605,7 +111645,7 @@ ModalTitlebar = (function() {
 })();
 
 angular.module('ThemisComponents').component('thModalTitlebar', {
-  template: __webpack_require__(/*! ./thModalTitlebar.template.html */ 278),
+  template: __webpack_require__(/*! ./thModalTitlebar.template.html */ 279),
   controller: ModalTitlebar,
   bindings: {
     title: "@",
@@ -111616,7 +111656,7 @@ angular.module('ThemisComponents').component('thModalTitlebar', {
 
 
 /***/ }),
-/* 199 */
+/* 200 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -111642,7 +111682,7 @@ angular.module('ThemisComponents').filter("pluralize", function() {
 
 
 /***/ }),
-/* 200 */
+/* 201 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -111739,13 +111779,13 @@ module.exports = function($compile, $timeout) {
       return scope.$apply(function() {
         var body;
         if (view == null) {
-          view = angular.element(__webpack_require__(/*! ./thPopover.template.html */ 281));
+          view = angular.element(__webpack_require__(/*! ./thPopover.template.html */ 282));
         }
         if (overlay == null) {
-          overlay = angular.element(__webpack_require__(/*! ./thPopover.overlay.template.html */ 280));
+          overlay = angular.element(__webpack_require__(/*! ./thPopover.overlay.template.html */ 281));
         }
         if (arrow == null) {
-          arrow = angular.element(__webpack_require__(/*! ./thPopover.arrow.template.html */ 279));
+          arrow = angular.element(__webpack_require__(/*! ./thPopover.arrow.template.html */ 280));
         }
         body = angular.element(document.body);
         body.append(overlay);
@@ -111787,7 +111827,7 @@ module.exports = function($compile, $timeout) {
 
 
 /***/ }),
-/* 201 */
+/* 202 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -111812,7 +111852,7 @@ angular.module('ThemisComponents').directive("thPopover", ["PopoverManager", fun
 
 
 /***/ }),
-/* 202 */
+/* 203 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************************!*\
@@ -111836,7 +111876,7 @@ angular.module("ThemisComponents").directive("thPopoverContent", ["PopoverManage
 
 
 /***/ }),
-/* 203 */
+/* 204 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************!*\
@@ -111915,7 +111955,7 @@ angular.module('ThemisComponents').factory('PopoverManager', ["$compile", "$time
       return renderPopover();
     });
   };
-  addPopoverToTarget = __webpack_require__(/*! ./thAddPopover.helper */ 200)($compile, $timeout);
+  addPopoverToTarget = __webpack_require__(/*! ./thAddPopover.helper */ 201)($compile, $timeout);
   return {
     attachPopover: attachPopover,
     showPopover: showPopover,
@@ -111928,7 +111968,7 @@ angular.module('ThemisComponents').factory('PopoverManager', ["$compile", "$time
 
 
 /***/ }),
-/* 204 */
+/* 205 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************!*\
@@ -111951,7 +111991,7 @@ angular.module("ThemisComponents").directive("thPopoverTarget", ["PopoverManager
 
 
 /***/ }),
-/* 205 */
+/* 206 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************!*\
@@ -111981,7 +112021,7 @@ angular.module("ThemisComponents").directive("thPopoverUrl", ["$http", "PopoverM
 
 
 /***/ }),
-/* 206 */
+/* 207 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************************!*\
@@ -111994,7 +112034,7 @@ angular.module('ThemisComponents').directive("thRadioButton", function() {
     require: '^thRadioGroup',
     restrict: "EA",
     replace: true,
-    template: __webpack_require__(/*! ./thRadioButton.template.html */ 282),
+    template: __webpack_require__(/*! ./thRadioButton.template.html */ 283),
     scope: {
       value: '@',
       change: '&ngChange'
@@ -112011,7 +112051,7 @@ angular.module('ThemisComponents').directive("thRadioButton", function() {
 
 
 /***/ }),
-/* 207 */
+/* 208 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************!*\
@@ -112026,7 +112066,7 @@ angular.module('ThemisComponents').directive('thRadioGroup', function() {
     transclude: true,
     bindToController: true,
     controllerAs: 'radioGroup',
-    template: __webpack_require__(/*! ./thRadioGroup.template.html */ 283),
+    template: __webpack_require__(/*! ./thRadioGroup.template.html */ 284),
     scope: {
       name: '@',
       change: '&ngChange',
@@ -112095,7 +112135,7 @@ angular.module('ThemisComponents').directive('thRadioGroup', function() {
 
 
 /***/ }),
-/* 208 */
+/* 209 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -112106,7 +112146,7 @@ angular.module('ThemisComponents').directive('thRadioGroup', function() {
 angular.module('ThemisComponents').directive("thSelect", ["Utilities", function(Utilities) {
   return {
     restrict: "EA",
-    template: __webpack_require__(/*! ./thSelect.template.html */ 285),
+    template: __webpack_require__(/*! ./thSelect.template.html */ 287),
     controllerAs: "select",
     replace: true,
     bindToController: true,
@@ -112241,7 +112281,7 @@ angular.module('ThemisComponents').directive("thSelect", ["Utilities", function(
 
 
 /***/ }),
-/* 209 */
+/* 210 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -112253,7 +112293,7 @@ angular.module('ThemisComponents').directive("thSwitch", function() {
   return {
     restrict: "EA",
     replace: true,
-    template: __webpack_require__(/*! ./thSwitch.template.html */ 286),
+    template: __webpack_require__(/*! ./thSwitch.template.html */ 288),
     scope: {
       name: '@',
       change: '&ngChange',
@@ -112286,7 +112326,7 @@ angular.module('ThemisComponents').directive("thSwitch", function() {
 
 
 /***/ }),
-/* 210 */
+/* 211 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************!*\
@@ -112430,7 +112470,7 @@ angular.module('ThemisComponents').factory('SimpleTableDelegate', ["TableDelegat
 
 
 /***/ }),
-/* 211 */
+/* 212 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************!*\
@@ -112440,7 +112480,7 @@ angular.module('ThemisComponents').factory('SimpleTableDelegate', ["TableDelegat
 
 var thTableKeyboardNavigation;
 
-thTableKeyboardNavigation = __webpack_require__(/*! ./thTableKeyboardNavigation */ 217);
+thTableKeyboardNavigation = __webpack_require__(/*! ./thTableKeyboardNavigation */ 218);
 
 angular.module("ThemisComponents").directive("thTable", ["$compile", "Table", function($compile, Table) {
   return {
@@ -112501,7 +112541,7 @@ angular.module("ThemisComponents").directive("thTable", ["$compile", "Table", fu
 
 
 /***/ }),
-/* 212 */
+/* 213 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************!*\
@@ -112584,7 +112624,7 @@ Table = function(options) {
 
 
 /***/ }),
-/* 213 */
+/* 214 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -112600,7 +112640,7 @@ angular.module('ThemisComponents').directive('thTableCell', function() {
 
 
 /***/ }),
-/* 214 */
+/* 215 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -112761,7 +112801,7 @@ angular.module("ThemisComponents").factory("TableDelegate", ["TablePagination", 
 
 
 /***/ }),
-/* 215 */
+/* 216 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -112795,7 +112835,7 @@ TableFooter = function(options) {
 
 
 /***/ }),
-/* 216 */
+/* 217 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -112868,7 +112908,7 @@ TableHeader = function(options) {
 
 
 /***/ }),
-/* 217 */
+/* 218 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -113057,7 +113097,7 @@ module.exports = function($element, $scope) {
 
 
 /***/ }),
-/* 218 */
+/* 219 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -113192,7 +113232,7 @@ angular.module('ThemisComponents').factory('TablePagination', ["$interpolate", f
 
 
 /***/ }),
-/* 219 */
+/* 220 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -113208,7 +113248,7 @@ angular.module('ThemisComponents').directive('thTableRow', function() {
 
 
 /***/ }),
-/* 220 */
+/* 221 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -113269,7 +113309,7 @@ TableSort = function() {
 
 
 /***/ }),
-/* 221 */
+/* 222 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -113281,7 +113321,7 @@ angular.module('ThemisComponents').directive("thTab", function() {
   return {
     require: "^thTabset",
     restrict: "EA",
-    template: __webpack_require__(/*! ./thTab.template.html */ 287),
+    template: __webpack_require__(/*! ./thTab.template.html */ 289),
     transclude: true,
     scope: {
       name: "@name",
@@ -113312,7 +113352,7 @@ angular.module('ThemisComponents').directive("thTab", function() {
 
 
 /***/ }),
-/* 222 */
+/* 223 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -113329,7 +113369,7 @@ angular.module('ThemisComponents').directive("thTabset", function() {
   return {
     restrict: "EA",
     replace: true,
-    template: __webpack_require__(/*! ./thTabset.native.template.html */ 288),
+    template: __webpack_require__(/*! ./thTabset.native.template.html */ 290),
     transclude: {
       actionBar: '?thTabActionBar'
     },
@@ -113489,7 +113529,7 @@ angular.module('ThemisComponents').directive("thTabset", function() {
 
 
 /***/ }),
-/* 223 */
+/* 224 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -113516,7 +113556,7 @@ angular.module('ThemisComponents').directive("thTextarea", ["Utilities", functio
       ngPattern: '=',
       ngChange: '&'
     },
-    template: __webpack_require__(/*! ./thTextarea.template.html */ 289),
+    template: __webpack_require__(/*! ./thTextarea.template.html */ 291),
     controller: function() {
       this.thOnChange = function() {
         return Utilities.onChange(this.ngChange);
@@ -113558,7 +113598,7 @@ angular.module('ThemisComponents').directive("thTextarea", ["Utilities", functio
 
 
 /***/ }),
-/* 224 */
+/* 225 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -113570,7 +113610,7 @@ angular.module('ThemisComponents').directive('thTruncate', function() {
   return {
     restrict: 'E',
     transclude: true,
-    template: __webpack_require__(/*! ./thTruncate.template.html */ 290),
+    template: __webpack_require__(/*! ./thTruncate.template.html */ 292),
     bindToController: true,
     controllerAs: 'truncate',
     scope: {
@@ -113604,7 +113644,7 @@ angular.module('ThemisComponents').directive('thTruncate', function() {
 
 
 /***/ }),
-/* 225 */
+/* 226 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -113663,7 +113703,7 @@ angular.module('ThemisComponents').factory('ViewModel', function() {
 
 
 /***/ }),
-/* 226 */
+/* 227 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -113694,7 +113734,7 @@ angular.module("ThemisComponents").directive("withFocus", ["$timeout", function(
 
 
 /***/ }),
-/* 227 */
+/* 228 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -113799,7 +113839,7 @@ angular.module('ThemisComponents').directive("withLabel", function() {
 
 
 /***/ }),
-/* 228 */
+/* 229 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************!*\
@@ -113868,7 +113908,7 @@ angular.module("ThemisComponents").directive("withSubtext", function() {
 
 
 /***/ }),
-/* 229 */
+/* 230 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************************!*\
@@ -113929,7 +113969,7 @@ angular.module('ThemisComponents').factory('MessageService', function() {
 
 
 /***/ }),
-/* 230 */
+/* 231 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************************!*\
@@ -113981,42 +114021,6 @@ angular.module('ThemisComponents').directive("withMessages", ["$compile", "Messa
     }
   };
 }]);
-
-
-/***/ }),
-/* 231 */
-/* unknown exports provided */
-/* all exports used */
-/*!***********************************************************!*\
-  !*** ./src/lib/services/scheduler-data-source.service.ts ***!
-  \***********************************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.data.js */ 6);
-/**
- * FIXME: Rename to DataSourceFactory and return a type of "SchedulerDataSource"
- * that exposes the fetch method and anything else required from kendo.data.SchedulerDataSource
- */
-var SchedulerDataSource = (function () {
-    function SchedulerDataSource() {
-    }
-    /* tslint:disable:max-line-length */
-    /**
-     * Local Data Source
-     * @see {@link http://docs.telerik.com/kendo-ui/framework/datasource/overview#to-local-data|To Local Data}
-     * @see {@link http://docs.telerik.com/kendo-ui/framework/datasource/overview#to-remote-service|To Remote Service}
-     * @see {@link http://docs.telerik.com/kendo-ui/api/javascript/data/schedulerdatasource|SchedulerDataSource}
-     */
-    /* tslint:enable:max-line-length */
-    SchedulerDataSource.prototype.createDataSource = function (options) {
-        return new kendo.data.SchedulerDataSource(options);
-    };
-    return SchedulerDataSource;
-}());
-exports.default = SchedulerDataSource;
 
 
 /***/ }),
@@ -114254,7 +114258,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var autocomplete_abstract_1 = __webpack_require__(/*! ./autocomplete.abstract */ 43);
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.autocomplete.js */ 109);
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.autocomplete.js */ 110);
 var Autocomplete = (function (_super) {
     __extends(Autocomplete, _super);
     function Autocomplete(options) {
@@ -114330,7 +114334,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var autocomplete_abstract_1 = __webpack_require__(/*! ./autocomplete.abstract */ 43);
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.combobox.js */ 113);
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.combobox.js */ 114);
 var ComboBoxAutocomplete = (function (_super) {
     __extends(ComboBoxAutocomplete, _super);
     function ComboBoxAutocomplete(options) {
@@ -114464,8 +114468,8 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var angular = __webpack_require__(/*! angular */ 2);
-var data_grid_service_1 = __webpack_require__(/*! ./data-grid.service */ 69);
-var template = __webpack_require__(/*! ./data-grid.template.html */ 252);
+var data_grid_service_1 = __webpack_require__(/*! ./data-grid.service */ 70);
+var template = __webpack_require__(/*! ./data-grid.template.html */ 253);
 var DataGrid = (function () {
     /* @ngInject */
     DataGrid.$inject = ["$element", "DataGridService", "$scope"];
@@ -114557,7 +114561,7 @@ exports.DataGridComponent = DataGridComponent;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var template = __webpack_require__(/*! ./toolbar.template.html */ 253);
+var template = __webpack_require__(/*! ./toolbar.template.html */ 254);
 var ToolbarComponent = {
     template: template,
     require: {
@@ -114808,121 +114812,455 @@ exports.DatepickerService = DatepickerService;
 /* 242 */
 /* unknown exports provided */
 /* all exports used */
-/*!*************************************************************!*\
-  !*** ./src/lib/thScheduler/calendar-data-source.service.ts ***!
-  \*************************************************************/
+/*!*********************************************************!*\
+  !*** ./src/lib/thScheduler/calendar-entries.service.ts ***!
+  \*********************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-Object.defineProperty(exports, "__esModule", { value: true });
-var data_source_service_1 = __webpack_require__(/*! ../services/data-source.service */ 68);
-var CalendarDataSource = (function () {
-    function CalendarDataSource() {
-        this.init();
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t;
+    return { next: verb(0), "throw": verb(1), "return": verb(2) };
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
-    CalendarDataSource.prototype.init = function () {
-        this.dataSource = new data_source_service_1.default().createDataSource({
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var scheduler_data_source_service_1 = __webpack_require__(/*! ../services/scheduler-data-source.service */ 69);
+var CalendarEntriesService = (function () {
+    function CalendarEntriesService(options, calendarDataSource) {
+        var _this = this;
+        this._queriedIds = [];
+        this.setCalendarDataSource(calendarDataSource);
+        Object.assign(options, {
             transport: {
-                read: {
-                    url: "calendars",
-                    dataType: "json",
+                read: function (e) {
+                    _this.getEntriesForCalendars()
+                        .then(function (entries) {
+                        e.success({ data: entries });
+                    }, function (reason) {
+                        console.log("reason", reason);
+                    });
                 },
-            },
-            schema: {
-                data: "calendars",
-                model: {
-                    id: "id",
-                    fields: {
-                        id: { from: "id", type: "number" },
-                    },
-                },
-            },
+            }
+        });
+        this._entriesDataSource = new scheduler_data_source_service_1.default().createDataSource(options);
+    }
+    CalendarEntriesService.prototype.setCalendarDataSource = function (calendarDataSource) {
+        var _this = this;
+        this._calendarDataSource = calendarDataSource;
+        /* tslint:disable:max-line-length */
+        this._calendarDataSource.bind("change", function (e) {
+            /* tslint:enable:max-line-length */
+            if (e.action === "itemchange" && e.field === "visible") {
+                return _this.onVisibilityChanged();
+            }
         });
     };
-    CalendarDataSource.prototype.getIds = function () {
-        var _this = this;
-        return new Promise(function (resolve) {
-            _this.dataSource.fetch()
-                .then(function () {
-                var ids = _this.dataSource.data()
-                    .map(function (calendarObj) {
-                    return calendarObj.id;
-                });
-                resolve(ids);
-            }).fail(function (reason) {
-                console.warn("CalendarDataSource.getIds failed:", reason);
+    CalendarEntriesService.prototype.onVisibilityChanged = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            var ids;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        /**
+                         * Just noticed that calling "filter" calls the transport read function
+                         * which reloads the entries.
+                         */
+                        this._entriesDataSource.filter({
+                            operator: function (entry) {
+                                return _this._calendarDataSource.isVisible(entry.calendar_id);
+                            }
+                        });
+                        return [4 /*yield*/, this._calendarDataSource.getIds()];
+                    case 1:
+                        ids = _a.sent();
+                        ids.forEach(function (id) {
+                            if (_this._calendarDataSource.isVisible(id)) {
+                                if (!_this._queriedIds.find(function (entryId) { return entryId === id; })) {
+                                    _this.addEntriesForCalendar(id);
+                                }
+                            }
+                        });
+                        return [2 /*return*/];
+                }
             });
         });
     };
-    return CalendarDataSource;
+    CalendarEntriesService.prototype.getEntriesDataSource = function () {
+        return this._entriesDataSource;
+    };
+    CalendarEntriesService.prototype.getEntriesForCalendar = function (id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var appendCalendarIdToEntry, response, responseData, reason_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        appendCalendarIdToEntry = function (entries) {
+                            entries.forEach(function (entry) {
+                                entry.calendar_id = id;
+                            });
+                        };
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 5, , 6]);
+                        return [4 /*yield*/, fetch("api/v4/calendar_entries?calendar_id=" + id + "&fields=id,summary,start_at,end_at", {
+                                method: "GET",
+                                headers: {
+                                    "Accept": "application/json",
+                                    "Content-Type": "application/json",
+                                    "Cache": "no-cache"
+                                },
+                                credentials: "same-origin"
+                            })];
+                    case 2:
+                        response = _a.sent();
+                        if (!response.ok) return [3 /*break*/, 4];
+                        this._queriedIds.push(id);
+                        return [4 /*yield*/, response.json()];
+                    case 3:
+                        responseData = _a.sent();
+                        appendCalendarIdToEntry(responseData.data);
+                        return [2 /*return*/, responseData.data];
+                    case 4: return [3 /*break*/, 6];
+                    case 5:
+                        reason_1 = _a.sent();
+                        return [2 /*return*/, reason_1];
+                    case 6: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /* tslint:disable:max-line-length */
+    /**
+     * TODO: Update links
+     * @see {@link http://docs.telerik.com/kendo-ui/framework/datasource/overview#to-remote-service|To Remote Service}
+     */
+    /* tslint:enable:max-line-length */
+    CalendarEntriesService.prototype.prepareForCreate = function (rawData) {
+        /* tslint:disable:max-line-length */
+        // the "data" will need replacing with a dynamic key name if we allow custom API nested keys
+        var models = this._entriesDataSource.reader.data.call(this._entriesDataSource.reader, { data: rawData });
+        /* tslint:enable:max-line-length */
+        return models;
+    };
+    CalendarEntriesService.prototype.addEntriesForCalendar = function (id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var rawData, entryModels, reason_2;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.getEntriesForCalendar(id)];
+                    case 1:
+                        rawData = _a.sent();
+                        entryModels = this.prepareForCreate(rawData);
+                        this._entriesDataSource.pushCreate(entryModels);
+                        return [3 /*break*/, 3];
+                    case 2:
+                        reason_2 = _a.sent();
+                        console.warn(reason_2);
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    CalendarEntriesService.prototype.getEntriesForCalendars = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            var ids, entryArrays, entries, reason_3;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 3, , 4]);
+                        return [4 /*yield*/, this._calendarDataSource.getIds()];
+                    case 1:
+                        ids = _a.sent();
+                        return [4 /*yield*/, Promise.all(ids.map(function (id) { return _this._calendarDataSource.isVisible(id) ? _this.getEntriesForCalendar(id) : null; }))];
+                    case 2:
+                        entryArrays = _a.sent();
+                        entries = [].concat.apply([], entryArrays).filter(function (a) { return a !== null; });
+                        return [2 /*return*/, entries];
+                    case 3:
+                        reason_3 = _a.sent();
+                        console.warn(reason_3);
+                        return [3 /*break*/, 4];
+                    case 4: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    return CalendarEntriesService;
 }());
-exports.default = CalendarDataSource;
+exports.default = CalendarEntriesService;
+// wrapper factory for injection into an angular service
+var CalendarEntriesServiceFactory = (function () {
+    function CalendarEntriesServiceFactory() {
+    }
+    CalendarEntriesServiceFactory.prototype.create = function (options, calendarDataSource) {
+        return new CalendarEntriesService(options, calendarDataSource);
+    };
+    return CalendarEntriesServiceFactory;
+}());
+exports.CalendarEntriesServiceFactory = CalendarEntriesServiceFactory;
 
 
 /***/ }),
 /* 243 */
 /* unknown exports provided */
 /* all exports used */
-/*!***************************************************************************!*\
-  !*** ./src/lib/thScheduler/multipleCalendars/calendar-entries.service.ts ***!
-  \***************************************************************************/
+/*!***********************************************************************!*\
+  !*** ./src/lib/thScheduler/calendars/calendar-data-source.service.ts ***!
+  \***********************************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-Object.defineProperty(exports, "__esModule", { value: true });
-var calendar_data_source_service_1 = __webpack_require__(/*! ../calendar-data-source.service */ 242);
-var CalendarEntriesService = (function () {
-    /* @ngInject */
-    CalendarEntriesService.$inject = ["$http"];
-    function CalendarEntriesService($http) {
-        this.$http = $http;
-        this._calendarDataSource = new calendar_data_source_service_1.default();
-    }
-    Object.defineProperty(CalendarEntriesService.prototype, "calendarDataSource", {
-        set: function (dataSource) {
-            this._calendarDataSource = dataSource;
-        },
-        enumerable: true,
-        configurable: true
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
-    CalendarEntriesService.prototype.getCalendarIds = function () {
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t;
+    return { next: verb(0), "throw": verb(1), "return": verb(2) };
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var data_source_service_1 = __webpack_require__(/*! ../../services/data-source.service */ 68);
+var CalendarDataSource = (function () {
+    function CalendarDataSource(options) {
         var _this = this;
-        return new Promise(function (resolve) {
-            _this._calendarDataSource.getIds().then(function (data) {
-                resolve(data);
+        this._dataSource = new data_source_service_1.default().createDataSource(options);
+        // Wrap in a standard promise for now
+        this._fetchPromise = new Promise(function (resolve, reject) {
+            _this._dataSource.fetch()
+                .then(function () { return resolve(); })
+                .fail(function () { return reject(); });
+        });
+    }
+    CalendarDataSource.prototype.bind = function (eventName, handler) {
+        return this._dataSource.bind(eventName, handler);
+    };
+    CalendarDataSource.prototype.isVisible = function (id) {
+        return this._dataSource.get(id).get("visible");
+    };
+    CalendarDataSource.prototype.setVisible = function (calendar) {
+        this._dataSource.get(calendar.id).set("visible", calendar.visible);
+    };
+    CalendarDataSource.prototype.getCalendars = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var rawData;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this._fetchPromise];
+                    case 1:
+                        _a.sent();
+                        rawData = this._dataSource.data();
+                        return [2 /*return*/, rawData.map(function (calendar) {
+                                return {
+                                    id: calendar.id,
+                                    name: calendar.name,
+                                    visible: calendar.visible
+                                };
+                            })];
+                }
             });
         });
     };
-    CalendarEntriesService.prototype.getEntriesForCalendar = function (id) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            _this.$http
-                .get("calendar_entries?calendar_id=" + id)
-                .then(function (data) {
-                resolve(data.data);
-            }, function (reason) {
-                reject(reason);
+    CalendarDataSource.prototype.getIds = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var calendars;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.getCalendars()];
+                    case 1:
+                        calendars = _a.sent();
+                        return [2 /*return*/, calendars.map(function (calender) { return calender.id; })];
+                }
             });
         });
     };
-    CalendarEntriesService.prototype.getEntriesForCalendars = function () {
-        var _this = this;
-        return this.getCalendarIds()
-            .then(function (ids) { return Promise.all(ids.map(function (id) { return _this.getEntriesForCalendar(id); })); })
-            .then(function (entries) { return [].concat.apply([], entries); })
-            .catch(function (reason) {
-            console.warn(reason);
+    CalendarDataSource.prototype.fetch = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.getCalendars()];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
         });
     };
-    return CalendarEntriesService;
+    return CalendarDataSource;
 }());
-exports.default = CalendarEntriesService;
+exports.default = CalendarDataSource;
+// wrapper factory for injection into an angular service
+var CalendarDataSourceFactory = (function () {
+    function CalendarDataSourceFactory() {
+    }
+    CalendarDataSourceFactory.prototype.createDataSource = function (options) {
+        return new CalendarDataSource(options);
+    };
+    return CalendarDataSourceFactory;
+}());
+exports.CalendarDataSourceFactory = CalendarDataSourceFactory;
 
 
 /***/ }),
 /* 244 */
+/* unknown exports provided */
+/* all exports used */
+/*!**************************************************************!*\
+  !*** ./src/lib/thScheduler/calendars/calendars.component.ts ***!
+  \**************************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t;
+    return { next: verb(0), "throw": verb(1), "return": verb(2) };
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var template = __webpack_require__(/*! ./calendars.template.html */ 285);
+var CalendarsController = (function () {
+    function CalendarsController() {
+        /**
+         * This is only public for testing purposes.
+         * TODO: Figure out a way to expose private members
+         * to tests so we don't have to make this public.
+         */
+        this.calendars = [];
+    }
+    CalendarsController.prototype.validateArgs = function () {
+        if (this.options === null || typeof this.options === "undefined") {
+            throw new Error("thCalendars: You must provide the \"options\" parameter.");
+        }
+        if (this.options.dataSource === null || typeof this.options.dataSource === "undefined") {
+            throw new Error("thCalendars: You must provide the \"options.dataSource\" property.");
+        }
+    };
+    CalendarsController.prototype.$onInit = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        this.validateArgs();
+                        _a = this;
+                        return [4 /*yield*/, this.options.dataSource.fetch()];
+                    case 1:
+                        _a.calendars = _b.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    CalendarsController.prototype.toggleVisibility = function (calendar) {
+        this.options.dataSource.setVisible(calendar);
+    };
+    return CalendarsController;
+}());
+exports.CalendarsController = CalendarsController;
+var CalendarsComponent = {
+    template: template,
+    bindings: {
+        options: "="
+    },
+    controller: CalendarsController
+};
+exports.CalendarsComponent = CalendarsComponent;
+
+
+/***/ }),
+/* 245 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -114933,7 +115271,7 @@ exports.default = CalendarEntriesService;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var template = __webpack_require__(/*! ./scheduler.template.html */ 284);
+var template = __webpack_require__(/*! ./scheduler.template.html */ 286);
 var SchedulerController = (function () {
     function SchedulerController() {
     }
@@ -114970,7 +115308,7 @@ exports.SchedulerComponent = SchedulerComponent;
 
 
 /***/ }),
-/* 245 */
+/* 246 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -114981,7 +115319,7 @@ exports.SchedulerComponent = SchedulerComponent;
 module.exports = "<div class=\"action-bar\">\n  <div class=\"flex-section\">\n    <th-checkbox\n      ng-model=\"$ctrl.checked\"\n      ng-change=\"$ctrl.toggleAll()\"\n      with-label=\"Select Page\"\n      ng-disabled=\"$ctrl.delegate.results.processing\"\n      >\n    </th-checkbox>\n    <div class=\"action-menu\" ng-if=\"$ctrl.delegate.results.hasSelection\">\n      <span ng-if=\"$ctrl.delegate.availableActions\">\n        <th-select\n          ng-model=\"$ctrl.delegate.results.selectedAction\"\n          options=\"$ctrl.delegate.availableActions\"\n          placeholder=\"Action\"\n          condensed=\"true\"\n          ng-disabled=\"$ctrl.delegate.results.processing\"\n          >\n        </th-select>\n      </span>\n      <span class=\"button-wrapper\" ng-class=\"{'margin-left-10': !$ctrl.availableActions}\">\n        <th-button\n          type=\"standard\"\n          ng-click=\"$ctrl.triggerApply()\"\n          ng-disabled=\"$ctrl.delegate.isDisabled()\"\n          loading=\"$ctrl.delegate.results.processing\"\n          >\n          {{$ctrl.delegate.buttonName}}\n        </th-button>\n      </span>\n    </div>\n  </div>\n  <div class=\"flex-section\">\n    <ng-transclude></ng-transclude>\n  </div>\n</div>\n"
 
 /***/ }),
-/* 246 */
+/* 247 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************************!*\
@@ -114992,7 +115330,7 @@ module.exports = "<div class=\"action-bar\">\n  <div class=\"flex-section\">\n  
 module.exports = "<div class=\"action-bar\">\n\n  <div\n    class=\"flex-section\"\n    ng-class=\"{hidden: actionBar.delegate.results.totalItemCount <= 0}\"\n    >\n    <th-checkbox\n      ng-model=\"actionBar.delegate.results.allSelected\"\n      ng-click=\"actionBar.toggleAll()\"\n      with-label=\"Select All\"\n      ng-disabled=\"actionBar.delegate.results.processing\"\n      indeterminate=\"actionBar.isIndeterminate()\"\n      >\n    </th-checkbox>\n    <th-loader\n      ng-if=\"actionBar.delegate.results.loadingIds\"\n      size=\"mini\"\n      >\n    </th-loader>\n    <div\n      class=\"action-menu\"\n      ng-if=\"actionBar.delegate.results.selectedItemCount > 0\n        && !actionBar.delegate.results.loadingIds\"\n      >\n      <div class=\"action-text\">\n        <strong>{{actionBar.delegate.results.selectedItemCount}}</strong>\n          {{actionBar.openingWords}}\n          {{actionBar.lastWord | pluralize: actionBar.delegate.results.selectedItemCount}}\n          selected.\n      </div>\n      <span ng-if=\"actionBar.delegate.results.availableActions\">\n        <th-select\n          ng-model=\"actionBar.delegate.results.selectedAction\"\n          options=\"actionBar.delegate.results.availableActions\"\n          placeholder=\"Action\"\n          condensed=\"true\"\n          ng-disabled=\"actionBar.delegate.results.processing\"\n          >\n        </th-select>\n      </span>\n      <span class=\"button-wrapper\"\n        ng-class=\"{'margin-left-10': !actionBar.delegate.results.availableActions}\"\n        >\n        <th-button\n          type=\"standard\"\n          ng-click=\"actionBar.triggerApply()\"\n          ng-disabled=\"actionBar.delegate.results.processing ||\n                       (!actionBar.delegate.results.selectedAction &&\n                       !!actionBar.delegate.results.availableActions)\"\n          loading=\"actionBar.delegate.results.processing\"\n          >\n          {{actionBar.buttonName}}\n        </th-button>\n      </span>\n    </div>\n  </div>\n  <div class=\"flex-section\">\n    <ng-transclude></ng-transclude>\n  </div>\n</div>\n"
 
 /***/ }),
-/* 247 */
+/* 248 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -115003,7 +115341,7 @@ module.exports = "<div class=\"action-bar\">\n\n  <div\n    class=\"flex-section
 module.exports = "<div\n  ng-show=\"alertAnchor.alertMessage.message\"\n  ng-class=\"'th-alert th-alert-' + alertAnchor.alertMessage.type\"\n  >\n  <i\n    class=\"fa alert-icon\"\n    ng-class=\"{ 'fa-check': alertAnchor.alertMessage.type == 'success',\n                'fa-warning': alertAnchor.alertMessage.type == 'error' ||\n                              alertAnchor.alertMessage.type == 'warning' }\"\n    >\n  </i>\n  <p\n    ng-bind-html=\"alertAnchor.alertMessage.message\"\n    >\n    {{alertAnchor.alertMessage.message}}\n  </p>\n  <i\n    class=\"fa fa-times-circle dismiss-icon\"\n    ng-click=\"alertAnchor.dismiss()\"\n    >\n  </i>\n</div>\n"
 
 /***/ }),
-/* 248 */
+/* 249 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -115014,7 +115352,7 @@ module.exports = "<div\n  ng-show=\"alertAnchor.alertMessage.message\"\n  ng-cla
 module.exports = "<a\n  class=\"th-button {{button.type}}\"\n  aria-disabled=\"{{button.ngDisabled}}\"\n  href=\"{{button.href}}\"\n  role=\"button\"\n  >\n  <span\n    class=\"load-wrapper\"\n    ng-if=\"button.loading\"\n    >\n    <th-loader\n      theme=\"button.theme\"\n      size=\"mini\"\n      >\n    </th-loader>\n  </span>\n  <ng-transclude\n    ng-class=\"button.loading ? 'hide' : 'show'\"\n    >\n  </ng-transclude>\n</a>\n"
 
 /***/ }),
-/* 249 */
+/* 250 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -115025,7 +115363,7 @@ module.exports = "<a\n  class=\"th-button {{button.type}}\"\n  aria-disabled=\"{
 module.exports = "<button\n  class=\"th-button {{button.type}}\"\n  aria-disabled=\"{{button.ngDisabled}}\"\n  >\n  <span\n    class=\"load-wrapper\"\n    ng-if=\"button.loading\"\n    >\n    <th-loader\n      theme=\"button.theme\"\n      size=\"mini\"\n      >\n    </th-loader>\n  </span>\n  <ng-transclude\n    ng-class=\"button.loading ? 'hide' : 'show'\"\n    >\n  </ng-transclude>\n</button>\n"
 
 /***/ }),
-/* 250 */
+/* 251 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -115036,7 +115374,7 @@ module.exports = "<button\n  class=\"th-button {{button.type}}\"\n  aria-disable
 module.exports = "<span\n  class=\"th-checkbox\"\n  ng-class=\"[\n    {disabled: checkbox.ngDisabled},\n    {checked: checkbox.checked && !checkbox.indeterminate},\n    {indeterminate: checkbox.indeterminate}\n  ]\"\n  role=\"checkbox\"\n  aria-checked=\"{{checkbox.checked}}\"\n  tabindex=\"0\"\n  >\n  <input\n    type=\"checkbox\"\n    name=\"{{checkbox.name}}\"\n    ng-model=\"checkbox.checked\"\n    ng-required=\"checkbox.ngRequired\"\n    ng-disabled=\"checkbox.ngDisabled\"\n    value=\"{{checkbox.checked}}\"\n    >\n  <i></i>\n</span>\n"
 
 /***/ }),
-/* 251 */
+/* 252 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************************!*\
@@ -115047,7 +115385,7 @@ module.exports = "<span\n  class=\"th-checkbox\"\n  ng-class=\"[\n    {disabled:
 module.exports = "<h1 class=\"th-header-title th-header-flex-item\">{{ title }}</h1>\n<div class=\"th-header-flex-item\"></div>\n<ng-transclude class=\"th-header-flex-item\"></ng-transclude>"
 
 /***/ }),
-/* 252 */
+/* 253 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -115058,7 +115396,7 @@ module.exports = "<h1 class=\"th-header-title th-header-flex-item\">{{ title }}<
 module.exports = "<ng-transclude></ng-transclude>\n<div class=\"th-data-grid\"></div>\n"
 
 /***/ }),
-/* 253 */
+/* 254 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -115069,7 +115407,7 @@ module.exports = "<ng-transclude></ng-transclude>\n<div class=\"th-data-grid\"><
 module.exports = "<!-- custom space -->\n<ng-transclude></ng-transclude>\n<a\n  ng-if=\"$ctrl.dataGridCtrl.hasItemsSelected()\"\n  ng-click=\"$ctrl.dataGridCtrl.clearSelection()\"\n  href=\"#\"\n  >\n  Clear selection\n</a>\n<!-- common: search bar -->\n<!-- common: select column -->\n<!-- common: filter toggle button -->\n"
 
 /***/ }),
-/* 254 */
+/* 255 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************************!*\
@@ -115080,7 +115418,7 @@ module.exports = "<!-- custom space -->\n<ng-transclude></ng-transclude>\n<a\n  
 module.exports = "<ng-transclude></ng-transclude>\n"
 
 /***/ }),
-/* 255 */
+/* 256 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************************!*\
@@ -115091,7 +115429,7 @@ module.exports = "<ng-transclude></ng-transclude>\n"
 module.exports = "<a\n  id=\"{{thDisclosureToggle.name}}-toggle\"\n  href\n  ng-click=\"thDisclosureToggle.toggle()\"\n  ng-focus=\"thDisclosureToggle.focus()\"\n  ng-blur=\"thDisclosureToggle.blur()\"\n  aria-controls=\"{{thDisclosureToggle.name}}\"\n  aria-expanded=\"{{thDisclosureToggle.expanded}}\"\n  aria-label=\"{{thDisclosureToggle.ariaLabel}}\"\n  aria-describedby=\"{{thDisclosureToggle.ariaDescribedby}}\"\n  tabindex=\"{{thDisclosureToggle.tabindex}}\"\n  role=\"button\"\n  >\n  <ng-transclude\n    ng-if=\"thDisclosureToggle.textSide == 'left'\"\n    >\n  </ng-transclude>\n  <span\n    class=\"fa fa-caret-right\"\n    ng-class=\"{'fa-caret-right-rotated': thDisclosureToggle.expanded}\"\n    aria-hidden=\"true\"\n    >\n  </span>\n  <ng-transclude\n    ng-if=\"thDisclosureToggle.textSide == 'right'\"\n    >\n  </ng-transclude>\n</a>\n"
 
 /***/ }),
-/* 256 */
+/* 257 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -115102,7 +115440,7 @@ module.exports = "<a\n  id=\"{{thDisclosureToggle.name}}-toggle\"\n  href\n  ng-
 module.exports = "<hr class=\"th-divider\" aria-hidden=\"true\"></hr>\n"
 
 /***/ }),
-/* 257 */
+/* 258 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -115113,7 +115451,7 @@ module.exports = "<hr class=\"th-divider\" aria-hidden=\"true\"></hr>\n"
 module.exports = "<div\n  class=\"button-dropdown\"\n  ng-keydown=\"dropdown.keyboardToggle($event)\"\n  >\n  <div\n    class=\"dd-overlay\"\n    ng-click=\"dropdown.toggle()\"\n    ng-if=\"dropdown.visible\"\n    >\n  </div>\n  <button\n    ng-class=\"dropdown.type\"\n    ng-click=\"dropdown.toggle()\"\n    aria-haspopup=\"true\"\n    aria-owns=\"{{dropdown.name|lowercase}}-listbox\"\n    aria-label=\"{{dropdown.ariaLabel}}\"\n    aria-describedby=\"{{dropdown.ariaDescribedby}}\"\n    tabindex=\"{{dropdown.visible ? '-1' : '0'}}\"\n    >\n    {{dropdown.name}}\n    <i\n      class=\"fa\"\n      ng-class=\"dropdown.toggleCaret()\"\n      >\n    </i>\n  </button>\n  <ul\n    id=\"{{dropdown.name|lowercase}}-listbox\"\n    ng-click=\"dropdown.toggle()\"\n    ng-if=\"dropdown.visible\"\n    class=\"dropdown-menu\"\n    ng-class=\"dropdown.type\"\n    aria-role=\"listbox\"\n    tabindex=\"{{dropdown.visible ? '0' : '-1'}}\"\n    >\n    <ng-switch\n      on=\"item.type\"\n      ng-repeat=\"item in dropdown.processedItems\"\n      >\n      <th-item ng-switch-when='link'\n        name=\"{{item.name}}\"\n        href=\"{{item.href}}\"\n        icon=\"{{item.icon}}\"\n        aria-role=\"option\"\n        ng-class=\"{'selected' : item.selected}\"\n        >\n      </th-item>\n      <th-item ng-switch-when='action'\n        name=\"{{item.name}}\"\n        ng-click=\"item.ngClick()\"\n        icon=\"{{item.icon}}\"\n        aria-role=\"option\"\n        ng-class=\"{'selected' : item.selected}\"\n        >\n      </th-item>\n      <th-divider\n        ng-switch-default\n        aria-hidden=\"true\"\n      >\n      </th-divider>\n    </ng-switch>\n    <ng-transclude></ng-transclude>\n  </ul>\n</div>\n"
 
 /***/ }),
-/* 258 */
+/* 259 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -115124,7 +115462,7 @@ module.exports = "<div\n  class=\"button-dropdown\"\n  ng-keydown=\"dropdown.key
 module.exports = "<li>\n  <a class=\"dropdown-item\" href=\"#\">\n    <i ng-if=\"icon\" class=\"fa fa-{{icon}}\"></i>\n    {{name}}\n  </a>\n</li>\n"
 
 /***/ }),
-/* 259 */
+/* 260 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -115135,7 +115473,7 @@ module.exports = "<li>\n  <a class=\"dropdown-item\" href=\"#\">\n    <i ng-if=\
 module.exports = "<li>\n  <a class=\"dropdown-item\" href=\"{{href}}\">\n    <i ng-if=\"icon\" class=\"fa fa-{{icon}}\"></i>\n    {{name}}\n  </a>\n</li>\n"
 
 /***/ }),
-/* 260 */
+/* 261 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -115146,7 +115484,7 @@ module.exports = "<li>\n  <a class=\"dropdown-item\" href=\"{{href}}\">\n    <i 
 module.exports = "<div class=\"th-error-container\">\n  <i class=\"fa fa-exclamation-triangle\"></i>\n  <span ng-if=\"!ctrl.message\">\n    We had trouble loading your content.<br>Try reloading the page.\n  </span>\n  <ng-transclude ng-if=\"ctrl.message\"></ng-transclude>\n</div>\n"
 
 /***/ }),
-/* 261 */
+/* 262 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************************************!*\
@@ -115157,7 +115495,7 @@ module.exports = "<div class=\"th-error-container\">\n  <i class=\"fa fa-exclama
 module.exports = "<div>\n  <th-autocomplete\n    ng-model=\"thFilterAutocomplete.filter.model\"\n    ng-attr-placeholder=\"{{thFilterAutocomplete.filter.placeholder || thFilterAutocomplete.placeholder || 'Type some text…'}}\"\n    delegate=\"thFilterAutocomplete.delegate\"\n    on-change=\"thFilterAutocomplete.filterSet.onFilterChange\"\n    condensed=\"true\"\n    row-template=\"thFilterAutocomplete.rowTemplate\"\n    >\n  </th-autocomplete>\n</div>\n"
 
 /***/ }),
-/* 262 */
+/* 263 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************************!*\
@@ -115168,7 +115506,7 @@ module.exports = "<div>\n  <th-autocomplete\n    ng-model=\"thFilterAutocomplete
 module.exports = "<div ng-class=\"{inner: thFilterDate.hasOperator}\">\n  <th-select\n    ng-if=\"thFilterDate.hasOperator\"\n    ng-model=\"thFilterDate.filter.operator\"\n    ng-change=\"thFilterDate.onOperatorChange()\"\n    options=\"thFilterDate.filter.operatorOptions\"\n    condensed=\"true\"\n    class=\"operator\"\n    >\n  </th-select>\n  <th-date-picker\n    ng-model=\"thFilterDate.filter.model\"\n    ng-attr-placeholder=\"{{thFilterDate.filter.placeholder || thFilterDate.placeholder || 'Enter filter date…'}}\"\n    on-change=\"thFilterDate.onValueChange\"\n    condensed=\"true\"\n    ng-class=\"{value: thFilterDate.hasOperator}\"\n    >\n  </th-date-picker>\n</div>\n"
 
 /***/ }),
-/* 263 */
+/* 264 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************************!*\
@@ -115179,7 +115517,7 @@ module.exports = "<div ng-class=\"{inner: thFilterDate.hasOperator}\">\n  <th-se
 module.exports = "<div>\n  <th-input\n    ng-model=\"thFilterInput.filter.model\"\n    ng-attr-placeholder=\"{{thFilterInput.filter.placeholder || thFilterInput.placeholder || 'Enter filter term…'}}\"\n    ng-keypress=\"thFilterInput.onKeypress($event)\"\n    ng-blur=\"thFilterInput.onBlur($event)\"\n    condensed=\"true\"\n    >\n  </th-input>\n</div>\n"
 
 /***/ }),
-/* 264 */
+/* 265 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************************!*\
@@ -115190,7 +115528,7 @@ module.exports = "<div>\n  <th-input\n    ng-model=\"thFilterInput.filter.model\
 module.exports = "<div class=\"inner\">\n  <th-select\n    ng-model=\"thFilterNumber.filter.operator\"\n    ng-change=\"thFilterNumber.onOperatorChange()\"\n    options=\"thFilterNumber.filter.operatorOptions\"\n    condensed=\"true\"\n    class=\"operator\"\n    >\n  </th-select>\n  <th-input\n    ng-model=\"thFilterNumber.filter.model\"\n    ng-attr-placeholder=\"{{thFilterNumber.filter.placeholder || 'Type a number…'}}\"\n    ng-keypress=\"thFilterNumber.onKeypress($event)\"\n    ng-blur=\"thFilterNumber.onBlur($event)\"\n    condensed=\"true\"\n    class=\"value\"\n    type=\"number\"\n    >\n  </th-input>\n</div>\n"
 
 /***/ }),
-/* 265 */
+/* 266 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************************!*\
@@ -115201,7 +115539,7 @@ module.exports = "<div class=\"inner\">\n  <th-select\n    ng-model=\"thFilterNu
 module.exports = "<div>\n  <th-select\n    ng-model=\"thFilterSelect.filter.model\"\n    ng-change=\"thFilterSelect.onValueChange()\"\n    options=\"thFilterSelect.filter.options\"\n    ng-attr-placeholder=\"{{thFilterSelect.filter.placeholder || thFilterSelect.placeholder || 'Select an option'}}\"\n    condensed=\"true\"\n    >\n  </th-select>\n</div>\n"
 
 /***/ }),
-/* 266 */
+/* 267 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************************!*\
@@ -115212,7 +115550,7 @@ module.exports = "<div>\n  <th-select\n    ng-model=\"thFilterSelect.filter.mode
 module.exports = "<div class=\"inner\">\n  <th-select\n    ng-model=\"thFilterTime.filter.operator\"\n    ng-change=\"thFilterTime.onOperatorChange()\"\n    options=\"thFilterTime.operatorOptions\"\n    condensed=\"true\"\n    class=\"operator\"\n    >\n  </th-select>\n  <th-input\n    ng-model=\"thFilterTime.filter.model\"\n    ng-attr-placeholder=\"{{thFilterTime.filter.placeholder || '4am, 16:13'}}\"\n    ng-keypress=\"thFilterTime.onKeypress($event)\"\n    ng-blur=\"thFilterTime.validateInput()\"\n    condensed=\"true\"\n    class=\"value\"\n    >\n  </th-input>\n</div>\n"
 
 /***/ }),
-/* 267 */
+/* 268 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -115223,7 +115561,7 @@ module.exports = "<div class=\"inner\">\n  <th-select\n    ng-model=\"thFilterTi
 module.exports = "<div class=\"row\">\n  <div class=\"field\">\n    <th-autocomplete\n      ng-model=\"thCustomFilterRow.rowSelectValue\"\n      on-change=\"thCustomFilterRow.onRowSelectChange\"\n      delegate=\"thCustomFilterRow.customFieldDelegate\"\n      placeholder=\"Select or search fields…\"\n      show-search-hint=\"thCustomFilterRow.showSearchHint\"\n      condensed=\"true\"\n      icon=\"caret-down\"\n      combobox=\"true\"\n      >\n    </th-autocomplete>\n  </div>\n  <div\n    ng-repeat=\"filter in thCustomFilterRow.rowFilterOptions\"\n    ng-switch on=\"filter.type\"\n    class=\"wide field filter-container\"\n    >\n    <th-filter-select\n      ng-switch-when=\"select\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-select>\n    <th-filter-input\n      ng-switch-when=\"input\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-input>\n    <th-filter-number\n      ng-switch-when=\"number\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      operator-options=\"thCustomFilterRow.numberOperatorOptions\"\n      default-operator-index=\"2\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-number>\n    <th-filter-number\n      ng-switch-when=\"currency\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      operator-options=\"thCustomFilterRow.currencyOperatorOptions\"\n      default-operator-index=\"1\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-number>\n    <th-filter-select\n      ng-switch-when=\"checkbox\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      options=\"thCustomFilterRow.checkboxOptions\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-select>\n    <th-filter-input\n      ng-switch-when=\"email\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      placeholder=\"email@example.com\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-input>\n    <th-filter-input\n      ng-switch-when=\"url\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      placeholder=\"webaddress.com\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-input>\n    <th-filter-autocomplete\n      ng-switch-when=\"autocomplete\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-autocomplete>\n    <th-filter-date\n      ng-switch-when=\"date\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      operator-options=\"thCustomFilterRow.dateOperatorOptions\"\n      default-operator-index=\"1\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-date>\n    <th-filter-time\n      ng-switch-when=\"time\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-time>\n  </div>\n  <div class=\"field\">\n    <div class=\"link\" ng-click=\"thCustomFilterRow.removeRow()\">\n      Remove\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
-/* 268 */
+/* 269 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -115234,7 +115572,7 @@ module.exports = "<div class=\"row\">\n  <div class=\"field\">\n    <th-autocomp
 module.exports = "<div class=\"th-custom-filters\" ng-if=\"thCustomFilters.customFilterTypes.length\">\n  <div class=\"custom-filters\">\n    <div class=\"custom-filters-label\">\n      {{thCustomFilters.name}} Custom Fields\n    </div>\n    <th-custom-filter-row\n      ng-repeat=\"row in thCustomFilters.customFilterRows\"\n      row-select-value=\"row.type\"\n      initial-state=\"row.initialState\"\n      custom-filter-types=\"thCustomFilters.customFilterTypes\"\n      show-search-hint=\"thCustomFilters.showSearchHint\"\n      filter-set=\"thCustomFilters.filterSet\"\n      on-remove-row=\"thCustomFilters.removeCustomFilterRow(row.identifier)\"\n      >\n    </th-custom-filter-row>\n  </div>\n  <div class=\"link add-custom-filter\" ng-click=\"thCustomFilters.addCustomFilterRow()\">\n    <i class=\"fa right-space fa-plus-circle\"></i>\n    Add {{thCustomFilters.name}} Custom Field\n  </div>\n</div>\n"
 
 /***/ }),
-/* 269 */
+/* 270 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -115245,7 +115583,7 @@ module.exports = "<div class=\"th-custom-filters\" ng-if=\"thCustomFilters.custo
 module.exports = "<div class=\"th-filter\" ng-class=\"{'th-filter-loading': thFilter.isLoading}\">\n  <div class=\"th-filter-header\">\n    <div class=\"filter-header-text\">Filters</div>\n    <th-button\n      class=\"clear-filters\"\n      ng-click=\"thFilter.clearFilters()\"\n      type=\"secondary\"\n      >\n      Clear Filters\n    </th-button>\n  </div>\n  <div ng-transclude></div>\n\n  <div class=\"th-filter-overlay\" ng-if=\"thFilter.isLoading\">\n    <th-loader class=\"th-filter-loader\" size=\"small\">&nbsp;</th-loader>\n  </div>\n</div>\n"
 
 /***/ }),
-/* 270 */
+/* 271 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -115256,7 +115594,7 @@ module.exports = "<div class=\"th-filter\" ng-class=\"{'th-filter-loading': thFi
 module.exports = "<div class=\"th-search-row\">\n  <div class=\"row\">\n    <div class=\"field\">\n      <th-filter-input\n        filter-set=\"thSearchRow.filterSet\"\n        filter-options=\"thSearchRow.queryFilterOptions\"\n        with-label=\"Search\"\n        ignore-blur-events=\"true\"\n        initial-state=\"thSearchRow.initialState\"\n        >\n      </th-filter-input>\n    </div>\n    <div class=\"bottom field\">\n      <th-button\n        ng-click=\"thSearchRow.filterSet.onFilterChange()\"\n        type=\"default\"\n        >\n        Search\n      </th-button>\n    </div>\n    <div class=\"field\"></div>\n    <div class=\"field\"></div>\n  </div>\n</div>\n"
 
 /***/ }),
-/* 271 */
+/* 272 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -115267,7 +115605,7 @@ module.exports = "<div class=\"th-search-row\">\n  <div class=\"row\">\n    <div
 module.exports = "<div class=\"th-static-filters\">\n  <div class=\"row\">\n    <div\n      class=\"field\"\n      ng-repeat=\"filter in thStaticFilters.staticFilters track by filter.filterOptions.fieldIdentifier\"\n      ng-switch on=\"filter.filterOptions.type\"\n      >\n      <th-filter-select\n        ng-switch-when=\"select\"\n        class=\"field\"\n        filter-set=\"thStaticFilters.filterSet\"\n        filter-options=\"filter.filterOptions\"\n        with-label=\"{{filter.filterOptions.name}}\"\n        initial-state=\"filter.initialState\"\n        >\n      </th-filter-select>\n      <th-filter-input\n        ng-switch-when=\"input\"\n        class=\"field\"\n        filter-set=\"thStaticFilters.filterSet\"\n        filter-options=\"filter.filterOptions\"\n        with-label=\"{{filter.filterOptions.name}}\"\n        initial-state=\"filter.initialState\"\n        >\n      </th-filter-input>\n      <th-filter-date\n        ng-switch-when=\"date\"\n        class=\"field\"\n        filter-set=\"thStaticFilters.filterSet\"\n        filter-options=\"filter.filterOptions\"\n        with-label=\"{{filter.filterOptions.name}}\"\n        >\n      </th-filter-date>\n      <th-filter-autocomplete\n        ng-switch-when=\"autocomplete\"\n        class=\"field\"\n        filter-set=\"thStaticFilters.filterSet\"\n        filter-options=\"filter.filterOptions\"\n        with-label=\"{{filter.filterOptions.name}}\"\n        initial-state=\"filter.initialState\"\n        >\n      </th-filter-autocomplete>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
-/* 272 */
+/* 273 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -115278,7 +115616,7 @@ module.exports = "<div class=\"th-static-filters\">\n  <div class=\"row\">\n    
 module.exports = "<span\n  class=\"th-input-wrapper\"\n  ng-class=\"[\n    {'is-invalid': input.isInvalid()},\n    {condensed: input.condensed}\n  ]\"\n  >\n  <span ng-if=\"input.prefix\" class=\"th-input-prefix\">{{input.prefix}}</span>\n  <input\n    ng-model=\"input.ngModel\"\n    class=\"th-input\"\n    ng-class=\"[\n      {'with-icon': input.icon},\n      {'with-prefix': input.prefix},\n      {'with-postfix': input.postfix},\n      {'disabled': input.ngDisabled}\n    ]\"\n    id=\"{{input.id}}\"\n    type=\"{{input.type}}\"\n    name=\"{{input.name}}\"\n    placeholder=\"{{input.placeholder}}\"\n    ng-required=\"input.ngRequired\"\n    ng-disabled=\"input.ngDisabled\"\n    ng-blur=\"input.ngBlur()\"\n    ng-keypress=\"input.ngKeypress\"\n    ng-minlength=\"input.ngMinlength\"\n    ng-maxlength=\"input.ngMaxlength\"\n    ng-pattern=\"input.ngPattern\"\n    ng-attr-min=\"{{input.min}}\"\n    ng-attr-max=\"{{input.max}}\"\n    ng-attr-step=\"{{input.step}}\"\n    ng-change=\"input.thOnChange()\"\n    >\n  <i ng-if=\"input.icon\" class=\"th-input-icon fa fa-{{input.icon}}\"></i>\n  <span ng-if=\"input.postfix\" class=\"th-input-postfix\">{{input.postfix}}</span>\n</span>\n"
 
 /***/ }),
-/* 273 */
+/* 274 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************!*\
@@ -115289,7 +115627,7 @@ module.exports = "<span\n  class=\"th-input-wrapper\"\n  ng-class=\"[\n    {'is-
 module.exports = "<ng-include ng-show=\"!lazy.loading\" onload=\"lazy.loadingComplete()\" src=\"lazy.src\"></ng-include>\n<th-loader trigger=\"lazy.loading\" size=\"small\"></th-loader>\n<th-error ng-if=\"lazy.loadError && !lazy.errorMessage && !lazy.loading\">\n  We had trouble loading your content\n  <br>\n  <a\n    href=\"#\"\n    ng-show=\"lazy.name\"\n    ng-click=\"lazy.reload()\"\n    >\n    Try reloading\n  </a>\n  <span ng-hide=\"lazy.name\">Try reloading</span>\n</th-error>\n<th-error ng-if=\"lazy.loadError && lazy.errorMessage && !lazy.loading\">\n  {{lazy.errorMessage}}\n</th-error>\n"
 
 /***/ }),
-/* 274 */
+/* 275 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -115300,7 +115638,7 @@ module.exports = "<ng-include ng-show=\"!lazy.loading\" onload=\"lazy.loadingCom
 module.exports = "<div>\n  <th-loader class=\"meta-spinner\" trigger=\"meta.loading\"></th-loader>\n  <div ng-show=\"!meta.loading\">\n    <ng-transclude></ng-transclude>\n  </div>\n</div>\n"
 
 /***/ }),
-/* 275 */
+/* 276 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -115311,7 +115649,7 @@ module.exports = "<div>\n  <th-loader class=\"meta-spinner\" trigger=\"meta.load
 module.exports = "<div\n  class=\"th-loader {{loader.theme}}\"\n  ng-show=\"loader.visible\"\n  >\n  <div class=\"progress {{loader.size}}\">\n    <div></div>\n  </div>\n  <p ng-hide=\"loader.size == 'mini'\" class=\"loading-text\" ng-transclude></p>\n</div>\n"
 
 /***/ }),
-/* 276 */
+/* 277 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -115322,7 +115660,7 @@ module.exports = "<div\n  class=\"th-loader {{loader.theme}}\"\n  ng-show=\"load
 module.exports = "<div class=\"th-modal {{ modal.name }} {{ modal.size }}\">\n  <div th-compile=\"modal.content\"></div>\n</div>\n"
 
 /***/ }),
-/* 277 */
+/* 278 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -115333,7 +115671,7 @@ module.exports = "<div class=\"th-modal {{ modal.name }} {{ modal.size }}\">\n  
 module.exports = "<div class=\"th-modal-backdrop\" ng-class=\"{visible: anchor.modals.length > 0}\">\n  <div\n    class=\"th-modal-container\"\n    ng-repeat=\"modal in anchor.modals | limitTo:anchor.modalLimit\"\n    >\n    <div class=\"cell\">\n      <th-modal modal-data=\"modal\"></th-modal>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
-/* 278 */
+/* 279 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************************!*\
@@ -115344,7 +115682,7 @@ module.exports = "<div class=\"th-modal-backdrop\" ng-class=\"{visible: anchor.m
 module.exports = "<div class=\"titlebar-title\">\n  {{ $ctrl.title }}\n</div>\n<div class=\"titlebar-actions\">\n  <button\n    ng-click=\"$ctrl.close()\"\n    ng-if=\"$ctrl.showCloseButton\"\n    aria-label=\"Close Modal\"\n    >\n\n    <i class=\"fa fa-times\"></i>\n  </button>\n</div>\n"
 
 /***/ }),
-/* 279 */
+/* 280 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************!*\
@@ -115355,7 +115693,7 @@ module.exports = "<div class=\"titlebar-title\">\n  {{ $ctrl.title }}\n</div>\n<
 module.exports = "<i class=\"th-popover-arrow th-popover-hidden\"></i>\n"
 
 /***/ }),
-/* 280 */
+/* 281 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************!*\
@@ -115366,7 +115704,7 @@ module.exports = "<i class=\"th-popover-arrow th-popover-hidden\"></i>\n"
 module.exports = "<div class=\"th-popover-overlay th-popover-hidden\"></div>\n"
 
 /***/ }),
-/* 281 */
+/* 282 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -115377,7 +115715,7 @@ module.exports = "<div class=\"th-popover-overlay th-popover-hidden\"></div>\n"
 module.exports = "<div\n  class=\"th-popover-view th-popover-hidden\"\n  ng-class=\"{\n              loading: !loaded,\n              'overflow-visible': overflow == 'visible',\n              'overflow-hidden': overflow == 'hidden'\n            }\"\n  >\n  <div\n    class=\"th-popover-content\"\n    th-compile=\"content\"\n    ></div>\n</div>\n"
 
 /***/ }),
-/* 282 */
+/* 283 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -115388,7 +115726,7 @@ module.exports = "<div\n  class=\"th-popover-view th-popover-hidden\"\n  ng-clas
 module.exports = "<span\n  class=\"th-radio-button\"\n  ng-class=\"{\n    checked: checked\n    }\"\n  ng-model=\"group.value\"\n  >\n  <input\n    type=\"radio\"\n    name=\"{{group.name}}\"\n    value=\"{{value}}\"\n    ng-checked=\"checked\"\n    ng-required=\"group.ngRequired\"\n    >\n  <i></i>\n</span>\n"
 
 /***/ }),
-/* 283 */
+/* 284 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************!*\
@@ -115399,7 +115737,18 @@ module.exports = "<span\n  class=\"th-radio-button\"\n  ng-class=\"{\n    checke
 module.exports = "<ng-transclude class=\"th-radio-group\"></ng-transclude>\n"
 
 /***/ }),
-/* 284 */
+/* 285 */
+/* unknown exports provided */
+/* all exports used */
+/*!***************************************************************!*\
+  !*** ./src/lib/thScheduler/calendars/calendars.template.html ***!
+  \***************************************************************/
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"calendars-widget\">\n  <ul>\n    <li ng-repeat=\"calendar in $ctrl.calendars\">\n      <th-checkbox\n        ng-model=\"calendar.visible\"\n        ng-change=\"$ctrl.toggleVisibility(calendar)\"\n        with-label=\"{{calendar.name}}\"\n        >\n      </th-checkbox>\n    </li>\n  </ul>\n</div>"
+
+/***/ }),
+/* 286 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -115410,7 +115759,7 @@ module.exports = "<ng-transclude class=\"th-radio-group\"></ng-transclude>\n"
 module.exports = "<kendo-scheduler k-options=\"$ctrl.options\">\n  <div class=\"product\" k-event-template data-calendar-id=\"{{dataItem.calendar_id}}\">\n    <h3>{{dataItem.title}}</h3>\n  </div>\n</kendo-scheduler>\n"
 
 /***/ }),
-/* 285 */
+/* 287 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -115421,7 +115770,7 @@ module.exports = "<kendo-scheduler k-options=\"$ctrl.options\">\n  <div class=\"
 module.exports = "<div class=\"select-wrapper\"\n  ng-class=\"{condensed: select.condensed}\"\n  >\n  <div\n    class=\"text-wrapper\"\n    ng-class=\"[\n      {disabled: select.ngDisabled},\n      {'is-invalid': select.isInvalid()}\n    ]\"\n    >\n    <span class=\"selected-text\">\n      {{select.selectedText}}\n    </span>\n    <i class=\"fa fa-caret-down\"></i>\n  </div>\n  <select\n    ng-disabled=\"select.ngDisabled\"\n    ng-attr-name=\"{{select.name || undefined}}\"\n    ng-model=\"select.ngModel\"\n    ng-change=\"select.thOnChange()\"\n    ng-options=\"option.{{select.nameField}} group by option.group for option in select.options track by option.{{select.valueField}}\"\n    ng-required=\"select.ngRequired\"\n    >\n    <option\n      ng-show=\"select.placeholder\"\n      value=\"\"\n      >\n      {{select.placeholder}}\n    </option>\n  </select>\n</div>\n"
 
 /***/ }),
-/* 286 */
+/* 288 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -115432,7 +115781,7 @@ module.exports = "<div class=\"select-wrapper\"\n  ng-class=\"{condensed: select
 module.exports = "<span\n  class=\"th-switch\"\n  ng-class=\"{active: switch.state}\"\n  >\n  <input\n    type=\"checkbox\"\n    name=\"{{switch.name}}\"\n    ng-model=\"switch.state\"\n    ng-required=\"switch.ngRequired\"\n    >\n  <i></i>\n</span>\n"
 
 /***/ }),
-/* 287 */
+/* 289 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************!*\
@@ -115443,7 +115792,7 @@ module.exports = "<span\n  class=\"th-switch\"\n  ng-class=\"{active: switch.sta
 module.exports = "<div\n  id=\"{{ariaControlsID}}\"\n  class=\"th-tab\"\n  ng-if=\"show && active\"\n  tabindex=\"0\"\n  ng-transclude\n  >\n</div>\n"
 
 /***/ }),
-/* 288 */
+/* 290 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -115454,7 +115803,7 @@ module.exports = "<div\n  id=\"{{ariaControlsID}}\"\n  class=\"th-tab\"\n  ng-if
 module.exports = "<div class=\"th-tabset {{ type }}\">\n  <ul\n    class=\"th-tab-bar\"\n    role=\"tablist\"\n    >\n    <li\n      ng-click=\"processTabChange(tab)\"\n      ng-repeat=\"tab in tabs\"\n      ng-class=\"{\n        active: tab.active,\n        'letter-spacing': tab.letterSpacing\n      }\"\n      class=\"tab-name\"\n      tabindex=\"{{tab.active ? '0' : '-1'}}\"\n      aria-controls=\"{{tab.ariaControlsID}}\"\n      role=\"tab\"\n      aria-selected=\"{{tab.active}}\"\n      ng-if=\"tab.show\"\n      >\n      {{ tab.name }}\n      <span\n        class=\"th-tab-badge\"\n        ng-if=\"hasBadge(tab)\"\n        aria-label=\"{{ tab.badge }} Items\"\n        >\n        {{ tab.badge }}\n      </span>\n    </li>\n    <div\n      class=\"th-tab-action-bar\"\n      ng-transclude=\"actionBar\"\n      tabindex=\"-1\"\n    >\n    </div>\n  </ul>\n  <div\n    class=\"th-tabset-content\"\n    role=\"tabpanel\"\n    ng-transclude\n    >\n  </div>\n</div>\n"
 
 /***/ }),
-/* 289 */
+/* 291 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -115465,7 +115814,7 @@ module.exports = "<div class=\"th-tabset {{ type }}\">\n  <ul\n    class=\"th-ta
 module.exports = "<textarea\n  ng-model=\"ctrl.model\"\n  ng-required=\"ctrl.ngRequired\"\n  ng-disabled=\"ctrl.ngDisabled\"\n  ng-minlength=\"ctrl.ngMinlength\"\n  ng-maxlength=\"ctrl.ngMaxlength\"\n  ng-pattern=\"ctrl.ngPattern\"\n  ng-change=\"ctrl.thOnChange()\"\n  ng-class=\"[\n    {'with-icon': ctrl.icon},\n    {'disabled': ctrl.ngDisabled},\n    {'is-invalid': ctrl.isInvalid()}\n  ]\"\n  ng-attr-name=\"{{ctrl.name}}\"\n  ng-attr-rows=\"{{ctrl.rows}}\"\n  ng-attr-placeholder=\"{{ctrl.placeholder}}\"\n  >\n</textarea>\n<i ng-if=\"ctrl.icon\" class=\"th-textarea-icon fa fa-{{ctrl.icon}}\"></i>\n"
 
 /***/ }),
-/* 290 */
+/* 292 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -115476,8 +115825,8 @@ module.exports = "<textarea\n  ng-model=\"ctrl.model\"\n  ng-required=\"ctrl.ngR
 module.exports = "<span\n  ng-class=\"{'expanded':truncate.expanded,\n             'th-truncate':truncate.hasTruncateControl}\"\n  >\n  {{ truncate.truncatedText }}\n</span>\n<a\n  href=\"\"\n  class=\"truncate-control\"\n  ng-click=\"truncate.toggleTruncation()\"\n  ng-if=\"truncate.hasTruncateControl\"\n  >\n  ({{ truncate.expanded ? 'close' : 'more' }})\n</a>\n"
 
 /***/ }),
-/* 291 */,
-/* 292 */
+/* 293 */,
+/* 294 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************!*\
@@ -115491,81 +115840,81 @@ angular = __webpack_require__(/*! angular */ 2);
 
 __webpack_require__(/*! @progress/kendo-ui/js/kendo.core.js */ 0);
 
-__webpack_require__(/*! ../vendor_overrides/@progress/kendo-ui/js/kendo.angular.js */ 106);
+__webpack_require__(/*! ../vendor_overrides/@progress/kendo-ui/js/kendo.angular.js */ 107);
 
 __webpack_require__(/*! ../polyfills/ */ 19);
 
 angular.module("ThemisComponents", [__webpack_require__(/*! angular-animate */ 20), __webpack_require__(/*! angular-aria */ 17), __webpack_require__(/*! angular-messages */ 18), __webpack_require__(/*! angular-sanitize */ 21), "kendo.directives", __webpack_require__(/*! ui-select */ 22)]);
 
-__webpack_require__(/*! ./services/ */ 101);
+__webpack_require__(/*! ./services/ */ 102);
 
-__webpack_require__(/*! ./thActionBar/ */ 71);
+__webpack_require__(/*! ./thActionBar/ */ 72);
 
-__webpack_require__(/*! ./thActionBarBilling/ */ 72);
+__webpack_require__(/*! ./thActionBarBilling/ */ 73);
 
-__webpack_require__(/*! ./thAlert/ */ 73);
+__webpack_require__(/*! ./thAlert/ */ 74);
 
-__webpack_require__(/*! ./thAutocomplete/ */ 102);
+__webpack_require__(/*! ./thAutocomplete/ */ 103);
 
-__webpack_require__(/*! ./thButton/ */ 74);
+__webpack_require__(/*! ./thButton/ */ 75);
 
-__webpack_require__(/*! ./thCheckbox/ */ 75);
+__webpack_require__(/*! ./thCheckbox/ */ 76);
 
-__webpack_require__(/*! ./thCompile/ */ 76);
+__webpack_require__(/*! ./thCompile/ */ 77);
 
-__webpack_require__(/*! ./thContentHeader/ */ 77);
+__webpack_require__(/*! ./thContentHeader/ */ 78);
 
-__webpack_require__(/*! ./thContextualMessage/ */ 78);
+__webpack_require__(/*! ./thContextualMessage/ */ 79);
 
-__webpack_require__(/*! ./thDataGrid/ */ 103);
+__webpack_require__(/*! ./thDataGrid/ */ 104);
 
-__webpack_require__(/*! ./thDatePicker/ */ 104);
+__webpack_require__(/*! ./thDatePicker/ */ 105);
 
-__webpack_require__(/*! ./thDefaults/ */ 79);
+__webpack_require__(/*! ./thDefaults/ */ 80);
 
-__webpack_require__(/*! ./thDisclosure/ */ 80);
+__webpack_require__(/*! ./thDisclosure/ */ 81);
 
-__webpack_require__(/*! ./thDropdown/ */ 81);
+__webpack_require__(/*! ./thDropdown/ */ 82);
 
-__webpack_require__(/*! ./thError/ */ 82);
+__webpack_require__(/*! ./thError/ */ 83);
 
-__webpack_require__(/*! ./thFilter/ */ 83);
+__webpack_require__(/*! ./thFilter/ */ 84);
 
-__webpack_require__(/*! ./thInput/ */ 84);
+__webpack_require__(/*! ./thInput/ */ 85);
 
-__webpack_require__(/*! ./thLazy/ */ 85);
+__webpack_require__(/*! ./thLazy/ */ 86);
 
-__webpack_require__(/*! ./thLoader/ */ 86);
+__webpack_require__(/*! ./thLoader/ */ 87);
 
-__webpack_require__(/*! ./thModal/ */ 87);
+__webpack_require__(/*! ./thModal/ */ 88);
 
-__webpack_require__(/*! ./thPlural/ */ 88);
+__webpack_require__(/*! ./thPlural/ */ 89);
 
-__webpack_require__(/*! ./thPopover/ */ 89);
+__webpack_require__(/*! ./thPopover/ */ 90);
 
-__webpack_require__(/*! ./thRadioGroup/ */ 90);
+__webpack_require__(/*! ./thRadioGroup/ */ 91);
 
-__webpack_require__(/*! ./thScheduler/ */ 105);
+__webpack_require__(/*! ./thScheduler/ */ 106);
 
-__webpack_require__(/*! ./thSelect/ */ 91);
+__webpack_require__(/*! ./thSelect/ */ 92);
 
-__webpack_require__(/*! ./thSwitch/ */ 92);
+__webpack_require__(/*! ./thSwitch/ */ 93);
 
-__webpack_require__(/*! ./thTable/ */ 93);
+__webpack_require__(/*! ./thTable/ */ 94);
 
-__webpack_require__(/*! ./thTabset/ */ 94);
+__webpack_require__(/*! ./thTabset/ */ 95);
 
-__webpack_require__(/*! ./thTextarea/ */ 95);
+__webpack_require__(/*! ./thTextarea/ */ 96);
 
-__webpack_require__(/*! ./thTruncate/ */ 96);
+__webpack_require__(/*! ./thTruncate/ */ 97);
 
-__webpack_require__(/*! ./thViewModel/ */ 97);
+__webpack_require__(/*! ./thViewModel/ */ 98);
 
-__webpack_require__(/*! ./thWithFocus/ */ 98);
+__webpack_require__(/*! ./thWithFocus/ */ 99);
 
-__webpack_require__(/*! ./thWithLabel/ */ 99);
+__webpack_require__(/*! ./thWithLabel/ */ 100);
 
-__webpack_require__(/*! ./thWithMessages/ */ 100);
+__webpack_require__(/*! ./thWithMessages/ */ 101);
 
 module.exports = "ThemisComponents";
 

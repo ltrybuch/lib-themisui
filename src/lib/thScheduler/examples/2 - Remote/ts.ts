@@ -6,7 +6,7 @@ angular.module("thSchedulerDemo")
     this.options = {
       dataSource: SchedulerDataSource.createDataSource({
         schema: {
-          data: "entries",
+          data: "data",
           model: {
             fields: {
               end: { from: "end_at", type: "date" },
