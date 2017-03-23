@@ -75681,7 +75681,7 @@ var DataGridService = (function () {
                 if (typeof options.onDataBound === "function") {
                     options.onDataBound(uIDs || []);
                 }
-            }
+            },
         };
         return new kendo.ui.Grid(element, kendoOptions);
     };
@@ -114473,10 +114473,10 @@ var DataGrid = (function () {
         this.$element = $element;
         this.DataGridService = DataGridService;
         this.$scope = $scope;
+        this.currentVisibleRows = [];
         this.wholePageSelected = false;
         this.partialPageSelected = false;
         this.selectedRows = [];
-        this.currentVisibleRows = [];
     }
     DataGrid.prototype.$onInit = function () {
         var options = __assign({}, this.options);
@@ -114531,16 +114531,16 @@ var DataGrid = (function () {
 DataGrid.checkboxColumn = {
     width: "34px",
     title: "<span class='" + data_grid_service_1.DataGridService.headerCheckboxCSSClass + "'></span>",
-    template: "<span class=\"" + data_grid_service_1.DataGridService.rowCheckboxCSSClass + "\" data-uid=\"#= id #\"></span>"
+    template: "<span class=\"" + data_grid_service_1.DataGridService.rowCheckboxCSSClass + "\" data-uid=\"#= id #\"></span>",
 };
 exports.DataGrid = DataGrid;
 var DataGridComponent = {
     template: template,
     bindings: {
-        options: "<"
+        options: "<",
     },
     transclude: true,
-    controller: DataGrid
+    controller: DataGrid,
 };
 exports.DataGridComponent = DataGridComponent;
 
@@ -114561,9 +114561,9 @@ var template = __webpack_require__(/*! ./toolbar.template.html */ 253);
 var ToolbarComponent = {
     template: template,
     require: {
-        dataGridCtrl: "^^thDataGrid"
+        dataGridCtrl: "^^thDataGrid",
     },
-    transclude: true
+    transclude: true,
 };
 exports.ToolbarComponent = ToolbarComponent;
 
@@ -115264,7 +115264,7 @@ module.exports = "<div class=\"th-search-row\">\n  <div class=\"row\">\n    <div
   \********************************************************/
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"th-static-filters\">\n  <div class=\"row\">\n    <div\n      class=\"field\"\n      ng-repeat=\"filter in thStaticFilters.staticFilters track by filter.filterOptions.fieldIdentifier\"\n      ng-switch on=\"filter.filterOptions.type\"\n      >\n      <th-filter-select\n        ng-switch-when=\"select\"\n        class=\"field\"\n        filter-set=\"thStaticFilters.filterSet\"\n        filter-options=\"filter.filterOptions\"\n        with-label=\"{{filter.filterOptions.name}}\"\n        initial-state=\"filter.initialState\"\n        >\n      </th-filter-select>\n      <th-filter-input\n        ng-switch-when=\"input\"\n        class=\"field\"\n        filter-set=\"thStaticFilters.filterSet\"\n        filter-options=\"filter.filterOptions\"\n        with-label=\"{{filter.filterOptions.name}}\"\n        initial-state=\"filter.initialState\"\n        >\n      </th-filter-input>\n      <th-filter-date\n        ng-switch-when=\"date\"\n        class=\"field\"\n        filter-set=\"thStaticFilters.filterSet\"\n        filter-options=\"filter.filterOptions\"\n        with-label=\"{{filter.filterOptions.name}}\"\n        >\n      </th-filter-date>\n      <th-filter-autocomplete\n        ng-switch-when=\"autocomplete\"\n        class=\"field\"\n        filter-set=\"thStaticFilters.filterSet\"\n        filter-options=\"filter.filterOptions\"\n        with-label=\"{{filter.filterOptions.name}}\"\n        initial-value=\"{{filter.initialValue}}\"\n        >\n      </th-filter-autocomplete>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"th-static-filters\">\n  <div class=\"row\">\n    <div\n      class=\"field\"\n      ng-repeat=\"filter in thStaticFilters.staticFilters track by filter.filterOptions.fieldIdentifier\"\n      ng-switch on=\"filter.filterOptions.type\"\n      >\n      <th-filter-select\n        ng-switch-when=\"select\"\n        class=\"field\"\n        filter-set=\"thStaticFilters.filterSet\"\n        filter-options=\"filter.filterOptions\"\n        with-label=\"{{filter.filterOptions.name}}\"\n        initial-state=\"filter.initialState\"\n        >\n      </th-filter-select>\n      <th-filter-input\n        ng-switch-when=\"input\"\n        class=\"field\"\n        filter-set=\"thStaticFilters.filterSet\"\n        filter-options=\"filter.filterOptions\"\n        with-label=\"{{filter.filterOptions.name}}\"\n        initial-state=\"filter.initialState\"\n        >\n      </th-filter-input>\n      <th-filter-date\n        ng-switch-when=\"date\"\n        class=\"field\"\n        filter-set=\"thStaticFilters.filterSet\"\n        filter-options=\"filter.filterOptions\"\n        with-label=\"{{filter.filterOptions.name}}\"\n        >\n      </th-filter-date>\n      <th-filter-autocomplete\n        ng-switch-when=\"autocomplete\"\n        class=\"field\"\n        filter-set=\"thStaticFilters.filterSet\"\n        filter-options=\"filter.filterOptions\"\n        with-label=\"{{filter.filterOptions.name}}\"\n        initial-state=\"filter.initialState\"\n        >\n      </th-filter-autocomplete>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 /* 272 */
