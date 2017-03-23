@@ -14,8 +14,8 @@ angular.module("thDataGridDemo")
     this.options = {
       columns: staticColumns,
       dataSource: DataSource.createDataSource({
-        data: staticData
-      })
+        data: staticData,
+      }),
     };
 
   });

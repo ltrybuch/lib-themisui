@@ -54796,11 +54796,11 @@ var ValidatorService = (function () {
                     else {
                         return true;
                     }
-                }
+                },
             },
             messages: {
-                required: "Required"
-            }
+                required: "Required",
+            },
         };
         this.options = $.extend(true, {}, defaultOpts, options, options.customOptions);
         var validator = new kendo.ui.Validator(options.element, {
@@ -54885,7 +54885,7 @@ var AbstractAutocomplete = (function () {
         else {
             this.options.element.setAttribute("required", "required");
         }
-        validator.validateInput(this.options["element"]);
+        validator.validateInput(this.options.element);
     };
     AbstractAutocomplete.prototype.toggleSearchHint = function (showHint) {
         if (this.kendoComponent) {
@@ -114128,7 +114128,7 @@ var AutocompleteController = (function () {
          * If the condensed attr is supplied, it is already on the th-autocomplete attribute
          * so we need to remove it if non-truthy
          */
-        if ("true" != this.condensed) {
+        if (this.condensed !== "true") {
             this.$element.removeAttr("condensed");
         }
         this.autoComplete = autocomplete_factory_1.AutocompleteFactory.createAutocomplete({
@@ -114149,7 +114149,7 @@ var AutocompleteController = (function () {
                 if (_this.onChange) {
                     _this.onChange(newValue);
                 }
-            }
+            },
         });
         this.validationNameAttr = "validation-" + this.name;
         if (this.$attrs.required) {
@@ -114191,9 +114191,9 @@ angular.module("ThemisComponents")
         ngRequired: "<?",
         combobox: "@",
         rowTemplate: "<?",
-        onChange: "<?"
+        onChange: "<?",
     },
-    controller: AutocompleteController
+    controller: AutocompleteController,
 });
 
 
@@ -114279,7 +114279,7 @@ var Autocomplete = (function (_super) {
             template: this.options.rowTemplate,
             fixedGroupTemplate: "",
             popup: {
-                appendTo: this.options.parentElement
+                appendTo: this.options.parentElement,
             },
             close: function (e) {
                 // Clear autocomplete and combobox inputs on
@@ -114298,9 +114298,9 @@ var Autocomplete = (function (_super) {
                 if (component.sender.value() === "") {
                     _this.options.change(component.sender.value());
                 }
-            }
+            },
         };
-        this.kendoComponent = new kendo.ui.AutoComplete(this.options["element"], widgetOptions);
+        this.kendoComponent = new kendo.ui.AutoComplete(this.options.element, widgetOptions);
     };
     return Autocomplete;
 }(autocomplete_abstract_1.AbstractAutocomplete));
@@ -114354,7 +114354,7 @@ var ComboBoxAutocomplete = (function (_super) {
             template: this.options.rowTemplate,
             fixedGroupTemplate: "",
             popup: {
-                appendTo: this.options.parentElement
+                appendTo: this.options.parentElement,
             },
             close: function (e) {
                 // clear inputs on blur if value is not a valid selection
@@ -114372,9 +114372,9 @@ var ComboBoxAutocomplete = (function (_super) {
                 if (component.sender.value() === "") {
                     _this.options.change(component.sender.value());
                 }
-            }
+            },
         };
-        this.kendoComponent = new kendo.ui.ComboBox(this.options["element"], widgetOptions);
+        this.kendoComponent = new kendo.ui.ComboBox(this.options.element, widgetOptions);
     };
     return ComboBoxAutocomplete;
 }(autocomplete_abstract_1.AbstractAutocomplete));
@@ -114428,15 +114428,15 @@ var MultiSelectAutocomplete = (function (_super) {
             itemTemplate: this.options.rowTemplate,
             fixedGroupTemplate: "",
             popup: {
-                appendTo: this.options.parentElement
+                appendTo: this.options.parentElement,
             },
             change: function (component) {
                 if (_this.options.multiple || component.sender.value() === "") {
                     _this.options.change(component.sender.value());
                 }
-            }
+            },
         };
-        this.kendoComponent = new kendo.ui.MultiSelect(this.options["element"], widgetOptions);
+        this.kendoComponent = new kendo.ui.MultiSelect(this.options.element, widgetOptions);
     };
     return MultiSelectAutocomplete;
 }(autocomplete_abstract_1.AbstractAutocomplete));
@@ -114632,7 +114632,7 @@ var DatepickerController = (function () {
                     });
                 }
                 _this.validator.validateInput(_this.inputElement);
-            }
+            },
         });
     };
     DatepickerController.prototype.createValidator = function () {
@@ -114659,13 +114659,16 @@ var DatepickerController = (function () {
                         return true;
                     }
                     return false;
-                }
+                },
             },
             messages: {
-                valid: "Not a valid date"
+                valid: "Not a valid date",
             },
             validateInput: function (e) {
-                // watch validity change and apply component class change, since other than ngRequire validators aren't part of ngModelCtrl
+                /**
+                 * watch validity change and apply component class change, since other than
+                 * ngRequire validators aren't part of ngModelCtrl
+                 */
                 _this.ngModelCtrl.$setValidity(_this.name, e.valid);
                 // if the validation request comes from formCtrl, $apply is already taken care of by angular.
                 if (_this.neverValidated && _this.formCtrl && _this.formCtrl.$submitted) {
@@ -114674,7 +114677,7 @@ var DatepickerController = (function () {
                 else {
                     _this.$scope.$apply();
                 }
-            }
+            },
         });
     };
     DatepickerController.prototype.revertToLastValidDate = function () {
@@ -114702,7 +114705,9 @@ var DatepickerController = (function () {
         }
     };
     DatepickerController.prototype.$onChanges = function (changesObj) {
+        // return if datepicker is not init yet
         if (!this.datepicker) {
+            // if init value is passed in from ng-model="", evaluate here for initializing datepicker later
             if (changesObj.ngModel) {
                 this.value = this.normalizeDate(changesObj.ngModel.currentValue, "ng-model");
             }
@@ -114736,8 +114741,12 @@ angular.module("ThemisComponents").component("thDatePicker", {
     template: "<input />",
     require: {
         ngModelCtrl: "ngModel",
-        formCtrl: "?^^form"
+        formCtrl: "?^^form",
     },
+    /**
+     * ng-required is not necessary here since class/attr change is dealt with on this ngModel level,
+     * and not passed to kendo
+     */
     bindings: {
         name: "@?",
         min: "<?",
@@ -114749,9 +114758,9 @@ angular.module("ThemisComponents").component("thDatePicker", {
         dateFormat: "@?",
         condensed: "@?",
         revertToValid: "<?",
-        customValidator: "<?"
+        customValidator: "<?",
     },
-    controller: DatepickerController
+    controller: DatepickerController,
 });
 
 
@@ -114779,14 +114788,15 @@ var DatepickerService = (function () {
             format: options.dateFormat,
             footer: "Today",
             change: function () {
-                if (options["change"]) {
-                    options["change"](this.value());
+                if (options.change) {
+                    options.change(this.value());
                 }
             },
-            close: options["close"],
-            open: options["open"]
+            close: options.close,
+            open: options.open,
         });
-        datepicker.enable(!options.ngDisabled); // calling enable after init, because no corresponding option when creating kendo-datepicker
+        // calling enable after init, because no corresponding option when creating kendo-datepicker
+        datepicker.enable(!options.ngDisabled);
         return datepicker;
     };
     return DatepickerService;
@@ -114816,8 +114826,8 @@ var CalendarDataSource = (function () {
             transport: {
                 read: {
                     url: "calendars",
-                    dataType: "json"
-                }
+                    dataType: "json",
+                },
             },
             schema: {
                 data: "calendars",
@@ -114825,9 +114835,9 @@ var CalendarDataSource = (function () {
                     id: "id",
                     fields: {
                         id: { from: "id", type: "number" },
-                    }
-                }
-            }
+                    },
+                },
+            },
         });
     };
     CalendarDataSource.prototype.getIds = function () {
@@ -114942,8 +114952,8 @@ var SchedulerController = (function () {
                 "agenda",
                 "day",
                 "week",
-                "month"
-            ]
+                "month",
+            ],
         });
     };
     return SchedulerController;
@@ -114952,9 +114962,9 @@ exports.SchedulerController = SchedulerController;
 var SchedulerComponent = {
     template: template,
     bindings: {
-        options: "="
+        options: "=",
     },
-    controller: SchedulerController
+    controller: SchedulerController,
 };
 exports.SchedulerComponent = SchedulerComponent;
 

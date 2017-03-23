@@ -15,15 +15,16 @@ class DatepickerService {
       format: options.dateFormat,
       footer: "Today",
       change: function() {
-        if (options["change"]) {
-          options["change"](this.value());
+        if (options.change) {
+          options.change(this.value());
         }
       },
-      close: options["close"],
-      open: options["open"]
+      close: options.close,
+      open: options.open,
     });
 
-    datepicker.enable(!options.ngDisabled); // calling enable after init, because no corresponding option when creating kendo-datepicker
+    // calling enable after init, because no corresponding option when creating kendo-datepicker
+    datepicker.enable(!options.ngDisabled);
     return datepicker;
   }
 }

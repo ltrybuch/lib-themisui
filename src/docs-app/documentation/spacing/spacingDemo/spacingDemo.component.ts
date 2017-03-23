@@ -23,8 +23,8 @@ const spacingDemoComponent: angular.IComponentOptions = {
   bindings: {
     spacingType: "<",
     codeDemo: "<",
-    fullDemo: "<"
-  }
+    fullDemo: "<",
+  },
 };
 
 export default spacingDemoComponent;

@@ -14,8 +14,8 @@ export default class CalendarDataSource implements CalendarDataSourceInterface {
       transport: {
         read: {
           url: "calendars",
-          dataType: "json"
-        }
+          dataType: "json",
+        },
       },
       schema: {
         data: "calendars",
@@ -23,9 +23,9 @@ export default class CalendarDataSource implements CalendarDataSourceInterface {
           id: "id",
           fields: {
             id: { from: "id", type: "number" },
-          }
-        }
-      }
+          },
+        },
+      },
     });
   }
 

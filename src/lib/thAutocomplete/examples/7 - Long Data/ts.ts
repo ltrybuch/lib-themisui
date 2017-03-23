@@ -24,27 +24,27 @@ angular.module("thAutocompleteDemo")
       {id: 16, name: "Vaughan"},
       {id: 17, name: "Gatineau"},
       {id: 18, name: "Longueuil"},
-      {id: 19, name: "Burnaby"}
+      {id: 19, name: "Burnaby"},
     ];
 
     this.defaultDelegate = {
       displayField: "name",
       dataSource: DataSource.createDataSource({
-        data: this.cityOptions
-      })
+        data: this.cityOptions,
+      }),
     };
 
     this.multiDelegate = {
       displayField: "name",
       dataSource: DataSource.createDataSource({
-        data: this.cityOptions
-      })
+        data: this.cityOptions,
+      }),
     };
 
     this.comboDelegate = {
       displayField: "name",
       dataSource: DataSource.createDataSource({
-        data: this.cityOptions
-      })
+        data: this.cityOptions,
+      }),
     };
 });

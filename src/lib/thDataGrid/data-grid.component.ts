@@ -4,23 +4,24 @@ import { DataGridService } from "./data-grid.service";
 const template = require("./data-grid.template.html") as string;
 
 class DataGrid {
-  wholePageSelected = false;
-  partialPageSelected = false;
-  selectedRows: boolean[] = [];
-  private currentVisibleRows: number[] = [];
-  private options: DataGridOptions;
-  private datagrid: kendo.ui.Grid;
   static checkboxColumn = {
     width: "34px",
     title: "<span class='" + DataGridService.headerCheckboxCSSClass + "'></span>",
-    template: `<span class="${DataGridService.rowCheckboxCSSClass}" data-uid="#= id #"></span>`
+    template: `<span class="${DataGridService.rowCheckboxCSSClass}" data-uid="#= id #"></span>`,
   };
+
+  private currentVisibleRows: number[] = [];
+  private options: DataGridOptions;
+  private datagrid: kendo.ui.Grid;
+  wholePageSelected = false;
+  partialPageSelected = false;
+  selectedRows: boolean[] = [];
 
   /* @ngInject */
   constructor(
     private $element: angular.IAugmentedJQuery,
     private DataGridService: DataGridService,
-    private $scope: ng.IScope
+    private $scope: ng.IScope,
   ) {}
 
   $onInit() {
@@ -83,9 +84,9 @@ class DataGrid {
 const DataGridComponent: angular.IComponentOptions = {
   template,
   bindings: {
-    options: "<"
+    options: "<",
   },
   transclude: true,
-  controller: DataGrid
+  controller: DataGrid,
 };
 export { DataGrid, DataGridComponent };

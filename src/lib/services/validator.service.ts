@@ -14,8 +14,8 @@ type validatorOptions = {
     },
     messages?: {
       [name: string]: string;
-    }
-  }
+    },
+  },
 };
 
 class ValidatorService {
@@ -30,11 +30,11 @@ class ValidatorService {
           } else { // if input not required, return valid
             return true;
           }
-        }
+        },
       },
       messages: {
-        required: "Required"
-      }
+        required: "Required",
+      },
     };
 
     this.options = $.extend(true, {}, defaultOpts, options, options.customOptions);

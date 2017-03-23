@@ -13,8 +13,8 @@ angular.module("thDatePickerDemo").controller("thDatePickerDemoCtrl5", function 
   this.validatorObj = {
     messages: {
       required: "THIS IS ABSOLUTELY REQUIRED",
-      valid: "NO WAY IS THIS VALID"
-    }
+      valid: "NO WAY IS THIS VALID",
+    },
   };
 
   this.submit = () => {
@@ -24,8 +24,8 @@ angular.module("thDatePickerDemo").controller("thDatePickerDemoCtrl5", function 
       this.response = {
         $error: {
           dateA: this.form.dateA.$error,
-          dateB: this.form.dateB.$error
-        }
+          dateB: this.form.dateB.$error,
+        },
       };
     }
   };

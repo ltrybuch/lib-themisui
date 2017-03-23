@@ -19,7 +19,7 @@ class ComponentDetails {
     if (!this.component || this.component.private) {
       this.readme = {
         html: null,
-        markdown: projectReadMe
+        markdown: projectReadMe,
       };
       return;
     }
@@ -28,7 +28,7 @@ class ComponentDetails {
 
     this.readme = {
       markdown: this.component.readme.markdown,
-      html: this.$sce.trustAsHtml(this.component.readme.html)
+      html: this.$sce.trustAsHtml(this.component.readme.html),
     };
 
     this.examples = this.component.examples;
@@ -49,8 +49,8 @@ angular.module("ThemisComponentsApp")
   .component("docsComponentDetails", {
     bindings: {
       name: "<",
-      component: "<"
+      component: "<",
     },
     controller: ComponentDetails,
-    template
+    template,
   });

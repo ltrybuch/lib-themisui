@@ -21,5 +21,5 @@ class ComponentList {
 angular.module("ThemisComponentsApp")
   .component("docsComponentList", {
     controller: ComponentList,
-    template
+    template,
   });

@@ -6,7 +6,7 @@ export class AbstractAutocompleteMock extends AbstractAutocomplete {
   }
 
   create() {
-    this.kendoComponent = new kendo.ui.AutoComplete(this.options["element"], {});
+    this.kendoComponent = new kendo.ui.AutoComplete(this.options.element, {});
   }
 
   getInternalOptions() {

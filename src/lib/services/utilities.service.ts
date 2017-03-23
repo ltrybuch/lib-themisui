@@ -1,7 +1,7 @@
 export default class Utilities {
   /* @ngInject */
   constructor(
-    public $timeout: angular.ITimeoutService
+    public $timeout: angular.ITimeoutService,
   ) {}
 
   public onChange(callback: () => void) {

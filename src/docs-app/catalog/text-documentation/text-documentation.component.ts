@@ -23,8 +23,8 @@ const TextDocumentationComponent: angular.IComponentOptions = {
   template,
   controller: TextDocumentation,
   bindings: {
-    doc: "<"
-  }
+    doc: "<",
+  },
 };
 
 export default TextDocumentationComponent;

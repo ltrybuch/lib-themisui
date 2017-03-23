@@ -40,7 +40,7 @@ class DataGridService {
         if (typeof options.onDataBound === "function") {
           options.onDataBound(uIDs || []);
         }
-      }
+      },
     };
 
     return new kendo.ui.Grid(element, kendoOptions);

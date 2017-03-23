@@ -4,8 +4,8 @@ const template = require("./colorSwatch.template.html") as string;
 const colorSwatchComponent: angular.IComponentOptions = {
   template,
   bindings: {
-    colors: "<"
-  }
+    colors: "<",
+  },
 };
 
 export default colorSwatchComponent;

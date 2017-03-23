@@ -40,7 +40,8 @@ describe("ThemisComponents: Component: DatepickerController", () => {
   describe("With the placeholder attribute set", () => {
     it("creates an datepicker with a placeholder", () => {
       scope.placeholder = "Type a foo...";
-      const {element} = SpecHelpers.compileDirective('<th-date-picker ng-model="date" placeholder="{{placeholder}}"></th-date-picker>', scope);
+      const template = `<th-date-picker ng-model="date" placeholder="{{placeholder}}"></th-date-picker>`;
+      const {element} = SpecHelpers.compileDirective(template, scope);
 
       expect(element.attr("placeholder")).toEqual("Type a foo...");
     });
@@ -49,7 +50,8 @@ describe("ThemisComponents: Component: DatepickerController", () => {
   describe("With the name attribute set", () => {
     it("creates an datepicker with a name", () => {
       scope.name = "foo";
-      const {element} = SpecHelpers.compileDirective('<th-date-picker  ng-model="date" name="{{name}}"></th-date-picker>', scope);
+      const template = `<th-date-picker  ng-model="date" name="{{name}}"></th-date-picker>`;
+      const {element} = SpecHelpers.compileDirective(template, scope);
 
       expect(element.attr("name")).toEqual("foo");
     });
@@ -58,7 +60,8 @@ describe("ThemisComponents: Component: DatepickerController", () => {
   describe("With the condensed attribute set", () => {
     it("creates an datepicker with condensed styling", () => {
       scope.condensed = true;
-      const {element} = SpecHelpers.compileDirective('<th-date-picker  ng-model="date" condensed="{{this.condensed}}"></th-date-picker>', scope);
+      const template = `<th-date-picker  ng-model="date" condensed="{{this.condensed}}"></th-date-picker>`;
+      const {element} = SpecHelpers.compileDirective(template, scope);
 
       expect(element.attr("condensed")).toEqual("true");
     });
@@ -66,9 +69,10 @@ describe("ThemisComponents: Component: DatepickerController", () => {
 
   describe("When template specifies on-change callback", () => {
     it("should trigger callback", () => {
-      scope.callback = function() {};
+      scope.callback = (): undefined => undefined;
       spyOn(scope, "callback");
-      const {element} = SpecHelpers.compileDirective('<th-date-picker ng-model="date" on-change="callback"></th-date-picker>', scope);
+      const template = `<th-date-picker ng-model="date" on-change="callback"></th-date-picker>`;
+      const {element} = SpecHelpers.compileDirective(template, scope);
 
       element.find("input").triggerHandler("click");
       const firstDate = $("body").find(".k-calendar-container[aria-hidden='false']").find("td a").first();
@@ -84,8 +88,9 @@ describe("ThemisComponents: Component: DatepickerController", () => {
       scope.max = moment();
       const availableDate = moment().date();
       const unavailableDate = moment().add(1, "days").date();
+      const template = `<th-date-picker ng-model="date" max="max"></th-date-picker>`;
 
-      const {element} = SpecHelpers.compileDirective('<th-date-picker ng-model="date" max="max"></th-date-picker>', scope);
+      const {element} = SpecHelpers.compileDirective(template, scope);
       element.find("input").triggerHandler("click");
 
       expect($(`table a:contains('${ availableDate }')`).text()).toBe(availableDate.toString());
@@ -99,8 +104,9 @@ describe("ThemisComponents: Component: DatepickerController", () => {
       scope.min = moment();
       const availableDate = moment().date();
       const unavailableDate = moment().subtract(1, "days").date();
+      const template = `<th-date-picker ng-model="date" min="min"></th-date-picker>`;
 
-      const {element} = SpecHelpers.compileDirective('<th-date-picker ng-model="date" min="min"></th-date-picker>', scope);
+      const {element} = SpecHelpers.compileDirective(template, scope);
       element.find("input").triggerHandler("click");
 
       expect($(`table a:contains('${ availableDate }')`).text()).toBe(availableDate.toString());

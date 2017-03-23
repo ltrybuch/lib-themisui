@@ -9,22 +9,22 @@ angular.module("thAutocompleteDemo")
           read: {
             url: "//api.github.com/search/repositories",
             type: "get",
-            dataType: "json"
+            dataType: "json",
           },
           parameterMap: (data: any, action: String) => {
             if (action === "read" && data.filter) {
               return {
-                q: data.filter.filters[0] ? data.filter.filters[0].value : ""
+                q: data.filter.filters[0] ? data.filter.filters[0].value : "",
               };
             } else {
               return data;
             }
-          }
+          },
         },
         schema: {
-          data: "items"
-        }
-      })
+          data: "items",
+        },
+      }),
     };
 
     this.cityOptions = [
@@ -47,14 +47,14 @@ angular.module("thAutocompleteDemo")
       {id: 16, name: "Vaughan", province: "Ontario"},
       {id: 17, name: "Gatineau", province: "Quebec"},
       {id: 18, name: "Longueuil", province: "Quebec"},
-      {id: 19, name: "Burnaby", province: "British Columbia"}
+      {id: 19, name: "Burnaby", province: "British Columbia"},
     ];
 
     this.delegate = {
       displayField: "name",
       dataSource: DataSource.createDataSource({
-        data: this.cityOptions
-      })
+        data: this.cityOptions,
+      }),
     };
 
 });

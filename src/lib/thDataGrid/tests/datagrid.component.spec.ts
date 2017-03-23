@@ -20,7 +20,7 @@ describe("ThemisComponents: Component: DataGrid", () => {
   beforeEach(inject((
     DataSource: DataSource,
     _DataGridService_: DataGridService,
-    _$componentController_: angular.IComponentControllerService
+    _$componentController_: angular.IComponentControllerService,
   ) => {
     dataGridService = _DataGridService_;
     $componentController = _$componentController_;
@@ -28,8 +28,8 @@ describe("ThemisComponents: Component: DataGrid", () => {
     scope = {
       opts: {
         columns: staticColumns,
-        dataSource: DataSource.createDataSource({ data: staticData })
-      }
+        dataSource: DataSource.createDataSource({ data: staticData }),
+      },
     };
 
     spyOn(dataGridService, "create");

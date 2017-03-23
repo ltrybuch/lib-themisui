@@ -33,8 +33,8 @@ const spacingDiagramComponent: angular.IComponentOptions = {
   bindings: {
     sassDocObj: "<",
     value: "<",
-    spacingType: "<"
-  }
+    spacingType: "<",
+  },
 };
 
 export default spacingDiagramComponent;

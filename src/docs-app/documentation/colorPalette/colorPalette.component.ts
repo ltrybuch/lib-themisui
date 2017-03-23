@@ -10,23 +10,20 @@ class ColorPalette {
   semanticColors: ColorData[];
   deprecatedColors: ColorData[];
 
-  /* @ngInject */
-  constructor() {}
-
   $onInit() {
     this.rawColors = this.toColorData(
       scssVariables,
-      variable => variable.indexOf("deprecated") === -1 && variable.indexOf("color") === -1
+      variable => variable.indexOf("deprecated") === -1 && variable.indexOf("color") === -1,
     );
 
     this.semanticColors = this.toColorData(
       scssVariables,
-      variable => variable.indexOf("deprecated") === -1 && variable.indexOf("color") !== -1
+      variable => variable.indexOf("deprecated") === -1 && variable.indexOf("color") !== -1,
     );
 
     this.deprecatedColors = this.toColorData(
       scssVariables,
-      variable => variable.indexOf("deprecated") !== -1
+      variable => variable.indexOf("deprecated") !== -1,
     );
   }
 
@@ -37,7 +34,7 @@ class ColorPalette {
       .map(variable => {
         return {
           variable: `$${variable}`,
-          hex: variables[variable].toUpperCase()
+          hex: variables[variable].toUpperCase(),
         };
       });
   }
@@ -45,7 +42,7 @@ class ColorPalette {
 
 const colorPaletteComponent: angular.IComponentOptions = {
   template,
-  controller: ColorPalette
+  controller: ColorPalette,
 };
 
 export default colorPaletteComponent;

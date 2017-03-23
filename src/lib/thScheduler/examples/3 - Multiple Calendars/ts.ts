@@ -12,7 +12,7 @@ fakeResponse(/calendar_entries\?calendar_id\=2/, expectedEntries.secondCalendarE
 angular.module("thSchedulerDemo")
   .controller("thSchedulerDemoCtrl3", function(
     SchedulerDataSource: SchedulerDataSource,
-    CalendarEntriesService: CalendarEntriesService
+    CalendarEntriesService: CalendarEntriesService,
   ) {
 
     this.options = {
@@ -25,10 +25,10 @@ angular.module("thSchedulerDemo")
               id: { from: "id", type: "number" },
               start: { from: "start", type: "date" },
               title: { from: "title" },
-              calendar_id: { from: "calendar_id" }
+              calendar_id: { from: "calendar_id" },
             },
-            id: "id"
-          }
+            id: "id",
+          },
         },
         transport: {
           read: function(e: kendo.data.DataSourceTransportOptions) {
@@ -36,9 +36,9 @@ angular.module("thSchedulerDemo")
               .then(function(entries) {
                 e.success({ entries: entries });
               });
-          }
-        }
+          },
+        },
       }),
-      date: new Date(expectedEntries.date)
+      date: new Date(expectedEntries.date),
     };
   });

@@ -6,9 +6,9 @@ angular.module("thSchedulerDemo")
 
     this.options = {
       dataSource: SchedulerDataSource.createDataSource({
-        data: expectedEntries.items
+        data: expectedEntries.items,
       }),
-      date: new Date(expectedEntries.date)
+      date: new Date(expectedEntries.date),
     };
 
 });

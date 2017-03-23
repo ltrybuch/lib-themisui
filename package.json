@@ -122,6 +122,8 @@
     "start": "TS_NODE_PROJECT=tools gulp",
     "test": "TZ='UTC' karma start",
     "test-once": "TZ='UTC' karma start --single-run",
-    "versionCheck": "npm outdated --depth 0"
+    "versionCheck": "npm outdated --depth 0",
+    "lint": "tslint -c tslint.json --format stylish 'src/**/*.ts'",
+    "fix": "tslint -c tslint.json --format stylish --fix 'src/**/*.ts'"
   }
 }

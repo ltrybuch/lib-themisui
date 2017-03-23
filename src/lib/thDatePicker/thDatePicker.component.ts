@@ -75,7 +75,7 @@ class DatepickerController {
           });
         }
         this.validator.validateInput(this.inputElement);
-      }
+      },
     });
   }
 
@@ -105,13 +105,16 @@ class DatepickerController {
           }
 
           return false;
-        }
+        },
       },
       messages: {
-        valid: "Not a valid date"
+        valid: "Not a valid date",
       },
       validateInput: (e: any) => {
-        // watch validity change and apply component class change, since other than ngRequire validators aren't part of ngModelCtrl
+        /**
+         * watch validity change and apply component class change, since other than
+         * ngRequire validators aren't part of ngModelCtrl
+         */
         this.ngModelCtrl.$setValidity(this.name, e.valid);
 
         // if the validation request comes from formCtrl, $apply is already taken care of by angular.
@@ -120,7 +123,7 @@ class DatepickerController {
         } else {
           this.$scope.$apply();
         }
-      }
+      },
     });
   }
 
@@ -154,8 +157,10 @@ class DatepickerController {
   }
 
   $onChanges(changesObj: any) {
-    if (!this.datepicker) { // return if datepicker is not init yet
-      if (changesObj.ngModel) { // if init value is passed in from ng-model="", evaluate here for initializing datepicker later
+    // return if datepicker is not init yet
+    if (!this.datepicker) {
+      // if init value is passed in from ng-model="", evaluate here for initializing datepicker later
+      if (changesObj.ngModel) {
         this.value = this.normalizeDate(changesObj.ngModel.currentValue, "ng-model");
       }
       return;
@@ -193,20 +198,24 @@ angular.module("ThemisComponents").component("thDatePicker", {
   template: "<input />",
   require: {
     ngModelCtrl: "ngModel",
-    formCtrl: "?^^form"
+    formCtrl: "?^^form",
   },
+  /**
+   * ng-required is not necessary here since class/attr change is dealt with on this ngModel level,
+   * and not passed to kendo
+   */
   bindings: {
     name: "@?",
     min: "<?",
     max: "<?",
     ngModel: "<",
     onChange: "<?",
-    ngDisabled: "<?", // ng-required is not necessary here since class/attr change is dealt with on this ngModel level, and not passed to kendo
+    ngDisabled: "<?",
     placeholder: "@?",
     dateFormat: "@?",
     condensed: "@?",
     revertToValid: "<?",
-    customValidator: "<?"
+    customValidator: "<?",
   },
-  controller: DatepickerController
+  controller: DatepickerController,
 });

@@ -14,11 +14,11 @@ describe("ThemisComponents: thScheduler : CalendarEntriesService", function() {
 
   beforeEach(inject(function(
     _$http_: angular.IHttpService,
-    _$httpBackend_: angular.IHttpBackendService
+    _$httpBackend_: angular.IHttpBackendService,
     ) {
       $http = _$http_;
       $httpBackend = _$httpBackend_;
-    })
+    }),
   );
 
   beforeEach(function() {

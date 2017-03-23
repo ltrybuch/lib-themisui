@@ -24,7 +24,7 @@ angular.module("thAutocompleteDemo")
       {id: 16, name: "Vaughan", province: "Ontario"},
       {id: 17, name: "Gatineau", province: "Quebec"},
       {id: 18, name: "Longueuil", province: "Quebec"},
-      {id: 19, name: "Burnaby", province: "British Columbia"}
+      {id: 19, name: "Burnaby", province: "British Columbia"},
     ];
 
     this.rowTitleTemplate = "Name: #: data.name # :: Province: #: data.province #";
@@ -36,21 +36,21 @@ angular.module("thAutocompleteDemo")
     this.defaultDelegate = {
       displayField: "name",
       dataSource: DataSource.createDataSource({
-        data: this.cityOptions
-      })
+        data: this.cityOptions,
+      }),
     };
 
     this.multiDelegate = {
       displayField: "name",
       dataSource: DataSource.createDataSource({
-        data: this.cityOptions
-      })
+        data: this.cityOptions,
+      }),
     };
 
     this.comboDelegate = {
       displayField: "name",
       dataSource: DataSource.createDataSource({
-        data: this.cityOptions
-      })
+        data: this.cityOptions,
+      }),
     };
 });

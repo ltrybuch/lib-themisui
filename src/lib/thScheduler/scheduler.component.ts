@@ -21,8 +21,8 @@ class SchedulerController {
         "agenda",
         "day",
         "week",
-        "month"
-      ]
+        "month",
+      ],
     });
   }
 }
@@ -30,9 +30,9 @@ class SchedulerController {
 const SchedulerComponent: angular.IComponentOptions = {
   template,
   bindings: {
-    options: "="
+    options: "=",
   },
-  controller: SchedulerController
+  controller: SchedulerController,
 };
 
 export {SchedulerController, SchedulerComponent};

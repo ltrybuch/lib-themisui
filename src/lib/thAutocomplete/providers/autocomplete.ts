@@ -26,7 +26,7 @@ export class Autocomplete extends AbstractAutocomplete {
       template: this.options.rowTemplate,
       fixedGroupTemplate: "",
       popup: {
-        appendTo: this.options.parentElement
+        appendTo: this.options.parentElement,
       },
       close: function(e: any) {
         // Clear autocomplete and combobox inputs on
@@ -45,9 +45,9 @@ export class Autocomplete extends AbstractAutocomplete {
         if (component.sender.value() === "") {
           this.options.change(component.sender.value());
         }
-      }
+      },
     } as kendo.ui.AutoCompleteOptions;
 
-    this.kendoComponent = new kendo.ui.AutoComplete(this.options["element"], widgetOptions);
+    this.kendoComponent = new kendo.ui.AutoComplete(this.options.element, widgetOptions);
   }
 }

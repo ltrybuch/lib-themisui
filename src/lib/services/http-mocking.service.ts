@@ -18,7 +18,7 @@ const fakeResponse = function(urlPattern: RegExp, responseStub: Object): void {
       const obj = {
         data: jsonResponseText,
         status: 200,
-        text: jsonResponseText
+        text: jsonResponseText,
       };
       return obj;
     }

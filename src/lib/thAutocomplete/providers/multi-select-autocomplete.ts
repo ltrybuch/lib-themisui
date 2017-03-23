@@ -24,15 +24,15 @@ export class MultiSelectAutocomplete extends AbstractAutocomplete {
       itemTemplate: this.options.rowTemplate,
       fixedGroupTemplate: "",
       popup: {
-        appendTo: this.options.parentElement
+        appendTo: this.options.parentElement,
       },
       change: (component: any) => {
         if (this.options.multiple || component.sender.value() === "") {
           this.options.change(component.sender.value());
         }
-      }
+      },
     } as kendo.ui.MultiSelectOptions;
 
-    this.kendoComponent = new kendo.ui.MultiSelect(this.options["element"], widgetOptions);
+    this.kendoComponent = new kendo.ui.MultiSelect(this.options.element, widgetOptions);
   }
 }

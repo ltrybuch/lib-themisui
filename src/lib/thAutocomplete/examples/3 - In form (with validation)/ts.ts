@@ -14,9 +14,9 @@ angular.module("thAutocompleteDemo")
 
     this.submit = function() {
       return this.response = this.form.$valid ? {
-        $valid: this.form.$valid
+        $valid: this.form.$valid,
       } : {
-        $error: this.form.repo.$error
+        $error: this.form.repo.$error,
       };
     };
 
@@ -28,8 +28,8 @@ angular.module("thAutocompleteDemo")
       this.validator = ValidatorService.create({
         element: jQuery("form")[0],
         attrs: {
-          required: true
-        }
+          required: true,
+        },
       });
 
       this.validator.validate();
@@ -45,22 +45,22 @@ angular.module("thAutocompleteDemo")
           read: {
             url: "//api.github.com/search/repositories",
             type: "get",
-            dataType: "json"
+            dataType: "json",
           },
           parameterMap: (data: any, action: String) => {
             if (action === "read" && data.filter) {
               return {
-                q: data.filter.filters[0] ? data.filter.filters[0].value : ""
+                q: data.filter.filters[0] ? data.filter.filters[0].value : "",
               };
             } else {
               return data;
             }
-          }
+          },
         },
         schema: {
-          data: "items"
-        }
-      })
+          data: "items",
+        },
+      }),
     };
 
     this.multipleDelegate = {
@@ -71,22 +71,22 @@ angular.module("thAutocompleteDemo")
           read: {
             url: "//api.github.com/search/repositories",
             type: "get",
-            dataType: "json"
+            dataType: "json",
           },
           parameterMap: (data: any, action: String) => {
             if (action === "read" && data.filter) {
               return {
-                q: data.filter.filters[0] ? data.filter.filters[0].value : ""
+                q: data.filter.filters[0] ? data.filter.filters[0].value : "",
               };
             } else {
               return data;
             }
-          }
+          },
         },
         schema: {
-          data: "items"
-        }
-      })
+          data: "items",
+        },
+      }),
     };
 
     this.comboDelegate = {
@@ -97,21 +97,21 @@ angular.module("thAutocompleteDemo")
           read: {
             url: "//api.github.com/search/repositories",
             type: "get",
-            dataType: "json"
+            dataType: "json",
           },
           parameterMap: (data: any, action: String) => {
             if (action === "read" && data.filter) {
               return {
-                q: data.filter.filters[0] ? data.filter.filters[0].value : ""
+                q: data.filter.filters[0] ? data.filter.filters[0].value : "",
               };
             } else {
               return data;
             }
-          }
+          },
         },
         schema: {
-          data: "items"
-        }
-      })
+          data: "items",
+        },
+      }),
     };
 });

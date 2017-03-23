@@ -15,7 +15,7 @@ class HeaderController {
 
 const HeaderComponent: angular.IComponentOptions = {
   template,
-  controller: HeaderController
+  controller: HeaderController,
 };
 
 export {HeaderComponent};

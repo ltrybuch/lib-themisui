@@ -15,7 +15,7 @@ class Search {
   /* @ngInject */
   constructor(
     private catalogService: CatalogService,
-    private $state: StateService
+    private $state: StateService,
   ) {}
 
   $onInit() {
@@ -24,7 +24,7 @@ class Search {
     this.searchDelegate = {
       dataSource: new DataSource().createDataSource({ data }),
       displayField: "name",
-      filterType: "contains"
+      filterType: "contains",
     };
   }
 
@@ -61,7 +61,7 @@ class Search {
 
 const SearchComponent: angular.IComponentOptions = {
   template,
-  controller: Search
+  controller: Search,
 };
 
 export default SearchComponent;

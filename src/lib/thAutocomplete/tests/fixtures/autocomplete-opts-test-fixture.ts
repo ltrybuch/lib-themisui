@@ -6,7 +6,7 @@ export class AutocompleteOptionsTestFixture {
     let delegate: Delegate = {
       displayField: "name",
       trackField: "id",
-      dataSource: new kendo.data.DataSource({})
+      dataSource: new kendo.data.DataSource({}),
     };
 
     let mockOptions: AutocompleteOptions = {
@@ -19,7 +19,7 @@ export class AutocompleteOptionsTestFixture {
       ngRequired: false,
       combobox: false,
       multiple: false,
-      change: () => {}
+      change: (): undefined => undefined,
     };
 
     return mockOptions;

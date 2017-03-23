@@ -7,5 +7,5 @@ class Fixtures {}
 angular.module("ThemisComponentsApp")
   .component("fixtures", {
     controller: Fixtures,
-    template
+    template,
 });

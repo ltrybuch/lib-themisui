@@ -24,7 +24,7 @@ export class ComboBoxAutocomplete extends AbstractAutocomplete {
       template: this.options.rowTemplate,
       fixedGroupTemplate: "",
       popup: {
-        appendTo: this.options.parentElement
+        appendTo: this.options.parentElement,
       },
       close: function(e: any) {
         // clear inputs on blur if value is not a valid selection
@@ -42,9 +42,9 @@ export class ComboBoxAutocomplete extends AbstractAutocomplete {
         if (component.sender.value() === "") {
           this.options.change(component.sender.value());
         }
-      }
+      },
     } as kendo.ui.ComboBoxOptions;
 
-    this.kendoComponent = new kendo.ui.ComboBox(this.options["element"], widgetOptions);
+    this.kendoComponent = new kendo.ui.ComboBox(this.options.element, widgetOptions);
   }
 }

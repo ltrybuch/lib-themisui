@@ -12,20 +12,20 @@ angular.module("thSchedulerDemo")
               end: { from: "end_at", type: "date" },
               id: { from: "id", type: "number" },
               start: { from: "start_at", type: "date" },
-              title: { from: "summary" }
+              title: { from: "summary" },
             },
-            id: "id"
-          }
+            id: "id",
+          },
         },
         transport: {
           read: {
             dataType: "json",
             type: "get",
-            url: "https://private-4521b-entries.apiary-mock.com/entries"
-          }
-        }
+            url: "https://private-4521b-entries.apiary-mock.com/entries",
+          },
+        },
       }),
       // needed to set the range to the mocks from the server
-      date: new Date("2017/02/20")
+      date: new Date("2017/02/20"),
     };
   });

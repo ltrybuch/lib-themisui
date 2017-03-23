@@ -67,7 +67,7 @@ export class AutocompleteController {
      * If the condensed attr is supplied, it is already on the th-autocomplete attribute
      * so we need to remove it if non-truthy
      */
-    if ("true" != this.condensed) {
+    if (this.condensed !== "true") {
       this.$element.removeAttr("condensed");
     }
 
@@ -89,7 +89,7 @@ export class AutocompleteController {
         if (this.onChange) {
           this.onChange(newValue);
         }
-      }
+      },
     });
 
     this.validationNameAttr = `validation-${this.name}`;
@@ -136,7 +136,7 @@ angular.module("ThemisComponents")
       ngRequired: "<?",
       combobox: "@",
       rowTemplate: "<?",
-      onChange: "<?"
+      onChange: "<?",
     },
-    controller: AutocompleteController
+    controller: AutocompleteController,
   });

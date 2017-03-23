@@ -17,25 +17,25 @@ class Flex {
   /* @ngInject */
   constructor(
     private TableHeader: any,
-    private SimpleTableDelegate: any
+    private SimpleTableDelegate: any,
   ) {}
 
   $onInit() {
     this.bootstrapVersion = packageJson.dependencies.bootstrap;
     this.breakPoints = this.parseBreakPointValues(
-      sassDoc.find(variable => variable.context.name === "grid-breakpoints")
+      sassDoc.find(variable => variable.context.name === "grid-breakpoints"),
     );
 
     this.readme = breakPointReadmeFilter(readme, this.breakPoints);
 
     const breakPointsTableHeaders = [
       this.TableHeader({ name: "Name" }),
-      this.TableHeader({ name: "Minimum Width" })
+      this.TableHeader({ name: "Minimum Width" }),
     ];
 
     this.breakPointsTableData = this.SimpleTableDelegate({
       headers: breakPointsTableHeaders,
-      fetchData: ({}, updateData: any) => updateData({ data: this.breakPoints })
+      fetchData: ({}, updateData: any) => updateData({ data: this.breakPoints }),
     });
   }
 
@@ -54,10 +54,12 @@ class Flex {
         .map(breakpointName => {
           return {
             name: breakpointName,
-            value: breakPointValuesObject[breakpointName]
+            value: breakPointValuesObject[breakpointName],
           };
         });
-    } catch (error) {}
+    } catch (error) {
+      // We don't currently do anything with the error
+    }
 
     return breakPoints;
   }
@@ -65,7 +67,7 @@ class Flex {
 
 const flexDocComponent: angular.IComponentOptions = {
   template,
-  controller: Flex
+  controller: Flex,
 };
 
 export default flexDocComponent;

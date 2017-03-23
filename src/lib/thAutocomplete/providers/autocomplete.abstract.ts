@@ -67,7 +67,7 @@ abstract class AbstractAutocomplete {
     } else {
       this.options.element.setAttribute("required", "required");
     }
-    validator.validateInput(this.options["element"]);
+    validator.validateInput(this.options.element);
   }
 
   public toggleSearchHint(showHint: boolean) {

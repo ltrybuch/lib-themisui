@@ -19,14 +19,14 @@ class Spacing {
   sassObjectsByType: {
     insets: SassDoc[],
     stacks: SassDoc[],
-    inlines: SassDoc[]
+    inlines: SassDoc[],
   };
 
   /* @ngInject */
   constructor(
       private SimpleTableDelegate: any,
       private TableHeader: any,
-      private $timeout: angular.ITimeoutService
+      private $timeout: angular.ITimeoutService,
     ) {}
 
   $onInit() {
@@ -37,20 +37,20 @@ class Spacing {
     const variableTableHeaders = [
       this.TableHeader({ name: "Size name" }),
       this.TableHeader({ name: "Value" }),
-      this.TableHeader({ name: "Variable" })
+      this.TableHeader({ name: "Variable" }),
     ];
 
     const mixinTableHeaders = [
       this.TableHeader({ name: "Size" }),
       this.TableHeader({ name: "CSS" }),
       this.TableHeader({ name: "Mixin" }),
-      this.TableHeader({ name: "Helper class" })
+      this.TableHeader({ name: "Helper class" }),
     ];
 
     const prepMixinData = (sass: SassDoc) => {
       const context = Object.assign({}, sass.context, {
         code: sass.context.code.replace(" !important;", ""),
-        name: this.mixinInclude + sass.context.name
+        name: this.mixinInclude + sass.context.name,
       });
 
       return Object.assign({}, sass, { context });
@@ -74,28 +74,28 @@ class Spacing {
 
     this.variableTableData = this.SimpleTableDelegate({
       headers: variableTableHeaders,
-      fetchData: ({}, updateData: any) => updateData({ data: this.variables })
+      fetchData: ({}, updateData: any) => updateData({ data: this.variables }),
     });
 
     this.insetsTableData = this.SimpleTableDelegate({
       headers: mixinTableHeaders,
-      fetchData: ({}, updateData: any) => updateData({ data: this.insets })
+      fetchData: ({}, updateData: any) => updateData({ data: this.insets }),
     });
 
     this.stacksTableData = this.SimpleTableDelegate({
       headers: mixinTableHeaders,
-      fetchData: ({}, updateData: any) => updateData({ data: this.stacks })
+      fetchData: ({}, updateData: any) => updateData({ data: this.stacks }),
     });
 
     this.inlinesTableData = this.SimpleTableDelegate({
       headers: mixinTableHeaders,
-      fetchData: ({}, updateData: any) => updateData({ data: this.inlines })
+      fetchData: ({}, updateData: any) => updateData({ data: this.inlines }),
     });
 
     this.sassObjectsByType = {
       insets: this.getAssociatedSassObjects(this.insets),
       stacks: this.getAssociatedSassObjects(this.stacks),
-      inlines: this.getAssociatedSassObjects(this.inlines)
+      inlines: this.getAssociatedSassObjects(this.inlines),
     };
   }
 
@@ -105,8 +105,8 @@ class Spacing {
 
   getMixinValue(mixinObj: SassDoc) {
     const size = mixinObj.description;
-    const variable = this.variables.find(variable => variable.description === size);
-    return variable && variable.context.value;
+    const foundVariable = this.variables.find(variable => variable.description === size);
+    return foundVariable && foundVariable.context.value;
   }
 
   getCssClassObjFromMixin(mixinObj: SassDoc) {
@@ -127,7 +127,7 @@ class Spacing {
 
 const spacingDocComponent: angular.IComponentOptions = {
   controller: Spacing,
-  template
+  template,
 };
 
 export default spacingDocComponent;

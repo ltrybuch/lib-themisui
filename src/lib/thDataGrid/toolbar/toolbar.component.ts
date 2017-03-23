@@ -4,9 +4,9 @@ const template = require("./toolbar.template.html") as string;
 const ToolbarComponent: angular.IComponentOptions = {
   template,
   require: {
-    dataGridCtrl: "^^thDataGrid"
+    dataGridCtrl: "^^thDataGrid",
   },
-  transclude: true
+  transclude: true,
 };
 
 export { ToolbarComponent };

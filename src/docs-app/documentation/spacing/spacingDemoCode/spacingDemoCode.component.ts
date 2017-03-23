@@ -37,10 +37,10 @@ class SpacingDemoCode {
     if (this.fullDemo) {
       this.examplesToDisplay = [{
         type: "scss",
-        code: fullDemoSass
+        code: fullDemoSass,
       }, {
         type: "html",
-        code: fullDemoMarkup
+        code: fullDemoMarkup,
       }];
     }
   }
@@ -54,8 +54,8 @@ const spacingDemoCodeComponent: angular.IComponentOptions = {
     exampleSize: "<",
     showRender: "<",
     spacingType: "<",
-    fullDemo: "<"
-  }
+    fullDemo: "<",
+  },
 };
 
 export default spacingDemoCodeComponent;

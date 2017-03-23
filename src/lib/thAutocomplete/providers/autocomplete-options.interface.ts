@@ -4,7 +4,7 @@ type Delegate = {
   displayField?: string,
   trackField?: string,
   filterType?: string,
-  minLength?: number
+  minLength?: number,
 };
 
 type AutocompleteOptions = {
@@ -24,7 +24,7 @@ type AutocompleteOptions = {
   placeholder: string,
   value: any,
   noDataTemplate?: string,
-  rowTemplate?: string
+  rowTemplate?: string,
 };
 
 

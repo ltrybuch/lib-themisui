@@ -6,7 +6,7 @@ angular.module("ThemisComponentsApp")
   .config(function(
     $stateProvider: StateProvider,
     $urlRouterProvider: UrlRouterProvider,
-    $locationProvider: angular.ILocationProvider
+    $locationProvider: angular.ILocationProvider,
   ) {
     $locationProvider.html5Mode(true);
 
@@ -14,7 +14,7 @@ angular.module("ThemisComponentsApp")
       .state({
         name: "index",
         url: "/",
-        component: "docsComponentDetails"
+        component: "docsComponentDetails",
       })
 
       .state({
@@ -24,8 +24,8 @@ angular.module("ThemisComponentsApp")
         resolve: {
           component: function(catalogService: CatalogService, $transition$: Transition) {
             return catalogService.getComponent($transition$.params().name);
-          }
-        }
+          },
+        },
       })
 
       .state({
@@ -44,7 +44,7 @@ angular.module("ThemisComponentsApp")
             console.warn(`Selected route "${route}" not found.`);
             return "";
           }
-        }
+        },
       });
 
     $urlRouterProvider.otherwise("/");

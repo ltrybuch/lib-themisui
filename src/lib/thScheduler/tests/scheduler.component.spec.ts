@@ -8,8 +8,8 @@ import { SchedulerController } from "../scheduler.component";
 let scope: {
   options: {
     dataSource?: kendo.data.DataSource,
-    date?: Date
-  }
+    date?: Date,
+  },
 };
 
 let $componentController: ng.IComponentControllerService;
@@ -52,17 +52,17 @@ describe("ThemisComponents: Component: SchedulerController", () => {
       scope = {
         options: {
           dataSource: schedulerDataSource.createDataSource({
-            data: expectedEntries.items
+            data: expectedEntries.items,
           }),
-          date: new Date(expectedEntries.date)
-        }
+          date: new Date(expectedEntries.date),
+        },
       };
     });
 
     it("creates a scheduler", () => {
       let {element} = SpecHelpers.compileDirective(
         `<th-scheduler options="options"></th-scheduler>`,
-        scope
+        scope,
       );
       expect(element.find(".k-scheduler").length).toEqual(1);
     });
@@ -70,7 +70,7 @@ describe("ThemisComponents: Component: SchedulerController", () => {
     it("renders the first entry", () => {
       let {element} = SpecHelpers.compileDirective(
         `<th-scheduler options="options"></th-scheduler>`,
-        scope
+        scope,
       );
       expect(element.find(".product > h3").first().text()).toEqual("Brunch with Giles");
     });

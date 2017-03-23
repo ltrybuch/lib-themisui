@@ -10,15 +10,15 @@ angular.module("thDataGridDemo")
       columns: staticColumns,
       dataSource: DataSource.createDataSource({
         data: staticData,
-        pageSize: 5
+        pageSize: 5,
       }),
       pageable: {
-        pageSizes: true
+        pageSizes: true,
       },
       selectable: true,
       onSelectionChange: (selectedIDs: number[]) => {
         this.selectedIDs = selectedIDs;
-      }
+      },
     };
 
   });
