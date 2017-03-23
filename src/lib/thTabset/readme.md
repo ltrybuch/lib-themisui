@@ -1,17 +1,13 @@
-# Tabs — `thTabset` / `thTab`
-
-## Description
+# Tabs
 
 Want some tabs? The `th-tabset` & `th-tab` power duo are just what you were looking for.
 
 Each `th-tab` gets a `name` which will be used as the label for the tab bar.
 Any content inside of `th-tab` will be the content of that tab.
 
----
-
 ## Attributes
 
-#### thTab
+### thTab
 [name="string"]
 - `name` is used as the label for the tab bar. This is not required but the tab
 will not be visible in the tab bar without a name.
@@ -34,7 +30,7 @@ to accommodate alphabet pattern (i.e. `A B C D ...`).
 When true it is included in the DOM. Note that when an active tab is removed the
 next available tab to the left will be selected. Similar to how browser tabs work.
 
-#### thTabSet
+### thTabSet
 [type="string"]
 - `type` allows you to modify the `thTabset` styling based on it's intended purpose.
 Current options include `header` and `sub-header`.
@@ -43,8 +39,6 @@ Current options include `header` and `sub-header`.
 - Use `active-tab` to set which tab should be active by passing the corresponding
 `th-tab` name.
 - Optional: `th-tabset` sets the first tab to active by default.
-
----
 
 ## Usage
 ### Standard Markup
@@ -83,8 +77,6 @@ You can also include transclude elements (such as `thButton` and `thDropdown`) b
 </th-tabset>
 ```
 
----
-
 ## Accessibility
 
 The `thTabset` component adheres to the standards set in the [WAI-ARIA Authoring Practices 1.1](https://www.w3.org/TR/wai-aria-practices-1.1/#tabpanel) document.
@@ -95,10 +87,6 @@ The `thTabset` component adheres to the standards set in the [WAI-ARIA Authoring
 `thButton` and `thDropdown` elements in the `th-tab-action-bar` element can be
 navigated with the `Tab` key as expected.
 
----
-
 ## Notes
 
 - Combine this with `th-lazy` for an extreme team of lazy-loaded tabs!
-
----

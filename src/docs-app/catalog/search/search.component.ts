@@ -16,7 +16,9 @@ class Search {
   constructor(
     private catalogService: CatalogService,
     private $state: StateService,
-  ) {}
+  ) {
+    this.onChange = this.onChange.bind(this);
+  }
 
   $onInit() {
     const data = this.createDataSource(this.catalogService.docs, this.catalogService.components);
@@ -52,7 +54,8 @@ class Search {
     return [...docData, ...componentData];
   }
 
-  onChange() {
+  onChange(newModel: searchModel) {
+    this.model = newModel;
     if (this.model) {
       this.$state.go(this.model.type, { name: this.model.route });
     }

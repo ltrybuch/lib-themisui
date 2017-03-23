@@ -1,8 +1,8 @@
-# th-scheduler
+# Scheduler
 
 `th-scheduler` is used to display and edit calendar data.
 
-## Example
+### Example
 
 ```html
 <th-scheduler options="demo.options"></th-scheduler>

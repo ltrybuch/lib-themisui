@@ -1,64 +1,85 @@
+@import "../../docs-app/fonts";
 .docs-component-example {
   margin-bottom: 3rem;
   max-width: 1000px;
+  padding-top: $spacing-l;
 
   form {
-    border: solid 2px $blue;
+    border: $border;
+    background: $white;
+    border-radius: 2px;
   }
-
   header {
-    $header-height: 30px;
+    $header-height: 32px;
+    padding: $spacing-s $spacing-m;
 
     height: $header-height;
-    border-bottom: solid 2px $blue;
-    background-color: $blue;
+    border-bottom: $border;
+    background-color: $grey-1;
+    border-radius: 2px 2px 0 0;
+
+    font-family: $proxima-nova;
 
     h3,
     input {
       display: inline-block;
       height: $header-height;
-      margin: 0px;
-      padding: 1rem;
       vertical-align: top;
     }
 
     a,
     input[type="submit"] {
       display: inline-block;
-      padding: 0rem 2rem;
+      padding: 0;
+      margin-bottom: $spacing-m;
 
-      color: $white;
+      color: $grey-5;
       text-decoration: none;
       font-size: inherit;
       line-height: $header-height;
+      padding: 0 $spacing-s;
+      cursor: pointer;
+      border-radius: 2px;
 
-      border-right: solid 1px $deprecated-light-blue;
-
-      cursor: pointer
+    }
+    a:hover {
+      background: $grey-3;
+      color: $grey-6;
     }
 
     button[type="submit"] {
       float: right;
       background-color: transparent;
       border: none;
-      border-left: solid 1px $deprecated-light-blue;
       cursor: pointer;
-      width: 34px;
-      height: 28px;
+      width: $header-height;
+      height: $header-height;
+      line-height: $header-height;
       outline: none;
 
       i {
         font-size: 2em;
-        color: #fff;
+        color: $grey-5;
+      }
+      &:hover {
+        color: $grey-6;
+        background-color: $grey-3;
+        border-radius: 2px;
+        i {
+          color: $grey-6;
+        }
       }
     }
   }
 
   pre {
     margin: 0px;
+    font-family: $sans-serif;
 
     &[class*="language-"] {
       margin: 0;
+      border: none;
+      background-color: $white;
     }
   }
 

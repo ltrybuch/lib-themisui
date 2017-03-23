@@ -1,6 +1,4 @@
-# Input — `thTextarea`
-
-## Description
+# Textarea
 
 The `<textarea>` tag defines a multi-line text input control. `<thTextarea>` is
 a replacement to the standard `<textarea>` element.
@@ -39,5 +37,3 @@ font can be used by just passing in the relevant name. ex: `icon="dollar"` for `
 ## Notes
 - `th-textarea`'s width is set to 100% so it will conform to the parent's width.
 Set your width adjustments to the parent element and not directly on `th-textarea`.
-
-

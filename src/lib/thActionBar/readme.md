@@ -1,4 +1,4 @@
-# `thActionBar`
+# Action Bar
 The action bar component is used to interact with a collections of items.
 This component is meant primarily to be used with a table (see [thTable](.\thTable)).
 
@@ -18,7 +18,7 @@ set itself to a loading state and becomes disabled until the implementer (you!) 
 it to remove this state. This ensure no more than one actions can be taken at a time
 on your collection.
 
-## Example
+### Example
 ```coffeescript
 @actionBarDelegate = new ActionBarDelegate
   onApply: ({ids, selectedAction}, reset) ->

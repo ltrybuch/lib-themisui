@@ -1,5 +1,6 @@
 @import "~prismjs/themes/prism";
 @import "src/themes/themis/index";
+@import "src/lib/index";
 
 @import "./settings";
 
@@ -12,28 +13,45 @@
 @import "../catalog/header/index";
 @import "../catalog/search/index";
 @import "../catalog/component-example/index";
-
+@import "./fonts";
 
 html {
   font-size: 10px;
 }
 
 body {
-  font-family: $sans-serif;
-  font-weight: 300;
-  font-size: 13px;
-
+  font-family: $proxima-nova;
+  font-size: 16px;
+  line-height: 20px;
   overflow: hidden;
 }
+.docs-app {
+  h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+  }
 
-h1, h2, h3, p {
-  margin: 0;
-  margin-bottom: 1.2rem;
-  padding: 0;
-}
-
-h1, h2, h3 {
-  @include gibson-semibold;
+  h1, h2, h3, h4,h5, h6 {
+    font-weight: 600;
+  }
+  h1 {
+    margin-bottom: $spacing-l;
+    font-size: 30px;
+    line-height: 34px;
+  }
+  h2 {
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: $spacing-l;
+  }
+  h3, h4, h5, h6 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: $spacing-l;
+  }
+  p {
+    margin-bottom: $spacing-xl;
+  }
 }
 
 .sidebar {
@@ -42,6 +60,7 @@ h1, h2, h3 {
   bottom: 0px;
   left: 0px;
   width: $list-view-width;
+  border-right: solid 1px $grey-2;
   overflow-y: scroll;
 
   .github-link {
@@ -73,18 +92,17 @@ h1, h2, h3 {
   }
 
   .component-list-view {
+    font-size: 14px;
 
-    padding: 20px;
+    padding: $spacing-l;
 
     color: $grey-5;
-    border-right: solid 1px $grey-2;
     background-color: $white;
 
     overflow: auto;
 
     @mixin heading {
       color: $text-color;
-
       &, &.selected {
         font-weight: 600;
       }
@@ -92,17 +110,23 @@ h1, h2, h3 {
 
     @mixin link {
       text-decoration: none;
+      padding: 0 12px;
+      border-radius: 2px;
+      color: $grey-5;
 
-      &:hover, &.selected {
-          color: $blue;
-        }
+      &:hover {
+        background: $grey-2;
+        color: $grey-6;
+      }
 
       &.selected {
-        background-color: rgba($blue, 0.1);
-        border-radius: 4px;
-
+        background-color: $blue;
         font-weight: 400;
+        color: $white;
       }
+    }
+    .nav-section {
+      margin-bottom: $spacing-m;
     }
 
     hr {
@@ -115,8 +139,10 @@ h1, h2, h3 {
     }
 
     th-disclosure-toggle {
+      margin-bottom: 300px;
       a {
         position: relative;
+        font-weight: 700;
       }
 
       span {
@@ -126,21 +152,16 @@ h1, h2, h3 {
           color: $grey-5;
 
           position: absolute;
-          right: 30px;
-          top: 12px;
+          right: $spacing-m;
+          top: 10px;
         }
       }
     }
 
     th-disclosure-content {
-      padding-left: 16px;
-
       a {
         box-sizing: border-box;
         cursor: pointer;
-        color: $grey-6;
-        margin-right: 20px;
-
         @include link;
       }
 
@@ -165,11 +186,10 @@ h1, h2, h3 {
 
     &.as-list {
       a {
-        $size: 3.8rem;
+        $size: 32px;
 
         display: block;
         height: $size;
-        padding-left: 1.2rem;
 
         line-height: $size;
       }
@@ -186,20 +206,109 @@ h1, h2, h3 {
   left: $list-view-width;
   right: 0;
 
-  padding: 2rem;
-  padding-left: 3rem;
+  padding: $spacing-xl;
 
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  line-height: 1.5;
   color: #333;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 20px;
   word-wrap: break-word;
 
   overflow: auto;
-
-  h2 {
-    margin-top: 1.2rem;
+}
+a {
+  color: $blue;
+}
+code[class*="language-"], pre[class*="language-"] {
+  font-size: 14px;
+  line-height: 18px;
+  margin-bottom: $spacing-l;
+}
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+  background: $grey-1;
+  border-radius: 2px;
+}
+pre[class*="language-"] {
+  padding: $spacing-l;
+  border: 1px solid $grey-4;
+}
+ul, ol {
+  margin: 0;
+  padding: 0;
+  padding-left: $spacing-l;
+  margin-bottom: $spacing-xl;
+  list-style-position: outside;
+}
+ul li, ol li {
+  margin-bottom: $spacing-s;
+  &:last-child {
+    margin-bottom: 0;
   }
+}
+
+table {
+  border: 1px solid $grey-3;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: $spacing-l;
+}
+th, td {
+  text-align: left;
+}
+th {
+  background-color: $grey-1;
+  padding: $spacing-s $spacing-m;
+  border-right: 1px solid $grey-2;
+  height: 32px;
+  padding: 0 $spacing-m;
+  font-weight: 700;
+}
+td {
+  border: 1px solid $grey-3;
+  padding: $spacing-s $spacing-m;
+  border-right: 1px solid $grey-2;
+}
+strong {
+  font-family: $proxima-nova;
+  font-weight: 700;
+}
+.helper-text {
+  color: $grey-5;
+}
+hr {
+  border: 0;
+  background: $grey-3;
+  margin: $spacing-l 0;
+  height:1px;
+}
+.badge {
+  font-size: 12px;
+  border: 1px solid $grey-6;
+  padding: $spacing-xs $spacing-s;
+  border-radius: 2px;
+  background: $grey-6;
+  color: $white;
+  font-weight: 600;
+  &.green {
+    border-color: $green;
+    background: $green;
+  }
+  &.orange {
+    border-color: $orange;
+    background: $orange;
+  }
+  &.red {
+    border-color: $red;
+    background: $red;
+  }
+  &.blue {
+    border-color: $blue;
+    background: $blue;
+  }
+}
+.badge.light-grey {
+  border-color: $grey-2;
+  background: $grey-2;
+  color: $grey-6;
 }

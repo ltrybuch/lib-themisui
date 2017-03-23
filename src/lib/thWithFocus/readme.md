@@ -1,6 +1,4 @@
-# Input — `with-focus`
-
-## Description
+# With focus
 
 Use the `with-focus` directive to manually set the focus on that element.
 This is particularly useful for edit modals as the user can immediately interact

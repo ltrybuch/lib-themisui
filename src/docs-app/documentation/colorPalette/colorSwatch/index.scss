@@ -21,6 +21,14 @@ color-swatch {
 
     .hex, .variable {
       margin: 0;
+      font-size: 16px;
+    }
+    .variable {
+      font-weight: 600;
+    }
+    .hex {
+      color: $grey-5;
+      font-size: 14px;
     }
 
     &:after {

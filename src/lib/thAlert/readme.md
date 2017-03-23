@@ -1,4 +1,4 @@
-# Alert Message - `thAlert`
+# Alert Message
 
 Alert messages are used to inform a user that an action has taken place or to
 raise awareness to an issue.
@@ -50,4 +50,3 @@ AlertManager.showWarning "The selected contact does not have an email address."
 ### Options
 There is an optional parameter to override the default timeout behavior:
   - **`timeout`**: duration until thAlert disappears (in millseconds). `3000` is the default. Use `0` for no timeout.
-

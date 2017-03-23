@@ -1,6 +1,4 @@
-# `thCheckbox`
-
-## Description
+# Checkbox
 
 You use `thCheck` create and manage checkboxes used, for example, in forms. This directive can be used in place of the default checkbox to help keep the view identical regardless of OS or browser.
 
@@ -24,11 +22,7 @@ is clicked.
 - This **requires** ngModel to be present.
 [ng-change Angular docs](https://docs.angularjs.org/api/ng/directive/ngChange).
 
----
-
 ## Usage
-
-### Markup
 ```
 <th-checkbox ng-model="state"></th-checkbox>
 ```
@@ -37,8 +31,6 @@ Specify an optional expression to evaluate using `ng-change` and/or `ng-click`.
 <th-checkbox ng-model="state" ng-change="someAction()"></th-checkbox>
 
 ```
-
----
 
 ## Accessibility
 
@@ -51,5 +43,3 @@ The `thCheckbox` component adheres to the standards set in the [WAI-ARIA Authori
 * `aria-describedby` [string] A description of a checkbox's function can be
 provided by setting the `aria-describedby` attribute to that of the `id` of the
 description element.
-
----

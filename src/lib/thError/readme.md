@@ -1,10 +1,8 @@
-# `thError`
-
-## Description
+# Error
 
 Use the `thError` component to display a stylized error message.
 
-### Markup
+## Usage
 ```
 <th-error></th-error>
 ```

@@ -1,6 +1,4 @@
-# `thDatePicker`
-
-## Description
+# Datepicker
 
 You use 'thDatePicker' to create an input field that contains a string according to a date format.
 

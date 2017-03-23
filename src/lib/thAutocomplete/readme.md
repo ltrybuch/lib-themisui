@@ -1,8 +1,8 @@
-# th-autocomplete
+# Autocomplete
 
 `th-autocomplete` is used to suggest options to the user based on keyboard input.
 
-## Example
+### Example
 
 ```html
 <th-autocomplete delegate="demo.delegate"></th-autocomplete>
@@ -34,7 +34,7 @@
 The th-autocomplete delegate supplies configuration options for the component. Refer to the Demos for code samples.
 
 * `delegate` (**required**) represents a dictionary of arguments passed to the component.
-  * `dataSource` (**required**) - Use ```DataSource.createDataSource({})``` 
+  * `dataSource` (**required**) - Use ```DataSource.createDataSource({})```
   which takes any valid [kendo.data.DataSource](http://docs.telerik.com/kendo-ui/api/javascript/data/datasource) options.
   * `displayField` (*required*) the item field to display (ex: `name`).
   * `trackField` (*optional*) defines the unique key to use for indexing list items internally (defaults to `id`).

@@ -1,4 +1,4 @@
-# Filter - `thFilter`
+# Filter
 
 The filter component is used to filter a set of data by applying operators to
 the fields of a dataset. It consists of the set of models used to generate a
@@ -297,5 +297,3 @@ to the set.
 
 The `th-search-row` element defines the search row pattern consisting of an
 input field and "Search" button.
-
-

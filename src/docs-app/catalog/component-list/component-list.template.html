@@ -1,36 +1,42 @@
 <div class="sidebar">
   <div ng-cloak class="component-list-view {{$ctrl.viewType}}">
-
-    <a
-      ng-repeat="globalDocsObj in $ctrl.globalDocs"
-      ui-sref-active="selected"
-      ui-sref="docs({name: globalDocsObj.name})"
-      >
-      {{globalDocsObj.displayName}}
-    </a>
-
-    <th-disclosure-toggle name="th-guidelines" expanded="true">Guidelines</th-disclosure-toggle>
-    <th-disclosure-content name="th-guidelines">
+    <div class="nav-section" ng-if="$ctrl.globalDocs.length > 0">
       <a
-        ng-repeat="docsObj in $ctrl.docs"
+        ng-repeat="globalDocsObj in $ctrl.globalDocs"
         ui-sref-active="selected"
         ui-sref="doc({name: docsObj.name})"
         ng-if="!docsObj.private"
-        >
-        {{docsObj.displayName}}
+      >
+        {{globalDocsObj.displayName}}
       </a>
-    </th-disclosure-content>
+    </div>
 
-    <th-disclosure-toggle name="th-components" expanded="true">Components</th-disclosure-toggle>
-    <th-disclosure-content name="th-components">
-      <a
-        ng-repeat="componentObj in $ctrl.components"
-        ui-sref-active="selected"
-        ui-sref="component({name: componentObj.name})"
-        ng-if="!componentObj.private"
-        >
-        {{componentObj.displayName}}
-      </a>
-    </th-disclosure-content>
+    <div class="nav-section">
+      <th-disclosure-toggle name="th-guidelines" expanded="true">Guidelines</th-disclosure-toggle>
+      <th-disclosure-content name="th-guidelines">
+        <a
+          ng-repeat="docsObj in $ctrl.docs"
+          ui-sref-active="selected"
+          ui-sref="doc({name: docsObj.name})"
+          ng-if="!docsObj.private"
+          >
+          {{docsObj.displayName}}
+        </a>
+      </th-disclosure-content>
+    </div>
+
+    <div class="nav-section">
+      <th-disclosure-toggle name="th-components" expanded="true">Components</th-disclosure-toggle>
+      <th-disclosure-content name="th-components">
+        <a
+          ng-repeat="componentObj in $ctrl.components"
+          ui-sref-active="selected"
+          ui-sref="component({name: componentObj.name})"
+          ng-if="!componentObj.private"
+          >
+          {{componentObj.displayName}}
+        </a>
+      </th-disclosure-content>
+    </div>
   </div>
 </div>

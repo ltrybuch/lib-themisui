@@ -1,4 +1,4 @@
-# thViewModel
+# View Model
 
 View models are meant to store application state (e.g. whether a table row is
 selected) and regular models are meant to store data state. We don't really

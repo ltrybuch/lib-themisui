@@ -1,6 +1,4 @@
-# Popover — `thPopover\thPopoverUrl`
-
-## Description
+# Popover
 
 Add small overlays of content, like those on the iPad, to any element for
 housing secondary information.
@@ -31,15 +29,13 @@ prevent it from dismissing when clicked.
 
 ## Usage
 
-### Markup
-
-Fetch remote content.
+### Fetch remote content
 
 ```html
 <a href="" th-popover-url="/templatePath.html">Trigger</a>
 ```
 
-Fetch inline content.
+### Fetch inline content
 
 ```html
 <a href="" th-popover="content">Trigger</a>
@@ -49,7 +45,7 @@ Fetch inline content.
 </th-popover-content>
 ```
 
-Trigger from script.
+### Trigger from script
 
 ```html
 <a href="" th-popover-target="target">Target</a>

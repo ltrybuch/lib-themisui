@@ -1,15 +1,10 @@
-# Dropdown Button — `thDropdown`
-
-### Description
+# Dropdown Button
 
 Add a button that when clicked displays a dropdown list.
-
 `thDropdown` will accept an array of objects that when created correctly will display each as list items.
-
 Acceptable attributes include `url`, `type`, `divider`, `name`, `icon`. Examples below.
 
----
-### Usage
+## Usage
 ```
 <th-dropdown name="click me" list="listItems"></th-dropdown>
 ```
@@ -23,8 +18,8 @@ Acceptable attributes include `url`, `type`, `divider`, `name`, `icon`. Examples
   <th-item name="Item Two" ng-click="someAction()"></th-item>
 </th-dropdown>
 ```
----
-### Notes
+
+## Notes
 
 - The types `destroy`, `create`, and `secondary` are accepted to color the button. If a type is not given it will set the button color to blue.
 
@@ -48,8 +43,6 @@ Include only the relevant name of the icon.
 - ng-click can be used instead of the `href` attribute. When the corresponding menu item is clicked that `ng-click` will be invoked. If both are added the `href` attr will override.
 - If multiple action attributes are included the menu item will select `url` first, `action` next, and divider last. If nothing is passed in it will set the menu item to a `th-divider`.
 
----
-
 ## Accessibility
 
 The `thDropdown` component adheres to the standards set in the [WAI-ARIA Authoring Practices 1.1](https://www.w3.org/TR/wai-aria-practices-1.1#Listbox) document.
@@ -65,5 +58,3 @@ screen reader.
 * `aria-describedby` [string] A description of a button's function can be
 provided by setting the `aria-describedby` attribute to that of the `id` of the
 description element.
-
----

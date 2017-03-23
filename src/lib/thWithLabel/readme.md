@@ -1,6 +1,4 @@
-# Input — `with-label` / `with-subtext`
-
-## Description
+# With label / With subtext
 
 Wrap your input fields in a styled label easily by adding this `with-label` component to it.
 
@@ -19,7 +17,7 @@ recommended for use with input elements.
   - thSwitch
 - Using the `ng-required` attribute with any input element will add a "required" indicator.
 
-Extend the functionality of `with-label` component by using it 
+Extend the functionality of `with-label` component by using it
 in conjunction with the `with-subtext` component.
 
 `<th-input
@@ -34,7 +32,7 @@ in conjunction with the `with-subtext` component.
 - When added to inline elements such as `thCheckbox` and `thRadio` it will:
   - move the existing label to the top of their container, and the subtext will appear below it.
 - When added to block elements such as `thInput` it will:
-  - position the subtext directly below the input component. 
+  - position the subtext directly below the input component.
 
 
 ---

@@ -1,6 +1,4 @@
-# DataTable — `thTable`
-
-## Description
+# DataTable
 
 This is a set of components and services that you can use to implement
 datatables in Clio.
@@ -20,7 +18,7 @@ Services:
 
 
 
-## Example
+### Example
 
 Before digging into the details, here's a quick example of implementing a table
 to keep in mind and go back to while reading the rest of this document.

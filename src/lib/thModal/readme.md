@@ -1,38 +1,10 @@
-Modal
-===
-
-<!-- TOC depthFrom:1 depthTo:3 withLinks:0 updateOnSave:1 orderedList:0 -->
-
-- `ModalManager`
-  - Syntax
-  - Methods
-    - `show(options<object>)` → `Promise`
-    - `dismiss(name<string>, response<object>)`
-    - `confirm(name<string>, response<object>)`
-  - Scope Properties
-    - `modal.dismiss(response<object>)`
-    - `modal.confirm(response<object>)`
-    - `modal.context`
-- `thModalAnchor`
-  - Syntax
-- `thModalTitlebar`
-  - Syntax
-  - Attributes
-    - `title<string>`
-    - `show-close-button<boolean>` [optional]
-    - `type<string>` [optional]
-
-<!-- /TOC -->
-
----
-
-# `ModalManager`
+# Modal
 
 `ModalManager` is the main point of interaction when showing and hiding modals.
 
 ## Syntax
 
-#### With template URL.
+### With template URL
 ```coffeescript
 ModalManager.show
   path: "/template-path"
@@ -43,7 +15,7 @@ ModalManager.show
     id: 100
 ```
 
-#### With template string.
+### With template string
 ```coffeescript
 ModalManager.show
   template: "<h1>Header</h1>"
@@ -52,7 +24,7 @@ ModalManager.show
     id: 100
 ```
 
-#### Showing a full page modal
+### Showing a full page modal
 **Note:** This is not ready for production launch yet. Do not use this feature
 unless you are behind an Apollo related feature flag, and do not launch to public yet.
 ```coffeescript
@@ -62,20 +34,20 @@ ModalManager.show
   size: "fullpage"
 ```
 
-#### Confirm and close a modal within a controller.
+### Confirm and close a modal within a controller.
 ```coffeescript
 $scope.confirmModal = ->
   #do stuff...
   $scope.modal.confirm("yes!")
 ```
 
-#### Referencing `context` within a controller.
+### Referencing `context` within a controller.
 ```coffeescript
 angular.module("ExampleApp").controller "modalController", ($scope) ->
   localContext = $scope.modal.context # now you can use me in your controller
 ```
 
-#### Confirm and close a modal within a template.
+### Confirm and close a modal within a template.
 ```html
 <div>
   <th-modal-titlebar title="Foo"></th-modal-titlebar>
@@ -85,7 +57,7 @@ angular.module("ExampleApp").controller "modalController", ($scope) ->
 </div>
 ```
 
-#### Referencing `context` within a template.
+### Referencing `context` within a template.
 ```html
 <div>
   <th-modal-titlebar title="Foo"></th-modal-titlebar>
@@ -141,7 +113,6 @@ injecting `$scope`.
 ### `modal.context`
 > Any values passed to the current modal in `context` upon its creaton will be available here.
 
----
 
 # `thModalAnchor`
 
@@ -163,7 +134,6 @@ will be opened.
 
 ```
 
----
 
 # `thModalTitlebar`
 

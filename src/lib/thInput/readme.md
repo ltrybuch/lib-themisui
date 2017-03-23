@@ -1,11 +1,10 @@
-# Input — `thInput`
-
-## Description
+# Input
 
 Add your input fields with a little style. Unlike `<input>`, `<th-input>` must be
 explictly closed. This is a browser enforced limitation of custom elements.
 
-#### Plenty of options can be passed into your input including.. Icons, Postfix, Prefix:
+## API Reference
+Plenty of options can be passed into your input including.. Icons, Postfix, Prefix:
 
 [condensed="boolean"]
 - Set to `true` to reduce the height of `th-input` by 25%. Defaults to `false`.

@@ -1,6 +1,5 @@
-# Select — `thSelect`
+# Select
 
-## Description
 `th-select` is a replacement for the standard HTML select element. Use `th-select`
 instead of `<select>` when you want to present a list of options from which the
 user can choose one.
@@ -10,7 +9,6 @@ elements to be transcluded or as a **single directive** with an array of object
 that will be rendered by the directive as `option`s or `optgroup`s. See below for
 more details.
 
----
 ### Markup with HTML elements
 ```html
    <th-select>
@@ -31,7 +29,6 @@ controllers are not being utilized.
 to display on default. If none of the options are `selected` then no initial
 text will be displayed.
 
----
 ### Markup with options array
 ```html
   <th-select
@@ -56,7 +53,6 @@ as an attribute.
 - If the `ng-model` value is a reference to one of the object in the array then the
 `option` rendered will be set to `selected` in the dropdown list.
 
----
 ## Attributes
 
 [placeholder="string"]
@@ -96,7 +92,6 @@ to true.
 [condensed="boolean"]
 - Set to `true` to reduce the height of `th-select` by 25%. Defaults to `false`.
 
----
 ## Notes
 - The `option` elements (dropdown list items) are rendered by the OS so will look
 slightly different depending on what OS is being used.

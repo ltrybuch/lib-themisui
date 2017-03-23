@@ -1,21 +1,4 @@
-# `thDefaults`
-
-<!-- TOC depthFrom:2 depthTo:3 withLinks:0 updateOnSave:1 orderedList:0 -->
-
-- Description
-- Syntax
-- Methods
-	- `set(key<String>, value<Object>)`
-	- `set(collection<Object>)`
-	- `entries()` → `collection<Object>`
-	- `get(key<String)` → `value<Object>`
-- Available Defaults
-	- `dateFormat<String>`
-- Future
-
-<!-- /TOC -->
-
-## Description
+# Defaults
 
 `thDefaults` gives us a mechanism to set library wide defaults within ThemisUI.
 

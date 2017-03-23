@@ -1,6 +1,4 @@
-# `thLoader`
-
-## Description
+# Loader
 
 `thLoader` can be used while in a state of loading data or rendering new elements to the dom.
 
@@ -18,5 +16,3 @@ Accepts a `size` attribute to adjust icons size.
 ```html
 <th-loader trigger="boolean"></th-loader>
 ```
-
----

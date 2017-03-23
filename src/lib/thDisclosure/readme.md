@@ -1,14 +1,10 @@
-# Disclosure — `thDisclosureToggle` / `thDisclosureContent`
+# Disclosure
 
-## Description
-
-This set of components implements a [Disclosure widget](https://en.wikipedia.org/wiki/Disclosure_widget).
+This set of components implements a [disclosure widget](https://en.wikipedia.org/wiki/Disclosure_widget).
 
 A disclosure has 2 parts:
 * a button that the user can click: `th-disclosure-toggle`
 * a content that is being displayed or hidden on click: `th-disclosure-content`
-
----
 
 ## Usage
 
@@ -43,8 +39,6 @@ for the `name` attribute of both components.
 * `ng-disabled`
   * Disable or enable the thDisclosure component.
 
----
-
 ## Accessibility
 
 The `thDisclosure` component borrows accessibility suggestions from the *"Accordion"* component
@@ -61,5 +55,3 @@ screen reader.
 * `aria-describedby` [string] A description of the disclosure's functionality or contents
 can be provided by setting the `aria-describedby` attribute to that of the disclosure toggle's
 `id` on the description element.
-
----

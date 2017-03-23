@@ -12,24 +12,24 @@
   </th-table>
 
   <section ng-if="$ctrl.variables.length">
-    <h5>Example usage</h5>
+    <h3>Example usage</h3>
     <spacing-demo-code sass-data="$ctrl.variables"></spacing-demo-code>
   </section>
 
-  <h3>Dos</h3>
+  <h2>Dos</h2>
   <ul>
     <li>Reuse helper classes and/or variables when possible.</li>
     <li>When a rare or non-reusable spacing pattern is required (e.g. 64px) encapsulate those within a component’s or page’s styles.</li>
   </ul>
 
-  <h3>Don'ts</h3>
+  <h2>Don'ts</h2>
   <ul>
     <li>Don’t define spacing on global elements (p, h1, h2, etc).</li>
   </ul>
 </section>
 
 <section class="spacing-section">
-  <h3>Spacing helpers</h3>
+  <h2>Spacing helpers</h2>
   <p>There are 3 types of helpers used for building spacing in layouts.</p>
   <ol>
     <li><strong>Insets:</strong> used for adding padding to all four sides of an element.</li>
@@ -37,7 +37,7 @@
     <li><strong>Inlines:</strong> used for adding right margin to an element for horizontal spacing.</li>
   </ol>
 
-  <h4>Insets</h4>
+  <h3>Insets</h3>
   <section class="spacing-diagram-container">
     <spacing-diagram
       ng-repeat="inset in $ctrl.insets track by inset.context.name"
@@ -57,7 +57,7 @@
   </th-table>
 
   <section ng-if="$ctrl.sassObjectsByType.insets.length">
-    <h5>Example {{"usage" | pluralize: $ctrl.sassObjectsByType.insets.length}}</h5>
+    <h3>Example {{"usage" | pluralize: $ctrl.sassObjectsByType.insets.length}}</h3>
     <spacing-demo-code
       sass-data="$ctrl.sassObjectsByType.insets"
       example-size="'xl'"
@@ -67,7 +67,7 @@
     </spacing-demo-code>
   </section>
 
-  <h4>Stacks</h4>
+  <h3>Stacks</h3>
   <section class="spacing-diagram-container">
     <spacing-diagram
       ng-repeat="stack in $ctrl.stacks track by stack.context.name"
@@ -97,7 +97,7 @@
     </spacing-demo-code>
   </section>
 
-  <h4>Inlines</h4>
+  <h3>Inlines</h3>
   <section class="spacing-diagram-container">
     <spacing-diagram
       ng-repeat="inline in $ctrl.inlines track by inline.context.name"
@@ -117,7 +117,7 @@
   </th-table>
 
   <section ng-if="$ctrl.sassObjectsByType.inlines.length">
-    <h5>Example {{"usage" | pluralize: $ctrl.sassObjectsByType.inlines.length}}</h5>
+    <h3>Example {{"usage" | pluralize: $ctrl.sassObjectsByType.inlines.length}}</h3>
     <spacing-demo-code
       sass-data="$ctrl.sassObjectsByType.inlines"
       example-size="'m'"
@@ -126,7 +126,7 @@
       ></spacing-demo-code>
   </section>
 
-  <h4>Putting it all together</h4>
+  <h3>Putting it all together</h3>
   <p>Combine insets, stacks, and inlines to build layouts:</p>
   <section>
     <h5>Example usages</h5>

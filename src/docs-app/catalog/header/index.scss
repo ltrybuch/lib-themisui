@@ -1,6 +1,6 @@
 @import "../../docs-app/settings";
 
-docs-header {
+.docs-app docs-header {
     header {
         position: absolute;
         top: 0;
@@ -36,7 +36,7 @@ docs-header {
             margin-left: 40px;
 
             font-size: 14px;
-            font-weight: bold;
+            font-weight: 500;
             line-height: inherit;
 
             a {

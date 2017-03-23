@@ -1,6 +1,4 @@
-# Input — `with-Messages`
-
-## Description
+# With messages
 
 Use the `with-messages` directive as an attribute on a input component to add
 styled error messages.
@@ -100,4 +98,3 @@ save from duplicating the messages. If your field element is *not* using one of 
   - `type = "textarea"` : triggered when the value is invalid and the field loses focus.
   - `type = "checkbox"` : triggered when the value is invalid and the form has been submitted.
   - `type = "radiogroup"` : triggered when the value is invalid and the form has been submitted.
-

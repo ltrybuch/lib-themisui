@@ -1,6 +1,4 @@
-# Lazy Loading — `thLazy`
-
-## Description
+# Lazy Loading
 
 If you want to lazy load some content `th-lazy` is the directive for you. It is a pretty simple wrapper around `ng-include` with the addition of a visual indicator that something is loading.
 

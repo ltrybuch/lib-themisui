@@ -1,6 +1,4 @@
-# `thTruncate`
-
-## Description
+# Truncate
 
 Use `thTruncate` to truncate long paragraphs of text. A toggleable control is included to show/hide the text in it's entirety.
 
