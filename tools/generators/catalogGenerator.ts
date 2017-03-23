@@ -126,8 +126,8 @@ function getComponents(type: componentType): Component[] {
     const componentFileList = isDoc && glob.sync(path.join(directory, "*"));
 
     const isMarkdownDoc = componentFileList
-      && componentFileList.length === 1
-      && componentFileList[0].endsWith(".md");
+      && componentFileList.length <= 2
+      && componentFileList.every(file => file.endsWith(".md") || file.endsWith("meta.json"));
     const markDownDocMeta = isMarkdownDoc ? {isMarkdownDoc} : {};
 
     const displayName = componentMeta.displayName || (isComponent
