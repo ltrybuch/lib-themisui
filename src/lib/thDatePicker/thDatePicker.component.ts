@@ -42,9 +42,10 @@ class DatepickerController {
   private normalizeDate(date: moment.Moment, info: string) {
     if (moment.isMoment(date)) {
       return date.toDate();
-    } else if (typeof date !== "undefined" && date !== null) {
-      throw Error("The value passed into thDatePicker should be a moment object: " + info);
+    } else if (typeof date === "undefined" || date === null) {
+      return date;
     }
+    throw Error("The value passed into thDatePicker should be a moment object: " + info);
   }
 
   private createDatepicker() {

@@ -16,6 +16,15 @@ describe("ThemisComponents: Component: DatepickerController", () => {
     expect(element.find("input").val()).toBe("2020-12-31");
   });
 
+  it("can accept a null value", () => {
+    const template = `<th-date-picker ng-model="date"></th-date-picker>`;
+    const {element, scope} = SpecHelpers.compileDirective(template, {date: aDate});
+    expect(element.find("input").val()).toBe("2020-12-31");
+    scope.date = null;
+    scope.$digest();
+    expect(element.find("input").val()).toBe("");
+  });
+
   // test the 3 valid date formats
   const dateFormat = ["yyyy-MM-dd", "MM/dd/yyyy", "dd/MM/yyyy"];
   const dateFormated = ["2020-12-31", "12/31/2020", "31/12/2020"];

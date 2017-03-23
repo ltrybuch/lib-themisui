@@ -114604,9 +114604,10 @@ var DatepickerController = (function () {
         if (moment.isMoment(date)) {
             return date.toDate();
         }
-        else if (typeof date !== "undefined" && date !== null) {
-            throw Error("The value passed into thDatePicker should be a moment object: " + info);
+        else if (typeof date === "undefined" || date === null) {
+            return date;
         }
+        throw Error("The value passed into thDatePicker should be a moment object: " + info);
     };
     DatepickerController.prototype.createDatepicker = function () {
         var _this = this;
