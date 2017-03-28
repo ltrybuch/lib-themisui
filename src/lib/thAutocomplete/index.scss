@@ -468,19 +468,15 @@ th-autocomplete {
   }
 }
 
-.k-state-border-up ~ .k-animation-container {
-  .k-list-container {
-    margin-top: 1px;
-    border-radius: 4px 4px 0 0;
-    box-shadow: 0 -2px 10px rgba($deprecated-blue-shadow, .7);
-  }
+.k-list-container.k-state-border-down {
+  margin-top: 1px;
+  border-radius: 4px 4px 0 0;
+  box-shadow: 0 -2px 10px rgba($deprecated-blue-shadow, .7);
 }
-.k-state-border-down ~ .k-animation-container {
-  .k-list-container {
-    margin-top: -1px;
-    border-radius: 0 0 4px 4px;
-    box-shadow: 0 2px 10px rgba($deprecated-blue-shadow, .7);
-  }
+.k-list-container.k-state-border-up {
+  margin-top: -1px;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 2px 10px rgba($deprecated-blue-shadow, .7);
 }
 
 // Validation styling

@@ -91,36 +91,4 @@ describe("ThemisComponents: Component: DatepickerController", () => {
       $(".k-animation-container").remove();
     });
   });
-
-  describe("When max is specified", () => {
-    it("should not allow dates after", () => {
-      scope.max = moment();
-      const availableDate = moment().date();
-      const unavailableDate = moment().add(1, "days").date();
-      const template = `<th-date-picker ng-model="date" max="max"></th-date-picker>`;
-
-      const {element} = SpecHelpers.compileDirective(template, scope);
-      element.find("input").triggerHandler("click");
-
-      expect($(`table a:contains('${ availableDate }')`).text()).toBe(availableDate.toString());
-      expect($(`table a:contains('${ unavailableDate }')`).text()).toBe("");
-      $(".k-animation-container").remove();
-    });
-  });
-
-  describe("When min is specified", () => {
-    it("should not allow dates before", () => {
-      scope.min = moment();
-      const availableDate = moment().date();
-      const unavailableDate = moment().subtract(1, "days").date();
-      const template = `<th-date-picker ng-model="date" min="min"></th-date-picker>`;
-
-      const {element} = SpecHelpers.compileDirective(template, scope);
-      element.find("input").triggerHandler("click");
-
-      expect($(`table a:contains('${ availableDate }')`).text()).toBe(availableDate.toString());
-      expect($(`table a:contains('${ unavailableDate }')`).text()).toBe("");
-      $(".k-animation-container").remove();
-    });
-  });
 });

@@ -23,9 +23,6 @@ export class ComboBoxAutocomplete extends AbstractAutocomplete {
       noDataTemplate: this.noDataTemplate,
       template: this.options.rowTemplate,
       fixedGroupTemplate: "",
-      popup: {
-        appendTo: this.options.parentElement,
-      },
       close: function(e: any) {
         // clear inputs on blur if value is not a valid selection
         let dataItem = this.dataItem(e.item);

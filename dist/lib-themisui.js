@@ -114282,9 +114282,6 @@ var Autocomplete = (function (_super) {
             noDataTemplate: this.noDataTemplate,
             template: this.options.rowTemplate,
             fixedGroupTemplate: "",
-            popup: {
-                appendTo: this.options.parentElement,
-            },
             close: function (e) {
                 // Clear autocomplete and combobox inputs on
                 // blur if value is not a valid selection
@@ -114357,9 +114354,6 @@ var ComboBoxAutocomplete = (function (_super) {
             noDataTemplate: this.noDataTemplate,
             template: this.options.rowTemplate,
             fixedGroupTemplate: "",
-            popup: {
-                appendTo: this.options.parentElement,
-            },
             close: function (e) {
                 // clear inputs on blur if value is not a valid selection
                 var dataItem = this.dataItem(e.item);
@@ -114431,9 +114425,6 @@ var MultiSelectAutocomplete = (function (_super) {
             noDataTemplate: this.noDataTemplate,
             itemTemplate: this.options.rowTemplate,
             fixedGroupTemplate: "",
-            popup: {
-                appendTo: this.options.parentElement,
-            },
             change: function (component) {
                 if (_this.options.multiple || component.sender.value() === "") {
                     _this.options.change(component.sender.value());

@@ -23,9 +23,6 @@ export class MultiSelectAutocomplete extends AbstractAutocomplete {
       noDataTemplate: this.noDataTemplate,
       itemTemplate: this.options.rowTemplate,
       fixedGroupTemplate: "",
-      popup: {
-        appendTo: this.options.parentElement,
-      },
       change: (component: any) => {
         if (this.options.multiple || component.sender.value() === "") {
           this.options.change(component.sender.value());
