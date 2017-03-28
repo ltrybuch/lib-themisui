@@ -1,8 +1,10 @@
-# th-data-grid
+# Data Grid
+
+<span class="badge orange">In Progress</span>
 
 `th-data-grid` is used to display data in a table.
 
-## Example
+## Usage
 
 ```html
 <th-data-grid options="demo.options"></th-data-grid>
@@ -10,7 +12,6 @@
 
 ## API Reference
 
-### Properties
 | Property        | Type        | Description   |   |
 |:-------------   |:-------     | :-------------|---|
 | **options**    | Object      | The main configuration object for the component. | *required* |

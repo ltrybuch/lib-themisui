@@ -1,11 +1,10 @@
 <div class="sidebar">
   <div ng-cloak class="component-list-view {{$ctrl.viewType}}">
-    <div class="nav-section" ng-if="$ctrl.globalDocs.length > 0">
+    <div class="nav-section" ng-if="$ctrl.globalDocs.length > 0" ng-repeat="globalDocsObj in $ctrl.globalDocs">
       <a
-        ng-repeat="globalDocsObj in $ctrl.globalDocs"
         ui-sref-active="selected"
-        ui-sref="doc({name: docsObj.name})"
-        ng-if="!docsObj.private"
+        ui-sref="doc({name: globalDocsObj.name})"
+        ng-if="!globalDocsObj.private"
       >
         {{globalDocsObj.displayName}}
       </a>

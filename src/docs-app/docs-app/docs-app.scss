@@ -103,6 +103,7 @@ body {
 
     @mixin heading {
       color: $text-color;
+
       &, &.selected {
         font-weight: 600;
       }
@@ -125,24 +126,27 @@ body {
         color: $white;
       }
     }
+
     .nav-section {
       margin-bottom: $spacing-m;
+
+      > a {
+        @include link;
+        @include heading;
+      }
     }
 
     hr {
       border: solid 1px $grey-6;
     }
 
-    > a {
-      @include link;
-      @include heading;
-    }
 
     th-disclosure-toggle {
       margin-bottom: 300px;
       a {
         position: relative;
         font-weight: 700;
+        @include link;
       }
 
       span {
@@ -152,7 +156,7 @@ body {
           color: $grey-5;
 
           position: absolute;
-          right: $spacing-m;
+          right: $spacing-m + 2;
           top: 10px;
         }
       }
@@ -163,6 +167,7 @@ body {
         box-sizing: border-box;
         cursor: pointer;
         @include link;
+        padding: 0
       }
 
     }
@@ -192,6 +197,10 @@ body {
         height: $size;
 
         line-height: $size;
+        padding: 0 $spacing-m;
+      }
+      th-disclosure-content a {
+        padding: 0 $spacing-m 0 $spacing-l;
       }
     }
   }

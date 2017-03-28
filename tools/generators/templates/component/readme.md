@@ -18,16 +18,16 @@ Paullum deliquit, ponderibus modulisque suis ratio utitur. Curabitur blandit tem
 <span class="helper-text">*Show usage examples that demonstrate the component and it's API.*</span>
 
 ```html
-<th-component attribute="value"></th-component>
+<th-template attribute="value"></th-template>
 ```
 ```typescript
-  Service.show({
-    template: "<h1>Header</h1>",
-    name: "class-name",
-    context: {
-      id: 100
-    }
-  });
+Service.show({
+  template: "<h1>Header</h1>",
+  name: "class-name",
+  context: {
+    id: 100
+  }
+});
 ```
 
 ## API Reference
@@ -36,10 +36,10 @@ Paullum deliquit, ponderibus modulisque suis ratio utitur. Curabitur blandit tem
 
 | Property         | Type        | Description   |   |
 |:-------------    |:-------     | :-------------|---|
-| **Property name**     | Object      | Updated to `value` when the user selects an option from the component. | *optional* |
-| **Property name**    | Function    | Called whenever `value` is updated. | *optional* |
-| **Property name**  | Boolean     | Disables the component when true. | *required* |
-| **Property name**  | String      | Default text that is displayed prior to the user selecting an option. | *required* |
+| **Property name**  | Object    | Updated to `value` when the user selects an option from the component. | *optional* |
+| **Property name**  | Function  | Called whenever `value` is updated. | *optional* |
+| **Property name**  | Boolean   | Disables the component when true. | *required* |
+| **Property name**  | String    | Default text that is displayed prior to the user selecting an option. | *required* |
 
 ## Accessibility
 <!-- Remove these helper spans before shipping -->
