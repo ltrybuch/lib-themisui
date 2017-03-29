@@ -3,34 +3,38 @@
 This was largely influenced by the [Airbnb JS style guide](https://github.com/airbnb/javascript); although there are a few differences which are highlighted below.
 
 ## Major Changes
-  1. ### Modules [10.1](#modules--use-them)
-    Airbnb recommends you always use `import`/`export` over a non-standard module system like `require`. And although this is something we also want to do, we are currently allowing require to typecast non js files. For example:
-    ```
-    const packageJson = require("../package.json") as PackageJson;
-    ```
-    Specific Rule:
-    ```
-    "no-require-imports": false
-    ```
-  1. ### Strings [6.1](#strings--quotes)
-    Airbnb recommends using single quotes for strings, however we've decided to use double quotes in the past so we are sticking to it.
-    Specific Rule:
-    ```
-      "quotemark": [
-          true,
-          "double",
-          "jsx-double"
-        ],
-    ```
-  1. ### Whitespace [18.12](#whitespace--max-len)
-    Airbnb recommends lines no longer than 100 characters, however we're going to go with 120. They suggest that string are exempt from this rule, unfortunately tslint has no option that supports this currently.
-    Specific Rule:
-    ```
-      "max-line-length": [
-        true,
-        120
-      ],
-    ```
+- ### Modules [10.1](#modules--use-them)
+  Airbnb recommends you always use `import`/`export` over a non-standard module system like `require`. Although this is something we also want to do, we are currently allowing require to typecast non js files. For example:
+  ```javascript
+  const packageJson = require("../package.json") as PackageJson;
+  ```
+  ```javascript
+  // tslint Rule
+  "no-require-imports": false,
+  ```
+
+
+- ### Strings [6.1](#strings--quotes)
+  Airbnb recommends using single quotes for strings, however we've decided to use double quotes in the past so we are sticking to it.
+  ```javascript
+  // tslint Rule
+  "quotemark": [
+      true,
+      "double",
+      "jsx-double"
+  ],
+  ```
+
+
+- ### Whitespace [18.12](#whitespace--max-len)
+  Airbnb recommends lines no longer than 100 characters, however we're going to go with 120. They suggest that string are exempt from this rule, unfortunately tslint has no option that supports this currently.
+  ```javascript
+  // tslint Rule
+  "max-line-length": [
+      true,
+      120
+  ],
+  ```
 
 ## Table of Contents
 

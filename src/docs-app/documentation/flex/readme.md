@@ -14,13 +14,13 @@ These helper classes are for altering the behaviour of flex container elements. 
 
 #### [Display](https://v4-alpha.getbootstrap.com/utilities/flexbox/#enable-flex-behaviors)
 | Class | Responsive Class | Value |
-|:-| :-| :-|
+|:---| :---| :---|
 | `.d-flex` | `.d-xx-flex` | `display: flex` |
 | `.d-inline-flex` | `.d-xx-inline-flex` | `display: inline-flex` |
 
 #### [Direction](https://v4-alpha.getbootstrap.com/utilities/flexbox/#direction)
 | Class | Responsive Class | Value |
-|:-| :-| :-|
+|:---| :---| :---|
 | `.flex-row` | `.flex-xx-row` | `flex-direction: row` (**default**) |
 | `.flex-row-reverse` | `.flex-xx-row-reverse` | `flex-direction: row-reverse` |
 | `.flex-column` | `.flex-xx-column` | `flex-direction: column` |
@@ -28,7 +28,7 @@ These helper classes are for altering the behaviour of flex container elements. 
 
 #### [Justify content](https://v4-alpha.getbootstrap.com/utilities/flexbox/#justify-content)
 | Class | Responsive Class | Value |
-|:-| :-| :-|
+|:---| :---| :---|
 | `.justify-content-start` | `.justify-content-xx-start` | `justify-content: flex-start` (**default**) |
 | `.justify-content-end` | `.justify-content-xx-end` | `justify-content: flex-end` |
 | `.justify-content-center` | `.justify-content-xx-center` | `justify-content: center` |
@@ -37,7 +37,7 @@ These helper classes are for altering the behaviour of flex container elements. 
 
 #### [Align items](https://v4-alpha.getbootstrap.com/utilities/flexbox/#align-items)
 | Class | Responsive Class | Value |
-|:-| :-| :-|
+|:---| :---| :---|
 | `.align-items-stretch` | `.align-items-xx-stretch` | `align-items: stretch` (**default**) |
 | `.align-items-start` | `.align-items-xx-start` | `align-items: flex=start` |
 | `.align-items-end` | `.align-items-xx-end` | `align-items: flex-end` |
@@ -46,14 +46,14 @@ These helper classes are for altering the behaviour of flex container elements. 
 
 #### [Wrap](https://v4-alpha.getbootstrap.com/utilities/flexbox/#wrap)
 | Class | Responsive Class | Value |
-|:-| :-| :-|
+|:---| :---| :---|
 | `.flex-nowrap` | `.flex-xx-nowrap` | `flex-wrap: nowrap` (**default**) |
 | `.flex-wrap` | `.flex-xx-wrap` | `flex-wrap: wrap` |
 | `.flex-wrap-reverse` | `.flex-xx-wrap-reverse` | `flex-wrap: wrap-reverse` |
 
 #### [Align content](https://v4-alpha.getbootstrap.com/utilities/flexbox/#align-content)
 | Class | Responsive Class | Value |
-|:-| :-| :-|
+|:---| :---| :---|
 | `.align-content-start` | `.align-content-xx-start` | `align-content: flex-start` (**default**) |
 | `.align-content-end` | `.align-content-xx-end` | `align-content: flex-end` |
 | `.align-content-center` | `.align-content-xx-center` | `align-content: center` |
@@ -66,7 +66,7 @@ These helper classes are for altering the behaviour of individual flex items.
 
 #### [Align self](https://v4-alpha.getbootstrap.com/utilities/flexbox/#align-self)
 | Class | Responsive Class | Value |
-|:-| :-| :-|
+|:---| :---| :---|
 | `.align-self-auto` | `.align-self-xx-auto` | `align-self: auto` (**default**) |
 | `.align-self-stretch` | `.align-self-xx-stretch` | `align-self: stretch` |
 | `.align-self-start` | `.align-self-xx-start` | `align-self: flex=start` |
@@ -76,7 +76,7 @@ These helper classes are for altering the behaviour of individual flex items.
 
 #### [Order](https://v4-alpha.getbootstrap.com/utilities/flexbox/#order)
 | Class | Responsive Class | Value |
-|:-| :-| :-|
+|:---| :---| :---|
 | `.order-0` | `.order-xx-0` | `order: 0` (**default**) |
 | `.order-first` | `.order-xx-first` | `order: -1` |
 | `.order-last` | `.order-xx-last` | `order: 1` |
@@ -87,7 +87,7 @@ These helper classes are for altering the behaviour of individual flex items.
 These margin helper classes are for breaking a single flex item from the normal flex alignment/justification.
 
 | Class | Responsive Class | Value |
-|:-| :-| :-|
+|:---| :---| :---|
 | `.ml-auto` | `.ml-xx-auto` | `margin-left: auto` |
 | `.mr-auto` | `.mr-xx-auto` | `margin-right: auto` |
 | `.mt-auto` | `.mt-xx-auto` | `margin-top: auto` |
@@ -99,5 +99,5 @@ This section covers helper classes that are implemented in the base and Themis t
 
 #### [Grow/Shrink/Basis](https://developer.mozilla.org/en/docs/Web/CSS/flex)
 | Class | Responsive Class | Value | Description |
-|:-| :-| :-| :-|
+|:---| :---| :---| :---|
 | `.flex-grow` | `.flex-xx-grow` | `flex: 1` | Used for allowing a flex item to fill the available space. If used by multiple flex items, space will be equally distributed among them. |

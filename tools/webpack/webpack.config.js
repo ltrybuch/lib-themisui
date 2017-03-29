@@ -41,7 +41,7 @@ module.exports = function(env={}) {
     "jquery",
     "./src/polyfills/index.coffee",
     "keycode",
-    "marked",
+    "showdown",
     "moment",
     "pluralize",
     "qs",
