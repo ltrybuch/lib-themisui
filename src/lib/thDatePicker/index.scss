@@ -118,6 +118,12 @@ th-date-picker {
   }
 }
 
+th-date-picker.ng-invalid .k-tooltip.k-tooltip-validation {
+  // before ng-touched is set on th-date-picker, hide invalid messages
+  // not using display: none; because it conflicts with kendo setting display inline with js
+  width: 0;
+  opacity: 0;
+}
 .ng-submitted th-date-picker.ng-invalid, th-date-picker.ng-touched.ng-invalid {
   .k-picker-wrap {
     border: 1px solid $alert-color;
@@ -129,18 +135,17 @@ th-date-picker {
     }
   }
 
-  .k-input.k-invalid {
-  }
-
-  .k-invalid-msg {
+  .k-tooltip.k-tooltip-validation.k-invalid-msg {
     position: absolute;
     bottom: -22px;
     left: -2px;
 
+    width: auto;
     padding: 0;
 
     color: $alert-color;
 
+    opacity: 1;
     border: none;
 
     background: transparent;

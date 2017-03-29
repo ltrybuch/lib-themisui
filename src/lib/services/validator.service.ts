@@ -25,9 +25,9 @@ class ValidatorService {
     const defaultOpts = {
       rules: {
         required: (ele: any) => {
-          if (options.attrs.required) { // if ng-required is true, required attr would exist
-            return ele[0].value; // if <input> has value, valid.
-          } else { // if input not required, return valid
+          if (options.attrs.required) {
+            return ele[0].value;
+          } else {
             return true;
           }
         },

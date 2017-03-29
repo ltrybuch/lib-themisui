@@ -54791,7 +54791,7 @@ var ValidatorService = (function () {
             rules: {
                 required: function (ele) {
                     if (options.attrs.required) {
-                        return ele[0].value; // if <input> has value, valid.
+                        return ele[0].value;
                     }
                     else {
                         return true;
@@ -114600,6 +114600,9 @@ var DatepickerController = (function () {
         }
         throw Error("The value passed into thDatePicker should be a moment object: " + info);
     };
+    DatepickerController.prototype.formIsSubmitted = function () {
+        return this.formCtrl && this.formCtrl.$submitted;
+    };
     DatepickerController.prototype.createDatepicker = function () {
         var _this = this;
         this.datepicker = this.DatepickerService.create({
@@ -114661,13 +114664,10 @@ var DatepickerController = (function () {
                 valid: "Not a valid date",
             },
             validateInput: function (e) {
-                /**
-                 * watch validity change and apply component class change, since other than
-                 * ngRequire validators aren't part of ngModelCtrl
-                 */
                 _this.ngModelCtrl.$setValidity(_this.name, e.valid);
+                _this.ngModelCtrl.$setTouched();
                 // if the validation request comes from formCtrl, $apply is already taken care of by angular.
-                if (_this.neverValidated && _this.formCtrl && _this.formCtrl.$submitted) {
+                if (_this.neverValidated && _this.formIsSubmitted()) {
                     _this.neverValidated = false;
                 }
                 else {
@@ -114690,20 +114690,17 @@ var DatepickerController = (function () {
         this.inputElement.attr("name", this.name);
         this.inputElement.attr("condensed", this.condensed);
         this.inputElement.attr("placeholder", (this.placeholder || this.dateFormat.toLowerCase()));
-        // click input box toggle date picker
         this.inputElement.on("click", function () { return _this.datepicker.open(); });
     };
     DatepickerController.prototype.$doCheck = function () {
         // because form submit doesn't have event, and we can't $watch it from component:
         // trigger validation when form submits without touching input, for one time only.
-        if (this.neverValidated && this.formCtrl && this.formCtrl.$submitted) {
+        if (this.neverValidated && this.formIsSubmitted()) {
             this.validator.validateInput(this.inputElement);
         }
     };
     DatepickerController.prototype.$onChanges = function (changesObj) {
-        // return if datepicker is not init yet
         if (!this.datepicker) {
-            // if init value is passed in from ng-model="", evaluate here for initializing datepicker later
             if (changesObj.ngModel) {
                 this.value = this.normalizeDate(changesObj.ngModel.currentValue, "ng-model");
             }
