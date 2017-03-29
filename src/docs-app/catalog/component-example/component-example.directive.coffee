@@ -1,3 +1,5 @@
+debounce = require "debounce"
+
 angular.module("ThemisComponentsApp")
   .directive "docsComponentExample", ->
     restrict: "E"
@@ -7,7 +9,8 @@ angular.module("ThemisComponentsApp")
       whitelistLocal: "<componentWhitelistLocal"
       exampleIndex: "<"
     template: require "./component-example.template.html"
-    controller: ($scope, $element, $timeout, $location) ->
+    controller: ($scope, $element, $timeout, $location, $window) ->
+      scrollContainerSelector = ".component-details-view"
       penExampleTypescript = penExampleCoffee = penExampleHtml = null
       example = $scope.example
       externalFilePathRegex = /("|')\/(components.+)("|')/g
@@ -58,10 +61,10 @@ angular.module("ThemisComponentsApp")
 
       penExampleHtml = example.html.replace externalFilePathRegex, prependHost
 
-      exampleInitialized = no
+      $scope.exampleInitialized = no
 
       initializeExample = ->
-        exampleInitialized = yes
+        $scope.exampleInitialized = yes
         $scope.mode = ""
 
         exampleFrame = $element.find("iframe")[0]
@@ -85,12 +88,12 @@ angular.module("ThemisComponentsApp")
             # Once FF supports `scrollingElement` we can take out our polyfill.
             # CLIO-37920
             mutations[0].target.ownerDocument.scrollingElement
-              .querySelector(".component-details-view").scrollTop
+              .querySelector(scrollContainerSelector).scrollTop
 
             $timeout ->
               if exampleFrame.contentWindow isnt null
                 scrollingElement = exampleFrame
-                  .ownerDocument.scrollingElement.querySelector ".component-details-view"
+                  .ownerDocument.scrollingElement.querySelector scrollContainerSelector
                 scroll = scrollingElement.scrollTop
                 exampleFrame.style.height = "0px"
                 exampleFrame.style.height = exampleFrame
@@ -133,7 +136,25 @@ angular.module("ThemisComponentsApp")
       $scope.showTab = (name) ->
         $scope.mode = name
 
-        if name is "example" and not exampleInitialized
+        if name is "example" and not $scope.exampleInitialized
           initializeExample()
 
-      $scope.showTab "example"
+      eventSuffix = $scope.componentName + $scope.exampleIndex
+
+      scrollHandler = debounce ->
+        if $scope.exampleInitialized
+          $(scrollContainerSelector).off "scroll.#{eventSuffix}", scrollHandler
+          return
+
+        if $element[0].getBoundingClientRect().top < $window.innerHeight + 100
+          $scope.showTab "example"
+      , 100
+
+      @$onDestroy = ->
+        $(scrollContainerSelector).off "scroll.#{eventSuffix}", scrollHandler
+
+      @$postLink = ->
+        $(scrollContainerSelector).on "scroll.#{eventSuffix}", scrollHandler
+        scrollHandler()
+
+      return

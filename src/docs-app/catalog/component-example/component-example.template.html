@@ -23,8 +23,9 @@
       </button>
 
     </header>
+
     <iframe
-      ng-show="mode == 'example'"
+      ng-show="mode === 'example'"
       scrolling="auto"
       frameborder="0"
       marginheight="0"
@@ -32,6 +33,10 @@
       scrolling="no"
       >
     </iframe>
+
+    <div class="spacing-inset-l" ng-if="!exampleInitialized">
+      <th-loader size="mini"></th-loader>
+    </div>
 
     <pre
       data-manual

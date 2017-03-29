@@ -1,5 +1,5 @@
 angular.module("thAutocompleteDemo")
-  .controller("thAutocompleteDemoCtrl1", function(DataSource) {
+  .controller("thAutocompleteDemoCtrl8", function(DataSource) {
     this.defaultModel = null;
     this.multiModel = null;
     this.comboModel = null;
