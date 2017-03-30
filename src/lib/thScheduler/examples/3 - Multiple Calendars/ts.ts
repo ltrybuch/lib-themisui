@@ -21,8 +21,9 @@ angular.module("thSchedulerDemo")
         model: {
           id: "id",
           fields: {
-            id: { from: "id", type: "number" },
-            visible: { from: "visible", type: "boolean" }
+            id: { type: "number" },
+            visible: { type: "boolean" },
+            color: { type: "string" },
           }
         }
       }
@@ -33,11 +34,11 @@ angular.module("thSchedulerDemo")
         data: "data",
         model: {
           fields: {
-            end: { from: "end", type: "date" },
-            id: { from: "id", type: "number" },
-            start: { from: "start", type: "date" },
-            title: { from: "title" },
-            calendar_id: { from: "calendar_id" }
+            end: { type: "date" },
+            id: { type: "number" },
+            start: { type: "date" },
+            title: { type: "string" },
+            calendar_id: { type: "number" },
           },
           id: "id"
         }
@@ -50,6 +51,13 @@ angular.module("thSchedulerDemo")
 
     this.options = {
       dataSource: calendarEntriesService.getEntriesDataSource(),
-      date: new Date(expectedEntries.date)
+      date: new Date(expectedEntries.date),
+      resources: [
+        {
+          field: "calendar_id",
+          dataValueField: "id",
+          dataSource: this.calendarDataSource.getCalendarsDataSource()
+        }
+      ]
     };
   });

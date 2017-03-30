@@ -2,23 +2,25 @@ const items = [
   {
     id: 1,
     name: "Personal",
-    visible: false
+    visible: false,
+    color: "#FDAA1E",
   },
   {
     id: 2,
     name: "Shared",
-    visible: true
-  }
+    visible: true,
+    color: "#3BB039",
+  },
 ];
 
 const ids = [1, 2];
 
 const apiNestedItems = {
-  data: items
+  data: items,
 };
 
 export {
   items,
   ids,
-  apiNestedItems
+  apiNestedItems,
 };

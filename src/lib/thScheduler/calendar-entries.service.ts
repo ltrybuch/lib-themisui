@@ -12,7 +12,7 @@ export default class CalendarEntriesService {
 
   constructor(
     options: CalendarEntriesServiceOptions,
-    calendarDataSource: CalendarDataSourceInterface
+    calendarDataSource: CalendarDataSourceInterface,
   ) {
     this.setCalendarDataSource(calendarDataSource);
 
@@ -26,7 +26,7 @@ export default class CalendarEntriesService {
               console.log("reason", reason);
             });
         },
-      }
+      },
     });
 
     this._entriesDataSource = new SchedulerDataSource().createDataSource(options);
@@ -49,9 +49,7 @@ export default class CalendarEntriesService {
      * which reloads the entries.
      */
     this._entriesDataSource.filter({
-      operator: (entry: any) => {
-        return this._calendarDataSource.isVisible(entry.calendar_id);
-      }
+      operator: (entry: any) => (this._calendarDataSource.isVisible(entry.calendar_id)),
     });
 
     // This makes requests for calendar entries of calendars that have been toggled
@@ -87,10 +85,10 @@ export default class CalendarEntriesService {
             headers: {
               "Accept": "application/json",
               "Content-Type": "application/json",
-              "Cache": "no-cache"
+              "Cache": "no-cache",
             },
-            credentials: "same-origin"
-          }
+            credentials: "same-origin",
+          },
         );
 
       if (response.ok) {
@@ -147,7 +145,7 @@ export default class CalendarEntriesService {
 export class CalendarEntriesServiceFactory {
   public create(
     options: CalendarEntriesServiceOptions,
-    calendarDataSource: CalendarDataSourceInterface
+    calendarDataSource: CalendarDataSourceInterface,
   ) {
     return new CalendarEntriesService(options, calendarDataSource);
   }

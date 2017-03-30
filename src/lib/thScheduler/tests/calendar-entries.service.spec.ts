@@ -12,19 +12,18 @@ describe("ThemisComponents: thScheduler : CalendarEntriesService", function() {
     calendarDataSourceMock = new CalendarDataSourceMock();
     calendarEntryService = new CalendarEntriesService({
       schema: {
-        data: "data"
-        ,
+        data: "data",
         model: {
           fields: {
             end: { from: "end", type: "date" },
             id: { from: "id", type: "number" },
             start: { from: "start", type: "date" },
             title: { from: "title" },
-            calendar_id: { from: "calendar_id" }
+            calendar_id: { from: "calendar_id" },
           },
-          id: "id"
-        }
-      }
+          id: "id",
+        },
+      },
     }, calendarDataSourceMock);
   });
 

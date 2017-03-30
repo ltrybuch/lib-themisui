@@ -6,7 +6,7 @@ export default class CalendarDataSource implements CalendarDataSourceInterface {
   private _dataSource: kendo.data.DataSource;
   private _fetchPromise: Promise<number[]>;
 
-  constructor(options: kendo.data.DataSourceOptions)  {
+  constructor(options: kendo.data.DataSourceOptions) {
     this._dataSource = new DataSource().createDataSource(options);
 
     // Wrap in a standard promise for now
@@ -29,6 +29,10 @@ export default class CalendarDataSource implements CalendarDataSourceInterface {
     this._dataSource.get(calendar.id).set("visible", calendar.visible);
   }
 
+  getCalendarsDataSource(): kendo.data.DataSource {
+    return this._dataSource;
+  }
+
   private async getCalendars(): Promise<CalendarInterface[]> {
     await this._fetchPromise;
     const rawData = this._dataSource.data();
@@ -37,7 +41,8 @@ export default class CalendarDataSource implements CalendarDataSourceInterface {
       return {
         id: calendar.id,
         name: calendar.name,
-        visible: calendar.visible
+        visible: calendar.visible,
+        color: calendar.color,
       };
     });
   }

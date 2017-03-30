@@ -38,15 +38,15 @@ const items = [...firstCalendarEntriesItems, ...secondCalendarEntriesItems];
 const oneCalendarEntriesId = firstCalendarEntriesItems[0].calendar_id;
 
 const apiNestedItems = {
-  data: items
+  data: items,
 };
 
 const apiNestedOneCalendarEntriesItems = {
-  data: firstCalendarEntriesItems
+  data: firstCalendarEntriesItems,
 };
 
 const apiNestedSecondCalendarEntriesItems = {
-  data: secondCalendarEntriesItems
+  data: secondCalendarEntriesItems,
 };
 
 export {
@@ -58,5 +58,5 @@ export {
   secondCalendarEntriesItems,
   apiNestedItems,
   apiNestedOneCalendarEntriesItems,
-  apiNestedSecondCalendarEntriesItems
+  apiNestedSecondCalendarEntriesItems,
 };

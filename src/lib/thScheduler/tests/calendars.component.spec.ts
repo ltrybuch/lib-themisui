@@ -9,8 +9,8 @@ describe("ThemisComponents: Component", () => {
 
   let scope: {
     options: {
-      dataSource: CalendarDataSource
-    }
+      dataSource: CalendarDataSource,
+    },
   };
 
   beforeEach(angular.mock.module("ThemisComponents"));
@@ -19,23 +19,23 @@ describe("ThemisComponents: Component", () => {
     scope = {
       options: {
         dataSource: new CalendarDataSource({
-          data: expectedCalendars.items
-        })
-      }
+          data: expectedCalendars.items,
+        }),
+      },
     };
   });
 
-  describe("SchedulerComponent", () => {
+  describe("CalendarsComponent", () => {
     it("creates a calendars widget", () => {
       let {element} = SpecHelpers.compileDirective(
         `<th-calendars options="options"></th-calendars>`,
-        scope
+        scope,
       );
       expect(element.find(".calendars-widget").length).toEqual(1);
     });
   });
 
-  describe("SchedulerController", () => {
+  describe("CalendarsController", () => {
     let $componentController: ng.IComponentControllerService;
 
     beforeEach(inject((_$componentController_: ng.IComponentControllerService) => {

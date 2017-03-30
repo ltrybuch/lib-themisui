@@ -1,8 +1,14 @@
 import * as expectedCalendars from "./fixtures/calendars";
 import CalendarDataSourceInterface from "../calendars/calendar-data-source.interface";
+import DataSource from "../../services/data-source.service";
 
 export default class CalendarDataSourceMock implements CalendarDataSourceInterface {
   private _visibleChangeHandler: Function;
+  private _dataSource: kendo.data.DataSource;
+
+  constructor() {
+    this._dataSource = new DataSource().createDataSource({});
+  }
 
   getIds(): Promise<number[]> {
     return new Promise(function(resolve) {
@@ -15,6 +21,11 @@ export default class CalendarDataSourceMock implements CalendarDataSourceInterfa
   }
 
   setVisible() {
+    return;
+  }
+
+  getCalendarsDataSource(): kendo.data.DataSource {
+    return this._dataSource;
   }
 
   bind(_eventName: string, handler: Function) {
@@ -24,7 +35,7 @@ export default class CalendarDataSourceMock implements CalendarDataSourceInterfa
   triggerVisibilityEvent(): Promise<any> {
     return this._visibleChangeHandler({
       action: "itemchange",
-      field: "visible"
+      field: "visible",
     });
   }
 }

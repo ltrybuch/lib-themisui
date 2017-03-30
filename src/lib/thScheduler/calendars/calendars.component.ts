@@ -36,9 +36,9 @@ class CalendarsController {
 const CalendarsComponent: angular.IComponentOptions = {
   template,
   bindings: {
-    options: "="
+    options: "=",
   },
-  controller: CalendarsController
+  controller: CalendarsController,
 };
 
 export {CalendarsController, CalendarsComponent};

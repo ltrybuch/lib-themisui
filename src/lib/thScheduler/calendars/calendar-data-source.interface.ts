@@ -5,6 +5,7 @@ interface CalendarDataSourceInterface {
   isVisible(id: number): boolean;
   setVisible(calendar: CalendarInterface): void;
   bind(eventName: string, handler: Function): void;
+  getCalendarsDataSource(): kendo.data.DataSource;
 }
 
 export default CalendarDataSourceInterface;

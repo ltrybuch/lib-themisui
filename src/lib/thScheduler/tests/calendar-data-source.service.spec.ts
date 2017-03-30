@@ -13,19 +13,20 @@ describe("ThemisComponents : thScheduler : CalendarDataSource", function() {
       transport: {
         read: {
           url: "calendars",
-          dataType: "json"
-        }
+          dataType: "json",
+        },
       },
       schema: {
         data: "data",
         model: {
           id: "id",
           fields: {
-            id: { from: "id", type: "number" },
-            visible: { from: "visible", type: "boolean" }
-          }
-        }
-      }
+            id: { type: "number" },
+            visible: { type: "boolean" },
+            color: { type: "string" },
+          },
+        },
+      },
     });
   });
 
