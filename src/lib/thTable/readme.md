@@ -1,5 +1,7 @@
 # DataTable
 
+<span class="badge red">Deprecated</span>
+
 This is a set of components and services that you can use to implement
 datatables in Clio.
 

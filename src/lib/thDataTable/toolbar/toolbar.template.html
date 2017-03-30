@@ -1,0 +1,27 @@
+<div class="d-flex justify-content-between">
+
+  <div class="flex-left">
+    <th-dropdown
+      name="Actions"
+      list="$ctrl.dataTableCtrl.actionList"
+      ng-if="$ctrl.dataTableCtrl.actionList"
+      >
+    </th-dropdown>
+    <a
+      ng-if="$ctrl.dataTableCtrl.partialPageSelected"
+      ng-click="$ctrl.dataTableCtrl.clearSelection()"
+      href="#"
+      >
+      Clear selection
+    </a>
+  </div>
+
+  <div class="flex-right">
+    <!-- custom space -->
+    <ng-transclude></ng-transclude>
+
+    <!-- common: search bar -->
+    <!-- common: filter toggle button -->
+  </div>
+
+</div>

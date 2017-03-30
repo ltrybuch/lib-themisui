@@ -1,0 +1,13 @@
+<html ng-app="thDataTableDemo">
+  <body ng-controller="thDataTableDemoCtrl3 as demo">
+    <th-data-table
+      options="demo.options"
+      >
+      <th-data-table-toolbar>
+        <p>Selected IDs: {{demo.selectedIDs}}</p>
+      </th-data-table-toolbar>
+    </th-data-table>
+
+    <p>Items selected: {{demo.selectedIDs.length}}</p>
+  </body>
+</html>

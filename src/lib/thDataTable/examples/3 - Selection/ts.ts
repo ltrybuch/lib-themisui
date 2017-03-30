@@ -1,8 +1,10 @@
 import * as angular from "angular";
 import { staticColumns, staticData } from "../../fixtures/tabledata";
 
-angular.module("thDataGridDemo")
-  .controller("thDataGridDemoCtrl1", function(DataSource) {
+angular.module("thDataTableDemo")
+  .controller("thDataTableDemoCtrl3", function(DataSource) {
+
+    this.selectedIDs = [];
 
     this.options = {
       columns: staticColumns,
@@ -13,5 +15,10 @@ angular.module("thDataGridDemo")
       pageable: {
         pageSizes: true,
       },
+      selectable: true,
+      onSelectionChange: (selectedIDs: number[]) => {
+        this.selectedIDs = selectedIDs;
+      },
     };
+
   });

@@ -1,12 +1,16 @@
 import * as angular from "angular";
 const template = require("./toolbar.template.html") as string;
 
+class Toolbar {
+}
+
 const ToolbarComponent: angular.IComponentOptions = {
   template,
   require: {
-    dataGridCtrl: "^^thDataGrid",
+    dataTableCtrl: "^^thDataTable",
   },
   transclude: true,
+  controller: Toolbar,
 };
 
 export { ToolbarComponent };

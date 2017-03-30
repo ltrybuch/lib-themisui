@@ -1,8 +1,8 @@
 import * as angular from "angular";
 import { remoteColumns } from "../../fixtures/tabledata";
 
-angular.module("thDataGridDemo")
-  .controller("thDataGridDemoCtrl4", function(DataSource) {
+angular.module("thDataTableDemo")
+  .controller("thDataTableDemoCtrl4", function(DataSource) {
 
     this.options = {
       columns: remoteColumns,

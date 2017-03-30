@@ -1,10 +1,16 @@
 import * as angular from "angular";
 import { staticColumns, staticData } from "../../fixtures/tabledata";
 
-angular.module("thDataGridDemo")
-  .controller("thDataGridDemoCtrl3", function(DataSource) {
+angular.module("thDataTableDemo")
+  .controller("thDataTableDemoCtrl2", function(DataSource) {
 
+    this.counter = 0;
     this.selectedIDs = [];
+
+    this.showMessage = function() {
+      this.counter++;
+      this.message = `showMessage() => ${this.counter}`;
+    };
 
     this.options = {
       columns: staticColumns,
@@ -19,6 +25,12 @@ angular.module("thDataGridDemo")
       onSelectionChange: (selectedIDs: number[]) => {
         this.selectedIDs = selectedIDs;
       },
+      actionList: [
+        {name: "Show Message", ngClick: this.showMessage},
+        {name: "Update", href: "#"},
+        {name: "Delete", href: "#"},
+      ],
     };
 
   });
+

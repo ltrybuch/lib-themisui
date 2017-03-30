@@ -1,0 +1,15 @@
+<html ng-app="thDataTableDemo">
+  <body ng-controller="thDataTableDemoCtrl2 as demo">
+
+  <p>Message: {{ demo.message }}</p>
+
+  <th-data-table options="demo.options">
+
+    <th-data-table-toolbar>
+      <th-button ng-click="demo.showMessage()">I'm a button</th-button>
+    </th-data-table-toolbar>
+
+  </th-data-table>
+
+  </body>
+</html>

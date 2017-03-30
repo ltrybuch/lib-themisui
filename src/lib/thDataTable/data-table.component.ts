@@ -1,38 +1,40 @@
 import * as angular from "angular";
-import { DataGridOptions } from "./data-grid.interfaces";
-import { DataGridService } from "./data-grid.service";
-const template = require("./data-grid.template.html") as string;
+import { DataTableOptions } from "./data-table.interfaces";
+import { DataTableService } from "./data-table.service";
+const template = require("./data-table.template.html") as string;
 
-class DataGrid {
+class DataTable {
   static checkboxColumn = {
     width: "34px",
-    title: "<span class='" + DataGridService.headerCheckboxCSSClass + "'></span>",
-    template: `<span class="${DataGridService.rowCheckboxCSSClass}" data-uid="#= id #"></span>`,
+    title: "<span class='" + DataTableService.headerCheckboxCSSClass + "'></span>",
+    template: `<span class="${DataTableService.rowCheckboxCSSClass}" data-uid="#= id #"></span>`,
   };
 
   private currentVisibleRows: number[] = [];
-  private options: DataGridOptions;
-  private datagrid: kendo.ui.Grid;
+  private options: DataTableOptions;
+  private datatable: kendo.ui.Grid;
   wholePageSelected = false;
   partialPageSelected = false;
   selectedRows: boolean[] = [];
+  actionList: any[];
 
   /* @ngInject */
   constructor(
     private $element: angular.IAugmentedJQuery,
-    private DataGridService: DataGridService,
+    private DataTableService: DataTableService,
     private $scope: ng.IScope,
   ) {}
 
   $onInit() {
     const options = { ...this.options };
-    const datagridElement = angular.element(".th-data-grid", this.$element);
+    const datatableElement = angular.element(".th-data-table", this.$element);
     if (options.selectable) {
-      options.columns = [DataGrid.checkboxColumn, ...options.columns];
+      options.columns = [DataTable.checkboxColumn, ...options.columns];
       options.onDataBound = this.setCurrentVisibleRows.bind(this);
     }
 
-    this.datagrid = this.DataGridService.create(datagridElement[0], options, this.$scope);
+    this.datatable = this.DataTableService.create(datatableElement[0], options, this.$scope);
+    this.actionList = options.actionList;
   }
 
   togglePage() {
@@ -81,12 +83,12 @@ class DataGrid {
   }
 }
 
-const DataGridComponent: angular.IComponentOptions = {
+const DataTableComponent: angular.IComponentOptions = {
   template,
   bindings: {
     options: "<",
   },
   transclude: true,
-  controller: DataGrid,
+  controller: DataTable,
 };
-export { DataGrid, DataGridComponent };
+export { DataTable, DataTableComponent };

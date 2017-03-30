@@ -1,8 +1,8 @@
 import * as angular from "angular";
-import { DataGridOptions } from "./data-grid.interfaces";
+import { DataTableOptions } from "./data-table.interfaces";
 import "@progress/kendo-ui/js/kendo.grid.js";
 
-class DataGridService {
+class DataTableService {
   static headerCheckboxCSSClass = "page-checkbox-container";
   static rowCheckboxCSSClass = "row-checkbox-container";
   static placeholder = "________";
@@ -15,7 +15,7 @@ class DataGridService {
     </th-checkbox>`;
   static rowCheckbox = `
     <th-checkbox
-      ng-model="$ctrl.selectedRows[${DataGridService.placeholder}]"
+      ng-model="$ctrl.selectedRows[${DataTableService.placeholder}]"
       ng-click="$ctrl.updateHeaderCheckboxState()"
       >
     </th-checkbox>`;
@@ -23,7 +23,7 @@ class DataGridService {
   /* @ngInject */
   constructor(private $compile: ng.ICompileService) {}
 
-  create(element: Element, options: DataGridOptions, $scope: angular.IScope) {
+  create(element: Element, options: DataTableOptions, $scope: angular.IScope) {
     const $element = angular.element(element);
 
     const kendoOptions: kendo.ui.GridOptions = {
@@ -47,25 +47,25 @@ class DataGridService {
   }
 
   private initCheckBoxes($element: JQuery, $scope: angular.IScope) {
-    const $headContainer = angular.element("." + DataGridService.headerCheckboxCSSClass, $element);
-    const $rowContainers = angular.element("." + DataGridService.rowCheckboxCSSClass, $element);
+    const $headContainer = angular.element("." + DataTableService.headerCheckboxCSSClass, $element);
+    const $rowContainers = angular.element("." + DataTableService.rowCheckboxCSSClass, $element);
     let uIDs: number[] = [];
 
     $rowContainers.each((_index, rowContainer) => {
       const rowUID = rowContainer.getAttribute("data-uid");
       const $rowCheckboxContainer = angular.element(rowContainer);
-      const rowCheckbox = DataGridService.rowCheckbox.replace(DataGridService.placeholder, rowUID);
+      const rowCheckbox = DataTableService.rowCheckbox.replace(DataTableService.placeholder, rowUID);
       const $rowCheckbox = this.$compile(rowCheckbox)($scope);
 
       uIDs = [...uIDs, parseInt(rowUID, 10)];
       $rowCheckboxContainer.append($rowCheckbox);
     });
 
-    const $pageCheckbox = this.$compile(DataGridService.pageCheckbox)($scope);
+    const $pageCheckbox = this.$compile(DataTableService.pageCheckbox)($scope);
     $headContainer.empty().append($pageCheckbox);
 
     return uIDs;
   }
 }
 
-export { DataGridService };
+export { DataTableService };
