@@ -11,4 +11,6 @@ angular.module("thDropdownDemo")
       {name: "Action Two", ngClick: @foo, icon: "star-o"}
     ]
 
+    @disabled = true
+
     return

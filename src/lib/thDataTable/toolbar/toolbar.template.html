@@ -1,27 +1,17 @@
-<div class="d-flex justify-content-between">
+<div class="bulk-actions-container">
+  <!-- custom space -->
+  <div ng-transclude="bulk"></div>
 
-  <div class="flex-left">
-    <th-dropdown
-      name="Actions"
-      list="$ctrl.dataTableCtrl.actionList"
-      ng-if="$ctrl.dataTableCtrl.actionList"
-      >
-    </th-dropdown>
-    <a
-      ng-if="$ctrl.dataTableCtrl.partialPageSelected"
-      ng-click="$ctrl.dataTableCtrl.clearSelection()"
-      href="#"
-      >
-      Clear selection
-    </a>
+  <div class="counter-container" ng-if="$ctrl.dataTableCtrl.getSelectedSize()">
+    <p>{{$ctrl.dataTableCtrl.getSelectedSize()}} selected</p>
+    <a href="#" ng-click="$ctrl.dataTableCtrl.clearSelection()">Clear</a>
   </div>
+</div>
 
-  <div class="flex-right">
-    <!-- custom space -->
-    <ng-transclude></ng-transclude>
+<div class="tools-container">
+  <!-- custom space -->
+  <div ng-transclude="custom"></div>
 
-    <!-- common: search bar -->
-    <!-- common: filter toggle button -->
-  </div>
-
+  <!-- common: search bar -->
+  <!-- common: filter toggle button -->
 </div>

@@ -11,6 +11,7 @@
   <button
     ng-class="dropdown.type"
     ng-click="dropdown.toggle()"
+    ng-disabled="dropdown.disabledWithAttribute || dropdown.ngDisabled"
     aria-haspopup="true"
     aria-owns="{{dropdown.name|lowercase}}-listbox"
     aria-label="{{dropdown.ariaLabel}}"

@@ -54,6 +54,11 @@ class DataTable {
     this.updateHeaderCheckboxState();
   }
 
+  getSelectedSize() {
+    const selectedIDs = this.getSelectedIDs();
+    return selectedIDs.length;
+  }
+
   updateHeaderCheckboxState() {
     const rows = this.currentVisibleRows;
     const isSelected = (id: number) => this.selectedRows[id] === true;

@@ -1,16 +1,30 @@
 <html ng-app="thDropdownDemo" style="height: 225px;">
-  <body ng-controller="thDropdownDemoCtrl2 as demo">
+  <body class="d-flex justify-content-between" ng-controller="thDropdownDemoCtrl2 as demo">
     <th-dropdown
       name="Actions"
       type="secondary"
-      list="demo.links">
+      list="demo.links"
+      >
     </th-dropdown>
+
     <th-dropdown
-      name="Disabled"
+      name="Disabled with Attribute"
       list="demo.links"
       type="create"
       disabled
-      style="float: right;">
+      >
     </th-dropdown>
+
+    <div>
+      <th-dropdown
+        name="Disabled with ng-Disabled"
+        list="demo.links"
+        type="create"
+        ng-disabled="demo.disabled"
+        >
+      </th-dropdown>
+
+      <th-button ng-click="demo.disabled=!demo.disabled">Toggle Disabled</th-button>
+    </div>
   </body>
 </html>

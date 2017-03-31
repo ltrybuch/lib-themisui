@@ -9,7 +9,10 @@ const ToolbarComponent: angular.IComponentOptions = {
   require: {
     dataTableCtrl: "^^thDataTable",
   },
-  transclude: true,
+  transclude: {
+    "bulk": "?bulkActions",
+    "custom": "?customActions",
+  },
   controller: Toolbar,
 };
 

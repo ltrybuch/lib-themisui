@@ -25,12 +25,6 @@ angular.module("thDataTableDemo")
       onSelectionChange: (selectedIDs: number[]) => {
         this.selectedIDs = selectedIDs;
       },
-      actionList: [
-        {name: "Show Message", ngClick: this.showMessage},
-        {name: "Update", href: "#"},
-        {name: "Delete", href: "#"},
-      ],
     };
 
   });
-

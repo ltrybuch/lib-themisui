@@ -12,9 +12,9 @@ angular.module("ThemisComponents")
       name: "@"
       list: "=?"
       type: "@"
-      disabled: "@"
       ariaLabel: "@"
       ariaDescribedby: "@"
+      ngDisabled: "=?"
     controller: ($element, $attrs, $timeout) ->
       @processedItems = []
       @list = @list ? []
@@ -22,12 +22,10 @@ angular.module("ThemisComponents")
       @currentItemIndex = 0
       element = $element[0]
       @ariaLabel ?= @name
-
-      if $attrs.disabled?
-        angular.element(element).find("button").attr('disabled', 'disabled')
+      @disabledWithAttribute = $attrs.disabled?
 
       @keyboardToggle = (event) =>
-        unless @disabled?
+        unless $attrs.disabled?
           switch event.keyCode
             when keycode('Enter')
               if @visible == true
@@ -70,14 +68,14 @@ angular.module("ThemisComponents")
           if @visible == false
             element.focus()
           else
-            angular.element(element).find("a")[0].focus()
+            angular.element(document.body).find(".dropdown-menu a")[0].focus()
 
       @toggleCaret = ->
         if @visible then 'fa-caret-up' else 'fa-caret-down'
 
       focusOptionInDirection = (direction) =>
         index = if direction == 'down' then @currentItemIndex + 1 else @currentItemIndex - 1
-        option = element.getElementsByClassName("dropdown-item")[index]
+        option = document.getElementsByClassName("dropdown-item")[index]
         if option
           switch direction
             when 'down'
@@ -101,9 +99,6 @@ angular.module("ThemisComponents")
       return
 
     link: (scope, elem, attr) ->
-      # set button to disabled if attr passed
-      elem.find("a").attr('disabled', 'disabled') if attr.disabled?
-
       elem.on 'click', (event) ->
         menu = elem[0].getElementsByClassName("dropdown-menu")[0]
         # if menu hidden. no need to adjust

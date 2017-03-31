@@ -4,11 +4,20 @@
   <p>Message: {{ demo.message }}</p>
 
   <th-data-table options="demo.options">
-
     <th-data-table-toolbar>
-      <th-button ng-click="demo.showMessage()">I'm a button</th-button>
-    </th-data-table-toolbar>
 
+      <bulk-actions>
+        <th-dropdown name="Actions" ng-disabled="!demo.selectedIDs.length">
+          <th-item name="Show Message" ng-click="demo.showMessage()"></th-item>
+          <th-item name="Some Other Action" href="#"></th-item>
+        </th-dropdown>
+      </bulk-actions>
+
+      <custom-actions>
+        <th-button ng-click="demo.showMessage()">Show Message</th-button>
+      </custom-actions>
+
+    </th-data-table-toolbar>
   </th-data-table>
 
   </body>

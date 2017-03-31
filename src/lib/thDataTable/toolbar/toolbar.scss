@@ -1,10 +1,21 @@
 th-data-table-toolbar {
-  display: block;
-  background: $input-dark-background-color;
+  display: flex;
+  justify-content: space-between;
   padding: 10px;
+
   border: $table-border-color;
 
-  ng-transclude {
-    display: inline-block;
+  background: $input-dark-background-color;
+
+  .bulk-actions-container, .tools-container {
+    display: flex;
+
+    align-items: center;
+  }
+
+  .counter-container {
+    display: flex;
+
+    align-items: center;
   }
 }
