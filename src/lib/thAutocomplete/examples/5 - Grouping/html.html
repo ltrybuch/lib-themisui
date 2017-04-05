@@ -9,8 +9,7 @@
           name="github"
           placeholder="Type a GitHub Repo…"
           ng-model="demo.defaultModelSimple"
-          delegate="demo.defaultDelegate"
-          group-by="language"
+          options="demo.defaultOptions"
           >
         </th-autocomplete>
 
@@ -24,10 +23,9 @@
         <th-autocomplete
           placeholder="Type a city…"
           ng-model="demo.defaultModelMultiple"
-          delegate="demo.delegate"
+          options="demo.options"
           name="test-name"
-          group-by="province"
-          multiple="true"
+          multiple
           >
         </th-autocomplete>
 
@@ -41,10 +39,9 @@
         <th-autocomplete
           placeholder="Type a city…"
           ng-model="demo.defaultModelCombobox"
-          delegate="demo.delegate"
+          options="demo.options"
           name="test-name"
-          group-by="province"
-          combobox="true"
+          combobox
           >
         </th-autocomplete>
 

@@ -1,24 +1,30 @@
-import { AbstractAutocomplete } from "../../providers/autocomplete.abstract";
+import { AutocompleteConfiguration } from "../../providers/autocomplete.interface";
+import AutocompleteAbstract from "../../providers/autocomplete.abstract";
 
-export class AbstractAutocompleteMock extends AbstractAutocomplete {
-  constructor(protected options: any) {
-    super(options);
+class AutocompleteAbstractMock extends AutocompleteAbstract {
+
+  constructor(protected config: AutocompleteConfiguration) {
+    super(config);
   }
 
   create() {
-    this.kendoComponent = new kendo.ui.AutoComplete(this.options.element, {});
+    this.kendoComponent = new kendo.ui.AutoComplete(this.config.element, {});
   }
 
-  getInternalOptions() {
-    return this.options;
+  getInternalConfig() {
+    return this.config;
   }
 
-  getFilterType() {
-    return this.filterType;
+  getFilter() {
+    return this.config.options.filter;
   }
 
   getInitialValue() {
     return this.initialValue;
+  }
+
+  setInitialValue(): void {
+    this.initialValue = null;
   }
 
   getValue() {
@@ -33,3 +39,5 @@ export class AbstractAutocompleteMock extends AbstractAutocomplete {
     return this.kendoComponent;
   }
 }
+
+export default AutocompleteAbstractMock;

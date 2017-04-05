@@ -8,11 +8,9 @@
         <th-autocomplete
           placeholder="Type a city…"
           ng-model="demo.defaultModel"
-          delegate="demo.defaultDelegate"
+          options="demo.defaultOptions"
           name="test-name"
-          condensed="true",
-          row-template="demo.rowTemplate"
-          row-title-template="demo.rowTitleTemplate"
+          condensed
           >
         </th-autocomplete>
 
@@ -28,11 +26,10 @@
         <th-autocomplete
           placeholder="Type a city…"
           ng-model="demo.multiModel"
-          delegate="demo.multiDelegate"
+          options="demo.multiOptions"
           name="test-name"
-          multiple="true"
-          condensed="true",
-          row-template="demo.rowTemplate"
+          multiple
+          condensed
           >
         </th-autocomplete>
 
@@ -48,11 +45,10 @@
         <th-autocomplete
           placeholder="Type a city…"
           ng-model="demo.comboModel"
-          delegate="demo.comboDelegate"
+          options="demo.comboOptions"
           name="test-name"
-          combobox="true"
-          condensed="true",
-          row-template="demo.rowTemplate"
+          combobox
+          condensed
           >
         </th-autocomplete>
 

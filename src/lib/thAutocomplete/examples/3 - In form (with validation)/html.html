@@ -13,7 +13,7 @@
               placeholder="Type a GitHub Repo…"
               ng-model="demo.defaultModel"
               ng-required="demo.required"
-              delegate="demo.defaultDelegate"
+              options="demo.defaultOptions"
               >
             </th-autocomplete>
 
@@ -29,8 +29,8 @@
               placeholder="Type a GitHub Repo…"
               ng-model="demo.multipleModel"
               ng-required="demo.required"
-              delegate="demo.multipleDelegate"
-              multiple="true"
+              options="demo.multipleOptions"
+              multiple
               >
             </th-autocomplete>
 
@@ -46,8 +46,8 @@
               placeholder="Type a GitHub Repo…"
               ng-model="demo.comboModel"
               ng-required="demo.required"
-              delegate="demo.comboDelegate"
-              combobox="true"
+              options="demo.comboOptions"
+              combobox
               >
             </th-autocomplete>
 

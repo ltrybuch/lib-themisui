@@ -1,3 +1,5 @@
+import * as angular from "angular";
+
 angular.module("thAutocompleteDemo")
   .controller("thAutocompleteDemoCtrl3", function(DataSource, ValidatorService) {
     this.required = true;
@@ -37,7 +39,7 @@ angular.module("thAutocompleteDemo")
       this.submit();
     };
 
-    this.defaultDelegate = {
+    this.defaultOptions = {
       displayField: "full_name",
       dataSource: DataSource.createDataSource({
         serverFiltering: true,
@@ -63,7 +65,7 @@ angular.module("thAutocompleteDemo")
       }),
     };
 
-    this.multipleDelegate = {
+    this.multipleOptions = {
       displayField: "full_name",
       dataSource: DataSource.createDataSource({
         serverFiltering: true,
@@ -89,7 +91,7 @@ angular.module("thAutocompleteDemo")
       }),
     };
 
-    this.comboDelegate = {
+    this.comboOptions = {
       displayField: "full_name",
       dataSource: DataSource.createDataSource({
         serverFiltering: true,

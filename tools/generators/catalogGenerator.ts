@@ -17,7 +17,7 @@ const componentsRoot = path.join("src", "lib");
 enum componentType {
   globalDocs,
   docs,
-  components
+  components,
 }
 
 function getProjectMeta(): PackageJson {

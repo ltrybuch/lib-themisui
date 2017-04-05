@@ -9,13 +9,12 @@
           name="github"
           placeholder="Type a GitHub Repo…"
           ng-model="demo.defaultModel"
-          delegate="demo.delegate"
-          condensed="true"
+          options="demo.options"
+          condensed
           >
         </th-autocomplete>
 
         <p>Selected repo: <code ng-if="demo.defaultModel">id: {{demo.defaultModel.id}}</code></p>
-
       </div>
     </div>
 
@@ -26,18 +25,15 @@
         <th-autocomplete
           name="github"
           placeholder="Type a GitHub Repo…"
-          ng-model="demo.multipleModel"
-          delegate="demo.delegate"
-          multiple="true"
-          condensed="true"
+          ng-model="demo.multiModel"
+          options="demo.options"
+          multiple
+          condensed
           >
         </th-autocomplete>
 
         <p>
-          Selected repos:
-          <ul ng-repeat="(key, value) in demo.multipleModel">
-            <li ng-if="value">id: {{value.id}}, name: {{value.full_name}}</li>
-          </ul>
+          Selected repos: {{demo.multiModel}}
         </p>
 
       </div>
@@ -51,9 +47,9 @@
           name="github"
           placeholder="Type a GitHub Repo…"
           ng-model="demo.comboModel"
-          delegate="demo.delegate"
-          combobox="true"
-          condensed="true"
+          options="demo.options"
+          combobox
+          condensed
           >
         </th-autocomplete>
 

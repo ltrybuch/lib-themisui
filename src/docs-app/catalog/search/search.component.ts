@@ -2,14 +2,14 @@ import { CatalogService } from "../catalog.service";
 import { Component } from "../catalog.interfaces";
 import { StateService } from "angular-ui-router";
 import { searchModel } from "./search.interfaces";
-import { Delegate } from "../../../lib/thAutocomplete/providers/autocomplete-options.interface";
+import { AutocompleteDataOptions } from "../../../lib/thAutocomplete/providers/autocomplete.interface";
 import DataSource from "../../../lib/services/data-source.service";
 const template = require("./search.template.html") as string;
 
 class Search {
   static docRouteType = "doc";
   static componentRouteType = "component";
-  searchDelegate: Delegate;
+  searchOptions: AutocompleteDataOptions;
   model: searchModel = null;
 
   /* @ngInject */
@@ -23,10 +23,10 @@ class Search {
   $onInit() {
     const data = this.createDataSource(this.catalogService.docs, this.catalogService.components);
 
-    this.searchDelegate = {
+    this.searchOptions = {
       dataSource: new DataSource().createDataSource({ data }),
       displayField: "name",
-      filterType: "contains",
+      filter: "contains",
     };
   }
 

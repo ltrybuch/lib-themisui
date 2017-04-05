@@ -13,8 +13,8 @@ angular.module("thSchedulerDemo")
       transport: {
         read: {
           url: "calendars",
-          dataType: "json"
-        }
+          dataType: "json",
+        },
       },
       schema: {
         data: "data",
@@ -24,9 +24,9 @@ angular.module("thSchedulerDemo")
             id: { type: "number" },
             visible: { type: "boolean" },
             color: { type: "string" },
-          }
-        }
-      }
+          },
+        },
+      },
     });
 
     const calendarEntriesService = CalendarEntriesServiceFactory.create({
@@ -40,13 +40,13 @@ angular.module("thSchedulerDemo")
             title: { type: "string" },
             calendar_id: { type: "number" },
           },
-          id: "id"
-        }
-      }
+          id: "id",
+        },
+      },
     }, this.calendarDataSource);
 
     this.calendarsOptions = {
-      dataSource: this.calendarDataSource
+      dataSource: this.calendarDataSource,
     };
 
     this.options = {
@@ -56,8 +56,8 @@ angular.module("thSchedulerDemo")
         {
           field: "calendar_id",
           dataValueField: "id",
-          dataSource: this.calendarDataSource.getCalendarsDataSource()
-        }
-      ]
+          dataSource: this.calendarDataSource.getCalendarsDataSource(),
+        },
+      ],
     };
   });

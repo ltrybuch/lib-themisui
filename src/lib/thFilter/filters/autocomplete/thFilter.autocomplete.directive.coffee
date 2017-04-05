@@ -30,12 +30,11 @@ angular.module 'ThemisComponents'
       @combobox = @filterOptions.autocompleteOptions?.combobox or "false"
       @multiple = @filterOptions.autocompleteOptions?.multiple or "false"
 
-      @rowTemplate = @filterOptions.autocompleteOptions?.rowTemplate or undefined
-
-      @delegate = {
+      @options = {
         displayField: @displayField
         trackField: @trackField
         dataSource: dataSource
+        rowTemplate: @filterOptions.autocompleteOptions?.rowTemplate or undefined
       }
 
       $scope.$on "thFilter:destroyed", =>

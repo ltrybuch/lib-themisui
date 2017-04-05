@@ -1,7 +1,9 @@
+import * as angular from "angular";
+
 angular.module("thAutocompleteDemo")
   .controller("thAutocompleteDemoCtrl2", function(DataSource) {
 
-    this.delegate = {
+    this.options = {
       displayField: "full_name",
       dataSource: DataSource.createDataSource({
         serverFiltering: true,

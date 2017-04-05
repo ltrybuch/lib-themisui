@@ -8,7 +8,7 @@
         <th-autocomplete
           placeholder="Type a city…"
           ng-model="demo.defaultModel"
-          delegate="demo.delegate"
+          options="demo.options"
           name="test-name"
           ng-disabled="true"
           >
@@ -24,9 +24,9 @@
         <th-autocomplete
           placeholder="Type a city…"
           ng-model="demo.multiModel"
-          delegate="demo.delegate"
+          options="demo.options"
           name="test-name"
-          multiple="true"
+          multiple
           ng-disabled="true"
           >
         </th-autocomplete>
@@ -41,9 +41,9 @@
         <th-autocomplete
           placeholder="Type a city…"
           ng-model="demo.comboModel"
-          delegate="demo.delegate"
+          options="demo.options"
           name="test-name"
-          combobox="true"
+          combobox
           ng-disabled="true"
           >
         </th-autocomplete>

@@ -8521,15 +8521,15 @@ tbody .k-group-cell {
   .k-pager-numbers .k-link:link.k-state-selected {
     color: #ffffff; }
 
-th-data-grid-toolbar {
+th-data-table-toolbar {
   display: block;
   background: #D7DEE2;
   padding: 10px;
   border: #B0BEC5; }
-  th-data-grid-toolbar ng-transclude {
+  th-data-table-toolbar ng-transclude {
     display: inline-block; }
 
-th-data-grid {
+th-data-table {
   display: block; }
 
 .k-compact .k-datepicker .k-input, .k-datepicker.k-compact .k-input {

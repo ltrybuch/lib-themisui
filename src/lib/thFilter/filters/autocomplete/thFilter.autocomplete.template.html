@@ -2,10 +2,9 @@
   <th-autocomplete
     ng-model="thFilterAutocomplete.filter.model"
     ng-attr-placeholder="{{thFilterAutocomplete.filter.placeholder || thFilterAutocomplete.placeholder || 'Type some text…'}}"
-    delegate="thFilterAutocomplete.delegate"
+    options="thFilterAutocomplete.options"
     on-change="thFilterAutocomplete.filterSet.onFilterChange"
-    condensed="true"
-    row-template="thFilterAutocomplete.rowTemplate"
+    condensed
     >
   </th-autocomplete>
 </div>

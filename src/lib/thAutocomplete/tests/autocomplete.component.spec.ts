@@ -1,54 +1,71 @@
 import * as angular from "angular";
 import "angular-mocks";
-let SpecHelpers: any = require("spec_helpers");
-let context = describe;
+const SpecHelpers: any = require("spec_helpers");
+import { AutocompleteComponentError } from "../autocomplete.errors";
+import AutocompleteOptionsFixture from "./fixtures/autocomplete-opts.fixture";
 
 /* tslint:disable:no-shadowed-variable */
 
-describe("ThemisComponents: Component: AutocompleteController", () => {
+describe("ThemisComponents: thAutocomplete : AutocompleteController", () => {
 
   beforeEach(angular.mock.module("ThemisComponents"));
 
-  describe("when delegate is not specified", () => {
-    it("should throw an error", () => {
-      let invalidTemplate = "<th-autocomplete></th-autocomplete>";
-      expect( function(){ SpecHelpers.compileDirective(invalidTemplate); } ).toThrow();
+  describe("Validations", () => {
+
+    it("should throw an error when options object is missing ", () => {
+      const invalidTemplate = "<th-autocomplete></th-autocomplete>";
+      expect(function() {
+        SpecHelpers.compileDirective(invalidTemplate);
+      }).toThrow(new AutocompleteComponentError(`You must provide the "options" parameter.`));
     });
+
+    it("should throw an error when the multiple and combobox attributes are set at the same time", () => {
+      const invalidTemplate = `<th-autocomplete options="demo.options" multiple combobox></th-autocomplete>`;
+      expect(function() {
+        SpecHelpers.compileDirective(invalidTemplate, {
+          demo: {
+            options: AutocompleteOptionsFixture.createAutocompleteConfig().options,
+          },
+        });
+      }).toThrow(new AutocompleteComponentError(`multiple and combobox are mutually exclusive`));
+    });
+
   });
 
-  describe("when a delegate is specified", () => {
+  describe("Creation", () => {
+
     let scope: any;
     scope = {};
 
     beforeEach(inject(function(DataSource: any) {
-      scope.dg = {
+      scope.options = {
         dataSource: DataSource.createDataSource({
           data: [
             {"id": 1, name: "Mike", company: "Clio"},
             {"id": 2, name: "Craig", company: "Clio"},
           ],
         }),
-        dataTextField: "name",
+        displayField: "name",
         filterType: "startswith",
       };
     }));
 
     it("creates an autocomplete", () => {
-      const {element} = SpecHelpers.compileDirective(`<th-autocomplete delegate="dg"></th-autocomplete>`, scope);
+      const {element} = SpecHelpers.compileDirective(`<th-autocomplete options="options"></th-autocomplete>`, scope);
       expect(element.find(".k-autocomplete").length).toEqual(1);
     });
 
-    context("with the combobox attribute set to true", () => {
+    describe("with the combobox attribute set to true", () => {
       it("creates a combobox", () => {
         scope.combobox = "true";
-        const template = `<th-autocomplete delegate="dg" combobox="{{combobox}}"></th-autocomplete>`;
+        const template = `<th-autocomplete options="options" combobox="{{combobox}}"></th-autocomplete>`;
         const {element} = SpecHelpers.compileDirective(template, scope);
         expect(element.find(".k-combobox").length).toEqual(1);
 
-        context("with the combobox attribute set to false", () => {
+        describe("with the combobox attribute set to false", () => {
           it("does not create a combobox", () => {
             scope.combobox = "false";
-            const template = `<th-autocomplete delegate="dg" combobox="{{combobox}}"></th-autocomplete>`;
+            const template = `<th-autocomplete options="options" combobox="{{combobox}}"></th-autocomplete>`;
             const {element} = SpecHelpers.compileDirective(template, scope);
             expect(element.find(".k-combobox").length).toEqual(0);
           });
@@ -56,17 +73,17 @@ describe("ThemisComponents: Component: AutocompleteController", () => {
       });
     });
 
-    context("with the multiple attribute set to true", () => {
+    describe("with the multiple attribute set to true", () => {
       it("creates a multiselect", () => {
         scope.multiple = "true";
-        const template = `<th-autocomplete delegate="dg" multiple="true"></th-autocomplete>`;
+        const template = `<th-autocomplete options="options" multiple="true"></th-autocomplete>`;
         const {element} = SpecHelpers.compileDirective(template, scope);
         expect(element.find(".k-multiselect").length).toEqual(1);
 
-        context("with the multiple attribute set to false", () => {
+        describe("with the multiple attribute set to false", () => {
           it("does not create a multiselect", () => {
             scope.multiple = "false";
-            const template = `<th-autocomplete delegate="dg" multiple="true"></th-autocomplete>`;
+            const template = `<th-autocomplete options="options" multiple="true"></th-autocomplete>`;
             const {element} = SpecHelpers.compileDirective(template, scope);
             expect(element.find(".k-multiselect").length).toEqual(0);
           });
@@ -74,53 +91,53 @@ describe("ThemisComponents: Component: AutocompleteController", () => {
       });
     });
 
-    context("with the placeholder attribute set", () => {
+    describe("with the placeholder attribute set", () => {
       it("creates an autocomplete with a placeholder", () => {
         scope.placeholder = "Type a foo...";
-        const template = `<th-autocomplete delegate="dg" placeholder="{{placeholder}}"></th-autocomplete>`;
+        const template = `<th-autocomplete options="options" placeholder="{{placeholder}}"></th-autocomplete>`;
         const {element} = SpecHelpers.compileDirective(template, scope);
         expect(element.attr("placeholder")).toEqual("Type a foo...");
       });
     });
 
-    context("with the group-by attribute set", () => {
+    describe("with the group-by attribute set", () => {
       it("creates an autocomplete with grouped options", () => {
         scope.groupBy = "company";
-        const template = `<th-autocomplete delegate="dg" group-by="{{groupBy}}"></th-autocomplete>`;
+        const template = `<th-autocomplete options="options" group-by="{{groupBy}}"></th-autocomplete>`;
         const {element} = SpecHelpers.compileDirective(template, scope);
         expect(element.attr("group-by")).toEqual("company");
       });
     });
 
-    context("with the show-search-hint attribute set", () => {
+    describe("with the show-search-hint attribute set", () => {
       it("creates an autocomplete with a search hint", () => {
         scope.showSearchHint = "true";
-        const template = `<th-autocomplete delegate="dg" show-search-hint="{{showSearchHint}}"></th-autocomplete>`;
+        const template = `<th-autocomplete options="options" show-search-hint="{{showSearchHint}}"></th-autocomplete>`;
         const {element} = SpecHelpers.compileDirective(template, scope);
         expect(element.attr("show-search-hint")).toEqual("true");
       });
     });
 
-    context("with the name attribute set", () => {
+    describe("with the name attribute set", () => {
       it("creates an autocomplete with a name", () => {
         scope.name = "foo";
-        const template = `<th-autocomplete delegate="dg" name="{{name}}"></th-autocomplete>`;
+        const template = `<th-autocomplete options="options" name="{{name}}"></th-autocomplete>`;
         const {element} = SpecHelpers.compileDirective(template, scope);
         expect(element.attr("name")).toEqual("foo");
       });
     });
 
-    context("with the condensed attribute set", () => {
+    describe("with the condensed attribute set", () => {
       it("creates an autocomplete with condensed styling when set to true", () => {
         scope.condensed = "true";
-        const template = `<th-autocomplete delegate="dg" condensed="{{condensed}}"></th-autocomplete>`;
+        const template = `<th-autocomplete options="options" condensed="{{condensed}}"></th-autocomplete>`;
         const {element} = SpecHelpers.compileDirective(template, scope);
         expect(element.attr("condensed")).toEqual("true");
       });
 
       it("creates an autocomplete with no condensed attribute when condensed is non-truthy", () => {
         scope.condensed = "false";
-        const template = `<th-autocomplete delegate="dg" condensed="{{condensed}}"></th-autocomplete>`;
+        const template = `<th-autocomplete options="options" condensed="{{condensed}}"></th-autocomplete>`;
         const {element} = SpecHelpers.compileDirective(template, scope);
         expect(element.attr("condensed")).toEqual("false");
       });

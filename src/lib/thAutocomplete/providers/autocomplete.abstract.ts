@@ -1,38 +1,56 @@
 import * as $ from "jquery";
-import { AutocompleteOptions } from "./autocomplete-options.interface";
+import { AutocompleteConfiguration } from "./autocomplete.interface";
+import { AutocompleteProviderError } from "../autocomplete.errors";
 import "@progress/kendo-ui/js/kendo.validator.js";
 
-abstract class AbstractAutocomplete {
-  protected enabled: boolean = true;
-  protected filterType: string = "startswith";
-  protected initialValue: any;
-  protected autoBind: boolean = false;
 
-  // TODO: #i18n
-  protected noDataTemplate: string = "No results.";
+abstract class AutocompleteAbstract {
+  protected enabled: boolean = true;
+  protected initialValue: any;
+  protected autoBind: boolean = true;
   protected kendoComponent: any;
 
-  constructor(protected options: AutocompleteOptions) {
+  constructor(protected config: AutocompleteConfiguration) {
     this.initializeOptions();
     this.create();
   }
 
+  protected validateOptions() {
+    if (!this.config.options) {
+      throw new AutocompleteProviderError(`You must provide the "options" parameter.`);
+    }
+
+    if (!this.config.options.displayField) {
+      throw new AutocompleteProviderError("options.displayField is required");
+    }
+  }
+
+  protected validateValueIsObject() {
+    if (this.config.value && this.config.value instanceof Object === false) {
+      throw new AutocompleteProviderError(`options.value invalid. Value "${this.config.value}" should be an object`);
+    }
+  }
+
   protected initializeOptions() {
-    if (this.options.ngDisabled) {
+    this.validateOptions();
+
+    if (this.config.ngDisabled) {
       this.enabled = false;
     }
 
-    if (this.options.delegate.filterType) {
-      this.filterType = this.options.delegate.filterType;
+    if (this.config.options.hasOwnProperty("autoBind") && this.config.options.autoBind === false) {
+      this.autoBind = false;
     }
 
-    this.initialValue = this.options.value;
-    if (this.options.value instanceof Object) {
-      this.initialValue = this.options.value[this.options.delegate.displayField];
-    }
+    this.config.options.filter = this.config.options.filter || "startswith";
+    this.config.options.trackField = this.config.options.trackField || "id";
+    this.config.options.noDataTemplate = this.config.options.noDataTemplate ||  "No results.";
+    this.config.options.minLength = this.config.options.minLength || 2;
 
-    if (this.options.delegate.autoBind) {
-      this.autoBind = true;
+    this.setInitialValue();
+
+    if (this.config.options.groupBy) {
+      this.config.options.dataSource.group({field: this.config.options.groupBy});
     }
   }
 
@@ -42,15 +60,14 @@ abstract class AbstractAutocomplete {
 
   public setValue(theValue: any) {
     if (this.kendoComponent) {
-      let newValue = theValue ? theValue : "";
-      if (theValue instanceof Object) {
-        newValue = theValue[this.options.delegate.displayField];
-      }
+      let newValue = theValue ? theValue[this.config.options.displayField] : "";
       this.kendoComponent.value(newValue);
     }
   }
 
   abstract create(): void;
+
+  abstract setInitialValue(): void;
 
   public toggleEnabled() {
     this.enabled = !this.enabled;
@@ -62,12 +79,12 @@ abstract class AbstractAutocomplete {
   public toggleRequired() {
     let validator = $(this.kendoComponent.element[0].form).kendoValidator().data("kendoValidator");
 
-    if (this.options.element.required === true) {
-      this.options.element.removeAttribute("required");
+    if (this.config.element.required === true) {
+      this.config.element.removeAttribute("required");
     } else {
-      this.options.element.setAttribute("required", "required");
+      this.config.element.setAttribute("required", "required");
     }
-    validator.validateInput(this.options.element);
+    validator.validateInput(this.config.element);
   }
 
   public toggleSearchHint(showHint: boolean) {
@@ -84,6 +101,4 @@ abstract class AbstractAutocomplete {
   }
  }
 
-export {
-  AbstractAutocomplete
-}
+export default AutocompleteAbstract;

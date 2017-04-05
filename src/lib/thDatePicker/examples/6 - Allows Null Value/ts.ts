@@ -10,5 +10,5 @@ angular.module("thDatePickerDemo").controller("thDatePickerDemoCtrl1", function 
 
   this.clearDatePicker = () => {
     this.date = null;
-  }
+  };
 });

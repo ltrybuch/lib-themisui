@@ -1,7 +1,10 @@
+import * as angular from "angular";
+import CitiesFixture from "../../tests/fixtures/cities.fixture";
+
 angular.module("thAutocompleteDemo")
   .controller("thAutocompleteDemoCtrl5", function(DataSource) {
 
-    this.defaultDelegate = {
+    this.defaultOptions = {
       displayField: "full_name",
       dataSource: DataSource.createDataSource({
         serverFiltering: true,
@@ -25,36 +28,17 @@ angular.module("thAutocompleteDemo")
           data: "items",
         },
       }),
+      groupBy: "language",
     };
 
-    this.cityOptions = [
-      {id: 0, name: "Toronto", province: "Ontario"},
-      {id: 1, name: "Montreal", province: "Quebec"},
-      {id: 2, name: "Calgary", province: "Alberta"},
-      {id: 3, name: "Ottawa", province: "Ontario"},
-      {id: 4, name: "Edmonton", province: "Alberta"},
-      {id: 5, name: "Mississauga", province: "Ontario"},
-      {id: 6, name: "Winnipeg", province: "Manitoba"},
-      {id: 7, name: "Vancouver", province: "British Columbia"},
-      {id: 8, name: "Brampton", province: "Ontario"},
-      {id: 9, name: "Hamilton", province: "Ontario"},
-      {id: 10, name: "Quebec City", province: "Quebec"},
-      {id: 11, name: "Surrey", province: "British Columbia"},
-      {id: 12, name: "Laval", province: "Quebec"},
-      {id: 13, name: "Halifax", province: "Nova Scotia"},
-      {id: 14, name: "London", province: "Ontario"},
-      {id: 15, name: "Markham", province: "Ontario"},
-      {id: 16, name: "Vaughan", province: "Ontario"},
-      {id: 17, name: "Gatineau", province: "Quebec"},
-      {id: 18, name: "Longueuil", province: "Quebec"},
-      {id: 19, name: "Burnaby", province: "British Columbia"},
-    ];
+    this.cityOptions = CitiesFixture.getCanadianCities();
 
-    this.delegate = {
+    this.options = {
       displayField: "name",
       dataSource: DataSource.createDataSource({
         data: this.cityOptions,
       }),
+      groupBy: "province",
     };
 
 });

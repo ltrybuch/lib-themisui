@@ -76,11 +76,11 @@ describe "ThemisComponents: Directive: thFilterAutocomplete", ->
     expect(@filterSet.length).toBe 1
     expect(@filterSet[0]).toBe instanceof AutocompleteFilter
 
-  it "should set 'trackField' option on delegate", ->
-    expect(@controller.delegate.trackField).toBe "id"
+  it "should set 'trackField' option on options", ->
+    expect(@controller.options.trackField).toBe "id"
 
-  it "should set 'displayField' option on delegate", ->
-    expect(@controller.delegate.displayField).toBe "name"
+  it "should set 'displayField' option on options", ->
+    expect(@controller.options.displayField).toBe "name"
 
   describe "when model class is undefined", ->
     beforeEach ->
@@ -117,11 +117,11 @@ describe "ThemisComponents: Directive: thFilterAutocomplete", ->
         @element.find("div")
       ).scope().thFilterAutocomplete
 
-    it "should set 'trackField' option on delegate", ->
-      expect(@controller.delegate.trackField).toBe "tracker"
+    it "should set 'trackField' option on options", ->
+      expect(@controller.options.trackField).toBe "tracker"
 
-    it "should set 'displayField' option on delegate", ->
-      expect(@controller.delegate.displayField).toBe "displayer"
+    it "should set 'displayField' option on options", ->
+      expect(@controller.options.displayField).toBe "displayer"
 
   describe "when `thFilter:destroyed` is broadcast", ->
     beforeEach ->

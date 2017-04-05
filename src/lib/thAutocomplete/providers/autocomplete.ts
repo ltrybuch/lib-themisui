@@ -1,50 +1,63 @@
-import { AutocompleteOptions } from "./autocomplete-options.interface";
-import { AbstractAutocomplete } from "./autocomplete.abstract";
+import { AutocompleteConfiguration } from "./autocomplete.interface";
+import AutocompleteAbstract from "./autocomplete.abstract";
 import "@progress/kendo-ui/js/kendo.autocomplete.js";
 
-export class Autocomplete extends AbstractAutocomplete {
+class Autocomplete extends AutocompleteAbstract {
+
   protected kendoComponent: kendo.ui.AutoComplete;
 
-  constructor(protected options: AutocompleteOptions) {
-    super(options);
+  constructor(protected config: AutocompleteConfiguration) {
+    super(config);
   }
 
-  protected initializeOptions() {
-    super.initializeOptions();
+  protected validateOptions() {
+    super.validateOptions();
+    this.validateValueIsObject();
+  }
+
+  setInitialValue(): void {
+    if (this.config.value) {
+      this.initialValue = this.config.value[this.config.options.displayField];
+    }
   }
 
   create() {
+    let validSelection: boolean;
+
     const widgetOptions = {
-      dataTextField: this.options.delegate.displayField,
+      dataTextField: this.config.options.displayField,
       enable: this.enabled,
-      filter: this.filterType,
-      dataSource: this.options.delegate.dataSource,
-      minLength: this.options.delegate.minLength ? this.options.delegate.minLength : 2,
-      placeholder: this.options.placeholder,
-      value: this.initialValue,
-      noDataTemplate: this.noDataTemplate,
-      template: this.options.rowTemplate,
+      filter: this.config.options.filter,
+      dataSource: this.config.options.dataSource,
+      minLength: this.config.options.minLength,
+      placeholder: this.config.placeholder,
+      noDataTemplate: this.config.options.noDataTemplate,
+      template: this.config.options.rowTemplate,
       fixedGroupTemplate: "",
-      close: function(e: any) {
-        // Clear autocomplete and combobox inputs on
-        // blur if value is not a valid selection
-        let dataItem = this.dataItem(e.item);
-        if (!dataItem) {
-          $(this.element).val("");
+      open: function() {
+        validSelection = false;
+      },
+      close: () => {
+        if (!validSelection) {
+          this.kendoComponent.value("");
         }
       },
-      select: (e: any) => {
+      select: (e: kendo.ui.AutoCompleteSelectEvent) => {
+        validSelection = true;
         if (e.dataItem) {
-          this.options.change(e.dataItem);
+          this.config.change(e.dataItem);
         }
       },
-      change: (component: any) => {
+      change: (component: kendo.ui.AutoCompleteChangeEvent) => {
         if (component.sender.value() === "") {
-          this.options.change(component.sender.value());
+          this.config.change(component.sender.value(""));
         }
       },
     } as kendo.ui.AutoCompleteOptions;
 
-    this.kendoComponent = new kendo.ui.AutoComplete(this.options.element, widgetOptions);
+    this.kendoComponent = new kendo.ui.AutoComplete(this.config.element, widgetOptions);
+    this.kendoComponent.value(this.initialValue);
   }
 }
+
+export default Autocomplete;

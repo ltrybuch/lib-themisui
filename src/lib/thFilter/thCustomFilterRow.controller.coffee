@@ -37,11 +37,11 @@ angular.module 'ThemisComponents'
           @broadcastFilterDestroyed()
         @rowFilterOptions = if @rowSelectValue then [@rowSelectValue] else []
 
-    @customFieldDelegate =
+    @customFieldOptions =
       autoBind: true,
       displayField: 'name'
       trackField: 'fieldIdentifier'
-      filterType: "contains"
+      filter: "contains"
       dataSource: DataSource.createDataSource data: @customFilterTypes
 
     return

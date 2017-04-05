@@ -43,7 +43,7 @@ const ConfigObj = {
         "/exampleTemplates": "src/docs-app/exampleTemplates",
         "/components": "src/lib",
         "/node_modules/jquery": "node_modules/jquery",
-        "/fonts": "src/themes/fonts"
+        "/fonts": "src/themes/fonts",
       },
       middleware: [historyApiFallback()]
     },

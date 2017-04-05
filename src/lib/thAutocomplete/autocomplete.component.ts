@@ -1,23 +1,21 @@
 import * as angular from "angular";
-import { AutocompleteFactory } from "./autocomplete.factory";
-import { AbstractAutocomplete } from "./providers/autocomplete.abstract";
+import AutocompleteFactory from "./autocomplete.factory";
+import AutocompleteAbstract from "./providers/autocomplete.abstract";
+import { AutocompleteDataOptions, AutocompleteType } from "./providers/autocomplete.interface";
+import { AutocompleteComponentError } from "./autocomplete.errors";
 
-export class AutocompleteController {
-  private delegate: any;
+class AutocompleteController {
+  private options: AutocompleteDataOptions;
   private name: string;
   private placeholder: string;
   private ngModel: any;
   private ngDisabled: any;
   private ngRequired: any;
-  private combobox: boolean;
-  private multiple: boolean;
-  private groupBy: any;
-  private condensed: any;
-  private rowTemplate: string;
-  private trackField: string;
+  private componentType: AutocompleteType;
   private validationNameAttr: string;
+
   private onChange: (newVal: any) => void;
-  private autoComplete: AbstractAutocomplete;
+  private autoComplete: AutocompleteAbstract;
 
   /* @ngInject */
   constructor(
@@ -36,52 +34,62 @@ export class AutocompleteController {
     });
   }
 
+  private validateArgs() {
+    if (this.options === null || typeof this.options === "undefined") {
+      throw new AutocompleteComponentError(`You must provide the "options" parameter.`);
+    }
+
+    if ("multiple" in this.$attrs && "combobox" in this.$attrs) {
+      throw new AutocompleteComponentError(`multiple and combobox are mutually exclusive`);
+    }
+  }
+
+  private setComponentType() {
+    this.componentType = "autocomplete";
+
+    if ("multiple" in this.$attrs) {
+      this.componentType = "multiple";
+    } else if ("combobox" in this.$attrs) {
+      this.componentType = "combobox";
+    }
+  }
+
   $onChanges(change: any) {
     this.$timeout(() => {
       if (change.ngDisabled && typeof change.ngDisabled.previousValue === "boolean") {
         this.autoComplete.toggleEnabled();
       }
-      if (change.showSearchHint && typeof change.showSearchHint.previousValue === "boolean") {
-        this.autoComplete.toggleSearchHint(change.showSearchHint.currentValue);
-      }
+      // FIXME: This code has been disabled due to not working.
+      // Re-enable with ticket CLIO-45890
+      // if (change.showSearchHint && typeof change.showSearchHint.previousValue === "boolean") {
+      //   this.autoComplete.toggleSearchHint(change.showSearchHint.currentValue);
+      // }
       if (change.ngRequired && typeof change.ngRequired.previousValue === "boolean") {
         this.autoComplete.toggleRequired();
       }
     });
   }
 
-  $postLink() {
-    const elementType = this.multiple ? "select" : "input";
-    const $childElement = angular.element(this.$element).find(`${elementType}:first`);
-    const $parentElement = angular.element($childElement).parent();
+  $onInit() {
+    this.validateArgs();
+    this.setComponentType();
+  }
 
-    if (this.groupBy) {
-      this.delegate.dataSource.group({field: this.groupBy});
-    }
+  $postLink() {
+    const elementType = this.componentType === "multiple" ? "select" : "input";
+    const $childElement = angular.element(this.$element).find(`${elementType}:first`);
 
     if (this.name) {
       this.$element.removeAttr("name");
     }
 
-    /**
-     * If the condensed attr is supplied, it is already on the th-autocomplete attribute
-     * so we need to remove it if non-truthy
-     */
-    if (this.condensed !== "true") {
-      this.$element.removeAttr("condensed");
-    }
-
-    this.autoComplete = AutocompleteFactory.createAutocomplete({
+    this.autoComplete = AutocompleteFactory.createAutocomplete(this.componentType, {
       element: $childElement[0],
-      parentElement: $parentElement,
-      delegate: this.delegate,
+      options: this.options,
       placeholder: this.placeholder,
       value: this.ngModel,
       ngDisabled: this.ngDisabled,
       ngRequired: this.ngRequired,
-      combobox: this.combobox,
-      multiple: this.multiple,
-      rowTemplate: this.rowTemplate,
       change: (newValue: any) => {
         this.$scope.$apply(() => {
           this.ngModel = newValue;
@@ -103,17 +111,13 @@ export class AutocompleteController {
       $childElement.attr("required", "required");
       $childElement.attr("data-required-msg", "This field is required.");
     }
-
-    this.trackField = this.delegate.trackField ?
-                      this.delegate.trackField : "id";
   }
 }
 
-angular.module("ThemisComponents")
-  .component("thAutocomplete", {
-    template: ["$attrs", function ($attrs: any) {
+const AutocompleteComponent: angular.IComponentOptions = {
+  template: ["$attrs", function ($attrs: any) {
       let templateString = "";
-      if ($attrs.multiple) {
+      if ("multiple" in $attrs) {
         templateString = "<select name='{{$ctrl.validationNameAttr}}'></select>";
       } else {
         templateString = `
@@ -124,19 +128,15 @@ angular.module("ThemisComponents")
       return templateString;
     }],
     bindings: {
-      delegate: "=",
       ngModel: "=?",
       placeholder: "@",
-      groupBy: "@",
-      showSearchHint: "@?",
-      multiple: "@",
       name: "@?",
-      condensed: "@?",
       ngDisabled: "<?",
       ngRequired: "<?",
-      combobox: "@",
-      rowTemplate: "<?",
+      options: "=",
       onChange: "<?",
     },
     controller: AutocompleteController,
-  });
+};
+
+export default AutocompleteComponent;
