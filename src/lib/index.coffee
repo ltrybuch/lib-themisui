@@ -12,6 +12,7 @@ angular.module "ThemisComponents", [
   "kendo.directives"
   require "ui-select"
 ]
+
 require "./services/"
 require "./thActionBar/"
 require "./thActionBarBilling/"
@@ -29,6 +30,7 @@ require "./thDisclosure/"
 require "./thDropdown/"
 require "./thError/"
 require "./thFilter/"
+require './thGrid/'
 require "./thInput/"
 require "./thLazy/"
 require "./thLoader/"
