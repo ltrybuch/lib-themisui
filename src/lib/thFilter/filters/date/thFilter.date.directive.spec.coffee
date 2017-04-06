@@ -118,9 +118,8 @@ describe "ThemisComponents: Directive: thFilterDate", ->
     it "should call onFilterChange and update filter value", ->
       dateFormat = "MM/DD/YYYY"
       input = element.find "input"
-      today = moment().date().toString()
       $(input).triggerHandler "click"
-      $today = $("table td a:contains('#{ today }')").first()
+      $today = $(".k-footer a:first")
       expectedOperator = "<"
       expectedFilterValue = moment().format dateFormat
 
