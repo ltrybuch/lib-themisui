@@ -8515,12 +8515,29 @@ tbody .k-group-cell {
     color: #ffffff; }
 
 th-data-table-toolbar {
-  display: block;
-  background: #D7DEE2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   padding: 10px;
-  border: #B0BEC5; }
-  th-data-table-toolbar ng-transclude {
-    display: inline-block; }
+  border: #B0BEC5;
+  background: #D7DEE2; }
+  th-data-table-toolbar .bulk-actions-container, th-data-table-toolbar .tools-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+  th-data-table-toolbar .counter-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
 
 th-data-table {
   display: block; }
