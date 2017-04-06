@@ -17,7 +17,7 @@ Stub data can be simplified as JSON, and we initially aimed to do just that. How
 
 ## What they are not about
 
-A fixture file shoud be EXTREMELY easy to understand…it should just represent some sample data. Getting fancy with computing values is to be avoided as much as possible. We don’t want fixture data to become an additional layer of complexity when working with the codebase. *As a hard rule:* Don’t put logic in fixture files. Favour duplication over introducing logic.
+A fixture file should be EXTREMELY easy to understand…it should just represent some sample data. Getting fancy with computing values is to be avoided as much as possible. We don’t want fixture data to become an additional layer of complexity when working with the codebase. *As a hard rule:* Don’t put logic in fixture files. Favour duplication over introducing logic.
 
 ## Conventions
 
