@@ -46,7 +46,7 @@ for (let i = 0; i < fakeDataLength; i++) {
 const fakeDataObj = {
   total: fakeDataLength,
   items: fakeDataArr,
-}
+};
 
 export {
   staticColumns,

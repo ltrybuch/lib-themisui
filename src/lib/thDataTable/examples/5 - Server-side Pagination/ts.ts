@@ -15,7 +15,7 @@ angular.module("thDataTableDemo")
           return {
             page: data.page,
             limit: data.pageSize,
-          }
+          };
         },
       },
       schema: {
@@ -42,13 +42,13 @@ angular.module("thDataTableDemo")
 });
 
 function generateFakeResponseWithPageSize(pageSize: number) {
-  for (let i = 0; i < expectedDataObj.total; i+=pageSize) {
-    const page = Math.floor(i/pageSize) + 1;
+  for (let i = 0; i < expectedDataObj.total; i += pageSize) {
+    const page = Math.floor(i / pageSize) + 1;
     const regExp = new RegExp(`page=${ page }.*limit=${ pageSize }`, "g");
     const expectedItemsObj = {
       total: expectedDataObj.total,
-      items: expectedDataObj.items.slice(i, (i+pageSize)),
-    }
+      items: expectedDataObj.items.slice(i, (i + pageSize)),
+    };
 
     fakeResponse(regExp, expectedItemsObj);
   }

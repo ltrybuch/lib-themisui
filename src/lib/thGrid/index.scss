@@ -1,0 +1,24 @@
+.th-row {
+  $grid-gutter-width-base: $spacing-l;
+  $grid-gutter-widths: (
+    xs: $grid-gutter-width-base,
+    sm: $grid-gutter-width-base,
+    md: $grid-gutter-width-base,
+    lg: $grid-gutter-width-base,
+    xl: $grid-gutter-width-base
+  );
+
+  [class*="col-"] {
+    box-sizing: border-box;
+  }
+
+  th-row.align-items-center {
+    height: 100%;
+  }
+
+  @import "../../../node_modules/bootstrap/scss/mixins/grid-framework";
+  @import "../../../node_modules/bootstrap/scss/mixins/grid";
+  @import "../../../node_modules/bootstrap/scss/mixins/visibility";
+  @import "../../../node_modules/bootstrap/scss/utilities/visibility";
+  @import "../../../node_modules/bootstrap/scss/grid";
+}
