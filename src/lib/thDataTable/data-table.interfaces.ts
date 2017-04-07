@@ -5,7 +5,6 @@ interface DataTableOptions {
   pageable?: boolean;
   onDataBound?: (uIDs: number[]) => void;
   onSelectionChange?: (selection: number[]) => void;
-  actionList: {name: string, href?: string, ngClick?: () => void}[];
 };
 
 export {

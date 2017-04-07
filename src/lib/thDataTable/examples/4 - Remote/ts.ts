@@ -1,5 +1,5 @@
 import * as angular from "angular";
-import { remoteColumns } from "../../fixtures/tabledata";
+import { remoteColumns } from "../../tests/fixtures/tabledata";
 
 angular.module("thDataTableDemo")
   .controller("thDataTableDemoCtrl4", function(DataSource) {
@@ -9,7 +9,7 @@ angular.module("thDataTableDemo")
       dataSource: DataSource.createDataSource({
         transport: {
           read: {
-            url: "https://api.github.com/search/repositories?q=vancouver&limit=20",
+            url: "https://api.github.com/search/repositories?q=vancouver&limit=25",
             dataType: "json",
           },
         },
@@ -17,7 +17,7 @@ angular.module("thDataTableDemo")
           data: "items",
           total: (result: any) => result.items.length || 0,
         },
-        pageSize: 5,
+        pageSize: 50,
       }),
       selectable: true,
       pageable: {

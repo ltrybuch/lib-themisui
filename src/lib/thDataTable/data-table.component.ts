@@ -34,7 +34,6 @@ class DataTable {
     }
 
     this.datatable = this.DataTableService.create(datatableElement[0], options, this.$scope);
-    this.actionList = options.actionList;
   }
 
   togglePage() {

@@ -1,5 +1,5 @@
 import * as angular from "angular";
-import { staticColumns, staticData } from "../../fixtures/tabledata";
+import { staticColumns, fakeDataObj as expectedDataObj } from "../../tests/fixtures/tabledata";
 
 angular.module("thDataTableDemo")
   .controller("thDataTableDemoCtrl3", function(DataSource) {
@@ -9,8 +9,8 @@ angular.module("thDataTableDemo")
     this.options = {
       columns: staticColumns,
       dataSource: DataSource.createDataSource({
-        data: staticData,
-        pageSize: 5,
+        data: expectedDataObj.items,
+        pageSize: 50,
       }),
       pageable: {
         pageSizes: true,

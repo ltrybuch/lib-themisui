@@ -4,22 +4,35 @@
 
 `th-data-table` is used to display data in a table.
 
-## Usage
+## Example
 
 ```html
 <th-data-table options="demo.options"></th-data-table>
+<th-data-table options="demo.options">
+  <th-data-table-toolbar>
+    <bulk-actions></bulk-actions>
+    <custom-actions></custom-actions>
+  </th-data-table-toolbar>
+</th-data-table>
 ```
 
 ## API Reference
 
 | Property        | Type        | Description   |   |
 |:-------------   |:-------     | :-------------|---|
-| **options**    | Object      | The main configuration object for the component. | *required* |
+| **options**     | Object      | The main configuration object for the component. | **required** |
 
-### Delegate
-The th-data-table options object supplies configuration options for the component. Refer to the Demos for code samples.
+### Options Object (**required**)
 
-* `options` (**required**) represents a dictionary of arguments passed to the component.
-  * `dataSource` (**required**) - Use ```DataSource.createDataSource({})```
-  which takes any valid [kendo.data.DataSource](http://docs.telerik.com/kendo-ui/api/javascript/data/datasource) options.
-  * `columns` (**required**) - An array used for configuration of the table columns.
+Configure th-data-table by providing the following options. Refer to the Demos for code samples.
+
+| Property            | Type      | Description   |   |
+|:-------------       |:-------   | :-------------|---|
+| **dataSource**        | Object    | Use ```DataSource.createDataSource({})``` | **required** |
+| **columns**           | Array     | An array used for configuration of the table columns. | **required** |
+| **selectable**        | Boolean   | Applies checkboxes to rows. | *optional* |
+| **pageable**          | Boolean   | Applies pagination to the table. | *optional* |
+| **onDataBound**       | Function  | Called when data is bound. The first parameter will be an array of ID of all selected items. | *optional* |
+| **onSelectionChange** | Function  | Called whenever selection is updated. The first parameter will be an array of ID of all selected items. | *optional* |
+
+DataSource Reference: [kendo.data.DataSource](http://docs.telerik.com/kendo-ui/api/javascript/data/datasource) options.

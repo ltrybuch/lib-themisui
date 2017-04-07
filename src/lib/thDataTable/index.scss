@@ -6,4 +6,30 @@
 
 th-data-table {
   display: block;
+
+  .k-grid-content {
+    // for examples only, temporary
+    max-height: 300px;
+  }
+
+  // Pagination Wrapper
+  .k-pager-wrap {
+    .k-pager-first,
+    .k-pager-last {
+      display: none;
+    }
+
+    .k-pager-nav {
+      order: 1;
+    }
+
+    .k-pager-info {
+      order: 2;
+      flex: 0 0 auto;
+    }
+
+    .k-pager-sizes {
+      order: 3;
+    }
+  }
 }

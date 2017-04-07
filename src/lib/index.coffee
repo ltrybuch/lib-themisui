@@ -30,7 +30,6 @@ require "./thDisclosure/"
 require "./thDropdown/"
 require "./thError/"
 require "./thFilter/"
-require './thGrid/'
 require "./thInput/"
 require "./thLazy/"
 require "./thLoader/"

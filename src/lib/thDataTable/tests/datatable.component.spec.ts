@@ -1,12 +1,13 @@
 import * as angular from "angular";
 import "angular-mocks";
-import { staticColumns, staticData } from "../fixtures/tabledata";
+import { staticColumns, fakeDataObj as expectedDataObj } from "./fixtures/tabledata";
 import { DataTable } from "../data-table.component";
 import { DataTableService } from "../data-table.service";
 import DataSource from "../../services/data-source.service";
 const SpecHelpers: any = require("spec_helpers");
 
 const componentName = "thDataTable";
+const staticData = expectedDataObj.items;
 let dataTableComponentCtrl: DataTable;
 let dataTableService: DataTableService;
 let dataTableServiceCreateSpy: jasmine.Spy;
@@ -85,6 +86,27 @@ describe("ThemisComponents: Component: DataTable", () => {
         expect(createOptions.columns.length).toBe(scope.opts.columns.length);
         expect(createOptions.onDataBound).toBeUndefined();
       });
+    });
+  });
+
+  describe("#getSelectedSize: ", () => {
+    beforeEach(() => {
+      const locals = { $element: angular.element("<div>") };
+      const options = { ...scope.opts, selectable: true };
+      dataTableComponentCtrl = $componentController(componentName, locals, { options }) as DataTable;
+    });
+
+    it("returns 0 when no items are selected", () => {
+      dataTableComponentCtrl.selectedRows = [];
+      expect(dataTableComponentCtrl.getSelectedSize()).toBe(0);
+
+      dataTableComponentCtrl.selectedRows = [false];
+      expect(dataTableComponentCtrl.getSelectedSize()).toBe(0);
+    });
+
+    it("returns length when items are selected", () => {
+      dataTableComponentCtrl.selectedRows = [false, true];
+      expect(dataTableComponentCtrl.getSelectedSize()).toBe(1);
     });
   });
 

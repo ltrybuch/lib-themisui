@@ -25,11 +25,23 @@ class DataTableService {
 
   create(element: Element, options: DataTableOptions, $scope: angular.IScope) {
     const $element = angular.element(element);
+    const pageSizeOptions: kendo.ui.GridPageable = options.pageable
+      ? {
+        numeric: false,
+        pageSize: 50,
+        pageSizes: [50, 100, 150, 200],
+        messages: {
+          display: "{0}\u2013{1} of {2}",
+          itemsPerPage: "Results per page",
+          empty: "No results to display",
+        },
+      }
+      : false;
 
     const kendoOptions: kendo.ui.GridOptions = {
       columns: options.columns,
       dataSource: options.dataSource,
-      pageable: options.pageable,
+      pageable: pageSizeOptions,
       dataBound: (_e: kendo.ui.GridDataBoundEvent) => {
         let uIDs: number[];
 
