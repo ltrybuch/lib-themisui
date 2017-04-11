@@ -115146,7 +115146,12 @@ var MultiSelectAutocomplete = (function (_super) {
             itemTemplate: this.config.options.rowTemplate,
             fixedGroupTemplate: "",
             change: function (component) {
-                _this.config.change(component.sender.value());
+                if (component.sender.value().length) {
+                    _this.config.change(component.sender.value());
+                }
+                else {
+                    _this.config.change(null);
+                }
             },
         };
         this.kendoComponent = new kendo.ui.MultiSelect(this.config.element, widgetOptions);
@@ -115984,7 +115989,15 @@ var CalendarDataSource = (function () {
         return this._dataSource.bind(eventName, handler);
     };
     CalendarDataSource.prototype.isVisible = function (id) {
-        return this._dataSource.get(id).get("visible");
+        if (this._dataSource.get(id) !== undefined) {
+            return this._dataSource.get(id).get("visible");
+        }
+        else {
+            var err = new Error();
+            // TODO: figure out the source of this error. Out of scope for CLIO-45876 (04/04/2017)
+            console.warn("Known issue that is being investigated.\n");
+            console.warn("Stack trace: " + err.stack);
+        }
     };
     CalendarDataSource.prototype.setVisible = function (calendar) {
         this._dataSource.get(calendar.id).set("visible", calendar.visible);
@@ -116214,7 +116227,20 @@ var SchedulerController = (function () {
             throw new Error("thScheduler: You must provide the \"options.dataSource\" property.");
         }
     };
+    SchedulerController.prototype.launchEditEventAction = function (evt) {
+        if (typeof this.editEventAction !== "function") {
+            console.warn("SchedulerController: Must specify attribute 'edit-event-action' of type function.");
+            return;
+        }
+        evt.preventDefault();
+        var isNew = evt.event.id === evt.event._defaultId;
+        var event = {
+            title: evt.event.title,
+        };
+        this.editEventAction(event, isNew);
+    };
     SchedulerController.prototype.$onInit = function () {
+        var _this = this;
         this.validateArgs();
         Object.assign(this.options, {
             views: [
@@ -116223,6 +116249,7 @@ var SchedulerController = (function () {
                 "week",
                 "month",
             ],
+            edit: function (evt) { return _this.launchEditEventAction(evt); },
         });
     };
     return SchedulerController;
@@ -116231,7 +116258,8 @@ exports.SchedulerController = SchedulerController;
 var SchedulerComponent = {
     template: template,
     bindings: {
-        options: "=",
+        options: "<",
+        editEventAction: "<?",
     },
     controller: SchedulerController,
 };
@@ -116698,7 +116726,7 @@ module.exports = "<div class=\"spacing-inset-s\">\n  <ul class=\"d-flex flex-wra
   \*****************************************************/
 /***/ (function(module, exports) {
 
-module.exports = "<kendo-scheduler k-options=\"$ctrl.options\">\n  <div class=\"product\" k-event-template data-calendar-id=\"{{dataItem.calendar_id}}\">\n    <h3>{{dataItem.title}}</h3>\n  </div>\n</kendo-scheduler>\n"
+module.exports = "<kendo-scheduler k-options=\"$ctrl.options\">\n  <div class=\"product\" k-event-template data-calendar-id=\"{{dataItem.calendar_id}}\">\n    <h3>{{dataItem.title}}</h3>\n  </div>\n  <th-modal-anchor></th-modal-anchor>\n</kendo-scheduler>\n"
 
 /***/ }),
 /* 295 */

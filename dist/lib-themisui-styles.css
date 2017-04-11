@@ -7289,6 +7289,10 @@ th-autocomplete {
     height: 32px; }
   th-autocomplete[condensed] .k-multiselect .k-button {
     margin-top: 2px; }
+  th-autocomplete.ng-empty .k-state-hover .k-clear-value.k-i-close.k-icon, th-autocomplete.ng-empty .k-state-hover .k-clear-value.k-icon.k-i-group-delete::before,
+  th-autocomplete.ng-empty .k-state-focused .k-clear-value.k-i-close.k-icon,
+  th-autocomplete.ng-empty .k-state-focused .k-clear-value.k-icon.k-i-group-delete::before {
+    display: none; }
 
 .k-animation-container-shown .k-popup,
 .k-animation-container-shown .k-menu.k-context-menu,
