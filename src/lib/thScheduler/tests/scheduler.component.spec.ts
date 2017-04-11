@@ -5,11 +5,12 @@ import "angular-mocks";
 import SchedulerDataSource from "../../services/scheduler-data-source.service";
 import { SchedulerController } from "../scheduler.component";
 
-let scope: {
+let bindings: {
   options: {
     dataSource?: kendo.data.DataSource,
     date?: Date,
   },
+  editEventAction?: Function,
 };
 
 let $componentController: ng.IComponentControllerService;
@@ -17,12 +18,11 @@ let $componentController: ng.IComponentControllerService;
 describe("ThemisComponents: Component: SchedulerController", () => {
 
   beforeEach(angular.mock.module("ThemisComponents"));
+  beforeEach(inject((_$componentController_: ng.IComponentControllerService) => {
+    $componentController = _$componentController_;
+  }));
 
   describe("#validateArgs", () => {
-    beforeEach(inject((_$componentController_: ng.IComponentControllerService) => {
-      $componentController = _$componentController_;
-    }));
-
     describe(`when "options" is not specified`, () => {
       it("throws an error", () => {
         const $ctrl = $componentController("thScheduler", null) as SchedulerController;
@@ -33,9 +33,7 @@ describe("ThemisComponents: Component: SchedulerController", () => {
 
     describe(`when "options.dataSource" is not provided`, () => {
       it("throws an error", () => {
-        /* tslint:disable:max-line-length */
         const $ctrl = $componentController("thScheduler", null, {options: {}}) as SchedulerController;
-        /* tslint:enable:max-line-length */
         expect(() => $ctrl.$onInit())
           .toThrowError(`thScheduler: You must provide the "options.dataSource" property.`);
       });
@@ -49,30 +47,68 @@ describe("ThemisComponents: Component: SchedulerController", () => {
     beforeEach(() => {
       const schedulerDataSource = new SchedulerDataSource();
 
-      scope = {
+      bindings = {
         options: {
           dataSource: schedulerDataSource.createDataSource({
             data: expectedEntries.items,
           }),
           date: new Date(expectedEntries.date),
         },
+        editEventAction: () => undefined as any,
       };
     });
 
     it("creates a scheduler", () => {
-      let {element} = SpecHelpers.compileDirective(
+      const {element} = SpecHelpers.compileDirective(
         `<th-scheduler options="options"></th-scheduler>`,
-        scope,
+        bindings,
       );
       expect(element.find(".k-scheduler").length).toEqual(1);
     });
 
     it("renders the first entry", () => {
-      let {element} = SpecHelpers.compileDirective(
+      const {element} = SpecHelpers.compileDirective(
         `<th-scheduler options="options"></th-scheduler>`,
-        scope,
+        bindings,
       );
       expect(element.find(".product > h3").first().text()).toEqual("Brunch with Giles");
+    });
+
+    describe("when the user wants to create or edit an event", () => {
+      let evt: JQueryEventObject;
+      let $ctrl: SchedulerController;
+
+      beforeEach(function() {
+        spyOn(bindings, "editEventAction");
+        $ctrl = $componentController("thScheduler", null, bindings) as SchedulerController;
+        $ctrl.$onInit();
+      });
+
+      describe("and wants to add an event", () => {
+        beforeEach(function() {
+          evt = jQuery.Event( "add", { event: { title: "add", id: 0, _defaultId: 0} } );
+        });
+
+        it("calls 'editEventAction' with `isNew === true`", () => {
+          $ctrl.options.edit(evt as any);
+
+          expect(bindings.editEventAction).toHaveBeenCalledTimes(1);
+          expect(bindings.editEventAction).toHaveBeenCalledWith({title: "add"}, true);
+        });
+      });
+
+      describe("and wants to edit an event", () => {
+        beforeEach(function() {
+          evt = jQuery.Event( "edit", { event: { title: "edit", id: 1, _defaultId: 0} } );
+        });
+
+        it("calls 'editEventAction' with `isNew === false`", () => {
+          $ctrl.options.edit(evt as any);
+
+          expect(bindings.editEventAction).toHaveBeenCalledTimes(1);
+          expect(bindings.editEventAction).toHaveBeenCalledWith({title: "edit"}, false);
+        });
+      });
     });
 
   });

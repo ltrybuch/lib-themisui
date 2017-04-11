@@ -44,7 +44,14 @@ export default class CalendarDataSource implements CalendarDataSourceInterface {
   }
 
   isVisible(id: number): boolean {
-    return this._dataSource.get(id).get("visible");
+    if (this._dataSource.get(id) !== undefined) {
+      return this._dataSource.get(id).get("visible");
+    } else {
+      const err = new Error();
+      // TODO: figure out the source of this error. Out of scope for CLIO-45876 (04/04/2017)
+      console.warn("Known issue that is being investigated.\n");
+      console.warn(`Stack trace: ${err.stack}`);
+    }
   }
 
   setVisible(calendar: CalendarInterface) {

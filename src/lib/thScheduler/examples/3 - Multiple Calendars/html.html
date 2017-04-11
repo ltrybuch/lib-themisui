@@ -6,7 +6,13 @@
   </head>
   <body ng-controller="thSchedulerDemoCtrl3 as demo">
     <div class="d-flex">
-      <th-scheduler options="demo.options" style="width:740px;" class="spacing-inset-s"></th-scheduler>
+      <th-scheduler
+        options="demo.options"
+        edit-event-action="demo.openEditModal"
+        style="width:740px;"
+        class="spacing-inset-s"
+        >
+      </th-scheduler>
       <th-calendars options="demo.calendarsOptions" class="spacing-inset-s"></th-calendars>
     </div>
   </body>

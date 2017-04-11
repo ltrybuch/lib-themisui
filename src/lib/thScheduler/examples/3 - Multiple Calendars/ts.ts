@@ -11,7 +11,11 @@ fakeResponse(/calendar_id=1/, expectedEntries.apiNestedOneCalendarEntriesItems);
 fakeResponse(/calendar_id=2/, expectedEntries.apiNestedSecondCalendarEntriesItems);
 
 angular.module("thSchedulerDemo")
-  .controller("thSchedulerDemoCtrl3", function(CalendarDataSourceFactory, CalendarEntriesServiceFactory) {
+  .controller("thSchedulerDemoCtrl3", function(
+    CalendarDataSourceFactory,
+    CalendarEntriesServiceFactory,
+    ModalManager,
+  ) {
     this.calendarDataSource = CalendarDataSourceFactory.createDataSource({
       transport: {
         read: {
@@ -61,6 +65,20 @@ angular.module("thSchedulerDemo")
       dataSource: this.calendarDataSource,
     };
 
+    this.openEditModal = (event: any, isNew: boolean) => {
+      const path = "/components/thScheduler/examples/3 - Multiple Calendars/editModal.template.html";
+      const modalParams = {
+        name: "eventModal",
+        size: "fullpage",
+        context: {
+          modalTitle: isNew ? "Add event" : "Edit event",
+          event,
+        },
+        path,
+      };
+      ModalManager.show(modalParams);
+    };
+
     this.options = {
       dataSource: calendarEntriesService.getEntriesDataSource(),
       date: new Date(expectedEntries.date),
@@ -68,8 +86,9 @@ angular.module("thSchedulerDemo")
         {
           field: "calendar_id",
           dataValueField: "id",
+          dataTextField: "id",
           dataSource: this.calendarDataSource.getCalendarsDataSource(),
         },
-      ],
+      ]
     };
   });
