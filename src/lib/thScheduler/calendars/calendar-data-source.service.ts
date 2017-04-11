@@ -5,6 +5,28 @@ import CalendarInterface from "./calendar.interface";
 export default class CalendarDataSource implements CalendarDataSourceInterface {
   private _dataSource: kendo.data.DataSource;
   private _fetchPromise: Promise<number[]>;
+  private colors = [
+    {val: "#658cda"},
+    {val: "#da6666"},
+    {val: "#49b050"},
+    {val: "#e7804c"},
+    {val: "#8c66da"},
+    {val: "#c4a882"},
+    {val: "#64ad88"},
+    {val: "#84aaa5"},
+    {val: "#56bfb3"},
+    {val: "#e77399"},
+    {val: "#bfbf4b"},
+    {val: "#8bbf3c"},
+    {val: "#b473b4"},
+    {val: "#a7a77d"},
+    {val: "#f2a53d"},
+    {val: "#658cb3"},
+    {val: "#be9494"},
+    {val: "#a992a9"},
+    {val: "#8897a5"},
+    {val: "#93a2be"},
+  ];
 
   constructor(options: kendo.data.DataSourceOptions) {
     this._dataSource = new DataSource().createDataSource(options);
@@ -27,6 +49,20 @@ export default class CalendarDataSource implements CalendarDataSourceInterface {
 
   setVisible(calendar: CalendarInterface) {
     this._dataSource.get(calendar.id).set("visible", calendar.visible);
+    this._dataSource.sync();
+  }
+
+  getColor(id: number): string {
+    return this._dataSource.get(id).get("color");
+  }
+
+  setColor(calendar: CalendarInterface) {
+    this._dataSource.get(calendar.id).set("color", calendar.color);
+    this._dataSource.sync();
+  }
+
+  getPotentialCalendarColors() {
+    return this.colors;
   }
 
   getCalendarsDataSource(): kendo.data.DataSource {

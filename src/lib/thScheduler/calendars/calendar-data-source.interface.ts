@@ -4,6 +4,7 @@ interface CalendarDataSourceInterface {
   getIds(): Promise<number[]>;
   isVisible(id: number): boolean;
   setVisible(calendar: CalendarInterface): void;
+  setColor(calendar: CalendarInterface): void;
   bind(eventName: string, handler: Function): void;
   getCalendarsDataSource(): kendo.data.DataSource;
 }

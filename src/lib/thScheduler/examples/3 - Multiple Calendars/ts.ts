@@ -2,8 +2,11 @@ import * as angular from "angular";
 import { fakeResponse } from "../../../services/http-mocking.service";
 import * as expectedEntries from "../../tests/fixtures/entries";
 import * as expectedCalendars from "../../tests/fixtures/calendars";
+import CalendarInterface from "../../calendars/calendar.interface";
 
-fakeResponse(/calendars/, expectedCalendars.apiNestedItems);
+fakeResponse(/(calendars)/, expectedCalendars.apiNestedItems);
+fakeResponse(/calendars\/1/, expectedCalendars.apiNestedFirstItem, "PATCH");
+fakeResponse(/calendars\/2/, expectedCalendars.apiNestedSecondItem, "PATCH");
 fakeResponse(/calendar_id=1/, expectedEntries.apiNestedOneCalendarEntriesItems);
 fakeResponse(/calendar_id=2/, expectedEntries.apiNestedSecondCalendarEntriesItems);
 
@@ -14,6 +17,13 @@ angular.module("thSchedulerDemo")
         read: {
           url: "calendars",
           dataType: "json",
+        },
+        update: {
+          type: "patch",
+          dataType: "json",
+          url: function (calendar: CalendarInterface) {
+            return `calendars/${calendar.id}`;
+          },
         },
       },
       schema: {
@@ -27,6 +37,8 @@ angular.module("thSchedulerDemo")
           },
         },
       },
+      // "autoSync": true makes the request as expected, but doesn't seem to update the entries in the UI
+      autoSync: false,
     });
 
     const calendarEntriesService = CalendarEntriesServiceFactory.create({

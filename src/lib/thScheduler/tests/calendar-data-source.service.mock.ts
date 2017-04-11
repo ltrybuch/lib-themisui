@@ -24,6 +24,10 @@ export default class CalendarDataSourceMock implements CalendarDataSourceInterfa
     return;
   }
 
+  setColor() {
+    return;
+  }
+
   getCalendarsDataSource(): kendo.data.DataSource {
     return this._dataSource;
   }

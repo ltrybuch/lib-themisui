@@ -34,15 +34,18 @@ export default class CalendarEntriesService {
 
   private setCalendarDataSource(calendarDataSource: CalendarDataSourceInterface) {
     this._calendarDataSource = calendarDataSource;
-    /* tslint:disable:max-line-length */
     this._calendarDataSource.bind("change", (e: kendo.data.DataSourceChangeEvent): Promise<void> => {
-    /* tslint:enable:max-line-length */
-      if (e.action === "itemchange" && e.field === "visible") {
+      const visibilityOrColorChanged = (e.action === "itemchange" && (e.field === "visible" || e.field === "color"));
+      if (visibilityOrColorChanged) {
         return this.onVisibilityChanged();
       }
     });
   }
 
+  /**
+   * This function essentially repaints the calendar entries
+   * after checking if they are cached, implicitly making a request if not
+   */
   private async onVisibilityChanged(): Promise<void> {
     /**
      * Just noticed that calling "filter" calls the transport read function
@@ -103,15 +106,13 @@ export default class CalendarEntriesService {
     }
   }
 
-  /* tslint:disable:max-line-length */
   /**
    * TODO: Update links
    * @see {@link http://docs.telerik.com/kendo-ui/framework/datasource/overview#to-remote-service|To Remote Service}
    */
-  /* tslint:enable:max-line-length */
   private prepareForCreate(rawData: any) {
-    /* tslint:disable:max-line-length */
     // the "data" will need replacing with a dynamic key name if we allow custom API nested keys
+    /* tslint:disable:max-line-length */
     const models = (<any>this._entriesDataSource).reader.data.call((<any>this._entriesDataSource).reader, {data: rawData});
     /* tslint:enable:max-line-length */
     return models;
@@ -130,9 +131,9 @@ export default class CalendarEntriesService {
   async getEntriesForCalendars(): Promise<any[]> {
     try {
       const ids = await this._calendarDataSource.getIds();
-      /* tslint:disable:max-line-length */
-      const entryArrays = await Promise.all(ids.map(id => this._calendarDataSource.isVisible(id) ? this.getEntriesForCalendar(id) : null));
-      /* tslint:enable:max-line-length */
+      const entryArrays = await Promise.all(
+        ids.map(id => this._calendarDataSource.isVisible(id) ? this.getEntriesForCalendar(id) : null),
+      );
       const entries =  [].concat(...entryArrays).filter(a => a !== null);
       return entries;
     } catch (reason) {

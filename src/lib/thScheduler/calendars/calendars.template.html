@@ -1,12 +1,27 @@
-<div class="calendars-widget">
-  <ul>
-    <li ng-repeat="calendar in $ctrl.calendars">
-      <th-checkbox
-        ng-model="calendar.visible"
-        ng-change="$ctrl.toggleVisibility(calendar)"
-        with-label="{{calendar.name}}"
-        >
-      </th-checkbox>
-    </li>
-  </ul>
+<div class="d-flex">
+  <h3>My Calendars</h3>
 </div>
+<ul>
+  <li ng-repeat="calendar in $ctrl.calendars" class="d-flex justify-content-between">
+    <th-checkbox
+      ng-model="calendar.visible"
+      ng-change="$ctrl.toggleVisibility(calendar)"
+      with-label="{{calendar.name}}"
+      ng-style="{
+        'background-color': calendar.color,
+        'border-color': calendar.color,
+      }"
+      >
+    </th-checkbox>
+    <th-button
+      kendo-tooltip
+      k-on-show="$ctrl.setCalendarBeingEdited(calendar)"
+      k-content="$ctrl.colorsTooltipContent"
+      k-options="$ctrl.colorTooltipOptions"
+      class="k-group"
+      type="secondary"
+      >
+      &#9662;
+    </th-button>
+  </li>
+</ul>

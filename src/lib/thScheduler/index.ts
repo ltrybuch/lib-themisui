@@ -1,5 +1,6 @@
 import * as angular from "angular";
 import "@progress/kendo-ui/js/kendo.scheduler.js";
+import "@progress/kendo-ui/js/kendo.tooltip.js";
 import { SchedulerComponent } from "./scheduler.component";
 import {CalendarEntriesServiceFactory} from "./calendar-entries.service";
 import {CalendarDataSourceFactory} from "./calendars/calendar-data-source.service";

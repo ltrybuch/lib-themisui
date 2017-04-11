@@ -1,0 +1,15 @@
+<div class="spacing-inset-s">
+  <ul class="d-flex flex-wrap">
+    <li ng-repeat="(key, colorObj) in $ctrl.colors" class="spacing-inset-xs"">
+      <div
+        ng-style="{
+          'background-color': colorObj.val,
+          width: '25px',
+          height: '25px',
+        }"
+        ng-click="$ctrl.setColorForCalendarBeingEdited(colorObj.val)"
+        >
+      </div>
+    </li>
+  </ul>
+</div>

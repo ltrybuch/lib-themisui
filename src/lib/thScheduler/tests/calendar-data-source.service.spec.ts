@@ -15,6 +15,11 @@ describe("ThemisComponents : thScheduler : CalendarDataSource", function() {
           url: "calendars",
           dataType: "json",
         },
+        update: {
+          type: "post",
+          dataType: "json",
+          url: "calendars",
+        },
       },
       schema: {
         data: "data",
@@ -72,6 +77,22 @@ describe("ThemisComponents : thScheduler : CalendarDataSource", function() {
         expect(calendarDataSource.isVisible(2)).toEqual(false);
       });
     });
+
+    describe("#getColor", function() {
+      it("returns 'CCCCCC' from the correct model", function() {
+        expect(calendarDataSource.getColor(expectedCalendars.firstItemId)).toEqual(expectedCalendars.firstItemColor);
+      });
+    });
+
+    describe("#setColor", function() {
+      it("sets 'color' to 'DDDDDD' from 'CCCCCC'", function() {
+        let calendar = {id: 1, color: "DDDDDD"} as CalendarInterface;
+        expect(calendarDataSource.getColor(expectedCalendars.firstItemId)).toEqual(expectedCalendars.firstItemColor);
+        calendarDataSource.setColor(calendar);
+        expect(calendarDataSource.getColor(expectedCalendars.firstItemId)).toEqual("DDDDDD");
+      });
+    });
+
   });
 
 });
