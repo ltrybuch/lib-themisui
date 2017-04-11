@@ -366,6 +366,15 @@ th-autocomplete {
       }
     }
   }
+
+  &.ng-empty {
+    .k-state-hover,
+    .k-state-focused {
+      .k-clear-value.k-i-close.k-icon {
+        display: none;
+      }
+    }
+  }
 }
 
 // Results list

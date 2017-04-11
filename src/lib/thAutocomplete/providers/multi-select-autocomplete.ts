@@ -50,7 +50,11 @@ class MultiSelectAutocomplete extends AutocompleteAbstract {
       itemTemplate: this.config.options.rowTemplate,
       fixedGroupTemplate: "",
       change: (component: kendo.ui.MultiSelectChangeEvent) => {
-        this.config.change(component.sender.value());
+        if (component.sender.value().length) {
+          this.config.change(component.sender.value());
+        } else {
+          this.config.change(null);
+        }
       },
     } as kendo.ui.MultiSelectOptions;
 
