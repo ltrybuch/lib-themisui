@@ -23,32 +23,33 @@ th-calendars {
     padding: 0;
   }
 }
+//FIXME: These styles need to be namespaced to calendars only
+//these are being applied globally at the moment...
+// .k-animation-container {
+//   margin-top: 10px;
+//   @include box-shadow(1px 1px 4px 0px #CCC);
 
-.k-animation-container {
-  margin-top: 10px;
-  @include box-shadow(1px 1px 4px 0px #CCC);
+//   .k-popup {
+//     border: 1px solid #CCC;
+//   }
+// }
 
-  .k-popup {
-    border: 1px solid #CCC;
-  }
-}
+// .k-tooltip {
+//   color: $black;
+//   padding:0;
+// }
 
-.k-tooltip {
-  color: $black;
-  padding:0;
-}
+// .k-tooltip-closable .k-tooltip-content {
+//   padding-right:0;
 
-.k-tooltip-closable .k-tooltip-content {
-  padding-right:0;
+//   ul {
+//     margin: 0;
+//     padding: 0;
+//     list-style-type: none;
+//     width: 200px;
+//   }
+// }
 
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    width: 200px;
-  }
-}
-
-.k-i-close {
-  display: none;
-}
+// .k-i-close {
+//   display: none;
+// }
