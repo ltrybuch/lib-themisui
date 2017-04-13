@@ -9,13 +9,13 @@ templates =
       <th-modal-titlebar title="Foo" type="destroy"></th-modal-titlebar>
     """
 
-createModalTitlebarController = ->
+createModalTitlebarController = (bindings) ->
   $rootScope = $componentController = null
   inject (_$rootScope_, _$componentController_) ->
     $rootScope = _$rootScope_
     $componentController = _$componentController_
 
-  scope = $rootScope.$new().$new()
+  scope = $rootScope.$new()
   scope.$parent.modal =
     dismiss: -> return
 
@@ -24,6 +24,7 @@ createModalTitlebarController = ->
   controller = $componentController "thModalTitlebar",
     $scope: scope
     $element: element
+  , bindings
 
   return {controller, scope, element}
 
@@ -42,15 +43,38 @@ createTitlebarElement = (template = templates.simple) ->
   return {element, scope}
 
 describe "ThemisComponents: Component: thModalTitlebar", ->
-  beforeEach angular.mock.module "ThemisComponents"
+  $q = null
 
-  it "should dismiss the modal when close is called", ->
+  beforeEach angular.mock.module "ThemisComponents"
+  beforeEach inject (_$q_) ->
+    $q = _$q_
+
+  it "should dismiss the modal when close is called", (done) ->
     {controller, scope} = createModalTitlebarController()
 
-    spyOn scope.$parent.modal, 'dismiss'
+    spyOn scope.$parent.modal, "dismiss"
 
-    controller.close()
-    expect(scope.$parent.modal.dismiss).toHaveBeenCalled()
+    controller.close().then ->
+      expect(scope.$parent.modal.dismiss).toHaveBeenCalled()
+      done()
+
+    scope.$apply();
+
+  it "should not dimiss modal until beforeClosePromise is resolved", (done) ->
+    deferred = $q.defer()
+    {controller, scope} = createModalTitlebarController {
+      beforeClosePromise: () -> deferred.promise
+    }
+
+    spyOn scope.$parent.modal, "dismiss"
+    closePromise = controller.close()
+    expect(scope.$parent.modal.dismiss).not.toHaveBeenCalled()
+    deferred.resolve()
+    closePromise.then ->
+      expect(scope.$parent.modal.dismiss).toHaveBeenCalled()
+      done()
+
+    scope.$apply()
 
   it "should have a close button by default", ->
     {element} = createTitlebarElement()

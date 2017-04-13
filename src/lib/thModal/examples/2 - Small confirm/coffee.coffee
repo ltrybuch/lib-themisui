@@ -7,10 +7,8 @@ angular.module("thModalDemo")
 
     @displayModal = =>
       ModalManager.show path: @modal.path, name: @modal.name
-      .then (response) =>
-        @state = on
-      , (response) =>
-        @state = off
+        .then (response) =>
+          @state = response
 
     return
 
@@ -18,8 +16,8 @@ angular.module("thModalDemo")
   # Unnecessary in this situation. Just a simple example
   .controller "ConfirmModalController", ($scope) ->
     @yes = ->
-      $scope.modal.confirm "yes"
+      $scope.modal.confirm yes
     @no = ->
-      $scope.modal.dismiss "no"
+      $scope.modal.confirm no
 
     return

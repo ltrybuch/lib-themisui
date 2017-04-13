@@ -72,11 +72,21 @@ angular.module("thSchedulerDemo")
         size: "fullpage",
         context: {
           modalTitle: isNew ? "Add event" : "Edit event",
+          openDiscardModal: this.openDiscardModal,
           event,
         },
         path,
       };
       ModalManager.show(modalParams);
+    };
+
+    this.openDiscardModal = () => {
+      const path = "/components/thScheduler/examples/3 - Multiple Calendars/discardModal.template.html";
+      const modalParams = {
+        name: "discardModal",
+        path,
+      };
+      return ModalManager.show(modalParams);
     };
 
     this.options = {
@@ -89,6 +99,6 @@ angular.module("thSchedulerDemo")
           dataTextField: "id",
           dataSource: this.calendarDataSource.getCalendarsDataSource(),
         },
-      ]
+      ],
     };
   });
