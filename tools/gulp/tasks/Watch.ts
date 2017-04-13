@@ -18,6 +18,7 @@ export class Watch {
     ], ["generateSassDocs"]);
 
     gulp.watch([
+      Config.assetPaths.i18n,
       Config.assetPaths.lib,
       Config.assetPaths.docs,
       Config.assetPaths.readme

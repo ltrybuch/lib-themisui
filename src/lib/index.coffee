@@ -1,16 +1,23 @@
 angular = require "angular"
+translations = require "../i18n/locale-en.json"
 require "@progress/kendo-ui/js/kendo.core.js"
 require "../vendor_overrides/@progress/kendo-ui/js/kendo.angular.js"
 
 require "../polyfills/"
 
-angular.module "ThemisComponents", [
+angular.module("ThemisComponents", [
   require "angular-animate"
   require "angular-aria"
   require "angular-messages"
   require "angular-sanitize"
+  require "angular-translate"
+  require "angular-translate-loader-static-files"
   "kendo.directives"
   require "ui-select"
+]).config ["$translateProvider", ($translateProvider) ->
+    $translateProvider.translations "en", translations
+      .preferredLanguage "en"
+      .useSanitizeValueStrategy "sanitize"
 ]
 
 require "./services/"

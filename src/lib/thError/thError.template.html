@@ -1,7 +1,7 @@
 <div class="th-error-container">
   <i class="fa fa-exclamation-triangle"></i>
   <span ng-if="!ctrl.message">
-    We had trouble loading your content.<br>Try reloading the page.
+    {{'thError.error' | translate}}<br>{{'thError.instructions' | translate}}
   </span>
   <ng-transclude ng-if="ctrl.message"></ng-transclude>
 </div>

@@ -56,6 +56,7 @@ const ConfigObj = {
   },
 
   assetPaths: {
+    i18n: path.join(rootSrc, "i18n", "*.json"),
     lib: path.join(rootSrc, "lib", "**", "*.{coffee,ts,html,scss}"),
     examples: path.join(rootSrc, "lib", "**", "examples", "**", "*.{coffee,html,ts}"),
     meta: path.join(rootSrc, "lib", "**", "**", "*.{md,json}"),
