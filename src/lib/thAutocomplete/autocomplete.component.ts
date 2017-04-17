@@ -57,7 +57,7 @@ class AutocompleteController {
         this.autoComplete.toggleEnabled();
       }
 
-      if (change.ngRequired && typeof change.ngDisabled.previousValue === "boolean") {
+      if (change.ngRequired && typeof change.ngRequired.previousValue === "boolean") {
         if (change.ngRequired.currentValue === true) {
           this.ngModelCtrl.$setUntouched();
         } else {
