@@ -2176,13 +2176,7 @@ h2.header-title {
  */
 /* FONT PATH
  * -------------------------- */
-.fa, .autocomplete_icon[data-icon]:before, .ui-dialog-titlebar-close:before, th-autocomplete .k-autocomplete.k-state-focused .k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-hover .k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-active .k-icon.k-clear-value,
-th-autocomplete .k-multiselect.k-state-focused .k-icon.k-clear-value,
-th-autocomplete .k-multiselect.k-state-hover .k-icon.k-clear-value,
-th-autocomplete .k-multiselect.k-state-active .k-icon.k-clear-value,
-th-autocomplete .k-combobox input.k-state-focused .k-icon.k-clear-value,
-th-autocomplete .k-combobox input.k-state-hover .k-icon.k-clear-value,
-th-autocomplete .k-combobox input.k-state-active .k-icon.k-clear-value, th-autocomplete .k-multiselect .k-button .k-i-close, th-autocomplete .k-multiselect .k-button .k-i-group-delete::before, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .k-icon.k-clear-value, .th-checkbox i:before,
+.fa, .autocomplete_icon[data-icon]:before, .ui-dialog-titlebar-close:before, th-autocomplete .k-icon.k-i-close, th-autocomplete .k-icon.k-i-group-delete::before, .th-checkbox i:before,
 *[th-checkbox] i:before, .th-switch i:before, .th-switch i:after,
 *[th-switch] i:before,
 *[th-switch] i:after, th-table table.th-table th .th-table-sort-icon {
@@ -2245,50 +2239,26 @@ th-autocomplete .k-combobox input.k-state-active .k-icon.k-clear-value, th-autoc
 .pull-left {
   float: left; }
 
-.fa.pull-left, .pull-left.autocomplete_icon[data-icon]:before, .pull-left.ui-dialog-titlebar-close:before, th-autocomplete .k-autocomplete.k-state-focused .pull-left.k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-hover .pull-left.k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-active .pull-left.k-icon.k-clear-value,
-th-autocomplete .k-multiselect.k-state-focused .pull-left.k-icon.k-clear-value,
-th-autocomplete .k-multiselect.k-state-hover .pull-left.k-icon.k-clear-value,
-th-autocomplete .k-multiselect.k-state-active .pull-left.k-icon.k-clear-value,
-th-autocomplete .k-combobox input.k-state-focused .pull-left.k-icon.k-clear-value,
-th-autocomplete .k-combobox input.k-state-hover .pull-left.k-icon.k-clear-value,
-th-autocomplete .k-combobox input.k-state-active .pull-left.k-icon.k-clear-value, th-autocomplete .k-multiselect .k-button .pull-left.k-i-close, th-autocomplete .k-multiselect .k-button .pull-left.k-i-group-delete::before, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .pull-left.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .pull-left.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .pull-left.k-icon.k-clear-value, .th-checkbox i.pull-left:before,
+.fa.pull-left, .pull-left.autocomplete_icon[data-icon]:before, .pull-left.ui-dialog-titlebar-close:before, th-autocomplete .pull-left.k-icon.k-i-close, th-autocomplete .pull-left.k-icon.k-i-group-delete::before, .th-checkbox i.pull-left:before,
 *[th-checkbox] i.pull-left:before, .th-switch i.pull-left:before, .th-switch i.pull-left:after,
 *[th-switch] i.pull-left:before,
 *[th-switch] i.pull-left:after, th-table table.th-table th .pull-left.th-table-sort-icon {
   margin-right: .3em; }
 
-.fa.pull-right, .pull-right.autocomplete_icon[data-icon]:before, .pull-right.ui-dialog-titlebar-close:before, th-autocomplete .k-autocomplete.k-state-focused .pull-right.k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-hover .pull-right.k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-active .pull-right.k-icon.k-clear-value,
-th-autocomplete .k-multiselect.k-state-focused .pull-right.k-icon.k-clear-value,
-th-autocomplete .k-multiselect.k-state-hover .pull-right.k-icon.k-clear-value,
-th-autocomplete .k-multiselect.k-state-active .pull-right.k-icon.k-clear-value,
-th-autocomplete .k-combobox input.k-state-focused .pull-right.k-icon.k-clear-value,
-th-autocomplete .k-combobox input.k-state-hover .pull-right.k-icon.k-clear-value,
-th-autocomplete .k-combobox input.k-state-active .pull-right.k-icon.k-clear-value, th-autocomplete .k-multiselect .k-button .pull-right.k-i-close, th-autocomplete .k-multiselect .k-button .pull-right.k-i-group-delete::before, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .pull-right.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .pull-right.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .pull-right.k-icon.k-clear-value, .th-checkbox i.pull-right:before,
+.fa.pull-right, .pull-right.autocomplete_icon[data-icon]:before, .pull-right.ui-dialog-titlebar-close:before, th-autocomplete .pull-right.k-icon.k-i-close, th-autocomplete .pull-right.k-icon.k-i-group-delete::before, .th-checkbox i.pull-right:before,
 *[th-checkbox] i.pull-right:before, .th-switch i.pull-right:before, .th-switch i.pull-right:after,
 *[th-switch] i.pull-right:before,
 *[th-switch] i.pull-right:after, th-table table.th-table th .pull-right.th-table-sort-icon {
   margin-left: .3em; }
 
-.fa.right-space, .right-space.autocomplete_icon[data-icon]:before, .right-space.ui-dialog-titlebar-close:before, th-autocomplete .k-autocomplete.k-state-focused .right-space.k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-hover .right-space.k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-active .right-space.k-icon.k-clear-value,
-th-autocomplete .k-multiselect.k-state-focused .right-space.k-icon.k-clear-value,
-th-autocomplete .k-multiselect.k-state-hover .right-space.k-icon.k-clear-value,
-th-autocomplete .k-multiselect.k-state-active .right-space.k-icon.k-clear-value,
-th-autocomplete .k-combobox input.k-state-focused .right-space.k-icon.k-clear-value,
-th-autocomplete .k-combobox input.k-state-hover .right-space.k-icon.k-clear-value,
-th-autocomplete .k-combobox input.k-state-active .right-space.k-icon.k-clear-value, th-autocomplete .k-multiselect .k-button .right-space.k-i-close, th-autocomplete .k-multiselect .k-button .right-space.k-i-group-delete::before, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .right-space.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .right-space.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .right-space.k-icon.k-clear-value, .th-checkbox i.right-space:before,
+.fa.right-space, .right-space.autocomplete_icon[data-icon]:before, .right-space.ui-dialog-titlebar-close:before, th-autocomplete .right-space.k-icon.k-i-close, th-autocomplete .right-space.k-icon.k-i-group-delete::before, .th-checkbox i.right-space:before,
 *[th-checkbox] i.right-space:before, .th-switch i.right-space:before, .th-switch i.right-space:after,
 *[th-switch] i.right-space:before,
 *[th-switch] i.right-space:after, th-table table.th-table th .right-space.th-table-sort-icon {
   margin-right: 3px;
   margin-right: 0.3rem; }
 
-.fa.left-space, .left-space.autocomplete_icon[data-icon]:before, .left-space.ui-dialog-titlebar-close:before, th-autocomplete .k-autocomplete.k-state-focused .left-space.k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-hover .left-space.k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-active .left-space.k-icon.k-clear-value,
-th-autocomplete .k-multiselect.k-state-focused .left-space.k-icon.k-clear-value,
-th-autocomplete .k-multiselect.k-state-hover .left-space.k-icon.k-clear-value,
-th-autocomplete .k-multiselect.k-state-active .left-space.k-icon.k-clear-value,
-th-autocomplete .k-combobox input.k-state-focused .left-space.k-icon.k-clear-value,
-th-autocomplete .k-combobox input.k-state-hover .left-space.k-icon.k-clear-value,
-th-autocomplete .k-combobox input.k-state-active .left-space.k-icon.k-clear-value, th-autocomplete .k-multiselect .k-button .left-space.k-i-close, th-autocomplete .k-multiselect .k-button .left-space.k-i-group-delete::before, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .left-space.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .left-space.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .left-space.k-icon.k-clear-value, .th-checkbox i.left-space:before,
+.fa.left-space, .left-space.autocomplete_icon[data-icon]:before, .left-space.ui-dialog-titlebar-close:before, th-autocomplete .left-space.k-icon.k-i-close, th-autocomplete .left-space.k-icon.k-i-group-delete::before, .th-checkbox i.left-space:before,
 *[th-checkbox] i.left-space:before, .th-switch i.left-space:before, .th-switch i.left-space:after,
 *[th-switch] i.left-space:before,
 *[th-switch] i.left-space:after, th-table table.th-table th .left-space.th-table-sort-icon {
@@ -2614,13 +2584,7 @@ th-autocomplete .k-combobox input.k-state-active .left-space.k-icon.k-clear-valu
 .fa-minus-circle:before {
   content: "\f056"; }
 
-.fa-times-circle:before, th-autocomplete .k-autocomplete.k-state-focused .k-icon.k-clear-value:before, th-autocomplete .k-autocomplete.k-state-hover .k-icon.k-clear-value:before, th-autocomplete .k-autocomplete.k-state-active .k-icon.k-clear-value:before,
-th-autocomplete .k-multiselect.k-state-focused .k-icon.k-clear-value:before,
-th-autocomplete .k-multiselect.k-state-hover .k-icon.k-clear-value:before,
-th-autocomplete .k-multiselect.k-state-active .k-icon.k-clear-value:before,
-th-autocomplete .k-combobox input.k-state-focused .k-icon.k-clear-value:before,
-th-autocomplete .k-combobox input.k-state-hover .k-icon.k-clear-value:before,
-th-autocomplete .k-combobox input.k-state-active .k-icon.k-clear-value:before, th-autocomplete .k-multiselect .k-button .k-i-close:before, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .k-icon.k-clear-value:before, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .k-icon.k-clear-value:before, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .k-icon.k-clear-value:before {
+.fa-times-circle:before, th-autocomplete .k-icon.k-i-close:before {
   content: "\f057"; }
 
 .fa-check-circle:before {
@@ -3573,19 +3537,7 @@ th-autocomplete .k-combobox input.k-state-active .k-icon.k-clear-value:before, t
       color: inherit;
       font-weight: bold;
       cursor: pointer; }
-    .action-bar .flex-section th-disclosure-toggle.filter-toggle span.fa, .action-bar .flex-section th-disclosure-toggle.filter-toggle span.autocomplete_icon[data-icon]:before, .action-bar .flex-section th-disclosure-toggle.filter-toggle span.ui-dialog-titlebar-close:before, .action-bar .flex-section th-disclosure-toggle.filter-toggle th-autocomplete .k-autocomplete.k-state-focused span.k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-focused .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-icon.k-clear-value, .action-bar .flex-section th-disclosure-toggle.filter-toggle th-autocomplete .k-autocomplete.k-state-hover span.k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-hover .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-icon.k-clear-value, .action-bar .flex-section th-disclosure-toggle.filter-toggle th-autocomplete .k-autocomplete.k-state-active span.k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-active .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-icon.k-clear-value, .action-bar .flex-section th-disclosure-toggle.filter-toggle
-    th-autocomplete .k-multiselect.k-state-focused span.k-icon.k-clear-value,
-    th-autocomplete .k-multiselect.k-state-focused .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-icon.k-clear-value, .action-bar .flex-section th-disclosure-toggle.filter-toggle
-    th-autocomplete .k-multiselect.k-state-hover span.k-icon.k-clear-value,
-    th-autocomplete .k-multiselect.k-state-hover .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-icon.k-clear-value, .action-bar .flex-section th-disclosure-toggle.filter-toggle
-    th-autocomplete .k-multiselect.k-state-active span.k-icon.k-clear-value,
-    th-autocomplete .k-multiselect.k-state-active .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-icon.k-clear-value, .action-bar .flex-section th-disclosure-toggle.filter-toggle
-    th-autocomplete .k-combobox input.k-state-focused span.k-icon.k-clear-value,
-    th-autocomplete .k-combobox input.k-state-focused .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-icon.k-clear-value, .action-bar .flex-section th-disclosure-toggle.filter-toggle
-    th-autocomplete .k-combobox input.k-state-hover span.k-icon.k-clear-value,
-    th-autocomplete .k-combobox input.k-state-hover .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-icon.k-clear-value, .action-bar .flex-section th-disclosure-toggle.filter-toggle
-    th-autocomplete .k-combobox input.k-state-active span.k-icon.k-clear-value,
-    th-autocomplete .k-combobox input.k-state-active .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-icon.k-clear-value, .action-bar .flex-section th-disclosure-toggle.filter-toggle th-autocomplete .k-multiselect .k-button span.k-i-close, th-autocomplete .k-multiselect .k-button .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-i-close, .action-bar .flex-section th-disclosure-toggle.filter-toggle th-autocomplete .k-multiselect .k-button span.k-i-group-delete::before, th-autocomplete .k-multiselect .k-button .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-i-group-delete::before, .action-bar .flex-section th-disclosure-toggle.filter-toggle th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover span.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-icon.k-clear-value, .action-bar .flex-section th-disclosure-toggle.filter-toggle th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active span.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-icon.k-clear-value, .action-bar .flex-section th-disclosure-toggle.filter-toggle th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused span.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-icon.k-clear-value, .action-bar .flex-section th-disclosure-toggle.filter-toggle th-table table.th-table th span.th-table-sort-icon, th-table table.th-table th .action-bar .flex-section th-disclosure-toggle.filter-toggle span.th-table-sort-icon {
+    .action-bar .flex-section th-disclosure-toggle.filter-toggle span.fa, .action-bar .flex-section th-disclosure-toggle.filter-toggle span.autocomplete_icon[data-icon]:before, .action-bar .flex-section th-disclosure-toggle.filter-toggle span.ui-dialog-titlebar-close:before, .action-bar .flex-section th-disclosure-toggle.filter-toggle th-autocomplete span.k-icon.k-i-close, th-autocomplete .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-icon.k-i-close, .action-bar .flex-section th-disclosure-toggle.filter-toggle th-autocomplete span.k-icon.k-i-group-delete::before, th-autocomplete .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-icon.k-i-group-delete::before, .action-bar .flex-section th-disclosure-toggle.filter-toggle th-table table.th-table th span.th-table-sort-icon, th-table table.th-table th .action-bar .flex-section th-disclosure-toggle.filter-toggle span.th-table-sort-icon {
       margin-left: 3px; }
   .action-bar .action-menu {
     font-size: 13px; }
@@ -3642,19 +3594,7 @@ th-autocomplete .k-combobox input.k-state-active .k-icon.k-clear-value:before, t
       color: inherit;
       font-weight: bold;
       cursor: pointer; }
-    .action-bar .flex-section th-disclosure-toggle.filter-toggle span.fa, .action-bar .flex-section th-disclosure-toggle.filter-toggle span.autocomplete_icon[data-icon]:before, .action-bar .flex-section th-disclosure-toggle.filter-toggle span.ui-dialog-titlebar-close:before, .action-bar .flex-section th-disclosure-toggle.filter-toggle th-autocomplete .k-autocomplete.k-state-focused span.k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-focused .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-icon.k-clear-value, .action-bar .flex-section th-disclosure-toggle.filter-toggle th-autocomplete .k-autocomplete.k-state-hover span.k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-hover .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-icon.k-clear-value, .action-bar .flex-section th-disclosure-toggle.filter-toggle th-autocomplete .k-autocomplete.k-state-active span.k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-active .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-icon.k-clear-value, .action-bar .flex-section th-disclosure-toggle.filter-toggle
-    th-autocomplete .k-multiselect.k-state-focused span.k-icon.k-clear-value,
-    th-autocomplete .k-multiselect.k-state-focused .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-icon.k-clear-value, .action-bar .flex-section th-disclosure-toggle.filter-toggle
-    th-autocomplete .k-multiselect.k-state-hover span.k-icon.k-clear-value,
-    th-autocomplete .k-multiselect.k-state-hover .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-icon.k-clear-value, .action-bar .flex-section th-disclosure-toggle.filter-toggle
-    th-autocomplete .k-multiselect.k-state-active span.k-icon.k-clear-value,
-    th-autocomplete .k-multiselect.k-state-active .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-icon.k-clear-value, .action-bar .flex-section th-disclosure-toggle.filter-toggle
-    th-autocomplete .k-combobox input.k-state-focused span.k-icon.k-clear-value,
-    th-autocomplete .k-combobox input.k-state-focused .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-icon.k-clear-value, .action-bar .flex-section th-disclosure-toggle.filter-toggle
-    th-autocomplete .k-combobox input.k-state-hover span.k-icon.k-clear-value,
-    th-autocomplete .k-combobox input.k-state-hover .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-icon.k-clear-value, .action-bar .flex-section th-disclosure-toggle.filter-toggle
-    th-autocomplete .k-combobox input.k-state-active span.k-icon.k-clear-value,
-    th-autocomplete .k-combobox input.k-state-active .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-icon.k-clear-value, .action-bar .flex-section th-disclosure-toggle.filter-toggle th-autocomplete .k-multiselect .k-button span.k-i-close, th-autocomplete .k-multiselect .k-button .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-i-close, .action-bar .flex-section th-disclosure-toggle.filter-toggle th-autocomplete .k-multiselect .k-button span.k-i-group-delete::before, th-autocomplete .k-multiselect .k-button .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-i-group-delete::before, .action-bar .flex-section th-disclosure-toggle.filter-toggle th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover span.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-icon.k-clear-value, .action-bar .flex-section th-disclosure-toggle.filter-toggle th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active span.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-icon.k-clear-value, .action-bar .flex-section th-disclosure-toggle.filter-toggle th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused span.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-icon.k-clear-value, .action-bar .flex-section th-disclosure-toggle.filter-toggle th-table table.th-table th span.th-table-sort-icon, th-table table.th-table th .action-bar .flex-section th-disclosure-toggle.filter-toggle span.th-table-sort-icon {
+    .action-bar .flex-section th-disclosure-toggle.filter-toggle span.fa, .action-bar .flex-section th-disclosure-toggle.filter-toggle span.autocomplete_icon[data-icon]:before, .action-bar .flex-section th-disclosure-toggle.filter-toggle span.ui-dialog-titlebar-close:before, .action-bar .flex-section th-disclosure-toggle.filter-toggle th-autocomplete span.k-icon.k-i-close, th-autocomplete .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-icon.k-i-close, .action-bar .flex-section th-disclosure-toggle.filter-toggle th-autocomplete span.k-icon.k-i-group-delete::before, th-autocomplete .action-bar .flex-section th-disclosure-toggle.filter-toggle span.k-icon.k-i-group-delete::before, .action-bar .flex-section th-disclosure-toggle.filter-toggle th-table table.th-table th span.th-table-sort-icon, th-table table.th-table th .action-bar .flex-section th-disclosure-toggle.filter-toggle span.th-table-sort-icon {
       margin-left: 3px; }
   .action-bar .action-menu {
     font-size: 13px; }
@@ -3728,19 +3668,7 @@ th-autocomplete .k-combobox input.k-state-active .k-icon.k-clear-value:before, t
     margin-top: 16px; }
     .th-alert p a {
       color: white; }
-  .th-alert .fa, .th-alert .autocomplete_icon[data-icon]:before, .th-alert .ui-dialog-titlebar-close:before, .th-alert th-autocomplete .k-autocomplete.k-state-focused .k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-focused .th-alert .k-icon.k-clear-value, .th-alert th-autocomplete .k-autocomplete.k-state-hover .k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-hover .th-alert .k-icon.k-clear-value, .th-alert th-autocomplete .k-autocomplete.k-state-active .k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-active .th-alert .k-icon.k-clear-value, .th-alert
-  th-autocomplete .k-multiselect.k-state-focused .k-icon.k-clear-value,
-  th-autocomplete .k-multiselect.k-state-focused .th-alert .k-icon.k-clear-value, .th-alert
-  th-autocomplete .k-multiselect.k-state-hover .k-icon.k-clear-value,
-  th-autocomplete .k-multiselect.k-state-hover .th-alert .k-icon.k-clear-value, .th-alert
-  th-autocomplete .k-multiselect.k-state-active .k-icon.k-clear-value,
-  th-autocomplete .k-multiselect.k-state-active .th-alert .k-icon.k-clear-value, .th-alert
-  th-autocomplete .k-combobox input.k-state-focused .k-icon.k-clear-value,
-  th-autocomplete .k-combobox input.k-state-focused .th-alert .k-icon.k-clear-value, .th-alert
-  th-autocomplete .k-combobox input.k-state-hover .k-icon.k-clear-value,
-  th-autocomplete .k-combobox input.k-state-hover .th-alert .k-icon.k-clear-value, .th-alert
-  th-autocomplete .k-combobox input.k-state-active .k-icon.k-clear-value,
-  th-autocomplete .k-combobox input.k-state-active .th-alert .k-icon.k-clear-value, .th-alert th-autocomplete .k-multiselect .k-button .k-i-close, th-autocomplete .k-multiselect .k-button .th-alert .k-i-close, .th-alert th-autocomplete .k-multiselect .k-button .k-i-group-delete::before, th-autocomplete .k-multiselect .k-button .th-alert .k-i-group-delete::before, .th-alert th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .th-alert .k-icon.k-clear-value, .th-alert th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .th-alert .k-icon.k-clear-value, .th-alert th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .th-alert .k-icon.k-clear-value, .th-alert .th-checkbox i:before, .th-checkbox .th-alert i:before, .th-alert
+  .th-alert .fa, .th-alert .autocomplete_icon[data-icon]:before, .th-alert .ui-dialog-titlebar-close:before, .th-alert th-autocomplete .k-icon.k-i-close, th-autocomplete .th-alert .k-icon.k-i-close, .th-alert th-autocomplete .k-icon.k-i-group-delete::before, th-autocomplete .th-alert .k-icon.k-i-group-delete::before, .th-alert .th-checkbox i:before, .th-checkbox .th-alert i:before, .th-alert
   *[th-checkbox] i:before,
   *[th-checkbox] .th-alert i:before, .th-alert .th-switch i:before, .th-switch .th-alert i:before, .th-alert .th-switch i:after, .th-switch .th-alert i:after, .th-alert
   *[th-switch] i:before,
@@ -3749,19 +3677,7 @@ th-autocomplete .k-combobox input.k-state-active .k-icon.k-clear-value:before, t
   *[th-switch] .th-alert i:after, .th-alert th-table table.th-table th .th-table-sort-icon, th-table table.th-table th .th-alert .th-table-sort-icon {
     vertical-align: middle;
     font-size: 18px; }
-    .th-alert .fa.alert-icon, .th-alert .alert-icon.autocomplete_icon[data-icon]:before, .th-alert .alert-icon.ui-dialog-titlebar-close:before, .th-alert th-autocomplete .k-autocomplete.k-state-focused .alert-icon.k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-focused .th-alert .alert-icon.k-icon.k-clear-value, .th-alert th-autocomplete .k-autocomplete.k-state-hover .alert-icon.k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-hover .th-alert .alert-icon.k-icon.k-clear-value, .th-alert th-autocomplete .k-autocomplete.k-state-active .alert-icon.k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-active .th-alert .alert-icon.k-icon.k-clear-value, .th-alert
-    th-autocomplete .k-multiselect.k-state-focused .alert-icon.k-icon.k-clear-value,
-    th-autocomplete .k-multiselect.k-state-focused .th-alert .alert-icon.k-icon.k-clear-value, .th-alert
-    th-autocomplete .k-multiselect.k-state-hover .alert-icon.k-icon.k-clear-value,
-    th-autocomplete .k-multiselect.k-state-hover .th-alert .alert-icon.k-icon.k-clear-value, .th-alert
-    th-autocomplete .k-multiselect.k-state-active .alert-icon.k-icon.k-clear-value,
-    th-autocomplete .k-multiselect.k-state-active .th-alert .alert-icon.k-icon.k-clear-value, .th-alert
-    th-autocomplete .k-combobox input.k-state-focused .alert-icon.k-icon.k-clear-value,
-    th-autocomplete .k-combobox input.k-state-focused .th-alert .alert-icon.k-icon.k-clear-value, .th-alert
-    th-autocomplete .k-combobox input.k-state-hover .alert-icon.k-icon.k-clear-value,
-    th-autocomplete .k-combobox input.k-state-hover .th-alert .alert-icon.k-icon.k-clear-value, .th-alert
-    th-autocomplete .k-combobox input.k-state-active .alert-icon.k-icon.k-clear-value,
-    th-autocomplete .k-combobox input.k-state-active .th-alert .alert-icon.k-icon.k-clear-value, .th-alert th-autocomplete .k-multiselect .k-button .alert-icon.k-i-close, th-autocomplete .k-multiselect .k-button .th-alert .alert-icon.k-i-close, .th-alert th-autocomplete .k-multiselect .k-button .alert-icon.k-i-group-delete::before, th-autocomplete .k-multiselect .k-button .th-alert .alert-icon.k-i-group-delete::before, .th-alert th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .alert-icon.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .th-alert .alert-icon.k-icon.k-clear-value, .th-alert th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .alert-icon.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .th-alert .alert-icon.k-icon.k-clear-value, .th-alert th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .alert-icon.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .th-alert .alert-icon.k-icon.k-clear-value, .th-alert .th-checkbox i.alert-icon:before, .th-checkbox .th-alert i.alert-icon:before, .th-alert
+    .th-alert .fa.alert-icon, .th-alert .alert-icon.autocomplete_icon[data-icon]:before, .th-alert .alert-icon.ui-dialog-titlebar-close:before, .th-alert th-autocomplete .alert-icon.k-icon.k-i-close, th-autocomplete .th-alert .alert-icon.k-icon.k-i-close, .th-alert th-autocomplete .alert-icon.k-icon.k-i-group-delete::before, th-autocomplete .th-alert .alert-icon.k-icon.k-i-group-delete::before, .th-alert .th-checkbox i.alert-icon:before, .th-checkbox .th-alert i.alert-icon:before, .th-alert
     *[th-checkbox] i.alert-icon:before,
     *[th-checkbox] .th-alert i.alert-icon:before, .th-alert .th-switch i.alert-icon:before, .th-switch .th-alert i.alert-icon:before, .th-alert .th-switch i.alert-icon:after, .th-switch .th-alert i.alert-icon:after, .th-alert
     *[th-switch] i.alert-icon:before,
@@ -3776,19 +3692,7 @@ th-autocomplete .k-combobox input.k-state-active .k-icon.k-clear-value:before, t
       margin-right: 40px;
       margin-top: 7px;
       border-radius: 50%; }
-    .th-alert .fa.fa-check, .th-alert .fa-check.autocomplete_icon[data-icon]:before, .th-alert .fa-check.ui-dialog-titlebar-close:before, .th-alert th-autocomplete .k-autocomplete.k-state-focused .fa-check.k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-focused .th-alert .fa-check.k-icon.k-clear-value, .th-alert th-autocomplete .k-autocomplete.k-state-hover .fa-check.k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-hover .th-alert .fa-check.k-icon.k-clear-value, .th-alert th-autocomplete .k-autocomplete.k-state-active .fa-check.k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-active .th-alert .fa-check.k-icon.k-clear-value, .th-alert
-    th-autocomplete .k-multiselect.k-state-focused .fa-check.k-icon.k-clear-value,
-    th-autocomplete .k-multiselect.k-state-focused .th-alert .fa-check.k-icon.k-clear-value, .th-alert
-    th-autocomplete .k-multiselect.k-state-hover .fa-check.k-icon.k-clear-value,
-    th-autocomplete .k-multiselect.k-state-hover .th-alert .fa-check.k-icon.k-clear-value, .th-alert
-    th-autocomplete .k-multiselect.k-state-active .fa-check.k-icon.k-clear-value,
-    th-autocomplete .k-multiselect.k-state-active .th-alert .fa-check.k-icon.k-clear-value, .th-alert
-    th-autocomplete .k-combobox input.k-state-focused .fa-check.k-icon.k-clear-value,
-    th-autocomplete .k-combobox input.k-state-focused .th-alert .fa-check.k-icon.k-clear-value, .th-alert
-    th-autocomplete .k-combobox input.k-state-hover .fa-check.k-icon.k-clear-value,
-    th-autocomplete .k-combobox input.k-state-hover .th-alert .fa-check.k-icon.k-clear-value, .th-alert
-    th-autocomplete .k-combobox input.k-state-active .fa-check.k-icon.k-clear-value,
-    th-autocomplete .k-combobox input.k-state-active .th-alert .fa-check.k-icon.k-clear-value, .th-alert th-autocomplete .k-multiselect .k-button .fa-check.k-i-close, th-autocomplete .k-multiselect .k-button .th-alert .fa-check.k-i-close, .th-alert th-autocomplete .k-multiselect .k-button .fa-check.k-i-group-delete::before, th-autocomplete .k-multiselect .k-button .th-alert .fa-check.k-i-group-delete::before, .th-alert th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .fa-check.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .th-alert .fa-check.k-icon.k-clear-value, .th-alert th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .fa-check.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .th-alert .fa-check.k-icon.k-clear-value, .th-alert th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .fa-check.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .th-alert .fa-check.k-icon.k-clear-value, .th-alert .th-checkbox i.fa-check:before, .th-checkbox .th-alert i.fa-check:before, .th-alert
+    .th-alert .fa.fa-check, .th-alert .fa-check.autocomplete_icon[data-icon]:before, .th-alert .fa-check.ui-dialog-titlebar-close:before, .th-alert th-autocomplete .fa-check.k-icon.k-i-close, th-autocomplete .th-alert .fa-check.k-icon.k-i-close, .th-alert th-autocomplete .fa-check.k-icon.k-i-group-delete::before, th-autocomplete .th-alert .fa-check.k-icon.k-i-group-delete::before, .th-alert .th-checkbox i.fa-check:before, .th-checkbox .th-alert i.fa-check:before, .th-alert
     *[th-checkbox] i.fa-check:before,
     *[th-checkbox] .th-alert i.fa-check:before, .th-alert .th-switch i.fa-check:before, .th-switch .th-alert i.fa-check:before, .th-alert .th-switch i.fa-check:after, .th-switch .th-alert i.fa-check:after, .th-alert
     *[th-switch] i.fa-check:before,
@@ -3796,19 +3700,7 @@ th-autocomplete .k-combobox input.k-state-active .k-icon.k-clear-value:before, t
     *[th-switch] i.fa-check:after,
     *[th-switch] .th-alert i.fa-check:after, .th-alert th-table table.th-table th .fa-check.th-table-sort-icon, th-table table.th-table th .th-alert .fa-check.th-table-sort-icon {
       background: #0A6B0C; }
-    .th-alert .fa.dismiss-icon, .th-alert .dismiss-icon.autocomplete_icon[data-icon]:before, .th-alert .dismiss-icon.ui-dialog-titlebar-close:before, .th-alert th-autocomplete .k-autocomplete.k-state-focused .dismiss-icon.k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-focused .th-alert .dismiss-icon.k-icon.k-clear-value, .th-alert th-autocomplete .k-autocomplete.k-state-hover .dismiss-icon.k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-hover .th-alert .dismiss-icon.k-icon.k-clear-value, .th-alert th-autocomplete .k-autocomplete.k-state-active .dismiss-icon.k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-active .th-alert .dismiss-icon.k-icon.k-clear-value, .th-alert
-    th-autocomplete .k-multiselect.k-state-focused .dismiss-icon.k-icon.k-clear-value,
-    th-autocomplete .k-multiselect.k-state-focused .th-alert .dismiss-icon.k-icon.k-clear-value, .th-alert
-    th-autocomplete .k-multiselect.k-state-hover .dismiss-icon.k-icon.k-clear-value,
-    th-autocomplete .k-multiselect.k-state-hover .th-alert .dismiss-icon.k-icon.k-clear-value, .th-alert
-    th-autocomplete .k-multiselect.k-state-active .dismiss-icon.k-icon.k-clear-value,
-    th-autocomplete .k-multiselect.k-state-active .th-alert .dismiss-icon.k-icon.k-clear-value, .th-alert
-    th-autocomplete .k-combobox input.k-state-focused .dismiss-icon.k-icon.k-clear-value,
-    th-autocomplete .k-combobox input.k-state-focused .th-alert .dismiss-icon.k-icon.k-clear-value, .th-alert
-    th-autocomplete .k-combobox input.k-state-hover .dismiss-icon.k-icon.k-clear-value,
-    th-autocomplete .k-combobox input.k-state-hover .th-alert .dismiss-icon.k-icon.k-clear-value, .th-alert
-    th-autocomplete .k-combobox input.k-state-active .dismiss-icon.k-icon.k-clear-value,
-    th-autocomplete .k-combobox input.k-state-active .th-alert .dismiss-icon.k-icon.k-clear-value, .th-alert th-autocomplete .k-multiselect .k-button .dismiss-icon.k-i-close, th-autocomplete .k-multiselect .k-button .th-alert .dismiss-icon.k-i-close, .th-alert th-autocomplete .k-multiselect .k-button .dismiss-icon.k-i-group-delete::before, th-autocomplete .k-multiselect .k-button .th-alert .dismiss-icon.k-i-group-delete::before, .th-alert th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .dismiss-icon.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .th-alert .dismiss-icon.k-icon.k-clear-value, .th-alert th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .dismiss-icon.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .th-alert .dismiss-icon.k-icon.k-clear-value, .th-alert th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .dismiss-icon.k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .th-alert .dismiss-icon.k-icon.k-clear-value, .th-alert .th-checkbox i.dismiss-icon:before, .th-checkbox .th-alert i.dismiss-icon:before, .th-alert
+    .th-alert .fa.dismiss-icon, .th-alert .dismiss-icon.autocomplete_icon[data-icon]:before, .th-alert .dismiss-icon.ui-dialog-titlebar-close:before, .th-alert th-autocomplete .dismiss-icon.k-icon.k-i-close, th-autocomplete .th-alert .dismiss-icon.k-icon.k-i-close, .th-alert th-autocomplete .dismiss-icon.k-icon.k-i-group-delete::before, th-autocomplete .th-alert .dismiss-icon.k-icon.k-i-group-delete::before, .th-alert .th-checkbox i.dismiss-icon:before, .th-checkbox .th-alert i.dismiss-icon:before, .th-alert
     *[th-checkbox] i.dismiss-icon:before,
     *[th-checkbox] .th-alert i.dismiss-icon:before, .th-alert .th-switch i.dismiss-icon:before, .th-switch .th-alert i.dismiss-icon:before, .th-alert .th-switch i.dismiss-icon:after, .th-switch .th-alert i.dismiss-icon:after, .th-alert
     *[th-switch] i.dismiss-icon:before,
@@ -7072,32 +6964,36 @@ table.k-widget {
   box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.13); }
 
 th-autocomplete {
-  position: relative; }
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 42px; }
   th-autocomplete * {
     box-sizing: border-box; }
   th-autocomplete .k-autocomplete,
   th-autocomplete .k-multiselect,
-  th-autocomplete .k-combobox input {
+  th-autocomplete .k-combobox .k-dropdown-wrap {
     width: 100%;
-    border: none;
+    width: 100%;
+    height: 100%;
     box-sizing: border-box;
-    width: 100%;
-    height: 42px;
-    padding: 0 52px 0 12px;
+    border: none;
     border: 1px solid #B0BEC5;
     border-radius: 4px;
     background: #F5F7F8;
     font-size: 13px; }
-    th-autocomplete .k-autocomplete:hover:not(.k-state-focused),
-    th-autocomplete .k-multiselect:hover:not(.k-state-focused),
-    th-autocomplete .k-combobox input:hover:not(.k-state-focused) {
+    th-autocomplete .k-autocomplete:hover, th-autocomplete .k-autocomplete.k-state-hover,
+    th-autocomplete .k-multiselect:hover,
+    th-autocomplete .k-multiselect.k-state-hover,
+    th-autocomplete .k-combobox .k-dropdown-wrap:hover,
+    th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover {
       border: 1px solid #B0BEC5;
       background: #F5F7F8; }
     th-autocomplete .k-autocomplete.k-state-focused,
     th-autocomplete .k-multiselect.k-state-focused,
-    th-autocomplete .k-combobox input.k-state-focused {
-      border-color: #0075bb;
+    th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused {
       box-shadow: 0 0 10px rgba(97, 179, 227, 0.7);
+      border-color: #0075bb;
       background: white;
       -webkit-transition: border-color .3s ease-out;
       transition: border-color .3s ease-out;
@@ -7105,43 +7001,29 @@ th-autocomplete {
       transition: box-shadow .3s ease-out; }
     th-autocomplete .k-autocomplete.k-state-border-up,
     th-autocomplete .k-multiselect.k-state-border-up,
-    th-autocomplete .k-combobox input.k-state-border-up {
+    th-autocomplete .k-combobox .k-dropdown-wrap.k-state-border-up {
       border-radius: 0 0 4px 4px; }
     th-autocomplete .k-autocomplete.k-state-border-down,
     th-autocomplete .k-multiselect.k-state-border-down,
-    th-autocomplete .k-combobox input.k-state-border-down {
+    th-autocomplete .k-combobox .k-dropdown-wrap.k-state-border-down {
       border-radius: 4px 4px 0 0; }
     th-autocomplete .k-autocomplete .k-input,
     th-autocomplete .k-multiselect .k-input,
-    th-autocomplete .k-combobox input .k-input {
-      height: 42px;
-      padding: 0; }
+    th-autocomplete .k-combobox .k-dropdown-wrap .k-input {
+      height: 100%;
+      padding: 0 12px; }
       th-autocomplete .k-autocomplete .k-input::-webkit-input-placeholder,
       th-autocomplete .k-multiselect .k-input::-webkit-input-placeholder,
-      th-autocomplete .k-combobox input .k-input::-webkit-input-placeholder {
+      th-autocomplete .k-combobox .k-dropdown-wrap .k-input::-webkit-input-placeholder {
         color: #667881; }
       th-autocomplete .k-autocomplete .k-input:-ms-input-placeholder,
       th-autocomplete .k-multiselect .k-input:-ms-input-placeholder,
-      th-autocomplete .k-combobox input .k-input:-ms-input-placeholder {
+      th-autocomplete .k-combobox .k-dropdown-wrap .k-input:-ms-input-placeholder {
         color: #667881; }
       th-autocomplete .k-autocomplete .k-input::placeholder,
       th-autocomplete .k-multiselect .k-input::placeholder,
-      th-autocomplete .k-combobox input .k-input::placeholder {
+      th-autocomplete .k-combobox .k-dropdown-wrap .k-input::placeholder {
         color: #667881; }
-    th-autocomplete .k-autocomplete.k-state-focused .k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-hover .k-icon.k-clear-value, th-autocomplete .k-autocomplete.k-state-active .k-icon.k-clear-value,
-    th-autocomplete .k-multiselect.k-state-focused .k-icon.k-clear-value,
-    th-autocomplete .k-multiselect.k-state-hover .k-icon.k-clear-value,
-    th-autocomplete .k-multiselect.k-state-active .k-icon.k-clear-value,
-    th-autocomplete .k-combobox input.k-state-focused .k-icon.k-clear-value,
-    th-autocomplete .k-combobox input.k-state-hover .k-icon.k-clear-value,
-    th-autocomplete .k-combobox input.k-state-active .k-icon.k-clear-value {
-      top: 13px;
-      right: 10px;
-      width: 14px;
-      margin: 0;
-      color: #667881;
-      font-size: 14px;
-      opacity: 1; }
   th-autocomplete .k-icon.k-i-loading {
     position: absolute;
     top: 13px;
@@ -7150,145 +7032,62 @@ th-autocomplete {
     height: 16px;
     border: none;
     border-radius: initial;
+    box-shadow: none;
     background-image: url(data:image/gif;base64,R0lGODlhIAAgAPMAAP///wAAAMbGxoSEhLa2tpqamjY2NlZWVtjY2OTk5Ly8vB4eHgQEBAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAIAAgAAAE5xDISWlhperN52JLhSSdRgwVo1ICQZRUsiwHpTJT4iowNS8vyW2icCF6k8HMMBkCEDskxTBDAZwuAkkqIfxIQyhBQBFvAQSDITM5VDW6XNE4KagNh6Bgwe60smQUB3d4Rz1ZBApnFASDd0hihh12BkE9kjAJVlycXIg7CQIFA6SlnJ87paqbSKiKoqusnbMdmDC2tXQlkUhziYtyWTxIfy6BE8WJt5YJvpJivxNaGmLHT0VnOgSYf0dZXS7APdpB309RnHOG5gDqXGLDaC457D1zZ/V/nmOM82XiHRLYKhKP1oZmADdEAAAh+QQJCgAAACwAAAAAIAAgAAAE6hDISWlZpOrNp1lGNRSdRpDUolIGw5RUYhhHukqFu8DsrEyqnWThGvAmhVlteBvojpTDDBUEIFwMFBRAmBkSgOrBFZogCASwBDEY/CZSg7GSE0gSCjQBMVG023xWBhklAnoEdhQEfyNqMIcKjhRsjEdnezB+A4k8gTwJhFuiW4dokXiloUepBAp5qaKpp6+Ho7aWW54wl7obvEe0kRuoplCGepwSx2jJvqHEmGt6whJpGpfJCHmOoNHKaHx61WiSR92E4lbFoq+B6QDtuetcaBPnW6+O7wDHpIiK9SaVK5GgV543tzjgGcghAgAh+QQJCgAAACwAAAAAIAAgAAAE7hDISSkxpOrN5zFHNWRdhSiVoVLHspRUMoyUakyEe8PTPCATW9A14E0UvuAKMNAZKYUZCiBMuBakSQKG8G2FzUWox2AUtAQFcBKlVQoLgQReZhQlCIJesQXI5B0CBnUMOxMCenoCfTCEWBsJColTMANldx15BGs8B5wlCZ9Po6OJkwmRpnqkqnuSrayqfKmqpLajoiW5HJq7FL1Gr2mMMcKUMIiJgIemy7xZtJsTmsM4xHiKv5KMCXqfyUCJEonXPN2rAOIAmsfB3uPoAK++G+w48edZPK+M6hLJpQg484enXIdQFSS1u6UhksENEQAAIfkECQoAAAAsAAAAACAAIAAABOcQyEmpGKLqzWcZRVUQnZYg1aBSh2GUVEIQ2aQOE+G+cD4ntpWkZQj1JIiZIogDFFyHI0UxQwFugMSOFIPJftfVAEoZLBbcLEFhlQiqGp1Vd140AUklUN3eCA51C1EWMzMCezCBBmkxVIVHBWd3HHl9JQOIJSdSnJ0TDKChCwUJjoWMPaGqDKannasMo6WnM562R5YluZRwur0wpgqZE7NKUm+FNRPIhjBJxKZteWuIBMN4zRMIVIhffcgojwCF117i4nlLnY5ztRLsnOk+aV+oJY7V7m76PdkS4trKcdg0Zc0tTcKkRAAAIfkECQoAAAAsAAAAACAAIAAABO4QyEkpKqjqzScpRaVkXZWQEximw1BSCUEIlDohrft6cpKCk5xid5MNJTaAIkekKGQkWyKHkvhKsR7ARmitkAYDYRIbUQRQjWBwJRzChi9CRlBcY1UN4g0/VNB0AlcvcAYHRyZPdEQFYV8ccwR5HWxEJ02YmRMLnJ1xCYp0Y5idpQuhopmmC2KgojKasUQDk5BNAwwMOh2RtRq5uQuPZKGIJQIGwAwGf6I0JXMpC8C7kXWDBINFMxS4DKMAWVWAGYsAdNqW5uaRxkSKJOZKaU3tPOBZ4DuK2LATgJhkPJMgTwKCdFjyPHEnKxFCDhEAACH5BAkKAAAALAAAAAAgACAAAATzEMhJaVKp6s2nIkolIJ2WkBShpkVRWqqQrhLSEu9MZJKK9y1ZrqYK9WiClmvoUaF8gIQSNeF1Er4MNFn4SRSDARWroAIETg1iVwuHjYB1kYc1mwruwXKC9gmsJXliGxc+XiUCby9ydh1sOSdMkpMTBpaXBzsfhoc5l58Gm5yToAaZhaOUqjkDgCWNHAULCwOLaTmzswadEqggQwgHuQsHIoZCHQMMQgQGubVEcxOPFAcMDAYUA85eWARmfSRQCdcMe0zeP1AAygwLlJtPNAAL19DARdPzBOWSm1brJBi45soRAWQAAkrQIykShQ9wVhHCwCQCACH5BAkKAAAALAAAAAAgACAAAATrEMhJaVKp6s2nIkqFZF2VIBWhUsJaTokqUCoBq+E71SRQeyqUToLA7VxF0JDyIQh/MVVPMt1ECZlfcjZJ9mIKoaTl1MRIl5o4CUKXOwmyrCInCKqcWtvadL2SYhyASyNDJ0uIiRMDjI0Fd30/iI2UA5GSS5UDj2l6NoqgOgN4gksEBgYFf0FDqKgHnyZ9OX8HrgYHdHpcHQULXAS2qKpENRg7eAMLC7kTBaixUYFkKAzWAAnLC7FLVxLWDBLKCwaKTULgEwbLA4hJtOkSBNqITT3xEgfLpBtzE/jiuL04RGEBgwWhShRgQExHBAAh+QQJCgAAACwAAAAAIAAgAAAE7xDISWlSqerNpyJKhWRdlSAVoVLCWk6JKlAqAavhO9UkUHsqlE6CwO1cRdCQ8iEIfzFVTzLdRAmZX3I2SfZiCqGk5dTESJeaOAlClzsJsqwiJwiqnFrb2nS9kmIcgEsjQydLiIlHehhpejaIjzh9eomSjZR+ipslWIRLAgMDOR2DOqKogTB9pCUJBagDBXR6XB0EBkIIsaRsGGMMAxoDBgYHTKJiUYEGDAzHC9EACcUGkIgFzgwZ0QsSBcXHiQvOwgDdEwfFs0sDzt4S6BK4xYjkDOzn0unFeBzOBijIm1Dgmg5YFQwsCMjp1oJ8LyIAACH5BAkKAAAALAAAAAAgACAAAATwEMhJaVKp6s2nIkqFZF2VIBWhUsJaTokqUCoBq+E71SRQeyqUToLA7VxF0JDyIQh/MVVPMt1ECZlfcjZJ9mIKoaTl1MRIl5o4CUKXOwmyrCInCKqcWtvadL2SYhyASyNDJ0uIiUd6GGl6NoiPOH16iZKNlH6KmyWFOggHhEEvAwwMA0N9GBsEC6amhnVcEwavDAazGwIDaH1ipaYLBUTCGgQDA8NdHz0FpqgTBwsLqAbWAAnIA4FWKdMLGdYGEgraigbT0OITBcg5QwPT4xLrROZL6AuQAPUS7bxLpoWidY0JtxLHKhwwMJBTHgPKdEQAACH5BAkKAAAALAAAAAAgACAAAATrEMhJaVKp6s2nIkqFZF2VIBWhUsJaTokqUCoBq+E71SRQeyqUToLA7VxF0JDyIQh/MVVPMt1ECZlfcjZJ9mIKoaTl1MRIl5o4CUKXOwmyrCInCKqcWtvadL2SYhyASyNDJ0uIiUd6GAULDJCRiXo1CpGXDJOUjY+Yip9DhToJA4RBLwMLCwVDfRgbBAaqqoZ1XBMHswsHtxtFaH1iqaoGNgAIxRpbFAgfPQSqpbgGBqUD1wBXeCYp1AYZ19JJOYgH1KwA4UBvQwXUBxPqVD9L3sbp2BNk2xvvFPJd+MFCN6HAAIKgNggY0KtEBAAh+QQJCgAAACwAAAAAIAAgAAAE6BDISWlSqerNpyJKhWRdlSAVoVLCWk6JKlAqAavhO9UkUHsqlE6CwO1cRdCQ8iEIfzFVTzLdRAmZX3I2SfYIDMaAFdTESJeaEDAIMxYFqrOUaNW4E4ObYcCXaiBVEgULe0NJaxxtYksjh2NLkZISgDgJhHthkpU4mW6blRiYmZOlh4JWkDqILwUGBnE6TYEbCgevr0N1gH4At7gHiRpFaLNrrq8HNgAJA70AWxQIH1+vsYMDAzZQPC9VCNkDWUhGkuE5PxJNwiUK4UfLzOlD4WvzAHaoG9nxPi5d+jYUqfAhhykOFwJWiAAAIfkECQoAAAAsAAAAACAAIAAABPAQyElpUqnqzaciSoVkXVUMFaFSwlpOCcMYlErAavhOMnNLNo8KsZsMZItJEIDIFSkLGQoQTNhIsFehRww2CQLKF0tYGKYSg+ygsZIuNqJksKgbfgIGepNo2cIUB3V1B3IvNiBYNQaDSTtfhhx0CwVPI0UJe0+bm4g5VgcGoqOcnjmjqDSdnhgEoamcsZuXO1aWQy8KAwOAuTYYGwi7w5h+Kr0SJ8MFihpNbx+4Erq7BYBuzsdiH1jCAzoSfl0rVirNbRXlBBlLX+BP0XJLAPGzTkAuAOqb0WT5AH7OcdCm5B8TgRwSRKIHQtaLCwg1RAAAOwAAAAAAAAAAAA==);
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: cover;
-    box-shadow: none; }
+    background-size: cover; }
     th-autocomplete .k-icon.k-i-loading:before, th-autocomplete .k-icon.k-i-loading:after {
       display: none; }
-  th-autocomplete .k-multiselect {
-    height: auto;
-    padding: 0 0 0 3px; }
-    th-autocomplete .k-multiselect .k-input {
-      padding-left: 9px;
-      height: 40px;
-      color: #667881;
-      font-size: 13px; }
-      th-autocomplete .k-multiselect .k-input::-moz-selection {
-        background: #ACCEF7;
-        color: #263238; }
-      th-autocomplete .k-multiselect .k-input::selection {
-        background: #ACCEF7;
-        color: #263238; }
-    th-autocomplete .k-multiselect .k-button {
-      padding: 2px 7px;
-      border: 1px solid #B0BEC5;
-      border-radius: 4px;
-      margin: 6px 0 0 4px;
-      max-width: calc(100% - 16px);
-      color: #263238;
-      background: white;
-      font-size: 13px;
-      line-height: 22px; }
-      th-autocomplete .k-multiselect .k-button span:not(.k-select):not(.k-icon) {
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis; }
-      th-autocomplete .k-multiselect .k-button.k-state-hover, th-autocomplete .k-multiselect .k-button:active {
-        box-shadow: none;
-        background: #0075bb;
+  th-autocomplete .k-icon.k-i-close, th-autocomplete .k-icon.k-i-group-delete::before {
+    width: 14px;
+    font-size: 14px; }
+  th-autocomplete .k-icon.k-clear-value {
+    color: #667881;
+    opacity: 0; }
+  th-autocomplete .k-multiselect .k-button {
+    padding: 2px 7px;
+    margin: 6px 0 0 4px;
+    line-height: 22px;
+    color: #263238;
+    border: 1px solid #B0BEC5;
+    border-radius: 4px;
+    max-width: calc(100% - 16px);
+    background: white;
+    font-size: 13px; }
+    th-autocomplete .k-multiselect .k-button > span:not(.k-select) {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis; }
+    th-autocomplete .k-multiselect .k-button.k-state-hover {
+      color: white;
+      box-shadow: none;
+      background: #0075bb;
+      border-color: #0075bb; }
+      th-autocomplete .k-multiselect .k-button.k-state-hover .k-i-close, th-autocomplete .k-multiselect .k-button.k-state-hover .k-i-group-delete::before {
         color: white;
-        border-color: #0075bb; }
-        th-autocomplete .k-multiselect .k-button.k-state-hover .k-i-close, th-autocomplete .k-multiselect .k-button.k-state-hover .k-i-group-delete::before, th-autocomplete .k-multiselect .k-button:active .k-i-close, th-autocomplete .k-multiselect .k-button:active .k-i-group-delete::before {
-          color: white; }
-      th-autocomplete .k-multiselect .k-button .k-i-close, th-autocomplete .k-multiselect .k-button .k-i-group-delete::before {
-        top: 14px;
-        right: 10px;
-        width: 14px;
-        margin: 0;
-        color: #B0BEC5;
-        font-size: 14px;
         opacity: 1; }
   th-autocomplete .k-combobox {
     width: 100%;
-    padding: 0;
-    background: none;
-    font-size: 13px; }
-    th-autocomplete .k-combobox .k-input {
-      height: 42px;
-      padding: 4px 34px 4px 12px;
-      border: 1px solid #B0BEC5;
-      border-radius: 4px 0 0 4px;
-      border-right: none;
-      background: #F5F7F8; }
-      th-autocomplete .k-combobox .k-input[aria-busy="true"] ~ .k-select .k-icon {
-        background-image: url(data:image/gif;base64,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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA); }
-        th-autocomplete .k-combobox .k-input[aria-busy="true"] ~ .k-select .k-icon:before {
-          display: none; }
-      th-autocomplete .k-combobox .k-input::-moz-selection {
-        background: #ACCEF7;
-        color: #263238; }
-      th-autocomplete .k-combobox .k-input::selection {
-        background: #ACCEF7;
-        color: #263238; }
+    height: 100%; }
     th-autocomplete .k-combobox .k-select {
       width: 42px;
       padding: 0;
-      border: 1px solid #B0BEC5;
+      border-left: 1px solid #B0BEC5;
       border-radius: 0 4px 4px 0;
       background: #ECEFF1; }
-    th-autocomplete .k-combobox .k-loading-hidden {
-      display: none; }
-    th-autocomplete .k-combobox .k-icon.k-clear-value {
-      display: none; }
-    th-autocomplete .k-combobox .k-dropdown-wrap {
-      border: none;
-      box-shadow: none;
-      background: none; }
-      th-autocomplete .k-combobox .k-dropdown-wrap.k-state-border-up .k-input {
-        border-radius: 0 0 0 4px; }
-      th-autocomplete .k-combobox .k-dropdown-wrap.k-state-border-down .k-input {
-        border-radius: 4px 0 0 0; }
-      th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .k-input {
-        border-color: #0075bb;
-        box-shadow: 0 0 10px rgba(97, 179, 227, 0.7);
-        background: white;
-        -webkit-transition: border-color .3s ease-out;
-        transition: border-color .3s ease-out;
-        -webkit-transition: box-shadow .3s ease-out;
-        transition: box-shadow .3s ease-out; }
-      th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .k-select {
-        box-shadow: 2px 0 10px rgba(97, 179, 227, 0.7); }
-      th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .k-input, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .k-input, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .k-input {
-        border-right: none; }
-      th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .k-select, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .k-select, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .k-select {
-        border-color: #0075bb;
-        background: #0075bb;
-        color: white; }
-      th-autocomplete .k-combobox .k-dropdown-wrap.k-state-hover .k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-active .k-icon.k-clear-value, th-autocomplete .k-combobox .k-dropdown-wrap.k-state-focused .k-icon.k-clear-value {
-        top: 13px;
-        right: 52px;
-        width: 14px;
-        margin: 0;
-        color: #667881;
-        font-size: 14px;
-        opacity: 1; }
-      th-autocomplete .k-combobox .k-dropdown-wrap.k-state-border-down .k-select {
-        border-radius: 0 4px 0 0; }
-      th-autocomplete .k-combobox .k-dropdown-wrap.k-state-border-up .k-select {
-        border-radius: 0 0 4px 0; }
-  th-autocomplete[condensed] .k-autocomplete,
-  th-autocomplete[condensed] .k-autocomplete input,
-  th-autocomplete[condensed] .k-combobox input {
+    th-autocomplete .k-combobox .k-state-focused .k-select {
+      color: white;
+      border-color: #0075bb;
+      background: #0075bb; }
+    th-autocomplete .k-combobox .k-icon.k-i-close, th-autocomplete .k-combobox .k-icon.k-i-group-delete::before {
+      right: 50px; }
+  th-autocomplete[condensed] {
     height: 34px; }
-  th-autocomplete[condensed] .k-state-focused .k-icon.k-clear-value,
-  th-autocomplete[condensed] .k-state-hover .k-icon.k-clear-value {
-    top: 9px; }
-  th-autocomplete[condensed] .k-state-focused .k-icon.k-i-loading,
-  th-autocomplete[condensed] .k-state-hover .k-icon.k-i-loading {
-    top: 8px; }
-  th-autocomplete[condensed] .k-combobox .k-select {
-    width: 34px; }
-  th-autocomplete[condensed] .k-combobox .k-state-hover .k-icon.k-clear-value,
-  th-autocomplete[condensed] .k-combobox .k-state-active .k-icon.k-clear-value,
-  th-autocomplete[condensed] .k-combobox .k-state-focused .k-icon.k-clear-value {
-    top: 10px;
-    right: 44px; }
-  th-autocomplete[condensed] .k-multiselect .k-input {
-    height: 32px; }
-  th-autocomplete[condensed] .k-multiselect .k-button {
-    margin-top: 2px; }
+    th-autocomplete[condensed] .k-multiselect .k-button {
+      margin-top: 2px; }
+    th-autocomplete[condensed] .k-combobox .k-dropdown-wrap > .k-select {
+      width: 34px; }
   th-autocomplete.ng-empty .k-state-hover .k-clear-value.k-i-close.k-icon, th-autocomplete.ng-empty .k-state-hover .k-clear-value.k-icon.k-i-group-delete::before,
   th-autocomplete.ng-empty .k-state-focused .k-clear-value.k-i-close.k-icon,
   th-autocomplete.ng-empty .k-state-focused .k-clear-value.k-icon.k-i-group-delete::before {
@@ -7299,8 +7098,8 @@ th-autocomplete {
 .k-animation-container .k-popup,
 .k-animation-container .k-menu.k-context-menu {
   overflow: hidden;
-  border: 1px solid #0075bb;
-  background-color: white; }
+  background-color: white;
+  border: 1px solid #0075bb; }
   .k-animation-container-shown .k-popup .k-list,
   .k-animation-container-shown .k-menu.k-context-menu .k-list,
   .k-animation-container .k-popup .k-list,
@@ -7310,8 +7109,8 @@ th-autocomplete {
   .k-animation-container-shown .k-menu.k-context-menu .k-item,
   .k-animation-container .k-popup .k-item,
   .k-animation-container .k-menu.k-context-menu .k-item {
-    margin: 0 4px;
     padding: 6px 8px;
+    margin: 0 4px;
     border: none;
     border-radius: 2px;
     -webkit-transition: none;
@@ -7323,22 +7122,22 @@ th-autocomplete {
     .k-animation-container .k-popup .k-item.k-state-focused,
     .k-animation-container .k-menu.k-context-menu .k-item:focus,
     .k-animation-container .k-menu.k-context-menu .k-item.k-state-focused {
-      border: none;
-      box-shadow: none;
       color: white;
-      background-color: #0075bb; }
+      background-color: #0075bb;
+      border: none;
+      box-shadow: none; }
     .k-animation-container-shown .k-popup .k-item.k-state-selected,
     .k-animation-container-shown .k-menu.k-context-menu .k-item.k-state-selected,
     .k-animation-container .k-popup .k-item.k-state-selected,
     .k-animation-container .k-menu.k-context-menu .k-item.k-state-selected {
-      background: #0075bb;
-      color: white; }
+      color: white;
+      background: #0075bb; }
     .k-animation-container-shown .k-popup .k-item.k-state-hover:not(.k-state-focused),
     .k-animation-container-shown .k-menu.k-context-menu .k-item.k-state-hover:not(.k-state-focused),
     .k-animation-container .k-popup .k-item.k-state-hover:not(.k-state-focused),
     .k-animation-container .k-menu.k-context-menu .k-item.k-state-hover:not(.k-state-focused) {
-      background-color: #EBF4F9;
-      color: #004670; }
+      color: #004670;
+      background-color: #EBF4F9; }
   .k-animation-container-shown .k-popup .k-list > .k-item.k-first,
   .k-animation-container-shown .k-menu.k-context-menu .k-list > .k-item.k-first,
   .k-animation-container .k-popup .k-list > .k-item.k-first,
@@ -7353,23 +7152,23 @@ th-autocomplete {
   .k-animation-container-shown .k-menu.k-context-menu .k-list > .k-item.k-first > .k-group,
   .k-animation-container .k-popup .k-list > .k-item.k-first > .k-group,
   .k-animation-container .k-menu.k-context-menu .k-list > .k-item.k-first > .k-group {
-    left: -4px;
     top: -36px;
-    height: 32px;
+    left: -4px;
     width: calc(100% + 8px);
+    height: 32px;
     padding: 0 12px;
     margin: 0;
-    background: #ECEFF1;
+    line-height: 32px;
     color: black;
+    background: #ECEFF1;
     font-weight: bold;
-    font-size: 11px;
-    line-height: 32px; }
+    font-size: 11px; }
     .k-animation-container-shown .k-popup .k-list > .k-item.k-first > .k-group:before,
     .k-animation-container-shown .k-menu.k-context-menu .k-list > .k-item.k-first > .k-group:before,
     .k-animation-container .k-popup .k-list > .k-item.k-first > .k-group:before,
     .k-animation-container .k-menu.k-context-menu .k-list > .k-item.k-first > .k-group:before {
-      left: 0;
       bottom: -4px;
+      left: 0;
       width: 100%;
       height: 4px;
       border: none; }
@@ -7378,76 +7177,52 @@ th-autocomplete {
   .k-animation-container .k-popup .k-nodata,
   .k-animation-container .k-menu.k-context-menu .k-nodata {
     color: #667881;
+    opacity: 1;
     font-size: 13px;
     font-weight: normal;
-    text-transform: none;
-    opacity: 1; }
+    text-transform: none; }
   .k-animation-container-shown .k-popup .search-hint,
   .k-animation-container-shown .k-menu.k-context-menu .search-hint,
   .k-animation-container .k-popup .search-hint,
   .k-animation-container .k-menu.k-context-menu .search-hint {
-    margin: 0 4px;
     padding: 11px 8px;
+    margin: 0 4px;
     color: #667881;
     font-style: italic; }
 
 .k-list-container.k-state-border-down {
-  margin-top: 1px;
   border-radius: 4px 4px 0 0;
-  box-shadow: 0 -2px 10px rgba(97, 179, 227, 0.7); }
+  box-shadow: 0 -2px 10px rgba(97, 179, 227, 0.7);
+  margin-top: 1px; }
 
 .k-list-container.k-state-border-up {
-  margin-top: -1px;
   border-radius: 0 0 4px 4px;
-  box-shadow: 0 2px 10px rgba(97, 179, 227, 0.7); }
+  box-shadow: 0 2px 10px rgba(97, 179, 227, 0.7);
+  margin-top: -1px; }
 
-form.ng-submitted .ng-invalid .k-autocomplete,
-form.ng-submitted .ng-invalid .k-autocomplete.k-state-hover,
-form.ng-submitted .ng-invalid .k-multiselect,
-form.ng-submitted .ng-invalid .k-combobox input,
-form.ng-submitted .ng-invalid .k-combobox input:focus,
-form.ng-submitted .ng-invalid .k-combobox .k-select {
-  border: 2px solid #E41B28; }
-  form.ng-submitted .ng-invalid .k-autocomplete.k-state-focused,
-  form.ng-submitted .ng-invalid .k-autocomplete.k-state-hover.k-state-focused,
-  form.ng-submitted .ng-invalid .k-multiselect.k-state-focused,
-  form.ng-submitted .ng-invalid .k-combobox input.k-state-focused,
-  form.ng-submitted .ng-invalid .k-combobox input:focus.k-state-focused,
-  form.ng-submitted .ng-invalid .k-combobox .k-select.k-state-focused {
-    box-shadow: 0 0 7px rgba(228, 27, 40, 0.5); }
+th-autocomplete.ng-invalid .k-tooltip.k-tooltip-validation {
+  width: 0;
+  opacity: 0; }
 
-form.ng-submitted .ng-invalid .k-autocomplete,
-form.ng-submitted .ng-invalid .k-autocomplete.k-state-hover {
-  padding: 0 51px 0 11px; }
-  form.ng-submitted .ng-invalid .k-autocomplete .k-input,
-  form.ng-submitted .ng-invalid .k-autocomplete.k-state-hover .k-input {
-    height: 40px; }
+.ng-submitted th-autocomplete.ng-invalid .k-autocomplete, .ng-submitted th-autocomplete.ng-invalid .k-multiselect, .ng-submitted th-autocomplete.ng-invalid .k-combobox .k-dropdown-wrap, th-autocomplete.ng-touched.ng-invalid .k-autocomplete, th-autocomplete.ng-touched.ng-invalid .k-multiselect, th-autocomplete.ng-touched.ng-invalid .k-combobox .k-dropdown-wrap {
+  border: 1px solid #E41B28;
+  box-shadow: 0 0 0 1px #E41B28; }
+  .ng-submitted th-autocomplete.ng-invalid .k-autocomplete > .k-select, .ng-submitted th-autocomplete.ng-invalid .k-multiselect > .k-select, .ng-submitted th-autocomplete.ng-invalid .k-combobox .k-dropdown-wrap > .k-select, th-autocomplete.ng-touched.ng-invalid .k-autocomplete > .k-select, th-autocomplete.ng-touched.ng-invalid .k-multiselect > .k-select, th-autocomplete.ng-touched.ng-invalid .k-combobox .k-dropdown-wrap > .k-select {
+    border-left: 1px solid #E41B28;
+    box-shadow: -1px 0 0 0 #E41B28; }
 
-form.ng-submitted .ng-invalid[condensed] .k-autocomplete .k-input,
-form.ng-submitted .ng-invalid[condensed] .k-autocomplete.k-state-hover .k-input {
-  height: 32px; }
-
-form.ng-submitted .ng-invalid .k-combobox .k-state-focused .k-select,
-form.ng-submitted .ng-invalid .k-combobox .k-state-focused input {
-  box-shadow: 0 0 7px rgba(228, 27, 40, 0.5); }
-
-form.ng-submitted .ng-invalid .k-combobox input,
-form.ng-submitted .ng-invalid .k-combobox input:focus {
-  border-right: none; }
-
-form.ng-submitted .ng-invalid .k-state-hover .k-select,
-form.ng-submitted .ng-invalid .k-state-border-down .k-select,
-form.ng-submitted .ng-invalid .k-state-focused .k-select {
-  border-color: #E41B28; }
-
-form .k-tooltip.k-tooltip-validation {
-  padding-left: 0;
-  border: none;
-  background: none;
+.ng-submitted th-autocomplete.ng-invalid .k-tooltip.k-tooltip-validation.k-invalid-msg, th-autocomplete.ng-touched.ng-invalid .k-tooltip.k-tooltip-validation.k-invalid-msg {
+  position: absolute;
+  bottom: -22px;
+  left: -2px;
+  width: auto;
+  padding: 0;
   color: #E41B28;
-  font-size: 13px;
-  font-weight: 400; }
-  form .k-tooltip.k-tooltip-validation .k-icon.k-i-warning {
+  border: none;
+  opacity: 1;
+  background: transparent;
+  font-size: 12px; }
+  .ng-submitted th-autocomplete.ng-invalid .k-tooltip.k-tooltip-validation.k-invalid-msg .k-icon.k-i-warning, th-autocomplete.ng-touched.ng-invalid .k-tooltip.k-tooltip-validation.k-invalid-msg .k-icon.k-i-warning {
     display: none; }
 
 .th-button,

@@ -1,7 +1,7 @@
 import * as angular from "angular";
 
 angular.module("thAutocompleteDemo")
-  .controller("thAutocompleteDemoCtrl3", function(DataSource, ValidatorService) {
+  .controller("thAutocompleteDemoCtrl3", function(DataSource) {
     this.required = true;
 
     this.toggleRequired = function() {
@@ -11,32 +11,19 @@ angular.module("thAutocompleteDemo")
     this.reset = function() {
       this.repo = this.response = null;
       this.form.$setPristine();
-      return this.form.$setUntouched();
+      this.form.$setUntouched();
     };
 
     this.submit = function() {
       return this.response = this.form.$valid ? {
         $valid: this.form.$valid,
       } : {
-        $error: this.form.repo.$error,
-      };
-    };
-
-    this.validate = function(event: any) {
-      event.preventDefault();
-      // FIXME: CRAIG: This is an incorrect usage of
-      // the validator service. It should not be instantiated
-      // on the html form... (Mike/Lucia)
-      this.validator = ValidatorService.create({
-        element: jQuery("form")[0],
-        attrs: {
-          required: true,
+        $error: {
+          repo: this.form.repo.$error,
+          github1: this.form.github1.$error,
+          github2: this.form.github2.$error,
         },
-      });
-
-      this.validator.validate();
-
-      this.submit();
+      };
     };
 
     this.defaultOptions = {

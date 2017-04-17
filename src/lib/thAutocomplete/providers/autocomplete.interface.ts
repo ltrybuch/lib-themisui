@@ -11,12 +11,12 @@ type AutocompleteDataOptions = {
 };
 
 type AutocompleteConfiguration = {
-  change: any,
+  change?: (newVal: any) => void,
+  close?: () => void;
   enabled?: boolean,
   element: any,
   ngDisabled: any,
-  ngRequired: any,
-  placeholder: string,
+  placeholder?: string,
   value: any,
   options: AutocompleteDataOptions,
 };

@@ -24,8 +24,8 @@ export default class AutocompleteOptionsFixture {
       placeholder: "Type a foo...",
       value: { id: 2, name: "Jack Newton" },
       ngDisabled: false,
-      ngRequired: false,
-      change: (): undefined => undefined,
+      change: () => undefined,
+      close: () => undefined,
     };
 
     return mockOptions;

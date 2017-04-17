@@ -1,7 +1,6 @@
 import * as $ from "jquery";
 import { AutocompleteConfiguration } from "./autocomplete.interface";
 import { AutocompleteProviderError } from "../autocomplete.errors";
-import "@progress/kendo-ui/js/kendo.validator.js";
 
 
 abstract class AutocompleteAbstract {
@@ -9,6 +8,7 @@ abstract class AutocompleteAbstract {
   protected initialValue: any;
   protected autoBind: boolean = true;
   protected kendoComponent: any;
+  protected validator: kendo.ui.Validator;
 
   constructor(protected config: AutocompleteConfiguration) {
     this.initializeOptions();
@@ -74,17 +74,6 @@ abstract class AutocompleteAbstract {
     if (this.kendoComponent) {
       this.kendoComponent.enable(this.enabled);
     }
-  }
-
-  public toggleRequired() {
-    let validator = $(this.kendoComponent.element[0].form).kendoValidator().data("kendoValidator");
-
-    if (this.config.element.required === true) {
-      this.config.element.removeAttribute("required");
-    } else {
-      this.config.element.setAttribute("required", "required");
-    }
-    validator.validateInput(this.config.element);
   }
 
   public toggleSearchHint(showHint: boolean) {

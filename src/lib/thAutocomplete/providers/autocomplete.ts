@@ -22,6 +22,8 @@ class Autocomplete extends AutocompleteAbstract {
   }
 
   create() {
+    // FIXME: https://themis.atlassian.net/browse/CLIO-46201
+    // clear invalid selection only works if popup has already appeared first
     let validSelection: boolean;
 
     const widgetOptions = {

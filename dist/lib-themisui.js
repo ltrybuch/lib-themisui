@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 302);
+/******/ 	return __webpack_require__(__webpack_require__.s = 305);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -6304,7 +6304,7 @@ function loadLocale(name) {
             module && module.exports) {
         try {
             oldLocale = globalLocale._abbr;
-            __webpack_require__(/*! ./locale */ 40)("./" + name);
+            __webpack_require__(/*! ./locale */ 39)("./" + name);
             // because defineLocale currently also sets the global locale, we
             // want to undo that for lazy loaded locales
             getSetGlobalLocale(oldLocale);
@@ -8792,7 +8792,7 @@ return hooks;
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../webpack/buildin/module.js */ 45)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../webpack/buildin/module.js */ 44)(module)))
 
 /***/ }),
 /* 2 */
@@ -25851,14 +25851,14 @@ module.exports =
 /***/ 607:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.data.odata */ 118);
+	module.exports = __webpack_require__(/*! ./kendo.data.odata */ 121);
 
 /***/ },
 
 /***/ 608:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.data.xml */ 119);
+	module.exports = __webpack_require__(/*! ./kendo.data.xml */ 122);
 
 /***/ }
 
@@ -27877,7 +27877,7 @@ module.exports =
 /***/ 673:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.calendar */ 114);
+	module.exports = __webpack_require__(/*! ./kendo.calendar */ 117);
 
 /***/ }
 
@@ -32087,7 +32087,7 @@ return enNz;
   \*********************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./angular-aria */ 36);
+__webpack_require__(/*! ./angular-aria */ 35);
 module.exports = 'ngAria';
 
 
@@ -32100,7 +32100,7 @@ module.exports = 'ngAria';
   \*************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./angular-messages */ 37);
+__webpack_require__(/*! ./angular-messages */ 36);
 module.exports = 'ngMessages';
 
 
@@ -32113,23 +32113,23 @@ module.exports = 'ngMessages';
   \************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! es6-promise */ 39).polyfill();
+__webpack_require__(/*! es6-promise */ 38).polyfill();
 
-__webpack_require__(/*! ./Array.find.polyfill */ 46);
+__webpack_require__(/*! ./Array.find.polyfill */ 45);
 
-__webpack_require__(/*! ./Array.findIndex.polyfill */ 47);
+__webpack_require__(/*! ./Array.findIndex.polyfill */ 46);
 
-__webpack_require__(/*! ./Array.includes.polyfill */ 48);
+__webpack_require__(/*! ./Array.includes.polyfill */ 47);
 
-__webpack_require__(/*! ./Element.matches.polyfill */ 49);
+__webpack_require__(/*! ./Element.matches.polyfill */ 48);
 
-__webpack_require__(/*! ./jQuery.typeAttribute.patch */ 52);
+__webpack_require__(/*! ./jQuery.typeAttribute.patch */ 51);
 
-__webpack_require__(/*! ./Object.assign.polyfill */ 50);
+__webpack_require__(/*! ./Object.assign.polyfill */ 49);
 
-__webpack_require__(/*! ./scrollingElement.polyfill */ 53);
+__webpack_require__(/*! ./scrollingElement.polyfill */ 52);
 
-__webpack_require__(/*! ./String.includes.polyfill */ 51);
+__webpack_require__(/*! ./String.includes.polyfill */ 50);
 
 
 /***/ }),
@@ -41971,21 +41971,21 @@ module.exports =
 /***/ 498:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./util */ 56);
+	module.exports = __webpack_require__(/*! ./util */ 55);
 
 /***/ },
 
 /***/ 499:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ../kendo.color */ 57);
+	module.exports = __webpack_require__(/*! ../kendo.color */ 56);
 
 /***/ },
 
 /***/ 500:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ../util/text-metrics */ 144);
+	module.exports = __webpack_require__(/*! ../util/text-metrics */ 147);
 
 /***/ }
 
@@ -44472,7 +44472,7 @@ module.exports =
  * Module dependencies.
  */
 
-var now = __webpack_require__(/*! date-now */ 38);
+var now = __webpack_require__(/*! date-now */ 37);
 
 /**
  * Returns a function, that, as long as it continues to be invoked, will not
@@ -50056,14 +50056,14 @@ module.exports =
 /***/ 766:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.mobile.loader */ 124);
+	module.exports = __webpack_require__(/*! ./kendo.mobile.loader */ 127);
 
 /***/ },
 
 /***/ 767:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.mobile.view */ 127);
+	module.exports = __webpack_require__(/*! ./kendo.mobile.view */ 130);
 
 /***/ },
 
@@ -51993,550 +51993,6 @@ module.exports =
 /* 35 */
 /* unknown exports provided */
 /* all exports used */
-/*!****************************************************!*\
-  !*** ./~/@progress/kendo-ui/js/kendo.validator.js ***!
-  \****************************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports =
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
-
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
-
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-
-
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ({
-
-/***/ 0:
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(895);
-
-
-/***/ },
-
-/***/ 3:
-/***/ function(module, exports) {
-
-	module.exports = function() { throw new Error("define cannot be used indirect"); };
-
-
-/***/ },
-
-/***/ 574:
-/***/ function(module, exports) {
-
-	module.exports = __webpack_require__(/*! ./kendo.core */ 0);
-
-/***/ },
-
-/***/ 895:
-/***/ function(module, exports, __webpack_require__) {
-
-	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(f, define){
-	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(574) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (f), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	})(function(){
-
-	var __meta__ = { // jshint ignore:line
-	    id: "validator",
-	    name: "Validator",
-	    category: "web",
-	    description: "The Validator offers an easy way to do a client-side form validation.",
-	    depends: [ "core" ]
-	};
-
-	/* jshint eqnull: true */
-	(function($, undefined) {
-	    var kendo = window.kendo,
-	        Widget = kendo.ui.Widget,
-	        NS = ".kendoValidator",
-	        INVALIDMSG = "k-invalid-msg",
-	        invalidMsgRegExp = new RegExp(INVALIDMSG,'i'),
-	        INVALIDINPUT = "k-invalid",
-	        VALIDINPUT = "k-valid",
-	        emailRegExp = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/i,
-	        urlRegExp = /^(https?|ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i,
-	        INPUTSELECTOR = ":input:not(:button,[type=submit],[type=reset],[disabled],[readonly])",
-	        CHECKBOXSELECTOR = ":checkbox:not([disabled],[readonly])",
-	        NUMBERINPUTSELECTOR = "[type=number],[type=range]",
-	        BLUR = "blur",
-	        NAME = "name",
-	        FORM = "form",
-	        NOVALIDATE = "novalidate",
-	        //events
-	        VALIDATE = "validate",
-	        CHANGE = "change",
-	        VALIDATE_INPUT = "validateInput",        
-	        proxy = $.proxy,
-	        patternMatcher = function(value, pattern) {
-	            if (typeof pattern === "string") {
-	                pattern = new RegExp('^(?:' + pattern + ')$');
-	            }
-	            return pattern.test(value);
-	        },
-	        matcher = function(input, selector, pattern) {
-	            var value = input.val();
-
-	            if (input.filter(selector).length && value !== "") {
-	                return patternMatcher(value, pattern);
-	            }
-	            return true;
-	        },
-	        hasAttribute = function(input, name) {
-	            if (input.length)  {
-	                return input[0].attributes[name] != null;
-	            }
-	            return false;
-	        };
-
-	    if (!kendo.ui.validator) {
-	        kendo.ui.validator = { rules: {}, messages: {} };
-	    }
-
-	    function resolveRules(element) {
-	        var resolvers = kendo.ui.validator.ruleResolvers || {},
-	            rules = {},
-	            name;
-
-	        for (name in resolvers) {
-	            $.extend(true, rules, resolvers[name].resolve(element));
-	        }
-	        return rules;
-	    }
-
-	    function decode(value) {
-	        return value.replace(/&amp/g, '&amp;')
-	            .replace(/&quot;/g, '"')
-	            .replace(/&#39;/g, "'")
-	            .replace(/&lt;/g, '<')
-	            .replace(/&gt;/g, '>');
-	    }
-
-	    function numberOfDecimalDigits(value) {
-	        value = (value + "").split('.');
-	        if (value.length > 1) {
-	            return value[1].length;
-	        }
-	        return 0;
-	    }
-
-	    function parseHtml(text) {
-	        if ($.parseHTML) {
-	            return $($.parseHTML(text));
-	        }
-	        return $(text);
-	    }
-
-	    function searchForMessageContainer(elements, fieldName) {
-	        var containers = $(),
-	            element,
-	            attr;
-
-	        for (var idx = 0, length = elements.length; idx < length; idx++) {
-	            element = elements[idx];
-	            if (invalidMsgRegExp.test(element.className)) {
-	                attr = element.getAttribute(kendo.attr("for"));
-	                if (attr === fieldName) {
-	                    containers = containers.add(element);
-	                }
-	            }
-	        }
-	        return containers;
-	    }
-
-	    var Validator = Widget.extend({
-	        init: function(element, options) {
-	            var that = this,
-	                resolved = resolveRules(element),
-	                validateAttributeSelector = "[" + kendo.attr("validate") + "!=false]";
-
-	            options = options || {};
-
-	            options.rules = $.extend({}, kendo.ui.validator.rules, resolved.rules, options.rules);
-	            options.messages = $.extend({}, kendo.ui.validator.messages, resolved.messages, options.messages);
-
-	            Widget.fn.init.call(that, element, options);
-
-	            that._errorTemplate = kendo.template(that.options.errorTemplate);
-
-	            if (that.element.is(FORM)) {
-	                that.element.attr(NOVALIDATE, NOVALIDATE);
-	            }
-
-	            that._inputSelector = INPUTSELECTOR + validateAttributeSelector;
-	            that._checkboxSelector = CHECKBOXSELECTOR + validateAttributeSelector;
-
-	            that._errors = {};
-	            that._attachEvents();
-	            that._isValidated = false;
-	        },
-
-	        events: [ VALIDATE, CHANGE, VALIDATE_INPUT ],
-
-	        options: {
-	            name: "Validator",
-	            errorTemplate: '<span class="k-widget k-tooltip k-tooltip-validation">' +
-	                '<span class="k-icon k-i-warning"> </span> #=message#</span>',
-	            messages: {
-	                required: "{0} is required",
-	                pattern: "{0} is not valid",
-	                min: "{0} should be greater than or equal to {1}",
-	                max: "{0} should be smaller than or equal to {1}",
-	                step: "{0} is not valid",
-	                email: "{0} is not valid email",
-	                url: "{0} is not valid URL",
-	                date: "{0} is not valid date",
-	                dateCompare: "End date should be greater than or equal to the start date"
-	            },
-	            rules: {
-	                required: function(input) {
-	                    var checkbox = input.filter("[type=checkbox]").length && !input.is(":checked"),
-	                        value = input.val();
-
-	                    return !(hasAttribute(input, "required") && (!value || value === "" || value.length === 0 || checkbox));
-	                },
-	                pattern: function(input) {
-	                    if (input.filter("[type=text],[type=email],[type=url],[type=tel],[type=search],[type=password]").filter("[pattern]").length && input.val() !== "") {
-	                        return patternMatcher(input.val(), input.attr("pattern"));
-	                    }
-	                    return true;
-	                },
-	                min: function(input) {
-	                    if (input.filter(NUMBERINPUTSELECTOR + ",[" + kendo.attr("type") + "=number]").filter("[min]").length && input.val() !== "") {
-	                        var min = parseFloat(input.attr("min")) || 0,
-	                            val = kendo.parseFloat(input.val());
-
-	                        return min <= val;
-	                    }
-	                    return true;
-	                },
-	                max: function(input) {
-	                    if (input.filter(NUMBERINPUTSELECTOR + ",[" + kendo.attr("type") + "=number]").filter("[max]").length && input.val() !== "") {
-	                        var max = parseFloat(input.attr("max")) || 0,
-	                            val = kendo.parseFloat(input.val());
-
-	                        return max >= val;
-	                    }
-	                    return true;
-	                },
-	                step: function(input) {
-	                    if (input.filter(NUMBERINPUTSELECTOR + ",[" + kendo.attr("type") + "=number]").filter("[step]").length && input.val() !== "") {
-	                        var min = parseFloat(input.attr("min")) || 0,
-	                            step = parseFloat(input.attr("step")) || 1,
-	                            val = parseFloat(input.val()),
-	                            decimals = numberOfDecimalDigits(step),
-	                            raise;
-
-	                        if (decimals) {
-	                            raise = Math.pow(10, decimals);
-	                            return ((Math.floor((val-min)*raise))%(step*raise)) / Math.pow(100, decimals) === 0;
-	                        }
-	                        return ((val-min)%step) === 0;
-	                    }
-	                    return true;
-	                },
-	                email: function(input) {
-	                    return matcher(input, "[type=email],[" + kendo.attr("type") + "=email]", emailRegExp);
-	                },
-	                url: function(input) {
-	                    return matcher(input, "[type=url],[" + kendo.attr("type") + "=url]", urlRegExp);
-	                },
-	                date: function(input) {
-	                    if (input.filter("[type^=date],[" + kendo.attr("type") + "=date]").length && input.val() !== "") {
-	                        return kendo.parseDate(input.val(), input.attr(kendo.attr("format"))) !== null;
-	                    }
-	                    return true;
-	                }
-	            },
-	            validateOnBlur: true
-	        },
-
-	        destroy: function() {
-	            Widget.fn.destroy.call(this);
-
-	            this.element.off(NS);
-	        },
-
-	        value: function() {
-	            if (!this._isValidated) {
-	                return false;
-	            }
-
-	            return this.errors().length === 0;
-	        },
-
-	        _submit: function(e) {
-	            if (!this.validate()) {
-	                e.stopPropagation();
-	                e.stopImmediatePropagation();
-	                e.preventDefault();
-	                return false;
-	            }
-	            return true;
-	        },
-
-	        _checkElement: function(element) {
-	            var state = this.value();
-
-	            this.validateInput(element);
-
-	            if (this.value() !== state) {
-	                this.trigger(CHANGE);
-	            }
-	        },
-
-	        _attachEvents: function() {
-	            var that = this;
-
-	            if (that.element.is(FORM)) {
-	                that.element.on("submit" + NS, proxy(that._submit, that));
-	            }
-
-	            if (that.options.validateOnBlur) {
-	                if (!that.element.is(INPUTSELECTOR)) {
-	                    that.element.on(BLUR + NS, that._inputSelector, function() {
-	                        that._checkElement($(this));
-	                    });
-
-	                    that.element.on("click" + NS, that._checkboxSelector, function() {
-	                        that._checkElement($(this));
-	                    });
-	                } else {
-	                    that.element.on(BLUR + NS, function() {
-	                        that._checkElement(that.element);
-	                    });
-
-	                    if (that.element.is(CHECKBOXSELECTOR)) {
-	                        that.element.on("click" + NS, function() {
-	                            that._checkElement(that.element);
-	                        });
-	                    }
-	                }
-	            }
-	        },
-
-	        validate: function() {
-	            var inputs;
-	            var idx;
-	            var result = false;
-	            var length;
-
-	            var isValid = this.value();
-
-	            this._errors = {};
-
-	            if (!this.element.is(INPUTSELECTOR)) {
-	                var invalid = false;
-
-	                inputs = this.element.find(this._inputSelector);
-
-	                for (idx = 0, length = inputs.length; idx < length; idx++) {
-	                    if (!this.validateInput(inputs.eq(idx))) {
-	                        invalid = true;
-	                    }
-	                }
-
-	                result = !invalid;
-	            } else {
-	                result = this.validateInput(this.element);
-	            }
-
-	            this.trigger(VALIDATE, { valid: result });
-
-	            if (isValid !== result) {
-	                this.trigger(CHANGE);
-	            }
-
-	            return result;
-	        },
-
-	        validateInput: function(input) {
-	            input = $(input);
-
-	            this._isValidated = true;
-
-	            var that = this,
-	                template = that._errorTemplate,
-	                result = that._checkValidity(input),
-	                valid = result.valid,
-	                className = "." + INVALIDMSG,
-	                fieldName = (input.attr(NAME) || ""),
-	                lbl = that._findMessageContainer(fieldName).add(input.next(className).filter(function() {
-	                    var element = $(this);
-	                    if (element.filter("[" + kendo.attr("for") + "]").length) {
-	                        return element.attr(kendo.attr("for")) === fieldName;
-	                    }
-
-	                    return true;
-
-	                })).hide(),
-	                messageText,
-	                wasValid = !input.attr("aria-invalid");
-	            input.removeAttr("aria-invalid");
-
-	            if (!valid) {
-	                messageText = that._extractMessage(input, result.key);
-	                that._errors[fieldName] = messageText;
-	                var messageLabel = parseHtml(template({ message: decode(messageText) }));
-	                var lblId = lbl.attr('id');
-
-	                that._decorateMessageContainer(messageLabel, fieldName);
-
-	                if (lblId) {
-	                    messageLabel.attr('id', lblId);
-	                }
-
-	                if (!lbl.replaceWith(messageLabel).length) {
-	                    messageLabel.insertAfter(input);
-	                }
-	                messageLabel.show();
-
-	                input.attr("aria-invalid", true);
-	            } else {
-	                delete that._errors[fieldName];
-	            }
-
-	            if (wasValid !== valid) {
-	                this.trigger(VALIDATE_INPUT, { valid: valid, input: input });
-	            }
-
-	            input.toggleClass(INVALIDINPUT, !valid);
-	            input.toggleClass(VALIDINPUT, valid);
-
-	            return valid;
-	        },
-
-	        hideMessages: function() {
-	            var that = this,
-	                className = "." + INVALIDMSG,
-	                element = that.element;
-
-	            if (!element.is(INPUTSELECTOR)) {
-	                element.find(className).hide();
-	            } else {
-	                element.next(className).hide();
-	            }
-	        },
-
-	        _findMessageContainer: function(fieldName) {
-	            var locators = kendo.ui.validator.messageLocators,
-	                name,
-	                containers = $();
-
-	            for (var idx = 0, length = this.element.length; idx < length; idx++) {
-	                containers = containers.add(searchForMessageContainer(this.element[idx].getElementsByTagName("*"), fieldName));
-	            }
-
-	            for (name in locators) {
-	                containers = containers.add(locators[name].locate(this.element, fieldName));
-	            }
-
-	            return containers;
-	        },
-
-	        _decorateMessageContainer: function(container, fieldName) {
-	            var locators = kendo.ui.validator.messageLocators,
-	                name;
-
-	            container.addClass(INVALIDMSG)
-	                .attr(kendo.attr("for"), fieldName || "");
-
-	            for (name in locators) {
-	                locators[name].decorate(container, fieldName);
-	            }
-
-	            container.attr("role", "alert");
-	        },
-
-	        _extractMessage: function(input, ruleKey) {
-	            var that = this,
-	                customMessage = that.options.messages[ruleKey],
-	                fieldName = input.attr(NAME);
-
-	            customMessage = kendo.isFunction(customMessage) ? customMessage(input) : customMessage;
-
-	            return kendo.format(input.attr(kendo.attr(ruleKey + "-msg")) || input.attr("validationMessage") || input.attr("title") || customMessage || "",
-	                fieldName,
-	                input.attr(ruleKey) || input.attr(kendo.attr(ruleKey)));
-	        },
-
-	        _checkValidity: function(input) {
-	            var rules = this.options.rules,
-	                rule;
-
-	            for (rule in rules) {
-	                if (!rules[rule].call(this, input)) {
-	                    return { valid: false, key: rule };
-	                }
-	            }
-
-	            return { valid: true };
-	        },
-
-	        errors: function() {
-	            var results = [],
-	                errors = this._errors,
-	                error;
-
-	            for (error in errors) {
-	                results.push(errors[error]);
-	            }
-	            return results;
-	        }
-	    });
-
-	    kendo.ui.plugin(Validator);
-	})(window.kendo.jQuery);
-
-	return window.kendo;
-
-	}, __webpack_require__(3));
-
-
-/***/ }
-
-/******/ });
-
-/***/ }),
-/* 36 */
-/* unknown exports provided */
-/* all exports used */
 /*!****************************************!*\
   !*** ./~/angular-aria/angular-aria.js ***!
   \****************************************/
@@ -52952,7 +52408,7 @@ ngAriaModule.directive('ngShow', ['$aria', function($aria) {
 
 
 /***/ }),
-/* 37 */
+/* 36 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************!*\
@@ -53704,7 +53160,7 @@ function ngMessageDirectiveFactory() {
 
 
 /***/ }),
-/* 38 */
+/* 37 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************!*\
@@ -53720,7 +53176,7 @@ function now() {
 
 
 /***/ }),
-/* 39 */
+/* 38 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************!*\
@@ -53859,7 +53315,7 @@ function now() {
     function lib$es6$promise$asap$$attemptVertx() {
       try {
         var r = require;
-        var vertx = __webpack_require__(/*! vertx */ 54);
+        var vertx = __webpack_require__(/*! vertx */ 53);
         lib$es6$promise$asap$$vertxNext = vertx.runOnLoop || vertx.runOnContext;
         return lib$es6$promise$asap$$useVertxTimer();
       } catch(e) {
@@ -54697,10 +54153,10 @@ function now() {
 }).call(this);
 
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 43), __webpack_require__(/*! ./../../webpack/buildin/global.js */ 44)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 42), __webpack_require__(/*! ./../../webpack/buildin/global.js */ 43)))
 
 /***/ }),
-/* 40 */
+/* 39 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************!*\
@@ -54734,11 +54190,11 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 40;
+webpackContext.id = 39;
 
 
 /***/ }),
-/* 41 */
+/* 40 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -54787,7 +54243,7 @@ exports.AutocompleteComponentError = AutocompleteComponentError;
 
 
 /***/ }),
-/* 42 */
+/* 41 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************************!*\
@@ -54799,8 +54255,7 @@ exports.AutocompleteComponentError = AutocompleteComponentError;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var $ = __webpack_require__(/*! jquery */ 3);
-var autocomplete_errors_1 = __webpack_require__(/*! ../autocomplete.errors */ 41);
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.validator.js */ 35);
+var autocomplete_errors_1 = __webpack_require__(/*! ../autocomplete.errors */ 40);
 var AutocompleteAbstract = (function () {
     function AutocompleteAbstract(config) {
         this.config = config;
@@ -54858,16 +54313,6 @@ var AutocompleteAbstract = (function () {
             this.kendoComponent.enable(this.enabled);
         }
     };
-    AutocompleteAbstract.prototype.toggleRequired = function () {
-        var validator = $(this.kendoComponent.element[0].form).kendoValidator().data("kendoValidator");
-        if (this.config.element.required === true) {
-            this.config.element.removeAttribute("required");
-        }
-        else {
-            this.config.element.setAttribute("required", "required");
-        }
-        validator.validateInput(this.config.element);
-    };
     AutocompleteAbstract.prototype.toggleSearchHint = function (showHint) {
         if (this.kendoComponent) {
             var list = this.kendoComponent.list;
@@ -54886,7 +54331,7 @@ exports.default = AutocompleteAbstract;
 
 
 /***/ }),
-/* 43 */
+/* 42 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************!*\
@@ -55077,7 +54522,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 44 */
+/* 43 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************!*\
@@ -55109,7 +54554,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 45 */
+/* 44 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************!*\
@@ -55142,7 +54587,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 46 */
+/* 45 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************!*\
@@ -55177,7 +54622,7 @@ if (!Array.prototype.find) {
 
 
 /***/ }),
-/* 47 */
+/* 46 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -55219,7 +54664,7 @@ if (!Array.prototype.findIndex) {
 
 
 /***/ }),
-/* 48 */
+/* 47 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************!*\
@@ -55260,7 +54705,7 @@ if (!Array.prototype.includes) {
 
 
 /***/ }),
-/* 49 */
+/* 48 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -55290,7 +54735,7 @@ if (!Array.prototype.includes) {
 
 
 /***/ }),
-/* 50 */
+/* 49 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -55335,7 +54780,7 @@ if (!Object.assign) {
 
 
 /***/ }),
-/* 51 */
+/* 50 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -55353,7 +54798,7 @@ if (!String.prototype.includes) {
 
 
 /***/ }),
-/* 52 */
+/* 51 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -55393,7 +54838,7 @@ if (typeof jQuery == 'function') {
 
 
 /***/ }),
-/* 53 */
+/* 52 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -55516,7 +54961,7 @@ if (!('scrollingElement' in document)) (function() {
 
 
 /***/ }),
-/* 54 */
+/* 53 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************!*\
@@ -55527,7 +54972,7 @@ if (!('scrollingElement' in document)) (function() {
 /* (ignored) */
 
 /***/ }),
-/* 55 */
+/* 54 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************!*\
@@ -55962,7 +55407,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 56 */
+/* 55 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -56073,7 +55518,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 57 */
+/* 56 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************!*\
@@ -56716,7 +56161,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 58 */
+/* 57 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************!*\
@@ -56813,7 +56258,7 @@ module.exports =
 /***/ 681:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./drawing/util */ 56);
+	module.exports = __webpack_require__(/*! ./drawing/util */ 55);
 
 /***/ },
 
@@ -56827,28 +56272,28 @@ module.exports =
 /***/ 683:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./drawing/surface-tooltip */ 55);
+	module.exports = __webpack_require__(/*! ./drawing/surface-tooltip */ 54);
 
 /***/ },
 
 /***/ 684:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./drawing/surface */ 112);
+	module.exports = __webpack_require__(/*! ./drawing/surface */ 115);
 
 /***/ },
 
 /***/ 685:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./drawing/html */ 111);
+	module.exports = __webpack_require__(/*! ./drawing/html */ 114);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 59 */
+/* 58 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -56920,7 +56365,7 @@ module.exports =
 /***/ 580:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.validator */ 35);
+	module.exports = __webpack_require__(/*! ./kendo.validator */ 65);
 
 /***/ },
 
@@ -57297,7 +56742,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 60 */
+/* 59 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -58712,7 +58157,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 61 */
+/* 60 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -58798,14 +58243,14 @@ module.exports =
 /***/ 601:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.filtermenu */ 60);
+	module.exports = __webpack_require__(/*! ./kendo.filtermenu */ 59);
 
 /***/ },
 
 /***/ 691:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.resizable */ 131);
+	module.exports = __webpack_require__(/*! ./kendo.resizable */ 134);
 
 /***/ },
 
@@ -58819,28 +58264,28 @@ module.exports =
 /***/ 724:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.ooxml */ 64);
+	module.exports = __webpack_require__(/*! ./kendo.ooxml */ 63);
 
 /***/ },
 
 /***/ 736:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.pdf */ 65);
+	module.exports = __webpack_require__(/*! ./kendo.pdf */ 64);
 
 /***/ },
 
 /***/ 739:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.columnsorter */ 116);
+	module.exports = __webpack_require__(/*! ./kendo.columnsorter */ 119);
 
 /***/ },
 
 /***/ 741:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.editable */ 59);
+	module.exports = __webpack_require__(/*! ./kendo.editable */ 58);
 
 /***/ },
 
@@ -66991,49 +66436,49 @@ module.exports =
 /***/ 744:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.sortable */ 139);
+	module.exports = __webpack_require__(/*! ./kendo.sortable */ 142);
 
 /***/ },
 
 /***/ 745:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.columnmenu */ 115);
+	module.exports = __webpack_require__(/*! ./kendo.columnmenu */ 118);
 
 /***/ },
 
 /***/ 746:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.groupable */ 122);
+	module.exports = __webpack_require__(/*! ./kendo.groupable */ 125);
 
 /***/ },
 
 /***/ 747:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.pager */ 128);
+	module.exports = __webpack_require__(/*! ./kendo.pager */ 131);
 
 /***/ },
 
 /***/ 748:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.selectable */ 138);
+	module.exports = __webpack_require__(/*! ./kendo.selectable */ 141);
 
 /***/ },
 
 /***/ 749:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.reorderable */ 130);
+	module.exports = __webpack_require__(/*! ./kendo.reorderable */ 133);
 
 /***/ },
 
 /***/ 750:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.mobile.actionsheet */ 62);
+	module.exports = __webpack_require__(/*! ./kendo.mobile.actionsheet */ 61);
 
 /***/ },
 
@@ -67047,21 +66492,21 @@ module.exports =
 /***/ 752:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.excel */ 121);
+	module.exports = __webpack_require__(/*! ./kendo.excel */ 124);
 
 /***/ },
 
 /***/ 753:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.progressbar */ 129);
+	module.exports = __webpack_require__(/*! ./kendo.progressbar */ 132);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 62 */
+/* 61 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************************!*\
@@ -67133,14 +66578,14 @@ module.exports =
 /***/ 764:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.mobile.shim */ 126);
+	module.exports = __webpack_require__(/*! ./kendo.mobile.shim */ 129);
 
 /***/ },
 
 /***/ 765:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.mobile.popover */ 125);
+	module.exports = __webpack_require__(/*! ./kendo.mobile.popover */ 128);
 
 /***/ },
 
@@ -67323,7 +66768,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 63 */
+/* 62 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -68665,7 +68110,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 64 */
+/* 63 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************!*\
@@ -69832,7 +69277,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 65 */
+/* 64 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************!*\
@@ -69904,7 +69349,7 @@ module.exports =
 /***/ 570:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.drawing */ 58);
+	module.exports = __webpack_require__(/*! ./kendo.drawing */ 57);
 
 /***/ },
 
@@ -69947,7 +69392,551 @@ module.exports =
 /***/ 807:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./pdf/mixins */ 143);
+	module.exports = __webpack_require__(/*! ./pdf/mixins */ 146);
+
+/***/ }
+
+/******/ });
+
+/***/ }),
+/* 65 */
+/* unknown exports provided */
+/* all exports used */
+/*!****************************************************!*\
+  !*** ./~/@progress/kendo-ui/js/kendo.validator.js ***!
+  \****************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 0:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(895);
+
+
+/***/ },
+
+/***/ 3:
+/***/ function(module, exports) {
+
+	module.exports = function() { throw new Error("define cannot be used indirect"); };
+
+
+/***/ },
+
+/***/ 574:
+/***/ function(module, exports) {
+
+	module.exports = __webpack_require__(/*! ./kendo.core */ 0);
+
+/***/ },
+
+/***/ 895:
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(f, define){
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(574) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (f), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	})(function(){
+
+	var __meta__ = { // jshint ignore:line
+	    id: "validator",
+	    name: "Validator",
+	    category: "web",
+	    description: "The Validator offers an easy way to do a client-side form validation.",
+	    depends: [ "core" ]
+	};
+
+	/* jshint eqnull: true */
+	(function($, undefined) {
+	    var kendo = window.kendo,
+	        Widget = kendo.ui.Widget,
+	        NS = ".kendoValidator",
+	        INVALIDMSG = "k-invalid-msg",
+	        invalidMsgRegExp = new RegExp(INVALIDMSG,'i'),
+	        INVALIDINPUT = "k-invalid",
+	        VALIDINPUT = "k-valid",
+	        emailRegExp = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/i,
+	        urlRegExp = /^(https?|ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i,
+	        INPUTSELECTOR = ":input:not(:button,[type=submit],[type=reset],[disabled],[readonly])",
+	        CHECKBOXSELECTOR = ":checkbox:not([disabled],[readonly])",
+	        NUMBERINPUTSELECTOR = "[type=number],[type=range]",
+	        BLUR = "blur",
+	        NAME = "name",
+	        FORM = "form",
+	        NOVALIDATE = "novalidate",
+	        //events
+	        VALIDATE = "validate",
+	        CHANGE = "change",
+	        VALIDATE_INPUT = "validateInput",        
+	        proxy = $.proxy,
+	        patternMatcher = function(value, pattern) {
+	            if (typeof pattern === "string") {
+	                pattern = new RegExp('^(?:' + pattern + ')$');
+	            }
+	            return pattern.test(value);
+	        },
+	        matcher = function(input, selector, pattern) {
+	            var value = input.val();
+
+	            if (input.filter(selector).length && value !== "") {
+	                return patternMatcher(value, pattern);
+	            }
+	            return true;
+	        },
+	        hasAttribute = function(input, name) {
+	            if (input.length)  {
+	                return input[0].attributes[name] != null;
+	            }
+	            return false;
+	        };
+
+	    if (!kendo.ui.validator) {
+	        kendo.ui.validator = { rules: {}, messages: {} };
+	    }
+
+	    function resolveRules(element) {
+	        var resolvers = kendo.ui.validator.ruleResolvers || {},
+	            rules = {},
+	            name;
+
+	        for (name in resolvers) {
+	            $.extend(true, rules, resolvers[name].resolve(element));
+	        }
+	        return rules;
+	    }
+
+	    function decode(value) {
+	        return value.replace(/&amp/g, '&amp;')
+	            .replace(/&quot;/g, '"')
+	            .replace(/&#39;/g, "'")
+	            .replace(/&lt;/g, '<')
+	            .replace(/&gt;/g, '>');
+	    }
+
+	    function numberOfDecimalDigits(value) {
+	        value = (value + "").split('.');
+	        if (value.length > 1) {
+	            return value[1].length;
+	        }
+	        return 0;
+	    }
+
+	    function parseHtml(text) {
+	        if ($.parseHTML) {
+	            return $($.parseHTML(text));
+	        }
+	        return $(text);
+	    }
+
+	    function searchForMessageContainer(elements, fieldName) {
+	        var containers = $(),
+	            element,
+	            attr;
+
+	        for (var idx = 0, length = elements.length; idx < length; idx++) {
+	            element = elements[idx];
+	            if (invalidMsgRegExp.test(element.className)) {
+	                attr = element.getAttribute(kendo.attr("for"));
+	                if (attr === fieldName) {
+	                    containers = containers.add(element);
+	                }
+	            }
+	        }
+	        return containers;
+	    }
+
+	    var Validator = Widget.extend({
+	        init: function(element, options) {
+	            var that = this,
+	                resolved = resolveRules(element),
+	                validateAttributeSelector = "[" + kendo.attr("validate") + "!=false]";
+
+	            options = options || {};
+
+	            options.rules = $.extend({}, kendo.ui.validator.rules, resolved.rules, options.rules);
+	            options.messages = $.extend({}, kendo.ui.validator.messages, resolved.messages, options.messages);
+
+	            Widget.fn.init.call(that, element, options);
+
+	            that._errorTemplate = kendo.template(that.options.errorTemplate);
+
+	            if (that.element.is(FORM)) {
+	                that.element.attr(NOVALIDATE, NOVALIDATE);
+	            }
+
+	            that._inputSelector = INPUTSELECTOR + validateAttributeSelector;
+	            that._checkboxSelector = CHECKBOXSELECTOR + validateAttributeSelector;
+
+	            that._errors = {};
+	            that._attachEvents();
+	            that._isValidated = false;
+	        },
+
+	        events: [ VALIDATE, CHANGE, VALIDATE_INPUT ],
+
+	        options: {
+	            name: "Validator",
+	            errorTemplate: '<span class="k-widget k-tooltip k-tooltip-validation">' +
+	                '<span class="k-icon k-i-warning"> </span> #=message#</span>',
+	            messages: {
+	                required: "{0} is required",
+	                pattern: "{0} is not valid",
+	                min: "{0} should be greater than or equal to {1}",
+	                max: "{0} should be smaller than or equal to {1}",
+	                step: "{0} is not valid",
+	                email: "{0} is not valid email",
+	                url: "{0} is not valid URL",
+	                date: "{0} is not valid date",
+	                dateCompare: "End date should be greater than or equal to the start date"
+	            },
+	            rules: {
+	                required: function(input) {
+	                    var checkbox = input.filter("[type=checkbox]").length && !input.is(":checked"),
+	                        value = input.val();
+
+	                    return !(hasAttribute(input, "required") && (!value || value === "" || value.length === 0 || checkbox));
+	                },
+	                pattern: function(input) {
+	                    if (input.filter("[type=text],[type=email],[type=url],[type=tel],[type=search],[type=password]").filter("[pattern]").length && input.val() !== "") {
+	                        return patternMatcher(input.val(), input.attr("pattern"));
+	                    }
+	                    return true;
+	                },
+	                min: function(input) {
+	                    if (input.filter(NUMBERINPUTSELECTOR + ",[" + kendo.attr("type") + "=number]").filter("[min]").length && input.val() !== "") {
+	                        var min = parseFloat(input.attr("min")) || 0,
+	                            val = kendo.parseFloat(input.val());
+
+	                        return min <= val;
+	                    }
+	                    return true;
+	                },
+	                max: function(input) {
+	                    if (input.filter(NUMBERINPUTSELECTOR + ",[" + kendo.attr("type") + "=number]").filter("[max]").length && input.val() !== "") {
+	                        var max = parseFloat(input.attr("max")) || 0,
+	                            val = kendo.parseFloat(input.val());
+
+	                        return max >= val;
+	                    }
+	                    return true;
+	                },
+	                step: function(input) {
+	                    if (input.filter(NUMBERINPUTSELECTOR + ",[" + kendo.attr("type") + "=number]").filter("[step]").length && input.val() !== "") {
+	                        var min = parseFloat(input.attr("min")) || 0,
+	                            step = parseFloat(input.attr("step")) || 1,
+	                            val = parseFloat(input.val()),
+	                            decimals = numberOfDecimalDigits(step),
+	                            raise;
+
+	                        if (decimals) {
+	                            raise = Math.pow(10, decimals);
+	                            return ((Math.floor((val-min)*raise))%(step*raise)) / Math.pow(100, decimals) === 0;
+	                        }
+	                        return ((val-min)%step) === 0;
+	                    }
+	                    return true;
+	                },
+	                email: function(input) {
+	                    return matcher(input, "[type=email],[" + kendo.attr("type") + "=email]", emailRegExp);
+	                },
+	                url: function(input) {
+	                    return matcher(input, "[type=url],[" + kendo.attr("type") + "=url]", urlRegExp);
+	                },
+	                date: function(input) {
+	                    if (input.filter("[type^=date],[" + kendo.attr("type") + "=date]").length && input.val() !== "") {
+	                        return kendo.parseDate(input.val(), input.attr(kendo.attr("format"))) !== null;
+	                    }
+	                    return true;
+	                }
+	            },
+	            validateOnBlur: true
+	        },
+
+	        destroy: function() {
+	            Widget.fn.destroy.call(this);
+
+	            this.element.off(NS);
+	        },
+
+	        value: function() {
+	            if (!this._isValidated) {
+	                return false;
+	            }
+
+	            return this.errors().length === 0;
+	        },
+
+	        _submit: function(e) {
+	            if (!this.validate()) {
+	                e.stopPropagation();
+	                e.stopImmediatePropagation();
+	                e.preventDefault();
+	                return false;
+	            }
+	            return true;
+	        },
+
+	        _checkElement: function(element) {
+	            var state = this.value();
+
+	            this.validateInput(element);
+
+	            if (this.value() !== state) {
+	                this.trigger(CHANGE);
+	            }
+	        },
+
+	        _attachEvents: function() {
+	            var that = this;
+
+	            if (that.element.is(FORM)) {
+	                that.element.on("submit" + NS, proxy(that._submit, that));
+	            }
+
+	            if (that.options.validateOnBlur) {
+	                if (!that.element.is(INPUTSELECTOR)) {
+	                    that.element.on(BLUR + NS, that._inputSelector, function() {
+	                        that._checkElement($(this));
+	                    });
+
+	                    that.element.on("click" + NS, that._checkboxSelector, function() {
+	                        that._checkElement($(this));
+	                    });
+	                } else {
+	                    that.element.on(BLUR + NS, function() {
+	                        that._checkElement(that.element);
+	                    });
+
+	                    if (that.element.is(CHECKBOXSELECTOR)) {
+	                        that.element.on("click" + NS, function() {
+	                            that._checkElement(that.element);
+	                        });
+	                    }
+	                }
+	            }
+	        },
+
+	        validate: function() {
+	            var inputs;
+	            var idx;
+	            var result = false;
+	            var length;
+
+	            var isValid = this.value();
+
+	            this._errors = {};
+
+	            if (!this.element.is(INPUTSELECTOR)) {
+	                var invalid = false;
+
+	                inputs = this.element.find(this._inputSelector);
+
+	                for (idx = 0, length = inputs.length; idx < length; idx++) {
+	                    if (!this.validateInput(inputs.eq(idx))) {
+	                        invalid = true;
+	                    }
+	                }
+
+	                result = !invalid;
+	            } else {
+	                result = this.validateInput(this.element);
+	            }
+
+	            this.trigger(VALIDATE, { valid: result });
+
+	            if (isValid !== result) {
+	                this.trigger(CHANGE);
+	            }
+
+	            return result;
+	        },
+
+	        validateInput: function(input) {
+	            input = $(input);
+
+	            this._isValidated = true;
+
+	            var that = this,
+	                template = that._errorTemplate,
+	                result = that._checkValidity(input),
+	                valid = result.valid,
+	                className = "." + INVALIDMSG,
+	                fieldName = (input.attr(NAME) || ""),
+	                lbl = that._findMessageContainer(fieldName).add(input.next(className).filter(function() {
+	                    var element = $(this);
+	                    if (element.filter("[" + kendo.attr("for") + "]").length) {
+	                        return element.attr(kendo.attr("for")) === fieldName;
+	                    }
+
+	                    return true;
+
+	                })).hide(),
+	                messageText,
+	                wasValid = !input.attr("aria-invalid");
+	            input.removeAttr("aria-invalid");
+
+	            if (!valid) {
+	                messageText = that._extractMessage(input, result.key);
+	                that._errors[fieldName] = messageText;
+	                var messageLabel = parseHtml(template({ message: decode(messageText) }));
+	                var lblId = lbl.attr('id');
+
+	                that._decorateMessageContainer(messageLabel, fieldName);
+
+	                if (lblId) {
+	                    messageLabel.attr('id', lblId);
+	                }
+
+	                if (!lbl.replaceWith(messageLabel).length) {
+	                    messageLabel.insertAfter(input);
+	                }
+	                messageLabel.show();
+
+	                input.attr("aria-invalid", true);
+	            } else {
+	                delete that._errors[fieldName];
+	            }
+
+	            if (wasValid !== valid) {
+	                this.trigger(VALIDATE_INPUT, { valid: valid, input: input });
+	            }
+
+	            input.toggleClass(INVALIDINPUT, !valid);
+	            input.toggleClass(VALIDINPUT, valid);
+
+	            return valid;
+	        },
+
+	        hideMessages: function() {
+	            var that = this,
+	                className = "." + INVALIDMSG,
+	                element = that.element;
+
+	            if (!element.is(INPUTSELECTOR)) {
+	                element.find(className).hide();
+	            } else {
+	                element.next(className).hide();
+	            }
+	        },
+
+	        _findMessageContainer: function(fieldName) {
+	            var locators = kendo.ui.validator.messageLocators,
+	                name,
+	                containers = $();
+
+	            for (var idx = 0, length = this.element.length; idx < length; idx++) {
+	                containers = containers.add(searchForMessageContainer(this.element[idx].getElementsByTagName("*"), fieldName));
+	            }
+
+	            for (name in locators) {
+	                containers = containers.add(locators[name].locate(this.element, fieldName));
+	            }
+
+	            return containers;
+	        },
+
+	        _decorateMessageContainer: function(container, fieldName) {
+	            var locators = kendo.ui.validator.messageLocators,
+	                name;
+
+	            container.addClass(INVALIDMSG)
+	                .attr(kendo.attr("for"), fieldName || "");
+
+	            for (name in locators) {
+	                locators[name].decorate(container, fieldName);
+	            }
+
+	            container.attr("role", "alert");
+	        },
+
+	        _extractMessage: function(input, ruleKey) {
+	            var that = this,
+	                customMessage = that.options.messages[ruleKey],
+	                fieldName = input.attr(NAME);
+
+	            customMessage = kendo.isFunction(customMessage) ? customMessage(input) : customMessage;
+
+	            return kendo.format(input.attr(kendo.attr(ruleKey + "-msg")) || input.attr("validationMessage") || input.attr("title") || customMessage || "",
+	                fieldName,
+	                input.attr(ruleKey) || input.attr(kendo.attr(ruleKey)));
+	        },
+
+	        _checkValidity: function(input) {
+	            var rules = this.options.rules,
+	                rule;
+
+	            for (rule in rules) {
+	                if (!rules[rule].call(this, input)) {
+	                    return { valid: false, key: rule };
+	                }
+	            }
+
+	            return { valid: true };
+	        },
+
+	        errors: function() {
+	            var results = [],
+	                errors = this._errors,
+	                error;
+
+	            for (error in errors) {
+	                results.push(errors[error]);
+	            }
+	            return results;
+	        }
+	    });
+
+	    kendo.ui.plugin(Validator);
+	})(window.kendo.jQuery);
+
+	return window.kendo;
+
+	}, __webpack_require__(3));
+
 
 /***/ }
 
@@ -71686,7 +71675,7 @@ module.exports =
 /***/ 499:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ../kendo.color */ 57);
+	module.exports = __webpack_require__(/*! ../kendo.color */ 56);
 
 /***/ },
 
@@ -75622,7 +75611,7 @@ module.exports =
 /***/ 975:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ../kendo.drawing */ 58);
+	module.exports = __webpack_require__(/*! ../kendo.drawing */ 57);
 
 /***/ }
 
@@ -75708,7 +75697,7 @@ exports.default = SchedulerDataSource;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var $ = __webpack_require__(/*! jquery */ 3);
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.validator.js */ 35);
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.validator.js */ 65);
 var ValidatorService = (function () {
     function ValidatorService() {
     }
@@ -75754,7 +75743,7 @@ exports.ValidatorService = ValidatorService;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var angular = __webpack_require__(/*! angular */ 2);
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.grid.js */ 61);
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.grid.js */ 60);
 var DataTableService = (function () {
     /* @ngInject */
     DataTableService.$inject = ["$compile"];
@@ -75831,7 +75820,7 @@ exports.DataTableService = DataTableService;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var thGrid_cssClasses_1 = __webpack_require__(/*! ./thGrid.cssClasses */ 247);
+var thGrid_cssClasses_1 = __webpack_require__(/*! ./thGrid.cssClasses */ 248);
 var GridFrameworkService = (function () {
     function GridFrameworkService() {
         this.cssClasses = thGrid_cssClasses_1.bootstrapCssClasses;
@@ -75872,18 +75861,3879 @@ exports.default = GridFrameworkService;
 /* 73 */
 /* unknown exports provided */
 /* all exports used */
+/*!******************************************************************************************!*\
+  !*** ./~/angular-translate-loader-static-files/angular-translate-loader-static-files.js ***!
+  \******************************************************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * angular-translate - v2.15.1 - 2017-03-04
+ * 
+ * Copyright (c) 2017 The angular-translate team, Pascal Precht; Licensed MIT
+ */
+(function (root, factory) {
+  if (true) {
+    // AMD. Register as an anonymous module unless amdModuleId is set
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+      return (factory());
+    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else if (typeof exports === 'object') {
+    // Node. Does not work with strict CommonJS, but
+    // only CommonJS-like environments that support module.exports,
+    // like Node.
+    module.exports = factory();
+  } else {
+    factory();
+  }
+}(this, function () {
+
+$translateStaticFilesLoader.$inject = ['$q', '$http'];
+angular.module('pascalprecht.translate')
+/**
+ * @ngdoc object
+ * @name pascalprecht.translate.$translateStaticFilesLoader
+ * @requires $q
+ * @requires $http
+ *
+ * @description
+ * Creates a loading function for a typical static file url pattern:
+ * "lang-en_US.json", "lang-de_DE.json", etc. Using this builder,
+ * the response of these urls must be an object of key-value pairs.
+ *
+ * @param {object} options Options object, which gets prefix, suffix, key, and fileMap
+ */
+.factory('$translateStaticFilesLoader', $translateStaticFilesLoader);
+
+function $translateStaticFilesLoader($q, $http) {
+
+  'use strict';
+
+  return function (options) {
+
+    if (!options || (!angular.isArray(options.files) && (!angular.isString(options.prefix) || !angular.isString(options.suffix)))) {
+      throw new Error('Couldn\'t load static files, no files and prefix or suffix specified!');
+    }
+
+    if (!options.files) {
+      options.files = [{
+        prefix: options.prefix,
+        suffix: options.suffix
+      }];
+    }
+
+    var load = function (file) {
+      if (!file || (!angular.isString(file.prefix) || !angular.isString(file.suffix))) {
+        throw new Error('Couldn\'t load static file, no prefix or suffix specified!');
+      }
+
+      var fileUrl = [
+        file.prefix,
+        options.key,
+        file.suffix
+      ].join('');
+
+      if (angular.isObject(options.fileMap) && options.fileMap[fileUrl]) {
+        fileUrl = options.fileMap[fileUrl];
+      }
+
+      return $http(angular.extend({
+        url: fileUrl,
+        method: 'GET'
+      }, options.$http))
+        .then(function(result) {
+          return result.data;
+        }, function () {
+          return $q.reject(options.key);
+        });
+    };
+
+    var promises = [],
+        length = options.files.length;
+
+    for (var i = 0; i < length; i++) {
+      promises.push(load({
+        prefix: options.files[i].prefix,
+        key: options.key,
+        suffix: options.files[i].suffix
+      }));
+    }
+
+    return $q.all(promises)
+      .then(function (data) {
+        var length = data.length,
+            mergedData = {};
+
+        for (var i = 0; i < length; i++) {
+          for (var key in data[i]) {
+            mergedData[key] = data[i][key];
+          }
+        }
+
+        return mergedData;
+      });
+  };
+}
+
+$translateStaticFilesLoader.displayName = '$translateStaticFilesLoader';
+return 'pascalprecht.translate';
+
+}));
+
+
+/***/ }),
+/* 74 */
+/* unknown exports provided */
+/* all exports used */
+/*!*******************************************************!*\
+  !*** ./~/angular-translate/dist/angular-translate.js ***!
+  \*******************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * angular-translate - v2.15.1 - 2017-03-04
+ * 
+ * Copyright (c) 2017 The angular-translate team, Pascal Precht; Licensed MIT
+ */
+(function (root, factory) {
+  if (true) {
+    // AMD. Register as an anonymous module unless amdModuleId is set
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+      return (factory());
+    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else if (typeof exports === 'object') {
+    // Node. Does not work with strict CommonJS, but
+    // only CommonJS-like environments that support module.exports,
+    // like Node.
+    module.exports = factory();
+  } else {
+    factory();
+  }
+}(this, function () {
+
+/**
+ * @ngdoc overview
+ * @name pascalprecht.translate
+ *
+ * @description
+ * The main module which holds everything together.
+ */
+runTranslate.$inject = ['$translate'];
+$translate.$inject = ['$STORAGE_KEY', '$windowProvider', '$translateSanitizationProvider', 'pascalprechtTranslateOverrider'];
+$translateDefaultInterpolation.$inject = ['$interpolate', '$translateSanitization'];
+translateDirective.$inject = ['$translate', '$interpolate', '$compile', '$parse', '$rootScope'];
+translateAttrDirective.$inject = ['$translate', '$rootScope'];
+translateCloakDirective.$inject = ['$translate', '$rootScope'];
+translateFilterFactory.$inject = ['$parse', '$translate'];
+$translationCache.$inject = ['$cacheFactory'];
+angular.module('pascalprecht.translate', ['ng'])
+  .run(runTranslate);
+
+function runTranslate($translate) {
+
+  'use strict';
+
+  var key = $translate.storageKey(),
+    storage = $translate.storage();
+
+  var fallbackFromIncorrectStorageValue = function () {
+    var preferred = $translate.preferredLanguage();
+    if (angular.isString(preferred)) {
+      $translate.use(preferred);
+      // $translate.use() will also remember the language.
+      // So, we don't need to call storage.put() here.
+    } else {
+      storage.put(key, $translate.use());
+    }
+  };
+
+  fallbackFromIncorrectStorageValue.displayName = 'fallbackFromIncorrectStorageValue';
+
+  if (storage) {
+    if (!storage.get(key)) {
+      fallbackFromIncorrectStorageValue();
+    } else {
+      $translate.use(storage.get(key))['catch'](fallbackFromIncorrectStorageValue);
+    }
+  } else if (angular.isString($translate.preferredLanguage())) {
+    $translate.use($translate.preferredLanguage());
+  }
+}
+
+runTranslate.displayName = 'runTranslate';
+
+/**
+ * @ngdoc object
+ * @name pascalprecht.translate.$translateSanitizationProvider
+ *
+ * @description
+ *
+ * Configurations for $translateSanitization
+ */
+angular.module('pascalprecht.translate').provider('$translateSanitization', $translateSanitizationProvider);
+
+function $translateSanitizationProvider () {
+
+  'use strict';
+
+  var $sanitize,
+      $sce,
+      currentStrategy = null, // TODO change to either 'sanitize', 'escape' or ['sanitize', 'escapeParameters'] in 3.0.
+      hasConfiguredStrategy = false,
+      hasShownNoStrategyConfiguredWarning = false,
+      strategies;
+
+  /**
+   * Definition of a sanitization strategy function
+   * @callback StrategyFunction
+   * @param {string|object} value - value to be sanitized (either a string or an interpolated value map)
+   * @param {string} mode - either 'text' for a string (translation) or 'params' for the interpolated params
+   * @return {string|object}
+   */
+
+  /**
+   * @ngdoc property
+   * @name strategies
+   * @propertyOf pascalprecht.translate.$translateSanitizationProvider
+   *
+   * @description
+   * Following strategies are built-in:
+   * <dl>
+   *   <dt>sanitize</dt>
+   *   <dd>Sanitizes HTML in the translation text using $sanitize</dd>
+   *   <dt>escape</dt>
+   *   <dd>Escapes HTML in the translation</dd>
+   *   <dt>sanitizeParameters</dt>
+   *   <dd>Sanitizes HTML in the values of the interpolation parameters using $sanitize</dd>
+   *   <dt>escapeParameters</dt>
+   *   <dd>Escapes HTML in the values of the interpolation parameters</dd>
+   *   <dt>escaped</dt>
+   *   <dd>Support legacy strategy name 'escaped' for backwards compatibility (will be removed in 3.0)</dd>
+   * </dl>
+   *
+   */
+
+  strategies = {
+    sanitize: function (value, mode/*, context*/) {
+      if (mode === 'text') {
+        value = htmlSanitizeValue(value);
+      }
+      return value;
+    },
+    escape: function (value, mode/*, context*/) {
+      if (mode === 'text') {
+        value = htmlEscapeValue(value);
+      }
+      return value;
+    },
+    sanitizeParameters: function (value, mode/*, context*/) {
+      if (mode === 'params') {
+        value = mapInterpolationParameters(value, htmlSanitizeValue);
+      }
+      return value;
+    },
+    escapeParameters: function (value, mode/*, context*/) {
+      if (mode === 'params') {
+        value = mapInterpolationParameters(value, htmlEscapeValue);
+      }
+      return value;
+    },
+    sce: function (value, mode, context) {
+      if (mode === 'text') {
+        value = htmlTrustValue(value);
+      } else if (mode === 'params') {
+        if (context !== 'filter') {
+          // do html escape in filter context #1101
+          value = mapInterpolationParameters(value, htmlEscapeValue);
+        }
+      }
+      return value;
+    },
+    sceParameters: function (value, mode/*, context*/) {
+      if (mode === 'params') {
+        value = mapInterpolationParameters(value, htmlTrustValue);
+      }
+      return value;
+    }
+  };
+  // Support legacy strategy name 'escaped' for backwards compatibility.
+  // TODO should be removed in 3.0
+  strategies.escaped = strategies.escapeParameters;
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateSanitizationProvider#addStrategy
+   * @methodOf pascalprecht.translate.$translateSanitizationProvider
+   *
+   * @description
+   * Adds a sanitization strategy to the list of known strategies.
+   *
+   * @param {string} strategyName - unique key for a strategy
+   * @param {StrategyFunction} strategyFunction - strategy function
+   * @returns {object} this
+   */
+  this.addStrategy = function (strategyName, strategyFunction) {
+    strategies[strategyName] = strategyFunction;
+    return this;
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateSanitizationProvider#removeStrategy
+   * @methodOf pascalprecht.translate.$translateSanitizationProvider
+   *
+   * @description
+   * Removes a sanitization strategy from the list of known strategies.
+   *
+   * @param {string} strategyName - unique key for a strategy
+   * @returns {object} this
+   */
+  this.removeStrategy = function (strategyName) {
+    delete strategies[strategyName];
+    return this;
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateSanitizationProvider#useStrategy
+   * @methodOf pascalprecht.translate.$translateSanitizationProvider
+   *
+   * @description
+   * Selects a sanitization strategy. When an array is provided the strategies will be executed in order.
+   *
+   * @param {string|StrategyFunction|array} strategy The sanitization strategy / strategies which should be used. Either a name of an existing strategy, a custom strategy function, or an array consisting of multiple names and / or custom functions.
+   * @returns {object} this
+   */
+  this.useStrategy = function (strategy) {
+    hasConfiguredStrategy = true;
+    currentStrategy = strategy;
+    return this;
+  };
+
+  /**
+   * @ngdoc object
+   * @name pascalprecht.translate.$translateSanitization
+   * @requires $injector
+   * @requires $log
+   *
+   * @description
+   * Sanitizes interpolation parameters and translated texts.
+   *
+   */
+  this.$get = ['$injector', '$log', function ($injector, $log) {
+
+    var cachedStrategyMap = {};
+
+    var applyStrategies = function (value, mode, context, selectedStrategies) {
+      angular.forEach(selectedStrategies, function (selectedStrategy) {
+        if (angular.isFunction(selectedStrategy)) {
+          value = selectedStrategy(value, mode, context);
+        } else if (angular.isFunction(strategies[selectedStrategy])) {
+          value = strategies[selectedStrategy](value, mode, context);
+        } else if (angular.isString(strategies[selectedStrategy])) {
+          if (!cachedStrategyMap[strategies[selectedStrategy]]) {
+            try {
+              cachedStrategyMap[strategies[selectedStrategy]] = $injector.get(strategies[selectedStrategy]);
+            } catch (e) {
+              cachedStrategyMap[strategies[selectedStrategy]] = function() {};
+              throw new Error('pascalprecht.translate.$translateSanitization: Unknown sanitization strategy: \'' + selectedStrategy + '\'');
+            }
+          }
+          value = cachedStrategyMap[strategies[selectedStrategy]](value, mode, context);
+        } else {
+          throw new Error('pascalprecht.translate.$translateSanitization: Unknown sanitization strategy: \'' + selectedStrategy + '\'');
+        }
+      });
+      return value;
+    };
+
+    // TODO: should be removed in 3.0
+    var showNoStrategyConfiguredWarning = function () {
+      if (!hasConfiguredStrategy && !hasShownNoStrategyConfiguredWarning) {
+        $log.warn('pascalprecht.translate.$translateSanitization: No sanitization strategy has been configured. This can have serious security implications. See http://angular-translate.github.io/docs/#/guide/19_security for details.');
+        hasShownNoStrategyConfiguredWarning = true;
+      }
+    };
+
+    if ($injector.has('$sanitize')) {
+      $sanitize = $injector.get('$sanitize');
+    }
+    if ($injector.has('$sce')) {
+      $sce = $injector.get('$sce');
+    }
+
+    return {
+      /**
+       * @ngdoc function
+       * @name pascalprecht.translate.$translateSanitization#useStrategy
+       * @methodOf pascalprecht.translate.$translateSanitization
+       *
+       * @description
+       * Selects a sanitization strategy. When an array is provided the strategies will be executed in order.
+       *
+       * @param {string|StrategyFunction|array} strategy The sanitization strategy / strategies which should be used. Either a name of an existing strategy, a custom strategy function, or an array consisting of multiple names and / or custom functions.
+       */
+      useStrategy: (function (self) {
+        return function (strategy) {
+          self.useStrategy(strategy);
+        };
+      })(this),
+
+      /**
+       * @ngdoc function
+       * @name pascalprecht.translate.$translateSanitization#sanitize
+       * @methodOf pascalprecht.translate.$translateSanitization
+       *
+       * @description
+       * Sanitizes a value.
+       *
+       * @param {string|object} value The value which should be sanitized.
+       * @param {string} mode The current sanitization mode, either 'params' or 'text'.
+       * @param {string|StrategyFunction|array} [strategy] Optional custom strategy which should be used instead of the currently selected strategy.
+       * @param {string} [context] The context of this call: filter, service. Default is service
+       * @returns {string|object} sanitized value
+       */
+      sanitize: function (value, mode, strategy, context) {
+        if (!currentStrategy) {
+          showNoStrategyConfiguredWarning();
+        }
+
+        if (!strategy && strategy !== null) {
+          strategy = currentStrategy;
+        }
+
+        if (!strategy) {
+          return value;
+        }
+
+        if (!context) {
+          context = 'service';
+        }
+
+        var selectedStrategies = angular.isArray(strategy) ? strategy : [strategy];
+        return applyStrategies(value, mode, context, selectedStrategies);
+      }
+    };
+  }];
+
+  var htmlEscapeValue = function (value) {
+    var element = angular.element('<div></div>');
+    element.text(value); // not chainable, see #1044
+    return element.html();
+  };
+
+  var htmlSanitizeValue = function (value) {
+    if (!$sanitize) {
+      throw new Error('pascalprecht.translate.$translateSanitization: Error cannot find $sanitize service. Either include the ngSanitize module (https://docs.angularjs.org/api/ngSanitize) or use a sanitization strategy which does not depend on $sanitize, such as \'escape\'.');
+    }
+    return $sanitize(value);
+  };
+
+  var htmlTrustValue = function (value) {
+    if (!$sce) {
+      throw new Error('pascalprecht.translate.$translateSanitization: Error cannot find $sce service.');
+    }
+    return $sce.trustAsHtml(value);
+  };
+
+  var mapInterpolationParameters = function (value, iteratee, stack) {
+    if (angular.isDate(value)) {
+      return value;
+    } else if (angular.isObject(value)) {
+      var result = angular.isArray(value) ? [] : {};
+
+      if (!stack) {
+        stack = [];
+      } else {
+        if (stack.indexOf(value) > -1) {
+          throw new Error('pascalprecht.translate.$translateSanitization: Error cannot interpolate parameter due recursive object');
+        }
+      }
+
+      stack.push(value);
+      angular.forEach(value, function (propertyValue, propertyKey) {
+
+        /* Skipping function properties. */
+        if (angular.isFunction(propertyValue)) {
+          return;
+        }
+
+        result[propertyKey] = mapInterpolationParameters(propertyValue, iteratee, stack);
+      });
+      stack.splice(-1, 1); // remove last
+
+      return result;
+    } else if (angular.isNumber(value)) {
+      return value;
+    } else if (!angular.isUndefined(value) && value !== null) {
+      return iteratee(value);
+    } else {
+      return value;
+    }
+  };
+}
+
+/**
+ * @ngdoc object
+ * @name pascalprecht.translate.$translateProvider
+ * @description
+ *
+ * $translateProvider allows developers to register translation-tables, asynchronous loaders
+ * and similar to configure translation behavior directly inside of a module.
+ *
+ */
+angular.module('pascalprecht.translate')
+  .constant('pascalprechtTranslateOverrider', {})
+  .provider('$translate', $translate);
+
+function $translate($STORAGE_KEY, $windowProvider, $translateSanitizationProvider, pascalprechtTranslateOverrider) {
+
+  'use strict';
+
+  var $translationTable = {},
+    $preferredLanguage,
+    $availableLanguageKeys = [],
+    $languageKeyAliases,
+    $fallbackLanguage,
+    $fallbackWasString,
+    $uses,
+    $nextLang,
+    $storageFactory,
+    $storageKey = $STORAGE_KEY,
+    $storagePrefix,
+    $missingTranslationHandlerFactory,
+    $interpolationFactory,
+    $interpolatorFactories = [],
+    $loaderFactory,
+    $cloakClassName = 'translate-cloak',
+    $loaderOptions,
+    $notFoundIndicatorLeft,
+    $notFoundIndicatorRight,
+    $postCompilingEnabled = false,
+    $forceAsyncReloadEnabled = false,
+    $nestedObjectDelimeter = '.',
+    $isReady = false,
+    $keepContent = false,
+    loaderCache,
+    directivePriority = 0,
+    statefulFilter = true,
+    postProcessFn,
+    uniformLanguageTagResolver = 'default',
+    languageTagResolver = {
+      'default' : function (tag) {
+        return (tag || '').split('-').join('_');
+      },
+      java : function (tag) {
+        var temp = (tag || '').split('-').join('_');
+        var parts = temp.split('_');
+        return parts.length > 1 ? (parts[0].toLowerCase() + '_' + parts[1].toUpperCase()) : temp;
+      },
+      bcp47 : function (tag) {
+        var temp = (tag || '').split('_').join('-');
+        var parts = temp.split('-');
+        return parts.length > 1 ? (parts[0].toLowerCase() + '-' + parts[1].toUpperCase()) : temp;
+      },
+      'iso639-1' : function (tag) {
+        var temp = (tag || '').split('_').join('-');
+        var parts = temp.split('-');
+        return parts[0].toLowerCase();
+      }
+    };
+
+  var version = '2.15.1';
+
+  // tries to determine the browsers language
+  var getFirstBrowserLanguage = function () {
+
+    // internal purpose only
+    if (angular.isFunction(pascalprechtTranslateOverrider.getLocale)) {
+      return pascalprechtTranslateOverrider.getLocale();
+    }
+
+    var nav = $windowProvider.$get().navigator,
+      browserLanguagePropertyKeys = ['language', 'browserLanguage', 'systemLanguage', 'userLanguage'],
+      i,
+      language;
+
+    // support for HTML 5.1 "navigator.languages"
+    if (angular.isArray(nav.languages)) {
+      for (i = 0; i < nav.languages.length; i++) {
+        language = nav.languages[i];
+        if (language && language.length) {
+          return language;
+        }
+      }
+    }
+
+    // support for other well known properties in browsers
+    for (i = 0; i < browserLanguagePropertyKeys.length; i++) {
+      language = nav[browserLanguagePropertyKeys[i]];
+      if (language && language.length) {
+        return language;
+      }
+    }
+
+    return null;
+  };
+  getFirstBrowserLanguage.displayName = 'angular-translate/service: getFirstBrowserLanguage';
+
+  // tries to determine the browsers locale
+  var getLocale = function () {
+    var locale = getFirstBrowserLanguage() || '';
+    if (languageTagResolver[uniformLanguageTagResolver]) {
+      locale = languageTagResolver[uniformLanguageTagResolver](locale);
+    }
+    return locale;
+  };
+  getLocale.displayName = 'angular-translate/service: getLocale';
+
+  /**
+   * @name indexOf
+   * @private
+   *
+   * @description
+   * indexOf polyfill. Kinda sorta.
+   *
+   * @param {array} array Array to search in.
+   * @param {string} searchElement Element to search for.
+   *
+   * @returns {int} Index of search element.
+   */
+  var indexOf = function (array, searchElement) {
+    for (var i = 0, len = array.length; i < len; i++) {
+      if (array[i] === searchElement) {
+        return i;
+      }
+    }
+    return -1;
+  };
+
+  /**
+   * @name trim
+   * @private
+   *
+   * @description
+   * trim polyfill
+   *
+   * @returns {string} The string stripped of whitespace from both ends
+   */
+  var trim = function () {
+    return this.toString().replace(/^\s+|\s+$/g, '');
+  };
+
+  var negotiateLocale = function (preferred) {
+    if (!preferred) {
+      return;
+    }
+
+    var avail = [],
+      locale = angular.lowercase(preferred),
+      i = 0,
+      n = $availableLanguageKeys.length;
+
+    for (; i < n; i++) {
+      avail.push(angular.lowercase($availableLanguageKeys[i]));
+    }
+
+    // Check for an exact match in our list of available keys
+    if (indexOf(avail, locale) > -1) {
+      return preferred;
+    }
+
+    if ($languageKeyAliases) {
+      var alias;
+      for (var langKeyAlias in $languageKeyAliases) {
+        if ($languageKeyAliases.hasOwnProperty(langKeyAlias)) {
+          var hasWildcardKey = false;
+          var hasExactKey = Object.prototype.hasOwnProperty.call($languageKeyAliases, langKeyAlias) &&
+            angular.lowercase(langKeyAlias) === angular.lowercase(preferred);
+
+          if (langKeyAlias.slice(-1) === '*') {
+            hasWildcardKey = langKeyAlias.slice(0, -1) === preferred.slice(0, langKeyAlias.length - 1);
+          }
+          if (hasExactKey || hasWildcardKey) {
+            alias = $languageKeyAliases[langKeyAlias];
+            if (indexOf(avail, angular.lowercase(alias)) > -1) {
+              return alias;
+            }
+          }
+        }
+      }
+    }
+
+    // Check for a language code without region
+    var parts = preferred.split('_');
+
+    if (parts.length > 1 && indexOf(avail, angular.lowercase(parts[0])) > -1) {
+      return parts[0];
+    }
+
+    // If everything fails, return undefined.
+    return;
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#translations
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * Registers a new translation table for specific language key.
+   *
+   * To register a translation table for specific language, pass a defined language
+   * key as first parameter.
+   *
+   * <pre>
+   *  // register translation table for language: 'de_DE'
+   *  $translateProvider.translations('de_DE', {
+   *    'GREETING': 'Hallo Welt!'
+   *  });
+   *
+   *  // register another one
+   *  $translateProvider.translations('en_US', {
+   *    'GREETING': 'Hello world!'
+   *  });
+   * </pre>
+   *
+   * When registering multiple translation tables for for the same language key,
+   * the actual translation table gets extended. This allows you to define module
+   * specific translation which only get added, once a specific module is loaded in
+   * your app.
+   *
+   * Invoking this method with no arguments returns the translation table which was
+   * registered with no language key. Invoking it with a language key returns the
+   * related translation table.
+   *
+   * @param {string} langKey A language key.
+   * @param {object} translationTable A plain old JavaScript object that represents a translation table.
+   *
+   */
+  var translations = function (langKey, translationTable) {
+
+    if (!langKey && !translationTable) {
+      return $translationTable;
+    }
+
+    if (langKey && !translationTable) {
+      if (angular.isString(langKey)) {
+        return $translationTable[langKey];
+      }
+    } else {
+      if (!angular.isObject($translationTable[langKey])) {
+        $translationTable[langKey] = {};
+      }
+      angular.extend($translationTable[langKey], flatObject(translationTable));
+    }
+    return this;
+  };
+
+  this.translations = translations;
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#cloakClassName
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   *
+   * Let's you change the class name for `translate-cloak` directive.
+   * Default class name is `translate-cloak`.
+   *
+   * @param {string} name translate-cloak class name
+   */
+  this.cloakClassName = function (name) {
+    if (!name) {
+      return $cloakClassName;
+    }
+    $cloakClassName = name;
+    return this;
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#nestedObjectDelimeter
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   *
+   * Let's you change the delimiter for namespaced translations.
+   * Default delimiter is `.`.
+   *
+   * @param {string} delimiter namespace separator
+   */
+  this.nestedObjectDelimeter = function (delimiter) {
+    if (!delimiter) {
+      return $nestedObjectDelimeter;
+    }
+    $nestedObjectDelimeter = delimiter;
+    return this;
+  };
+
+  /**
+   * @name flatObject
+   * @private
+   *
+   * @description
+   * Flats an object. This function is used to flatten given translation data with
+   * namespaces, so they are later accessible via dot notation.
+   */
+  var flatObject = function (data, path, result, prevKey) {
+    var key, keyWithPath, keyWithShortPath, val;
+
+    if (!path) {
+      path = [];
+    }
+    if (!result) {
+      result = {};
+    }
+    for (key in data) {
+      if (!Object.prototype.hasOwnProperty.call(data, key)) {
+        continue;
+      }
+      val = data[key];
+      if (angular.isObject(val)) {
+        flatObject(val, path.concat(key), result, key);
+      } else {
+        keyWithPath = path.length ? ('' + path.join($nestedObjectDelimeter) + $nestedObjectDelimeter + key) : key;
+        if (path.length && key === prevKey) {
+          // Create shortcut path (foo.bar == foo.bar.bar)
+          keyWithShortPath = '' + path.join($nestedObjectDelimeter);
+          // Link it to original path
+          result[keyWithShortPath] = '@:' + keyWithPath;
+        }
+        result[keyWithPath] = val;
+      }
+    }
+    return result;
+  };
+  flatObject.displayName = 'flatObject';
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#addInterpolation
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * Adds interpolation services to angular-translate, so it can manage them.
+   *
+   * @param {object} factory Interpolation service factory
+   */
+  this.addInterpolation = function (factory) {
+    $interpolatorFactories.push(factory);
+    return this;
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#useMessageFormatInterpolation
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * Tells angular-translate to use interpolation functionality of messageformat.js.
+   * This is useful when having high level pluralization and gender selection.
+   */
+  this.useMessageFormatInterpolation = function () {
+    return this.useInterpolation('$translateMessageFormatInterpolation');
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#useInterpolation
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * Tells angular-translate which interpolation style to use as default, application-wide.
+   * Simply pass a factory/service name. The interpolation service has to implement
+   * the correct interface.
+   *
+   * @param {string} factory Interpolation service name.
+   */
+  this.useInterpolation = function (factory) {
+    $interpolationFactory = factory;
+    return this;
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#useSanitizeStrategy
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * Simply sets a sanitation strategy type.
+   *
+   * @param {string} value Strategy type.
+   */
+  this.useSanitizeValueStrategy = function (value) {
+    $translateSanitizationProvider.useStrategy(value);
+    return this;
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#preferredLanguage
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * Tells the module which of the registered translation tables to use for translation
+   * at initial startup by passing a language key. Similar to `$translateProvider#use`
+   * only that it says which language to **prefer**.
+   *
+   * @param {string} langKey A language key.
+   */
+  this.preferredLanguage = function (langKey) {
+    if (langKey) {
+      setupPreferredLanguage(langKey);
+      return this;
+    }
+    return $preferredLanguage;
+  };
+  var setupPreferredLanguage = function (langKey) {
+    if (langKey) {
+      $preferredLanguage = langKey;
+    }
+    return $preferredLanguage;
+  };
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#translationNotFoundIndicator
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * Sets an indicator which is used when a translation isn't found. E.g. when
+   * setting the indicator as 'X' and one tries to translate a translation id
+   * called `NOT_FOUND`, this will result in `X NOT_FOUND X`.
+   *
+   * Internally this methods sets a left indicator and a right indicator using
+   * `$translateProvider.translationNotFoundIndicatorLeft()` and
+   * `$translateProvider.translationNotFoundIndicatorRight()`.
+   *
+   * **Note**: These methods automatically add a whitespace between the indicators
+   * and the translation id.
+   *
+   * @param {string} indicator An indicator, could be any string.
+   */
+  this.translationNotFoundIndicator = function (indicator) {
+    this.translationNotFoundIndicatorLeft(indicator);
+    this.translationNotFoundIndicatorRight(indicator);
+    return this;
+  };
+
+  /**
+   * ngdoc function
+   * @name pascalprecht.translate.$translateProvider#translationNotFoundIndicatorLeft
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * Sets an indicator which is used when a translation isn't found left to the
+   * translation id.
+   *
+   * @param {string} indicator An indicator.
+   */
+  this.translationNotFoundIndicatorLeft = function (indicator) {
+    if (!indicator) {
+      return $notFoundIndicatorLeft;
+    }
+    $notFoundIndicatorLeft = indicator;
+    return this;
+  };
+
+  /**
+   * ngdoc function
+   * @name pascalprecht.translate.$translateProvider#translationNotFoundIndicatorLeft
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * Sets an indicator which is used when a translation isn't found right to the
+   * translation id.
+   *
+   * @param {string} indicator An indicator.
+   */
+  this.translationNotFoundIndicatorRight = function (indicator) {
+    if (!indicator) {
+      return $notFoundIndicatorRight;
+    }
+    $notFoundIndicatorRight = indicator;
+    return this;
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#fallbackLanguage
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * Tells the module which of the registered translation tables to use when missing translations
+   * at initial startup by passing a language key. Similar to `$translateProvider#use`
+   * only that it says which language to **fallback**.
+   *
+   * @param {string||array} langKey A language key.
+   *
+   */
+  this.fallbackLanguage = function (langKey) {
+    fallbackStack(langKey);
+    return this;
+  };
+
+  var fallbackStack = function (langKey) {
+    if (langKey) {
+      if (angular.isString(langKey)) {
+        $fallbackWasString = true;
+        $fallbackLanguage = [langKey];
+      } else if (angular.isArray(langKey)) {
+        $fallbackWasString = false;
+        $fallbackLanguage = langKey;
+      }
+      if (angular.isString($preferredLanguage) && indexOf($fallbackLanguage, $preferredLanguage) < 0) {
+        $fallbackLanguage.push($preferredLanguage);
+      }
+
+      return this;
+    } else {
+      if ($fallbackWasString) {
+        return $fallbackLanguage[0];
+      } else {
+        return $fallbackLanguage;
+      }
+    }
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#use
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * Set which translation table to use for translation by given language key. When
+   * trying to 'use' a language which isn't provided, it'll throw an error.
+   *
+   * You actually don't have to use this method since `$translateProvider#preferredLanguage`
+   * does the job too.
+   *
+   * @param {string} langKey A language key.
+   */
+  this.use = function (langKey) {
+    if (langKey) {
+      if (!$translationTable[langKey] && (!$loaderFactory)) {
+        // only throw an error, when not loading translation data asynchronously
+        throw new Error('$translateProvider couldn\'t find translationTable for langKey: \'' + langKey + '\'');
+      }
+      $uses = langKey;
+      return this;
+    }
+    return $uses;
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#resolveClientLocale
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * This returns the current browser/client's language key. The result is processed with the configured uniform tag resolver.
+   *
+   * @returns {string} the current client/browser language key
+   */
+  this.resolveClientLocale = function () {
+    return getLocale();
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#storageKey
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * Tells the module which key must represent the choosed language by a user in the storage.
+   *
+   * @param {string} key A key for the storage.
+   */
+  var storageKey = function (key) {
+    if (!key) {
+      if ($storagePrefix) {
+        return $storagePrefix + $storageKey;
+      }
+      return $storageKey;
+    }
+    $storageKey = key;
+    return this;
+  };
+
+  this.storageKey = storageKey;
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#useUrlLoader
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * Tells angular-translate to use `$translateUrlLoader` extension service as loader.
+   *
+   * @param {string} url Url
+   * @param {Object=} options Optional configuration object
+   */
+  this.useUrlLoader = function (url, options) {
+    return this.useLoader('$translateUrlLoader', angular.extend({url : url}, options));
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#useStaticFilesLoader
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * Tells angular-translate to use `$translateStaticFilesLoader` extension service as loader.
+   *
+   * @param {Object=} options Optional configuration object
+   */
+  this.useStaticFilesLoader = function (options) {
+    return this.useLoader('$translateStaticFilesLoader', options);
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#useLoader
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * Tells angular-translate to use any other service as loader.
+   *
+   * @param {string} loaderFactory Factory name to use
+   * @param {Object=} options Optional configuration object
+   */
+  this.useLoader = function (loaderFactory, options) {
+    $loaderFactory = loaderFactory;
+    $loaderOptions = options || {};
+    return this;
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#useLocalStorage
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * Tells angular-translate to use `$translateLocalStorage` service as storage layer.
+   *
+   */
+  this.useLocalStorage = function () {
+    return this.useStorage('$translateLocalStorage');
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#useCookieStorage
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * Tells angular-translate to use `$translateCookieStorage` service as storage layer.
+   */
+  this.useCookieStorage = function () {
+    return this.useStorage('$translateCookieStorage');
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#useStorage
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * Tells angular-translate to use custom service as storage layer.
+   */
+  this.useStorage = function (storageFactory) {
+    $storageFactory = storageFactory;
+    return this;
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#storagePrefix
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * Sets prefix for storage key.
+   *
+   * @param {string} prefix Storage key prefix
+   */
+  this.storagePrefix = function (prefix) {
+    if (!prefix) {
+      return prefix;
+    }
+    $storagePrefix = prefix;
+    return this;
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#useMissingTranslationHandlerLog
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * Tells angular-translate to use built-in log handler when trying to translate
+   * a translation Id which doesn't exist.
+   *
+   * This is actually a shortcut method for `useMissingTranslationHandler()`.
+   *
+   */
+  this.useMissingTranslationHandlerLog = function () {
+    return this.useMissingTranslationHandler('$translateMissingTranslationHandlerLog');
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#useMissingTranslationHandler
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * Expects a factory name which later gets instantiated with `$injector`.
+   * This method can be used to tell angular-translate to use a custom
+   * missingTranslationHandler. Just build a factory which returns a function
+   * and expects a translation id as argument.
+   *
+   * Example:
+   * <pre>
+   *  app.config(function ($translateProvider) {
+   *    $translateProvider.useMissingTranslationHandler('customHandler');
+   *  });
+   *
+   *  app.factory('customHandler', function (dep1, dep2) {
+   *    return function (translationId) {
+   *      // something with translationId and dep1 and dep2
+   *    };
+   *  });
+   * </pre>
+   *
+   * @param {string} factory Factory name
+   */
+  this.useMissingTranslationHandler = function (factory) {
+    $missingTranslationHandlerFactory = factory;
+    return this;
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#usePostCompiling
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * If post compiling is enabled, all translated values will be processed
+   * again with AngularJS' $compile.
+   *
+   * Example:
+   * <pre>
+   *  app.config(function ($translateProvider) {
+   *    $translateProvider.usePostCompiling(true);
+   *  });
+   * </pre>
+   *
+   * @param {string} factory Factory name
+   */
+  this.usePostCompiling = function (value) {
+    $postCompilingEnabled = !(!value);
+    return this;
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#forceAsyncReload
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * If force async reload is enabled, async loader will always be called
+   * even if $translationTable already contains the language key, adding
+   * possible new entries to the $translationTable.
+   *
+   * Example:
+   * <pre>
+   *  app.config(function ($translateProvider) {
+   *    $translateProvider.forceAsyncReload(true);
+   *  });
+   * </pre>
+   *
+   * @param {boolean} value - valid values are true or false
+   */
+  this.forceAsyncReload = function (value) {
+    $forceAsyncReloadEnabled = !(!value);
+    return this;
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#uniformLanguageTag
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * Tells angular-translate which language tag should be used as a result when determining
+   * the current browser language.
+   *
+   * This setting must be set before invoking {@link pascalprecht.translate.$translateProvider#methods_determinePreferredLanguage determinePreferredLanguage()}.
+   *
+   * <pre>
+   * $translateProvider
+   *   .uniformLanguageTag('bcp47')
+   *   .determinePreferredLanguage()
+   * </pre>
+   *
+   * The resolver currently supports:
+   * * default
+   *     (traditionally: hyphens will be converted into underscores, i.e. en-US => en_US)
+   *     en-US => en_US
+   *     en_US => en_US
+   *     en-us => en_us
+   * * java
+   *     like default, but the second part will be always in uppercase
+   *     en-US => en_US
+   *     en_US => en_US
+   *     en-us => en_US
+   * * BCP 47 (RFC 4646 & 4647)
+   *     en-US => en-US
+   *     en_US => en-US
+   *     en-us => en-US
+   *
+   * See also:
+   * * http://en.wikipedia.org/wiki/IETF_language_tag
+   * * http://www.w3.org/International/core/langtags/
+   * * http://tools.ietf.org/html/bcp47
+   *
+   * @param {string|object} options - options (or standard)
+   * @param {string} options.standard - valid values are 'default', 'bcp47', 'java'
+   */
+  this.uniformLanguageTag = function (options) {
+
+    if (!options) {
+      options = {};
+    } else if (angular.isString(options)) {
+      options = {
+        standard : options
+      };
+    }
+
+    uniformLanguageTagResolver = options.standard;
+
+    return this;
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#determinePreferredLanguage
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * Tells angular-translate to try to determine on its own which language key
+   * to set as preferred language. When `fn` is given, angular-translate uses it
+   * to determine a language key, otherwise it uses the built-in `getLocale()`
+   * method.
+   *
+   * The `getLocale()` returns a language key in the format `[lang]_[country]` or
+   * `[lang]` depending on what the browser provides.
+   *
+   * Use this method at your own risk, since not all browsers return a valid
+   * locale (see {@link pascalprecht.translate.$translateProvider#methods_uniformLanguageTag uniformLanguageTag()}).
+   *
+   * @param {Function=} fn Function to determine a browser's locale
+   */
+  this.determinePreferredLanguage = function (fn) {
+
+    var locale = (fn && angular.isFunction(fn)) ? fn() : getLocale();
+
+    if (!$availableLanguageKeys.length) {
+      $preferredLanguage = locale;
+    } else {
+      $preferredLanguage = negotiateLocale(locale) || locale;
+    }
+
+    return this;
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#registerAvailableLanguageKeys
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * Registers a set of language keys the app will work with. Use this method in
+   * combination with
+   * {@link pascalprecht.translate.$translateProvider#determinePreferredLanguage determinePreferredLanguage}.
+   * When available languages keys are registered, angular-translate
+   * tries to find the best fitting language key depending on the browsers locale,
+   * considering your language key convention.
+   *
+   * @param {object} languageKeys Array of language keys the your app will use
+   * @param {object=} aliases Alias map.
+   */
+  this.registerAvailableLanguageKeys = function (languageKeys, aliases) {
+    if (languageKeys) {
+      $availableLanguageKeys = languageKeys;
+      if (aliases) {
+        $languageKeyAliases = aliases;
+      }
+      return this;
+    }
+    return $availableLanguageKeys;
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#useLoaderCache
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * Registers a cache for internal $http based loaders.
+   * {@link pascalprecht.translate.$translationCache $translationCache}.
+   * When false the cache will be disabled (default). When true or undefined
+   * the cache will be a default (see $cacheFactory). When an object it will
+   * be treat as a cache object itself: the usage is $http({cache: cache})
+   *
+   * @param {object} cache boolean, string or cache-object
+   */
+  this.useLoaderCache = function (cache) {
+    if (cache === false) {
+      // disable cache
+      loaderCache = undefined;
+    } else if (cache === true) {
+      // enable cache using AJS defaults
+      loaderCache = true;
+    } else if (typeof(cache) === 'undefined') {
+      // enable cache using default
+      loaderCache = '$translationCache';
+    } else if (cache) {
+      // enable cache using given one (see $cacheFactory)
+      loaderCache = cache;
+    }
+    return this;
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#directivePriority
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * Sets the default priority of the translate directive. The standard value is `0`.
+   * Calling this function without an argument will return the current value.
+   *
+   * @param {number} priority for the translate-directive
+   */
+  this.directivePriority = function (priority) {
+    if (priority === undefined) {
+      // getter
+      return directivePriority;
+    } else {
+      // setter with chaining
+      directivePriority = priority;
+      return this;
+    }
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#statefulFilter
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * Since AngularJS 1.3, filters which are not stateless (depending at the scope)
+   * have to explicit define this behavior.
+   * Sets whether the translate filter should be stateful or stateless. The standard value is `true`
+   * meaning being stateful.
+   * Calling this function without an argument will return the current value.
+   *
+   * @param {boolean} state - defines the state of the filter
+   */
+  this.statefulFilter = function (state) {
+    if (state === undefined) {
+      // getter
+      return statefulFilter;
+    } else {
+      // setter with chaining
+      statefulFilter = state;
+      return this;
+    }
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#postProcess
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * The post processor will be intercept right after the translation result. It can modify the result.
+   *
+   * @param {object} fn Function or service name (string) to be called after the translation value has been set / resolved. The function itself will enrich every value being processed and then continue the normal resolver process
+   */
+  this.postProcess = function (fn) {
+    if (fn) {
+      postProcessFn = fn;
+    } else {
+      postProcessFn = undefined;
+    }
+    return this;
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateProvider#keepContent
+   * @methodOf pascalprecht.translate.$translateProvider
+   *
+   * @description
+   * If keepContent is set to true than translate directive will always use innerHTML
+   * as a default translation
+   *
+   * Example:
+   * <pre>
+   *  app.config(function ($translateProvider) {
+   *    $translateProvider.keepContent(true);
+   *  });
+   * </pre>
+   *
+   * @param {boolean} value - valid values are true or false
+   */
+  this.keepContent = function (value) {
+    $keepContent = !(!value);
+    return this;
+  };
+
+  /**
+   * @ngdoc object
+   * @name pascalprecht.translate.$translate
+   * @requires $interpolate
+   * @requires $log
+   * @requires $rootScope
+   * @requires $q
+   *
+   * @description
+   * The `$translate` service is the actual core of angular-translate. It expects a translation id
+   * and optional interpolate parameters to translate contents.
+   *
+   * <pre>
+   *  $translate('HEADLINE_TEXT').then(function (translation) {
+   *    $scope.translatedText = translation;
+   *  });
+   * </pre>
+   *
+   * @param {string|array} translationId A token which represents a translation id
+   *                                     This can be optionally an array of translation ids which
+   *                                     results that the function returns an object where each key
+   *                                     is the translation id and the value the translation.
+   * @param {object=} interpolateParams An object hash for dynamic values
+   * @param {string} interpolationId The id of the interpolation to use
+   * @param {string} defaultTranslationText the optional default translation text that is written as
+   *                                        as default text in case it is not found in any configured language
+   * @param {string} forceLanguage A language to be used instead of the current language
+   * @returns {object} promise
+   */
+  this.$get = ['$log', '$injector', '$rootScope', '$q', function ($log, $injector, $rootScope, $q) {
+
+    var Storage,
+      defaultInterpolator = $injector.get($interpolationFactory || '$translateDefaultInterpolation'),
+      pendingLoader = false,
+      interpolatorHashMap = {},
+      langPromises = {},
+      fallbackIndex,
+      startFallbackIteration;
+
+    var $translate = function (translationId, interpolateParams, interpolationId, defaultTranslationText, forceLanguage) {
+      if (!$uses && $preferredLanguage) {
+        $uses = $preferredLanguage;
+      }
+      var uses = (forceLanguage && forceLanguage !== $uses) ? // we don't want to re-negotiate $uses
+        (negotiateLocale(forceLanguage) || forceLanguage) : $uses;
+
+      // Check forceLanguage is present
+      if (forceLanguage) {
+        loadTranslationsIfMissing(forceLanguage);
+      }
+
+      // Duck detection: If the first argument is an array, a bunch of translations was requested.
+      // The result is an object.
+      if (angular.isArray(translationId)) {
+        // Inspired by Q.allSettled by Kris Kowal
+        // https://github.com/kriskowal/q/blob/b0fa72980717dc202ffc3cbf03b936e10ebbb9d7/q.js#L1553-1563
+        // This transforms all promises regardless resolved or rejected
+        var translateAll = function (translationIds) {
+          var results = {}; // storing the actual results
+          var promises = []; // promises to wait for
+          // Wraps the promise a) being always resolved and b) storing the link id->value
+          var translate = function (translationId) {
+            var deferred = $q.defer();
+            var regardless = function (value) {
+              results[translationId] = value;
+              deferred.resolve([translationId, value]);
+            };
+            // we don't care whether the promise was resolved or rejected; just store the values
+            $translate(translationId, interpolateParams, interpolationId, defaultTranslationText, forceLanguage).then(regardless, regardless);
+            return deferred.promise;
+          };
+          for (var i = 0, c = translationIds.length; i < c; i++) {
+            promises.push(translate(translationIds[i]));
+          }
+          // wait for all (including storing to results)
+          return $q.all(promises).then(function () {
+            // return the results
+            return results;
+          });
+        };
+        return translateAll(translationId);
+      }
+
+      var deferred = $q.defer();
+
+      // trim off any whitespace
+      if (translationId) {
+        translationId = trim.apply(translationId);
+      }
+
+      var promiseToWaitFor = (function () {
+        var promise = $preferredLanguage ?
+          langPromises[$preferredLanguage] :
+          langPromises[uses];
+
+        fallbackIndex = 0;
+
+        if ($storageFactory && !promise) {
+          // looks like there's no pending promise for $preferredLanguage or
+          // $uses. Maybe there's one pending for a language that comes from
+          // storage.
+          var langKey = Storage.get($storageKey);
+          promise = langPromises[langKey];
+
+          if ($fallbackLanguage && $fallbackLanguage.length) {
+            var index = indexOf($fallbackLanguage, langKey);
+            // maybe the language from storage is also defined as fallback language
+            // we increase the fallback language index to not search in that language
+            // as fallback, since it's probably the first used language
+            // in that case the index starts after the first element
+            fallbackIndex = (index === 0) ? 1 : 0;
+
+            // but we can make sure to ALWAYS fallback to preferred language at least
+            if (indexOf($fallbackLanguage, $preferredLanguage) < 0) {
+              $fallbackLanguage.push($preferredLanguage);
+            }
+          }
+        }
+        return promise;
+      }());
+
+      if (!promiseToWaitFor) {
+        // no promise to wait for? okay. Then there's no loader registered
+        // nor is a one pending for language that comes from storage.
+        // We can just translate.
+        determineTranslation(translationId, interpolateParams, interpolationId, defaultTranslationText, uses).then(deferred.resolve, deferred.reject);
+      } else {
+        var promiseResolved = function () {
+          // $uses may have changed while waiting
+          if (!forceLanguage) {
+            uses = $uses;
+          }
+          determineTranslation(translationId, interpolateParams, interpolationId, defaultTranslationText, uses).then(deferred.resolve, deferred.reject);
+        };
+        promiseResolved.displayName = 'promiseResolved';
+
+        promiseToWaitFor['finally'](promiseResolved)
+          .catch(angular.noop); // we don't care about errors here, already handled
+      }
+      return deferred.promise;
+    };
+
+    /**
+     * @name applyNotFoundIndicators
+     * @private
+     *
+     * @description
+     * Applies not fount indicators to given translation id, if needed.
+     * This function gets only executed, if a translation id doesn't exist,
+     * which is why a translation id is expected as argument.
+     *
+     * @param {string} translationId Translation id.
+     * @returns {string} Same as given translation id but applied with not found
+     * indicators.
+     */
+    var applyNotFoundIndicators = function (translationId) {
+      // applying notFoundIndicators
+      if ($notFoundIndicatorLeft) {
+        translationId = [$notFoundIndicatorLeft, translationId].join(' ');
+      }
+      if ($notFoundIndicatorRight) {
+        translationId = [translationId, $notFoundIndicatorRight].join(' ');
+      }
+      return translationId;
+    };
+
+    /**
+     * @name useLanguage
+     * @private
+     *
+     * @description
+     * Makes actual use of a language by setting a given language key as used
+     * language and informs registered interpolators to also use the given
+     * key as locale.
+     *
+     * @param {string} key Locale key.
+     */
+    var useLanguage = function (key) {
+      $uses = key;
+
+      // make sure to store new language key before triggering success event
+      if ($storageFactory) {
+        Storage.put($translate.storageKey(), $uses);
+      }
+
+      $rootScope.$emit('$translateChangeSuccess', {language : key});
+
+      // inform default interpolator
+      defaultInterpolator.setLocale($uses);
+
+      var eachInterpolator = function (interpolator, id) {
+        interpolatorHashMap[id].setLocale($uses);
+      };
+      eachInterpolator.displayName = 'eachInterpolatorLocaleSetter';
+
+      // inform all others too!
+      angular.forEach(interpolatorHashMap, eachInterpolator);
+      $rootScope.$emit('$translateChangeEnd', {language : key});
+    };
+
+    /**
+     * @name loadAsync
+     * @private
+     *
+     * @description
+     * Kicks off registered async loader using `$injector` and applies existing
+     * loader options. When resolved, it updates translation tables accordingly
+     * or rejects with given language key.
+     *
+     * @param {string} key Language key.
+     * @return {Promise} A promise.
+     */
+    var loadAsync = function (key) {
+      if (!key) {
+        throw 'No language key specified for loading.';
+      }
+
+      var deferred = $q.defer();
+
+      $rootScope.$emit('$translateLoadingStart', {language : key});
+      pendingLoader = true;
+
+      var cache = loaderCache;
+      if (typeof(cache) === 'string') {
+        // getting on-demand instance of loader
+        cache = $injector.get(cache);
+      }
+
+      var loaderOptions = angular.extend({}, $loaderOptions, {
+        key : key,
+        $http : angular.extend({}, {
+          cache : cache
+        }, $loaderOptions.$http)
+      });
+
+      var onLoaderSuccess = function (data) {
+        var translationTable = {};
+        $rootScope.$emit('$translateLoadingSuccess', {language : key});
+
+        if (angular.isArray(data)) {
+          angular.forEach(data, function (table) {
+            angular.extend(translationTable, flatObject(table));
+          });
+        } else {
+          angular.extend(translationTable, flatObject(data));
+        }
+        pendingLoader = false;
+        deferred.resolve({
+          key : key,
+          table : translationTable
+        });
+        $rootScope.$emit('$translateLoadingEnd', {language : key});
+      };
+      onLoaderSuccess.displayName = 'onLoaderSuccess';
+
+      var onLoaderError = function (key) {
+        $rootScope.$emit('$translateLoadingError', {language : key});
+        deferred.reject(key);
+        $rootScope.$emit('$translateLoadingEnd', {language : key});
+      };
+      onLoaderError.displayName = 'onLoaderError';
+
+      $injector.get($loaderFactory)(loaderOptions)
+        .then(onLoaderSuccess, onLoaderError);
+
+      return deferred.promise;
+    };
+
+    if ($storageFactory) {
+      Storage = $injector.get($storageFactory);
+
+      if (!Storage.get || !Storage.put) {
+        throw new Error('Couldn\'t use storage \'' + $storageFactory + '\', missing get() or put() method!');
+      }
+    }
+
+    // if we have additional interpolations that were added via
+    // $translateProvider.addInterpolation(), we have to map'em
+    if ($interpolatorFactories.length) {
+      var eachInterpolationFactory = function (interpolatorFactory) {
+        var interpolator = $injector.get(interpolatorFactory);
+        // setting initial locale for each interpolation service
+        interpolator.setLocale($preferredLanguage || $uses);
+        // make'em recognizable through id
+        interpolatorHashMap[interpolator.getInterpolationIdentifier()] = interpolator;
+      };
+      eachInterpolationFactory.displayName = 'interpolationFactoryAdder';
+
+      angular.forEach($interpolatorFactories, eachInterpolationFactory);
+    }
+
+    /**
+     * @name getTranslationTable
+     * @private
+     *
+     * @description
+     * Returns a promise that resolves to the translation table
+     * or is rejected if an error occurred.
+     *
+     * @param langKey
+     * @returns {Q.promise}
+     */
+    var getTranslationTable = function (langKey) {
+      var deferred = $q.defer();
+      if (Object.prototype.hasOwnProperty.call($translationTable, langKey)) {
+        deferred.resolve($translationTable[langKey]);
+      } else if (langPromises[langKey]) {
+        var onResolve = function (data) {
+          translations(data.key, data.table);
+          deferred.resolve(data.table);
+        };
+        onResolve.displayName = 'translationTableResolver';
+        langPromises[langKey].then(onResolve, deferred.reject);
+      } else {
+        deferred.reject();
+      }
+      return deferred.promise;
+    };
+
+    /**
+     * @name getFallbackTranslation
+     * @private
+     *
+     * @description
+     * Returns a promise that will resolve to the translation
+     * or be rejected if no translation was found for the language.
+     * This function is currently only used for fallback language translation.
+     *
+     * @param langKey The language to translate to.
+     * @param translationId
+     * @param interpolateParams
+     * @param Interpolator
+     * @param sanitizeStrategy
+     * @returns {Q.promise}
+     */
+    var getFallbackTranslation = function (langKey, translationId, interpolateParams, Interpolator, sanitizeStrategy) {
+      var deferred = $q.defer();
+
+      var onResolve = function (translationTable) {
+        if (Object.prototype.hasOwnProperty.call(translationTable, translationId) && translationTable[translationId] !== null) {
+          Interpolator.setLocale(langKey);
+          var translation = translationTable[translationId];
+          if (translation.substr(0, 2) === '@:') {
+            getFallbackTranslation(langKey, translation.substr(2), interpolateParams, Interpolator, sanitizeStrategy)
+              .then(deferred.resolve, deferred.reject);
+          } else {
+            var interpolatedValue = Interpolator.interpolate(translationTable[translationId], interpolateParams, 'service', sanitizeStrategy, translationId);
+            interpolatedValue = applyPostProcessing(translationId, translationTable[translationId], interpolatedValue, interpolateParams, langKey);
+
+            deferred.resolve(interpolatedValue);
+
+          }
+          Interpolator.setLocale($uses);
+        } else {
+          deferred.reject();
+        }
+      };
+      onResolve.displayName = 'fallbackTranslationResolver';
+
+      getTranslationTable(langKey).then(onResolve, deferred.reject);
+
+      return deferred.promise;
+    };
+
+    /**
+     * @name getFallbackTranslationInstant
+     * @private
+     *
+     * @description
+     * Returns a translation
+     * This function is currently only used for fallback language translation.
+     *
+     * @param langKey The language to translate to.
+     * @param translationId
+     * @param interpolateParams
+     * @param Interpolator
+     * @param sanitizeStrategy sanitize strategy override
+     *
+     * @returns {string} translation
+     */
+    var getFallbackTranslationInstant = function (langKey, translationId, interpolateParams, Interpolator, sanitizeStrategy) {
+      var result, translationTable = $translationTable[langKey];
+
+      if (translationTable && Object.prototype.hasOwnProperty.call(translationTable, translationId) && translationTable[translationId] !== null) {
+        Interpolator.setLocale(langKey);
+        result = Interpolator.interpolate(translationTable[translationId], interpolateParams, 'filter', sanitizeStrategy, translationId);
+        result = applyPostProcessing(translationId, translationTable[translationId], result, interpolateParams, langKey, sanitizeStrategy);
+        // workaround for TrustedValueHolderType
+        if (!angular.isString(result) && angular.isFunction(result.$$unwrapTrustedValue)) {
+          var result2 = result.$$unwrapTrustedValue();
+          if (result2.substr(0, 2) === '@:') {
+            return getFallbackTranslationInstant(langKey, result2.substr(2), interpolateParams, Interpolator, sanitizeStrategy);
+          }
+        } else if (result.substr(0, 2) === '@:') {
+          return getFallbackTranslationInstant(langKey, result.substr(2), interpolateParams, Interpolator, sanitizeStrategy);
+        }
+        Interpolator.setLocale($uses);
+      }
+
+      return result;
+    };
+
+
+    /**
+     * @name translateByHandler
+     * @private
+     *
+     * Translate by missing translation handler.
+     *
+     * @param translationId
+     * @param interpolateParams
+     * @param defaultTranslationText
+     * @param sanitizeStrategy sanitize strategy override
+     *
+     * @returns translation created by $missingTranslationHandler or translationId is $missingTranslationHandler is
+     * absent
+     */
+    var translateByHandler = function (translationId, interpolateParams, defaultTranslationText, sanitizeStrategy) {
+      // If we have a handler factory - we might also call it here to determine if it provides
+      // a default text for a translationid that can't be found anywhere in our tables
+      if ($missingTranslationHandlerFactory) {
+        return $injector.get($missingTranslationHandlerFactory)(translationId, $uses, interpolateParams, defaultTranslationText, sanitizeStrategy);
+      } else {
+        return translationId;
+      }
+    };
+
+    /**
+     * @name resolveForFallbackLanguage
+     * @private
+     *
+     * Recursive helper function for fallbackTranslation that will sequentially look
+     * for a translation in the fallbackLanguages starting with fallbackLanguageIndex.
+     *
+     * @param fallbackLanguageIndex
+     * @param translationId
+     * @param interpolateParams
+     * @param Interpolator
+     * @param defaultTranslationText
+     * @param sanitizeStrategy
+     * @returns {Q.promise} Promise that will resolve to the translation.
+     */
+    var resolveForFallbackLanguage = function (fallbackLanguageIndex, translationId, interpolateParams, Interpolator, defaultTranslationText, sanitizeStrategy) {
+      var deferred = $q.defer();
+
+      if (fallbackLanguageIndex < $fallbackLanguage.length) {
+        var langKey = $fallbackLanguage[fallbackLanguageIndex];
+        getFallbackTranslation(langKey, translationId, interpolateParams, Interpolator, sanitizeStrategy).then(
+          function (data) {
+            deferred.resolve(data);
+          },
+          function () {
+            // Look in the next fallback language for a translation.
+            // It delays the resolving by passing another promise to resolve.
+            return resolveForFallbackLanguage(fallbackLanguageIndex + 1, translationId, interpolateParams, Interpolator, defaultTranslationText, sanitizeStrategy).then(deferred.resolve, deferred.reject);
+          }
+        );
+      } else {
+        // No translation found in any fallback language
+        // if a default translation text is set in the directive, then return this as a result
+        if (defaultTranslationText) {
+          deferred.resolve(defaultTranslationText);
+        } else {
+          var missingTranslationHandlerTranslation = translateByHandler(translationId, interpolateParams, defaultTranslationText);
+
+          // if no default translation is set and an error handler is defined, send it to the handler
+          // and then return the result if it isn't undefined
+          if ($missingTranslationHandlerFactory && missingTranslationHandlerTranslation) {
+            deferred.resolve(missingTranslationHandlerTranslation);
+          } else {
+            deferred.reject(applyNotFoundIndicators(translationId));
+          }
+        }
+      }
+      return deferred.promise;
+    };
+
+    /**
+     * @name resolveForFallbackLanguageInstant
+     * @private
+     *
+     * Recursive helper function for fallbackTranslation that will sequentially look
+     * for a translation in the fallbackLanguages starting with fallbackLanguageIndex.
+     *
+     * @param fallbackLanguageIndex
+     * @param translationId
+     * @param interpolateParams
+     * @param Interpolator
+     * @param sanitizeStrategy
+     * @returns {string} translation
+     */
+    var resolveForFallbackLanguageInstant = function (fallbackLanguageIndex, translationId, interpolateParams, Interpolator, sanitizeStrategy) {
+      var result;
+
+      if (fallbackLanguageIndex < $fallbackLanguage.length) {
+        var langKey = $fallbackLanguage[fallbackLanguageIndex];
+        result = getFallbackTranslationInstant(langKey, translationId, interpolateParams, Interpolator, sanitizeStrategy);
+        if (!result && result !== '') {
+          result = resolveForFallbackLanguageInstant(fallbackLanguageIndex + 1, translationId, interpolateParams, Interpolator);
+        }
+      }
+      return result;
+    };
+
+    /**
+     * Translates with the usage of the fallback languages.
+     *
+     * @param translationId
+     * @param interpolateParams
+     * @param Interpolator
+     * @param defaultTranslationText
+     * @param sanitizeStrategy
+     * @returns {Q.promise} Promise, that resolves to the translation.
+     */
+    var fallbackTranslation = function (translationId, interpolateParams, Interpolator, defaultTranslationText, sanitizeStrategy) {
+      // Start with the fallbackLanguage with index 0
+      return resolveForFallbackLanguage((startFallbackIteration > 0 ? startFallbackIteration : fallbackIndex), translationId, interpolateParams, Interpolator, defaultTranslationText, sanitizeStrategy);
+    };
+
+    /**
+     * Translates with the usage of the fallback languages.
+     *
+     * @param translationId
+     * @param interpolateParams
+     * @param Interpolator
+     * @param sanitizeStrategy
+     * @returns {String} translation
+     */
+    var fallbackTranslationInstant = function (translationId, interpolateParams, Interpolator, sanitizeStrategy) {
+      // Start with the fallbackLanguage with index 0
+      return resolveForFallbackLanguageInstant((startFallbackIteration > 0 ? startFallbackIteration : fallbackIndex), translationId, interpolateParams, Interpolator, sanitizeStrategy);
+    };
+
+    var determineTranslation = function (translationId, interpolateParams, interpolationId, defaultTranslationText, uses, sanitizeStrategy) {
+
+      var deferred = $q.defer();
+
+      var table = uses ? $translationTable[uses] : $translationTable,
+        Interpolator = (interpolationId) ? interpolatorHashMap[interpolationId] : defaultInterpolator;
+
+      // if the translation id exists, we can just interpolate it
+      if (table && Object.prototype.hasOwnProperty.call(table, translationId) && table[translationId] !== null) {
+        var translation = table[translationId];
+
+        // If using link, rerun $translate with linked translationId and return it
+        if (translation.substr(0, 2) === '@:') {
+
+          $translate(translation.substr(2), interpolateParams, interpolationId, defaultTranslationText, uses)
+            .then(deferred.resolve, deferred.reject);
+        } else {
+          //
+          var resolvedTranslation = Interpolator.interpolate(translation, interpolateParams, 'service', sanitizeStrategy, translationId);
+          resolvedTranslation = applyPostProcessing(translationId, translation, resolvedTranslation, interpolateParams, uses);
+          deferred.resolve(resolvedTranslation);
+        }
+      } else {
+        var missingTranslationHandlerTranslation;
+        // for logging purposes only (as in $translateMissingTranslationHandlerLog), value is not returned to promise
+        if ($missingTranslationHandlerFactory && !pendingLoader) {
+          missingTranslationHandlerTranslation = translateByHandler(translationId, interpolateParams, defaultTranslationText);
+        }
+
+        // since we couldn't translate the inital requested translation id,
+        // we try it now with one or more fallback languages, if fallback language(s) is
+        // configured.
+        if (uses && $fallbackLanguage && $fallbackLanguage.length) {
+          fallbackTranslation(translationId, interpolateParams, Interpolator, defaultTranslationText, sanitizeStrategy)
+            .then(function (translation) {
+              deferred.resolve(translation);
+            }, function (_translationId) {
+              deferred.reject(applyNotFoundIndicators(_translationId));
+            });
+        } else if ($missingTranslationHandlerFactory && !pendingLoader && missingTranslationHandlerTranslation) {
+          // looks like the requested translation id doesn't exists.
+          // Now, if there is a registered handler for missing translations and no
+          // asyncLoader is pending, we execute the handler
+          if (defaultTranslationText) {
+            deferred.resolve(defaultTranslationText);
+          } else {
+            deferred.resolve(missingTranslationHandlerTranslation);
+          }
+        } else {
+          if (defaultTranslationText) {
+            deferred.resolve(defaultTranslationText);
+          } else {
+            deferred.reject(applyNotFoundIndicators(translationId));
+          }
+        }
+      }
+      return deferred.promise;
+    };
+
+    var determineTranslationInstant = function (translationId, interpolateParams, interpolationId, uses, sanitizeStrategy) {
+
+      var result, table = uses ? $translationTable[uses] : $translationTable,
+        Interpolator = defaultInterpolator;
+
+      // if the interpolation id exists use custom interpolator
+      if (interpolatorHashMap && Object.prototype.hasOwnProperty.call(interpolatorHashMap, interpolationId)) {
+        Interpolator = interpolatorHashMap[interpolationId];
+      }
+
+      // if the translation id exists, we can just interpolate it
+      if (table && Object.prototype.hasOwnProperty.call(table, translationId) && table[translationId] !== null) {
+        var translation = table[translationId];
+
+        // If using link, rerun $translate with linked translationId and return it
+        if (translation.substr(0, 2) === '@:') {
+          result = determineTranslationInstant(translation.substr(2), interpolateParams, interpolationId, uses, sanitizeStrategy);
+        } else {
+          result = Interpolator.interpolate(translation, interpolateParams, 'filter', sanitizeStrategy, translationId);
+          result = applyPostProcessing(translationId, translation, result, interpolateParams, uses, sanitizeStrategy);
+        }
+      } else {
+        var missingTranslationHandlerTranslation;
+        // for logging purposes only (as in $translateMissingTranslationHandlerLog), value is not returned to promise
+        if ($missingTranslationHandlerFactory && !pendingLoader) {
+          missingTranslationHandlerTranslation = translateByHandler(translationId, interpolateParams, sanitizeStrategy);
+        }
+
+        // since we couldn't translate the inital requested translation id,
+        // we try it now with one or more fallback languages, if fallback language(s) is
+        // configured.
+        if (uses && $fallbackLanguage && $fallbackLanguage.length) {
+          fallbackIndex = 0;
+          result = fallbackTranslationInstant(translationId, interpolateParams, Interpolator, sanitizeStrategy);
+        } else if ($missingTranslationHandlerFactory && !pendingLoader && missingTranslationHandlerTranslation) {
+          // looks like the requested translation id doesn't exists.
+          // Now, if there is a registered handler for missing translations and no
+          // asyncLoader is pending, we execute the handler
+          result = missingTranslationHandlerTranslation;
+        } else {
+          result = applyNotFoundIndicators(translationId);
+        }
+      }
+
+      return result;
+    };
+
+    var clearNextLangAndPromise = function (key) {
+      if ($nextLang === key) {
+        $nextLang = undefined;
+      }
+      langPromises[key] = undefined;
+    };
+
+    var applyPostProcessing = function (translationId, translation, resolvedTranslation, interpolateParams, uses, sanitizeStrategy) {
+      var fn = postProcessFn;
+
+      if (fn) {
+
+        if (typeof(fn) === 'string') {
+          // getting on-demand instance
+          fn = $injector.get(fn);
+        }
+        if (fn) {
+          return fn(translationId, translation, resolvedTranslation, interpolateParams, uses, sanitizeStrategy);
+        }
+      }
+
+      return resolvedTranslation;
+    };
+
+    var loadTranslationsIfMissing = function (key) {
+      if (!$translationTable[key] && $loaderFactory && !langPromises[key]) {
+        langPromises[key] = loadAsync(key).then(function (translation) {
+          translations(translation.key, translation.table);
+          return translation;
+        });
+      }
+    };
+
+    /**
+     * @ngdoc function
+     * @name pascalprecht.translate.$translate#preferredLanguage
+     * @methodOf pascalprecht.translate.$translate
+     *
+     * @description
+     * Returns the language key for the preferred language.
+     *
+     * @param {string} langKey language String or Array to be used as preferredLanguage (changing at runtime)
+     *
+     * @return {string} preferred language key
+     */
+    $translate.preferredLanguage = function (langKey) {
+      if (langKey) {
+        setupPreferredLanguage(langKey);
+      }
+      return $preferredLanguage;
+    };
+
+    /**
+     * @ngdoc function
+     * @name pascalprecht.translate.$translate#cloakClassName
+     * @methodOf pascalprecht.translate.$translate
+     *
+     * @description
+     * Returns the configured class name for `translate-cloak` directive.
+     *
+     * @return {string} cloakClassName
+     */
+    $translate.cloakClassName = function () {
+      return $cloakClassName;
+    };
+
+    /**
+     * @ngdoc function
+     * @name pascalprecht.translate.$translate#nestedObjectDelimeter
+     * @methodOf pascalprecht.translate.$translate
+     *
+     * @description
+     * Returns the configured delimiter for nested namespaces.
+     *
+     * @return {string} nestedObjectDelimeter
+     */
+    $translate.nestedObjectDelimeter = function () {
+      return $nestedObjectDelimeter;
+    };
+
+    /**
+     * @ngdoc function
+     * @name pascalprecht.translate.$translate#fallbackLanguage
+     * @methodOf pascalprecht.translate.$translate
+     *
+     * @description
+     * Returns the language key for the fallback languages or sets a new fallback stack.
+     *
+     * @param {string=} langKey language String or Array of fallback languages to be used (to change stack at runtime)
+     *
+     * @return {string||array} fallback language key
+     */
+    $translate.fallbackLanguage = function (langKey) {
+      if (langKey !== undefined && langKey !== null) {
+        fallbackStack(langKey);
+
+        // as we might have an async loader initiated and a new translation language might have been defined
+        // we need to add the promise to the stack also. So - iterate.
+        if ($loaderFactory) {
+          if ($fallbackLanguage && $fallbackLanguage.length) {
+            for (var i = 0, len = $fallbackLanguage.length; i < len; i++) {
+              if (!langPromises[$fallbackLanguage[i]]) {
+                langPromises[$fallbackLanguage[i]] = loadAsync($fallbackLanguage[i]);
+              }
+            }
+          }
+        }
+        $translate.use($translate.use());
+      }
+      if ($fallbackWasString) {
+        return $fallbackLanguage[0];
+      } else {
+        return $fallbackLanguage;
+      }
+
+    };
+
+    /**
+     * @ngdoc function
+     * @name pascalprecht.translate.$translate#useFallbackLanguage
+     * @methodOf pascalprecht.translate.$translate
+     *
+     * @description
+     * Sets the first key of the fallback language stack to be used for translation.
+     * Therefore all languages in the fallback array BEFORE this key will be skipped!
+     *
+     * @param {string=} langKey Contains the langKey the iteration shall start with. Set to false if you want to
+     * get back to the whole stack
+     */
+    $translate.useFallbackLanguage = function (langKey) {
+      if (langKey !== undefined && langKey !== null) {
+        if (!langKey) {
+          startFallbackIteration = 0;
+        } else {
+          var langKeyPosition = indexOf($fallbackLanguage, langKey);
+          if (langKeyPosition > -1) {
+            startFallbackIteration = langKeyPosition;
+          }
+        }
+
+      }
+
+    };
+
+    /**
+     * @ngdoc function
+     * @name pascalprecht.translate.$translate#proposedLanguage
+     * @methodOf pascalprecht.translate.$translate
+     *
+     * @description
+     * Returns the language key of language that is currently loaded asynchronously.
+     *
+     * @return {string} language key
+     */
+    $translate.proposedLanguage = function () {
+      return $nextLang;
+    };
+
+    /**
+     * @ngdoc function
+     * @name pascalprecht.translate.$translate#storage
+     * @methodOf pascalprecht.translate.$translate
+     *
+     * @description
+     * Returns registered storage.
+     *
+     * @return {object} Storage
+     */
+    $translate.storage = function () {
+      return Storage;
+    };
+
+    /**
+     * @ngdoc function
+     * @name pascalprecht.translate.$translate#negotiateLocale
+     * @methodOf pascalprecht.translate.$translate
+     *
+     * @description
+     * Returns a language key based on available languages and language aliases. If a
+     * language key cannot be resolved, returns undefined.
+     *
+     * If no or a falsy key is given, returns undefined.
+     *
+     * @param {string} [key] Language key
+     * @return {string|undefined} Language key or undefined if no language key is found.
+     */
+    $translate.negotiateLocale = negotiateLocale;
+
+    /**
+     * @ngdoc function
+     * @name pascalprecht.translate.$translate#use
+     * @methodOf pascalprecht.translate.$translate
+     *
+     * @description
+     * Tells angular-translate which language to use by given language key. This method is
+     * used to change language at runtime. It also takes care of storing the language
+     * key in a configured store to let your app remember the choosed language.
+     *
+     * When trying to 'use' a language which isn't available it tries to load it
+     * asynchronously with registered loaders.
+     *
+     * Returns promise object with loaded language file data or string of the currently used language.
+     *
+     * If no or a falsy key is given it returns the currently used language key.
+     * The returned string will be ```undefined``` if setting up $translate hasn't finished.
+     * @example
+     * $translate.use("en_US").then(function(data){
+       *   $scope.text = $translate("HELLO");
+       * });
+     *
+     * @param {string} [key] Language key
+     * @return {object|string} Promise with loaded language data or the language key if a falsy param was given.
+     */
+    $translate.use = function (key) {
+      if (!key) {
+        return $uses;
+      }
+
+      var deferred = $q.defer();
+      deferred.promise.then(null, angular.noop); // AJS "Possibly unhandled rejection"
+
+      $rootScope.$emit('$translateChangeStart', {language : key});
+
+      // Try to get the aliased language key
+      var aliasedKey = negotiateLocale(key);
+      // Ensure only registered language keys will be loaded
+      if ($availableLanguageKeys.length > 0 && !aliasedKey) {
+        return $q.reject(key);
+      }
+
+      if (aliasedKey) {
+        key = aliasedKey;
+      }
+
+      // if there isn't a translation table for the language we've requested,
+      // we load it asynchronously
+      $nextLang = key;
+      if (($forceAsyncReloadEnabled || !$translationTable[key]) && $loaderFactory && !langPromises[key]) {
+        langPromises[key] = loadAsync(key).then(function (translation) {
+          translations(translation.key, translation.table);
+          deferred.resolve(translation.key);
+          if ($nextLang === key) {
+            useLanguage(translation.key);
+          }
+          return translation;
+        }, function (key) {
+          $rootScope.$emit('$translateChangeError', {language : key});
+          deferred.reject(key);
+          $rootScope.$emit('$translateChangeEnd', {language : key});
+          return $q.reject(key);
+        });
+        langPromises[key]['finally'](function () {
+          clearNextLangAndPromise(key);
+        }).catch(angular.noop); // we don't care about errors (clearing)
+      } else if (langPromises[key]) {
+        // we are already loading this asynchronously
+        // resolve our new deferred when the old langPromise is resolved
+        langPromises[key].then(function (translation) {
+          if ($nextLang === translation.key) {
+            useLanguage(translation.key);
+          }
+          deferred.resolve(translation.key);
+          return translation;
+        }, function (key) {
+          // find first available fallback language if that request has failed
+          if (!$uses && $fallbackLanguage && $fallbackLanguage.length > 0 && $fallbackLanguage[0] !== key) {
+            return $translate.use($fallbackLanguage[0]).then(deferred.resolve, deferred.reject);
+          } else {
+            return deferred.reject(key);
+          }
+        });
+      } else {
+        deferred.resolve(key);
+        useLanguage(key);
+      }
+
+      return deferred.promise;
+    };
+
+    /**
+     * @ngdoc function
+     * @name pascalprecht.translate.$translate#resolveClientLocale
+     * @methodOf pascalprecht.translate.$translate
+     *
+     * @description
+     * This returns the current browser/client's language key. The result is processed with the configured uniform tag resolver.
+     *
+     * @returns {string} the current client/browser language key
+     */
+    $translate.resolveClientLocale = function () {
+      return getLocale();
+    };
+
+    /**
+     * @ngdoc function
+     * @name pascalprecht.translate.$translate#storageKey
+     * @methodOf pascalprecht.translate.$translate
+     *
+     * @description
+     * Returns the key for the storage.
+     *
+     * @return {string} storage key
+     */
+    $translate.storageKey = function () {
+      return storageKey();
+    };
+
+    /**
+     * @ngdoc function
+     * @name pascalprecht.translate.$translate#isPostCompilingEnabled
+     * @methodOf pascalprecht.translate.$translate
+     *
+     * @description
+     * Returns whether post compiling is enabled or not
+     *
+     * @return {bool} storage key
+     */
+    $translate.isPostCompilingEnabled = function () {
+      return $postCompilingEnabled;
+    };
+
+    /**
+     * @ngdoc function
+     * @name pascalprecht.translate.$translate#isForceAsyncReloadEnabled
+     * @methodOf pascalprecht.translate.$translate
+     *
+     * @description
+     * Returns whether force async reload is enabled or not
+     *
+     * @return {boolean} forceAsyncReload value
+     */
+    $translate.isForceAsyncReloadEnabled = function () {
+      return $forceAsyncReloadEnabled;
+    };
+
+    /**
+     * @ngdoc function
+     * @name pascalprecht.translate.$translate#isKeepContent
+     * @methodOf pascalprecht.translate.$translate
+     *
+     * @description
+     * Returns whether keepContent or not
+     *
+     * @return {boolean} keepContent value
+     */
+    $translate.isKeepContent = function () {
+      return $keepContent;
+    };
+
+    /**
+     * @ngdoc function
+     * @name pascalprecht.translate.$translate#refresh
+     * @methodOf pascalprecht.translate.$translate
+     *
+     * @description
+     * Refreshes a translation table pointed by the given langKey. If langKey is not specified,
+     * the module will drop all existent translation tables and load new version of those which
+     * are currently in use.
+     *
+     * Refresh means that the module will drop target translation table and try to load it again.
+     *
+     * In case there are no loaders registered the refresh() method will throw an Error.
+     *
+     * If the module is able to refresh translation tables refresh() method will broadcast
+     * $translateRefreshStart and $translateRefreshEnd events.
+     *
+     * @example
+     * // this will drop all currently existent translation tables and reload those which are
+     * // currently in use
+     * $translate.refresh();
+     * // this will refresh a translation table for the en_US language
+     * $translate.refresh('en_US');
+     *
+     * @param {string} langKey A language key of the table, which has to be refreshed
+     *
+     * @return {promise} Promise, which will be resolved in case a translation tables refreshing
+     * process is finished successfully, and reject if not.
+     */
+    $translate.refresh = function (langKey) {
+      if (!$loaderFactory) {
+        throw new Error('Couldn\'t refresh translation table, no loader registered!');
+      }
+
+      $rootScope.$emit('$translateRefreshStart', {language : langKey});
+
+      var deferred = $q.defer(), updatedLanguages = {};
+
+      //private helper
+      function loadNewData(languageKey) {
+        var promise = loadAsync(languageKey);
+        //update the load promise cache for this language
+        langPromises[languageKey] = promise;
+        //register a data handler for the promise
+        promise.then(function (data) {
+            //clear the cache for this language
+            $translationTable[languageKey] = {};
+            //add the new data for this language
+            translations(languageKey, data.table);
+            //track that we updated this language
+            updatedLanguages[languageKey] = true;
+          },
+          //handle rejection to appease the $q validation
+          angular.noop);
+        return promise;
+      }
+
+      //set up post-processing
+      deferred.promise.then(
+        function () {
+          for (var key in $translationTable) {
+            if ($translationTable.hasOwnProperty(key)) {
+              //delete cache entries that were not updated
+              if (!(key in updatedLanguages)) {
+                delete $translationTable[key];
+              }
+            }
+          }
+          if ($uses) {
+            useLanguage($uses);
+          }
+        },
+        //handle rejection to appease the $q validation
+        angular.noop
+      ).finally(
+        function () {
+          $rootScope.$emit('$translateRefreshEnd', {language : langKey});
+        }
+      );
+
+      if (!langKey) {
+        // if there's no language key specified we refresh ALL THE THINGS!
+        var languagesToReload = $fallbackLanguage && $fallbackLanguage.slice() || [];
+        if ($uses && languagesToReload.indexOf($uses) === -1) {
+          languagesToReload.push($uses);
+        }
+        $q.all(languagesToReload.map(loadNewData)).then(deferred.resolve, deferred.reject);
+
+      } else if ($translationTable[langKey]) {
+        //just refresh the specified language cache
+        loadNewData(langKey).then(deferred.resolve, deferred.reject);
+
+      } else {
+        deferred.reject();
+      }
+
+      return deferred.promise;
+    };
+
+    /**
+     * @ngdoc function
+     * @name pascalprecht.translate.$translate#instant
+     * @methodOf pascalprecht.translate.$translate
+     *
+     * @description
+     * Returns a translation instantly from the internal state of loaded translation. All rules
+     * regarding the current language, the preferred language of even fallback languages will be
+     * used except any promise handling. If a language was not found, an asynchronous loading
+     * will be invoked in the background.
+     *
+     * @param {string|array} translationId A token which represents a translation id
+     *                                     This can be optionally an array of translation ids which
+     *                                     results that the function's promise returns an object where
+     *                                     each key is the translation id and the value the translation.
+     * @param {object} interpolateParams Params
+     * @param {string} interpolationId The id of the interpolation to use
+     * @param {string} forceLanguage A language to be used instead of the current language
+     * @param {string} sanitizeStrategy force sanitize strategy for this call instead of using the configured one
+     *
+     * @return {string|object} translation
+     */
+    $translate.instant = function (translationId, interpolateParams, interpolationId, forceLanguage, sanitizeStrategy) {
+
+      // we don't want to re-negotiate $uses
+      var uses = (forceLanguage && forceLanguage !== $uses) ? // we don't want to re-negotiate $uses
+        (negotiateLocale(forceLanguage) || forceLanguage) : $uses;
+
+      // Detect undefined and null values to shorten the execution and prevent exceptions
+      if (translationId === null || angular.isUndefined(translationId)) {
+        return translationId;
+      }
+
+      // Check forceLanguage is present
+      if (forceLanguage) {
+        loadTranslationsIfMissing(forceLanguage);
+      }
+
+      // Duck detection: If the first argument is an array, a bunch of translations was requested.
+      // The result is an object.
+      if (angular.isArray(translationId)) {
+        var results = {};
+        for (var i = 0, c = translationId.length; i < c; i++) {
+          results[translationId[i]] = $translate.instant(translationId[i], interpolateParams, interpolationId, forceLanguage, sanitizeStrategy);
+        }
+        return results;
+      }
+
+      // We discarded unacceptable values. So we just need to verify if translationId is empty String
+      if (angular.isString(translationId) && translationId.length < 1) {
+        return translationId;
+      }
+
+      // trim off any whitespace
+      if (translationId) {
+        translationId = trim.apply(translationId);
+      }
+
+      var result, possibleLangKeys = [];
+      if ($preferredLanguage) {
+        possibleLangKeys.push($preferredLanguage);
+      }
+      if (uses) {
+        possibleLangKeys.push(uses);
+      }
+      if ($fallbackLanguage && $fallbackLanguage.length) {
+        possibleLangKeys = possibleLangKeys.concat($fallbackLanguage);
+      }
+      for (var j = 0, d = possibleLangKeys.length; j < d; j++) {
+        var possibleLangKey = possibleLangKeys[j];
+        if ($translationTable[possibleLangKey]) {
+          if (typeof $translationTable[possibleLangKey][translationId] !== 'undefined') {
+            result = determineTranslationInstant(translationId, interpolateParams, interpolationId, uses, sanitizeStrategy);
+          }
+        }
+        if (typeof result !== 'undefined') {
+          break;
+        }
+      }
+
+      if (!result && result !== '') {
+        if ($notFoundIndicatorLeft || $notFoundIndicatorRight) {
+          result = applyNotFoundIndicators(translationId);
+        } else {
+          // Return translation of default interpolator if not found anything.
+          result = defaultInterpolator.interpolate(translationId, interpolateParams, 'filter', sanitizeStrategy);
+
+          // looks like the requested translation id doesn't exists.
+          // Now, if there is a registered handler for missing translations and no
+          // asyncLoader is pending, we execute the handler
+          var missingTranslationHandlerTranslation;
+          if ($missingTranslationHandlerFactory && !pendingLoader) {
+            missingTranslationHandlerTranslation = translateByHandler(translationId, interpolateParams, sanitizeStrategy);
+          }
+
+          if ($missingTranslationHandlerFactory && !pendingLoader && missingTranslationHandlerTranslation) {
+            result = missingTranslationHandlerTranslation;
+          }
+        }
+      }
+
+      return result;
+    };
+
+    /**
+     * @ngdoc function
+     * @name pascalprecht.translate.$translate#versionInfo
+     * @methodOf pascalprecht.translate.$translate
+     *
+     * @description
+     * Returns the current version information for the angular-translate library
+     *
+     * @return {string} angular-translate version
+     */
+    $translate.versionInfo = function () {
+      return version;
+    };
+
+    /**
+     * @ngdoc function
+     * @name pascalprecht.translate.$translate#loaderCache
+     * @methodOf pascalprecht.translate.$translate
+     *
+     * @description
+     * Returns the defined loaderCache.
+     *
+     * @return {boolean|string|object} current value of loaderCache
+     */
+    $translate.loaderCache = function () {
+      return loaderCache;
+    };
+
+    // internal purpose only
+    $translate.directivePriority = function () {
+      return directivePriority;
+    };
+
+    // internal purpose only
+    $translate.statefulFilter = function () {
+      return statefulFilter;
+    };
+
+    /**
+     * @ngdoc function
+     * @name pascalprecht.translate.$translate#isReady
+     * @methodOf pascalprecht.translate.$translate
+     *
+     * @description
+     * Returns whether the service is "ready" to translate (i.e. loading 1st language).
+     *
+     * See also {@link pascalprecht.translate.$translate#methods_onReady onReady()}.
+     *
+     * @return {boolean} current value of ready
+     */
+    $translate.isReady = function () {
+      return $isReady;
+    };
+
+    var $onReadyDeferred = $q.defer();
+    $onReadyDeferred.promise.then(function () {
+      $isReady = true;
+    });
+
+    /**
+     * @ngdoc function
+     * @name pascalprecht.translate.$translate#onReady
+     * @methodOf pascalprecht.translate.$translate
+     *
+     * @description
+     * Calls the function provided or resolved the returned promise after the service is "ready" to translate (i.e. loading 1st language).
+     *
+     * See also {@link pascalprecht.translate.$translate#methods_isReady isReady()}.
+     *
+     * @param {Function=} fn Function to invoke when service is ready
+     * @return {object} Promise resolved when service is ready
+     */
+    $translate.onReady = function (fn) {
+      var deferred = $q.defer();
+      if (angular.isFunction(fn)) {
+        deferred.promise.then(fn);
+      }
+      if ($isReady) {
+        deferred.resolve();
+      } else {
+        $onReadyDeferred.promise.then(deferred.resolve);
+      }
+      return deferred.promise;
+    };
+
+    /**
+     * @ngdoc function
+     * @name pascalprecht.translate.$translate#getAvailableLanguageKeys
+     * @methodOf pascalprecht.translate.$translate
+     *
+     * @description
+     * This function simply returns the registered language keys being defined before in the config phase
+     * With this, an application can use the array to provide a language selection dropdown or similar
+     * without any additional effort
+     *
+     * @returns {object} returns the list of possibly registered language keys and mapping or null if not defined
+     */
+    $translate.getAvailableLanguageKeys = function () {
+      if ($availableLanguageKeys.length > 0) {
+        return $availableLanguageKeys;
+      }
+      return null;
+    };
+
+    /**
+     * @ngdoc function
+     * @name pascalprecht.translate.$translate#getTranslationTable
+     * @methodOf pascalprecht.translate.$translate
+     *
+     * @description
+     * Returns translation table by the given language key.
+     *
+     * Unless a language is provided it returns a translation table of the current one.
+     * Note: If translation dictionary is currently downloading or in progress
+     * it will return null.
+     *
+     * @param {string} langKey A token which represents a translation id
+     *
+     * @return {object} a copy of angular-translate $translationTable
+     */
+    $translate.getTranslationTable = function (langKey) {
+      langKey = langKey || $translate.use();
+      if (langKey && $translationTable[langKey]) {
+        return angular.copy($translationTable[langKey]);
+      }
+      return null;
+    };
+
+    // Whenever $translateReady is being fired, this will ensure the state of $isReady
+    var globalOnReadyListener = $rootScope.$on('$translateReady', function () {
+      $onReadyDeferred.resolve();
+      globalOnReadyListener(); // one time only
+      globalOnReadyListener = null;
+    });
+    var globalOnChangeListener = $rootScope.$on('$translateChangeEnd', function () {
+      $onReadyDeferred.resolve();
+      globalOnChangeListener(); // one time only
+      globalOnChangeListener = null;
+    });
+
+    if ($loaderFactory) {
+
+      // If at least one async loader is defined and there are no
+      // (default) translations available we should try to load them.
+      if (angular.equals($translationTable, {})) {
+        if ($translate.use()) {
+          $translate.use($translate.use());
+        }
+      }
+
+      // Also, if there are any fallback language registered, we start
+      // loading them asynchronously as soon as we can.
+      if ($fallbackLanguage && $fallbackLanguage.length) {
+        var processAsyncResult = function (translation) {
+          translations(translation.key, translation.table);
+          $rootScope.$emit('$translateChangeEnd', {language : translation.key});
+          return translation;
+        };
+        for (var i = 0, len = $fallbackLanguage.length; i < len; i++) {
+          var fallbackLanguageId = $fallbackLanguage[i];
+          if ($forceAsyncReloadEnabled || !$translationTable[fallbackLanguageId]) {
+            langPromises[fallbackLanguageId] = loadAsync(fallbackLanguageId).then(processAsyncResult);
+          }
+        }
+      }
+    } else {
+      $rootScope.$emit('$translateReady', {language : $translate.use()});
+    }
+
+    return $translate;
+  }];
+}
+
+$translate.displayName = 'displayName';
+
+/**
+ * @ngdoc object
+ * @name pascalprecht.translate.$translateDefaultInterpolation
+ * @requires $interpolate
+ *
+ * @description
+ * Uses angular's `$interpolate` services to interpolate strings against some values.
+ *
+ * Be aware to configure a proper sanitization strategy.
+ *
+ * See also:
+ * * {@link pascalprecht.translate.$translateSanitization}
+ *
+ * @return {object} $translateDefaultInterpolation Interpolator service
+ */
+angular.module('pascalprecht.translate').factory('$translateDefaultInterpolation', $translateDefaultInterpolation);
+
+function $translateDefaultInterpolation ($interpolate, $translateSanitization) {
+
+  'use strict';
+
+  var $translateInterpolator = {},
+      $locale,
+      $identifier = 'default';
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateDefaultInterpolation#setLocale
+   * @methodOf pascalprecht.translate.$translateDefaultInterpolation
+   *
+   * @description
+   * Sets current locale (this is currently not use in this interpolation).
+   *
+   * @param {string} locale Language key or locale.
+   */
+  $translateInterpolator.setLocale = function (locale) {
+    $locale = locale;
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateDefaultInterpolation#getInterpolationIdentifier
+   * @methodOf pascalprecht.translate.$translateDefaultInterpolation
+   *
+   * @description
+   * Returns an identifier for this interpolation service.
+   *
+   * @returns {string} $identifier
+   */
+  $translateInterpolator.getInterpolationIdentifier = function () {
+    return $identifier;
+  };
+
+  /**
+   * @deprecated will be removed in 3.0
+   * @see {@link pascalprecht.translate.$translateSanitization}
+   */
+  $translateInterpolator.useSanitizeValueStrategy = function (value) {
+    $translateSanitization.useStrategy(value);
+    return this;
+  };
+
+  /**
+   * @ngdoc function
+   * @name pascalprecht.translate.$translateDefaultInterpolation#interpolate
+   * @methodOf pascalprecht.translate.$translateDefaultInterpolation
+   *
+   * @description
+   * Interpolates given value agains given interpolate params using angulars
+   * `$interpolate` service.
+   *
+   * Since AngularJS 1.5, `value` must not be a string but can be anything input.
+   *
+   * @param {string} value translation
+   * @param {object} interpolationParams interpolation params
+   * @param {string} context current context (filter, directive, service)
+   * @param {string} sanitizeStrategy sanitize strategy
+   * @param {string} translationId current translationId
+   *
+   * @returns {string} interpolated string
+   */
+  $translateInterpolator.interpolate = function (value, interpolationParams, context, sanitizeStrategy, translationId) { // jshint ignore:line
+    interpolationParams = interpolationParams || {};
+    interpolationParams = $translateSanitization.sanitize(interpolationParams, 'params', sanitizeStrategy, context);
+
+    var interpolatedText;
+    if (angular.isNumber(value)) {
+      // numbers are safe
+      interpolatedText = '' + value;
+    } else if (angular.isString(value)) {
+      // strings must be interpolated (that's the job here)
+      interpolatedText = $interpolate(value)(interpolationParams);
+      interpolatedText = $translateSanitization.sanitize(interpolatedText, 'text', sanitizeStrategy, context);
+    } else {
+      // neither a number or a string, cant interpolate => empty string
+      interpolatedText = '';
+    }
+
+    return interpolatedText;
+  };
+
+  return $translateInterpolator;
+}
+
+$translateDefaultInterpolation.displayName = '$translateDefaultInterpolation';
+
+angular.module('pascalprecht.translate').constant('$STORAGE_KEY', 'NG_TRANSLATE_LANG_KEY');
+
+angular.module('pascalprecht.translate')
+/**
+ * @ngdoc directive
+ * @name pascalprecht.translate.directive:translate
+ * @requires $interpolate, 
+ * @requires $compile, 
+ * @requires $parse, 
+ * @requires $rootScope
+ * @restrict AE
+ *
+ * @description
+ * Translates given translation id either through attribute or DOM content.
+ * Internally it uses $translate service to translate the translation id. It possible to
+ * pass an optional `translate-values` object literal as string into translation id.
+ *
+ * @param {string=} translate Translation id which could be either string or interpolated string.
+ * @param {string=} translate-values Values to pass into translation id. Can be passed as object literal string or interpolated object.
+ * @param {string=} translate-attr-ATTR translate Translation id and put it into ATTR attribute.
+ * @param {string=} translate-default will be used unless translation was successful
+ * @param {boolean=} translate-compile (default true if present) defines locally activation of {@link pascalprecht.translate.$translateProvider#methods_usePostCompiling}
+ * @param {boolean=} translate-keep-content (default true if present) defines that in case a KEY could not be translated, that the existing content is left in the innerHTML}
+ *
+ * @example
+   <example module="ngView">
+    <file name="index.html">
+      <div ng-controller="TranslateCtrl">
+
+        <pre translate="TRANSLATION_ID"></pre>
+        <pre translate>TRANSLATION_ID</pre>
+        <pre translate translate-attr-title="TRANSLATION_ID"></pre>
+        <pre translate="{{translationId}}"></pre>
+        <pre translate>{{translationId}}</pre>
+        <pre translate="WITH_VALUES" translate-values="{value: 5}"></pre>
+        <pre translate translate-values="{value: 5}">WITH_VALUES</pre>
+        <pre translate="WITH_VALUES" translate-values="{{values}}"></pre>
+        <pre translate translate-values="{{values}}">WITH_VALUES</pre>
+        <pre translate translate-attr-title="WITH_VALUES" translate-values="{{values}}"></pre>
+        <pre translate="WITH_CAMEL_CASE_KEY" translate-value-camel-case-key="Hi"></pre>
+
+      </div>
+    </file>
+    <file name="script.js">
+      angular.module('ngView', ['pascalprecht.translate'])
+
+      .config(function ($translateProvider) {
+
+        $translateProvider.translations('en',{
+          'TRANSLATION_ID': 'Hello there!',
+          'WITH_VALUES': 'The following value is dynamic: {{value}}',
+          'WITH_CAMEL_CASE_KEY': 'The interpolation key is camel cased: {{camelCaseKey}}'
+        }).preferredLanguage('en');
+
+      });
+
+      angular.module('ngView').controller('TranslateCtrl', function ($scope) {
+        $scope.translationId = 'TRANSLATION_ID';
+
+        $scope.values = {
+          value: 78
+        };
+      });
+    </file>
+    <file name="scenario.js">
+      it('should translate', function () {
+        inject(function ($rootScope, $compile) {
+          $rootScope.translationId = 'TRANSLATION_ID';
+
+          element = $compile('<p translate="TRANSLATION_ID"></p>')($rootScope);
+          $rootScope.$digest();
+          expect(element.text()).toBe('Hello there!');
+
+          element = $compile('<p translate="{{translationId}}"></p>')($rootScope);
+          $rootScope.$digest();
+          expect(element.text()).toBe('Hello there!');
+
+          element = $compile('<p translate>TRANSLATION_ID</p>')($rootScope);
+          $rootScope.$digest();
+          expect(element.text()).toBe('Hello there!');
+
+          element = $compile('<p translate>{{translationId}}</p>')($rootScope);
+          $rootScope.$digest();
+          expect(element.text()).toBe('Hello there!');
+
+          element = $compile('<p translate translate-attr-title="TRANSLATION_ID"></p>')($rootScope);
+          $rootScope.$digest();
+          expect(element.attr('title')).toBe('Hello there!');
+
+          element = $compile('<p translate="WITH_CAMEL_CASE_KEY" translate-value-camel-case-key="Hello"></p>')($rootScope);
+          $rootScope.$digest();
+          expect(element.text()).toBe('The interpolation key is camel cased: Hello');
+        });
+      });
+    </file>
+   </example>
+ */
+.directive('translate', translateDirective);
+function translateDirective($translate, $interpolate, $compile, $parse, $rootScope) {
+
+  'use strict';
+
+  /**
+   * @name trim
+   * @private
+   *
+   * @description
+   * trim polyfill
+   *
+   * @returns {string} The string stripped of whitespace from both ends
+   */
+  var trim = function() {
+    return this.toString().replace(/^\s+|\s+$/g, '');
+  };
+
+  return {
+    restrict: 'AE',
+    scope: true,
+    priority: $translate.directivePriority(),
+    compile: function (tElement, tAttr) {
+
+      var translateValuesExist = (tAttr.translateValues) ?
+        tAttr.translateValues : undefined;
+
+      var translateInterpolation = (tAttr.translateInterpolation) ?
+        tAttr.translateInterpolation : undefined;
+
+      var translateValueExist = tElement[0].outerHTML.match(/translate-value-+/i);
+
+      var interpolateRegExp = '^(.*)(' + $interpolate.startSymbol() + '.*' + $interpolate.endSymbol() + ')(.*)',
+          watcherRegExp = '^(.*)' + $interpolate.startSymbol() + '(.*)' + $interpolate.endSymbol() + '(.*)';
+
+      return function linkFn(scope, iElement, iAttr) {
+
+        scope.interpolateParams = {};
+        scope.preText = '';
+        scope.postText = '';
+        scope.translateNamespace = getTranslateNamespace(scope);
+        var translationIds = {};
+
+        var initInterpolationParams = function (interpolateParams, iAttr, tAttr) {
+          // initial setup
+          if (iAttr.translateValues) {
+            angular.extend(interpolateParams, $parse(iAttr.translateValues)(scope.$parent));
+          }
+          // initially fetch all attributes if existing and fill the params
+          if (translateValueExist) {
+            for (var attr in tAttr) {
+              if (Object.prototype.hasOwnProperty.call(iAttr, attr) && attr.substr(0, 14) === 'translateValue' && attr !== 'translateValues') {
+                var attributeName = angular.lowercase(attr.substr(14, 1)) + attr.substr(15);
+                interpolateParams[attributeName] = tAttr[attr];
+              }
+            }
+          }
+        };
+
+        // Ensures any change of the attribute "translate" containing the id will
+        // be re-stored to the scope's "translationId".
+        // If the attribute has no content, the element's text value (white spaces trimmed off) will be used.
+        var observeElementTranslation = function (translationId) {
+
+          // Remove any old watcher
+          if (angular.isFunction(observeElementTranslation._unwatchOld)) {
+            observeElementTranslation._unwatchOld();
+            observeElementTranslation._unwatchOld = undefined;
+          }
+
+          if (angular.equals(translationId , '') || !angular.isDefined(translationId)) {
+            var iElementText = trim.apply(iElement.text());
+
+            // Resolve translation id by inner html if required
+            var interpolateMatches = iElementText.match(interpolateRegExp);
+            // Interpolate translation id if required
+            if (angular.isArray(interpolateMatches)) {
+              scope.preText = interpolateMatches[1];
+              scope.postText = interpolateMatches[3];
+              translationIds.translate = $interpolate(interpolateMatches[2])(scope.$parent);
+              var watcherMatches = iElementText.match(watcherRegExp);
+              if (angular.isArray(watcherMatches) && watcherMatches[2] && watcherMatches[2].length) {
+                observeElementTranslation._unwatchOld = scope.$watch(watcherMatches[2], function (newValue) {
+                  translationIds.translate = newValue;
+                  updateTranslations();
+                });
+              }
+            } else {
+              // do not assigne the translation id if it is empty.
+              translationIds.translate = !iElementText ? undefined : iElementText;
+            }
+          } else {
+            translationIds.translate = translationId;
+          }
+          updateTranslations();
+        };
+
+        var observeAttributeTranslation = function (translateAttr) {
+          iAttr.$observe(translateAttr, function (translationId) {
+            translationIds[translateAttr] = translationId;
+            updateTranslations();
+          });
+        };
+
+        // initial setup with values
+        initInterpolationParams(scope.interpolateParams, iAttr, tAttr);
+
+        var firstAttributeChangedEvent = true;
+        iAttr.$observe('translate', function (translationId) {
+          if (typeof translationId === 'undefined') {
+            // case of element "<translate>xyz</translate>"
+            observeElementTranslation('');
+          } else {
+            // case of regular attribute
+            if (translationId !== '' || !firstAttributeChangedEvent) {
+              translationIds.translate = translationId;
+              updateTranslations();
+            }
+          }
+          firstAttributeChangedEvent = false;
+        });
+
+        for (var translateAttr in iAttr) {
+          if (iAttr.hasOwnProperty(translateAttr) && translateAttr.substr(0, 13) === 'translateAttr' && translateAttr.length > 13) {
+            observeAttributeTranslation(translateAttr);
+          }
+        }
+
+        iAttr.$observe('translateDefault', function (value) {
+          scope.defaultText = value;
+          updateTranslations();
+        });
+
+        if (translateValuesExist) {
+          iAttr.$observe('translateValues', function (interpolateParams) {
+            if (interpolateParams) {
+              scope.$parent.$watch(function () {
+                angular.extend(scope.interpolateParams, $parse(interpolateParams)(scope.$parent));
+              });
+            }
+          });
+        }
+
+        if (translateValueExist) {
+          var observeValueAttribute = function (attrName) {
+            iAttr.$observe(attrName, function (value) {
+              var attributeName = angular.lowercase(attrName.substr(14, 1)) + attrName.substr(15);
+              scope.interpolateParams[attributeName] = value;
+            });
+          };
+          for (var attr in iAttr) {
+            if (Object.prototype.hasOwnProperty.call(iAttr, attr) && attr.substr(0, 14) === 'translateValue' && attr !== 'translateValues') {
+              observeValueAttribute(attr);
+            }
+          }
+        }
+
+        // Master update function
+        var updateTranslations = function () {
+          for (var key in translationIds) {
+            if (translationIds.hasOwnProperty(key) && translationIds[key] !== undefined) {
+              updateTranslation(key, translationIds[key], scope, scope.interpolateParams, scope.defaultText, scope.translateNamespace);
+            }
+          }
+        };
+
+        // Put translation processing function outside loop
+        var updateTranslation = function(translateAttr, translationId, scope, interpolateParams, defaultTranslationText, translateNamespace) {
+          if (translationId) {
+            // if translation id starts with '.' and translateNamespace given, prepend namespace
+            if (translateNamespace && translationId.charAt(0) === '.') {
+              translationId = translateNamespace + translationId;
+            }
+
+            $translate(translationId, interpolateParams, translateInterpolation, defaultTranslationText, scope.translateLanguage)
+              .then(function (translation) {
+                applyTranslation(translation, scope, true, translateAttr);
+              }, function (translationId) {
+                applyTranslation(translationId, scope, false, translateAttr);
+              });
+          } else {
+            // as an empty string cannot be translated, we can solve this using successful=false
+            applyTranslation(translationId, scope, false, translateAttr);
+          }
+        };
+
+        var applyTranslation = function (value, scope, successful, translateAttr) {
+          if (!successful) {
+            if (typeof scope.defaultText !== 'undefined') {
+              value = scope.defaultText;
+            }
+          }
+          if (translateAttr === 'translate') {
+            // default translate into innerHTML
+            if (successful || (!successful && !$translate.isKeepContent() && typeof iAttr.translateKeepContent === 'undefined')) {
+              iElement.empty().append(scope.preText + value + scope.postText);
+            }
+            var globallyEnabled = $translate.isPostCompilingEnabled();
+            var locallyDefined = typeof tAttr.translateCompile !== 'undefined';
+            var locallyEnabled = locallyDefined && tAttr.translateCompile !== 'false';
+            if ((globallyEnabled && !locallyDefined) || locallyEnabled) {
+              $compile(iElement.contents())(scope);
+            }
+          } else {
+            // translate attribute
+            var attributeName = iAttr.$attr[translateAttr];
+            if (attributeName.substr(0, 5) === 'data-') {
+              // ensure html5 data prefix is stripped
+              attributeName = attributeName.substr(5);
+            }
+            attributeName = attributeName.substr(15);
+            iElement.attr(attributeName, value);
+          }
+        };
+
+        if (translateValuesExist || translateValueExist || iAttr.translateDefault) {
+          scope.$watch('interpolateParams', updateTranslations, true);
+        }
+
+        // Replaced watcher on translateLanguage with event listener
+        scope.$on('translateLanguageChanged', updateTranslations);
+
+        // Ensures the text will be refreshed after the current language was changed
+        // w/ $translate.use(...)
+        var unbind = $rootScope.$on('$translateChangeSuccess', updateTranslations);
+
+        // ensure translation will be looked up at least one
+        if (iElement.text().length) {
+          if (iAttr.translate) {
+            observeElementTranslation(iAttr.translate);
+          } else {
+            observeElementTranslation('');
+          }
+        } else if (iAttr.translate) {
+          // ensure attribute will be not skipped
+          observeElementTranslation(iAttr.translate);
+        }
+        updateTranslations();
+        scope.$on('$destroy', unbind);
+      };
+    }
+  };
+}
+
+/**
+ * Returns the scope's namespace.
+ * @private
+ * @param scope
+ * @returns {string}
+ */
+function getTranslateNamespace(scope) {
+  'use strict';
+  if (scope.translateNamespace) {
+    return scope.translateNamespace;
+  }
+  if (scope.$parent) {
+    return getTranslateNamespace(scope.$parent);
+  }
+}
+
+translateDirective.displayName = 'translateDirective';
+
+angular.module('pascalprecht.translate')
+/**
+ * @ngdoc directive
+ * @name pascalprecht.translate.directive:translate-attr
+ * @restrict A
+ *
+ * @description
+ * Translates attributes like translate-attr-ATTR, but with an object like ng-class.
+ * Internally it uses `translate` service to translate translation id. It possible to
+ * pass an optional `translate-values` object literal as string into translation id.
+ *
+ * @param {string=} translate-attr Object literal mapping attributes to translation ids.
+ * @param {string=} translate-values Values to pass into the translation ids. Can be passed as object literal string.
+ *
+ * @example
+   <example module="ngView">
+    <file name="index.html">
+      <div ng-controller="TranslateCtrl">
+
+        <input translate-attr="{ placeholder: translationId, title: 'WITH_VALUES' }" translate-values="{value: 5}" />
+
+      </div>
+    </file>
+    <file name="script.js">
+      angular.module('ngView', ['pascalprecht.translate'])
+
+      .config(function ($translateProvider) {
+
+        $translateProvider.translations('en',{
+          'TRANSLATION_ID': 'Hello there!',
+          'WITH_VALUES': 'The following value is dynamic: {{value}}',
+        }).preferredLanguage('en');
+
+      });
+
+      angular.module('ngView').controller('TranslateCtrl', function ($scope) {
+        $scope.translationId = 'TRANSLATION_ID';
+
+        $scope.values = {
+          value: 78
+        };
+      });
+    </file>
+    <file name="scenario.js">
+      it('should translate', function () {
+        inject(function ($rootScope, $compile) {
+          $rootScope.translationId = 'TRANSLATION_ID';
+
+          element = $compile('<input translate-attr="{ placeholder: translationId, title: 'WITH_VALUES' }" translate-values="{ value: 5 }" />')($rootScope);
+          $rootScope.$digest();
+          expect(element.attr('placeholder)).toBe('Hello there!');
+          expect(element.attr('title)).toBe('The following value is dynamic: 5');
+        });
+      });
+    </file>
+   </example>
+ */
+.directive('translateAttr', translateAttrDirective);
+function translateAttrDirective($translate, $rootScope) {
+
+  'use strict';
+
+  return {
+    restrict: 'A',
+    priority: $translate.directivePriority(),
+    link: function linkFn(scope, element, attr) {
+
+      var translateAttr,
+          translateValues,
+          previousAttributes = {};
+
+      // Main update translations function
+      var updateTranslations = function () {
+        angular.forEach(translateAttr, function (translationId, attributeName) {
+          if (!translationId) {
+            return;
+          }
+          previousAttributes[attributeName] = true;
+
+          // if translation id starts with '.' and translateNamespace given, prepend namespace
+          if (scope.translateNamespace && translationId.charAt(0) === '.') {
+            translationId = scope.translateNamespace + translationId;
+          }
+          $translate(translationId, translateValues, attr.translateInterpolation, undefined, scope.translateLanguage)
+            .then(function (translation) {
+              element.attr(attributeName, translation);
+            }, function (translationId) {
+              element.attr(attributeName, translationId);
+            });
+        });
+
+        // Removing unused attributes that were previously used
+        angular.forEach(previousAttributes, function (flag, attributeName) {
+          if (!translateAttr[attributeName]) {
+            element.removeAttr(attributeName);
+            delete previousAttributes[attributeName];
+          }
+        });
+      };
+
+      // Watch for attribute changes
+      watchAttribute(
+        scope,
+        attr.translateAttr,
+        function (newValue) { translateAttr = newValue; },
+        updateTranslations
+      );
+      // Watch for value changes
+      watchAttribute(
+        scope,
+        attr.translateValues,
+        function (newValue) { translateValues = newValue; },
+        updateTranslations
+      );
+
+      if (attr.translateValues) {
+        scope.$watch(attr.translateValues, updateTranslations, true);
+      }
+
+      // Replaced watcher on translateLanguage with event listener
+      scope.$on('translateLanguageChanged', updateTranslations);
+
+      // Ensures the text will be refreshed after the current language was changed
+      // w/ $translate.use(...)
+      var unbind = $rootScope.$on('$translateChangeSuccess', updateTranslations);
+
+      updateTranslations();
+      scope.$on('$destroy', unbind);
+    }
+  };
+}
+
+function watchAttribute(scope, attribute, valueCallback, changeCallback) {
+  'use strict';
+  if (!attribute) {
+    return;
+  }
+  if (attribute.substr(0, 2) === '::') {
+    attribute = attribute.substr(2);
+  } else {
+    scope.$watch(attribute, function(newValue) {
+      valueCallback(newValue);
+      changeCallback();
+    }, true);
+  }
+  valueCallback(scope.$eval(attribute));
+}
+
+translateAttrDirective.displayName = 'translateAttrDirective';
+
+angular.module('pascalprecht.translate')
+/**
+ * @ngdoc directive
+ * @name pascalprecht.translate.directive:translateCloak
+ * @requires $translate
+ * @restrict A
+ *
+ * $description
+ * Adds a `translate-cloak` class name to the given element where this directive
+ * is applied initially and removes it, once a loader has finished loading.
+ *
+ * This directive can be used to prevent initial flickering when loading translation
+ * data asynchronously.
+ *
+ * The class name is defined in
+ * {@link pascalprecht.translate.$translateProvider#cloakClassName $translate.cloakClassName()}.
+ *
+ * @param {string=} translate-cloak If a translationId is provided, it will be used for showing
+ *                                  or hiding the cloak. Basically it relies on the translation
+ *                                  resolve.
+ */
+.directive('translateCloak', translateCloakDirective);
+
+function translateCloakDirective($translate, $rootScope) {
+
+  'use strict';
+
+  return {
+    compile : function (tElement) {
+      var applyCloak = function (element) {
+          element.addClass($translate.cloakClassName());
+        },
+        removeCloak = function (element) {
+          element.removeClass($translate.cloakClassName());
+        };
+      applyCloak(tElement);
+
+      return function linkFn(scope, iElement, iAttr) {
+        //Create bound functions that incorporate the active DOM element.
+        var iRemoveCloak = removeCloak.bind(this, iElement), iApplyCloak = applyCloak.bind(this, iElement);
+        if (iAttr.translateCloak && iAttr.translateCloak.length) {
+          // Register a watcher for the defined translation allowing a fine tuned cloak
+          iAttr.$observe('translateCloak', function (translationId) {
+            $translate(translationId).then(iRemoveCloak, iApplyCloak);
+          });
+          $rootScope.$on('$translateChangeSuccess', function () {
+            $translate(iAttr.translateCloak).then(iRemoveCloak, iApplyCloak);
+          });
+        } else {
+          $translate.onReady(iRemoveCloak);
+        }
+      };
+    }
+  };
+}
+
+translateCloakDirective.displayName = 'translateCloakDirective';
+
+angular.module('pascalprecht.translate')
+/**
+ * @ngdoc directive
+ * @name pascalprecht.translate.directive:translateNamespace
+ * @restrict A
+ *
+ * @description
+ * Translates given translation id either through attribute or DOM content.
+ * Internally it uses `translate` filter to translate translation id. It possible to
+ * pass an optional `translate-values` object literal as string into translation id.
+ *
+ * @param {string=} translate namespace name which could be either string or interpolated string.
+ *
+ * @example
+   <example module="ngView">
+    <file name="index.html">
+      <div translate-namespace="CONTENT">
+
+        <div>
+            <h1 translate>.HEADERS.TITLE</h1>
+            <h1 translate>.HEADERS.WELCOME</h1>
+        </div>
+
+        <div translate-namespace=".HEADERS">
+            <h1 translate>.TITLE</h1>
+            <h1 translate>.WELCOME</h1>
+        </div>
+
+      </div>
+    </file>
+    <file name="script.js">
+      angular.module('ngView', ['pascalprecht.translate'])
+
+      .config(function ($translateProvider) {
+
+        $translateProvider.translations('en',{
+          'TRANSLATION_ID': 'Hello there!',
+          'CONTENT': {
+            'HEADERS': {
+                TITLE: 'Title'
+            }
+          },
+          'CONTENT.HEADERS.WELCOME': 'Welcome'
+        }).preferredLanguage('en');
+
+      });
+
+    </file>
+   </example>
+ */
+.directive('translateNamespace', translateNamespaceDirective);
+
+function translateNamespaceDirective() {
+
+  'use strict';
+
+  return {
+    restrict: 'A',
+    scope: true,
+    compile: function () {
+      return {
+        pre: function (scope, iElement, iAttrs) {
+          scope.translateNamespace = getTranslateNamespace(scope);
+
+          if (scope.translateNamespace && iAttrs.translateNamespace.charAt(0) === '.') {
+            scope.translateNamespace += iAttrs.translateNamespace;
+          } else {
+            scope.translateNamespace = iAttrs.translateNamespace;
+          }
+        }
+      };
+    }
+  };
+}
+
+/**
+ * Returns the scope's namespace.
+ * @private
+ * @param scope
+ * @returns {string}
+ */
+function getTranslateNamespace(scope) {
+  'use strict';
+  if (scope.translateNamespace) {
+    return scope.translateNamespace;
+  }
+  if (scope.$parent) {
+    return getTranslateNamespace(scope.$parent);
+  }
+}
+
+translateNamespaceDirective.displayName = 'translateNamespaceDirective';
+
+angular.module('pascalprecht.translate')
+/**
+ * @ngdoc directive
+ * @name pascalprecht.translate.directive:translateLanguage
+ * @restrict A
+ *
+ * @description
+ * Forces the language to the directives in the underlying scope.
+ *
+ * @param {string=} translate language that will be negotiated.
+ *
+ * @example
+   <example module="ngView">
+    <file name="index.html">
+      <div>
+
+        <div>
+            <h1 translate>HELLO</h1>
+        </div>
+
+        <div translate-language="de">
+            <h1 translate>HELLO</h1>
+        </div>
+
+      </div>
+    </file>
+    <file name="script.js">
+      angular.module('ngView', ['pascalprecht.translate'])
+
+      .config(function ($translateProvider) {
+
+        $translateProvider
+          .translations('en',{
+            'HELLO': 'Hello world!'
+          })
+          .translations('de',{
+            'HELLO': 'Hallo Welt!'
+          })
+          .preferredLanguage('en');
+
+      });
+
+    </file>
+   </example>
+ */
+.directive('translateLanguage', translateLanguageDirective);
+
+function translateLanguageDirective() {
+
+  'use strict';
+
+  return {
+    restrict: 'A',
+    scope: true,
+    compile: function () {
+      return function linkFn(scope, iElement, iAttrs) {
+
+        iAttrs.$observe('translateLanguage', function (newTranslateLanguage) {
+          scope.translateLanguage = newTranslateLanguage;
+        });
+
+        scope.$watch('translateLanguage', function(){
+          scope.$broadcast('translateLanguageChanged');
+        });
+      };
+    }
+  };
+}
+
+translateLanguageDirective.displayName = 'translateLanguageDirective';
+
+angular.module('pascalprecht.translate')
+/**
+ * @ngdoc filter
+ * @name pascalprecht.translate.filter:translate
+ * @requires $parse
+ * @requires pascalprecht.translate.$translate
+ * @function
+ *
+ * @description
+ * Uses `$translate` service to translate contents. Accepts interpolate parameters
+ * to pass dynamized values though translation.
+ *
+ * @param {string} translationId A translation id to be translated.
+ * @param {*=} interpolateParams Optional object literal (as hash or string) to pass values into translation.
+ *
+ * @returns {string} Translated text.
+ *
+ * @example
+   <example module="ngView">
+    <file name="index.html">
+      <div ng-controller="TranslateCtrl">
+
+        <pre>{{ 'TRANSLATION_ID' | translate }}</pre>
+        <pre>{{ translationId | translate }}</pre>
+        <pre>{{ 'WITH_VALUES' | translate:'{value: 5}' }}</pre>
+        <pre>{{ 'WITH_VALUES' | translate:values }}</pre>
+
+      </div>
+    </file>
+    <file name="script.js">
+      angular.module('ngView', ['pascalprecht.translate'])
+
+      .config(function ($translateProvider) {
+
+        $translateProvider.translations('en', {
+          'TRANSLATION_ID': 'Hello there!',
+          'WITH_VALUES': 'The following value is dynamic: {{value}}'
+        });
+        $translateProvider.preferredLanguage('en');
+
+      });
+
+      angular.module('ngView').controller('TranslateCtrl', function ($scope) {
+        $scope.translationId = 'TRANSLATION_ID';
+
+        $scope.values = {
+          value: 78
+        };
+      });
+    </file>
+   </example>
+ */
+.filter('translate', translateFilterFactory);
+
+function translateFilterFactory($parse, $translate) {
+
+  'use strict';
+
+  var translateFilter = function (translationId, interpolateParams, interpolation, forceLanguage) {
+    if (!angular.isObject(interpolateParams)) {
+      var ctx = this || {
+        '__SCOPE_IS_NOT_AVAILABLE': 'More info at https://github.com/angular/angular.js/commit/8863b9d04c722b278fa93c5d66ad1e578ad6eb1f'
+        };
+      interpolateParams = $parse(interpolateParams)(ctx);
+    }
+
+    return $translate.instant(translationId, interpolateParams, interpolation, forceLanguage);
+  };
+
+  if ($translate.statefulFilter()) {
+    translateFilter.$stateful = true;
+  }
+
+  return translateFilter;
+}
+
+translateFilterFactory.displayName = 'translateFilterFactory';
+
+angular.module('pascalprecht.translate')
+
+/**
+ * @ngdoc object
+ * @name pascalprecht.translate.$translationCache
+ * @requires $cacheFactory
+ *
+ * @description
+ * The first time a translation table is used, it is loaded in the translation cache for quick retrieval. You
+ * can load translation tables directly into the cache by consuming the
+ * `$translationCache` service directly.
+ *
+ * @return {object} $cacheFactory object.
+ */
+  .factory('$translationCache', $translationCache);
+
+function $translationCache($cacheFactory) {
+
+  'use strict';
+
+  return $cacheFactory('translations');
+}
+
+$translationCache.displayName = '$translationCache';
+return 'pascalprecht.translate';
+
+}));
+
+
+/***/ }),
+/* 75 */
+/* unknown exports provided */
+/* all exports used */
+/*!*********************************!*\
+  !*** ./src/i18n/locale-en.json ***!
+  \*********************************/
+/***/ (function(module, exports) {
+
+module.exports = {
+	"thError": {
+		"error": "We had trouble loading your content.",
+		"instructions": "Try reloading the page."
+	}
+};
+
+/***/ }),
+/* 76 */
+/* unknown exports provided */
+/* all exports used */
 /*!******************************************!*\
   !*** ./src/lib/thActionBar/index.coffee ***!
   \******************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thActionBar.component */ 145);
+__webpack_require__(/*! ./thActionBar.component */ 148);
 
-__webpack_require__(/*! ./thActionBarDelegate.service */ 146);
+__webpack_require__(/*! ./thActionBarDelegate.service */ 149);
 
 
 /***/ }),
-/* 74 */
+/* 77 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -75891,15 +79741,15 @@ __webpack_require__(/*! ./thActionBarDelegate.service */ 146);
   \*************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thActionBarBilling.directive */ 147);
+__webpack_require__(/*! ./thActionBarBilling.directive */ 150);
 
-__webpack_require__(/*! ./thActionBarBillingDelegate.service */ 148);
+__webpack_require__(/*! ./thActionBarBillingDelegate.service */ 151);
 
-__webpack_require__(/*! ./thSelectableCollection.service */ 149);
+__webpack_require__(/*! ./thSelectableCollection.service */ 152);
 
 
 /***/ }),
-/* 75 */
+/* 78 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************!*\
@@ -75907,13 +79757,13 @@ __webpack_require__(/*! ./thSelectableCollection.service */ 149);
   \**************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thAlertManager.service */ 151);
+__webpack_require__(/*! ./thAlertManager.service */ 154);
 
-__webpack_require__(/*! ./thAlertAnchor.directive */ 150);
+__webpack_require__(/*! ./thAlertAnchor.directive */ 153);
 
 
 /***/ }),
-/* 76 */
+/* 79 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************!*\
@@ -75921,11 +79771,11 @@ __webpack_require__(/*! ./thAlertAnchor.directive */ 150);
   \***************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thButton.directive */ 152);
+__webpack_require__(/*! ./thButton.directive */ 155);
 
 
 /***/ }),
-/* 77 */
+/* 80 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************!*\
@@ -75933,11 +79783,11 @@ __webpack_require__(/*! ./thButton.directive */ 152);
   \*****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thCheckbox.directive */ 153);
+__webpack_require__(/*! ./thCheckbox.directive */ 156);
 
 
 /***/ }),
-/* 78 */
+/* 81 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************!*\
@@ -75945,11 +79795,11 @@ __webpack_require__(/*! ./thCheckbox.directive */ 153);
   \****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thCompile.directive */ 154);
+__webpack_require__(/*! ./thCompile.directive */ 157);
 
 
 /***/ }),
-/* 79 */
+/* 82 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************!*\
@@ -75957,11 +79807,11 @@ __webpack_require__(/*! ./thCompile.directive */ 154);
   \**********************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thContentHeader.directive */ 155);
+__webpack_require__(/*! ./thContentHeader.directive */ 158);
 
 
 /***/ }),
-/* 80 */
+/* 83 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************!*\
@@ -75969,13 +79819,13 @@ __webpack_require__(/*! ./thContentHeader.directive */ 155);
   \**************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thContextualMessage.service */ 157);
+__webpack_require__(/*! ./thContextualMessage.service */ 160);
 
-__webpack_require__(/*! ./thContextualMessage.directive */ 156);
+__webpack_require__(/*! ./thContextualMessage.directive */ 159);
 
 
 /***/ }),
-/* 81 */
+/* 84 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************!*\
@@ -75983,11 +79833,11 @@ __webpack_require__(/*! ./thContextualMessage.directive */ 156);
   \*****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thDefaults.service */ 158);
+__webpack_require__(/*! ./thDefaults.service */ 161);
 
 
 /***/ }),
-/* 82 */
+/* 85 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************!*\
@@ -75995,15 +79845,15 @@ __webpack_require__(/*! ./thDefaults.service */ 158);
   \*******************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thDisclosureManager.service */ 160);
+__webpack_require__(/*! ./thDisclosureManager.service */ 163);
 
-__webpack_require__(/*! ./thDisclosureToggle.directive */ 161);
+__webpack_require__(/*! ./thDisclosureToggle.directive */ 164);
 
-__webpack_require__(/*! ./thDisclosureContent.directive */ 159);
+__webpack_require__(/*! ./thDisclosureContent.directive */ 162);
 
 
 /***/ }),
-/* 83 */
+/* 86 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************!*\
@@ -76011,15 +79861,15 @@ __webpack_require__(/*! ./thDisclosureContent.directive */ 159);
   \*****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thDropdown.directive */ 163);
+__webpack_require__(/*! ./thDropdown.directive */ 166);
 
-__webpack_require__(/*! ./thItem.directive */ 164);
+__webpack_require__(/*! ./thItem.directive */ 167);
 
-__webpack_require__(/*! ./thDivider.directive */ 162);
+__webpack_require__(/*! ./thDivider.directive */ 165);
 
 
 /***/ }),
-/* 84 */
+/* 87 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************!*\
@@ -76027,59 +79877,7 @@ __webpack_require__(/*! ./thDivider.directive */ 162);
   \**************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thError.directive */ 165);
-
-
-/***/ }),
-/* 85 */
-/* unknown exports provided */
-/* all exports used */
-/*!***************************************!*\
-  !*** ./src/lib/thFilter/index.coffee ***!
-  \***************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(/*! ./filters/ */ 174);
-
-__webpack_require__(/*! ./thFilter.directive */ 191);
-
-__webpack_require__(/*! ./thCustomFilterRow.directive */ 189);
-
-__webpack_require__(/*! ./thCustomFilters.component */ 190);
-
-__webpack_require__(/*! ./thSearchRow.directive */ 192);
-
-__webpack_require__(/*! ./thStaticFilters.directive */ 193);
-
-__webpack_require__(/*! ./thCustomFilterConverter.service */ 187);
-
-
-/***/ }),
-/* 86 */
-/* unknown exports provided */
-/* all exports used */
-/*!**************************************!*\
-  !*** ./src/lib/thInput/index.coffee ***!
-  \**************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(/*! ./thInput.directive */ 194);
-
-
-/***/ }),
-/* 87 */
-/* unknown exports provided */
-/* all exports used */
-/*!*************************************!*\
-  !*** ./src/lib/thLazy/index.coffee ***!
-  \*************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(/*! ./thLazyManager.service */ 196);
-
-__webpack_require__(/*! ./thLazy.component */ 195);
-
-__webpack_require__(/*! ./thMetaLoader.component */ 197);
+__webpack_require__(/*! ./thError.directive */ 168);
 
 
 /***/ }),
@@ -76087,11 +79885,23 @@ __webpack_require__(/*! ./thMetaLoader.component */ 197);
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************!*\
-  !*** ./src/lib/thLoader/index.coffee ***!
+  !*** ./src/lib/thFilter/index.coffee ***!
   \***************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thLoader.directive */ 198);
+__webpack_require__(/*! ./filters/ */ 177);
+
+__webpack_require__(/*! ./thFilter.directive */ 194);
+
+__webpack_require__(/*! ./thCustomFilterRow.directive */ 192);
+
+__webpack_require__(/*! ./thCustomFilters.component */ 193);
+
+__webpack_require__(/*! ./thSearchRow.directive */ 195);
+
+__webpack_require__(/*! ./thStaticFilters.directive */ 196);
+
+__webpack_require__(/*! ./thCustomFilterConverter.service */ 190);
 
 
 /***/ }),
@@ -76099,63 +79909,57 @@ __webpack_require__(/*! ./thLoader.directive */ 198);
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************!*\
-  !*** ./src/lib/thModal/index.coffee ***!
+  !*** ./src/lib/thInput/index.coffee ***!
   \**************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thModalTitlebar/ */ 202);
-
-__webpack_require__(/*! ./thModalManager.service */ 201);
-
-__webpack_require__(/*! ./thModal.directive */ 199);
-
-__webpack_require__(/*! ./thModalAnchor.directive */ 200);
+__webpack_require__(/*! ./thInput.directive */ 197);
 
 
 /***/ }),
 /* 90 */
 /* unknown exports provided */
 /* all exports used */
-/*!***************************************!*\
-  !*** ./src/lib/thPlural/index.coffee ***!
-  \***************************************/
+/*!*************************************!*\
+  !*** ./src/lib/thLazy/index.coffee ***!
+  \*************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thPlural.filter */ 204);
+__webpack_require__(/*! ./thLazyManager.service */ 199);
+
+__webpack_require__(/*! ./thLazy.component */ 198);
+
+__webpack_require__(/*! ./thMetaLoader.component */ 200);
 
 
 /***/ }),
 /* 91 */
 /* unknown exports provided */
 /* all exports used */
-/*!****************************************!*\
-  !*** ./src/lib/thPopover/index.coffee ***!
-  \****************************************/
+/*!***************************************!*\
+  !*** ./src/lib/thLoader/index.coffee ***!
+  \***************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thPopoverManager.service */ 208);
-
-__webpack_require__(/*! ./thPopover.directive */ 206);
-
-__webpack_require__(/*! ./thPopoverUrl.directive */ 210);
-
-__webpack_require__(/*! ./thPopoverContent.directive */ 207);
-
-__webpack_require__(/*! ./thPopoverTarget.directive */ 209);
+__webpack_require__(/*! ./thLoader.directive */ 201);
 
 
 /***/ }),
 /* 92 */
 /* unknown exports provided */
 /* all exports used */
-/*!*******************************************!*\
-  !*** ./src/lib/thRadioGroup/index.coffee ***!
-  \*******************************************/
+/*!**************************************!*\
+  !*** ./src/lib/thModal/index.coffee ***!
+  \**************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thRadioGroup.directive */ 212);
+__webpack_require__(/*! ./thModalTitlebar/ */ 250);
 
-__webpack_require__(/*! ./thRadioButton.directive */ 211);
+__webpack_require__(/*! ./thModalManager.service */ 204);
+
+__webpack_require__(/*! ./thModal.directive */ 202);
+
+__webpack_require__(/*! ./thModalAnchor.directive */ 203);
 
 
 /***/ }),
@@ -76163,53 +79967,45 @@ __webpack_require__(/*! ./thRadioButton.directive */ 211);
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************!*\
-  !*** ./src/lib/thSelect/index.coffee ***!
+  !*** ./src/lib/thPlural/index.coffee ***!
   \***************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thSelect.directive */ 213);
+__webpack_require__(/*! ./thPlural.filter */ 205);
 
 
 /***/ }),
 /* 94 */
 /* unknown exports provided */
 /* all exports used */
-/*!***************************************!*\
-  !*** ./src/lib/thSwitch/index.coffee ***!
-  \***************************************/
+/*!****************************************!*\
+  !*** ./src/lib/thPopover/index.coffee ***!
+  \****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thSwitch.directive */ 214);
+__webpack_require__(/*! ./thPopoverManager.service */ 209);
+
+__webpack_require__(/*! ./thPopover.directive */ 207);
+
+__webpack_require__(/*! ./thPopoverUrl.directive */ 211);
+
+__webpack_require__(/*! ./thPopoverContent.directive */ 208);
+
+__webpack_require__(/*! ./thPopoverTarget.directive */ 210);
 
 
 /***/ }),
 /* 95 */
 /* unknown exports provided */
 /* all exports used */
-/*!**************************************!*\
-  !*** ./src/lib/thTable/index.coffee ***!
-  \**************************************/
+/*!*******************************************!*\
+  !*** ./src/lib/thRadioGroup/index.coffee ***!
+  \*******************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thTable.directive */ 216);
+__webpack_require__(/*! ./thRadioGroup.directive */ 213);
 
-__webpack_require__(/*! ./thTableCell.directive */ 218);
-
-__webpack_require__(/*! ./thTableRow.directive */ 224);
-
-__webpack_require__(/*! ./thSimpleTableDelegate.service */ 215);
-
-__webpack_require__(/*! ./thTable.service */ 217);
-
-__webpack_require__(/*! ./thTableDelegate.service */ 219);
-
-__webpack_require__(/*! ./thTableHeader.service */ 221);
-
-__webpack_require__(/*! ./thTableFooter.service */ 220);
-
-__webpack_require__(/*! ./thTablePagination.service */ 223);
-
-__webpack_require__(/*! ./thTableSort.service */ 225);
+__webpack_require__(/*! ./thRadioButton.directive */ 212);
 
 
 /***/ }),
@@ -76217,17 +80013,71 @@ __webpack_require__(/*! ./thTableSort.service */ 225);
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************!*\
-  !*** ./src/lib/thTabset/index.coffee ***!
+  !*** ./src/lib/thSelect/index.coffee ***!
   \***************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thTabset.directive */ 227);
-
-__webpack_require__(/*! ./thTab.directive */ 226);
+__webpack_require__(/*! ./thSelect.directive */ 214);
 
 
 /***/ }),
 /* 97 */
+/* unknown exports provided */
+/* all exports used */
+/*!***************************************!*\
+  !*** ./src/lib/thSwitch/index.coffee ***!
+  \***************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! ./thSwitch.directive */ 215);
+
+
+/***/ }),
+/* 98 */
+/* unknown exports provided */
+/* all exports used */
+/*!**************************************!*\
+  !*** ./src/lib/thTable/index.coffee ***!
+  \**************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! ./thTable.directive */ 217);
+
+__webpack_require__(/*! ./thTableCell.directive */ 219);
+
+__webpack_require__(/*! ./thTableRow.directive */ 225);
+
+__webpack_require__(/*! ./thSimpleTableDelegate.service */ 216);
+
+__webpack_require__(/*! ./thTable.service */ 218);
+
+__webpack_require__(/*! ./thTableDelegate.service */ 220);
+
+__webpack_require__(/*! ./thTableHeader.service */ 222);
+
+__webpack_require__(/*! ./thTableFooter.service */ 221);
+
+__webpack_require__(/*! ./thTablePagination.service */ 224);
+
+__webpack_require__(/*! ./thTableSort.service */ 226);
+
+
+/***/ }),
+/* 99 */
+/* unknown exports provided */
+/* all exports used */
+/*!***************************************!*\
+  !*** ./src/lib/thTabset/index.coffee ***!
+  \***************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! ./thTabset.directive */ 228);
+
+__webpack_require__(/*! ./thTab.directive */ 227);
+
+
+/***/ }),
+/* 100 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************!*\
@@ -76235,11 +80085,11 @@ __webpack_require__(/*! ./thTab.directive */ 226);
   \*****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thTextarea.directive */ 228);
+__webpack_require__(/*! ./thTextarea.directive */ 229);
 
 
 /***/ }),
-/* 98 */
+/* 101 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************!*\
@@ -76247,11 +80097,11 @@ __webpack_require__(/*! ./thTextarea.directive */ 228);
   \*****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thTruncate.directive */ 229);
+__webpack_require__(/*! ./thTruncate.directive */ 230);
 
 
 /***/ }),
-/* 99 */
+/* 102 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************!*\
@@ -76259,11 +80109,11 @@ __webpack_require__(/*! ./thTruncate.directive */ 229);
   \******************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thViewModel.service */ 230);
+__webpack_require__(/*! ./thViewModel.service */ 231);
 
 
 /***/ }),
-/* 100 */
+/* 103 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************!*\
@@ -76271,11 +80121,11 @@ __webpack_require__(/*! ./thViewModel.service */ 230);
   \******************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thWithFocus.directive */ 231);
+__webpack_require__(/*! ./thWithFocus.directive */ 232);
 
 
 /***/ }),
-/* 101 */
+/* 104 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************!*\
@@ -76283,13 +80133,13 @@ __webpack_require__(/*! ./thWithFocus.directive */ 231);
   \******************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thWithLabel.directive */ 232);
+__webpack_require__(/*! ./thWithLabel.directive */ 233);
 
-__webpack_require__(/*! ./thWithSubtext.directive */ 233);
+__webpack_require__(/*! ./thWithSubtext.directive */ 234);
 
 
 /***/ }),
-/* 102 */
+/* 105 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************!*\
@@ -76297,13 +80147,13 @@ __webpack_require__(/*! ./thWithSubtext.directive */ 233);
   \*********************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thWithMessages.directive */ 235);
+__webpack_require__(/*! ./thWithMessages.directive */ 236);
 
-__webpack_require__(/*! ./thMessagesManager.service */ 234);
+__webpack_require__(/*! ./thMessagesManager.service */ 235);
 
 
 /***/ }),
-/* 103 */
+/* 106 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************!*\
@@ -76315,7 +80165,7 @@ __webpack_require__(/*! ./thMessagesManager.service */ 234);
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var angular = __webpack_require__(/*! angular */ 2);
-var utilities_service_1 = __webpack_require__(/*! ./utilities.service */ 236);
+var utilities_service_1 = __webpack_require__(/*! ./utilities.service */ 237);
 var validator_service_1 = __webpack_require__(/*! ./validator.service */ 70);
 var data_source_service_1 = __webpack_require__(/*! ./data-source.service */ 68);
 var scheduler_data_source_service_1 = __webpack_require__(/*! ./scheduler-data-source.service */ 69);
@@ -76327,7 +80177,7 @@ angular.module("ThemisComponents")
 
 
 /***/ }),
-/* 104 */
+/* 107 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************!*\
@@ -76339,13 +80189,13 @@ angular.module("ThemisComponents")
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var angular = __webpack_require__(/*! angular */ 2);
-var autocomplete_component_1 = __webpack_require__(/*! ./autocomplete.component */ 237);
+var autocomplete_component_1 = __webpack_require__(/*! ./autocomplete.component */ 238);
 angular.module("ThemisComponents")
     .component("thAutocomplete", autocomplete_component_1.default);
 
 
 /***/ }),
-/* 105 */
+/* 108 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************!*\
@@ -76357,10 +80207,10 @@ angular.module("ThemisComponents")
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var angular = __webpack_require__(/*! angular */ 2);
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.grid.js */ 61);
-var data_table_component_1 = __webpack_require__(/*! ./data-table.component */ 242);
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.grid.js */ 60);
+var data_table_component_1 = __webpack_require__(/*! ./data-table.component */ 243);
 var data_table_service_1 = __webpack_require__(/*! ./data-table.service */ 71);
-var toolbar_component_1 = __webpack_require__(/*! ./toolbar/toolbar.component */ 243);
+var toolbar_component_1 = __webpack_require__(/*! ./toolbar/toolbar.component */ 244);
 angular.module("ThemisComponents")
     .component("thDataTable", data_table_component_1.DataTableComponent)
     .component("thDataTableToolbar", toolbar_component_1.ToolbarComponent)
@@ -76368,7 +80218,7 @@ angular.module("ThemisComponents")
 
 
 /***/ }),
-/* 106 */
+/* 109 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************!*\
@@ -76380,15 +80230,15 @@ angular.module("ThemisComponents")
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var angular = __webpack_require__(/*! angular */ 2);
-var thDatePicker_service_1 = __webpack_require__(/*! ./thDatePicker.service */ 245);
+var thDatePicker_service_1 = __webpack_require__(/*! ./thDatePicker.service */ 246);
 __webpack_require__(/*! ../services/validator.service */ 70);
-__webpack_require__(/*! ./thDatePicker.component */ 244);
+__webpack_require__(/*! ./thDatePicker.component */ 245);
 angular.module("ThemisComponents")
     .service("DatepickerService", thDatePicker_service_1.DatepickerService);
 
 
 /***/ }),
-/* 107 */
+/* 110 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************!*\
@@ -76400,15 +80250,15 @@ angular.module("ThemisComponents")
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var angular = __webpack_require__(/*! angular */ 2);
-var thRow_component_1 = __webpack_require__(/*! ./thRow.component */ 248);
-var thColumn_component_1 = __webpack_require__(/*! ./thColumn.component */ 246);
+var thRow_component_1 = __webpack_require__(/*! ./thRow.component */ 249);
+var thColumn_component_1 = __webpack_require__(/*! ./thColumn.component */ 247);
 angular.module("ThemisComponents")
     .component("thRow", thRow_component_1.default)
     .component("thColumn", thColumn_component_1.default);
 
 
 /***/ }),
-/* 108 */
+/* 111 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************!*\
@@ -76420,12 +80270,12 @@ angular.module("ThemisComponents")
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var angular = __webpack_require__(/*! angular */ 2);
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.scheduler.js */ 134);
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.tooltip.js */ 141);
-var scheduler_component_1 = __webpack_require__(/*! ./scheduler.component */ 252);
-var calendar_entries_service_1 = __webpack_require__(/*! ./calendar-entries.service */ 249);
-var calendar_data_source_service_1 = __webpack_require__(/*! ./calendars/calendar-data-source.service */ 250);
-var calendars_component_1 = __webpack_require__(/*! ./calendars/calendars.component */ 251);
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.scheduler.js */ 137);
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.tooltip.js */ 144);
+var scheduler_component_1 = __webpack_require__(/*! ./scheduler.component */ 255);
+var calendar_entries_service_1 = __webpack_require__(/*! ./calendar-entries.service */ 252);
+var calendar_data_source_service_1 = __webpack_require__(/*! ./calendars/calendar-data-source.service */ 253);
+var calendars_component_1 = __webpack_require__(/*! ./calendars/calendars.component */ 254);
 angular.module("ThemisComponents")
     .service("CalendarEntriesServiceFactory", calendar_entries_service_1.CalendarEntriesServiceFactory)
     .service("CalendarDataSourceFactory", calendar_data_source_service_1.CalendarDataSourceFactory)
@@ -76434,8 +80284,8 @@ angular.module("ThemisComponents")
 
 
 /***/ }),
-/* 109 */,
-/* 110 */
+/* 112 */,
+/* 113 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************************!*\
@@ -78026,7 +81876,7 @@ module.exports =
 
 
 /***/ }),
-/* 111 */
+/* 114 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -78133,7 +81983,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 112 */
+/* 115 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -78377,14 +82227,14 @@ module.exports =
 /***/ 502:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./surface-tooltip */ 55);
+	module.exports = __webpack_require__(/*! ./surface-tooltip */ 54);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 113 */
+/* 116 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -79255,7 +83105,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 114 */
+/* 117 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -80844,7 +84694,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 115 */
+/* 118 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -81700,21 +85550,21 @@ module.exports =
 /***/ 601:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.filtermenu */ 60);
+	module.exports = __webpack_require__(/*! ./kendo.filtermenu */ 59);
 
 /***/ },
 
 /***/ 602:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.menu */ 123);
+	module.exports = __webpack_require__(/*! ./kendo.menu */ 126);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 116 */
+/* 119 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -81960,7 +85810,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 117 */
+/* 120 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -83038,7 +86888,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 118 */
+/* 121 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -83440,7 +87290,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 119 */
+/* 122 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -83792,7 +87642,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 120 */
+/* 123 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************!*\
@@ -84666,14 +88516,14 @@ module.exports =
 /***/ 676:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.timepicker */ 140);
+	module.exports = __webpack_require__(/*! ./kendo.timepicker */ 143);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 121 */
+/* 124 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************!*\
@@ -85257,14 +89107,14 @@ module.exports =
 /***/ 724:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.ooxml */ 64);
+	module.exports = __webpack_require__(/*! ./kendo.ooxml */ 63);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 122 */
+/* 125 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -85770,7 +89620,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 123 */
+/* 126 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -87425,7 +91275,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 124 */
+/* 127 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -87609,7 +91459,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 125 */
+/* 128 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************!*\
@@ -87978,7 +91828,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 126 */
+/* 129 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -88196,7 +92046,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 127 */
+/* 130 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -88289,7 +92139,7 @@ module.exports =
 /***/ 616:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.view */ 142);
+	module.exports = __webpack_require__(/*! ./kendo.view */ 145);
 
 /***/ },
 
@@ -89020,7 +92870,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 128 */
+/* 131 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************!*\
@@ -89538,7 +93388,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 129 */
+/* 132 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -90086,7 +93936,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 130 */
+/* 133 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -90415,7 +94265,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 131 */
+/* 134 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -90704,7 +94554,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 132 */
+/* 135 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************************!*\
@@ -91557,7 +95407,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 133 */
+/* 136 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************!*\
@@ -93591,7 +97441,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 134 */
+/* 137 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -93670,7 +97520,7 @@ module.exports =
 /***/ 579:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.multiselect */ 63);
+	module.exports = __webpack_require__(/*! ./kendo.multiselect */ 62);
 
 /***/ },
 
@@ -93684,28 +97534,28 @@ module.exports =
 /***/ 736:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.pdf */ 65);
+	module.exports = __webpack_require__(/*! ./kendo.pdf */ 64);
 
 /***/ },
 
 /***/ 740:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.datetimepicker */ 120);
+	module.exports = __webpack_require__(/*! ./kendo.datetimepicker */ 123);
 
 /***/ },
 
 /***/ 741:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.editable */ 59);
+	module.exports = __webpack_require__(/*! ./kendo.editable */ 58);
 
 /***/ },
 
 /***/ 750:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.mobile.actionsheet */ 62);
+	module.exports = __webpack_require__(/*! ./kendo.mobile.actionsheet */ 61);
 
 /***/ },
 
@@ -97911,14 +101761,14 @@ module.exports =
 /***/ 820:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.scheduler.dayview */ 133);
+	module.exports = __webpack_require__(/*! ./kendo.scheduler.dayview */ 136);
 
 /***/ },
 
 /***/ 821:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.scheduler.recurrence */ 136);
+	module.exports = __webpack_require__(/*! ./kendo.scheduler.recurrence */ 139);
 
 /***/ },
 
@@ -97932,28 +101782,28 @@ module.exports =
 /***/ 823:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.scheduler.agendaview */ 132);
+	module.exports = __webpack_require__(/*! ./kendo.scheduler.agendaview */ 135);
 
 /***/ },
 
 /***/ 824:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.scheduler.monthview */ 135);
+	module.exports = __webpack_require__(/*! ./kendo.scheduler.monthview */ 138);
 
 /***/ },
 
 /***/ 825:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.scheduler.timelineview */ 137);
+	module.exports = __webpack_require__(/*! ./kendo.scheduler.timelineview */ 140);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 135 */
+/* 138 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************!*\
@@ -99406,7 +103256,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 136 */
+/* 139 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************************!*\
@@ -102377,7 +106227,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 137 */
+/* 140 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************************!*\
@@ -104862,7 +108712,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 138 */
+/* 141 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -105379,7 +109229,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 139 */
+/* 142 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -105988,7 +109838,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 140 */
+/* 143 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -106997,7 +110847,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 141 */
+/* 144 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************!*\
@@ -107547,7 +111397,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 142 */
+/* 145 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -108026,7 +111876,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 143 */
+/* 146 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -108261,7 +112111,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 144 */
+/* 147 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -108532,7 +112382,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 145 */
+/* 148 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -108584,7 +112434,7 @@ ActionBarController = (function() {
 })();
 
 angular.module('ThemisComponents').component("thActionBar", {
-  template: __webpack_require__(/*! ./thActionBar.template.html */ 253),
+  template: __webpack_require__(/*! ./thActionBar.template.html */ 256),
   transclude: true,
   bindings: {
     delegate: "=?"
@@ -108594,7 +112444,7 @@ angular.module('ThemisComponents').component("thActionBar", {
 
 
 /***/ }),
-/* 146 */
+/* 149 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************************!*\
@@ -108709,7 +112559,7 @@ angular.module("ThemisComponents").factory("ActionBarDelegate", ["ViewModel", fu
 
 
 /***/ }),
-/* 147 */
+/* 150 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************************!*\
@@ -108732,7 +112582,7 @@ angular.module("ThemisComponents").directive("thActionBarBilling", function() {
     transclude: true,
     bindToController: true,
     controllerAs: "actionBar",
-    template: __webpack_require__(/*! ./thActionBarBilling.template.html */ 254),
+    template: __webpack_require__(/*! ./thActionBarBilling.template.html */ 257),
     controller: ["$scope", "$element", "$attrs", function($scope, $element, $attrs) {
       var itemName;
       this.toggleAll = function() {
@@ -108764,7 +112614,7 @@ angular.module("ThemisComponents").directive("thActionBarBilling", function() {
 
 
 /***/ }),
-/* 148 */
+/* 151 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************************************!*\
@@ -109100,7 +112950,7 @@ angular.module('ThemisComponents').factory('ActionBarBillingDelegate', ["ViewMod
 
 
 /***/ }),
-/* 149 */
+/* 152 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************************!*\
@@ -109393,7 +113243,7 @@ angular.module("ThemisComponents").factory("SelectableCollection", ["$rootScope"
 
 
 /***/ }),
-/* 150 */
+/* 153 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -109406,7 +113256,7 @@ angular.module('ThemisComponents').directive("thAlertAnchor", function() {
     restrict: "E",
     bindToController: true,
     controllerAs: 'alertAnchor',
-    template: __webpack_require__(/*! ./thAlertAnchor.template.html */ 255),
+    template: __webpack_require__(/*! ./thAlertAnchor.template.html */ 258),
     controller: ["AlertManager", function(AlertManager) {
       this.alertMessage = AlertManager.alertMessage;
       this.dismiss = function() {
@@ -109418,7 +113268,7 @@ angular.module('ThemisComponents').directive("thAlertAnchor", function() {
 
 
 /***/ }),
-/* 151 */
+/* 154 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -109476,7 +113326,7 @@ angular.module('ThemisComponents').factory('AlertManager', ["$timeout", function
 
 
 /***/ }),
-/* 152 */
+/* 155 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -109503,9 +113353,9 @@ angular.module("ThemisComponents").directive("thButton", function() {
     template: function(element, attrs) {
       switch (false) {
         case attrs.href == null:
-          return __webpack_require__(/*! ./thButton.anchor.template.html */ 256);
+          return __webpack_require__(/*! ./thButton.anchor.template.html */ 259);
         default:
-          return __webpack_require__(/*! ./thButton.button.template.html */ 257);
+          return __webpack_require__(/*! ./thButton.button.template.html */ 260);
       }
     },
     bindToController: true,
@@ -109555,7 +113405,7 @@ angular.module("ThemisComponents").directive("thButton", function() {
 
 
 /***/ }),
-/* 153 */
+/* 156 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -109571,7 +113421,7 @@ angular.module('ThemisComponents').directive("thCheckbox", function() {
   return {
     restrict: "EA",
     replace: true,
-    template: __webpack_require__(/*! ./thCheckbox.template.html */ 258),
+    template: __webpack_require__(/*! ./thCheckbox.template.html */ 261),
     scope: {
       name: "@",
       change: "&ngChange",
@@ -109613,7 +113463,7 @@ angular.module('ThemisComponents').directive("thCheckbox", function() {
 
 
 /***/ }),
-/* 154 */
+/* 157 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -109634,7 +113484,7 @@ angular.module("ThemisComponents").directive("thCompile", ["$compile", function(
 
 
 /***/ }),
-/* 155 */
+/* 158 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************************!*\
@@ -109650,13 +113500,13 @@ angular.module('ThemisComponents').directive('thContentHeader', function() {
     },
     transclude: true,
     controllerAs: 'thContentHeader',
-    template: __webpack_require__(/*! ./thContentHeader.template.html */ 259)
+    template: __webpack_require__(/*! ./thContentHeader.template.html */ 262)
   };
 });
 
 
 /***/ }),
-/* 156 */
+/* 159 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************************!*\
@@ -109700,7 +113550,7 @@ angular.module('ThemisComponents').directive("thContextualMessageAnchor", ["Cont
 
 
 /***/ }),
-/* 157 */
+/* 160 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************************!*\
@@ -109745,7 +113595,7 @@ angular.module('ThemisComponents').factory('ContextualMessageManager', ["$timeou
 
 
 /***/ }),
-/* 158 */
+/* 161 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -109792,7 +113642,7 @@ angular.module('ThemisComponents').factory('thDefaults', function() {
 
 
 /***/ }),
-/* 159 */
+/* 162 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************************!*\
@@ -109841,7 +113691,7 @@ angular.module("ThemisComponents").directive("thDisclosureContent", ["Disclosure
     scope: {
       name: "@"
     },
-    template: __webpack_require__(/*! ./thDisclosureContent.template.html */ 262),
+    template: __webpack_require__(/*! ./thDisclosureContent.template.html */ 265),
     bindToController: true,
     controllerAs: "thDisclosureContent",
     controller: ["$element", "$scope", function($element, $scope) {
@@ -109892,7 +113742,7 @@ angular.module("ThemisComponents").directive("thDisclosureContent", ["Disclosure
 
 
 /***/ }),
-/* 160 */
+/* 163 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************************!*\
@@ -109950,7 +113800,7 @@ angular.module('ThemisComponents').factory('DisclosureManager', function() {
 
 
 /***/ }),
-/* 161 */
+/* 164 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************************!*\
@@ -109971,7 +113821,7 @@ angular.module("ThemisComponents").directive("thDisclosureToggle", ["DisclosureM
       ariaDescribedby: "@",
       tabindex: "@"
     },
-    template: __webpack_require__(/*! ./thDisclosureToggle.template.html */ 263),
+    template: __webpack_require__(/*! ./thDisclosureToggle.template.html */ 266),
     bindToController: true,
     controllerAs: 'thDisclosureToggle',
     controller: ["$scope", "$element", function($scope, $element) {
@@ -110021,7 +113871,7 @@ angular.module("ThemisComponents").directive("thDisclosureToggle", ["DisclosureM
 
 
 /***/ }),
-/* 162 */
+/* 165 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -110034,13 +113884,13 @@ angular.module("ThemisComponents").directive("thDivider", function() {
     restrict: "E",
     replace: true,
     scope: {},
-    template: __webpack_require__(/*! ./thDivider.template.html */ 264)
+    template: __webpack_require__(/*! ./thDivider.template.html */ 267)
   };
 });
 
 
 /***/ }),
-/* 163 */
+/* 166 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -110055,7 +113905,7 @@ keycode = __webpack_require__(/*! keycode */ 5);
 angular.module("ThemisComponents").directive("thDropdown", function() {
   return {
     restrict: "E",
-    template: __webpack_require__(/*! ./thDropdown.template.html */ 265),
+    template: __webpack_require__(/*! ./thDropdown.template.html */ 268),
     replace: true,
     controllerAs: "dropdown",
     bindToController: true,
@@ -110211,7 +114061,7 @@ angular.module("ThemisComponents").directive("thDropdown", function() {
 
 
 /***/ }),
-/* 164 */
+/* 167 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -110232,9 +114082,9 @@ angular.module("ThemisComponents").directive("thItem", function() {
     template: function(element, attrs) {
       switch (false) {
         case attrs.href == null:
-          return __webpack_require__(/*! ./thItem.link.template.html */ 267);
+          return __webpack_require__(/*! ./thItem.link.template.html */ 270);
         default:
-          return __webpack_require__(/*! ./thItem.action.template.html */ 266);
+          return __webpack_require__(/*! ./thItem.action.template.html */ 269);
       }
     },
     controller: ["$element", "$attrs", function($element, $attrs) {
@@ -110249,7 +114099,7 @@ angular.module("ThemisComponents").directive("thItem", function() {
 
 
 /***/ }),
-/* 165 */
+/* 168 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************!*\
@@ -110261,7 +114111,7 @@ angular.module("ThemisComponents").directive("thError", function() {
   return {
     restrict: "E",
     transclude: true,
-    template: __webpack_require__(/*! ./thError.template.html */ 268),
+    template: __webpack_require__(/*! ./thError.template.html */ 271),
     scope: {
       message: "@"
     },
@@ -110280,7 +114130,7 @@ angular.module("ThemisComponents").directive("thError", function() {
 
 
 /***/ }),
-/* 166 */
+/* 169 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************************************!*\
@@ -110345,7 +114195,7 @@ angular.module("ThemisComponents").factory("AutocompleteFilter", ["FilterBase", 
 
 
 /***/ }),
-/* 167 */
+/* 170 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************!*\
@@ -110353,13 +114203,13 @@ angular.module("ThemisComponents").factory("AutocompleteFilter", ["FilterBase", 
   \************************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./autocompleteFilter.service */ 166);
+__webpack_require__(/*! ./autocompleteFilter.service */ 169);
 
-__webpack_require__(/*! ./thFilter.autocomplete.directive */ 168);
+__webpack_require__(/*! ./thFilter.autocomplete.directive */ 171);
 
 
 /***/ }),
-/* 168 */
+/* 171 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************************************!*\
@@ -110378,7 +114228,7 @@ angular.module('ThemisComponents').directive('thFilterAutocomplete', ["Autocompl
     },
     bindToController: true,
     controllerAs: 'thFilterAutocomplete',
-    template: __webpack_require__(/*! ./thFilter.autocomplete.template.html */ 269),
+    template: __webpack_require__(/*! ./thFilter.autocomplete.template.html */ 272),
     controller: ["$scope", "$injector", function($scope, $injector) {
       var ModelClass, dataSource, fieldIdentifier, ref, ref1, ref2, ref3, ref4, ref5, ref6;
       if (!((ref = this.filterOptions.autocompleteOptions) != null ? ref.modelClass : void 0)) {
@@ -110428,7 +114278,7 @@ angular.module('ThemisComponents').directive('thFilterAutocomplete', ["Autocompl
 
 
 /***/ }),
-/* 169 */
+/* 172 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************************!*\
@@ -110509,7 +114359,7 @@ angular.module("ThemisComponents").factory("DateFilter", ["FilterBase", function
 
 
 /***/ }),
-/* 170 */
+/* 173 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -110517,13 +114367,13 @@ angular.module("ThemisComponents").factory("DateFilter", ["FilterBase", function
   \****************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./dateFilter.service */ 169);
+__webpack_require__(/*! ./dateFilter.service */ 172);
 
-__webpack_require__(/*! ./thFilter.date.directive */ 171);
+__webpack_require__(/*! ./thFilter.date.directive */ 174);
 
 
 /***/ }),
-/* 171 */
+/* 174 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************************!*\
@@ -110548,7 +114398,7 @@ angular.module("ThemisComponents").directive("thFilterDate", ["DateFilter", func
     },
     bindToController: true,
     controllerAs: "thFilterDate",
-    template: __webpack_require__(/*! ./thFilter.date.template.html */ 270),
+    template: __webpack_require__(/*! ./thFilter.date.template.html */ 273),
     controller: ["$scope", function($scope) {
       var ref;
       this.hasOperator = ((ref = this.operatorOptions) != null ? ref.length : void 0) > 0;
@@ -110592,7 +114442,7 @@ angular.module("ThemisComponents").directive("thFilterDate", ["DateFilter", func
 
 
 /***/ }),
-/* 172 */
+/* 175 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************!*\
@@ -110625,7 +114475,7 @@ angular.module("ThemisComponents").factory("FilterBase", function() {
 
 
 /***/ }),
-/* 173 */
+/* 176 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************!*\
@@ -110685,7 +114535,7 @@ angular.module('ThemisComponents').factory('FilterSet', function() {
 
 
 /***/ }),
-/* 174 */
+/* 177 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -110693,25 +114543,25 @@ angular.module('ThemisComponents').factory('FilterSet', function() {
   \***********************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./autocomplete/ */ 167);
+__webpack_require__(/*! ./autocomplete/ */ 170);
 
-__webpack_require__(/*! ./date/ */ 170);
+__webpack_require__(/*! ./date/ */ 173);
 
-__webpack_require__(/*! ./input/ */ 175);
+__webpack_require__(/*! ./input/ */ 178);
 
-__webpack_require__(/*! ./number/ */ 178);
+__webpack_require__(/*! ./number/ */ 181);
 
-__webpack_require__(/*! ./select/ */ 181);
+__webpack_require__(/*! ./select/ */ 184);
 
-__webpack_require__(/*! ./time/ */ 184);
+__webpack_require__(/*! ./time/ */ 187);
 
-__webpack_require__(/*! ./filterBase.service */ 172);
+__webpack_require__(/*! ./filterBase.service */ 175);
 
-__webpack_require__(/*! ./filterSet.service */ 173);
+__webpack_require__(/*! ./filterSet.service */ 176);
 
 
 /***/ }),
-/* 175 */
+/* 178 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -110719,13 +114569,13 @@ __webpack_require__(/*! ./filterSet.service */ 173);
   \*****************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./inputFilter.service */ 176);
+__webpack_require__(/*! ./inputFilter.service */ 179);
 
-__webpack_require__(/*! ./thFilter.input.directive */ 177);
+__webpack_require__(/*! ./thFilter.input.directive */ 180);
 
 
 /***/ }),
-/* 176 */
+/* 179 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************************!*\
@@ -110777,7 +114627,7 @@ angular.module("ThemisComponents").factory("InputFilter", ["FilterBase", functio
 
 
 /***/ }),
-/* 177 */
+/* 180 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************************!*\
@@ -110797,7 +114647,7 @@ angular.module("ThemisComponents").directive("thFilterInput", ["InputFilter", fu
     },
     bindToController: true,
     controllerAs: "thFilterInput",
-    template: __webpack_require__(/*! ./thFilter.input.template.html */ 271),
+    template: __webpack_require__(/*! ./thFilter.input.template.html */ 274),
     controller: ["$scope", function($scope) {
       var enterEventCode, isUpdatedValue, lastValue;
       lastValue = void 0;
@@ -110863,7 +114713,7 @@ angular.module("ThemisComponents").directive("thFilterInput", ["InputFilter", fu
 
 
 /***/ }),
-/* 178 */
+/* 181 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -110871,13 +114721,13 @@ angular.module("ThemisComponents").directive("thFilterInput", ["InputFilter", fu
   \******************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./numberFilter.service */ 179);
+__webpack_require__(/*! ./numberFilter.service */ 182);
 
-__webpack_require__(/*! ./thFilter.number.directive */ 180);
+__webpack_require__(/*! ./thFilter.number.directive */ 183);
 
 
 /***/ }),
-/* 179 */
+/* 182 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************************!*\
@@ -110950,7 +114800,7 @@ angular.module("ThemisComponents").factory("NumberFilter", ["FilterBase", functi
 
 
 /***/ }),
-/* 180 */
+/* 183 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************************!*\
@@ -110970,7 +114820,7 @@ angular.module("ThemisComponents").directive("thFilterNumber", ["NumberFilter", 
     },
     bindToController: true,
     controllerAs: "thFilterNumber",
-    template: __webpack_require__(/*! ./thFilter.number.template.html */ 272),
+    template: __webpack_require__(/*! ./thFilter.number.template.html */ 275),
     controller: ["$scope", function($scope) {
       var enterEventCode, isUpdatedValue, lastValue;
       lastValue = void 0;
@@ -111036,7 +114886,7 @@ angular.module("ThemisComponents").directive("thFilterNumber", ["NumberFilter", 
 
 
 /***/ }),
-/* 181 */
+/* 184 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -111044,13 +114894,13 @@ angular.module("ThemisComponents").directive("thFilterNumber", ["NumberFilter", 
   \******************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./selectFilter.service */ 182);
+__webpack_require__(/*! ./selectFilter.service */ 185);
 
-__webpack_require__(/*! ./thFilter.select.directive */ 183);
+__webpack_require__(/*! ./thFilter.select.directive */ 186);
 
 
 /***/ }),
-/* 182 */
+/* 185 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************************!*\
@@ -111136,7 +114986,7 @@ angular.module("ThemisComponents").factory("SelectFilter", ["$http", "FilterBase
 
 
 /***/ }),
-/* 183 */
+/* 186 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************************!*\
@@ -111156,7 +115006,7 @@ angular.module('ThemisComponents').directive('thFilterSelect', ["SelectFilter", 
     },
     bindToController: true,
     controllerAs: 'thFilterSelect',
-    template: __webpack_require__(/*! ./thFilter.select.template.html */ 273),
+    template: __webpack_require__(/*! ./thFilter.select.template.html */ 276),
     controller: ["$scope", function($scope) {
       this.onValueChange = function() {
         return $timeout((function(_this) {
@@ -111192,7 +115042,7 @@ angular.module('ThemisComponents').directive('thFilterSelect', ["SelectFilter", 
 
 
 /***/ }),
-/* 184 */
+/* 187 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -111200,13 +115050,13 @@ angular.module('ThemisComponents').directive('thFilterSelect', ["SelectFilter", 
   \****************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./timeFilter.service */ 186);
+__webpack_require__(/*! ./timeFilter.service */ 189);
 
-__webpack_require__(/*! ./thFilter.time.directive */ 185);
+__webpack_require__(/*! ./thFilter.time.directive */ 188);
 
 
 /***/ }),
-/* 185 */
+/* 188 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************************!*\
@@ -111225,7 +115075,7 @@ angular.module("ThemisComponents").directive("thFilterTime", ["TimeFilter", "$ti
     },
     bindToController: true,
     controllerAs: "thFilterTime",
-    template: __webpack_require__(/*! ./thFilter.time.template.html */ 274),
+    template: __webpack_require__(/*! ./thFilter.time.template.html */ 277),
     controller: ["$scope", "$element", function($scope, $element) {
       var enterEventCode, isUpdatedValue, lastValue, setInvalid, setValid;
       lastValue = void 0;
@@ -111316,7 +115166,7 @@ angular.module("ThemisComponents").directive("thFilterTime", ["TimeFilter", "$ti
 
 
 /***/ }),
-/* 186 */
+/* 189 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************************!*\
@@ -111411,7 +115261,7 @@ angular.module("ThemisComponents").factory("TimeFilter", ["FilterBase", function
 
 
 /***/ }),
-/* 187 */
+/* 190 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************************!*\
@@ -111435,7 +115285,7 @@ angular.module('ThemisComponents').factory('CustomFilterConverter', function() {
 
 
 /***/ }),
-/* 188 */
+/* 191 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************!*\
@@ -111529,7 +115379,7 @@ angular.module('ThemisComponents').controller('thCustomFilterRow.controller', ["
 
 
 /***/ }),
-/* 189 */
+/* 192 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************************!*\
@@ -111537,7 +115387,7 @@ angular.module('ThemisComponents').controller('thCustomFilterRow.controller', ["
   \*************************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thCustomFilterRow.controller */ 188);
+__webpack_require__(/*! ./thCustomFilterRow.controller */ 191);
 
 angular.module("ThemisComponents").directive("thCustomFilterRow", function() {
   return {
@@ -111553,14 +115403,14 @@ angular.module("ThemisComponents").directive("thCustomFilterRow", function() {
     },
     bindToController: true,
     controllerAs: "thCustomFilterRow",
-    template: __webpack_require__(/*! ./thCustomFilterRow.template.html */ 275),
+    template: __webpack_require__(/*! ./thCustomFilterRow.template.html */ 278),
     controller: "thCustomFilterRow.controller"
   };
 });
 
 
 /***/ }),
-/* 190 */
+/* 193 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************!*\
@@ -111686,13 +115536,13 @@ angular.module("ThemisComponents").component("thCustomFilters", {
     thFilterCtrl: "^thFilter"
   },
   controllerAs: "thCustomFilters",
-  template: __webpack_require__(/*! ./thCustomFilters.template.html */ 276),
+  template: __webpack_require__(/*! ./thCustomFilters.template.html */ 279),
   controller: CustomFilters
 });
 
 
 /***/ }),
-/* 191 */
+/* 194 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -111709,7 +115559,7 @@ angular.module("ThemisComponents").directive("thFilter", ["FilterSet", "$q", fun
     bindToController: true,
     transclude: true,
     controllerAs: "thFilter",
-    template: __webpack_require__(/*! ./thFilter.template.html */ 277),
+    template: __webpack_require__(/*! ./thFilter.template.html */ 280),
     controller: ["$scope", "$element", function($scope, $element) {
       this.initPromises = [];
       this.filterSet = this.options.filterSet;
@@ -111739,7 +115589,7 @@ angular.module("ThemisComponents").directive("thFilter", ["FilterSet", "$q", fun
 
 
 /***/ }),
-/* 192 */
+/* 195 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -111757,7 +115607,7 @@ angular.module('ThemisComponents').directive('thSearchRow', ["InputFilter", "$ti
     },
     bindToController: true,
     controllerAs: 'thSearchRow',
-    template: __webpack_require__(/*! ./thSearchRow.template.html */ 278),
+    template: __webpack_require__(/*! ./thSearchRow.template.html */ 281),
     controller: ["$scope", function($scope) {
       this.queryFilterOptions = {
         fieldIdentifier: this.fieldIdentifier || "query",
@@ -111787,7 +115637,7 @@ angular.module('ThemisComponents').directive('thSearchRow', ["InputFilter", "$ti
 
 
 /***/ }),
-/* 193 */
+/* 196 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************!*\
@@ -111804,7 +115654,7 @@ angular.module("ThemisComponents").directive("thStaticFilters", ["FilterSet", "$
     },
     bindToController: true,
     controllerAs: "thStaticFilters",
-    template: __webpack_require__(/*! ./thStaticFilters.template.html */ 279),
+    template: __webpack_require__(/*! ./thStaticFilters.template.html */ 282),
     controller: function() {},
     compile: function() {
       return {
@@ -111840,7 +115690,7 @@ angular.module("ThemisComponents").directive("thStaticFilters", ["FilterSet", "$
 
 
 /***/ }),
-/* 194 */
+/* 197 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************!*\
@@ -111876,7 +115726,7 @@ angular.module('ThemisComponents').directive("thInput", ["Utilities", function(U
       step: '=',
       ngChange: '&'
     },
-    template: __webpack_require__(/*! ./thInput.template.html */ 280),
+    template: __webpack_require__(/*! ./thInput.template.html */ 283),
     controller: function() {
       this.thOnChange = function() {
         return Utilities.onChange(this.ngChange);
@@ -111906,7 +115756,7 @@ angular.module('ThemisComponents').directive("thInput", ["Utilities", function(U
 
 
 /***/ }),
-/* 195 */
+/* 198 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************!*\
@@ -111975,7 +115825,7 @@ LazyController = (function() {
 })();
 
 angular.module('ThemisComponents').component("thLazy", {
-  template: __webpack_require__(/*! ./thLazy.template.html */ 281),
+  template: __webpack_require__(/*! ./thLazy.template.html */ 284),
   controllerAs: "lazy",
   require: {
     metaLoader: "?^thMetaLoader"
@@ -111990,7 +115840,7 @@ angular.module('ThemisComponents').component("thLazy", {
 
 
 /***/ }),
-/* 196 */
+/* 199 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -112018,7 +115868,7 @@ angular.module('ThemisComponents').factory('LazyManager', function() {
 
 
 /***/ }),
-/* 197 */
+/* 200 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -112063,13 +115913,13 @@ MetaLoader = (function() {
 angular.module('ThemisComponents').component("thMetaLoader", {
   transclude: true,
   controllerAs: "meta",
-  template: __webpack_require__(/*! ./thMetaLoader.template.html */ 282),
+  template: __webpack_require__(/*! ./thMetaLoader.template.html */ 285),
   controller: MetaLoader
 });
 
 
 /***/ }),
-/* 198 */
+/* 201 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -112080,7 +115930,7 @@ angular.module('ThemisComponents').component("thMetaLoader", {
 angular.module('ThemisComponents').directive("thLoader", function() {
   return {
     restrict: "EA",
-    template: __webpack_require__(/*! ./thLoader.template.html */ 283),
+    template: __webpack_require__(/*! ./thLoader.template.html */ 286),
     transclude: true,
     replace: true,
     controllerAs: 'loader',
@@ -112120,7 +115970,7 @@ angular.module('ThemisComponents').directive("thLoader", function() {
 
 
 /***/ }),
-/* 199 */
+/* 202 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************!*\
@@ -112137,7 +115987,7 @@ angular.module("ThemisComponents").directive("thModal", function() {
     scope: {
       modalData: "="
     },
-    template: __webpack_require__(/*! ./thModal.template.html */ 284),
+    template: __webpack_require__(/*! ./thModal.template.html */ 287),
     controller: ["ModalManager", function(ModalManager) {
       this.name = this.modalData.name;
       this.content = this.modalData.content;
@@ -112161,7 +116011,7 @@ angular.module("ThemisComponents").directive("thModal", function() {
 
 
 /***/ }),
-/* 200 */
+/* 203 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -112175,7 +116025,7 @@ angular.module("ThemisComponents").directive("thModalAnchor", function() {
     replace: true,
     controllerAs: "anchor",
     bindToController: true,
-    template: __webpack_require__(/*! ./thModalAnchor.template.html */ 285),
+    template: __webpack_require__(/*! ./thModalAnchor.template.html */ 288),
     controller: ["ModalManager", function(ModalManager) {
       this.modals = ModalManager._modals;
       if (this.modals.length > 0) {
@@ -112188,7 +116038,7 @@ angular.module("ThemisComponents").directive("thModalAnchor", function() {
 
 
 /***/ }),
-/* 201 */
+/* 204 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -112285,66 +116135,7 @@ angular.module("ThemisComponents").factory("ModalManager", ["$http", "$q", funct
 
 
 /***/ }),
-/* 202 */
-/* unknown exports provided */
-/* all exports used */
-/*!******************************************************!*\
-  !*** ./src/lib/thModal/thModalTitlebar/index.coffee ***!
-  \******************************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(/*! ./thModalTitlebar.component */ 203);
-
-
-/***/ }),
-/* 203 */
-/* unknown exports provided */
-/* all exports used */
-/*!**************************************************************************!*\
-  !*** ./src/lib/thModal/thModalTitlebar/thModalTitlebar.component.coffee ***!
-  \**************************************************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-var ModalTitlebar;
-
-ModalTitlebar = (function() {
-
-  /*@ngInject */
-  ModalTitlebar.$inject = ["$element", "$scope"];
-  function ModalTitlebar($element, $scope) {
-    this.$scope = $scope;
-    if (this.type == null) {
-      this.type = "standard";
-    }
-    if (this.showCloseButton == null) {
-      this.showCloseButton = true;
-    }
-    $element.addClass("type-" + this.type);
-  }
-
-  ModalTitlebar.prototype.close = function() {
-    if (this.$scope.$parent.modal != null) {
-      return this.$scope.$parent.modal.dismiss();
-    }
-  };
-
-  return ModalTitlebar;
-
-})();
-
-angular.module('ThemisComponents').component('thModalTitlebar', {
-  template: __webpack_require__(/*! ./thModalTitlebar.template.html */ 286),
-  controller: ModalTitlebar,
-  bindings: {
-    title: "@",
-    type: "@",
-    showCloseButton: "<"
-  }
-});
-
-
-/***/ }),
-/* 204 */
+/* 205 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -112370,7 +116161,7 @@ angular.module('ThemisComponents').filter("pluralize", function() {
 
 
 /***/ }),
-/* 205 */
+/* 206 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -112467,13 +116258,13 @@ module.exports = function($compile, $timeout) {
       return scope.$apply(function() {
         var body;
         if (view == null) {
-          view = angular.element(__webpack_require__(/*! ./thPopover.template.html */ 289));
+          view = angular.element(__webpack_require__(/*! ./thPopover.template.html */ 292));
         }
         if (overlay == null) {
-          overlay = angular.element(__webpack_require__(/*! ./thPopover.overlay.template.html */ 288));
+          overlay = angular.element(__webpack_require__(/*! ./thPopover.overlay.template.html */ 291));
         }
         if (arrow == null) {
-          arrow = angular.element(__webpack_require__(/*! ./thPopover.arrow.template.html */ 287));
+          arrow = angular.element(__webpack_require__(/*! ./thPopover.arrow.template.html */ 290));
         }
         body = angular.element(document.body);
         body.append(overlay);
@@ -112515,7 +116306,7 @@ module.exports = function($compile, $timeout) {
 
 
 /***/ }),
-/* 206 */
+/* 207 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -112540,7 +116331,7 @@ angular.module('ThemisComponents').directive("thPopover", ["PopoverManager", fun
 
 
 /***/ }),
-/* 207 */
+/* 208 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************************!*\
@@ -112564,7 +116355,7 @@ angular.module("ThemisComponents").directive("thPopoverContent", ["PopoverManage
 
 
 /***/ }),
-/* 208 */
+/* 209 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************!*\
@@ -112643,7 +116434,7 @@ angular.module('ThemisComponents').factory('PopoverManager', ["$compile", "$time
       return renderPopover();
     });
   };
-  addPopoverToTarget = __webpack_require__(/*! ./thAddPopover.helper */ 205)($compile, $timeout);
+  addPopoverToTarget = __webpack_require__(/*! ./thAddPopover.helper */ 206)($compile, $timeout);
   return {
     attachPopover: attachPopover,
     showPopover: showPopover,
@@ -112656,7 +116447,7 @@ angular.module('ThemisComponents').factory('PopoverManager', ["$compile", "$time
 
 
 /***/ }),
-/* 209 */
+/* 210 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************!*\
@@ -112679,7 +116470,7 @@ angular.module("ThemisComponents").directive("thPopoverTarget", ["PopoverManager
 
 
 /***/ }),
-/* 210 */
+/* 211 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************!*\
@@ -112709,7 +116500,7 @@ angular.module("ThemisComponents").directive("thPopoverUrl", ["$http", "PopoverM
 
 
 /***/ }),
-/* 211 */
+/* 212 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************************!*\
@@ -112722,7 +116513,7 @@ angular.module('ThemisComponents').directive("thRadioButton", function() {
     require: '^thRadioGroup',
     restrict: "EA",
     replace: true,
-    template: __webpack_require__(/*! ./thRadioButton.template.html */ 290),
+    template: __webpack_require__(/*! ./thRadioButton.template.html */ 293),
     scope: {
       value: '@',
       change: '&ngChange'
@@ -112739,7 +116530,7 @@ angular.module('ThemisComponents').directive("thRadioButton", function() {
 
 
 /***/ }),
-/* 212 */
+/* 213 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************!*\
@@ -112754,7 +116545,7 @@ angular.module('ThemisComponents').directive('thRadioGroup', function() {
     transclude: true,
     bindToController: true,
     controllerAs: 'radioGroup',
-    template: __webpack_require__(/*! ./thRadioGroup.template.html */ 291),
+    template: __webpack_require__(/*! ./thRadioGroup.template.html */ 294),
     scope: {
       name: '@',
       change: '&ngChange',
@@ -112823,7 +116614,7 @@ angular.module('ThemisComponents').directive('thRadioGroup', function() {
 
 
 /***/ }),
-/* 213 */
+/* 214 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -112834,7 +116625,7 @@ angular.module('ThemisComponents').directive('thRadioGroup', function() {
 angular.module('ThemisComponents').directive("thSelect", ["Utilities", function(Utilities) {
   return {
     restrict: "EA",
-    template: __webpack_require__(/*! ./thSelect.template.html */ 295),
+    template: __webpack_require__(/*! ./thSelect.template.html */ 298),
     controllerAs: "select",
     replace: true,
     bindToController: true,
@@ -112969,7 +116760,7 @@ angular.module('ThemisComponents').directive("thSelect", ["Utilities", function(
 
 
 /***/ }),
-/* 214 */
+/* 215 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -112981,7 +116772,7 @@ angular.module('ThemisComponents').directive("thSwitch", function() {
   return {
     restrict: "EA",
     replace: true,
-    template: __webpack_require__(/*! ./thSwitch.template.html */ 296),
+    template: __webpack_require__(/*! ./thSwitch.template.html */ 299),
     scope: {
       name: '@',
       change: '&ngChange',
@@ -113014,7 +116805,7 @@ angular.module('ThemisComponents').directive("thSwitch", function() {
 
 
 /***/ }),
-/* 215 */
+/* 216 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************!*\
@@ -113158,7 +116949,7 @@ angular.module('ThemisComponents').factory('SimpleTableDelegate', ["TableDelegat
 
 
 /***/ }),
-/* 216 */
+/* 217 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************!*\
@@ -113168,7 +116959,7 @@ angular.module('ThemisComponents').factory('SimpleTableDelegate', ["TableDelegat
 
 var thTableKeyboardNavigation;
 
-thTableKeyboardNavigation = __webpack_require__(/*! ./thTableKeyboardNavigation */ 222);
+thTableKeyboardNavigation = __webpack_require__(/*! ./thTableKeyboardNavigation */ 223);
 
 angular.module("ThemisComponents").directive("thTable", ["$compile", "Table", function($compile, Table) {
   return {
@@ -113229,7 +117020,7 @@ angular.module("ThemisComponents").directive("thTable", ["$compile", "Table", fu
 
 
 /***/ }),
-/* 217 */
+/* 218 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************!*\
@@ -113312,7 +117103,7 @@ Table = function(options) {
 
 
 /***/ }),
-/* 218 */
+/* 219 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -113328,7 +117119,7 @@ angular.module('ThemisComponents').directive('thTableCell', function() {
 
 
 /***/ }),
-/* 219 */
+/* 220 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -113489,7 +117280,7 @@ angular.module("ThemisComponents").factory("TableDelegate", ["TablePagination", 
 
 
 /***/ }),
-/* 220 */
+/* 221 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -113523,7 +117314,7 @@ TableFooter = function(options) {
 
 
 /***/ }),
-/* 221 */
+/* 222 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -113596,7 +117387,7 @@ TableHeader = function(options) {
 
 
 /***/ }),
-/* 222 */
+/* 223 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -113785,7 +117576,7 @@ module.exports = function($element, $scope) {
 
 
 /***/ }),
-/* 223 */
+/* 224 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -113920,7 +117711,7 @@ angular.module('ThemisComponents').factory('TablePagination', ["$interpolate", f
 
 
 /***/ }),
-/* 224 */
+/* 225 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -113936,7 +117727,7 @@ angular.module('ThemisComponents').directive('thTableRow', function() {
 
 
 /***/ }),
-/* 225 */
+/* 226 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -113997,7 +117788,7 @@ TableSort = function() {
 
 
 /***/ }),
-/* 226 */
+/* 227 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -114009,7 +117800,7 @@ angular.module('ThemisComponents').directive("thTab", function() {
   return {
     require: "^thTabset",
     restrict: "EA",
-    template: __webpack_require__(/*! ./thTab.template.html */ 297),
+    template: __webpack_require__(/*! ./thTab.template.html */ 300),
     transclude: true,
     scope: {
       name: "@name",
@@ -114040,7 +117831,7 @@ angular.module('ThemisComponents').directive("thTab", function() {
 
 
 /***/ }),
-/* 227 */
+/* 228 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -114057,7 +117848,7 @@ angular.module('ThemisComponents').directive("thTabset", function() {
   return {
     restrict: "EA",
     replace: true,
-    template: __webpack_require__(/*! ./thTabset.native.template.html */ 298),
+    template: __webpack_require__(/*! ./thTabset.native.template.html */ 301),
     transclude: {
       actionBar: '?thTabActionBar'
     },
@@ -114217,7 +118008,7 @@ angular.module('ThemisComponents').directive("thTabset", function() {
 
 
 /***/ }),
-/* 228 */
+/* 229 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -114244,7 +118035,7 @@ angular.module('ThemisComponents').directive("thTextarea", ["Utilities", functio
       ngPattern: '=',
       ngChange: '&'
     },
-    template: __webpack_require__(/*! ./thTextarea.template.html */ 299),
+    template: __webpack_require__(/*! ./thTextarea.template.html */ 302),
     controller: function() {
       this.thOnChange = function() {
         return Utilities.onChange(this.ngChange);
@@ -114286,7 +118077,7 @@ angular.module('ThemisComponents').directive("thTextarea", ["Utilities", functio
 
 
 /***/ }),
-/* 229 */
+/* 230 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -114298,7 +118089,7 @@ angular.module('ThemisComponents').directive('thTruncate', function() {
   return {
     restrict: 'E',
     transclude: true,
-    template: __webpack_require__(/*! ./thTruncate.template.html */ 300),
+    template: __webpack_require__(/*! ./thTruncate.template.html */ 303),
     bindToController: true,
     controllerAs: 'truncate',
     scope: {
@@ -114332,7 +118123,7 @@ angular.module('ThemisComponents').directive('thTruncate', function() {
 
 
 /***/ }),
-/* 230 */
+/* 231 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -114391,7 +118182,7 @@ angular.module('ThemisComponents').factory('ViewModel', function() {
 
 
 /***/ }),
-/* 231 */
+/* 232 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -114422,7 +118213,7 @@ angular.module("ThemisComponents").directive("withFocus", ["$timeout", function(
 
 
 /***/ }),
-/* 232 */
+/* 233 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -114527,7 +118318,7 @@ angular.module('ThemisComponents').directive("withLabel", function() {
 
 
 /***/ }),
-/* 233 */
+/* 234 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************!*\
@@ -114596,7 +118387,7 @@ angular.module("ThemisComponents").directive("withSubtext", function() {
 
 
 /***/ }),
-/* 234 */
+/* 235 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************************!*\
@@ -114657,7 +118448,7 @@ angular.module('ThemisComponents').factory('MessageService', function() {
 
 
 /***/ }),
-/* 235 */
+/* 236 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************************!*\
@@ -114712,7 +118503,7 @@ angular.module('ThemisComponents').directive("withMessages", ["$compile", "Messa
 
 
 /***/ }),
-/* 236 */
+/* 237 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -114760,7 +118551,7 @@ exports.default = Utilities;
 
 
 /***/ }),
-/* 237 */
+/* 238 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -114771,27 +118562,110 @@ exports.default = Utilities;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var angular = __webpack_require__(/*! angular */ 2);
-var autocomplete_factory_1 = __webpack_require__(/*! ./autocomplete.factory */ 238);
-var autocomplete_errors_1 = __webpack_require__(/*! ./autocomplete.errors */ 41);
+var autocomplete_factory_1 = __webpack_require__(/*! ./autocomplete.factory */ 239);
+var autocomplete_errors_1 = __webpack_require__(/*! ./autocomplete.errors */ 40);
 var AutocompleteController = (function () {
     /* @ngInject */
-    AutocompleteController.$inject = ["$scope", "$element", "$timeout", "$attrs"];
-    function AutocompleteController($scope, $element, $timeout, $attrs) {
-        var _this = this;
+    AutocompleteController.$inject = ["$scope", "$element", "$timeout", "$attrs", "ValidatorService"];
+    function AutocompleteController($scope, $element, $timeout, $attrs, ValidatorService) {
         this.$scope = $scope;
         this.$element = $element;
         this.$timeout = $timeout;
         this.$attrs = $attrs;
-        $scope.$watch(function () {
-            return _this.ngModel;
-        }, function (newModel) {
-            // Wait for the current digest cycle to end before triggering the update
-            $timeout(function () {
-                _this.autoComplete.setValue(newModel);
-            });
-        });
+        this.ValidatorService = ValidatorService;
+        this.neverValidated = true;
     }
+    AutocompleteController.prototype.$onInit = function () {
+        this.$inputElement = $(this.$element).find("input, select");
+        this.validateArgs();
+        this.setComponentType();
+        this.watchNgModelValueChange();
+    };
+    AutocompleteController.prototype.$postLink = function () {
+        var _this = this;
+        this.createAutocomplete();
+        this.createValidator();
+        this.$element.find("input").on("blur", function () {
+            _this.$scope.$apply(function () { return _this.ngModelCtrl.$setTouched(); });
+        });
+    };
+    AutocompleteController.prototype.$onChanges = function (change) {
+        var _this = this;
+        this.$timeout(function () {
+            // FIXME: this previousValue is not undefined check is here because of $timeout
+            // inside $onChanges. Will be fixed with the one-way bind ticket: CLIO-45324
+            if (change.ngDisabled && typeof change.ngDisabled.previousValue === "boolean") {
+                _this.autoComplete.toggleEnabled();
+            }
+            if (change.ngRequired && typeof change.ngDisabled.previousValue === "boolean") {
+                if (change.ngRequired.currentValue === true) {
+                    _this.ngModelCtrl.$setUntouched();
+                }
+                else {
+                    _this.validator.validateInput(_this.$inputElement[0]);
+                }
+            }
+            // FIXME: This code has been disabled due to not working.
+            // Re-enable with ticket CLIO-45890
+            // if (change.showSearchHint && typeof change.showSearchHint.previousValue === "boolean") {
+            //   this.autoComplete.toggleSearchHint(change.showSearchHint.currentValue);
+            // }
+        });
+    };
+    AutocompleteController.prototype.$doCheck = function () {
+        // because form submit doesn't have event, and we can't $watch it from component:
+        // trigger validation when form submits without touching input, for one time only.
+        if (this.neverValidated && this.formIsSubmitted()) {
+            this.validator.validateInput(this.$inputElement[0]);
+        }
+    };
+    AutocompleteController.prototype.$onDestroy = function () {
+        this.$element.find("input").off("blur");
+    };
+    AutocompleteController.prototype.createAutocomplete = function () {
+        var _this = this;
+        this.autoComplete = autocomplete_factory_1.default.createAutocomplete(this.componentType, {
+            element: this.$inputElement[0],
+            options: this.options,
+            placeholder: this.placeholder,
+            value: this.ngModel,
+            ngDisabled: this.ngDisabled,
+            change: function (newValue) {
+                _this.$scope.$apply(function () {
+                    _this.ngModel = newValue;
+                });
+                if (_this.onChange) {
+                    _this.onChange(newValue);
+                }
+            },
+            close: function () {
+                if (_this.ngModelCtrl.$untouched) {
+                    _this.$scope.$apply(function () {
+                        _this.ngModelCtrl.$setTouched();
+                    });
+                }
+                _this.validator.validateInput(_this.$inputElement[0]);
+            },
+        });
+    };
+    AutocompleteController.prototype.createValidator = function () {
+        var _this = this;
+        this.validator = this.ValidatorService.create({
+            element: this.$inputElement[0],
+            attrs: this.$attrs,
+            customOptions: this.customValidator,
+            validateInput: function (e) {
+                _this.ngModelCtrl.$setValidity(_this.name, e.valid);
+                // if the validation request comes from formCtrl, $apply is already taken care of by angular.
+                if (_this.neverValidated && _this.formIsSubmitted()) {
+                    _this.neverValidated = false;
+                }
+                else {
+                    _this.$scope.$apply();
+                }
+            },
+        });
+    };
     AutocompleteController.prototype.validateArgs = function () {
         if (this.options === null || typeof this.options === "undefined") {
             throw new autocomplete_errors_1.AutocompleteComponentError("You must provide the \"options\" parameter.");
@@ -114809,80 +118683,39 @@ var AutocompleteController = (function () {
             this.componentType = "combobox";
         }
     };
-    AutocompleteController.prototype.$onChanges = function (change) {
-        var _this = this;
-        this.$timeout(function () {
-            if (change.ngDisabled && typeof change.ngDisabled.previousValue === "boolean") {
-                _this.autoComplete.toggleEnabled();
-            }
-            // FIXME: This code has been disabled due to not working.
-            // Re-enable with ticket CLIO-45890
-            // if (change.showSearchHint && typeof change.showSearchHint.previousValue === "boolean") {
-            //   this.autoComplete.toggleSearchHint(change.showSearchHint.currentValue);
-            // }
-            if (change.ngRequired && typeof change.ngRequired.previousValue === "boolean") {
-                _this.autoComplete.toggleRequired();
-            }
-        });
+    AutocompleteController.prototype.formIsSubmitted = function () {
+        return this.formCtrl && this.formCtrl.$submitted;
     };
-    AutocompleteController.prototype.$onInit = function () {
-        this.validateArgs();
-        this.setComponentType();
-    };
-    AutocompleteController.prototype.$postLink = function () {
+    AutocompleteController.prototype.watchNgModelValueChange = function () {
         var _this = this;
-        var elementType = this.componentType === "multiple" ? "select" : "input";
-        var $childElement = angular.element(this.$element).find(elementType + ":first");
-        if (this.name) {
-            this.$element.removeAttr("name");
-        }
-        this.autoComplete = autocomplete_factory_1.default.createAutocomplete(this.componentType, {
-            element: $childElement[0],
-            options: this.options,
-            placeholder: this.placeholder,
-            value: this.ngModel,
-            ngDisabled: this.ngDisabled,
-            ngRequired: this.ngRequired,
-            change: function (newValue) {
-                _this.$scope.$apply(function () {
-                    _this.ngModel = newValue;
-                });
-                if (_this.onChange) {
-                    _this.onChange(newValue);
-                }
-            },
+        this.$scope.$watch(function () {
+            return _this.ngModel;
+        }, function (newModel) {
+            // Wait for the current digest cycle to end before triggering the update
+            _this.$timeout(function () {
+                _this.autoComplete.setValue(newModel);
+            });
         });
-        this.validationNameAttr = "validation-" + this.name;
-        if (this.$attrs.required) {
-            // Add error element
-            angular.element(this.$element)
-                .append("<span class='k-invalid-msg' data-for=\"" + this.validationNameAttr + "\"></span>");
-            // Add required attributes
-            $childElement.attr("required", "required");
-            $childElement.attr("data-required-msg", "This field is required.");
-        }
     };
     return AutocompleteController;
 }());
 var AutocompleteComponent = {
     template: ["$attrs", function ($attrs) {
-            var templateString = "";
-            if ("multiple" in $attrs) {
-                templateString = "<select name='{{$ctrl.validationNameAttr}}'></select>";
-            }
-            else {
-                templateString = "\n          <input name=\"{{$ctrl.validationNameAttr}}\" />\n          <input type=\"hidden\" name=\"{{$ctrl.name}}\" ng-value=\"$ctrl.ngModel.id\" />\n      ";
-            }
-            return templateString;
+            return $attrs.hasOwnProperty("multiple") ? "<select></select>" : "<input />";
         }],
+    require: {
+        ngModelCtrl: "?ngModel",
+        formCtrl: "?^^form",
+    },
     bindings: {
-        ngModel: "=?",
-        placeholder: "@",
         name: "@?",
+        ngModel: "=?",
+        options: "<",
+        onChange: "<?",
         ngDisabled: "<?",
         ngRequired: "<?",
-        options: "=",
-        onChange: "<?",
+        placeholder: "@?",
+        customValidator: "<?",
     },
     controller: AutocompleteController,
 };
@@ -114890,7 +118723,7 @@ exports.default = AutocompleteComponent;
 
 
 /***/ }),
-/* 238 */
+/* 239 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -114901,9 +118734,9 @@ exports.default = AutocompleteComponent;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var autocomplete_1 = __webpack_require__(/*! ./providers/autocomplete */ 239);
-var combo_box_autocomplete_1 = __webpack_require__(/*! ./providers/combo-box-autocomplete */ 240);
-var multi_select_autocomplete_1 = __webpack_require__(/*! ./providers/multi-select-autocomplete */ 241);
+var autocomplete_1 = __webpack_require__(/*! ./providers/autocomplete */ 240);
+var combo_box_autocomplete_1 = __webpack_require__(/*! ./providers/combo-box-autocomplete */ 241);
+var multi_select_autocomplete_1 = __webpack_require__(/*! ./providers/multi-select-autocomplete */ 242);
 var AutocompleteFactory = (function () {
     function AutocompleteFactory() {
     }
@@ -114924,7 +118757,7 @@ exports.default = AutocompleteFactory;
 
 
 /***/ }),
-/* 239 */
+/* 240 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -114945,8 +118778,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var autocomplete_abstract_1 = __webpack_require__(/*! ./autocomplete.abstract */ 42);
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.autocomplete.js */ 113);
+var autocomplete_abstract_1 = __webpack_require__(/*! ./autocomplete.abstract */ 41);
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.autocomplete.js */ 116);
 var Autocomplete = (function (_super) {
     __extends(Autocomplete, _super);
     function Autocomplete(config) {
@@ -114965,6 +118798,8 @@ var Autocomplete = (function (_super) {
     };
     Autocomplete.prototype.create = function () {
         var _this = this;
+        // FIXME: https://themis.atlassian.net/browse/CLIO-46201
+        // clear invalid selection only works if popup has already appeared first
         var validSelection;
         var widgetOptions = {
             dataTextField: this.config.options.displayField,
@@ -115005,7 +118840,7 @@ exports.default = Autocomplete;
 
 
 /***/ }),
-/* 240 */
+/* 241 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************************!*\
@@ -115026,8 +118861,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var autocomplete_abstract_1 = __webpack_require__(/*! ./autocomplete.abstract */ 42);
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.combobox.js */ 117);
+var autocomplete_abstract_1 = __webpack_require__(/*! ./autocomplete.abstract */ 41);
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.combobox.js */ 120);
 var ComboBoxAutocomplete = (function (_super) {
     __extends(ComboBoxAutocomplete, _super);
     function ComboBoxAutocomplete(config) {
@@ -115079,7 +118914,7 @@ exports.default = ComboBoxAutocomplete;
 
 
 /***/ }),
-/* 241 */
+/* 242 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************************!*\
@@ -115100,9 +118935,9 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var autocomplete_abstract_1 = __webpack_require__(/*! ./autocomplete.abstract */ 42);
-var autocomplete_errors_1 = __webpack_require__(/*! ../autocomplete.errors */ 41);
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.multiselect.js */ 63);
+var autocomplete_abstract_1 = __webpack_require__(/*! ./autocomplete.abstract */ 41);
+var autocomplete_errors_1 = __webpack_require__(/*! ../autocomplete.errors */ 40);
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.multiselect.js */ 62);
 var MultiSelectAutocomplete = (function (_super) {
     __extends(MultiSelectAutocomplete, _super);
     function MultiSelectAutocomplete(config) {
@@ -115163,7 +118998,7 @@ exports.default = MultiSelectAutocomplete;
 
 
 /***/ }),
-/* 242 */
+/* 243 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -115184,7 +119019,7 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var angular = __webpack_require__(/*! angular */ 2);
 var data_table_service_1 = __webpack_require__(/*! ./data-table.service */ 71);
-var template = __webpack_require__(/*! ./data-table.template.html */ 260);
+var template = __webpack_require__(/*! ./data-table.template.html */ 263);
 var DataTable = (function () {
     /* @ngInject */
     DataTable.$inject = ["$element", "DataTableService", "$scope"];
@@ -115269,7 +119104,7 @@ exports.DataTableComponent = DataTableComponent;
 
 
 /***/ }),
-/* 243 */
+/* 244 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -115280,7 +119115,7 @@ exports.DataTableComponent = DataTableComponent;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var template = __webpack_require__(/*! ./toolbar.template.html */ 261);
+var template = __webpack_require__(/*! ./toolbar.template.html */ 264);
 var Toolbar = (function () {
     function Toolbar() {
     }
@@ -115301,7 +119136,7 @@ exports.ToolbarComponent = ToolbarComponent;
 
 
 /***/ }),
-/* 244 */
+/* 245 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -115495,7 +119330,7 @@ angular.module("ThemisComponents").component("thDatePicker", {
 
 
 /***/ }),
-/* 245 */
+/* 246 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -115535,7 +119370,7 @@ exports.DatepickerService = DatepickerService;
 
 
 /***/ }),
-/* 246 */
+/* 247 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************!*\
@@ -115598,7 +119433,7 @@ exports.default = ColumnComponent;
 
 
 /***/ }),
-/* 247 */
+/* 248 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************!*\
@@ -115636,7 +119471,7 @@ exports.bootstrapCssClasses = bootstrapCssClasses;
 
 
 /***/ }),
-/* 248 */
+/* 249 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************!*\
@@ -115678,7 +119513,83 @@ exports.default = RowComponent;
 
 
 /***/ }),
-/* 249 */
+/* 250 */
+/* unknown exports provided */
+/* all exports used */
+/*!**************************************************!*\
+  !*** ./src/lib/thModal/thModalTitlebar/index.ts ***!
+  \**************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var angular = __webpack_require__(/*! angular */ 2);
+var thModalTitlebar_component_1 = __webpack_require__(/*! ./thModalTitlebar.component */ 251);
+angular.module("ThemisComponents")
+    .component("thModalTitlebar", thModalTitlebar_component_1.ModalTitlebarComponent);
+
+
+/***/ }),
+/* 251 */
+/* unknown exports provided */
+/* all exports used */
+/*!**********************************************************************!*\
+  !*** ./src/lib/thModal/thModalTitlebar/thModalTitlebar.component.ts ***!
+  \**********************************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var template = __webpack_require__(/*! ./thModalTitlebar.template.html */ 289);
+var ModalTitlebar = (function () {
+    /* @ngInject */
+    ModalTitlebar.$inject = ["$element", "$scope", "$q"];
+    function ModalTitlebar($element, $scope, $q) {
+        this.$element = $element;
+        this.$scope = $scope;
+        this.$q = $q;
+    }
+    ModalTitlebar.prototype.$onInit = function () {
+        if (typeof this.type === "undefined") {
+            this.type = "standard";
+        }
+        if (typeof this.showCloseButton === "undefined") {
+            this.showCloseButton = true;
+        }
+    };
+    ;
+    ModalTitlebar.prototype.$postLink = function () {
+        this.$element.addClass("type-" + this.type);
+    };
+    ModalTitlebar.prototype.close = function () {
+        var _this = this;
+        var beforeClosePromise = this.beforeClosePromise || this.$q.resolve;
+        return beforeClosePromise().then(function () {
+            if (_this.$scope.$parent.modal) {
+                _this.$scope.$parent.modal.dismiss();
+            }
+        });
+    };
+    return ModalTitlebar;
+}());
+exports.ModalTitlebar = ModalTitlebar;
+var ModalTitlebarComponent = {
+    template: template,
+    controller: ModalTitlebar,
+    bindings: {
+        title: "@",
+        type: "@",
+        showCloseButton: "<",
+        beforeClosePromise: "<?",
+    },
+};
+exports.ModalTitlebarComponent = ModalTitlebarComponent;
+
+
+/***/ }),
+/* 252 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************!*\
@@ -115905,7 +119816,7 @@ exports.CalendarEntriesServiceFactory = CalendarEntriesServiceFactory;
 
 
 /***/ }),
-/* 250 */
+/* 253 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************************!*\
@@ -116076,7 +119987,7 @@ exports.CalendarDataSourceFactory = CalendarDataSourceFactory;
 
 
 /***/ }),
-/* 251 */
+/* 254 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************!*\
@@ -116122,8 +120033,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var template = __webpack_require__(/*! ./calendars.template.html */ 292);
-var colorTemplate = __webpack_require__(/*! ./color.template.html */ 293);
+var template = __webpack_require__(/*! ./calendars.template.html */ 295);
+var colorTemplate = __webpack_require__(/*! ./color.template.html */ 296);
 var CalendarsController = (function () {
     function CalendarsController() {
         /**
@@ -116204,7 +120115,7 @@ exports.CalendarsComponent = CalendarsComponent;
 
 
 /***/ }),
-/* 252 */
+/* 255 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -116215,7 +120126,7 @@ exports.CalendarsComponent = CalendarsComponent;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var template = __webpack_require__(/*! ./scheduler.template.html */ 294);
+var template = __webpack_require__(/*! ./scheduler.template.html */ 297);
 var SchedulerController = (function () {
     function SchedulerController() {
     }
@@ -116267,7 +120178,7 @@ exports.SchedulerComponent = SchedulerComponent;
 
 
 /***/ }),
-/* 253 */
+/* 256 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -116278,7 +120189,7 @@ exports.SchedulerComponent = SchedulerComponent;
 module.exports = "<div class=\"action-bar\">\n  <div class=\"flex-section\">\n    <th-checkbox\n      ng-model=\"$ctrl.checked\"\n      ng-change=\"$ctrl.toggleAll()\"\n      with-label=\"Select Page\"\n      ng-disabled=\"$ctrl.delegate.results.processing\"\n      >\n    </th-checkbox>\n    <div class=\"action-menu\" ng-if=\"$ctrl.delegate.results.hasSelection\">\n      <span ng-if=\"$ctrl.delegate.availableActions\">\n        <th-select\n          ng-model=\"$ctrl.delegate.results.selectedAction\"\n          options=\"$ctrl.delegate.availableActions\"\n          placeholder=\"Action\"\n          condensed=\"true\"\n          ng-disabled=\"$ctrl.delegate.results.processing\"\n          >\n        </th-select>\n      </span>\n      <span class=\"button-wrapper\" ng-class=\"{'margin-left-10': !$ctrl.availableActions}\">\n        <th-button\n          type=\"standard\"\n          ng-click=\"$ctrl.triggerApply()\"\n          ng-disabled=\"$ctrl.delegate.isDisabled()\"\n          loading=\"$ctrl.delegate.results.processing\"\n          >\n          {{$ctrl.delegate.buttonName}}\n        </th-button>\n      </span>\n    </div>\n  </div>\n  <div class=\"flex-section\">\n    <ng-transclude></ng-transclude>\n  </div>\n</div>\n"
 
 /***/ }),
-/* 254 */
+/* 257 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************************!*\
@@ -116289,7 +120200,7 @@ module.exports = "<div class=\"action-bar\">\n  <div class=\"flex-section\">\n  
 module.exports = "<div class=\"action-bar\">\n\n  <div\n    class=\"flex-section\"\n    ng-class=\"{hidden: actionBar.delegate.results.totalItemCount <= 0}\"\n    >\n    <th-checkbox\n      ng-model=\"actionBar.delegate.results.allSelected\"\n      ng-click=\"actionBar.toggleAll()\"\n      with-label=\"Select All\"\n      ng-disabled=\"actionBar.delegate.results.processing\"\n      indeterminate=\"actionBar.isIndeterminate()\"\n      >\n    </th-checkbox>\n    <th-loader\n      ng-if=\"actionBar.delegate.results.loadingIds\"\n      size=\"mini\"\n      >\n    </th-loader>\n    <div\n      class=\"action-menu\"\n      ng-if=\"actionBar.delegate.results.selectedItemCount > 0\n        && !actionBar.delegate.results.loadingIds\"\n      >\n      <div class=\"action-text\">\n        <strong>{{actionBar.delegate.results.selectedItemCount}}</strong>\n          {{actionBar.openingWords}}\n          {{actionBar.lastWord | pluralize: actionBar.delegate.results.selectedItemCount}}\n          selected.\n      </div>\n      <span ng-if=\"actionBar.delegate.results.availableActions\">\n        <th-select\n          ng-model=\"actionBar.delegate.results.selectedAction\"\n          options=\"actionBar.delegate.results.availableActions\"\n          placeholder=\"Action\"\n          condensed=\"true\"\n          ng-disabled=\"actionBar.delegate.results.processing\"\n          >\n        </th-select>\n      </span>\n      <span class=\"button-wrapper\"\n        ng-class=\"{'margin-left-10': !actionBar.delegate.results.availableActions}\"\n        >\n        <th-button\n          type=\"standard\"\n          ng-click=\"actionBar.triggerApply()\"\n          ng-disabled=\"actionBar.delegate.results.processing ||\n                       (!actionBar.delegate.results.selectedAction &&\n                       !!actionBar.delegate.results.availableActions)\"\n          loading=\"actionBar.delegate.results.processing\"\n          >\n          {{actionBar.buttonName}}\n        </th-button>\n      </span>\n    </div>\n  </div>\n  <div class=\"flex-section\">\n    <ng-transclude></ng-transclude>\n  </div>\n</div>\n"
 
 /***/ }),
-/* 255 */
+/* 258 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -116300,7 +120211,7 @@ module.exports = "<div class=\"action-bar\">\n\n  <div\n    class=\"flex-section
 module.exports = "<div\n  ng-show=\"alertAnchor.alertMessage.message\"\n  ng-class=\"'th-alert th-alert-' + alertAnchor.alertMessage.type\"\n  >\n  <i\n    class=\"fa alert-icon\"\n    ng-class=\"{ 'fa-check': alertAnchor.alertMessage.type == 'success',\n                'fa-warning': alertAnchor.alertMessage.type == 'error' ||\n                              alertAnchor.alertMessage.type == 'warning' }\"\n    >\n  </i>\n  <p\n    ng-bind-html=\"alertAnchor.alertMessage.message\"\n    >\n    {{alertAnchor.alertMessage.message}}\n  </p>\n  <i\n    class=\"fa fa-times-circle dismiss-icon\"\n    ng-click=\"alertAnchor.dismiss()\"\n    >\n  </i>\n</div>\n"
 
 /***/ }),
-/* 256 */
+/* 259 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -116311,7 +120222,7 @@ module.exports = "<div\n  ng-show=\"alertAnchor.alertMessage.message\"\n  ng-cla
 module.exports = "<a\n  class=\"th-button {{button.type}}\"\n  aria-disabled=\"{{button.ngDisabled}}\"\n  href=\"{{button.href}}\"\n  role=\"button\"\n  >\n  <span\n    class=\"load-wrapper\"\n    ng-if=\"button.loading\"\n    >\n    <th-loader\n      theme=\"button.theme\"\n      size=\"mini\"\n      >\n    </th-loader>\n  </span>\n  <ng-transclude\n    ng-class=\"button.loading ? 'hide' : 'show'\"\n    >\n  </ng-transclude>\n</a>\n"
 
 /***/ }),
-/* 257 */
+/* 260 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -116322,7 +120233,7 @@ module.exports = "<a\n  class=\"th-button {{button.type}}\"\n  aria-disabled=\"{
 module.exports = "<button\n  class=\"th-button {{button.type}}\"\n  aria-disabled=\"{{button.ngDisabled}}\"\n  >\n  <span\n    class=\"load-wrapper\"\n    ng-if=\"button.loading\"\n    >\n    <th-loader\n      theme=\"button.theme\"\n      size=\"mini\"\n      >\n    </th-loader>\n  </span>\n  <ng-transclude\n    ng-class=\"button.loading ? 'hide' : 'show'\"\n    >\n  </ng-transclude>\n</button>\n"
 
 /***/ }),
-/* 258 */
+/* 261 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -116333,7 +120244,7 @@ module.exports = "<button\n  class=\"th-button {{button.type}}\"\n  aria-disable
 module.exports = "<span\n  class=\"th-checkbox\"\n  ng-class=\"[\n    {disabled: checkbox.ngDisabled},\n    {checked: checkbox.checked && !checkbox.indeterminate},\n    {indeterminate: checkbox.indeterminate}\n  ]\"\n  role=\"checkbox\"\n  aria-checked=\"{{checkbox.checked}}\"\n  tabindex=\"0\"\n  >\n  <input\n    type=\"checkbox\"\n    name=\"{{checkbox.name}}\"\n    ng-model=\"checkbox.checked\"\n    ng-required=\"checkbox.ngRequired\"\n    ng-disabled=\"checkbox.ngDisabled\"\n    value=\"{{checkbox.checked}}\"\n    >\n  <i></i>\n</span>\n"
 
 /***/ }),
-/* 259 */
+/* 262 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************************!*\
@@ -116344,7 +120255,7 @@ module.exports = "<span\n  class=\"th-checkbox\"\n  ng-class=\"[\n    {disabled:
 module.exports = "<h1 class=\"th-header-title th-header-flex-item\">{{ title }}</h1>\n<div class=\"th-header-flex-item\"></div>\n<ng-transclude class=\"th-header-flex-item\"></ng-transclude>"
 
 /***/ }),
-/* 260 */
+/* 263 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -116355,7 +120266,7 @@ module.exports = "<h1 class=\"th-header-title th-header-flex-item\">{{ title }}<
 module.exports = "<ng-transclude></ng-transclude>\n<div class=\"th-data-table\"></div>\n"
 
 /***/ }),
-/* 261 */
+/* 264 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************!*\
@@ -116366,7 +120277,7 @@ module.exports = "<ng-transclude></ng-transclude>\n<div class=\"th-data-table\">
 module.exports = "<div class=\"bulk-actions-container\">\n  <!-- custom space -->\n  <div ng-transclude=\"bulk\"></div>\n\n  <div class=\"counter-container\" ng-if=\"$ctrl.dataTableCtrl.getSelectedSize()\">\n    <p>{{$ctrl.dataTableCtrl.getSelectedSize()}} selected</p>\n    <a href=\"#\" ng-click=\"$ctrl.dataTableCtrl.clearSelection()\">Clear</a>\n  </div>\n</div>\n\n<div class=\"tools-container\">\n  <!-- custom space -->\n  <div ng-transclude=\"custom\"></div>\n\n  <!-- common: search bar -->\n  <!-- common: filter toggle button -->\n</div>\n"
 
 /***/ }),
-/* 262 */
+/* 265 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************************!*\
@@ -116377,7 +120288,7 @@ module.exports = "<div class=\"bulk-actions-container\">\n  <!-- custom space --
 module.exports = "<ng-transclude></ng-transclude>\n"
 
 /***/ }),
-/* 263 */
+/* 266 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************************!*\
@@ -116388,7 +120299,7 @@ module.exports = "<ng-transclude></ng-transclude>\n"
 module.exports = "<a\n  id=\"{{thDisclosureToggle.name}}-toggle\"\n  href\n  ng-click=\"thDisclosureToggle.toggle()\"\n  ng-focus=\"thDisclosureToggle.focus()\"\n  ng-blur=\"thDisclosureToggle.blur()\"\n  aria-controls=\"{{thDisclosureToggle.name}}\"\n  aria-expanded=\"{{thDisclosureToggle.expanded}}\"\n  aria-label=\"{{thDisclosureToggle.ariaLabel}}\"\n  aria-describedby=\"{{thDisclosureToggle.ariaDescribedby}}\"\n  tabindex=\"{{thDisclosureToggle.tabindex}}\"\n  role=\"button\"\n  >\n  <ng-transclude\n    ng-if=\"thDisclosureToggle.textSide == 'left'\"\n    >\n  </ng-transclude>\n  <span\n    class=\"fa fa-caret-right\"\n    ng-class=\"{'fa-caret-right-rotated': thDisclosureToggle.expanded}\"\n    aria-hidden=\"true\"\n    >\n  </span>\n  <ng-transclude\n    ng-if=\"thDisclosureToggle.textSide == 'right'\"\n    >\n  </ng-transclude>\n</a>\n"
 
 /***/ }),
-/* 264 */
+/* 267 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -116399,7 +120310,7 @@ module.exports = "<a\n  id=\"{{thDisclosureToggle.name}}-toggle\"\n  href\n  ng-
 module.exports = "<hr class=\"th-divider\" aria-hidden=\"true\"></hr>\n"
 
 /***/ }),
-/* 265 */
+/* 268 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -116410,7 +120321,7 @@ module.exports = "<hr class=\"th-divider\" aria-hidden=\"true\"></hr>\n"
 module.exports = "<div\n  class=\"button-dropdown\"\n  ng-keydown=\"dropdown.keyboardToggle($event)\"\n  >\n  <div\n    class=\"dd-overlay\"\n    ng-click=\"dropdown.toggle()\"\n    ng-if=\"dropdown.visible\"\n    >\n  </div>\n  <button\n    ng-class=\"dropdown.type\"\n    ng-click=\"dropdown.toggle()\"\n    ng-disabled=\"dropdown.disabledWithAttribute || dropdown.ngDisabled\"\n    aria-haspopup=\"true\"\n    aria-owns=\"{{dropdown.name|lowercase}}-listbox\"\n    aria-label=\"{{dropdown.ariaLabel}}\"\n    aria-describedby=\"{{dropdown.ariaDescribedby}}\"\n    tabindex=\"{{dropdown.visible ? '-1' : '0'}}\"\n    >\n    {{dropdown.name}}\n    <i\n      class=\"fa\"\n      ng-class=\"dropdown.toggleCaret()\"\n      >\n    </i>\n  </button>\n  <ul\n    id=\"{{dropdown.name|lowercase}}-listbox\"\n    ng-click=\"dropdown.toggle()\"\n    ng-if=\"dropdown.visible\"\n    class=\"dropdown-menu\"\n    ng-class=\"dropdown.type\"\n    aria-role=\"listbox\"\n    tabindex=\"{{dropdown.visible ? '0' : '-1'}}\"\n    >\n    <ng-switch\n      on=\"item.type\"\n      ng-repeat=\"item in dropdown.processedItems\"\n      >\n      <th-item ng-switch-when='link'\n        name=\"{{item.name}}\"\n        href=\"{{item.href}}\"\n        icon=\"{{item.icon}}\"\n        aria-role=\"option\"\n        ng-class=\"{'selected' : item.selected}\"\n        >\n      </th-item>\n      <th-item ng-switch-when='action'\n        name=\"{{item.name}}\"\n        ng-click=\"item.ngClick()\"\n        icon=\"{{item.icon}}\"\n        aria-role=\"option\"\n        ng-class=\"{'selected' : item.selected}\"\n        >\n      </th-item>\n      <th-divider\n        ng-switch-default\n        aria-hidden=\"true\"\n      >\n      </th-divider>\n    </ng-switch>\n    <ng-transclude></ng-transclude>\n  </ul>\n</div>\n"
 
 /***/ }),
-/* 266 */
+/* 269 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -116421,7 +120332,7 @@ module.exports = "<div\n  class=\"button-dropdown\"\n  ng-keydown=\"dropdown.key
 module.exports = "<li>\n  <a class=\"dropdown-item\" href=\"#\">\n    <i ng-if=\"icon\" class=\"fa fa-{{icon}}\"></i>\n    {{name}}\n  </a>\n</li>\n"
 
 /***/ }),
-/* 267 */
+/* 270 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -116432,7 +120343,7 @@ module.exports = "<li>\n  <a class=\"dropdown-item\" href=\"#\">\n    <i ng-if=\
 module.exports = "<li>\n  <a class=\"dropdown-item\" href=\"{{href}}\">\n    <i ng-if=\"icon\" class=\"fa fa-{{icon}}\"></i>\n    {{name}}\n  </a>\n</li>\n"
 
 /***/ }),
-/* 268 */
+/* 271 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -116440,10 +120351,10 @@ module.exports = "<li>\n  <a class=\"dropdown-item\" href=\"{{href}}\">\n    <i 
   \***********************************************/
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"th-error-container\">\n  <i class=\"fa fa-exclamation-triangle\"></i>\n  <span ng-if=\"!ctrl.message\">\n    We had trouble loading your content.<br>Try reloading the page.\n  </span>\n  <ng-transclude ng-if=\"ctrl.message\"></ng-transclude>\n</div>\n"
+module.exports = "<div class=\"th-error-container\">\n  <i class=\"fa fa-exclamation-triangle\"></i>\n  <span ng-if=\"!ctrl.message\">\n    {{'thError.error' | translate}}<br>{{'thError.instructions' | translate}}\n  </span>\n  <ng-transclude ng-if=\"ctrl.message\"></ng-transclude>\n</div>\n"
 
 /***/ }),
-/* 269 */
+/* 272 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************************************!*\
@@ -116454,7 +120365,7 @@ module.exports = "<div class=\"th-error-container\">\n  <i class=\"fa fa-exclama
 module.exports = "<div>\n  <th-autocomplete\n    ng-model=\"thFilterAutocomplete.filter.model\"\n    ng-attr-placeholder=\"{{thFilterAutocomplete.filter.placeholder || thFilterAutocomplete.placeholder || 'Type some text…'}}\"\n    options=\"thFilterAutocomplete.options\"\n    on-change=\"thFilterAutocomplete.filterSet.onFilterChange\"\n    condensed\n    >\n  </th-autocomplete>\n</div>\n"
 
 /***/ }),
-/* 270 */
+/* 273 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************************!*\
@@ -116465,7 +120376,7 @@ module.exports = "<div>\n  <th-autocomplete\n    ng-model=\"thFilterAutocomplete
 module.exports = "<div ng-class=\"{inner: thFilterDate.hasOperator}\">\n  <th-select\n    ng-if=\"thFilterDate.hasOperator\"\n    ng-model=\"thFilterDate.filter.operator\"\n    ng-change=\"thFilterDate.onOperatorChange()\"\n    options=\"thFilterDate.filter.operatorOptions\"\n    condensed=\"true\"\n    class=\"operator\"\n    >\n  </th-select>\n  <th-date-picker\n    ng-model=\"thFilterDate.filter.model\"\n    ng-attr-placeholder=\"{{thFilterDate.filter.placeholder || thFilterDate.placeholder || 'Enter filter date…'}}\"\n    on-change=\"thFilterDate.onValueChange\"\n    condensed=\"true\"\n    ng-class=\"{value: thFilterDate.hasOperator}\"\n    >\n  </th-date-picker>\n</div>\n"
 
 /***/ }),
-/* 271 */
+/* 274 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************************!*\
@@ -116476,7 +120387,7 @@ module.exports = "<div ng-class=\"{inner: thFilterDate.hasOperator}\">\n  <th-se
 module.exports = "<div>\n  <th-input\n    ng-model=\"thFilterInput.filter.model\"\n    ng-attr-placeholder=\"{{thFilterInput.filter.placeholder || thFilterInput.placeholder || 'Enter filter term…'}}\"\n    ng-keypress=\"thFilterInput.onKeypress($event)\"\n    ng-blur=\"thFilterInput.onBlur($event)\"\n    condensed=\"true\"\n    >\n  </th-input>\n</div>\n"
 
 /***/ }),
-/* 272 */
+/* 275 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************************!*\
@@ -116487,7 +120398,7 @@ module.exports = "<div>\n  <th-input\n    ng-model=\"thFilterInput.filter.model\
 module.exports = "<div class=\"inner\">\n  <th-select\n    ng-model=\"thFilterNumber.filter.operator\"\n    ng-change=\"thFilterNumber.onOperatorChange()\"\n    options=\"thFilterNumber.filter.operatorOptions\"\n    condensed=\"true\"\n    class=\"operator\"\n    >\n  </th-select>\n  <th-input\n    ng-model=\"thFilterNumber.filter.model\"\n    ng-attr-placeholder=\"{{thFilterNumber.filter.placeholder || 'Type a number…'}}\"\n    ng-keypress=\"thFilterNumber.onKeypress($event)\"\n    ng-blur=\"thFilterNumber.onBlur($event)\"\n    condensed=\"true\"\n    class=\"value\"\n    type=\"number\"\n    >\n  </th-input>\n</div>\n"
 
 /***/ }),
-/* 273 */
+/* 276 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************************!*\
@@ -116498,7 +120409,7 @@ module.exports = "<div class=\"inner\">\n  <th-select\n    ng-model=\"thFilterNu
 module.exports = "<div>\n  <th-select\n    ng-model=\"thFilterSelect.filter.model\"\n    ng-change=\"thFilterSelect.onValueChange()\"\n    options=\"thFilterSelect.filter.options\"\n    ng-attr-placeholder=\"{{thFilterSelect.filter.placeholder || thFilterSelect.placeholder || 'Select an option'}}\"\n    condensed=\"true\"\n    >\n  </th-select>\n</div>\n"
 
 /***/ }),
-/* 274 */
+/* 277 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************************!*\
@@ -116509,7 +120420,7 @@ module.exports = "<div>\n  <th-select\n    ng-model=\"thFilterSelect.filter.mode
 module.exports = "<div class=\"inner\">\n  <th-select\n    ng-model=\"thFilterTime.filter.operator\"\n    ng-change=\"thFilterTime.onOperatorChange()\"\n    options=\"thFilterTime.operatorOptions\"\n    condensed=\"true\"\n    class=\"operator\"\n    >\n  </th-select>\n  <th-input\n    ng-model=\"thFilterTime.filter.model\"\n    ng-attr-placeholder=\"{{thFilterTime.filter.placeholder || '4am, 16:13'}}\"\n    ng-keypress=\"thFilterTime.onKeypress($event)\"\n    ng-blur=\"thFilterTime.validateInput()\"\n    condensed=\"true\"\n    class=\"value\"\n    >\n  </th-input>\n</div>\n"
 
 /***/ }),
-/* 275 */
+/* 278 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -116520,7 +120431,7 @@ module.exports = "<div class=\"inner\">\n  <th-select\n    ng-model=\"thFilterTi
 module.exports = "<div class=\"row\">\n  <div class=\"field\">\n    <th-autocomplete\n      ng-model=\"thCustomFilterRow.rowSelectValue\"\n      on-change=\"thCustomFilterRow.onRowSelectChange\"\n      options=\"thCustomFilterRow.customFieldOptions\"\n      placeholder=\"Select or search fields…\"\n      show-search-hint=\"thCustomFilterRow.showSearchHint\"\n      condensed=\"true\"\n      icon=\"caret-down\"\n      combobox=\"true\"\n      >\n    </th-autocomplete>\n  </div>\n  <div\n    ng-repeat=\"filter in thCustomFilterRow.rowFilterOptions\"\n    ng-switch on=\"filter.type\"\n    class=\"wide field filter-container\"\n    >\n    <th-filter-select\n      ng-switch-when=\"select\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-select>\n    <th-filter-input\n      ng-switch-when=\"input\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-input>\n    <th-filter-number\n      ng-switch-when=\"number\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      operator-options=\"thCustomFilterRow.numberOperatorOptions\"\n      default-operator-index=\"2\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-number>\n    <th-filter-number\n      ng-switch-when=\"currency\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      operator-options=\"thCustomFilterRow.currencyOperatorOptions\"\n      default-operator-index=\"1\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-number>\n    <th-filter-select\n      ng-switch-when=\"checkbox\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      options=\"thCustomFilterRow.checkboxOptions\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-select>\n    <th-filter-input\n      ng-switch-when=\"email\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      placeholder=\"email@example.com\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-input>\n    <th-filter-input\n      ng-switch-when=\"url\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      placeholder=\"webaddress.com\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-input>\n    <th-filter-autocomplete\n      ng-switch-when=\"autocomplete\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-autocomplete>\n    <th-filter-date\n      ng-switch-when=\"date\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      operator-options=\"thCustomFilterRow.dateOperatorOptions\"\n      default-operator-index=\"1\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-date>\n    <th-filter-time\n      ng-switch-when=\"time\"\n      filter-set=\"thCustomFilterRow.filterSet\"\n      filter-options=\"thCustomFilterRow.rowSelectValue\"\n      initial-state=\"thCustomFilterRow.initialState\"\n      >\n    </th-filter-time>\n  </div>\n  <div class=\"field\">\n    <div class=\"link\" ng-click=\"thCustomFilterRow.removeRow()\">\n      Remove\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
-/* 276 */
+/* 279 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -116531,7 +120442,7 @@ module.exports = "<div class=\"row\">\n  <div class=\"field\">\n    <th-autocomp
 module.exports = "<div class=\"th-custom-filters\" ng-if=\"thCustomFilters.customFilterTypes.length\">\n  <div class=\"custom-filters\">\n    <div class=\"custom-filters-label\">\n      {{thCustomFilters.name}} Custom Fields\n    </div>\n    <th-custom-filter-row\n      ng-repeat=\"row in thCustomFilters.customFilterRows\"\n      row-select-value=\"row.type\"\n      initial-state=\"row.initialState\"\n      custom-filter-types=\"thCustomFilters.customFilterTypes\"\n      show-search-hint=\"thCustomFilters.showSearchHint\"\n      filter-set=\"thCustomFilters.filterSet\"\n      on-remove-row=\"thCustomFilters.removeCustomFilterRow(row.identifier)\"\n      >\n    </th-custom-filter-row>\n  </div>\n  <div class=\"link add-custom-filter\" ng-click=\"thCustomFilters.addCustomFilterRow()\">\n    <i class=\"fa right-space fa-plus-circle\"></i>\n    Add {{thCustomFilters.name}} Custom Field\n  </div>\n</div>\n"
 
 /***/ }),
-/* 277 */
+/* 280 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -116542,7 +120453,7 @@ module.exports = "<div class=\"th-custom-filters\" ng-if=\"thCustomFilters.custo
 module.exports = "<div class=\"th-filter\" ng-class=\"{'th-filter-loading': thFilter.isLoading}\">\n  <div class=\"th-filter-header\">\n    <div class=\"filter-header-text\">Filters</div>\n    <th-button\n      class=\"clear-filters\"\n      ng-click=\"thFilter.clearFilters()\"\n      type=\"secondary\"\n      >\n      Clear Filters\n    </th-button>\n  </div>\n  <div ng-transclude></div>\n\n  <div class=\"th-filter-overlay\" ng-if=\"thFilter.isLoading\">\n    <th-loader class=\"th-filter-loader\" size=\"small\">&nbsp;</th-loader>\n  </div>\n</div>\n"
 
 /***/ }),
-/* 278 */
+/* 281 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -116553,7 +120464,7 @@ module.exports = "<div class=\"th-filter\" ng-class=\"{'th-filter-loading': thFi
 module.exports = "<div class=\"th-search-row\">\n  <div class=\"row\">\n    <div class=\"field\">\n      <th-filter-input\n        filter-set=\"thSearchRow.filterSet\"\n        filter-options=\"thSearchRow.queryFilterOptions\"\n        with-label=\"Search\"\n        ignore-blur-events=\"true\"\n        initial-state=\"thSearchRow.initialState\"\n        >\n      </th-filter-input>\n    </div>\n    <div class=\"bottom field\">\n      <th-button\n        ng-click=\"thSearchRow.filterSet.onFilterChange()\"\n        type=\"default\"\n        >\n        Search\n      </th-button>\n    </div>\n    <div class=\"field\"></div>\n    <div class=\"field\"></div>\n  </div>\n</div>\n"
 
 /***/ }),
-/* 279 */
+/* 282 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -116564,7 +120475,7 @@ module.exports = "<div class=\"th-search-row\">\n  <div class=\"row\">\n    <div
 module.exports = "<div class=\"th-static-filters\">\n  <div class=\"row\">\n    <div\n      class=\"field\"\n      ng-repeat=\"filter in thStaticFilters.staticFilters track by filter.filterOptions.fieldIdentifier\"\n      ng-switch on=\"filter.filterOptions.type\"\n      >\n      <th-filter-select\n        ng-switch-when=\"select\"\n        class=\"field\"\n        filter-set=\"thStaticFilters.filterSet\"\n        filter-options=\"filter.filterOptions\"\n        with-label=\"{{filter.filterOptions.name}}\"\n        initial-state=\"filter.initialState\"\n        >\n      </th-filter-select>\n      <th-filter-input\n        ng-switch-when=\"input\"\n        class=\"field\"\n        filter-set=\"thStaticFilters.filterSet\"\n        filter-options=\"filter.filterOptions\"\n        with-label=\"{{filter.filterOptions.name}}\"\n        initial-state=\"filter.initialState\"\n        >\n      </th-filter-input>\n      <th-filter-date\n        ng-switch-when=\"date\"\n        class=\"field\"\n        filter-set=\"thStaticFilters.filterSet\"\n        filter-options=\"filter.filterOptions\"\n        with-label=\"{{filter.filterOptions.name}}\"\n        >\n      </th-filter-date>\n      <th-filter-autocomplete\n        ng-switch-when=\"autocomplete\"\n        class=\"field\"\n        filter-set=\"thStaticFilters.filterSet\"\n        filter-options=\"filter.filterOptions\"\n        with-label=\"{{filter.filterOptions.name}}\"\n        initial-state=\"filter.initialState\"\n        >\n      </th-filter-autocomplete>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
-/* 280 */
+/* 283 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -116575,7 +120486,7 @@ module.exports = "<div class=\"th-static-filters\">\n  <div class=\"row\">\n    
 module.exports = "<span\n  class=\"th-input-wrapper\"\n  ng-class=\"[\n    {'is-invalid': input.isInvalid()},\n    {condensed: input.condensed}\n  ]\"\n  >\n  <span ng-if=\"input.prefix\" class=\"th-input-prefix\">{{input.prefix}}</span>\n  <input\n    ng-model=\"input.ngModel\"\n    class=\"th-input\"\n    ng-class=\"[\n      {'with-icon': input.icon},\n      {'with-prefix': input.prefix},\n      {'with-postfix': input.postfix},\n      {'disabled': input.ngDisabled}\n    ]\"\n    id=\"{{input.id}}\"\n    type=\"{{input.type}}\"\n    name=\"{{input.name}}\"\n    placeholder=\"{{input.placeholder}}\"\n    ng-required=\"input.ngRequired\"\n    ng-disabled=\"input.ngDisabled\"\n    ng-blur=\"input.ngBlur()\"\n    ng-keypress=\"input.ngKeypress\"\n    ng-minlength=\"input.ngMinlength\"\n    ng-maxlength=\"input.ngMaxlength\"\n    ng-pattern=\"input.ngPattern\"\n    ng-attr-min=\"{{input.min}}\"\n    ng-attr-max=\"{{input.max}}\"\n    ng-attr-step=\"{{input.step}}\"\n    ng-change=\"input.thOnChange()\"\n    >\n  <i ng-if=\"input.icon\" class=\"th-input-icon fa fa-{{input.icon}}\"></i>\n  <span ng-if=\"input.postfix\" class=\"th-input-postfix\">{{input.postfix}}</span>\n</span>\n"
 
 /***/ }),
-/* 281 */
+/* 284 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************!*\
@@ -116586,7 +120497,7 @@ module.exports = "<span\n  class=\"th-input-wrapper\"\n  ng-class=\"[\n    {'is-
 module.exports = "<ng-include ng-show=\"!lazy.loading\" onload=\"lazy.loadingComplete()\" src=\"lazy.src\"></ng-include>\n<th-loader trigger=\"lazy.loading\" size=\"small\"></th-loader>\n<th-error ng-if=\"lazy.loadError && !lazy.errorMessage && !lazy.loading\">\n  We had trouble loading your content\n  <br>\n  <a\n    href=\"#\"\n    ng-show=\"lazy.name\"\n    ng-click=\"lazy.reload()\"\n    >\n    Try reloading\n  </a>\n  <span ng-hide=\"lazy.name\">Try reloading</span>\n</th-error>\n<th-error ng-if=\"lazy.loadError && lazy.errorMessage && !lazy.loading\">\n  {{lazy.errorMessage}}\n</th-error>\n"
 
 /***/ }),
-/* 282 */
+/* 285 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -116597,7 +120508,7 @@ module.exports = "<ng-include ng-show=\"!lazy.loading\" onload=\"lazy.loadingCom
 module.exports = "<div>\n  <th-loader class=\"meta-spinner\" trigger=\"meta.loading\"></th-loader>\n  <div ng-show=\"!meta.loading\">\n    <ng-transclude></ng-transclude>\n  </div>\n</div>\n"
 
 /***/ }),
-/* 283 */
+/* 286 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -116608,7 +120519,7 @@ module.exports = "<div>\n  <th-loader class=\"meta-spinner\" trigger=\"meta.load
 module.exports = "<div\n  class=\"th-loader {{loader.theme}}\"\n  ng-show=\"loader.visible\"\n  >\n  <div class=\"progress {{loader.size}}\">\n    <div></div>\n  </div>\n  <p ng-hide=\"loader.size == 'mini'\" class=\"loading-text\" ng-transclude></p>\n</div>\n"
 
 /***/ }),
-/* 284 */
+/* 287 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -116619,7 +120530,7 @@ module.exports = "<div\n  class=\"th-loader {{loader.theme}}\"\n  ng-show=\"load
 module.exports = "<div class=\"th-modal {{ modal.name }} {{ modal.size }}\">\n  <div th-compile=\"modal.content\"></div>\n</div>\n"
 
 /***/ }),
-/* 285 */
+/* 288 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -116630,7 +120541,7 @@ module.exports = "<div class=\"th-modal {{ modal.name }} {{ modal.size }}\">\n  
 module.exports = "<div class=\"th-modal-backdrop\" ng-class=\"{visible: anchor.modals.length > 0}\">\n  <div\n    class=\"th-modal-container\"\n    ng-repeat=\"modal in anchor.modals | limitTo:anchor.modalLimit\"\n    >\n    <div class=\"cell\">\n      <th-modal modal-data=\"modal\"></th-modal>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
-/* 286 */
+/* 289 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************************!*\
@@ -116641,7 +120552,7 @@ module.exports = "<div class=\"th-modal-backdrop\" ng-class=\"{visible: anchor.m
 module.exports = "<div class=\"titlebar-title\">\n  {{ $ctrl.title }}\n</div>\n<div class=\"titlebar-actions\">\n  <button\n    ng-click=\"$ctrl.close()\"\n    ng-if=\"$ctrl.showCloseButton\"\n    aria-label=\"Close Modal\"\n    >\n\n    <i class=\"fa fa-times\"></i>\n  </button>\n</div>\n"
 
 /***/ }),
-/* 287 */
+/* 290 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************!*\
@@ -116652,7 +120563,7 @@ module.exports = "<div class=\"titlebar-title\">\n  {{ $ctrl.title }}\n</div>\n<
 module.exports = "<i class=\"th-popover-arrow th-popover-hidden\"></i>\n"
 
 /***/ }),
-/* 288 */
+/* 291 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************!*\
@@ -116663,7 +120574,7 @@ module.exports = "<i class=\"th-popover-arrow th-popover-hidden\"></i>\n"
 module.exports = "<div class=\"th-popover-overlay th-popover-hidden\"></div>\n"
 
 /***/ }),
-/* 289 */
+/* 292 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -116674,7 +120585,7 @@ module.exports = "<div class=\"th-popover-overlay th-popover-hidden\"></div>\n"
 module.exports = "<div\n  class=\"th-popover-view th-popover-hidden\"\n  ng-class=\"{\n              loading: !loaded,\n              'overflow-visible': overflow == 'visible',\n              'overflow-hidden': overflow == 'hidden'\n            }\"\n  >\n  <div\n    class=\"th-popover-content\"\n    th-compile=\"content\"\n    ></div>\n</div>\n"
 
 /***/ }),
-/* 290 */
+/* 293 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -116685,7 +120596,7 @@ module.exports = "<div\n  class=\"th-popover-view th-popover-hidden\"\n  ng-clas
 module.exports = "<span\n  class=\"th-radio-button\"\n  ng-class=\"{\n    checked: checked\n    }\"\n  ng-model=\"group.value\"\n  >\n  <input\n    type=\"radio\"\n    name=\"{{group.name}}\"\n    value=\"{{value}}\"\n    ng-checked=\"checked\"\n    ng-required=\"group.ngRequired\"\n    >\n  <i></i>\n</span>\n"
 
 /***/ }),
-/* 291 */
+/* 294 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************!*\
@@ -116696,7 +120607,7 @@ module.exports = "<span\n  class=\"th-radio-button\"\n  ng-class=\"{\n    checke
 module.exports = "<ng-transclude class=\"th-radio-group\"></ng-transclude>\n"
 
 /***/ }),
-/* 292 */
+/* 295 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************************!*\
@@ -116707,7 +120618,7 @@ module.exports = "<ng-transclude class=\"th-radio-group\"></ng-transclude>\n"
 module.exports = "<div class=\"d-flex\">\n  <h3>My Calendars</h3>\n</div>\n<ul>\n  <li ng-repeat=\"calendar in $ctrl.calendars\" class=\"d-flex justify-content-between\">\n    <th-checkbox\n      ng-model=\"calendar.visible\"\n      ng-change=\"$ctrl.toggleVisibility(calendar)\"\n      with-label=\"{{calendar.name}}\"\n      ng-style=\"{\n        'background-color': calendar.color,\n        'border-color': calendar.color,\n      }\"\n      >\n    </th-checkbox>\n    <th-button\n      kendo-tooltip\n      k-on-show=\"$ctrl.setCalendarBeingEdited(calendar)\"\n      k-content=\"$ctrl.colorsTooltipContent\"\n      k-options=\"$ctrl.colorTooltipOptions\"\n      class=\"k-group\"\n      type=\"secondary\"\n      >\n      &#9662;\n    </th-button>\n  </li>\n</ul>\n"
 
 /***/ }),
-/* 293 */
+/* 296 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************!*\
@@ -116718,7 +120629,7 @@ module.exports = "<div class=\"d-flex\">\n  <h3>My Calendars</h3>\n</div>\n<ul>\
 module.exports = "<div class=\"spacing-inset-s\">\n  <ul class=\"d-flex flex-wrap\">\n    <li ng-repeat=\"(key, colorObj) in $ctrl.colors\" class=\"spacing-inset-xs\"\">\n      <div\n        ng-style=\"{\n          'background-color': colorObj.val,\n          width: '25px',\n          height: '25px',\n        }\"\n        ng-click=\"$ctrl.setColorForCalendarBeingEdited(colorObj.val)\"\n        >\n      </div>\n    </li>\n  </ul>\n</div>\n"
 
 /***/ }),
-/* 294 */
+/* 297 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -116729,7 +120640,7 @@ module.exports = "<div class=\"spacing-inset-s\">\n  <ul class=\"d-flex flex-wra
 module.exports = "<kendo-scheduler k-options=\"$ctrl.options\">\n  <div class=\"product\" k-event-template data-calendar-id=\"{{dataItem.calendar_id}}\">\n    <h3>{{dataItem.title}}</h3>\n  </div>\n  <th-modal-anchor></th-modal-anchor>\n</kendo-scheduler>\n"
 
 /***/ }),
-/* 295 */
+/* 298 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -116740,7 +120651,7 @@ module.exports = "<kendo-scheduler k-options=\"$ctrl.options\">\n  <div class=\"
 module.exports = "<div class=\"select-wrapper\"\n  ng-class=\"{condensed: select.condensed}\"\n  >\n  <div\n    class=\"text-wrapper\"\n    ng-class=\"[\n      {disabled: select.ngDisabled},\n      {'is-invalid': select.isInvalid()}\n    ]\"\n    >\n    <span class=\"selected-text\">\n      {{select.selectedText}}\n    </span>\n    <i class=\"fa fa-caret-down\"></i>\n  </div>\n  <select\n    ng-disabled=\"select.ngDisabled\"\n    ng-attr-name=\"{{select.name || undefined}}\"\n    ng-model=\"select.ngModel\"\n    ng-change=\"select.thOnChange()\"\n    ng-options=\"option.{{select.nameField}} group by option.group for option in select.options track by option.{{select.valueField}}\"\n    ng-required=\"select.ngRequired\"\n    >\n    <option\n      ng-show=\"select.placeholder\"\n      value=\"\"\n      >\n      {{select.placeholder}}\n    </option>\n  </select>\n</div>\n"
 
 /***/ }),
-/* 296 */
+/* 299 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -116751,7 +120662,7 @@ module.exports = "<div class=\"select-wrapper\"\n  ng-class=\"{condensed: select
 module.exports = "<span\n  class=\"th-switch\"\n  ng-class=\"{active: switch.state}\"\n  >\n  <input\n    type=\"checkbox\"\n    name=\"{{switch.name}}\"\n    ng-model=\"switch.state\"\n    ng-required=\"switch.ngRequired\"\n    >\n  <i></i>\n</span>\n"
 
 /***/ }),
-/* 297 */
+/* 300 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************!*\
@@ -116762,7 +120673,7 @@ module.exports = "<span\n  class=\"th-switch\"\n  ng-class=\"{active: switch.sta
 module.exports = "<div\n  id=\"{{ariaControlsID}}\"\n  class=\"th-tab\"\n  ng-if=\"show && active\"\n  tabindex=\"0\"\n  ng-transclude\n  >\n</div>\n"
 
 /***/ }),
-/* 298 */
+/* 301 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -116773,7 +120684,7 @@ module.exports = "<div\n  id=\"{{ariaControlsID}}\"\n  class=\"th-tab\"\n  ng-if
 module.exports = "<div class=\"th-tabset {{ type }}\">\n  <ul\n    class=\"th-tab-bar\"\n    role=\"tablist\"\n    >\n    <li\n      ng-click=\"processTabChange(tab)\"\n      ng-repeat=\"tab in tabs\"\n      ng-class=\"{\n        active: tab.active,\n        'letter-spacing': tab.letterSpacing\n      }\"\n      class=\"tab-name\"\n      tabindex=\"{{tab.active ? '0' : '-1'}}\"\n      aria-controls=\"{{tab.ariaControlsID}}\"\n      role=\"tab\"\n      aria-selected=\"{{tab.active}}\"\n      ng-if=\"tab.show\"\n      >\n      {{ tab.name }}\n      <span\n        class=\"th-tab-badge\"\n        ng-if=\"hasBadge(tab)\"\n        aria-label=\"{{ tab.badge }} Items\"\n        >\n        {{ tab.badge }}\n      </span>\n    </li>\n    <div\n      class=\"th-tab-action-bar\"\n      ng-transclude=\"actionBar\"\n      tabindex=\"-1\"\n    >\n    </div>\n  </ul>\n  <div\n    class=\"th-tabset-content\"\n    role=\"tabpanel\"\n    ng-transclude\n    >\n  </div>\n</div>\n"
 
 /***/ }),
-/* 299 */
+/* 302 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -116784,7 +120695,7 @@ module.exports = "<div class=\"th-tabset {{ type }}\">\n  <ul\n    class=\"th-ta
 module.exports = "<textarea\n  ng-model=\"ctrl.model\"\n  ng-required=\"ctrl.ngRequired\"\n  ng-disabled=\"ctrl.ngDisabled\"\n  ng-minlength=\"ctrl.ngMinlength\"\n  ng-maxlength=\"ctrl.ngMaxlength\"\n  ng-pattern=\"ctrl.ngPattern\"\n  ng-change=\"ctrl.thOnChange()\"\n  ng-class=\"[\n    {'with-icon': ctrl.icon},\n    {'disabled': ctrl.ngDisabled},\n    {'is-invalid': ctrl.isInvalid()}\n  ]\"\n  ng-attr-name=\"{{ctrl.name}}\"\n  ng-attr-rows=\"{{ctrl.rows}}\"\n  ng-attr-placeholder=\"{{ctrl.placeholder}}\"\n  >\n</textarea>\n<i ng-if=\"ctrl.icon\" class=\"th-textarea-icon fa fa-{{ctrl.icon}}\"></i>\n"
 
 /***/ }),
-/* 300 */
+/* 303 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -116795,8 +120706,8 @@ module.exports = "<textarea\n  ng-model=\"ctrl.model\"\n  ng-required=\"ctrl.ngR
 module.exports = "<span\n  ng-class=\"{'expanded':truncate.expanded,\n             'th-truncate':truncate.hasTruncateControl}\"\n  >\n  {{ truncate.truncatedText }}\n</span>\n<a\n  href=\"\"\n  class=\"truncate-control\"\n  ng-click=\"truncate.toggleTruncation()\"\n  ng-if=\"truncate.hasTruncateControl\"\n  >\n  ({{ truncate.expanded ? 'close' : 'more' }})\n</a>\n"
 
 /***/ }),
-/* 301 */,
-/* 302 */
+/* 304 */,
+/* 305 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************!*\
@@ -116804,89 +120715,95 @@ module.exports = "<span\n  ng-class=\"{'expanded':truncate.expanded,\n          
   \******************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-var angular;
+var angular, translations;
 
 angular = __webpack_require__(/*! angular */ 2);
 
+translations = __webpack_require__(/*! ../i18n/locale-en.json */ 75);
+
 __webpack_require__(/*! @progress/kendo-ui/js/kendo.core.js */ 0);
 
-__webpack_require__(/*! ../vendor_overrides/@progress/kendo-ui/js/kendo.angular.js */ 110);
+__webpack_require__(/*! ../vendor_overrides/@progress/kendo-ui/js/kendo.angular.js */ 113);
 
 __webpack_require__(/*! ../polyfills/ */ 19);
 
-angular.module("ThemisComponents", [__webpack_require__(/*! angular-animate */ 20), __webpack_require__(/*! angular-aria */ 17), __webpack_require__(/*! angular-messages */ 18), __webpack_require__(/*! angular-sanitize */ 21), "kendo.directives", __webpack_require__(/*! ui-select */ 22)]);
+angular.module("ThemisComponents", [__webpack_require__(/*! angular-animate */ 20), __webpack_require__(/*! angular-aria */ 17), __webpack_require__(/*! angular-messages */ 18), __webpack_require__(/*! angular-sanitize */ 21), __webpack_require__(/*! angular-translate */ 74), __webpack_require__(/*! angular-translate-loader-static-files */ 73), "kendo.directives", __webpack_require__(/*! ui-select */ 22)]).config([
+  "$translateProvider", function($translateProvider) {
+    return $translateProvider.translations("en", translations).preferredLanguage("en").useSanitizeValueStrategy("sanitize");
+  }
+]);
 
-__webpack_require__(/*! ./services/ */ 103);
+__webpack_require__(/*! ./services/ */ 106);
 
-__webpack_require__(/*! ./thActionBar/ */ 73);
+__webpack_require__(/*! ./thActionBar/ */ 76);
 
-__webpack_require__(/*! ./thActionBarBilling/ */ 74);
+__webpack_require__(/*! ./thActionBarBilling/ */ 77);
 
-__webpack_require__(/*! ./thAlert/ */ 75);
+__webpack_require__(/*! ./thAlert/ */ 78);
 
-__webpack_require__(/*! ./thAutocomplete/ */ 104);
+__webpack_require__(/*! ./thAutocomplete/ */ 107);
 
-__webpack_require__(/*! ./thButton/ */ 76);
+__webpack_require__(/*! ./thButton/ */ 79);
 
-__webpack_require__(/*! ./thCheckbox/ */ 77);
+__webpack_require__(/*! ./thCheckbox/ */ 80);
 
-__webpack_require__(/*! ./thCompile/ */ 78);
+__webpack_require__(/*! ./thCompile/ */ 81);
 
-__webpack_require__(/*! ./thContentHeader/ */ 79);
+__webpack_require__(/*! ./thContentHeader/ */ 82);
 
-__webpack_require__(/*! ./thContextualMessage/ */ 80);
+__webpack_require__(/*! ./thContextualMessage/ */ 83);
 
-__webpack_require__(/*! ./thDataTable/ */ 105);
+__webpack_require__(/*! ./thDataTable/ */ 108);
 
-__webpack_require__(/*! ./thDatePicker/ */ 106);
+__webpack_require__(/*! ./thDatePicker/ */ 109);
 
-__webpack_require__(/*! ./thDefaults/ */ 81);
+__webpack_require__(/*! ./thDefaults/ */ 84);
 
-__webpack_require__(/*! ./thDisclosure/ */ 82);
+__webpack_require__(/*! ./thDisclosure/ */ 85);
 
-__webpack_require__(/*! ./thDropdown/ */ 83);
+__webpack_require__(/*! ./thDropdown/ */ 86);
 
-__webpack_require__(/*! ./thError/ */ 84);
+__webpack_require__(/*! ./thError/ */ 87);
 
-__webpack_require__(/*! ./thFilter/ */ 85);
+__webpack_require__(/*! ./thFilter/ */ 88);
 
-__webpack_require__(/*! ./thGrid/ */ 107);
+__webpack_require__(/*! ./thGrid/ */ 110);
 
-__webpack_require__(/*! ./thInput/ */ 86);
+__webpack_require__(/*! ./thInput/ */ 89);
 
-__webpack_require__(/*! ./thLazy/ */ 87);
+__webpack_require__(/*! ./thLazy/ */ 90);
 
-__webpack_require__(/*! ./thLoader/ */ 88);
+__webpack_require__(/*! ./thLoader/ */ 91);
 
-__webpack_require__(/*! ./thModal/ */ 89);
+__webpack_require__(/*! ./thModal/ */ 92);
 
-__webpack_require__(/*! ./thPlural/ */ 90);
+__webpack_require__(/*! ./thPlural/ */ 93);
 
-__webpack_require__(/*! ./thPopover/ */ 91);
+__webpack_require__(/*! ./thPopover/ */ 94);
 
-__webpack_require__(/*! ./thRadioGroup/ */ 92);
+__webpack_require__(/*! ./thRadioGroup/ */ 95);
 
-__webpack_require__(/*! ./thScheduler/ */ 108);
+__webpack_require__(/*! ./thScheduler/ */ 111);
 
-__webpack_require__(/*! ./thSelect/ */ 93);
+__webpack_require__(/*! ./thSelect/ */ 96);
 
-__webpack_require__(/*! ./thSwitch/ */ 94);
+__webpack_require__(/*! ./thSwitch/ */ 97);
 
-__webpack_require__(/*! ./thTable/ */ 95);
+__webpack_require__(/*! ./thTable/ */ 98);
 
-__webpack_require__(/*! ./thTabset/ */ 96);
+__webpack_require__(/*! ./thTabset/ */ 99);
 
-__webpack_require__(/*! ./thTextarea/ */ 97);
+__webpack_require__(/*! ./thTextarea/ */ 100);
 
-__webpack_require__(/*! ./thTruncate/ */ 98);
+__webpack_require__(/*! ./thTruncate/ */ 101);
 
-__webpack_require__(/*! ./thViewModel/ */ 99);
+__webpack_require__(/*! ./thViewModel/ */ 102);
 
-__webpack_require__(/*! ./thWithFocus/ */ 100);
+__webpack_require__(/*! ./thWithFocus/ */ 103);
 
-__webpack_require__(/*! ./thWithLabel/ */ 101);
+__webpack_require__(/*! ./thWithLabel/ */ 104);
 
-__webpack_require__(/*! ./thWithMessages/ */ 102);
+__webpack_require__(/*! ./thWithMessages/ */ 105);
 
 module.exports = "ThemisComponents";
 
