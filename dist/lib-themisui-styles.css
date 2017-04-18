@@ -6965,6 +6965,7 @@ table.k-widget {
 
 th-autocomplete {
   position: relative;
+  z-index: 0;
   display: block;
   width: 100%;
   height: 42px; }
@@ -7069,12 +7070,14 @@ th-autocomplete {
         opacity: 1; }
   th-autocomplete .k-combobox {
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    background: transparent; }
+    th-autocomplete .k-combobox .k-dropdown-wrap {
+      overflow: hidden; }
     th-autocomplete .k-combobox .k-select {
       width: 42px;
       padding: 0;
       border-left: 1px solid #B0BEC5;
-      border-radius: 0 4px 4px 0;
       background: #ECEFF1; }
     th-autocomplete .k-combobox .k-state-focused .k-select {
       color: white;
@@ -9037,6 +9040,9 @@ hr.th-divider {
   .th-filter th-autocomplete .k-combobox .k-select {
     border-color: #B0BEC5;
     background: white; }
+  .th-filter th-autocomplete .k-combobox .k-state-focused .k-select {
+    border-color: #0075bb;
+    background: #0075bb; }
   .th-filter th-autocomplete .k-combobox .k-state-hover:not(.k-state-focused) .k-select {
     border-color: #B0BEC5;
     background: #ECEFF1;

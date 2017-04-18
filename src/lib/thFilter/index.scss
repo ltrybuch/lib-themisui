@@ -61,8 +61,14 @@
     .k-combobox {
       .k-select {
         border-color: $border-color;
-        
+
         background: $white;
+      }
+
+      .k-state-focused .k-select {
+        border-color: $blue;
+        
+        background: $blue;
       }
 
       .k-state-hover:not(.k-state-focused) {
