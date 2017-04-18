@@ -5,8 +5,6 @@
 <span class="badge blue">Testing</span>
 <span class="badge orange">In Progress</span>
 <span class="badge red">Deprecated</span>
-<span class="badge">iOS</span>
-<span class="badge light-grey">Web</span>
 
 <!-- Remove these helper spans before shipping -->
 <span class="helper-text">*Use this template to build your component documentation. Short intro sentence that describes the component: What it's used for, the different variations, etc.*</span>

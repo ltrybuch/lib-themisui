@@ -11,6 +11,7 @@ ThemisUI is a shareable suite of components and brand assets to be shared across
 - [Installing](#installing)
 - [Upgrading](#upgrading)
 - [Development](#development)
+	- [KendoUI Authentication](#kendoui-authentication)
 	- [Running Docs](#running-docs)
 	- [Running Tests](#running-tests)
 	- [Cutting Code](#cutting-code)
