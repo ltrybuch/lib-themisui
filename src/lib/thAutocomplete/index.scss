@@ -11,7 +11,6 @@ th-autocomplete {
 
   display: block;
   width: 100%;
-  height: 42px;
 
   * {
     box-sizing: border-box;
@@ -21,8 +20,6 @@ th-autocomplete {
   .k-multiselect,
   .k-combobox .k-dropdown-wrap {
     width: 100%;
-    width: 100%;
-    height: 100%;
     box-sizing: border-box;
 
     border: none;
@@ -56,7 +53,7 @@ th-autocomplete {
     }
 
     .k-input {
-      height: 100%;
+      height: 42px;
       padding: 0 12px;
 
       &::placeholder {
@@ -104,6 +101,10 @@ th-autocomplete {
 
   // Multiselect-specific styles
   .k-multiselect {
+    .k-input {
+      padding: 0 0 0 6px;
+    }
+
     .k-button {
       padding: 2px 7px;
       margin: 6px 0 0 4px;
@@ -144,7 +145,6 @@ th-autocomplete {
   // Combobox-specific styles
   .k-combobox {
     width: 100%;
-    height: 100%;
     
     background: transparent;
 
@@ -174,11 +174,15 @@ th-autocomplete {
   }
   // Condensed styling
   &[condensed] {
-    height: 34px;
+    .k-autocomplete .k-input,
+    .k-multiselect .k-input,
+    .k-combobox .k-dropdown-wrap .k-input {
+      height: 34px;
+    }
 
     .k-multiselect {
       .k-button {
-        margin-top: 2px;
+        margin-top: 3px;
       }
     }
 
