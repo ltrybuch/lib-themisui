@@ -9,6 +9,7 @@ fakeResponse(/calendars\/1/, expectedCalendars.apiNestedFirstItem, "PATCH");
 fakeResponse(/calendars\/2/, expectedCalendars.apiNestedSecondItem, "PATCH");
 fakeResponse(/calendar_id=1/, expectedEntries.apiNestedOneCalendarEntriesItems);
 fakeResponse(/calendar_id=2/, expectedEntries.apiNestedSecondCalendarEntriesItems);
+fakeResponse(/calendar_entries\/[0-9]+/, null, "DELETE");
 
 angular.module("thSchedulerDemo")
   .controller("thSchedulerDemoCtrl3", function(
@@ -16,6 +17,8 @@ angular.module("thSchedulerDemo")
     CalendarEntriesServiceFactory,
     ModalManager,
   ) {
+    const editModalName = "eventModal";
+
     this.calendarDataSource = CalendarDataSourceFactory.createDataSource({
       transport: {
         read: {
@@ -68,11 +71,12 @@ angular.module("thSchedulerDemo")
     this.openEditModal = (event: any, isNew: boolean) => {
       const path = "/components/thScheduler/examples/3 - Multiple Calendars/editModal.template.html";
       const modalParams = {
-        name: "eventModal",
+        name: editModalName,
         size: "fullpage",
         context: {
           modalTitle: isNew ? "Add event" : "Edit event",
           openDiscardModal: this.openDiscardModal,
+          openDeleteModal: this.openDeleteModal,
           event,
         },
         path,
@@ -87,6 +91,21 @@ angular.module("thSchedulerDemo")
         path,
       };
       return ModalManager.show(modalParams);
+    };
+
+    this.openDeleteModal = (event: any) => {
+      const path = "/components/thScheduler/examples/3 - Multiple Calendars/deleteModal.template.html";
+      const modalParams = {
+        name: "deleteModal",
+        path,
+        context: {
+          event,
+        },
+      };
+      ModalManager.show(modalParams).then((event: any) => {
+        calendarEntriesService.removeEntry(event);
+        ModalManager.dismiss(editModalName);
+      });
     };
 
     this.options = {

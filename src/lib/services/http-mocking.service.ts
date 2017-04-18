@@ -31,12 +31,16 @@ Utilities.copyRequestBodyToResponseBody = function(
 const fakeResponse = function(urlPattern: RegExp, responseStub: { data?: object }, method: string = "GET"): void {
   xhook.before(function(request: { url: string, body?: string, method: string }) {
     if (request.url.match(urlPattern) && request.method === method) {
-      console.log(
-        `%c AJAX request intercepted: ${request.url}`,
-        "background: #222; color: #bada55",
-        arguments,
-        request,
-      );
+
+      // show AJAX request console logs in browser, to help developers remember not to check Network tab
+      if (window.location.pathname.indexOf("context") === -1) {
+        console.log(
+          `%c AJAX request intercepted: ${request.url}`,
+          "background: #222; color: #bada55",
+          arguments,
+          request,
+        );
+      }
 
       /**
        * We do this to make sure the client gets back what it expects from the server

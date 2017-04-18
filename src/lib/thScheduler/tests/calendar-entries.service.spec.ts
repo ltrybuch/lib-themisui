@@ -94,4 +94,37 @@ describe("ThemisComponents: thScheduler : CalendarEntriesService", function() {
 
   });
 
+  describe("#removeEntry", function() {
+    let entriesDataSource: kendo.data.DataSource;
+
+    beforeEach(function() {
+      fakeResponse(/calendar_id=2/, expectedEntries.apiNestedSecondCalendarEntriesItems);
+      entriesDataSource = calendarEntryService.getEntriesDataSource();
+    });
+
+    it("removes only a single entry", function(done) {
+      entriesDataSource.fetch().then(function() {
+        const entries = entriesDataSource.data();
+        expect(entries.length).toEqual(2);
+        calendarEntryService.removeEntry(entries[0]);
+        expect(entries.length).toEqual(1);
+        done();
+      });
+    });
+
+    it("removes the correct entry", function(done) {
+      entriesDataSource.fetch().then(function() {
+        const entries = entriesDataSource.data();
+        const firstEntry = entries[0];
+        const secondEntry = entries[1];
+
+        calendarEntryService.removeEntry(firstEntry);
+
+        const remainingEntry = entries[0];
+        expect(remainingEntry.title).toBe(secondEntry.title);
+        done();
+      });
+    });
+  });
+
 });

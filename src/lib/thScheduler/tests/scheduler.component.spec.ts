@@ -93,7 +93,10 @@ describe("ThemisComponents: Component: SchedulerController", () => {
           $ctrl.options.edit(evt as any);
 
           expect(bindings.editEventAction).toHaveBeenCalledTimes(1);
-          expect(bindings.editEventAction).toHaveBeenCalledWith({title: "add"}, true);
+          expect(bindings.editEventAction).toHaveBeenCalledWith(
+            jasmine.objectContaining({title: "add"}),
+            true,
+          );
         });
       });
 
@@ -106,7 +109,10 @@ describe("ThemisComponents: Component: SchedulerController", () => {
           $ctrl.options.edit(evt as any);
 
           expect(bindings.editEventAction).toHaveBeenCalledTimes(1);
-          expect(bindings.editEventAction).toHaveBeenCalledWith({title: "edit"}, false);
+          expect(bindings.editEventAction).toHaveBeenCalledWith(
+            jasmine.objectContaining({title: "edit"}),
+            false,
+          );
         });
       });
     });

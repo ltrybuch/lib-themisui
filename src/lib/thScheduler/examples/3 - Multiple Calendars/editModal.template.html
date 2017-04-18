@@ -11,7 +11,12 @@
     <div class="button-container">
       <th-button type="create">Submit</th-button>
       <th-button type="secondary">Save &amp; add another</th-button>
-      <th-button type="secondary">Delete</th-button>
+      <th-button
+        type="secondary"
+        ng-click="modal.context.openDeleteModal(modal.context.event)"
+        >
+        Delete
+      </th-button>
     </div>
   </div>
 </div>

@@ -26,6 +26,14 @@ export default class CalendarEntriesService {
               console.log("reason", reason);
             });
         },
+        destroy: (e: kendo.data.DataSourceTransportOptions) => {
+          this.deleteRemoteEntry(e.data.id)
+            .then(function() {
+              e.success();
+            }, function(reason: string) {
+              e.error(reason);
+            });
+        },
       },
     });
 
@@ -103,6 +111,43 @@ export default class CalendarEntriesService {
       }
     } catch (reason) {
       return reason;
+    }
+  }
+
+  private async deleteRemoteEntry(id: number): Promise<void> {
+    const response = await
+      fetch(
+        "api/v4/calendar_entries/" + id,
+        {
+          method: "DELETE",
+          headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "Cache": "no-cache",
+          },
+          credentials: "same-origin",
+        },
+      );
+
+    if (response.ok) {
+      return;
+    }
+
+    throw new Error(response.statusText);
+  }
+
+  removeEntry(entry: any) {
+    const entryInstance = this._entriesDataSource.get(entry.id);
+    try {
+      /**
+       * We need to handle the case when synchronization fails. This (and other functions that
+       * call DataSource.sync) should return a promise so we can properly handle the error-case
+       * and provide feedback to the user. #should-return-promise
+       */
+      this._entriesDataSource.remove(entryInstance);
+      this._entriesDataSource.sync();
+    } catch (reason) {
+      console.warn(reason);
     }
   }
 

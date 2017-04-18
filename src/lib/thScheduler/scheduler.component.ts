@@ -25,6 +25,7 @@ class SchedulerController {
     const isNew = evt.event.id === evt.event._defaultId;
     const event = {
       title: evt.event.title,
+      id: evt.event.id,
     };
     this.editEventAction(event, isNew);
   }

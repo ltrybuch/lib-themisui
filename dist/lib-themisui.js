@@ -119651,6 +119651,14 @@ var CalendarEntriesService = (function () {
                         console.log("reason", reason);
                     });
                 },
+                destroy: function (e) {
+                    _this.deleteRemoteEntry(e.data.id)
+                        .then(function () {
+                        e.success();
+                    }, function (reason) {
+                        e.error(reason);
+                    });
+                },
             },
         });
         this._entriesDataSource = new scheduler_data_source_service_1.default().createDataSource(options);
@@ -119741,6 +119749,45 @@ var CalendarEntriesService = (function () {
                 }
             });
         });
+    };
+    CalendarEntriesService.prototype.deleteRemoteEntry = function (id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, fetch("api/v4/calendar_entries/" + id, {
+                            method: "DELETE",
+                            headers: {
+                                "Accept": "application/json",
+                                "Content-Type": "application/json",
+                                "Cache": "no-cache",
+                            },
+                            credentials: "same-origin",
+                        })];
+                    case 1:
+                        response = _a.sent();
+                        if (response.ok) {
+                            return [2 /*return*/];
+                        }
+                        throw new Error(response.statusText);
+                }
+            });
+        });
+    };
+    CalendarEntriesService.prototype.removeEntry = function (entry) {
+        var entryInstance = this._entriesDataSource.get(entry.id);
+        try {
+            /**
+             * We need to handle the case when synchronization fails. This (and other functions that
+             * call DataSource.sync) should return a promise so we can properly handle the error-case
+             * and provide feedback to the user. #should-return-promise
+             */
+            this._entriesDataSource.remove(entryInstance);
+            this._entriesDataSource.sync();
+        }
+        catch (reason) {
+            console.warn(reason);
+        }
     };
     /**
      * TODO: Update links
@@ -120147,6 +120194,7 @@ var SchedulerController = (function () {
         var isNew = evt.event.id === evt.event._defaultId;
         var event = {
             title: evt.event.title,
+            id: evt.event.id,
         };
         this.editEventAction(event, isNew);
     };
