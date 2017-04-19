@@ -11242,6 +11242,9 @@ th-scheduler table {
 th-scheduler li {
   list-style: none; }
 
+th-scheduler .scheduler-edit-modal .button-container {
+  margin-top: 32px; }
+
 .select-wrapper {
   position: relative; }
   .select-wrapper .text-wrapper {

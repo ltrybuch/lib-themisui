@@ -1,5 +1,5 @@
 import * as expectedCalendars from "./fixtures/calendars";
-import CalendarDataSource from "../calendars/calendar-data-source.service";
+import { CalendarDataSource } from "../calendars/calendar-data-source.service";
 import { fakeResponse } from "../../services/http-mocking.service";
 import CalendarInterface from "../calendars/calendar.interface";
 

@@ -119,7 +119,7 @@ describe "ThemisComponents: Directive: thFilterDate", ->
       dateFormat = "MM/DD/YYYY"
       input = element.find "input"
       $(input).triggerHandler "click"
-      $today = $(".k-footer a:first")
+      $today = $ ".k-footer a:first"
       expectedOperator = "<"
       expectedFilterValue = moment().format dateFormat
 

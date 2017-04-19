@@ -2,7 +2,7 @@ import DataSource from "../../services/data-source.service";
 import CalendarDataSourceInterface from "./calendar-data-source.interface";
 import CalendarInterface from "./calendar.interface";
 
-export default class CalendarDataSource implements CalendarDataSourceInterface {
+class CalendarDataSource implements CalendarDataSourceInterface {
   private _dataSource: kendo.data.DataSource;
   private _fetchPromise: Promise<number[]>;
   private colors = [
@@ -101,8 +101,13 @@ export default class CalendarDataSource implements CalendarDataSourceInterface {
 }
 
 // wrapper factory for injection into an angular service
-export class CalendarDataSourceFactory {
+class CalendarDataSourceFactory {
   public createDataSource(options: kendo.data.DataSourceOptions) {
     return new CalendarDataSource(options);
   }
+}
+
+export {
+  CalendarDataSource,
+  CalendarDataSourceFactory,
 }

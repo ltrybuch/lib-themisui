@@ -1,0 +1,13 @@
+<div class="scheduler-edit-modal">
+  <th-modal-titlebar title="{{ modal.context.modalTitle }}"></th-modal-titlebar>
+  <h3>Event Details</h3>
+  <div class="actions">
+    <th-input ng-model="modal.context.event.title" with-label="Title">
+    </th-input>
+    <div class="button-container">
+      <th-button type="create">Submit</th-button>
+      <th-button type="secondary">Save &amp; add another</th-button>
+      <th-button type="secondary">Delete</th-button>
+    </div>
+  </div>
+</div>

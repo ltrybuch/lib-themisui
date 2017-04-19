@@ -20,15 +20,15 @@ const secondCalendarEntriesItems = [
   {
     id: 3,
     calendar_id: 2,
-    start: "2017-02-20T19:20:00-08:00",
-    end: "2017-02-20T20:20:00-08:00",
+    start: "2017-02-20T04:20:00-08:00",
+    end: "2017-02-20T05:20:00-08:00",
     title: "Pick wild berries",
   },
   {
     id: 4,
     calendar_id: 2,
-    start: "2017-02-20T11:20:00-08:00",
-    end: "2017-02-20T12:20:00-08:00",
+    start: "2017-02-20T02:20:00-08:00",
+    end: "2017-02-20T03:20:00-08:00",
     title: "Write poetry",
   },
 ];

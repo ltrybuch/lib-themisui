@@ -119637,36 +119637,54 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var scheduler_data_source_service_1 = __webpack_require__(/*! ../services/scheduler-data-source.service */ 69);
 var CalendarEntriesService = (function () {
-    function CalendarEntriesService(options, calendarDataSource) {
+    function CalendarEntriesService(options, calendarDataSource, verbUrls) {
         var _this = this;
-        this._queriedIds = [];
+        this.queriedIds = [];
         this.setCalendarDataSource(calendarDataSource);
-        Object.assign(options, {
-            transport: {
-                read: function (e) {
-                    _this.getEntriesForCalendars()
-                        .then(function (entries) {
-                        e.success({ data: entries });
-                    }, function (reason) {
-                        console.log("reason", reason);
-                    });
-                },
-                destroy: function (e) {
-                    _this.deleteRemoteEntry(e.data.id)
-                        .then(function () {
-                        e.success();
-                    }, function (reason) {
-                        e.error(reason);
-                    });
-                },
+        this.verbUrls = verbUrls;
+        var transportDefaults = {
+            create: function (e) {
+                _this.createCalendarEntry(e.data)
+                    .then(function (response) {
+                    e.success({ data: response.data });
+                });
             },
-        });
-        this._entriesDataSource = new scheduler_data_source_service_1.default().createDataSource(options);
+            read: function (e) {
+                _this.getEntriesForCalendars()
+                    .then(function (entries) {
+                    e.success({ data: entries });
+                }, function (reason) {
+                    console.log("reason", reason);
+                });
+            },
+            update: function (e) {
+                _this.updateCalendarEntry(e.data.id, e.data)
+                    .then(function (response) {
+                    e.success({ data: response.data });
+                });
+            },
+            destroy: function (e) {
+                _this.deleteRemoteEntry(e.data.id)
+                    .then(function () {
+                    e.success();
+                }, function (reason) {
+                    e.error(reason);
+                });
+            },
+        };
+        // TODO: #test-needed
+        if (options.transport) {
+            options.transport = Object.assign({}, transportDefaults, options.transport);
+        }
+        else {
+            options.transport = transportDefaults;
+        }
+        this.entriesDataSource = new scheduler_data_source_service_1.default().createDataSource(options);
     }
     CalendarEntriesService.prototype.setCalendarDataSource = function (calendarDataSource) {
         var _this = this;
-        this._calendarDataSource = calendarDataSource;
-        this._calendarDataSource.bind("change", function (e) {
+        this.calendarDataSource = calendarDataSource;
+        this.calendarDataSource.bind("change", function (e) {
             var visibilityOrColorChanged = (e.action === "itemchange" && (e.field === "visible" || e.field === "color"));
             if (visibilityOrColorChanged) {
                 return _this.onVisibilityChanged();
@@ -119688,15 +119706,15 @@ var CalendarEntriesService = (function () {
                          * Just noticed that calling "filter" calls the transport read function
                          * which reloads the entries.
                          */
-                        this._entriesDataSource.filter({
-                            operator: function (entry) { return (_this._calendarDataSource.isVisible(entry.calendar_id)); },
+                        this.entriesDataSource.filter({
+                            operator: function (entry) { return (_this.calendarDataSource.isVisible(entry.calendar_id)); },
                         });
-                        return [4 /*yield*/, this._calendarDataSource.getIds()];
+                        return [4 /*yield*/, this.calendarDataSource.getIds()];
                     case 1:
                         ids = _a.sent();
                         ids.forEach(function (id) {
-                            if (_this._calendarDataSource.isVisible(id)) {
-                                if (!_this._queriedIds.find(function (entryId) { return entryId === id; })) {
+                            if (_this.calendarDataSource.isVisible(id)) {
+                                if (!_this.queriedIds.find(function (entryId) { return entryId === id; })) {
                                     _this.addEntriesForCalendar(id);
                                 }
                             }
@@ -119707,7 +119725,7 @@ var CalendarEntriesService = (function () {
         });
     };
     CalendarEntriesService.prototype.getEntriesDataSource = function () {
-        return this._entriesDataSource;
+        return this.entriesDataSource;
     };
     CalendarEntriesService.prototype.getEntriesForCalendar = function (id) {
         return __awaiter(this, void 0, void 0, function () {
@@ -119723,7 +119741,7 @@ var CalendarEntriesService = (function () {
                         _a.label = 1;
                     case 1:
                         _a.trys.push([1, 5, , 6]);
-                        return [4 /*yield*/, fetch("api/v4/calendar_entries?calendar_id=" + id + "&fields=id,summary,start_at,end_at", {
+                        return [4 /*yield*/, fetch(this.verbUrls.read(id), {
                                 method: "GET",
                                 headers: {
                                     "Accept": "application/json",
@@ -119735,7 +119753,7 @@ var CalendarEntriesService = (function () {
                     case 2:
                         response = _a.sent();
                         if (!response.ok) return [3 /*break*/, 4];
-                        this._queriedIds.push(id);
+                        this.queriedIds.push(id);
                         return [4 /*yield*/, response.json()];
                     case 3:
                         responseData = _a.sent();
@@ -119755,7 +119773,7 @@ var CalendarEntriesService = (function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, fetch("api/v4/calendar_entries/" + id, {
+                    case 0: return [4 /*yield*/, fetch(this.verbUrls.delete(id), {
                             method: "DELETE",
                             headers: {
                                 "Accept": "application/json",
@@ -119775,15 +119793,15 @@ var CalendarEntriesService = (function () {
         });
     };
     CalendarEntriesService.prototype.removeEntry = function (entry) {
-        var entryInstance = this._entriesDataSource.get(entry.id);
+        var entryInstance = this.entriesDataSource.get(entry.id);
         try {
             /**
              * We need to handle the case when synchronization fails. This (and other functions that
              * call DataSource.sync) should return a promise so we can properly handle the error-case
              * and provide feedback to the user. #should-return-promise
              */
-            this._entriesDataSource.remove(entryInstance);
-            this._entriesDataSource.sync();
+            this.entriesDataSource.remove(entryInstance);
+            this.entriesDataSource.sync();
         }
         catch (reason) {
             console.warn(reason);
@@ -119796,13 +119814,75 @@ var CalendarEntriesService = (function () {
     CalendarEntriesService.prototype.prepareForCreate = function (rawData) {
         // the "data" will need replacing with a dynamic key name if we allow custom API nested keys
         /* tslint:disable:max-line-length */
-        var models = this._entriesDataSource.reader.data.call(this._entriesDataSource.reader, { data: rawData });
+        var models = this.entriesDataSource.reader.data.call(this.entriesDataSource.reader, { data: rawData });
         /* tslint:enable:max-line-length */
         return models;
     };
+    CalendarEntriesService.prototype.createCalendarEntry = function (calendarEntry) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response, reason_2;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 4, , 5]);
+                        return [4 /*yield*/, fetch(this.verbUrls.create(), {
+                                method: "POST",
+                                headers: {
+                                    "Accept": "application/json",
+                                    "Content-Type": "application/json",
+                                    "Cache": "no-cache",
+                                },
+                                credentials: "same-origin",
+                                body: JSON.stringify({ data: calendarEntry }),
+                            })];
+                    case 1:
+                        response = _a.sent();
+                        if (!response.ok) return [3 /*break*/, 3];
+                        return [4 /*yield*/, response.json()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                    case 3: return [3 /*break*/, 5];
+                    case 4:
+                        reason_2 = _a.sent();
+                        return [2 /*return*/, reason_2];
+                    case 5: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    CalendarEntriesService.prototype.updateCalendarEntry = function (calendarEntryId, updatedData) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response, reason_3;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 4, , 5]);
+                        return [4 /*yield*/, fetch(this.verbUrls.update(calendarEntryId), {
+                                method: "PATCH",
+                                headers: {
+                                    "Accept": "application/json",
+                                    "Content-Type": "application/json",
+                                    "Cache": "no-cache",
+                                },
+                                credentials: "same-origin",
+                                body: JSON.stringify({ data: updatedData }),
+                            })];
+                    case 1:
+                        response = _a.sent();
+                        if (!response.ok) return [3 /*break*/, 3];
+                        return [4 /*yield*/, response.json()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                    case 3: return [3 /*break*/, 5];
+                    case 4:
+                        reason_3 = _a.sent();
+                        return [2 /*return*/, reason_3];
+                    case 5: return [2 /*return*/];
+                }
+            });
+        });
+    };
     CalendarEntriesService.prototype.addEntriesForCalendar = function (id) {
         return __awaiter(this, void 0, void 0, function () {
-            var rawData, entryModels, reason_2;
+            var rawData, entryModels, reason_4;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -119811,11 +119891,11 @@ var CalendarEntriesService = (function () {
                     case 1:
                         rawData = _a.sent();
                         entryModels = this.prepareForCreate(rawData);
-                        this._entriesDataSource.pushCreate(entryModels);
+                        this.entriesDataSource.pushCreate(entryModels);
                         return [3 /*break*/, 3];
                     case 2:
-                        reason_2 = _a.sent();
-                        console.warn(reason_2);
+                        reason_4 = _a.sent();
+                        console.warn(reason_4);
                         return [3 /*break*/, 3];
                     case 3: return [2 /*return*/];
                 }
@@ -119825,22 +119905,22 @@ var CalendarEntriesService = (function () {
     CalendarEntriesService.prototype.getEntriesForCalendars = function () {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
-            var ids, entryArrays, entries, reason_3;
+            var ids, entryArrays, entries, reason_5;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 3, , 4]);
-                        return [4 /*yield*/, this._calendarDataSource.getIds()];
+                        return [4 /*yield*/, this.calendarDataSource.getIds()];
                     case 1:
                         ids = _a.sent();
-                        return [4 /*yield*/, Promise.all(ids.map(function (id) { return _this._calendarDataSource.isVisible(id) ? _this.getEntriesForCalendar(id) : null; }))];
+                        return [4 /*yield*/, Promise.all(ids.map(function (id) { return _this.calendarDataSource.isVisible(id) ? _this.getEntriesForCalendar(id) : null; }))];
                     case 2:
                         entryArrays = _a.sent();
                         entries = [].concat.apply([], entryArrays).filter(function (a) { return a !== null; });
                         return [2 /*return*/, entries];
                     case 3:
-                        reason_3 = _a.sent();
-                        console.warn(reason_3);
+                        reason_5 = _a.sent();
+                        console.warn(reason_5);
                         return [3 /*break*/, 4];
                     case 4: return [2 /*return*/];
                 }
@@ -119849,13 +119929,13 @@ var CalendarEntriesService = (function () {
     };
     return CalendarEntriesService;
 }());
-exports.default = CalendarEntriesService;
+exports.CalendarEntriesService = CalendarEntriesService;
 // wrapper factory for injection into an angular service
 var CalendarEntriesServiceFactory = (function () {
     function CalendarEntriesServiceFactory() {
     }
-    CalendarEntriesServiceFactory.prototype.create = function (options, calendarDataSource) {
-        return new CalendarEntriesService(options, calendarDataSource);
+    CalendarEntriesServiceFactory.prototype.create = function (options, calendarDataSource, verbUrls) {
+        return new CalendarEntriesService(options, calendarDataSource, verbUrls);
     };
     return CalendarEntriesServiceFactory;
 }());
@@ -120020,7 +120100,7 @@ var CalendarDataSource = (function () {
     };
     return CalendarDataSource;
 }());
-exports.default = CalendarDataSource;
+exports.CalendarDataSource = CalendarDataSource;
 // wrapper factory for injection into an angular service
 var CalendarDataSourceFactory = (function () {
     function CalendarDataSourceFactory() {
@@ -120191,12 +120271,60 @@ var SchedulerController = (function () {
             return;
         }
         evt.preventDefault();
+        var calendarEntry = evt.event.toJSON();
         var isNew = evt.event.id === evt.event._defaultId;
-        var event = {
-            title: evt.event.title,
-            id: evt.event.id,
+        this.editEventAction(calendarEntry, isNew, this.updateCalendarEntry.bind(this));
+    };
+    /**
+     * A somewhat ugly way of accessing the fields for a CalendarEntry that
+     * were defined on the schema for the DataSource.
+     */
+    SchedulerController.prototype.getCalendarEntryFieldNames = function () {
+        return Object.keys(this.options.dataSource.reader.reader.model.fields);
+    };
+    SchedulerController.prototype.updateCalendarEntryFields = function (entryModel, calendarEntry, fieldNames) {
+        fieldNames.forEach(function (name) {
+            entryModel.set(name, calendarEntry[name]);
+        });
+    };
+    SchedulerController.prototype.createNewCalendarEntry = function (calendarEntry, fieldNames) {
+        var newEntry = {
+            title: null,
+            start: null,
+            end: null,
+            calendar: {
+                id: 2,
+            },
         };
-        this.editEventAction(event, isNew);
+        fieldNames
+            .filter(function (fieldName) { return fieldName !== "id"; })
+            .forEach(function (name) {
+            // TODO: This needs to update the nested id property of calendar when we implement the Set Calendar dropdown
+            newEntry[name] = calendarEntry[name];
+        });
+        return newEntry;
+    };
+    /**
+     * This is purely to facilitate demoing whilst we don't have the "Set Calendar" dropdown.
+     * Once we can set a calendar, this method will go away.
+     * @param entry
+     */
+    SchedulerController.prototype.setDefaultCalendarId = function (entry) {
+        entry.calendar_id = entry.calendar_id === 0 ? 1 : entry.calendar_id;
+    };
+    SchedulerController.prototype.updateCalendarEntry = function (entry, isNewEntry) {
+        var fieldNames = this.getCalendarEntryFieldNames();
+        var calendarEntry;
+        if (isNewEntry) {
+            this.setDefaultCalendarId(entry);
+            calendarEntry = this.createNewCalendarEntry(entry, fieldNames);
+            this.options.dataSource.add(calendarEntry);
+        }
+        else {
+            calendarEntry = this.options.dataSource.get(entry.id);
+            this.updateCalendarEntryFields(calendarEntry, entry, fieldNames);
+        }
+        this.options.dataSource.sync();
     };
     SchedulerController.prototype.$onInit = function () {
         var _this = this;
@@ -120205,7 +120333,7 @@ var SchedulerController = (function () {
             views: [
                 "agenda",
                 "day",
-                "week",
+                { type: "week", selected: true },
                 "month",
             ],
             edit: function (evt) { return _this.launchEditEventAction(evt); },

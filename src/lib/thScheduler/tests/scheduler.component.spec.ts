@@ -5,14 +5,6 @@ import "angular-mocks";
 import SchedulerDataSource from "../../services/scheduler-data-source.service";
 import { SchedulerController } from "../scheduler.component";
 
-let bindings: {
-  options: {
-    dataSource?: kendo.data.DataSource,
-    date?: Date,
-  },
-  editEventAction?: Function,
-};
-
 let $componentController: ng.IComponentControllerService;
 
 describe("ThemisComponents: Component: SchedulerController", () => {
@@ -43,25 +35,29 @@ describe("ThemisComponents: Component: SchedulerController", () => {
 
   // TODO: #replace-with-integration-test
   describe("when all required parameters are provided", () => {
+    let scope: {
+      options: kendo.ui.SchedulerOptions,
+      editEventAction: Function;
+    };
 
     beforeEach(() => {
       const schedulerDataSource = new SchedulerDataSource();
 
-      bindings = {
+      scope = {
         options: {
           dataSource: schedulerDataSource.createDataSource({
             data: expectedEntries.items,
           }),
           date: new Date(expectedEntries.date),
         },
-        editEventAction: () => undefined as any,
+        editEventAction: jasmine.createSpy("editEventAction"),
       };
     });
 
     it("creates a scheduler", () => {
       const {element} = SpecHelpers.compileDirective(
         `<th-scheduler options="options"></th-scheduler>`,
-        bindings,
+        scope,
       );
       expect(element.find(".k-scheduler").length).toEqual(1);
     });
@@ -69,9 +65,9 @@ describe("ThemisComponents: Component: SchedulerController", () => {
     it("renders the first entry", () => {
       const {element} = SpecHelpers.compileDirective(
         `<th-scheduler options="options"></th-scheduler>`,
-        bindings,
+        scope,
       );
-      expect(element.find(".product > h3").first().text()).toEqual("Brunch with Giles");
+      expect(element.find(".product > h3").first().text()).toEqual("Write poetry");
     });
 
     describe("when the user wants to create or edit an event", () => {
@@ -79,39 +75,41 @@ describe("ThemisComponents: Component: SchedulerController", () => {
       let $ctrl: SchedulerController;
 
       beforeEach(function() {
-        spyOn(bindings, "editEventAction");
-        $ctrl = $componentController("thScheduler", null, bindings) as SchedulerController;
+        $ctrl = $componentController("thScheduler", null, scope) as SchedulerController;
         $ctrl.$onInit();
       });
 
       describe("and wants to add an event", () => {
-        beforeEach(function() {
-          evt = jQuery.Event( "add", { event: { title: "add", id: 0, _defaultId: 0} } );
-        });
-
         it("calls 'editEventAction' with `isNew === true`", () => {
+          evt = jQuery.Event(
+            "add",
+            { event: new kendo.data.ObservableObject({ title: "add", id: 0, _defaultId: 0 }) },
+          );
+
           $ctrl.options.edit(evt as any);
 
-          expect(bindings.editEventAction).toHaveBeenCalledTimes(1);
-          expect(bindings.editEventAction).toHaveBeenCalledWith(
+          expect(scope.editEventAction).toHaveBeenCalledTimes(1);
+          expect(scope.editEventAction).toHaveBeenCalledWith(
             jasmine.objectContaining({title: "add"}),
             true,
+            jasmine.any(Function),
           );
         });
       });
 
       describe("and wants to edit an event", () => {
-        beforeEach(function() {
-          evt = jQuery.Event( "edit", { event: { title: "edit", id: 1, _defaultId: 0} } );
-        });
-
         it("calls 'editEventAction' with `isNew === false`", () => {
+          evt = jQuery.Event(
+            "edit",
+            { event: new kendo.data.ObservableObject({ title: "edit", id: 1, _defaultId: 0 }) },
+          );
           $ctrl.options.edit(evt as any);
 
-          expect(bindings.editEventAction).toHaveBeenCalledTimes(1);
-          expect(bindings.editEventAction).toHaveBeenCalledWith(
+          expect(scope.editEventAction).toHaveBeenCalledTimes(1);
+          expect(scope.editEventAction).toHaveBeenCalledWith(
             jasmine.objectContaining({title: "edit"}),
             false,
+            jasmine.any(Function),
           );
         });
       });

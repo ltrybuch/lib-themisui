@@ -1,5 +1,5 @@
 import * as angular from "angular";
-import CalendarDataSource from "./calendar-data-source.service";
+import { CalendarDataSource } from "./calendar-data-source.service";
 import CalendarInterface from "./calendar.interface";
 
 const template = require("./calendars.template.html") as string;

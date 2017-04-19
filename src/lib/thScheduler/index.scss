@@ -12,4 +12,10 @@ th-scheduler {
   li {
     list-style: none;
   }
+
+  .scheduler-edit-modal {
+    .button-container {
+      margin-top: $spacing-xl;
+    }
+  }
 }

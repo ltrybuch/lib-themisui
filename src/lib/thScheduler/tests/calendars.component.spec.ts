@@ -2,7 +2,7 @@ const SpecHelpers: any = require("spec_helpers");
 import * as expectedCalendars from "./fixtures/calendars";
 import * as angular from "angular";
 import "angular-mocks";
-import CalendarDataSource from "../calendars/calendar-data-source.service";
+import { CalendarDataSource } from "../calendars/calendar-data-source.service";
 import { CalendarsController } from "../calendars/calendars.component";
 import { fakeResponse } from "../../services/http-mocking.service";
 
