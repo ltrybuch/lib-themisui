@@ -4,19 +4,17 @@ import { DataTableService } from "./data-table.service";
 const template = require("./data-table.template.html") as string;
 
 class DataTable {
-  static checkboxColumn = {
-    width: "34px",
-    title: "<span class='" + DataTableService.headerCheckboxCSSClass + "'></span>",
-    template: `<span class="${DataTableService.rowCheckboxCSSClass}" data-uid="#= id #"></span>`,
-  };
+  // We can set this to true once we actually want select ALL functionality in (CLIO-45222).
+  static selectAllFunctionality = false;
 
   private currentVisibleRows: number[] = [];
   private options: DataTableOptions;
   private datatable: kendo.ui.Grid;
   wholePageSelected = false;
   partialPageSelected = false;
+  showSelectAllBanner = false;
   selectedRows: boolean[] = [];
-  actionList: any[];
+  totalLength: number;
 
   /* @ngInject */
   constructor(
@@ -28,12 +26,18 @@ class DataTable {
   $onInit() {
     const options = { ...this.options };
     const datatableElement = angular.element(".th-data-table", this.$element);
+
     if (options.selectable) {
-      options.columns = [DataTable.checkboxColumn, ...options.columns];
+      options.columns = [DataTableService.checkboxColumn, ...options.columns];
       options.onDataBound = this.setCurrentVisibleRows.bind(this);
     }
 
     this.datatable = this.DataTableService.create(datatableElement[0], options, this.$scope);
+    this.totalLength = this.options.dataSource.data().length;
+
+    if (DataTable.selectAllFunctionality) {
+      this.DataTableService.initializeSelectAllBanner(this.$element, this.$scope, this.options.columns.length);
+    }
   }
 
   togglePage() {
@@ -46,6 +50,17 @@ class DataTable {
     });
 
     this.updateHeaderCheckboxState();
+  }
+
+  selectAll() {
+    const data = this.options.dataSource.data();
+
+    data.forEach((e: any) => {
+      this.selectedRows[e.id] = true;
+    });
+
+    this.updateHeaderCheckboxState();
+    this.showSelectAllBanner = false;
   }
 
   clearSelection() {
@@ -65,6 +80,7 @@ class DataTable {
 
     this.partialPageSelected = !allSelected && rows.some(isSelected);
     this.wholePageSelected = allSelected;
+    this.showSelectAllBanner = allSelected;
 
     if (typeof this.options.onSelectionChange === "function") {
       this.options.onSelectionChange(this.getSelectedIDs());

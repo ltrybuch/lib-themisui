@@ -13,12 +13,29 @@ class DataTableService {
       indeterminate="$ctrl.partialPageSelected"
       >
     </th-checkbox>`;
+  static checkboxColumn = {
+    width: "34px",
+    title: "<span class='" + DataTableService.headerCheckboxCSSClass + "'></span>",
+    template: `<span class="${DataTableService.rowCheckboxCSSClass}" data-uid="#= id #"></span>`,
+  };
   static rowCheckbox = `
     <th-checkbox
       ng-model="$ctrl.selectedRows[${DataTableService.placeholder}]"
       ng-click="$ctrl.updateHeaderCheckboxState()"
       >
     </th-checkbox>`;
+  static selectAllBanner = `
+    <tr class="select-all-banner" ng-show="$ctrl.showSelectAllBanner">
+      <th colspan="${DataTableService.placeholder}">
+        All {{ $ctrl.selectedRows.length }} rows on this page selected.
+        <a
+          class="select-all-rows"
+          ng-click="$ctrl.selectAll()"
+          >
+          Select all {{ $ctrl.totalLength }} rows
+        </a>
+      </th>
+    </tr>`;
 
   /* @ngInject */
   constructor(private $compile: ng.ICompileService) {}
@@ -56,6 +73,13 @@ class DataTableService {
     };
 
     return new kendo.ui.Grid(element, kendoOptions);
+  }
+
+  initializeSelectAllBanner($element: JQuery, $scope: angular.IScope, colspan: number) {
+    const selectAllBanner = DataTableService.selectAllBanner.replace(DataTableService.placeholder, colspan.toString());
+    const $selectAllBanner = this.$compile(selectAllBanner)($scope);
+
+    angular.element($element).find("thead").append($selectAllBanner);
   }
 
   private initCheckBoxes($element: JQuery, $scope: angular.IScope) {

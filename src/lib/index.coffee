@@ -6,7 +6,6 @@ require "../vendor_overrides/@progress/kendo-ui/js/kendo.angular.js"
 require "../polyfills/"
 
 angular.module("ThemisComponents", [
-  require "angular-animate"
   require "angular-aria"
   require "angular-messages"
   require "angular-sanitize"
