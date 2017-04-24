@@ -131,14 +131,14 @@ Optional fields:
 
   "placeholder": "Placeholder string",
 
-  "select-options": [
+  "selectOptions": [
     {"name": "Option one", "value": "1"},
     {"name": "Option two", "value": "2"}
   ],
 
-  "select-options-url": "./sampleoptions.json",
-  "select-options-name-field": "altname",
-  "select-options-value-field": "altvalue"
+  "selectOptionsUrl": "./sampleoptions.json",
+  "selectOptionsNameField": "altname",
+  "selectOptionsValueField": "altvalue"
 }
 ```
 The select filter type takes the following options:
@@ -148,21 +148,21 @@ state.
 
 The select filter *requires* one of the following attributes:
 
-* `select-options` defines the array of possible options available to the user.
+* `selectOptions` defines the array of possible options available to the user.
 
   * Options consist of name-value pairs.
 
-* `select-options-url` indicates the url returning the array of options
+* `selectOptionsUrl` indicates the url returning the array of options
 available to the user.
 
-  * `select-options-name-field` (*optional*) indicates the name-field to use in
+  * `selectOptionsNameField` (*optional*) indicates the name-field to use in
   the returned JSON. Defaults to "name".
 
-  * `select-options-value-field` (*optional*) indicates the value-field to use
+  * `selectOptionsValueField` (*optional*) indicates the value-field to use
   in the returned JSON. Defaults to "value".
 
-  * `select-options-callback` (*optional*) is the function to call with the
-  response from `select-options-url` as a parameter. `select-options-callback`
+  * `selectOptionsCallback` (*optional*) is the function to call with the
+  response from `selectOptionsUrl` as a parameter. `selectOptionsCallback`
   should return the array of options to use, with each option specifying a
   `name` and `value` attribute.
 
