@@ -6,6 +6,7 @@ angular.module("thDataTableDemo")
 
     this.options = {
       columns: remoteColumns,
+      resizable: true,
       dataSource: DataSource.createDataSource({
         transport: {
           read: {

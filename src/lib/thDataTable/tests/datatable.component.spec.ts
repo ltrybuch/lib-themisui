@@ -87,6 +87,34 @@ describe("ThemisComponents: Component: DataTable", () => {
         expect(createOptions.onDataBound).toBeUndefined();
       });
     });
+
+    describe("With options.resizable specified: ", () => {
+      beforeEach(() => {
+        const options = { ...scope.opts, resizable: true };
+        dataTableComponentCtrl = $componentController(componentName, locals, { options }) as DataTable;
+        dataTableComponentCtrl.$onInit();
+      });
+
+      it("calls the DataTableService.create with the resizable option", () => {
+        const createOptions = dataTableServiceCreateSpy.calls.argsFor(0)[1];
+        expect(dataTableServiceCreateSpy.calls.count()).toBe(1);
+        expect(createOptions.resizable).toBe(true);
+      });
+    });
+
+    describe("Without options.resizable specified: ", () => {
+      beforeEach(() => {
+        const options = scope.opts;
+        dataTableComponentCtrl = $componentController(componentName, locals, { options }) as DataTable;
+        dataTableComponentCtrl.$onInit();
+      });
+
+      it("calls the DataTableService.create without the resizable option", () => {
+        const createOptions = dataTableServiceCreateSpy.calls.argsFor(0)[1];
+        expect(dataTableServiceCreateSpy.calls.count()).toBe(1);
+        expect(createOptions.hasOwnProperty("resizable")).toBe(false);
+      });
+    });
   });
 
   describe("#getSelectedSize: ", () => {

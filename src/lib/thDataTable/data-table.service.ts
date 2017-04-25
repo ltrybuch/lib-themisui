@@ -57,6 +57,7 @@ class DataTableService {
 
     const kendoOptions: kendo.ui.GridOptions = {
       columns: options.columns,
+      resizable: options.resizable,
       dataSource: options.dataSource,
       pageable: pageSizeOptions,
       dataBound: (_e: kendo.ui.GridDataBoundEvent) => {

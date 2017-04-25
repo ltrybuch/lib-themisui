@@ -16,15 +16,18 @@ const remoteColumns = [
     field: "id",
     title: "ID",
     width: "120px",
+    minResizableWidth: 120,
   },
   {
     field: "full_name",
     title: "Full Name",
+    minResizableWidth: 100,
   },
   {
     title: "Language",
     template: "#= language ? language : `-` #",
     width: "120px",
+    minResizableWidth: 80,
   },
   {
     title: "URL",
