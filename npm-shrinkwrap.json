@@ -1,6 +1,6 @@
 {
   "name": "lib-ThemisUI",
-  "version": "11.1.5",
+  "version": "11.2.1",
   "dependencies": {
     "abbrev": {
       "version": "1.0.9",
@@ -21,11 +21,6 @@
       "version": "1.5.9",
       "from": "angular@1.5.9",
       "resolved": "https://registry.npmjs.org/angular/-/angular-1.5.9.tgz"
-    },
-    "angular-animate": {
-      "version": "1.5.9",
-      "from": "angular-animate@1.5.9",
-      "resolved": "https://registry.npmjs.org/angular-animate/-/angular-animate-1.5.9.tgz"
     },
     "angular-aria": {
       "version": "1.5.9",
@@ -163,7 +158,7 @@
     },
     "debounce": {
       "version": "1.0.0",
-      "from": "debounce@>=1.0.0 <2.0.0",
+      "from": "debounce@1.0.0",
       "resolved": "https://registry.npmjs.org/debounce/-/debounce-1.0.0.tgz"
     },
     "decamelize": {
@@ -633,7 +628,7 @@
     },
     "string-width": {
       "version": "1.0.2",
-      "from": "string-width@>=1.0.1 <2.0.0",
+      "from": "string-width@>=1.0.2 <2.0.0",
       "resolved": "https://registry.npmjs.org/string-width/-/string-width-1.0.2.tgz"
     },
     "strip-ansi": {
@@ -738,7 +733,7 @@
     },
     "y18n": {
       "version": "3.2.1",
-      "from": "y18n@>=3.2.0 <4.0.0",
+      "from": "y18n@>=3.2.1 <4.0.0",
       "resolved": "https://registry.npmjs.org/y18n/-/y18n-3.2.1.tgz"
     },
     "yargs": {
