@@ -1,4 +1,7 @@
-<div class="th-custom-filters" ng-if="thCustomFilters.customFilterTypes.length">
+<div
+  ng-if="thCustomFilters.shouldShowComponent()"
+  class="th-custom-filters"
+  >
   <div class="custom-filters">
     <div class="custom-filters-label">
       {{thCustomFilters.name}} Custom Fields
@@ -7,7 +10,7 @@
       ng-repeat="row in thCustomFilters.customFilterRows"
       row-select-value="row.type"
       initial-state="row.initialState"
-      custom-filter-types="thCustomFilters.customFilterTypes"
+      custom-filter-types-data-source="thCustomFilters.customFilterTypesDataSource"
       show-search-hint="thCustomFilters.showSearchHint"
       filter-set="thCustomFilters.filterSet"
       on-remove-row="thCustomFilters.removeCustomFilterRow(row.identifier)"

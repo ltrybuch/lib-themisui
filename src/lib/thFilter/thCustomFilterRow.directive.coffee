@@ -7,7 +7,7 @@ angular.module "ThemisComponents"
     scope:
       rowSelectValue: "="
       initialState: "=?"
-      customFilterTypes: "="
+      customFilterTypesDataSource: "<"
       filterSet: "="
       onRemoveRow: "&"
       showSearchHint: "<"

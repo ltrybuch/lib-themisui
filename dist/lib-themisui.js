@@ -75756,6 +75756,7 @@ var DataTableService = (function () {
             : false;
         var kendoOptions = {
             columns: options.columns,
+            resizable: options.resizable,
             dataSource: options.dataSource,
             pageable: pageSizeOptions,
             dataBound: function (_e) {
@@ -75769,6 +75770,11 @@ var DataTableService = (function () {
             },
         };
         return new kendo.ui.Grid(element, kendoOptions);
+    };
+    DataTableService.prototype.initializeSelectAllBanner = function ($element, $scope, colspan) {
+        var selectAllBanner = DataTableService.selectAllBanner.replace(DataTableService.placeholder, colspan.toString());
+        var $selectAllBanner = this.$compile(selectAllBanner)($scope);
+        angular.element($element).find("thead").append($selectAllBanner);
     };
     DataTableService.prototype.initCheckBoxes = function ($element, $scope) {
         var _this = this;
@@ -75793,7 +75799,13 @@ DataTableService.headerCheckboxCSSClass = "page-checkbox-container";
 DataTableService.rowCheckboxCSSClass = "row-checkbox-container";
 DataTableService.placeholder = "________";
 DataTableService.pageCheckbox = "\n    <th-checkbox\n      ng-click=\"$ctrl.togglePage()\"\n      ng-model=\"$ctrl.wholePageSelected\"\n      indeterminate=\"$ctrl.partialPageSelected\"\n      >\n    </th-checkbox>";
+DataTableService.checkboxColumn = {
+    width: "34px",
+    title: "<span class='" + DataTableService.headerCheckboxCSSClass + "'></span>",
+    template: "<span class=\"" + DataTableService.rowCheckboxCSSClass + "\" data-uid=\"#= id #\"></span>",
+};
 DataTableService.rowCheckbox = "\n    <th-checkbox\n      ng-model=\"$ctrl.selectedRows[" + DataTableService.placeholder + "]\"\n      ng-click=\"$ctrl.updateHeaderCheckboxState()\"\n      >\n    </th-checkbox>";
+DataTableService.selectAllBanner = "\n    <tr class=\"select-all-banner\" ng-show=\"$ctrl.showSelectAllBanner\">\n      <th colspan=\"" + DataTableService.placeholder + "\">\n        All {{ $ctrl.selectedRows.length }} rows on this page selected.\n        <a\n          class=\"select-all-rows\"\n          ng-click=\"$ctrl.selectAll()\"\n          >\n          Select all {{ $ctrl.totalLength }} rows\n        </a>\n      </th>\n    </tr>";
 exports.DataTableService = DataTableService;
 
 
@@ -115357,13 +115369,11 @@ angular.module('ThemisComponents').controller('thCustomFilterRow.controller', ["
     };
   })(this);
   this.customFieldOptions = {
-    autoBind: true,
+    autoBind: false,
     displayField: 'name',
     trackField: 'fieldIdentifier',
     filter: "contains",
-    dataSource: DataSource.createDataSource({
-      data: this.customFilterTypes
-    })
+    dataSource: this.customFilterTypesDataSource
   };
 }]);
 
@@ -115386,7 +115396,7 @@ angular.module("ThemisComponents").directive("thCustomFilterRow", function() {
     scope: {
       rowSelectValue: "=",
       initialState: "=?",
-      customFilterTypes: "=",
+      customFilterTypesDataSource: "<",
       filterSet: "=",
       onRemoveRow: "&",
       showSearchHint: "<"
@@ -115408,16 +115418,24 @@ angular.module("ThemisComponents").directive("thCustomFilterRow", function() {
   \***********************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-var CustomFilters;
+var CustomFilters,
+  bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
 CustomFilters = (function() {
+  CustomFilters.$inject = ["CustomFilterConverter", "$http", "$timeout", "DataSource"];
+  var MAX_API_RESULTS;
+
+  MAX_API_RESULTS = 200;
+
 
   /*@ngInject */
-  CustomFilters.$inject = ["CustomFilterConverter", "$http", "$timeout"];
-  function CustomFilters(CustomFilterConverter, $http, $timeout) {
+
+  function CustomFilters(CustomFilterConverter, $http, $timeout, DataSource) {
     this.CustomFilterConverter = CustomFilterConverter;
     this.$http = $http;
     this.$timeout = $timeout;
+    this.DataSource = DataSource;
+    this.shouldShowComponent = bind(this.shouldShowComponent, this);
     this.customFilterRows = [];
     this._nextIdentifier = 0;
   }
@@ -115428,6 +115446,7 @@ CustomFilters = (function() {
     this.name = this.thFilterCtrl.options.name;
     this.initialState = this.thFilterCtrl.options.initialState;
     this.customFilterTypes = this.thFilterCtrl.options.customFilterTypes;
+    this.customFilterTypesDataSource = null;
     this.filterSet = this.thFilterCtrl.options.filterSet;
     this.showSearchHint = this.thFilterCtrl.options.showSearchHint;
     if (!(this.filterSet instanceof Array)) {
@@ -115446,34 +115465,70 @@ CustomFilters = (function() {
   };
 
   CustomFilters.prototype.registerFilterInit = function(customFilterUrl, customFilterConverter) {
-    return this.thFilterCtrl.registerInitPromise(new Promise((function(_this) {
-      return function(resolve, reject) {
-        if (customFilterUrl != null) {
-          return _this.$http.get(customFilterUrl).then(function(response) {
-            var meta, ref;
-            if (customFilterConverter != null) {
-              if (!(customFilterConverter.constructor.prototype instanceof _this.CustomFilterConverter)) {
-                throw new Error("customFilterConverter must be instance of 'CustomFilterConverter'.");
+    this.customFilterTypesDataSource = this.DataSource.createDataSource({
+      serverFiltering: true,
+      schema: {
+        data: "data"
+      },
+      transport: {
+        read: (function(_this) {
+          return function(e) {
+            var customFilterUrlPlusParams, ref, ref1;
+            if (customFilterUrl != null) {
+              customFilterUrlPlusParams = customFilterUrl;
+              if ((ref = e.data) != null ? (ref1 = ref.filter) != null ? ref1.filters[0] : void 0 : void 0) {
+                customFilterUrlPlusParams += "&query=" + e.data.filter.filters[0].value;
               }
-              ref = customFilterConverter.mapToCustomFilterArray(response.data), _this.customFilterTypes = ref[0], meta = ref[1];
-              _this.showSearchHint = meta.showSearchHint;
+              return _this.$http.get(customFilterUrlPlusParams).then(function(response) {
+                var meta, ref2;
+                if (customFilterConverter != null) {
+                  if (!(customFilterConverter.constructor.prototype instanceof _this.CustomFilterConverter)) {
+                    throw new Error("customFilterConverter must be instance of 'CustomFilterConverter'.");
+                  }
+                  ref2 = customFilterConverter.mapToCustomFilterArray(response.data), _this.customFilterTypes = ref2[0], meta = ref2[1];
+                  _this.showSearchHint = meta.showSearchHint;
+                } else {
+                  _this.customFilterTypes = response.data;
+                  _this.showSearchHint = false;
+                }
+                return e.success({
+                  data: _this.customFilterTypes
+                });
+              }, function() {
+                return e.error();
+              });
             } else {
-              _this.customFilterTypes = response.data;
-              _this.showSearchHint = false;
+              return e.success({
+                data: _this.customFilterTypes
+              });
             }
-            _this.parseParams();
-            return resolve();
-          }, function() {
-            return reject();
+          };
+        })(this)
+      }
+    });
+    return this.thFilterCtrl.registerInitPromise(this.getInitialData(this.customFilterTypesDataSource));
+  };
+
+  CustomFilters.prototype.getInitialData = function(dataSource) {
+    return new Promise((function(_this) {
+      return function(resolve, reject) {
+        return dataSource.fetch().then(function() {
+          _this.$timeout(function() {
+            return _this._disableServerFilteringIfNoFurtherPagesOfResults(_this.customFilterTypes, dataSource, MAX_API_RESULTS);
           });
-        } else {
           _this.parseParams();
-          return _this.$timeout(function() {
-            return resolve();
-          });
-        }
+          return resolve();
+        }, function() {
+          return reject();
+        });
       };
-    })(this)));
+    })(this));
+  };
+
+  CustomFilters.prototype._disableServerFilteringIfNoFurtherPagesOfResults = function(customFilterTypes, customFilterTypesDataSource, max) {
+    if (customFilterTypes.length < max) {
+      return customFilterTypesDataSource.options.serverFiltering = false;
+    }
   };
 
   CustomFilters.prototype.removeCustomFilterRow = function(identifier) {
@@ -115515,6 +115570,11 @@ CustomFilters = (function() {
     identifier = this._nextIdentifier;
     this._nextIdentifier += 1;
     return identifier.toString();
+  };
+
+  CustomFilters.prototype.shouldShowComponent = function() {
+    var ref, ref1;
+    return ((ref = this.customFilterTypes) != null ? ref.length : void 0) > 0 || ((ref1 = this.customFilterRows) != null ? ref1.length : void 0) > 0;
   };
 
   return CustomFilters;
@@ -118897,6 +118957,13 @@ var ComboBoxAutocomplete = (function (_super) {
         };
         this.kendoComponent = new kendo.ui.ComboBox(this.config.element, widgetOptions);
         this.kendoComponent.value(this.initialValue);
+        /*
+         * When serverFiltering is on, we need to refresh the component so that the initial value
+         * displays correctly.
+         **/
+        if (this.config.options.dataSource.options.serverFiltering) {
+            setTimeout(function () { return _this.kendoComponent.refresh(); });
+        }
     };
     return ComboBoxAutocomplete;
 }(autocomplete_abstract_1.default));
@@ -119027,12 +119094,14 @@ var DataTable = (function () {
         var options = __assign({}, this.options);
         var datatableElement = angular.element(".th-data-table", this.$element);
         if (options.selectable) {
-            options.columns = [DataTable.checkboxColumn].concat(options.columns);
+            options.columns = [data_table_service_1.DataTableService.checkboxColumn].concat(options.columns);
             options.onDataBound = this.setCurrentVisibleRows.bind(this);
         }
         this.datatable = this.DataTableService.create(datatableElement[0], options, this.$scope);
         this.totalLength = this.options.dataSource.data().length;
-        this.initializeSelectAllBanner();
+        if (DataTable.selectAllFunctionality) {
+            this.DataTableService.initializeSelectAllBanner(this.$element, this.$scope, this.options.columns.length);
+        }
     };
     DataTable.prototype.togglePage = function () {
         var _this = this;
@@ -119052,7 +119121,6 @@ var DataTable = (function () {
         });
         this.updateHeaderCheckboxState();
         this.showSelectAllBanner = false;
-        alert("SELECT ALL!!");
     };
     DataTable.prototype.clearSelection = function () {
         this.selectedRows = [];
@@ -119074,24 +119142,6 @@ var DataTable = (function () {
             this.options.onSelectionChange(this.getSelectedIDs());
         }
     };
-    DataTable.prototype.initializeSelectAllBanner = function () {
-        // We can uncomment this once we actually start implementing select ALL (CLIO-45222).
-        // The only thing we need to do is put "private $compile: angular.ICompileService" back in Constructor
-        // const selectAllBanner = `
-        //   <tr class="select-all-banner" ng-show="$ctrl.showSelectAllBanner">
-        //     <th colspan="${this.options.columns.length}">
-        //       All {{ $ctrl.selectedRows.length }} rows on this page selected.
-        //       <a
-        //         class="select-all-rows"
-        //         ng-click="$ctrl.selectAll()"
-        //         >
-        //         Select all {{ $ctrl.totalLength }} rows
-        //       </a>
-        //     </th>
-        //   </tr>`;
-        // const $selectAllBanner = this.$compile(selectAllBanner)(this.$scope);
-        // jQuery(this.$element).find("thead").append($selectAllBanner);
-    };
     DataTable.prototype.getSelectedIDs = function () {
         return this.selectedRows.reduce(function (selectedIDs, selected, uID) {
             if (selected) {
@@ -119108,11 +119158,8 @@ var DataTable = (function () {
     };
     return DataTable;
 }());
-DataTable.checkboxColumn = {
-    width: "34px",
-    title: "<span class='" + data_table_service_1.DataTableService.headerCheckboxCSSClass + "'></span>",
-    template: "<span class=\"" + data_table_service_1.DataTableService.rowCheckboxCSSClass + "\" data-uid=\"#= id #\"></span>",
-};
+// We can set this to true once we actually want select ALL functionality in (CLIO-45222).
+DataTable.selectAllFunctionality = false;
 exports.DataTable = DataTable;
 var DataTableComponent = {
     template: template,
@@ -120637,7 +120684,7 @@ module.exports = "<div class=\"row\">\n  <div class=\"field\">\n    <th-autocomp
   \********************************************************/
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"th-custom-filters\" ng-if=\"thCustomFilters.customFilterTypes.length\">\n  <div class=\"custom-filters\">\n    <div class=\"custom-filters-label\">\n      {{thCustomFilters.name}} Custom Fields\n    </div>\n    <th-custom-filter-row\n      ng-repeat=\"row in thCustomFilters.customFilterRows\"\n      row-select-value=\"row.type\"\n      initial-state=\"row.initialState\"\n      custom-filter-types=\"thCustomFilters.customFilterTypes\"\n      show-search-hint=\"thCustomFilters.showSearchHint\"\n      filter-set=\"thCustomFilters.filterSet\"\n      on-remove-row=\"thCustomFilters.removeCustomFilterRow(row.identifier)\"\n      >\n    </th-custom-filter-row>\n  </div>\n  <div class=\"link add-custom-filter\" ng-click=\"thCustomFilters.addCustomFilterRow()\">\n    <i class=\"fa right-space fa-plus-circle\"></i>\n    Add {{thCustomFilters.name}} Custom Field\n  </div>\n</div>\n"
+module.exports = "<div\n  ng-if=\"thCustomFilters.shouldShowComponent()\"\n  class=\"th-custom-filters\"\n  >\n  <div class=\"custom-filters\">\n    <div class=\"custom-filters-label\">\n      {{thCustomFilters.name}} Custom Fields\n    </div>\n    <th-custom-filter-row\n      ng-repeat=\"row in thCustomFilters.customFilterRows\"\n      row-select-value=\"row.type\"\n      initial-state=\"row.initialState\"\n      custom-filter-types-data-source=\"thCustomFilters.customFilterTypesDataSource\"\n      show-search-hint=\"thCustomFilters.showSearchHint\"\n      filter-set=\"thCustomFilters.filterSet\"\n      on-remove-row=\"thCustomFilters.removeCustomFilterRow(row.identifier)\"\n      >\n    </th-custom-filter-row>\n  </div>\n  <div class=\"link add-custom-filter\" ng-click=\"thCustomFilters.addCustomFilterRow()\">\n    <i class=\"fa right-space fa-plus-circle\"></i>\n    Add {{thCustomFilters.name}} Custom Field\n  </div>\n</div>\n"
 
 /***/ }),
 /* 280 */

@@ -38,10 +38,10 @@ angular.module 'ThemisComponents'
         @rowFilterOptions = if @rowSelectValue then [@rowSelectValue] else []
 
     @customFieldOptions =
-      autoBind: true,
+      autoBind: false,
       displayField: 'name'
       trackField: 'fieldIdentifier'
       filter: "contains"
-      dataSource: DataSource.createDataSource data: @customFilterTypes
+      dataSource: @customFilterTypesDataSource
 
     return

@@ -48,6 +48,14 @@ class ComboBoxAutocomplete extends AutocompleteAbstract {
 
     this.kendoComponent = new kendo.ui.ComboBox(this.config.element, widgetOptions);
     this.kendoComponent.value(this.initialValue);
+
+    /*
+     * When serverFiltering is on, we need to refresh the component so that the initial value
+     * displays correctly.
+     **/
+    if (this.config.options.dataSource.options.serverFiltering) {
+      setTimeout(() => this.kendoComponent.refresh());
+    }
   }
 }
 

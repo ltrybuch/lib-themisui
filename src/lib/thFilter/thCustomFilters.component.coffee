@@ -1,6 +1,8 @@
 class CustomFilters
+  MAX_API_RESULTS = 200
+
   ###@ngInject###
-  constructor: (@CustomFilterConverter, @$http, @$timeout) ->
+  constructor: (@CustomFilterConverter, @$http, @$timeout, @DataSource) ->
     @customFilterRows = []
     @_nextIdentifier = 0
 
@@ -9,6 +11,9 @@ class CustomFilters
     @name = @thFilterCtrl.options.name
     @initialState = @thFilterCtrl.options.initialState
     @customFilterTypes = @thFilterCtrl.options.customFilterTypes
+
+    @customFilterTypesDataSource = null
+
     @filterSet = @thFilterCtrl.options.filterSet
     @showSearchHint = @thFilterCtrl.options.showSearchHint
 
@@ -25,28 +30,58 @@ class CustomFilters
       identifier: @_getNextIdentifier()
 
   registerFilterInit: (customFilterUrl, customFilterConverter) ->
-    @thFilterCtrl.registerInitPromise new Promise (resolve, reject) =>
-      if customFilterUrl?
-        @$http.get customFilterUrl
-          .then (response) =>
-            if customFilterConverter?
-              unless customFilterConverter.constructor.prototype instanceof @CustomFilterConverter
-                throw new Error "customFilterConverter must be instance of 'CustomFilterConverter'."
+    @customFilterTypesDataSource = @DataSource.createDataSource
+      serverFiltering: true
+      schema:
+        data: "data"
+      transport:
+        read: (e) =>
+          if customFilterUrl?
+            customFilterUrlPlusParams = customFilterUrl
+            if e.data?.filter?.filters[0]
+              customFilterUrlPlusParams += "&query=#{e.data.filter.filters[0].value}"
 
-              [@customFilterTypes, meta] =
-                customFilterConverter.mapToCustomFilterArray response.data
-              @showSearchHint = meta.showSearchHint
-            else
-              @customFilterTypes = response.data
-              @showSearchHint = no
+            @$http.get customFilterUrlPlusParams
+              .then (response) =>
+                if customFilterConverter?
+                  unless customFilterConverter.constructor.prototype instanceof @CustomFilterConverter
+                    throw new Error "customFilterConverter must be instance of 'CustomFilterConverter'."
 
-            @parseParams()
-            resolve()
-          , ->
-            reject()
-      else
+                  [@customFilterTypes, meta] =
+                    customFilterConverter.mapToCustomFilterArray response.data
+                  @showSearchHint = meta.showSearchHint
+                else
+                  @customFilterTypes = response.data
+                  @showSearchHint = no
+
+                e.success data: @customFilterTypes
+              , ->
+                e.error()
+          else
+            e.success data: @customFilterTypes
+
+    @thFilterCtrl.registerInitPromise @getInitialData @customFilterTypesDataSource
+
+  getInitialData: (dataSource) ->
+    return new Promise (resolve, reject) =>
+      dataSource.fetch().then =>
+        @$timeout =>
+          @_disableServerFilteringIfNoFurtherPagesOfResults @customFilterTypes,
+            dataSource,
+            MAX_API_RESULTS
+
         @parseParams()
-        @$timeout -> resolve()
+        resolve()
+      , ->
+        reject()
+
+  _disableServerFilteringIfNoFurtherPagesOfResults: (
+    customFilterTypes,
+    customFilterTypesDataSource,
+    max
+  ) ->
+    if customFilterTypes.length < max
+      customFilterTypesDataSource.options.serverFiltering = false
 
   removeCustomFilterRow: (identifier) ->
     index = @customFilterRows.findIndex (item) ->
@@ -74,6 +109,9 @@ class CustomFilters
     identifier = @_nextIdentifier
     @_nextIdentifier += 1
     identifier.toString()
+
+  shouldShowComponent: =>
+    @customFilterTypes?.length > 0 or @customFilterRows?.length > 0
 
 angular.module "ThemisComponents"
 .component "thCustomFilters",

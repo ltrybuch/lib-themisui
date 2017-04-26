@@ -1,3 +1,9 @@
+{fakeResponse} = require "../../../services/http-mocking.service"
+expectedCustomFields = require "../../tests/fixtures/customFields"
+
+fakeResponse /filter_types$/, expectedCustomFields.items
+fakeResponse /filter_types\&query=/, expectedCustomFields.filteredItems
+
 angular.module("thFilterDemo")
 .factory "MyCustomFilterConverter", (CustomFilterConverter) ->
   class MyCustomFilterConverter extends CustomFilterConverter
@@ -74,7 +80,7 @@ angular.module("thFilterDemo")
 
   @filterOptions = {
     filterSet: @filterSet
-    customFilterUrl: "/components/thFilter/examples/6 - Custom filter converter/customFields.json"
+    customFilterUrl: "/filter_types"
     customFilterConverter: new MyCustomFilterConverter
     initialState:
       numeric:

@@ -116,6 +116,20 @@ describe "ThemisComponents: Component: thCustomFilters", ->
       httpBackend.whenGET(endpoint()).respond JSON.stringify results()
       httpBackend.flush()
 
+    describe "and the amount of results is less than the given MAX_API_RESULTS", ->
+      it "disables serverFiltering", ->
+        dataSource = options: serverFiltering: true
+        twoResults = results()
+        controller._disableServerFilteringIfNoFurtherPagesOfResults twoResults, dataSource, 3
+        expect(dataSource.options.serverFiltering).toBe false
+
+    describe "and the amount of results is more than the given MAX_API_RESULTS", ->
+      it "doesn't disable serverFiltering", ->
+        dataSource = options: serverFiltering: true
+        twoResults = results()
+        controller._disableServerFilteringIfNoFurtherPagesOfResults twoResults, dataSource, 1
+        expect(dataSource.options.serverFiltering).toBe true
+
   describe "when specifying custom filter url with converter", ->
     describe "when custom filter converter is not valid", ->
       it "should throw an error", ->
