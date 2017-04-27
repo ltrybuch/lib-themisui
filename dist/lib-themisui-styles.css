@@ -1,4 +1,18 @@
 @charset "UTF-8";
+/*--------------------------------------------------
+* COLORS
+* Refrain from usage other than by
+* the semantic color variables below
+*--------------------------------------------------*/
+/*--------------------------------------------------
+* SECONDARY COLORS
+*--------------------------------------------------*/
+/*--------------------------------------------------
+* SEMANTIC COLORS
+*--------------------------------------------------*/
+/*--------------------------------------------------
+* DEPRECATED COLORS
+*--------------------------------------------------*/
 .d-none {
   display: none !important; }
 
@@ -1964,18 +1978,24 @@
   margin-right: 32px !important; }
 
 /*--------------------------------------------------
-* COLORS
-* Refrain from usage other than by
-* the semantic color variables below
+* Clio z-index planes
+*
+* This file contains constants used for common
+* z-index values. When adding a z-index value to a
+* selector, use the constant defined below for the
+* corresponding plane.
 *--------------------------------------------------*/
 /*--------------------------------------------------
-* SECONDARY COLORS
+* Notification plane
 *--------------------------------------------------*/
 /*--------------------------------------------------
-* SEMANTIC COLORS
+* Menu plane
 *--------------------------------------------------*/
 /*--------------------------------------------------
-* DEPRECATED COLORS
+* Modal plane
+*--------------------------------------------------*/
+/*--------------------------------------------------
+* Root plane
 *--------------------------------------------------*/
 /*--------------------------------------------------
 * VARIABLES
@@ -3481,26 +3501,6 @@ h2.header-title {
 .fa-plus-square-o:before {
   content: "\f196"; }
 
-/*--------------------------------------------------
-* Clio z-index planes
-*
-* This file contains constants used for common
-* z-index values. When adding a z-index value to a
-* selector, use the constant defined below for the
-* corresponding plane.
-*--------------------------------------------------*/
-/*--------------------------------------------------
-* Notification plane
-*--------------------------------------------------*/
-/*--------------------------------------------------
-* Menu plane
-*--------------------------------------------------*/
-/*--------------------------------------------------
-* Modal plane
-*--------------------------------------------------*/
-/*--------------------------------------------------
-* Root plane
-*--------------------------------------------------*/
 .action-bar {
   display: -webkit-box;
   display: -ms-flexbox;

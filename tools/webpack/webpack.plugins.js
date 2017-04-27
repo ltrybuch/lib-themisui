@@ -9,6 +9,7 @@ module.exports = function(env={}) {
 
   if (!env.skipCleanup) {
     buildPlugins.push(new CleanWebpackPlugin([env.dist ? env.distRoot : env.publicAssetsRoot], {
+      exclude: ['lib-themisui-apollo-styles.css'],
       root: env.root,
       verbose: true,
       dry: false
@@ -53,6 +54,13 @@ module.exports = function(env={}) {
       exclude: excludeFromStats
     }));
   }
+
+  const theme = env.apollo ? "apollo" : "themis";
+  plugins.push(
+    new webpack.DefinePlugin({
+      "process.theme": JSON.stringify(theme)
+    })
+  );
 
   if(env.dist) {
     plugins.push(

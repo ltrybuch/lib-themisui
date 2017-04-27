@@ -125,6 +125,7 @@
     "heroku-prebuild": "bash tools/heroku/preinstall.sh && TS_NODE_PROJECT=tools gulp herokuPreBuild",
     "heroku-start": "TS_NODE_PROJECT=tools gulp bs:start",
     "build": "NODE_ENV=production webpack --progress --env.dist --config tools/webpack/webpack.config.js",
+    "build-apollo": "NODE_ENV=production webpack --progress --env.apollo --env.skipCleanup --env.dist --config tools/webpack/webpack.config.js",
     "build-indexes": "TS_NODE_PROJECT=tools gulp generateCatalogAndIndexes",
     "build-stats-dev": "webpack --progress --profile --env.stats --config tools/webpack/webpack.config.js",
     "build-stats-prod": "NODE_ENV=production webpack --progress --profile --env.stats --env.dist --config tools/webpack/webpack.config.js",

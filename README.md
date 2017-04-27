@@ -16,6 +16,7 @@ ThemisUI is a shareable suite of components and brand assets to be shared across
 	- [Running Tests](#running-tests)
 	- [Cutting Code](#cutting-code)
 	- [Coding Style](#coding-style)
+	- [Apollo Theming](#apollo-theming)
 - [Package Contents](#package-contents)
 - [Deploying Docs](#deploying-docs)
 - [Other Notes](#other-notes)
@@ -132,19 +133,33 @@ file (if relevant) will both be updated to the specified version / commit ref. T
 may not be what you want for a simple component test.
 
 ### Coding Style
+The best place to go is our [JavaScript Style Guide](/doc/javaScriptStyleGuide)
 
+**CLI Commands**
+- `npm run lint`: Show issues with TypeScript files
+- `npm run fix`: Fix issues with TypeScript files
+
+**Editor Setup:**
 To adhere to our style guide we recommend using a linter addon for your code editor,
-which will enforce the rules defined under `coffeelint.json`. These rules will be
-enforced by our CI system.
+which will enforce the rules defined under `coffeelint.json` and `tslint.json`. These rules will be
+enforced by our CI system. Most can be found within your editors package manager.
 
 * Atom:
- * https://atom.io/packages/linter
- * https://atom.io/packages/linter-coffeelint
-
+  * https://atom.io/packages/linter
+  * https://atom.io/packages/linter-coffeelint
 * SublimeText:
- * http://sublimelinter.readthedocs.org
- * https://github.com/SublimeLinter/SublimeLinter-coffeelint
+  * https://sublimelinter.readthedocs.org
+  * https://github.com/SublimeLinter/SublimeLinter-coffeelint
 
+### Apollo Theming
+- **Components:**
+The recommended way to create a theme-able component is to use two separate css theme files, one for Themis (legacy) and one for Apollo. These should inherit from a base css file for styles shared across both themes. When using the generator (`npm run generate`) to create the component, these files will automatically be created for you.
+  - `{component}/styles/apollo.scss`
+  - `{component}/styles/base.scss`
+  - `{component}/styles/themis.scss`
+- **CLI Commands**
+  - `npm run build-apollo`: Build Apollo specific distribution styles (*/dist/lib-themisui-apollo-styles.css*)
+  - `npm start -- --theme=apollo`: Start the dev server with Apollo styles inside of the examples
 
 ## Package Contents
 

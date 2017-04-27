@@ -4,10 +4,12 @@ import {BrowserSyncNotifier} from "../util/BrowserSyncNotifier";
 import * as gutil from "gulp-util";
 import * as webpack from "webpack";
 
+const apollo = gutil.env.theme === "apollo";
 const webpackConfig = require("../../webpack/webpack.config.js")({
   cache: true,
   dev: true,
-  skipCleanup: true
+  skipCleanup: true,
+  apollo,
 });
 
 @Gulpclass()

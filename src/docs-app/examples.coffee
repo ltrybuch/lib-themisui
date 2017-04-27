@@ -5,5 +5,11 @@
 angular = require "angular"
 
 require "./catalog/component-example/component-examples.scss"
+
+if process and process.theme is "apollo"
+  require "../lib/index.apollo.scss"
+else
+  require "../lib/index.themis.scss"
+
 require "../lib/index"
 require "../lib/index.examples"

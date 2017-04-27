@@ -22,8 +22,13 @@ module.exports = function(env={}) {
   // App entries
   const entry = {
     "lib-themisui": path.join(rootSrc, "lib", "index.coffee"),
-    "lib-themisui-styles": path.join(rootSrc, "lib", "index.scss")
   };
+
+  if(env.apollo) {
+    entry["lib-themisui-apollo-styles"] = path.join(rootSrc, "lib", "index.apollo.scss");
+  } else {
+    entry["lib-themisui-styles"] = path.join(rootSrc, "lib", "index.themis.scss");
+  }
 
   if(!env.dist) {
     entry["examples"] = path.join(docsAppRoot, "examples.coffee");
@@ -107,7 +112,7 @@ module.exports = function(env={}) {
     devtool,
     resolve: {
       extensions,
-      modules: resolveModules
+      modules: resolveModules,
     },
     plugins
   };

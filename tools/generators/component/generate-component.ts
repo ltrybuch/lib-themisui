@@ -12,8 +12,6 @@ function generateComponent(name: string) {
   const componentName = `th${pascalCasedName}`;
   const templatePath = path.join("tools", "generators", "templates", "component");
   const destinationPath = path.join("src", "lib", componentName);
-  const CSSimportString = `@import "${componentName}/index";`;
-  const JSimportString = `require "./${componentName}/"`;
 
   const templateFiles: types.fileInfo[] = glob.sync(path.join(templatePath, "**/*"))
     .reduce(Utilities.createFileInfo.bind({ templatePath, destinationPath }), [])
@@ -75,35 +73,51 @@ function generateComponent(name: string) {
     });
 
   Utilities.writeFiles(templateFiles);
-  registerComponent(CSSimportString, JSimportString);
+  registerComponent(componentName);
 }
 
-function registerComponent(CSSImport: string, JSImport: string) {
-  const indexCSSPath = path.join("src", "lib", "index.scss");
-  const indexJSPath = path.join("src", "lib", "index.coffee");
-  const CSSContent = fs.readFileSync(indexCSSPath, "utf8").split(os.EOL);
-  const JSContent = fs.readFileSync(indexJSPath, "utf8").split(os.EOL);
-  const CSSImportContext = { importPattern: `@import "th`, import: CSSImport };
-  const JSImportContext = { importPattern: `require "./th`, import: JSImport };
-  const CSSIndex = CSSContent.findIndex(Utilities.findSortOrder.bind(CSSImportContext));
-  const JSIndex = JSContent.findIndex(Utilities.findSortOrder.bind(JSImportContext));
+function registerComponent(componentName: string) {
+  const JSInsert = insertContentIntoFile(
+    `require "./${componentName}/"`,
+    path.join("src", "lib", "index.coffee"),
+    `require "./th`,
+  );
+  const themisCSSInsert = insertContentIntoFile(
+    `@import "${componentName}/styles/themis";`,
+    path.join("src", "lib", "index.themis.scss"),
+    `@import "th`,
+  );
+  const apolloCSSInsert = insertContentIntoFile(
+    `@import "${componentName}/styles/apollo";`,
+    path.join("src", "lib", "index.apollo.scss"),
+    `@import "th`,
+  );
 
-  if (CSSIndex < 0 || JSIndex < 0) {
+  if (!JSInsert || !themisCSSInsert || !apolloCSSInsert) {
     console.error("Error registering component.");
     return;
   }
 
-  const JSFileInfo = {
-    path: indexJSPath,
-    content: Utilities.insertByIndex(JSContent, JSImport, JSIndex + 1).join(os.EOL),
-  };
-
-  const CSSFileInfo = {
-    path: indexCSSPath,
-    content: Utilities.insertByIndex(CSSContent, CSSImport, CSSIndex + 1).join(os.EOL),
-  };
-
-  Utilities.writeFiles([CSSFileInfo, JSFileInfo]);
+  Utilities.writeFiles([
+    themisCSSInsert,
+    apolloCSSInsert,
+    JSInsert,
+  ]);
 };
+
+function insertContentIntoFile(content: string, filePath: string, importPattern: string) {
+  const fileContent = fs.readFileSync(filePath, "utf8").split(os.EOL);
+  const importContext = { importPattern: importPattern, import: content };
+  const index = fileContent.findIndex(Utilities.findSortOrder.bind(importContext));
+
+  if (index < 0) {
+    return false;
+  } else {
+    return {
+      path: filePath,
+      content: Utilities.insertByIndex(fileContent, content, index + 1).join(os.EOL),
+    };
+  }
+}
 
 export default generateComponent;

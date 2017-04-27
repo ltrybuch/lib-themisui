@@ -2,7 +2,7 @@ import * as angular from "angular";
 import {ScssVariables, ColorData, variableFilterCallback} from "./colorPalette.interfaces";
 
 // tslint:disable-next-line:max-line-length
-const scssVariables = require("!!sass-variable-loader?preserveVariableNames!../../../themes/themis/colors.scss") as ScssVariables;
+const scssVariables = require("!!sass-variable-loader?preserveVariableNames!../../../themes/base/colors.scss") as ScssVariables;
 const template = require("./colorPalette.template.html") as string;
 
 class ColorPalette {
