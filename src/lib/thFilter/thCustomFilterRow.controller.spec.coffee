@@ -35,8 +35,19 @@ describe "ThemisComponents: Controller: thCustomFilterRow", ->
         timeout.flush()
         expect(controller.rowFilterOptions).toEqual [filterType]
 
-    describe "event broadcasting", ->
-      describe "when there is no filter options selected", ->
+    describe "when a custom field has been added", ->
+      beforeEach ->
+        controller.customFieldOptions = {trackField: "fieldIdentifier"}
+
+      describe "with an undefined value", ->
+        beforeEach -> controller.rowFilterOptions = []
+
+        it "does not broadcast `thFilter:destroyed`", ->
+          controller.onRowSelectChange undefined
+          timeout.flush()
+          expect(scope.$broadcast).not.toHaveBeenCalled()
+
+      describe "and a filter type has just been selected", ->
         beforeEach -> controller.rowFilterOptions = []
 
         it "does not broadcast `thFilter:destroyed`", ->
@@ -44,10 +55,19 @@ describe "ThemisComponents: Controller: thCustomFilterRow", ->
           timeout.flush()
           expect(scope.$broadcast).not.toHaveBeenCalled()
 
-      describe "when there is no filter options selected", ->
-        beforeEach -> controller.rowFilterOptions = [{another: "filter"}]
+      describe "and a filter type option value has just been selected", ->
+        beforeEach -> controller.rowFilterOptions = [{fieldIdentifier: "status"}]
+
+        it "does not broadcast `thFilter:destroyed`", ->
+          # Emulate a value being updated on an existing filter type
+          controller.onRowSelectChange {fieldIdentifier: "status"}
+          timeout.flush()
+          expect(scope.$broadcast).not.toHaveBeenCalled()
+
+      describe "and the filter type has now been changed", ->
+        beforeEach -> controller.rowFilterOptions = [{fieldIdentifier: "status"}]
 
         it "broadcasts `thFilter:destroyed`", ->
-          controller.onRowSelectChange ""
+          controller.onRowSelectChange {fieldIdentifier: "difficulty"}
           timeout.flush()
           expect(scope.$broadcast).toHaveBeenCalledWith "thFilter:destroyed"

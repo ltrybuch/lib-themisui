@@ -54498,6 +54498,10 @@ process.off = noop;
 process.removeListener = noop;
 process.removeAllListeners = noop;
 process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
 
 process.binding = function (name) {
     throw new Error('process.binding is not supported');
@@ -115360,9 +115364,14 @@ angular.module('ThemisComponents').controller('thCustomFilterRow.controller', ["
   this.onRowSelectChange = (function(_this) {
     return function(value) {
       return $timeout(function() {
+        var currentSelectedType, lastSelectedType;
         _this.initialState = null;
-        if (value === "") {
-          _this.broadcastFilterDestroyed();
+        if (_this.rowFilterOptions.length > 0) {
+          lastSelectedType = _this.rowFilterOptions[0][_this.customFieldOptions.trackField];
+          currentSelectedType = value != null ? value[_this.customFieldOptions.trackField] : void 0;
+          if (lastSelectedType !== currentSelectedType) {
+            _this.broadcastFilterDestroyed();
+          }
         }
         return _this.rowFilterOptions = _this.rowSelectValue ? [_this.rowSelectValue] : [];
       });

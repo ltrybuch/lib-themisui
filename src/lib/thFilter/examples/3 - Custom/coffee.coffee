@@ -7,7 +7,7 @@ angular.module("thFilterDemo")
     TableSort
     FilterSet
   ) ->
-    filterTypes = expectedFilterTypes.lotsOfTypes 220
+    filterTypes = expectedFilterTypes.items
 
     {sort} = TableSort
     data = expectedFilterTypes.data 30

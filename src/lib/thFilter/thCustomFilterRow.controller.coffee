@@ -33,8 +33,14 @@ angular.module 'ThemisComponents'
     @onRowSelectChange = (value) =>
       $timeout =>
         @initialState = null
-        if value is ""
-          @broadcastFilterDestroyed()
+
+        if @rowFilterOptions.length > 0
+          lastSelectedType = @rowFilterOptions[0][@customFieldOptions.trackField]
+          currentSelectedType = value?[@customFieldOptions.trackField]
+
+          if lastSelectedType isnt currentSelectedType
+            @broadcastFilterDestroyed()
+
         @rowFilterOptions = if @rowSelectValue then [@rowSelectValue] else []
 
     @customFieldOptions =

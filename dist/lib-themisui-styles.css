@@ -3813,7 +3813,7 @@ h2.header-title {
 .k-timepicker .k-picker-wrap,
 .k-datetimepicker .k-picker-wrap, .k-dateinput .k-dateinput-wrap {
   color: #263238;
-  background-color: #fff;
+  background-color: white;
   border-color: rgba(0, 0, 0, 0.08); }
 
 .k-autocomplete.k-state-hover, .k-combobox > :hover,
@@ -3821,7 +3821,7 @@ h2.header-title {
 .k-timepicker .k-state-hover,
 .k-datetimepicker .k-state-hover, .k-dateinput .k-state-hover {
   color: #263238;
-  background-color: #fff;
+  background-color: white;
   border-color: rgba(0, 0, 0, 0.15); }
 
 .k-autocomplete.k-state-focused, .k-combobox .k-state-focused,
@@ -3832,7 +3832,7 @@ h2.header-title {
 .k-datetimepicker .k-state-focused,
 .k-datetimepicker .k-state-active, .k-dateinput .k-state-active {
   color: #263238;
-  background-color: #fff;
+  background-color: white;
   border-color: rgba(0, 0, 0, 0.15);
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.03), 0 4px 5px 0 rgba(0, 0, 0, 0.04); }
 
@@ -6777,7 +6777,7 @@ table.k-widget {
   .k-multiselect li:focus .k-icon, .k-multiselect li.k-state-focused .k-icon {
     opacity: 1; }
   .k-multiselect .k-i-loading {
-    background-color: #fff; }
+    background-color: white; }
 
 .k-multiselect-wrap > .k-readonly {
   opacity: .6; }
@@ -11244,21 +11244,21 @@ span.k-recur-until {
   pointer-events: none; }
 
 .k-tooltip {
-  color: #fff;
-  background-color: #000;
+  color: white;
+  background-color: black;
   border-radius: 2px; }
 
 .k-callout-n {
-  border-bottom-color: #000; }
+  border-bottom-color: black; }
 
 .k-callout-e {
-  border-left-color: #000; }
+  border-left-color: black; }
 
 .k-callout-s {
-  border-top-color: #000; }
+  border-top-color: black; }
 
 .k-callout-w {
-  border-right-color: #000; }
+  border-right-color: black; }
 
 th-calendars {
   display: block;
