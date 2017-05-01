@@ -7045,12 +7045,12 @@ th-autocomplete {
     color: #667881;
     opacity: 0; }
   th-autocomplete .k-multiselect .k-button {
-    padding: 2px 0px 2px 10px;
+    padding: 7px 4px 7px 14px;
     line-height: 22px;
     color: #263238;
     border: 1px solid #B0BEC5;
     border-radius: 4px;
-    max-width: calc(100% - 16px);
+    max-width: 100%;
     background: white;
     font-size: 13px; }
     th-autocomplete .k-multiselect .k-button > span:not(.k-select) {
@@ -7091,27 +7091,16 @@ th-autocomplete {
       transform: none; }
   th-autocomplete .k-autocomplete,
   th-autocomplete .k-multiselect-wrap {
-    padding: 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center; }
+    padding: 0; }
     th-autocomplete .k-autocomplete ul,
     th-autocomplete .k-multiselect-wrap ul {
-      margin: 2px -4px 2px 4px; }
-    th-autocomplete .k-autocomplete input,
-    th-autocomplete .k-multiselect-wrap input {
-      -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-      flex-grow: 1; }
+      max-width: calc(100% - 35px); }
     th-autocomplete .k-autocomplete .k-icon.k-i-loading,
-    th-autocomplete .k-autocomplete .k-icon.k-i-close,
-    th-autocomplete .k-autocomplete .k-icon.k-i-group-delete::before,
+    th-autocomplete .k-autocomplete ul .k-icon.k-i-close,
+    th-autocomplete .k-autocomplete ul .k-icon.k-i-group-delete::before,
     th-autocomplete .k-multiselect-wrap .k-icon.k-i-loading,
-    th-autocomplete .k-multiselect-wrap .k-icon.k-i-close,
-    th-autocomplete .k-multiselect-wrap .k-icon.k-i-group-delete::before {
+    th-autocomplete .k-multiselect-wrap ul .k-icon.k-i-close,
+    th-autocomplete .k-multiselect-wrap ul .k-icon.k-i-group-delete::before {
       position: relative;
       top: auto;
       right: auto;
@@ -7120,12 +7109,29 @@ th-autocomplete {
       margin: 0;
       margin-right: 8px; }
       th-autocomplete .k-autocomplete .k-icon.k-i-loading.k-loading-hidden,
-      th-autocomplete .k-autocomplete .k-icon.k-i-close.k-loading-hidden,
-      th-autocomplete .k-autocomplete .k-icon.k-loading-hidden.k-i-group-delete::before,
+      th-autocomplete .k-autocomplete ul .k-icon.k-i-close.k-loading-hidden,
+      th-autocomplete .k-autocomplete ul .k-icon.k-loading-hidden.k-i-group-delete::before,
       th-autocomplete .k-multiselect-wrap .k-icon.k-i-loading.k-loading-hidden,
-      th-autocomplete .k-multiselect-wrap .k-icon.k-i-close.k-loading-hidden,
-      th-autocomplete .k-multiselect-wrap .k-icon.k-loading-hidden.k-i-group-delete::before {
+      th-autocomplete .k-multiselect-wrap ul .k-icon.k-i-close.k-loading-hidden,
+      th-autocomplete .k-multiselect-wrap ul .k-icon.k-loading-hidden.k-i-group-delete::before {
         display: none; }
+  th-autocomplete .k-autocomplete {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    th-autocomplete .k-autocomplete input {
+      -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1; }
+  th-autocomplete .k-multiselect-wrap .k-icon.k-i-loading {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    margin-top: -8px;
+    margin-right: 0px; }
   th-autocomplete.ng-empty .k-state-hover .k-clear-value.k-i-close.k-icon, th-autocomplete.ng-empty .k-state-hover .k-clear-value.k-icon.k-i-group-delete::before,
   th-autocomplete.ng-empty .k-state-focused .k-clear-value.k-i-close.k-icon,
   th-autocomplete.ng-empty .k-state-focused .k-clear-value.k-icon.k-i-group-delete::before {
@@ -7134,6 +7140,8 @@ th-autocomplete {
   th-autocomplete[condensed] .k-multiselect .k-input,
   th-autocomplete[condensed] .k-combobox .k-dropdown-wrap .k-input {
     height: 34px; }
+  th-autocomplete[condensed] .k-multiselect .k-button {
+    padding: 3px 0px 3px 10px; }
   th-autocomplete[condensed] .k-combobox .k-dropdown-wrap > .k-select {
     width: 34px; }
 
