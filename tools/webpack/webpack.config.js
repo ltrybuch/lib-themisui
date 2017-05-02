@@ -37,7 +37,6 @@ module.exports = function(env={}) {
 
   entry["docs-vendor"] = [
     "angular",
-    "angular-animate",
     "angular-aria",
     "angular-messages",
     "angular-sanitize",

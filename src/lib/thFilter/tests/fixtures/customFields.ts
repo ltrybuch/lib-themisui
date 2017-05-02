@@ -20,7 +20,9 @@ const items = [
     "autocomplete_options": {
       "model_class": "Repo2",
       "display_field": "full_name",
-      "row_template": "<span class=\"k-state-default\">#: data.full_name #, <strong>Forks</strong>: #: data.forks #</span>",
+      "row_template": `
+        <span class="k-state-default">#: data.full_name #, <strong>Forks</strong>: #: data.forks #</span>
+      `,
     },
   },
   {

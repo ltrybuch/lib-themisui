@@ -5,7 +5,7 @@ interface CalendarEntryInterface {
   end: any;
   // TODO: unify format for calendar id prop.
   calendar?: {
-    id: number
+    id: number,
   };
   calendar_id?: number;
   [propName: string]: any;
