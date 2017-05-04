@@ -5,7 +5,7 @@ angular.module("thDataTableDemo")
   .controller("thDataTableDemoCtrl2", function(DataSource) {
 
     this.counter = 0;
-    this.selectedIDs = [];
+    this.selectedUIDs = [];
 
     this.showMessage = function() {
       this.counter++;
@@ -22,8 +22,8 @@ angular.module("thDataTableDemo")
         pageSizes: true,
       },
       selectable: true,
-      onSelectionChange: (selectedIDs: number[]) => {
-        this.selectedIDs = selectedIDs;
+      onSelectionChange: (selectedUIDs: string[]) => {
+        this.selectedUIDs = selectedUIDs;
       },
     };
 

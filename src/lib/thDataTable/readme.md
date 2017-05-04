@@ -26,15 +26,15 @@
 
 Configure th-data-table by providing the following options. Refer to the Demos for code samples.
 
-| Property            | Type      | Description   |   |
-|:-------------       |:-------   | :-------------|---|
-| **dataSource**        | Object    | Use ```DataSource.createDataSource({})``` | **required** |
-| **columns**           | Array     | An array used for configuration of the table columns. | **required** |
-| **resizable**         | Boolean   | Enable column resizing for the Data Table | *optional* |
-| **selectable**        | Boolean   | Applies checkboxes to rows. | *optional* |
-| **pageable**          | Boolean   | Applies pagination to the table. | *optional* |
-| **onDataBound**       | Function  | Called when data is bound. The first parameter will be an array of ID of all selected items. | *optional* |
-| **onSelectionChange** | Function  | Called whenever selection is updated. The first parameter will be an array of ID of all selected items. | *optional* |
+| Property               | Type      | Description   |   |
+|:-------------          |:-------   | :-------------|---|
+| **dataSource**         | Object    | Use ```DataSource.createDataSource({})``` | **required** |
+| **columns**            | Array     | An array used for configuration of the table columns. | **required** |
+| **resizable**          | Boolean   | Enable column resizing for the Data Table | *optional* |
+| **selectable**         | Boolean   | Applies checkboxes to rows. | *optional* |
+| **pageable**           | Boolean   | Applies pagination to the table. | *optional* |
+| **onDataBound**        | Function  | Called when data is bound. The first parameter will be an array of uIDs of all current page items. | *optional* |
+| **onSelectionChange**  | Function  | Called whenever selection is updated. The first parameter will be an array of uIDs of all selected items. | *optional* |
 
 DataSource Reference: [kendo.data.DataSource](http://docs.telerik.com/kendo-ui/api/javascript/data/datasource) options.
 

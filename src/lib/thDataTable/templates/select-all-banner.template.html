@@ -1,0 +1,11 @@
+<tr class="select-all-banner" ng-show="$ctrl.showSelectAllBanner">
+  <th colspan="{{ $ctrl.numOfColumns }}">
+    All {{ $ctrl.getSelectedSize() }} rows on this page selected.
+    <a
+      class="select-all-rows"
+      ng-click="$ctrl.selectAll()"
+      >
+      Select all {{ $ctrl.totalDataLength }} rows
+    </a>
+  </th>
+</tr>
