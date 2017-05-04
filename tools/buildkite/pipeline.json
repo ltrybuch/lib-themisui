@@ -6,12 +6,14 @@
   },
   "steps": [
     {
-      "name": "Clean NPM Install & Test",
+      "name": "Clean NPM Install, Lint & Test",
       "command": [
         "echo '--- npm install'",
         "echo \"@progress:registry=https://registry.npm.telerik.com/\" > .npmrc",
         "echo \"//registry.npm.telerik.com/:_authToken=\"$PROGRESS_REGISTRY_TOKEN\"\" >> .npmrc",
         "npm install",
+        "echo '--- npm lint'",
+        "npm run lint",
         "echo '--- npm test-once'",
         "npm run test-once"
       ],
