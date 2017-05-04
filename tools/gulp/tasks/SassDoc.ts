@@ -16,7 +16,7 @@ export class Default {
             throw err;
           }
         });
+        cb();
       });
-    cb();
   }
 }

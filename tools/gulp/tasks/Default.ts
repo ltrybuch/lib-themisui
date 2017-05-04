@@ -10,7 +10,7 @@ export class Default {
       "generateSassDocs",
       "webpackDev",
       "watch",
-      "bs:start"
+      "bs:start",
     ];
   }
 
