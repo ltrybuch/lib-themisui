@@ -8373,7 +8373,8 @@ th-data-table-toolbar {
 th-data-table {
   display: block; }
   th-data-table .k-grid-content {
-    max-height: 300px; }
+    max-height: 300px;
+    overflow: scroll; }
   th-data-table .k-pager-wrap .k-pager-first,
   th-data-table .k-pager-wrap .k-pager-last {
     display: none; }
@@ -8392,6 +8393,9 @@ th-data-table {
     -webkit-box-ordinal-group: 4;
     -ms-flex-order: 3;
     order: 3; }
+
+th-data-table-toolbar {
+  height: 56px; }
 
 .k-compact .k-datepicker .k-input, .k-datepicker.k-compact .k-input {
   padding: 0.25rem 0.5rem; }
