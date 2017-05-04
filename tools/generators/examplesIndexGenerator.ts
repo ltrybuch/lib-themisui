@@ -42,21 +42,20 @@ function generateExampleIndex() {
       }
     });
 
-    fs.writeFile(componentExampleIndexPath, componentExampleIndex, err => {
+    fs.writeFile(componentExampleIndexPath, componentExampleIndex, (err: any) => {
       if (err) {
-        console.log(err);
+        throw err;
       }
     });
   });
 
-  fs.writeFile(exampleIndexPath, exampleIndex, err => {
+  fs.writeFile(exampleIndexPath, exampleIndex, (err: any) => {
     if (err) {
-      console.log(err);
+      throw err;
     }
-    console.log("indexes done");
   });
 }
 
 export {
-  generateExampleIndex as generateExampleIndex
+  generateExampleIndex
 };

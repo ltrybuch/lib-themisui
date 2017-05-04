@@ -1,6 +1,6 @@
 import {Gulpclass, Task, SequenceTask} from "../../../node_modules/gulpclass/Decorators";
 
-import * as catalogGenerator from "../../generators/catalogGenerator";
+import * as catalogGenerator from "../../generators/catalog-json/index";
 import * as exampleIndexGenerator from "../../generators/examplesIndexGenerator";
 
 @Gulpclass()
@@ -8,7 +8,7 @@ export class Catalog {
 
   @Task()
   generateCatalog(cb: Function) {
-    catalogGenerator.generateCatalog();
+    catalogGenerator.buildCatalog();
     cb();
   }
 

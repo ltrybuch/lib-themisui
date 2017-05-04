@@ -17,4 +17,8 @@ dist/debugging
 dist/docs-vendor.js
 dist/lib-themisui-styles.js
 dist/lib-themisui-apollo-styles.js
+dist/docs-app.css
+dist/docs-app.js
+dist/examples-app.css
+dist/examples-app.js
 .npmrc

@@ -13,9 +13,8 @@ export class Default {
       .then(function(data: string) {
         fs.writeFile(sassdocPath, JSON.stringify(data, null, 2), function(err) {
           if (err) {
-            return console.log(err);
+            throw err;
           }
-          console.log("sassdoc.json compiled");
         });
       });
     cb();

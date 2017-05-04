@@ -1,10 +1,10 @@
 import * as angular from "angular";
-import { SassDoc } from "../../catalog/sassdoc.interfaces";
+import { SassDoc } from "../../../catalog/sassdoc.interfaces";
 import { breakPointReadmeFilter, breakpoint } from "./breakpoint";
-import { PackageJson } from "../../catalog/catalog.interfaces";
+import { PackageJson } from "../../../catalog/catalog.interfaces";
 
-const packageJson = require("../../../../package.json") as PackageJson;
-const sassDoc = require("../../catalog/sassdoc.json") as SassDoc[];
+const packageJson = require("package.json") as PackageJson;
+const sassDoc = require("docs-app/catalog/sassdoc.json") as SassDoc[];
 const template = require("./flex.template.html") as string;
 const readme = require("./readme.md") as string;
 

@@ -1,5 +1,5 @@
 import { CatalogService } from "../catalog.service";
-import { Component } from "../catalog.interfaces";
+import { Component, Section } from "../catalog.interfaces";
 import { StateService } from "angular-ui-router";
 import { searchModel } from "./search.interfaces";
 import { AutocompleteDataOptions } from "../../../lib/thAutocomplete/providers/autocomplete.interface";
@@ -21,7 +21,7 @@ class Search {
   }
 
   $onInit() {
-    const data = this.createDataSource(this.catalogService.docs, this.catalogService.components);
+    const data = this.createDataSource(this.catalogService.sections, this.catalogService.components);
 
     this.searchOptions = {
       dataSource: new DataSource().createDataSource({ data }),
@@ -30,16 +30,19 @@ class Search {
     };
   }
 
-  private createDataSource(docs: Component[], components: Component[]): searchModel[] {
-    const docData = docs
-      .filter(doc => !doc.private)
-      .map(doc => {
-        return {
-          name: doc.displayName,
-          type: Search.docRouteType,
-          route: doc.name,
-        };
-    });
+  private createDataSource(sections: Section[], components: Component[]): searchModel[] {
+    const docData = sections
+      .map(section => {
+        return section.docs.filter(doc => !doc.private)
+          .map(doc => {
+            return {
+              name: doc.displayName,
+              section: doc.urlSlug,
+              type: Search.docRouteType,
+              route: doc.urlSlug,
+            };
+          });
+      });
 
     const componentData = components
       .filter(component => !component.private)
@@ -47,17 +50,20 @@ class Search {
         return {
           name: component.displayName,
           type: Search.componentRouteType,
-          route: component.name,
+          route: component.urlSlug,
         };
     });
 
-    return [...docData, ...componentData];
+    return [...[].concat(...docData), ...componentData];
   }
 
   onChange(newModel: searchModel) {
     this.model = newModel;
     if (this.model) {
-      this.$state.go(this.model.type, { name: this.model.route });
+      const routeParams = this.model.type === "doc"
+        ? { section: this.model.section, slug: this.model.route }
+        : { slug: this.model.route };
+      this.$state.go(this.model.type, routeParams);
     }
   }
 }

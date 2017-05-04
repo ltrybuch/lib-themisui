@@ -5,11 +5,14 @@ import * as path from "path";
 import * as types from "./types";
 import * as Utilities from "./utilities";
 
+function getDestinationPath(docType: string, docName: string) {
+  const documentationPath = path.join("src", "docs-app", "documentation");
+  return (docType === "Top level") ? documentationPath : path.join(documentationPath, docType.toLowerCase(), docName);
+}
+
 function generateDocumentation(options: types.documentationOptions) {
   const camelCasedName = Utilities.toCamelCase(options.documentationName);
-  const documentationPath = path.join("src", "docs-app", "documentation");
-  const docComponentPath = path.join(documentationPath, camelCasedName);
-  const destinationPath = (options.docType === "Top level") ? documentationPath : docComponentPath;
+  const destinationPath = getDestinationPath(options.docType, camelCasedName);
 
   const metaFileInfo = options.displayName
     ? [{ path: path.join(destinationPath, "meta.json"), content: JSON.stringify({ displayName: options.displayName }) }]

@@ -90,6 +90,8 @@ module.exports = function(env={}) {
   const devtool = "source-map";
   const extensions = [".js", ".coffee", ".ts", ".json", ".md"];
   const resolveModules = [
+    root,
+    rootSrc,
     sourcePath,
     "node_modules"
   ];

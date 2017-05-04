@@ -1,5 +1,5 @@
 import * as angular from "angular";
-import { SassDoc } from "../../../catalog/sassdoc.interfaces";
+import { SassDoc } from "../../../../catalog/sassdoc.interfaces";
 const template = require("./spacingDiagram.template.html") as string;
 
 class SpacingDiagram {

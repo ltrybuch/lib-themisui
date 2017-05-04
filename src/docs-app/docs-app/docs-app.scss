@@ -5,9 +5,9 @@
 @import "./settings";
 
 // Documentation components
-@import "../documentation/colorPalette/index";
-@import "../documentation/flex/index";
-@import "../documentation/spacing/index";
+@import "../documentation/design/colorPalette/index";
+@import "../documentation/design/flex/index";
+@import "../documentation/design/spacing/index";
 
 // Catalog components
 @import "../catalog/header/index";
@@ -191,6 +191,8 @@ body {
 
     &.as-list {
       a {
+        cursor: pointer;
+
         $size: 32px;
 
         display: block;

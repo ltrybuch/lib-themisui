@@ -133,7 +133,7 @@
     "test": "TZ='UTC' karma start",
     "test-once": "TZ='UTC' karma start --single-run",
     "versionCheck": "npm outdated --depth 0",
-    "generate": "ts-node -P tools tools/generators/componentGenerator.ts",
+    "generate": "ts-node -P tools tools/generators/cli/componentGenerator.ts",
     "lint": "tslint -c tslint.json --format stylish 'src/**/*.ts'",
     "fix": "tslint -c tslint.json --format stylish --fix 'src/**/*.ts'"
   }

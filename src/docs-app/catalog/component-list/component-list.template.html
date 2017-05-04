@@ -3,20 +3,20 @@
     <div class="nav-section" ng-if="$ctrl.globalDocs.length > 0" ng-repeat="globalDocsObj in $ctrl.globalDocs">
       <a
         ui-sref-active="selected"
-        ui-sref="doc({name: globalDocsObj.name})"
-        ng-if="!globalDocsObj.private"
+        ui-sref="doc({section: 'global', slug: globalDocsObj.urlSlug})"
       >
         {{globalDocsObj.displayName}}
       </a>
     </div>
 
-    <div class="nav-section">
-      <th-disclosure-toggle name="th-guidelines" expanded="true">Guidelines</th-disclosure-toggle>
-      <th-disclosure-content name="th-guidelines">
+    <div class="nav-section" ng-repeat="section in $ctrl.sections">
+      <th-disclosure-toggle name="th-guidelines-{{section.name}}" expanded="true">{{section.name}}</th-disclosure-toggle>
+      <th-disclosure-content name="th-guidelines-{{section.name}}">
+
         <a
-          ng-repeat="docsObj in $ctrl.docs"
+          ng-repeat="docsObj in section.docs"
           ui-sref-active="selected"
-          ui-sref="doc({name: docsObj.name})"
+          ui-sref="doc({section: section.urlSlug, slug: docsObj.urlSlug})"
           ng-if="!docsObj.private"
           >
           {{docsObj.displayName}}
@@ -30,7 +30,7 @@
         <a
           ng-repeat="componentObj in $ctrl.components"
           ui-sref-active="selected"
-          ui-sref="component({name: componentObj.name})"
+          ui-sref="component({slug: componentObj.urlSlug})"
           ng-if="!componentObj.private"
           >
           {{componentObj.displayName}}

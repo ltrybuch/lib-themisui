@@ -1,5 +1,5 @@
 import * as angular from "angular";
-import {Catalog, Component} from "./catalog.interfaces";
+import { Catalog, Component, MarkdownDoc, Section } from "./catalog.interfaces";
 const componentCatalog = require("./catalog") as Catalog;
 
 export class CatalogService {
@@ -11,33 +11,42 @@ export class CatalogService {
   components: Component[];
 
   /**
-   * Holds data for documentation under the Guidelines category
+   * Holds section data for documentation
    */
-  docs: Component[];
+  sections: Section[];
+
+  /**
+   * Holds data for sectioned documentation
+   */
+  allDocs: MarkdownDoc[];
 
   /**
    * Holds data for documentation on the root level
    */
-  globalDocs: Component[];
+  globalDocs: MarkdownDoc[];
 
   /* @ngInject */
   constructor() {
     this.version = `v ${componentCatalog.version}`;
     this.components = componentCatalog.components;
-    this.docs = componentCatalog.docs;
+
+    this.sections = componentCatalog.docs;
+
+    this.allDocs = [].concat(...this.sections.map((section) => section.docs));
+
     this.globalDocs = componentCatalog.globalDocs;
   }
 
-  getComponent(name: string) {
-    return this.components.find(component => component.name === name);
+  getComponent(slug: string) {
+    return this.components.find(component => component.urlSlug === slug);
   }
 
-  getDoc(name: string) {
-    return this.docs.find(doc => doc.name === name);
+  getDocByUrlSlug(urlSlug: string) {
+    return this.allDocs.find(doc => doc.urlSlug === urlSlug);
   }
 
-  getGlobalDoc(name: string) {
-    return this.globalDocs.find(doc => doc.name === name);
+  getGlobalDocByUrlSlug(urlSlug: string) {
+    return this.globalDocs.find(doc => doc.urlSlug === urlSlug);
   }
 
   parseComponentName(camelCase: string): string {

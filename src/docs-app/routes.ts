@@ -19,29 +19,32 @@ angular.module("ThemisComponentsApp")
 
       .state({
         name: "component",
-        url: "/component/:name",
+        url: "/component/:slug",
         component: "docsComponentDetails",
         resolve: {
           component: function(catalogService: CatalogService, $transition$: Transition) {
-            return catalogService.getComponent($transition$.params().name);
+            return catalogService.getComponent($transition$.params().slug);
           },
         },
       })
 
       .state({
         name: "doc",
-        url: "/doc/:name",
+        url: "/doc/:section/:slug",
         templateProvider: function(catalogService: CatalogService, $transition$: Transition) {
-          const route = $transition$.params().name;
-          const doc = catalogService.getDoc(route) || catalogService.getGlobalDoc(route);
+          const section = $transition$.params().section;
+          const routeSlug = $transition$.params().slug;
+          const doc = section === "global"
+            ? catalogService.getGlobalDocByUrlSlug(routeSlug)
+            : catalogService.getDocByUrlSlug(routeSlug);
           const name = doc && catalogService.parseComponentName(doc.name);
 
           if (doc && doc.isMarkdownDoc) {
-            return `<docs-text-documentation doc="'${route}'"></docs-text-documentation>`;
+            return `<docs-text-documentation slug="'${routeSlug}'"></docs-text-documentation>`;
           } else if (name) {
             return `<${name}></${name}>`;
           } else {
-            console.warn(`Selected route "${route}" not found.`);
+            console.warn(`Selected routeSlug "${routeSlug}" not found.`);
             return "";
           }
         },

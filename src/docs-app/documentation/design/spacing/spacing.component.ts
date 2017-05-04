@@ -1,9 +1,9 @@
 import * as angular from "angular";
-import { SassDoc } from "../../catalog/sassdoc.interfaces";
+import { SassDoc } from "../../../catalog/sassdoc.interfaces";
 import "prismjs";
 
 const template = require("./spacing.template.html") as string;
-const sassDoc = require("../../catalog/sassdoc.json") as SassDoc[];
+const sassDoc = require("../../../catalog/sassdoc.json") as SassDoc[];
 
 class Spacing {
   mixinInclude = "@include ";
