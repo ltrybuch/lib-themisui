@@ -7378,6 +7378,8 @@ a.th-button .th-loader {
 *[th-checkbox] {
   position: relative;
   display: inline-block;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   width: 14px;
   height: 14px;
   vertical-align: middle;
@@ -11671,6 +11673,12 @@ label.th-label {
   display: block;
   margin-bottom: 25px; }
   label.th-label.th-checkbox-label {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
     margin-bottom: 12px; }
     label.th-label.th-checkbox-label.subtext-label {
       margin-bottom: 20px; }
