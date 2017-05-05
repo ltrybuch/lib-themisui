@@ -1,5 +1,5 @@
 require './thPopoverManager.service'
-require './thPopover.directive'
+require './thPopoverLegacy.directive'
 require './thPopoverUrl.directive'
 require './thPopoverContent.directive'
 require './thPopoverTarget.directive'

@@ -10553,6 +10553,25 @@ th-modal-titlebar {
   width: 100%;
   height: 100%; }
 
+th-popover {
+  display: inline-block; }
+  th-popover .popover-content {
+    position: relative; }
+    th-popover .popover-content .k-animation-container .k-tooltip {
+      box-sizing: border-box;
+      overflow: scroll; }
+      th-popover .popover-content .k-animation-container .k-tooltip .k-tooltip-content {
+        padding: 0;
+        color: #263238; }
+    th-popover .popover-content .k-animation-container[style] {
+      top: 0px !important;
+      left: 0px !important; }
+      th-popover .popover-content .k-animation-container[style].right-aligned-container {
+        right: 0px !important;
+        left: inherit !important; }
+        th-popover .popover-content .k-animation-container[style].right-aligned-container .k-tooltip {
+          right: 0px; }
+
 .th-popover-hidden {
   visibility: hidden; }
 

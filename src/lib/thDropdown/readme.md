@@ -1,5 +1,7 @@
 # Dropdown Button
 
+<span class="badge red">Deprecated</span>
+
 Add a button that when clicked displays a dropdown list.
 `thDropdown` will accept an array of objects that when created correctly will display each as list items.
 Acceptable attributes include `url`, `type`, `divider`, `name`, `icon`. Examples below.

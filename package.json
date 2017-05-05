@@ -54,6 +54,7 @@
     "@types/angular-mocks": "1.5.7",
     "@types/angular-translate": "2.4.35",
     "@types/browser-sync": "0.0.34",
+    "@types/debounce": "1.0.0",
     "@types/del": "2.2.31",
     "@types/faker": "4.1.0",
     "@types/glob": "5.0.30",

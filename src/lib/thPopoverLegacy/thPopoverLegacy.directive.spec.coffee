@@ -2,7 +2,7 @@
   compileDirective
 } = require "spec_helpers"
 
-describe 'ThemisComponents: Directive: thPopover', ->
+describe 'ThemisComponents: Directive: thPopoverLegacy', ->
   PopoverManager = null
 
   beforeEach angular.mock.module 'ThemisComponents'
@@ -15,14 +15,14 @@ describe 'ThemisComponents: Directive: thPopover', ->
 
     it 'should throw an error', ->
       expect ->
-        compileDirective("<div th-popover></div>")
+        compileDirective("<div th-popover-legacy></div>")
       .toThrow()
 
   describe 'when template is valid', ->
     beforeEach ->
       spyOn(PopoverManager, "attachPopover")
       spyOn(PopoverManager, "getContent")
-      compileDirective("<div th-popover='test'></div>")
+      compileDirective("<div th-popover-legacy='test'></div>")
 
     it "should call 'PopoverManager.attachPopover'", ->
       expect(PopoverManager.attachPopover).toHaveBeenCalled()
