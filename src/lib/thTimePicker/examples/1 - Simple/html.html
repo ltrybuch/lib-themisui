@@ -1,0 +1,8 @@
+<html ng-app="thTimePickerDemo">
+  <body ng-controller="thTimePickerDemoCtrl1 as demo" class="th-example-height-500">
+    <p>Time Selected: {{ demo.time.format() }}</p>
+    <th-time-picker ng-model="demo.time" on-change="demo.onChange" class="spacing-inline-m"></th-time-picker>
+    <th-button ng-click="demo.decrementTime()" class="spacing-inline-m">-1 min</th-button>
+    <th-button ng-click="demo.incrementTime()" class="spacing-inline-m">+1 min</th-button>
+  </body>
+</html>

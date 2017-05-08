@@ -1,0 +1,27 @@
+<html ng-app="thTimePickerDemo">
+  <body ng-controller="thTimePickerDemoCtrl3 as demo" class="th-example-height-500 d-flex">
+
+    <th-time-picker
+      name="start"
+      ng-model="demo.startTime"
+      on-change="demo.onStartTimeChange"
+      class="spacing-inline-m"
+      with-label="Start time"
+      min="demo.startRangeMin"
+      max="demo.startRangeMax"
+      >
+    </th-time-picker>
+
+    <th-time-picker
+      name="end"
+      ng-model="demo.endTime"
+      on-change="demo.onEndTimeChange"
+      class="spacing-inline-m"
+      with-label="End time"
+      min="demo.endRangeMin"
+      max="demo.endRangeMax"
+      >
+    </th-time-picker>
+
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<html ng-app="thTimePickerDemo">
+  <body ng-controller="thTimePickerDemoCtrl2 as demo" class="th-example-height-500">
+
+    <p>Time Selected: {{ demo.time.format() }}</p>
+
+    <form name="demo.form" novalidate="novalidate" class="th-example-width-300">
+      <th-time-picker
+        name="startTime"
+        ng-model="demo.time"
+        ng-required="true"
+        on-change="demo.onChange"
+        class="spacing-inline-m"
+        >
+      </th-time-picker>
+      <th-button type="submit" ng-click="demo.submit()">Submit</th-button>
+    </form>
+
+    <pre ng-if="demo.response">{{demo.response | json}}</pre>
+
+  </body>
+</html>

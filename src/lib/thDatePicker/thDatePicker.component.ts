@@ -157,7 +157,7 @@ class DatepickerController {
     }
   }
 
-  $onChanges(changesObj: any) {
+  $onChanges(changesObj: angular.IOnChangesObject) {
     if (!this.datepicker) {
       if (changesObj.ngModel) {
         this.value = this.normalizeDate(changesObj.ngModel.currentValue, "ng-model");
@@ -167,16 +167,18 @@ class DatepickerController {
 
     if (changesObj.ngModel) {
       const valuePassedIn = changesObj.ngModel.currentValue;
-      const kendoValidDate = this.normalizeDate(valuePassedIn, "kendo value");
+      const kendoValidDate = this.normalizeDate(valuePassedIn, "ng-model");
       this.datepicker.value(kendoValidDate);
     }
 
     if (changesObj.min) {
-      this.datepicker.min(changesObj.min.currentValue);
+      const kendoValidDate = this.normalizeDate(changesObj.min.currentValue, "min");
+      this.datepicker.min(kendoValidDate);
     }
 
     if (changesObj.max) {
-      this.datepicker.max(changesObj.max.currentValue);
+      const kendoValidDate = this.normalizeDate(changesObj.max.currentValue, "max");
+      this.datepicker.max(kendoValidDate);
     }
 
     if (changesObj.ngDisabled) {

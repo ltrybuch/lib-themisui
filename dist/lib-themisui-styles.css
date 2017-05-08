@@ -7149,7 +7149,6 @@ th-autocomplete {
 .k-animation-container-shown .k-menu.k-context-menu,
 .k-animation-container .k-popup,
 .k-animation-container .k-menu.k-context-menu {
-  overflow: hidden;
   background-color: white;
   border: 1px solid #0075bb; }
   .k-animation-container-shown .k-popup .k-list,
@@ -11693,6 +11692,31 @@ th-textarea {
     top: 12px;
     right: 20px;
     color: #667881; }
+
+th-time-picker.ng-invalid .k-tooltip.k-tooltip-validation {
+  width: 0;
+  opacity: 0; }
+
+.ng-submitted th-time-picker.ng-invalid .k-picker-wrap, th-time-picker.ng-touched.ng-invalid .k-picker-wrap {
+  border: 1px solid #E41B28;
+  box-shadow: 0 0 0 1px #E41B28; }
+  .ng-submitted th-time-picker.ng-invalid .k-picker-wrap .k-select, th-time-picker.ng-touched.ng-invalid .k-picker-wrap .k-select {
+    border-left: 1px solid #E41B28;
+    box-shadow: -1px 0 0 0 #E41B28; }
+
+.ng-submitted th-time-picker.ng-invalid .k-tooltip.k-tooltip-validation.k-invalid-msg, th-time-picker.ng-touched.ng-invalid .k-tooltip.k-tooltip-validation.k-invalid-msg {
+  position: absolute;
+  bottom: -22px;
+  left: -2px;
+  width: auto;
+  padding: 0;
+  color: #E41B28;
+  opacity: 1;
+  border: none;
+  background: transparent;
+  font-size: 12px; }
+  .ng-submitted th-time-picker.ng-invalid .k-tooltip.k-tooltip-validation.k-invalid-msg .k-icon.k-i-warning, th-time-picker.ng-touched.ng-invalid .k-tooltip.k-tooltip-validation.k-invalid-msg .k-icon.k-i-warning {
+    display: none; }
 
 a.truncate-control {
   display: inline-block;
