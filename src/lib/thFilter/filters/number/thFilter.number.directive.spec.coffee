@@ -55,7 +55,7 @@ describe "ThemisComponents: Directive: thFilterNumber", ->
 
   it "should add filter to filter set", ->
     expect(filterSet.length).toBe 1
-    expect(filterSet[0]).toBe instanceof NumberFilter
+    expect(filterSet.get(0)).toBe instanceof NumberFilter
 
   describe "when initial value is specified", ->
     beforeEach ->
@@ -82,8 +82,8 @@ describe "ThemisComponents: Directive: thFilterNumber", ->
       }
 
     it "should parse initial value", ->
-      expect(filterSet[0].operator.value).toEqual ">"
-      expect(filterSet[0].model).toBe -1234.56
+      expect(filterSet.get(0).operator.value).toEqual ">"
+      expect(filterSet.get(0).model).toBe -1234.56
 
   describe "when value is not changed", ->
     beforeEach ->
@@ -117,7 +117,7 @@ describe "ThemisComponents: Directive: thFilterNumber", ->
       input.trigger keypress
       timeout.flush()
       expect(filterSet.onFilterChange).not.toHaveBeenCalled()
-      expect(filterSet[0].getState()).toEqual {value: -1234.56, operator: "<"}
+      expect(filterSet.get(0).getState()).toEqual {value: -1234.56, operator: "<"}
 
   describe "when value is changed", ->
     beforeEach ->
@@ -131,7 +131,7 @@ describe "ThemisComponents: Directive: thFilterNumber", ->
       input.trigger keypress
       timeout.flush()
       expect(filterSet.onFilterChange).toHaveBeenCalled()
-      expect(filterSet[0].getState()).toEqual {value: 1000, operator: "<"}
+      expect(filterSet.get(0).getState()).toEqual {value: 1000, operator: "<"}
 
   describe "when operator is changed", ->
     beforeEach ->

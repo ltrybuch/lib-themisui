@@ -55,8 +55,8 @@ describe "ThemisComponents: Directive: thFilterSelect", ->
 
   it "should add filter to filter set", ->
     expect(filterSet.length).toBe 1
-    expect(filterSet[0]).toBe instanceof SelectFilter
-    expect(filterSet[0].getState()).toEqual {name: "Two", value: "two"}
+    expect(filterSet.get(0)).toBe instanceof SelectFilter
+    expect(filterSet.get(0).getState()).toEqual {name: "Two", value: "two"}
 
   describe "when value is changed", ->
     beforeEach ->
@@ -67,10 +67,10 @@ describe "ThemisComponents: Directive: thFilterSelect", ->
       select.val options[1].value
       select.triggerHandler "change"
       timeout.flush()
-      expect(filterSet[0].getState()).toEqual
+      expect(filterSet.get(0).getState()).toEqual
         name: options[1].name
         value: options[1].value
-      
+
       expect(filterSet.onFilterChange).toHaveBeenCalled()
 
   describe "when `thFilter:destroyed` is broadcast", ->
@@ -80,7 +80,7 @@ describe "ThemisComponents: Directive: thFilterSelect", ->
 
     describe "when value is undefined", ->
       beforeEach ->
-        filterSet[0].clearState()
+        filterSet.get(0).clearState()
 
       it "should remove filter from filter set and not call onFilterChange", ->
         scope.$broadcast "thFilter:destroyed"

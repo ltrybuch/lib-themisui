@@ -7,11 +7,12 @@
 ## Example
 
 ```html
-<th-data-table options="demo.options"></th-data-table>
-<th-data-table options="demo.options">
+<th-data-table options="demo.tableOptions"></th-data-table>
+<th-data-table options="demo.tableOptions">
   <th-data-table-toolbar>
     <bulk-actions></bulk-actions>
     <custom-actions></custom-actions>
+    <th-filter></th-filter>
   </th-data-table-toolbar>
 </th-data-table>
 ```

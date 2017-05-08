@@ -48,8 +48,8 @@ describe "ThemisComponents: Directive: thFilterInput", ->
 
   it "should add filter to filter set", ->
     expect(filterSet.length).toBe 1
-    expect(filterSet[0]).toBe instanceof InputFilter
-    expect(filterSet[0].getState()).toEqual {value: "value"}
+    expect(filterSet.get(0)).toBe instanceof InputFilter
+    expect(filterSet.get(0).getState()).toEqual {value: "value"}
 
   describe "when value is changed", ->
     beforeEach ->
@@ -59,7 +59,7 @@ describe "ThemisComponents: Directive: thFilterInput", ->
       input = element.find "input"
       input.val "test"
       input.triggerHandler "change"
-      expect(filterSet[0].getState()).toEqual {value: "test"}
+      expect(filterSet.get(0).getState()).toEqual {value: "test"}
       keypress = angular.element.Event "keypress"
       keypress.which = 13
       input.trigger keypress
@@ -74,7 +74,7 @@ describe "ThemisComponents: Directive: thFilterInput", ->
       input = element.find "input"
       input.val "value"
       input.triggerHandler "change"
-      expect(filterSet[0].getState()).toEqual {value: "value"}
+      expect(filterSet.get(0).getState()).toEqual {value: "value"}
       keypress = angular.element.Event "keypress"
       keypress.which = 13
       input.trigger keypress

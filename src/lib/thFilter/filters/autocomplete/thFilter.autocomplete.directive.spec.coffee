@@ -60,13 +60,13 @@ describe "ThemisComponents: Directive: thFilterAutocomplete", ->
         queryField: "searchString"
     }
 
-    {@element, @scope} = compileDirective(validTemplate, {
+    {@element, @scope} = compileDirective validTemplate, {
       @filterSet
       @filterOptions
-    })
+    }
 
     @controller = angular.element(
-      @element.find("div")
+      @element.find "div"
     ).scope().thFilterAutocomplete
 
   it "should have 'autocomplete' element", ->
@@ -74,7 +74,7 @@ describe "ThemisComponents: Directive: thFilterAutocomplete", ->
 
   it "should add filter to filter set", ->
     expect(@filterSet.length).toBe 1
-    expect(@filterSet[0]).toBe instanceof AutocompleteFilter
+    expect(@filterSet.get(0)).toBe instanceof AutocompleteFilter
 
   it "should set 'trackField' option on options", ->
     expect(@controller.options.trackField).toBe "id"
@@ -87,20 +87,20 @@ describe "ThemisComponents: Directive: thFilterAutocomplete", ->
       @filterOptions.autocompleteOptions = {}
 
     it "should throw an error", ->
-      expect(-> compileDirective(validTemplate, {
+      expect(-> compileDirective validTemplate, {
         @filterSet
         @filterOptions
-      })).toThrow()
+      }).toThrow()
 
   describe "when class is invalid", ->
     beforeEach ->
       @filterOptions.autocompleteOptions = {modelClass: "invalid"}
 
     it "should throw an error", ->
-      expect(-> compileDirective(validTemplate, {
+      expect(-> compileDirective validTemplate, {
         @filterSet
         @filterOptions
-      })).toThrow()
+      }).toThrow()
 
   describe "when 'trackField' and 'displayField' are specified", ->
     beforeEach ->
@@ -109,12 +109,14 @@ describe "ThemisComponents: Directive: thFilterAutocomplete", ->
         trackField: "tracker"
         displayField: "displayer"
       }
-      {@element} = compileDirective(validTemplate, {
+
+      {@element} = compileDirective validTemplate, {
         @filterSet
         @filterOptions
-      })
+      }
+
       @controller = angular.element(
-        @element.find("div")
+        @element.find "div"
       ).scope().thFilterAutocomplete
 
     it "should set 'trackField' option on options", ->
@@ -146,7 +148,7 @@ describe "ThemisComponents: Directive: thFilterAutocomplete", ->
   describe "when 'th.filters.clear' event is received", ->
     it "should clear model", ->
       filter = angular.element(
-        @element.find("div")
+        @element.find "div"
       ).scope().thFilterAutocomplete.filter
       spyOn filter, "clearState"
       @scope.$broadcast "th.filters.clear"

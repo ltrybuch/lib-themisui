@@ -25,17 +25,17 @@ describe "ThemisComponents: Directive: thSearchRow", ->
 
   describe "when filter set is undefined", ->
     it "should throw an error", ->
-      expect(-> compileDirective(validTemplate, {
+      expect(-> compileDirective validTemplate, {
         options: {}
-      })).toThrow()
+      }).toThrow()
 
   describe "when filter set is defined on th-filter", ->
     beforeEach ->
-      {@element} = compileDirective(validTemplate, {
+      {@element} = compileDirective validTemplate, {
         options: {
           filterSet: filterSet
         }
-      })
+      }
 
     it "should use the supplied filter set", ->
       controller = findController @element
@@ -43,5 +43,5 @@ describe "ThemisComponents: Directive: thSearchRow", ->
 
     it "should add query filter to filter set", ->
       expect(filterSet.length).toBe 1
-      expect(filterSet[0]).toBe instanceof InputFilter
-      expect(filterSet[0].fieldIdentifier).toBe "query"
+      expect(filterSet.get(0)).toBe instanceof InputFilter
+      expect(filterSet.get(0).fieldIdentifier).toBe "query"

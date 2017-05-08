@@ -1,59 +1,10 @@
 # Filter
 
-The filter component is used to filter a set of data by applying operators to
-the fields of a dataset. It consists of the set of models used to generate a
-filter query and the set of views used for interacting with these models.
+<span class="badge orange">In Progress</span>
 
-## Design Patterns
+`th-filter` is used to filter a set of data by applying operators to the fields of a dataset.
 
-The filter component is used for filtering presentation data, most commonly
-found in a table (see [thTable](.\thTable)).
-
-The filter view is comprised of a set of filter fields. The filter view supports
-a number of filter field types including text, number, autocomplete, etc.
-
-A wrapper directive `th-filter` is provided for consistent styling across filter
-views.
-
-Three types of views exist for filter fields.
-
-* Static filter fields are presented in a grid and are always visible to the user.
-They are limited to the most frequently used operators and provide easy access
-to commonly used filter fields.
-
-* Custom filter fields allow the user to add additional filter fields to a set.
-They allow for greater flexibility when specifying an operator (greater than,
-between, etc.), but are hidden until the user adds the custom field to the
-filter set.
-
-* The search row consists of a query field and corresponding 'Search' button.
-
-## Example
-
-```coffeescript
-@filterOptions = [
-  name: 'Tier'
-  type: 'select'
-
-  fieldIdentifier: 'tier'
-  placeholder: 'Select an option'
-  selectOptions: [
-    {name: 'One', value: 'one'}
-    {name: 'Two', value: 'two'}
-    {name: 'Three', value: 'three'}
-  ]
-]
-
-@filterSet = new FilterSet
-  onFilterChange: =>
-    @tableDelegate.reload {currentPage: 1}
-
-@filterOptions = {
-  filterSet: @filterSet
-  staticFilters: @filterOptions
-  customFilters: @filterOptions
-}
-```
+### Example
 
 ```html
 <th-filter options="demo.filterOptions">
@@ -63,237 +14,206 @@ filter set.
 </th-filter>
 ```
 
-## Usage
+## Transcludable Components
+| Component        | Description   |
+|:-------------    | :-------------|
+| `th-static-filters` | Used to display filters that are always available. |
+| `th-custom-filters` | Used to display filters that users can optionally activate. |
+| `th-search-row` | Used to display a search filter. This filters on the `query` or another given field. |
 
-The directives operate on a `FilterSet` object. They manage
-adding and removing filters to and from the `FilterSet` over the lifetime of the
-directive. You can query the `FilterSet` at any point to get the status of the
-the entire `FilterSet` or individual filters.
+## API Reference
 
-### FilterSet
+### Properties
+| Property         | Type        | Description   |   |
+|:-------------    |:-------     | :-------------|---|
+| **options**      | Object      | The main configuration object for the component. | **required** |
 
-All directives accept and modify a `FilterSet` object. The `FilterSet` accepts
-as arguments a hash containing the following options:
+### Options Object (**required**)
+Configure th-filter by providing the following options. Refer to the Demos for code samples.
 
-* `onFilterChange` (*required*) gets called when the filter set changes.
+| Property            | Type     | Description   |   |
+|:-------------       |:-------  | :-------------|---|
+| **filterSet**       | FilterSet| A `FilterSet` object that holds the current state of the filter (*See [FilterSet](#filterset)*). | **required** |
+| **staticFilters**   | Array    | An array of filters that are statically available (*See [Filter Types](#filter-types)*). When the `th-static-filters` component is transcluded into the filter component, this property becomes **required**. | *optional* |
+| **customFilterTypes**   | Array    | An additional array of filters that users can optionally activate (*See [Filter Types](#filter-types)*).  When the `th-custom-filters` component is transcluded into the filter component, this property becomes **required**. | *optional* |
+| **customFilterUrl**   | String    | A URL endpoint that returns an array of filter options. When the `th-custom-filters` component is transcluded into the filter component, and a `customFilterTypes` array is not provided, this property becomes **required**. | *optional* |
+| **customFilterConverter**   | CustomFilterConverter    | A subclass of the `CustomFilerConverter` factory that implements a `mapToCustomFilterArray` method. This method will be called with the data returned from `customFilterUrl` and should return an array containing custom filter objects. (*See [CustomFilterConverter Example](#customfilterconverter-example)*) | *optional* |
+| **fieldIdentifier**   | String    | The name of the field that the `th-search-row` component will query. Defaults to `query`. | *optional* |
+| **initialState**   | Object    | An object of where the keys are the `fieldIdentifier`'s and values are objects representing the initial state of the field. | *optional* |
 
-* `onInitialized` (*optional*) gets called when the filter is finished
-initializing.
+#### CustomFilterConverter Example
 
-`FilterSet` extends `Array` type with the following properties:
-
-* getState()
-
-  * Returns a hash representing the filter state, where hash key is the
-  field identifier and value is an object representing the state of the field.
-
-* getMetadata()
-
-  * Returns a hash representing the filter metadata, where hash key is the field
-  identifier and value is the metadata passed in as part of the filter options.
-
-### Filter options
-
-The directives accept an array of filter options that define the filters in each
-component.
-
-All filter types require the following options:
-
-* `type` specifies the type of filter. Supported types include:
-
-  * `select`
-  * `input`
-  * `number`
-  * `currency`
-  * `checkbox`
-  * `url`
-  * `email`
-  * `autocomplete`
-  * `date`
-
-* `name` is the string representation indicating the filter type to the user.
-
-* `fieldIdentifier` indicates the name of the field in your data that the filter
-is acting on.
-
-Optional fields:
-
-* `metadata` (*optional*) specifies additional data that will be returned from
-`getMetadata()`.
-
-#### Select filter options
-
-```json
-{
-  "type": "select",
-  "name": "Sample Select",
-  "fieldIdentifier": "sampleFieldId",
-
-  "placeholder": "Placeholder string",
-
-  "selectOptions": [
-    {"name": "Option one", "value": "1"},
-    {"name": "Option two", "value": "2"}
-  ],
-
-  "selectOptionsUrl": "./sampleoptions.json",
-  "selectOptionsNameField": "altname",
-  "selectOptionsValueField": "altvalue"
-}
-```
-The select filter type takes the following options:
-
-* `placeholder` (*optional*) defines the placeholder string of the element in its default
-state.
-
-The select filter *requires* one of the following attributes:
-
-* `selectOptions` defines the array of possible options available to the user.
-
-  * Options consist of name-value pairs.
-
-* `selectOptionsUrl` indicates the url returning the array of options
-available to the user.
-
-  * `selectOptionsNameField` (*optional*) indicates the name-field to use in
-  the returned JSON. Defaults to "name".
-
-  * `selectOptionsValueField` (*optional*) indicates the value-field to use
-  in the returned JSON. Defaults to "value".
-
-  * `selectOptionsCallback` (*optional*) is the function to call with the
-  response from `selectOptionsUrl` as a parameter. `selectOptionsCallback`
-  should return the array of options to use, with each option specifying a
-  `name` and `value` attribute.
-
-#### Input filter options
-
-```json
-{
-  "type": "input",
-  "name": "Sample Input",
-  "fieldIdentifier": "sampleFieldId",
-
-  "placeholder": "Placeholder string"
-}
-```
-
-* `placeholder` (*optional*) defines the placeholder string of the element in its default
-state.
-
-#### Autocomplete filter options
-
-```json
-{
-  "type": "autocomplete",
-  "name": "Sample Input",
-  "fieldIdentifier": "sampleFieldId",
-
-  "placeholder": "Placeholder string",
-
-  "autocompleteOptions": {
-    "modelClass": "Contact",
-    "trackField": "id",
-    "displayField": "name",
-    "queryField": "query",
-    "queryParams": {
-      "sampleQueryParam": "test data"
+```TypeScript
+class MyCustomFilterConverter extends CustomFilterConverter {
+  private getType(fieldType: string) {
+    switch(fieldType) {
+      case "picklist":
+        return "select";
+      case "text_line":
+        return "input";
+      default:
+        throw new Error("unsupported field_type");
     }
+  }
+
+  private mapSelectOptions(options: CustomField[]) {
+    if (options instanceof Array !== true) {
+      return;
+    }
+
+    return options.map(option => {
+      return {
+        name: option.option,
+        value: option.id,
+      };
+    });
+  }
+
+  mapToCustomFilterArray(data: any[]) {
+    return data.map((item: MyData[]) => {
+      return {
+        fieldIdentifier: item.id,
+        name: item.name,
+        type: this.getType(item.field_type),
+        selectOptions: this.mapSelectOptions(item.custom_field_picklist_options),
+      };
+    });
   }
 }
 ```
 
-* `placeholder` (*optional*) defines the placeholder string of the element in its default
-state.
+## FilterSet
 
-* `autocompleteOptions` (*required*)
+### Example
 
-  * `modelClass` (*required*) indicates the class name of the service that will
-  provide query functionality. The autocomplete field will instantiate a
-  `modelClass` instance and call `query` for each request, passing the
-  search term and any additional parameters supplied in `queryParams`.
+```TypeScript
+const filterSet = new FilterSet({
+  onFilterChange: updateDataSource,
+  onInitialized: updateDataSource,
+});
 
-  * `trackField` (*optional*) indicates the unique key to use for each item
-  returned from `ModelClass.query`, for indexing autocomplete options. Defaults
-  to `id`.
+function updateDataSource() {
+  dataSource.filter(filterSet.getState());
+}
+```
 
-  * `displayField` (*optional*) indicates the field to display to the user, for
-  each item returned from `ModelClass.query`. Defaults to `name`.
+### Properties
+The `FilterSet` constructor takes a configuration object with the following callbacks for triggering updates on your view components.
 
-  * `queryField` (*optional*) indicates the field to query. Defaults to `query`.
+| Property         | Type        | Description   |   |
+|:-------------    |:-------     | :-------------|---|
+| **onFilterChange** | Function  | Called whenever the state of the filter changes. | **required** |
+| **onInitialized**  | Function  | Called when the filter is first initialized. | *optional* |
 
-  * `queryParams` (*optional*) indicates any additional parameters to pass to
-  `ModelClass.query`.
+### Methods
+| Method         | Returns     | Description   |
+|:-------------  |:-------     | :-------------|
+| **getState()** | Object  | Returns the filter's current state in the shape of `{ [field]: { operator: string; value: any; } }` |
+| **getDataSourceState()**  | Array  | Returns an array with a DataSource-compatible filter state for client-side filtering. The operators are formatted to follow the [DataSource standard](http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-filter.operator), and each filter state in the array follows the shape: `{ field: string; operator: string; value: any; }`. |
+| **getMetaData()**  | Object  | Returns an object holding the filter metadata in the shape of `{ [field]: any }`  |
+| **find()**  | Boolean  | Behaves like `Array.prototype.find`, takes a predicate function that receives the current filter object: `.find(filter => filter.fieldIdentifier === "name")`.  |
 
-## Directives
+## Filter Types
+Filter types are used to set up the filters in both the `staticFilters` and `customFilters` arrays passed to `th-filter`'s configuration object.
 
-### `th-filter`
+### Properties
 
-The `th-filter` element is used to wrap the following filter views. It provides consistent
-styling across views and accepts an `options` attribute as an object containing the following properties:
+| Property         | Type        | Description   |   |
+|:-------------    |:-------     | :-------------|---|
+| **type** | String  | The filter's type. Accepted values are: `select`, `input`, `number`, `currency`, `checkbox`, `url`, `email`, `autocomplete` and `date`. | **required** |
+| **name**  | String  | The label given to the filter. | **required** |
+| **fieldIdentifier**  | String  | The name of the field in your data that the filter acts on. | **required** |
+| **metadata**  | Any  | Additional data to be returned by `getMetadata(). | *optional* |
 
-* `filterSet` (*required*) is the `FilterSet` instance that the enclosed components will
-modify.
+### Select Filter
+The select filter accepts additional properties:
 
-* `initialState` (*optional*) is a hash of key/value pairs where key is the
-`fieldIdentifier` of the field you wish to initialize and value is a hash
-representing the initial state of the field.
+```TypeScript
+const selectFilter = {
+  type: "select",
+  name: "Sample Select",
+  fieldIdentifier: "sampleFieldId",
 
-The following property is supported when the `th-static-filters` component is included as a child element of `th-filter`:
+  selectOptions: [
+    {
+      name: "Option one",
+      value: "1",
+    },
+    {
+      name: "Option two",
+      value: "2",
+    },
+  ],
 
-* `staticFilters` (*required*) is an array of filter options hashes.
+  selectOptionsUrl: "./sampleoptions.json",
+  selectOptionsNameField: "altname",
+  selectOptionsValueField: "altvalue",
+  selectOptionsCallback: response => response.map(item => ({ name: item.color, value: item.id })),
 
-The following properties are supported when the `th-custom-filters` component is included as a child element of `th-filter`:
+  placeholder: "Placeholder string",
+};
+```
 
-* `customFilterTypes` (*required*) is the array of filter options.
+| Property         | Type        | Description   |   |
+|:-------------    |:-------     | :-------------|---|
+| **selectOptions** | Array  | Holds the select options avaiable to the user. Objects are name-value pairs. | **required** |
+| **selectOptionsUrl**  | String  | If the `selectOptions` array is not provided, then a url to fetch options would be required.  | **required** |
+| **selectOptionsNameField**  | String  | The name-field to use in the returned JSON. Defaults to `name`. | *optional* |
+| **selectOptionsValueField**  | String  | The value-field to use in the returned JSON. Defaults to `value`. | *optional* |
+| **selectOptionsCallback**  | Function  | A map function that receives the response object as an argument. This function should return the array of name-value pair objects for the select to use. | *optional* |
+| **placeholder**  | String  | The placeholder to be used in the select element. | *optional* |
 
-* `customFilterUrl` (*required*) indicates a url that returns the array of filter options.
+### Input Filter
+The input filter accepts one additional property:
 
-  * `customFilterConverter` (*optional*) is an object that subclasses
-    `CustomFilterConverter`. `customFilterConverter.mapToCustomFilterArray` is
-    called with the data returned from `customFilterUrl` and returns an array
-    containing the custom filter objects. A general `customFilterConverter` will
-    be created in Themis that handles conversion of all custom filter api calls.
+```TypeScript
+const inputFilter = {
+  type: "input",
+  name: "Sample Input",
+  fieldIdentifier: "sampleFieldId",
 
-    ```json
-    class MyCustomFilterConverter extends CustomFilterConverter
-      mapToCustomFilterArray: (data) ->
-        data.map (item) ->
-          fieldIdentifier: item.id
-          name: item.name
-          type: ( ->
-            switch item.field_type
-              when "picklist"
-                "select"
-              when "text_line"
-                "input"
-              else
-                throw new Error "unsupported field_type"
-            )()
-          selectOptions: ( ->
-            if item.custom_field_picklist_options?
-              item.custom_field_picklist_options.map (option) ->
-                name: option.option
-                value: option.id
-            )()
-    ```
+  placeholder: "Placeholder string",
+};
+```
 
-The following property is supported when the `th-search-row` component is included as a child element of `th-filter`:
+| Property         | Type        | Description   |   |
+|:-------------    |:-------     | :-------------|---|
+| **placeholder**  | String  | The placeholder to be used in the input element. | *optional* |
 
-* `fieldIdentifier` (*optional*) is the name of the field the search row will
-query. Defaults to "query".
+### Autocomplete Filter
+The autocomplete filter accepts additional properties:
 
-### `th-static-filters`
+```TypeScript
+const autocompleteFilter = {
+  type: "autocomplete",
+  name: "Sample Input",
+  fieldIdentifier: "sampleFieldId",
 
-The `th-static-filters` element is a container for a block of filters that are
-always visible to the user.
+  autocompleteOptions: {
+    modelClass: "Contact",
+    trackField: "id",
+    displayField: "name",
+    queryField: "query",
+    queryParams: {
+      sampleQueryParam: "test data"
+    },
+  },
 
-### `th-custom-filters`
+  placeholder: "Placeholder string",
+};
+```
 
-The `th-custom-filters` element is a container for allowing users to add custom filters
-to the set.
+| Property         | Type        | Description   |   |
+|:-------------    |:-------     | :-------------|---|
+| **autocompleteOptions** | Object  | The main configuration object for the autocomplete filter. | **required** |
+| **placeholder**  | String  | The placeholder to be used in the autocomplete element. | *optional* |
 
-### `th-search-row`
+#### AutocompleteOptions Object (**required**)
 
-The `th-search-row` element defines the search row pattern consisting of an
-input field and "Search" button.
+| Property         | Type        | Description   |   |
+|:-------------    |:-------     | :-------------|---|
+| **modelClass** | String  | The autocomplete field will instantiate the given `modelClass` instance and call `query` for each request, passing the search term and any additional parameters supplied in `queryParams`. | **required** |
+| **trackField**  | String  | The unique key to use for each item returned from `ModelClass.query`, for indexing autocomplete options. Defaults to `id`.| *optional* |
+| **displayField**  | String  | Te field to display to the user, for each item returned from `ModelClass.query`. Defaults to `name`. | *optional* |
+| **queryField**  | String  | The field to query. Defaults to `query`. | *optional* |
+| **queryParams**  | Object  | Any additional parameters to pass to `ModelClass.query`. | *optional* |

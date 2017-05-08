@@ -45,19 +45,19 @@ describe "ThemisComponents: Directive: thFilterDate", ->
     }
 
     filterOptions = {
-      fieldIdentifier: 'aDate'
-      name: 'date'
+      fieldIdentifier: "aDate"
+      name: "date"
     }
 
-    {element, scope} = compileDirective(validTemplate, {
+    {element, scope} = compileDirective validTemplate, {
       filterSet
       filterOptions
       operatorOptions
-    })
+    }
 
   it "should add filter to filter set", ->
     expect(filterSet.length).toBe 1
-    expect(filterSet[0]).toBe instanceof DateFilter
+    expect(filterSet.get(0)).toBe instanceof DateFilter
 
   describe "when initial value is specified", ->
     beforeEach ->
@@ -65,7 +65,7 @@ describe "ThemisComponents: Directive: thFilterDate", ->
         onFilterChange: -> return
       }
 
-      {element, scope} = compileDirective("""
+      {element, scope} = compileDirective """
         <th-filter-date
           filter-set="filterSet"
           filter-options="filterOptions"
@@ -81,11 +81,11 @@ describe "ThemisComponents: Directive: thFilterDate", ->
         initialState:
           value: "2016-10-19T00:00:00+00:00"
           operator: ">"
-      })
+      }
 
     it "should parse initial value", ->
-      expect(filterSet[0].operator.value).toEqual ">"
-      expect(moment(filterSet[0].model).format()).toBe "2016-10-19T00:00:00+00:00"
+      expect(filterSet.get(0).operator.value).toEqual ">"
+      expect(moment(filterSet.get(0).model).format()).toBe "2016-10-19T00:00:00+00:00"
 
   describe "when default operator index is specified", ->
     beforeEach ->
@@ -93,7 +93,7 @@ describe "ThemisComponents: Directive: thFilterDate", ->
         onFilterChange: -> return
       }
 
-      {element, scope} = compileDirective("""
+      {element, scope} = compileDirective """
         <th-filter-date
           filter-set="filterSet"
           filter-options="filterOptions"
@@ -106,10 +106,10 @@ describe "ThemisComponents: Directive: thFilterDate", ->
         filterSet
         filterOptions
         operatorOptions
-      })
+      }
 
     it "should parse default operator index", ->
-      expect(filterSet[0].operator.value).toEqual "="
+      expect(filterSet.get(0).operator.value).toEqual "="
 
   describe "when value is changed", ->
     beforeEach ->
@@ -127,7 +127,7 @@ describe "ThemisComponents: Directive: thFilterDate", ->
       $today.click()
 
       # assert
-      actualFilterSet = filterSet[0].getState()
+      actualFilterSet = filterSet.get(0).getState()
       actualFilterValue = moment(actualFilterSet.value).format dateFormat
       actualFilterOperator = actualFilterSet.operator
 
@@ -176,7 +176,7 @@ describe "ThemisComponents: Directive: thFilterDate", ->
   describe "when 'th.filters.clear' event is received", ->
     it "should clear model", ->
       filter = angular.element(
-        element.find("div")
+        element.find "div"
       ).scope().thFilterDate.filter
       spyOn filter, "clearState"
       scope.$broadcast "th.filters.clear"

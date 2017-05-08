@@ -6304,7 +6304,7 @@ function loadLocale(name) {
             module && module.exports) {
         try {
             oldLocale = globalLocale._abbr;
-            __webpack_require__(/*! ./locale */ 38)("./" + name);
+            __webpack_require__(/*! ./locale */ 39)("./" + name);
             // because defineLocale currently also sets the global locale, we
             // want to undo that for lazy loaded locales
             getSetGlobalLocale(oldLocale);
@@ -8792,7 +8792,7 @@ return hooks;
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../webpack/buildin/module.js */ 43)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../webpack/buildin/module.js */ 44)(module)))
 
 /***/ }),
 /* 2 */
@@ -25851,14 +25851,14 @@ module.exports =
 /***/ 607:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.data.odata */ 121);
+	module.exports = __webpack_require__(/*! ./kendo.data.odata */ 122);
 
 /***/ },
 
 /***/ 608:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.data.xml */ 122);
+	module.exports = __webpack_require__(/*! ./kendo.data.xml */ 123);
 
 /***/ }
 
@@ -25944,7 +25944,7 @@ module.exports =
 /***/ 598:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.userevents */ 33);
+	module.exports = __webpack_require__(/*! ./kendo.userevents */ 34);
 
 /***/ },
 
@@ -27877,7 +27877,7 @@ module.exports =
 /***/ 673:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.calendar */ 117);
+	module.exports = __webpack_require__(/*! ./kendo.calendar */ 118);
 
 /***/ }
 
@@ -27956,7 +27956,7 @@ module.exports =
 /***/ 614:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.fx */ 30);
+	module.exports = __webpack_require__(/*! ./kendo.fx */ 31);
 
 /***/ },
 
@@ -31610,6 +31610,119 @@ return enNz;
 /* 16 */
 /* unknown exports provided */
 /* all exports used */
+/*!*******************************************************!*\
+  !*** ./src/lib/thFilter/filters/filterSet.service.ts ***!
+  \*******************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var debounce = __webpack_require__(/*! debounce */ 17);
+var FilterSet = (function () {
+    function FilterSet(options) {
+        this.filterSetArray = [];
+        this.validateOptions(options);
+    }
+    Object.defineProperty(FilterSet.prototype, "length", {
+        get: function () {
+            return this.filterSetArray.length;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    FilterSet.prototype.get = function (index) {
+        return this.filterSetArray[index];
+    };
+    FilterSet.prototype.push = function () {
+        var items = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            items[_i] = arguments[_i];
+        }
+        return (_a = this.filterSetArray).push.apply(_a, items);
+        var _a;
+    };
+    FilterSet.prototype.find = function (predicate, thisArg) {
+        return this.filterSetArray.find(predicate, thisArg || this.filterSetArray);
+    };
+    FilterSet.prototype.remove = function (filterBase) {
+        var index = this.filterSetArray.indexOf(filterBase);
+        if (index >= 0) {
+            this.filterSetArray.splice(index, 1);
+        }
+        else {
+            throw new Error("Filter to be removed not found.");
+        }
+    };
+    FilterSet.prototype.getState = function () {
+        return this.filterSetArray.reduce(function (paramsCollector, filter) {
+            var state = filter.getState();
+            if (state) {
+                return __assign({}, paramsCollector, (_a = {}, _a[filter.fieldIdentifier] = state, _a));
+            }
+            else {
+                return paramsCollector;
+            }
+            var _a;
+        }, {});
+    };
+    FilterSet.prototype.getDataSourceState = function () {
+        var filterState = this.getState();
+        return Object.keys(filterState).map(function (key) {
+            var filterOperator = filterState[key].operator;
+            var currentFilter = {
+                field: key,
+                operator: FilterSet.dataSourceOperatorMap[filterOperator] || "eq",
+                value: filterState[key].value,
+            };
+            return currentFilter;
+        });
+    };
+    FilterSet.prototype.getMetadata = function () {
+        return this.filterSetArray.reduce(function (paramsCollector, filter) {
+            var metaData = filter.getMetadata();
+            if (metaData) {
+                return __assign({}, paramsCollector, (_a = {}, _a[filter.fieldIdentifier] = metaData, _a));
+            }
+            else {
+                return paramsCollector;
+            }
+            var _a;
+        }, {});
+    };
+    FilterSet.prototype.validateOptions = function (options) {
+        var onFilterChange = options.onFilterChange, onInitialized = options.onInitialized;
+        if (onFilterChange instanceof Function === false) {
+            throw new Error("FilterSet needs to be passed the following function: onFilterChange: () =>");
+        }
+        this.onFilterChange = debounce(onFilterChange, FilterSet.timeout);
+        this.onInitialized = onInitialized;
+    };
+    return FilterSet;
+}());
+FilterSet.timeout = 300;
+FilterSet.dataSourceOperatorMap = {
+    "<": "lt",
+    "<=": "lte",
+    "=": "eq",
+    ">=": "gte",
+    ">": "gt",
+};
+exports.default = FilterSet;
+
+
+/***/ }),
+/* 17 */
+/* unknown exports provided */
+/* all exports used */
 /*!*****************************!*\
   !*** ./~/debounce/index.js ***!
   \*****************************/
@@ -31620,7 +31733,7 @@ return enNz;
  * Module dependencies.
  */
 
-var now = __webpack_require__(/*! date-now */ 36);
+var now = __webpack_require__(/*! date-now */ 37);
 
 /**
  * Returns a function, that, as long as it continues to be invoked, will not
@@ -31671,7 +31784,7 @@ module.exports = function debounce(func, wait, immediate){
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************!*\
@@ -32143,7 +32256,7 @@ module.exports = function debounce(func, wait, immediate){
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************!*\
@@ -32151,12 +32264,12 @@ module.exports = function debounce(func, wait, immediate){
   \*********************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./angular-aria */ 34);
+__webpack_require__(/*! ./angular-aria */ 35);
 module.exports = 'ngAria';
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************!*\
@@ -32164,12 +32277,12 @@ module.exports = 'ngAria';
   \*************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./angular-messages */ 35);
+__webpack_require__(/*! ./angular-messages */ 36);
 module.exports = 'ngMessages';
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************!*\
@@ -32177,27 +32290,27 @@ module.exports = 'ngMessages';
   \************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! es6-promise */ 37).polyfill();
+__webpack_require__(/*! es6-promise */ 38).polyfill();
 
-__webpack_require__(/*! ./Array.find.polyfill */ 44);
+__webpack_require__(/*! ./Array.find.polyfill */ 45);
 
-__webpack_require__(/*! ./Array.findIndex.polyfill */ 45);
+__webpack_require__(/*! ./Array.findIndex.polyfill */ 46);
 
-__webpack_require__(/*! ./Array.includes.polyfill */ 46);
+__webpack_require__(/*! ./Array.includes.polyfill */ 47);
 
-__webpack_require__(/*! ./Element.matches.polyfill */ 47);
+__webpack_require__(/*! ./Element.matches.polyfill */ 48);
 
-__webpack_require__(/*! ./jQuery.typeAttribute.patch */ 50);
+__webpack_require__(/*! ./jQuery.typeAttribute.patch */ 51);
 
-__webpack_require__(/*! ./Object.assign.polyfill */ 48);
+__webpack_require__(/*! ./Object.assign.polyfill */ 49);
 
-__webpack_require__(/*! ./scrollingElement.polyfill */ 51);
+__webpack_require__(/*! ./scrollingElement.polyfill */ 52);
 
-__webpack_require__(/*! ./String.includes.polyfill */ 49);
+__webpack_require__(/*! ./String.includes.polyfill */ 50);
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************!*\
@@ -32208,7 +32321,7 @@ __webpack_require__(/*! ./String.includes.polyfill */ 49);
 module.exports = require("angular-sanitize");
 
 /***/ }),
-/* 22 */
+/* 23 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************!*\
@@ -32219,7 +32332,7 @@ module.exports = require("angular-sanitize");
 module.exports = require("ui-select");
 
 /***/ }),
-/* 23 */
+/* 24 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -42024,28 +42137,28 @@ module.exports =
 /***/ 498:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./util */ 54);
+	module.exports = __webpack_require__(/*! ./util */ 55);
 
 /***/ },
 
 /***/ 499:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ../kendo.color */ 55);
+	module.exports = __webpack_require__(/*! ../kendo.color */ 56);
 
 /***/ },
 
 /***/ 500:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ../util/text-metrics */ 146);
+	module.exports = __webpack_require__(/*! ../util/text-metrics */ 147);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 24 */
+/* 25 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -44512,7 +44625,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 25 */
+/* 26 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************!*\
@@ -44825,7 +44938,7 @@ function isUndefined(arg) {
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************!*\
@@ -44836,7 +44949,7 @@ function isUndefined(arg) {
 module.exports = require("qs");
 
 /***/ }),
-/* 27 */
+/* 28 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************!*\
@@ -44847,7 +44960,7 @@ module.exports = require("qs");
 module.exports = require("uuid");
 
 /***/ }),
-/* 28 */
+/* 29 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -46825,7 +46938,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 29 */
+/* 30 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -46897,7 +47010,7 @@ module.exports =
 /***/ 588:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.list */ 24);
+	module.exports = __webpack_require__(/*! ./kendo.list */ 25);
 
 /***/ },
 
@@ -48303,7 +48416,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 30 */
+/* 31 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************!*\
@@ -49973,7 +50086,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 31 */
+/* 32 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -50045,14 +50158,14 @@ module.exports =
 /***/ 766:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.mobile.loader */ 127);
+	module.exports = __webpack_require__(/*! ./kendo.mobile.loader */ 128);
 
 /***/ },
 
 /***/ 767:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.mobile.view */ 130);
+	module.exports = __webpack_require__(/*! ./kendo.mobile.view */ 131);
 
 /***/ },
 
@@ -50436,7 +50549,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 32 */
+/* 33 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************!*\
@@ -50515,7 +50628,7 @@ module.exports =
 /***/ 598:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.userevents */ 33);
+	module.exports = __webpack_require__(/*! ./kendo.userevents */ 34);
 
 /***/ },
 
@@ -51266,7 +51379,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 33 */
+/* 34 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -51979,7 +52092,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 34 */
+/* 35 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************!*\
@@ -52397,7 +52510,7 @@ ngAriaModule.directive('ngShow', ['$aria', function($aria) {
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************!*\
@@ -53149,7 +53262,7 @@ function ngMessageDirectiveFactory() {
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************!*\
@@ -53165,7 +53278,7 @@ function now() {
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************!*\
@@ -53304,7 +53417,7 @@ function now() {
     function lib$es6$promise$asap$$attemptVertx() {
       try {
         var r = require;
-        var vertx = __webpack_require__(/*! vertx */ 52);
+        var vertx = __webpack_require__(/*! vertx */ 53);
         lib$es6$promise$asap$$vertxNext = vertx.runOnLoop || vertx.runOnContext;
         return lib$es6$promise$asap$$useVertxTimer();
       } catch(e) {
@@ -54142,10 +54255,10 @@ function now() {
 }).call(this);
 
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 41), __webpack_require__(/*! ./../../webpack/buildin/global.js */ 42)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 42), __webpack_require__(/*! ./../../webpack/buildin/global.js */ 43)))
 
 /***/ }),
-/* 38 */
+/* 39 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************!*\
@@ -54179,11 +54292,11 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 38;
+webpackContext.id = 39;
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -54232,7 +54345,7 @@ exports.AutocompleteComponentError = AutocompleteComponentError;
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************************!*\
@@ -54244,7 +54357,7 @@ exports.AutocompleteComponentError = AutocompleteComponentError;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var $ = __webpack_require__(/*! jquery */ 3);
-var autocomplete_errors_1 = __webpack_require__(/*! ../autocomplete.errors */ 39);
+var autocomplete_errors_1 = __webpack_require__(/*! ../autocomplete.errors */ 40);
 var AutocompleteAbstract = (function () {
     function AutocompleteAbstract(config) {
         this.config = config;
@@ -54320,7 +54433,7 @@ exports.default = AutocompleteAbstract;
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************!*\
@@ -54515,7 +54628,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************!*\
@@ -54547,7 +54660,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************!*\
@@ -54580,7 +54693,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************!*\
@@ -54615,7 +54728,7 @@ if (!Array.prototype.find) {
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -54657,7 +54770,7 @@ if (!Array.prototype.findIndex) {
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************!*\
@@ -54698,7 +54811,7 @@ if (!Array.prototype.includes) {
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -54728,7 +54841,7 @@ if (!Array.prototype.includes) {
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -54773,7 +54886,7 @@ if (!Object.assign) {
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -54791,7 +54904,7 @@ if (!String.prototype.includes) {
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -54831,7 +54944,7 @@ if (typeof jQuery == 'function') {
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -54954,7 +55067,7 @@ if (!('scrollingElement' in document)) (function() {
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************!*\
@@ -54965,7 +55078,7 @@ if (!('scrollingElement' in document)) (function() {
 /* (ignored) */
 
 /***/ }),
-/* 53 */
+/* 54 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************!*\
@@ -55038,7 +55151,7 @@ module.exports =
 /***/ 496:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo-drawing */ 23);
+	module.exports = __webpack_require__(/*! ./kendo-drawing */ 24);
 
 /***/ },
 
@@ -55400,7 +55513,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 54 */
+/* 55 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -55511,7 +55624,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 55 */
+/* 56 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************!*\
@@ -56154,7 +56267,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 56 */
+/* 57 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************!*\
@@ -56251,42 +56364,42 @@ module.exports =
 /***/ 681:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./drawing/util */ 54);
+	module.exports = __webpack_require__(/*! ./drawing/util */ 55);
 
 /***/ },
 
 /***/ 682:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./drawing/kendo-drawing */ 23);
+	module.exports = __webpack_require__(/*! ./drawing/kendo-drawing */ 24);
 
 /***/ },
 
 /***/ 683:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./drawing/surface-tooltip */ 53);
+	module.exports = __webpack_require__(/*! ./drawing/surface-tooltip */ 54);
 
 /***/ },
 
 /***/ 684:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./drawing/surface */ 115);
+	module.exports = __webpack_require__(/*! ./drawing/surface */ 116);
 
 /***/ },
 
 /***/ 685:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./drawing/html */ 114);
+	module.exports = __webpack_require__(/*! ./drawing/html */ 115);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 57 */
+/* 58 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -56358,14 +56471,14 @@ module.exports =
 /***/ 580:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.validator */ 65);
+	module.exports = __webpack_require__(/*! ./kendo.validator */ 66);
 
 /***/ },
 
 /***/ 618:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.binder */ 28);
+	module.exports = __webpack_require__(/*! ./kendo.binder */ 29);
 
 /***/ },
 
@@ -56728,14 +56841,14 @@ module.exports =
 /***/ 688:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.numerictextbox */ 32);
+	module.exports = __webpack_require__(/*! ./kendo.numerictextbox */ 33);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 58 */
+/* 59 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -56807,14 +56920,14 @@ module.exports =
 /***/ 578:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.dropdownlist */ 29);
+	module.exports = __webpack_require__(/*! ./kendo.dropdownlist */ 30);
 
 /***/ },
 
 /***/ 618:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.binder */ 28);
+	module.exports = __webpack_require__(/*! ./kendo.binder */ 29);
 
 /***/ },
 
@@ -56828,7 +56941,7 @@ module.exports =
 /***/ 688:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.numerictextbox */ 32);
+	module.exports = __webpack_require__(/*! ./kendo.numerictextbox */ 33);
 
 /***/ },
 
@@ -58150,7 +58263,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 59 */
+/* 60 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -58236,49 +58349,49 @@ module.exports =
 /***/ 601:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.filtermenu */ 58);
+	module.exports = __webpack_require__(/*! ./kendo.filtermenu */ 59);
 
 /***/ },
 
 /***/ 691:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.resizable */ 134);
+	module.exports = __webpack_require__(/*! ./kendo.resizable */ 135);
 
 /***/ },
 
 /***/ 692:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.window */ 66);
+	module.exports = __webpack_require__(/*! ./kendo.window */ 67);
 
 /***/ },
 
 /***/ 724:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.ooxml */ 62);
+	module.exports = __webpack_require__(/*! ./kendo.ooxml */ 63);
 
 /***/ },
 
 /***/ 736:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.pdf */ 63);
+	module.exports = __webpack_require__(/*! ./kendo.pdf */ 64);
 
 /***/ },
 
 /***/ 739:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.columnsorter */ 119);
+	module.exports = __webpack_require__(/*! ./kendo.columnsorter */ 120);
 
 /***/ },
 
 /***/ 741:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.editable */ 57);
+	module.exports = __webpack_require__(/*! ./kendo.editable */ 58);
 
 /***/ },
 
@@ -66429,77 +66542,77 @@ module.exports =
 /***/ 744:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.sortable */ 142);
+	module.exports = __webpack_require__(/*! ./kendo.sortable */ 143);
 
 /***/ },
 
 /***/ 745:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.columnmenu */ 118);
+	module.exports = __webpack_require__(/*! ./kendo.columnmenu */ 119);
 
 /***/ },
 
 /***/ 746:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.groupable */ 125);
+	module.exports = __webpack_require__(/*! ./kendo.groupable */ 126);
 
 /***/ },
 
 /***/ 747:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.pager */ 131);
+	module.exports = __webpack_require__(/*! ./kendo.pager */ 132);
 
 /***/ },
 
 /***/ 748:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.selectable */ 141);
+	module.exports = __webpack_require__(/*! ./kendo.selectable */ 142);
 
 /***/ },
 
 /***/ 749:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.reorderable */ 133);
+	module.exports = __webpack_require__(/*! ./kendo.reorderable */ 134);
 
 /***/ },
 
 /***/ 750:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.mobile.actionsheet */ 60);
+	module.exports = __webpack_require__(/*! ./kendo.mobile.actionsheet */ 61);
 
 /***/ },
 
 /***/ 751:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.mobile.pane */ 31);
+	module.exports = __webpack_require__(/*! ./kendo.mobile.pane */ 32);
 
 /***/ },
 
 /***/ 752:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.excel */ 124);
+	module.exports = __webpack_require__(/*! ./kendo.excel */ 125);
 
 /***/ },
 
 /***/ 753:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.progressbar */ 132);
+	module.exports = __webpack_require__(/*! ./kendo.progressbar */ 133);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 60 */
+/* 61 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************************!*\
@@ -66571,14 +66684,14 @@ module.exports =
 /***/ 764:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.mobile.shim */ 129);
+	module.exports = __webpack_require__(/*! ./kendo.mobile.shim */ 130);
 
 /***/ },
 
 /***/ 765:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.mobile.popover */ 128);
+	module.exports = __webpack_require__(/*! ./kendo.mobile.popover */ 129);
 
 /***/ },
 
@@ -66761,7 +66874,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 61 */
+/* 62 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -66833,7 +66946,7 @@ module.exports =
 /***/ 588:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.list */ 24);
+	module.exports = __webpack_require__(/*! ./kendo.list */ 25);
 
 /***/ },
 
@@ -68103,7 +68216,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 62 */
+/* 63 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************!*\
@@ -69270,7 +69383,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 63 */
+/* 64 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************!*\
@@ -69342,7 +69455,7 @@ module.exports =
 /***/ 570:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.drawing */ 56);
+	module.exports = __webpack_require__(/*! ./kendo.drawing */ 57);
 
 /***/ },
 
@@ -69378,21 +69491,21 @@ module.exports =
 /***/ 806:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./pdf/core */ 67);
+	module.exports = __webpack_require__(/*! ./pdf/core */ 68);
 
 /***/ },
 
 /***/ 807:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./pdf/mixins */ 145);
+	module.exports = __webpack_require__(/*! ./pdf/mixins */ 146);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 64 */
+/* 65 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************!*\
@@ -69942,7 +70055,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 65 */
+/* 66 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -70486,7 +70599,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 66 */
+/* 67 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -72145,7 +72258,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 67 */
+/* 68 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************!*\
@@ -72218,7 +72331,7 @@ module.exports =
 /***/ 499:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ../kendo.color */ 55);
+	module.exports = __webpack_require__(/*! ../kendo.color */ 56);
 
 /***/ },
 
@@ -76154,14 +76267,14 @@ module.exports =
 /***/ 975:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ../kendo.drawing */ 56);
+	module.exports = __webpack_require__(/*! ../kendo.drawing */ 57);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 68 */
+/* 69 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -76192,7 +76305,7 @@ exports.default = DataSource;
 
 
 /***/ }),
-/* 69 */
+/* 70 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************!*\
@@ -76228,7 +76341,7 @@ exports.default = SchedulerDataSource;
 
 
 /***/ }),
-/* 70 */
+/* 71 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -76240,7 +76353,7 @@ exports.default = SchedulerDataSource;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var $ = __webpack_require__(/*! jquery */ 3);
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.validator.js */ 65);
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.validator.js */ 66);
 var ValidatorService = (function () {
     function ValidatorService() {
     }
@@ -76274,7 +76387,7 @@ exports.ValidatorService = ValidatorService;
 
 
 /***/ }),
-/* 71 */
+/* 72 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -76323,7 +76436,7 @@ exports.default = GridFrameworkService;
 
 
 /***/ }),
-/* 72 */
+/* 73 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************************************************!*\
@@ -76447,7 +76560,7 @@ return 'pascalprecht.translate';
 
 
 /***/ }),
-/* 73 */
+/* 74 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -80168,7 +80281,7 @@ return 'pascalprecht.translate';
 
 
 /***/ }),
-/* 74 */
+/* 75 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************!*\
@@ -80184,7 +80297,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 75 */
+/* 76 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************!*\
@@ -80192,13 +80305,13 @@ module.exports = {
   \******************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thActionBar.component */ 147);
+__webpack_require__(/*! ./thActionBar.component */ 148);
 
-__webpack_require__(/*! ./thActionBarDelegate.service */ 148);
+__webpack_require__(/*! ./thActionBarDelegate.service */ 149);
 
 
 /***/ }),
-/* 76 */
+/* 77 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -80206,15 +80319,15 @@ __webpack_require__(/*! ./thActionBarDelegate.service */ 148);
   \*************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thActionBarBilling.directive */ 149);
+__webpack_require__(/*! ./thActionBarBilling.directive */ 150);
 
-__webpack_require__(/*! ./thActionBarBillingDelegate.service */ 150);
+__webpack_require__(/*! ./thActionBarBillingDelegate.service */ 151);
 
-__webpack_require__(/*! ./thSelectableCollection.service */ 151);
+__webpack_require__(/*! ./thSelectableCollection.service */ 152);
 
 
 /***/ }),
-/* 77 */
+/* 78 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************!*\
@@ -80222,13 +80335,13 @@ __webpack_require__(/*! ./thSelectableCollection.service */ 151);
   \**************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thAlertManager.service */ 153);
+__webpack_require__(/*! ./thAlertManager.service */ 154);
 
-__webpack_require__(/*! ./thAlertAnchor.directive */ 152);
+__webpack_require__(/*! ./thAlertAnchor.directive */ 153);
 
 
 /***/ }),
-/* 78 */
+/* 79 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************!*\
@@ -80236,11 +80349,11 @@ __webpack_require__(/*! ./thAlertAnchor.directive */ 152);
   \***************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thButton.directive */ 154);
+__webpack_require__(/*! ./thButton.directive */ 155);
 
 
 /***/ }),
-/* 79 */
+/* 80 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************!*\
@@ -80248,11 +80361,11 @@ __webpack_require__(/*! ./thButton.directive */ 154);
   \*****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thCheckbox.directive */ 155);
+__webpack_require__(/*! ./thCheckbox.directive */ 156);
 
 
 /***/ }),
-/* 80 */
+/* 81 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************!*\
@@ -80260,11 +80373,11 @@ __webpack_require__(/*! ./thCheckbox.directive */ 155);
   \****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thCompile.directive */ 156);
+__webpack_require__(/*! ./thCompile.directive */ 157);
 
 
 /***/ }),
-/* 81 */
+/* 82 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************!*\
@@ -80272,11 +80385,11 @@ __webpack_require__(/*! ./thCompile.directive */ 156);
   \**********************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thContentHeader.directive */ 157);
+__webpack_require__(/*! ./thContentHeader.directive */ 158);
 
 
 /***/ }),
-/* 82 */
+/* 83 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************!*\
@@ -80284,13 +80397,13 @@ __webpack_require__(/*! ./thContentHeader.directive */ 157);
   \**************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thContextualMessage.service */ 159);
+__webpack_require__(/*! ./thContextualMessage.service */ 160);
 
-__webpack_require__(/*! ./thContextualMessage.directive */ 158);
+__webpack_require__(/*! ./thContextualMessage.directive */ 159);
 
 
 /***/ }),
-/* 83 */
+/* 84 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************!*\
@@ -80298,11 +80411,11 @@ __webpack_require__(/*! ./thContextualMessage.directive */ 158);
   \*****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thDefaults.service */ 160);
+__webpack_require__(/*! ./thDefaults.service */ 161);
 
 
 /***/ }),
-/* 84 */
+/* 85 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************!*\
@@ -80310,15 +80423,15 @@ __webpack_require__(/*! ./thDefaults.service */ 160);
   \*******************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thDisclosureManager.service */ 162);
+__webpack_require__(/*! ./thDisclosureManager.service */ 163);
 
-__webpack_require__(/*! ./thDisclosureToggle.directive */ 163);
+__webpack_require__(/*! ./thDisclosureToggle.directive */ 164);
 
-__webpack_require__(/*! ./thDisclosureContent.directive */ 161);
+__webpack_require__(/*! ./thDisclosureContent.directive */ 162);
 
 
 /***/ }),
-/* 85 */
+/* 86 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************!*\
@@ -80326,15 +80439,15 @@ __webpack_require__(/*! ./thDisclosureContent.directive */ 161);
   \*****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thDropdown.directive */ 165);
+__webpack_require__(/*! ./thDropdown.directive */ 166);
 
-__webpack_require__(/*! ./thItem.directive */ 166);
+__webpack_require__(/*! ./thItem.directive */ 167);
 
-__webpack_require__(/*! ./thDivider.directive */ 164);
+__webpack_require__(/*! ./thDivider.directive */ 165);
 
 
 /***/ }),
-/* 86 */
+/* 87 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************!*\
@@ -80342,31 +80455,7 @@ __webpack_require__(/*! ./thDivider.directive */ 164);
   \**************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thError.directive */ 167);
-
-
-/***/ }),
-/* 87 */
-/* unknown exports provided */
-/* all exports used */
-/*!***************************************!*\
-  !*** ./src/lib/thFilter/index.coffee ***!
-  \***************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(/*! ./filters/ */ 176);
-
-__webpack_require__(/*! ./thFilter.directive */ 193);
-
-__webpack_require__(/*! ./thCustomFilterRow.directive */ 191);
-
-__webpack_require__(/*! ./thCustomFilters.component */ 192);
-
-__webpack_require__(/*! ./thSearchRow.directive */ 194);
-
-__webpack_require__(/*! ./thStaticFilters.directive */ 195);
-
-__webpack_require__(/*! ./thCustomFilterConverter.service */ 189);
+__webpack_require__(/*! ./thError.directive */ 168);
 
 
 /***/ }),
@@ -80378,7 +80467,7 @@ __webpack_require__(/*! ./thCustomFilterConverter.service */ 189);
   \**************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thInput.directive */ 196);
+__webpack_require__(/*! ./thInput.directive */ 194);
 
 
 /***/ }),
@@ -80390,11 +80479,11 @@ __webpack_require__(/*! ./thInput.directive */ 196);
   \*************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thLazyManager.service */ 198);
+__webpack_require__(/*! ./thLazyManager.service */ 196);
 
-__webpack_require__(/*! ./thLazy.component */ 197);
+__webpack_require__(/*! ./thLazy.component */ 195);
 
-__webpack_require__(/*! ./thMetaLoader.component */ 199);
+__webpack_require__(/*! ./thMetaLoader.component */ 197);
 
 
 /***/ }),
@@ -80406,7 +80495,7 @@ __webpack_require__(/*! ./thMetaLoader.component */ 199);
   \***************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thLoader.directive */ 200);
+__webpack_require__(/*! ./thLoader.directive */ 198);
 
 
 /***/ }),
@@ -80420,11 +80509,11 @@ __webpack_require__(/*! ./thLoader.directive */ 200);
 
 __webpack_require__(/*! ./thModalTitlebar/ */ 250);
 
-__webpack_require__(/*! ./thModalManager.service */ 203);
+__webpack_require__(/*! ./thModalManager.service */ 201);
 
-__webpack_require__(/*! ./thModal.directive */ 201);
+__webpack_require__(/*! ./thModal.directive */ 199);
 
-__webpack_require__(/*! ./thModalAnchor.directive */ 202);
+__webpack_require__(/*! ./thModalAnchor.directive */ 200);
 
 
 /***/ }),
@@ -80436,7 +80525,7 @@ __webpack_require__(/*! ./thModalAnchor.directive */ 202);
   \***************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thPlural.filter */ 204);
+__webpack_require__(/*! ./thPlural.filter */ 202);
 
 
 /***/ }),
@@ -80448,15 +80537,15 @@ __webpack_require__(/*! ./thPlural.filter */ 204);
   \**********************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thPopoverManager.service */ 208);
+__webpack_require__(/*! ./thPopoverManager.service */ 206);
 
-__webpack_require__(/*! ./thPopoverLegacy.directive */ 207);
+__webpack_require__(/*! ./thPopoverLegacy.directive */ 205);
 
-__webpack_require__(/*! ./thPopoverUrl.directive */ 210);
+__webpack_require__(/*! ./thPopoverUrl.directive */ 208);
 
-__webpack_require__(/*! ./thPopoverContent.directive */ 206);
+__webpack_require__(/*! ./thPopoverContent.directive */ 204);
 
-__webpack_require__(/*! ./thPopoverTarget.directive */ 209);
+__webpack_require__(/*! ./thPopoverTarget.directive */ 207);
 
 
 /***/ }),
@@ -80468,9 +80557,9 @@ __webpack_require__(/*! ./thPopoverTarget.directive */ 209);
   \*******************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thRadioGroup.directive */ 212);
+__webpack_require__(/*! ./thRadioGroup.directive */ 210);
 
-__webpack_require__(/*! ./thRadioButton.directive */ 211);
+__webpack_require__(/*! ./thRadioButton.directive */ 209);
 
 
 /***/ }),
@@ -80482,7 +80571,7 @@ __webpack_require__(/*! ./thRadioButton.directive */ 211);
   \***************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thSelect.directive */ 213);
+__webpack_require__(/*! ./thSelect.directive */ 211);
 
 
 /***/ }),
@@ -80494,7 +80583,7 @@ __webpack_require__(/*! ./thSelect.directive */ 213);
   \***************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thSwitch.directive */ 214);
+__webpack_require__(/*! ./thSwitch.directive */ 212);
 
 
 /***/ }),
@@ -80506,25 +80595,25 @@ __webpack_require__(/*! ./thSwitch.directive */ 214);
   \**************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thTable.directive */ 216);
+__webpack_require__(/*! ./thTable.directive */ 214);
 
-__webpack_require__(/*! ./thTableCell.directive */ 218);
+__webpack_require__(/*! ./thTableCell.directive */ 216);
 
-__webpack_require__(/*! ./thTableRow.directive */ 224);
+__webpack_require__(/*! ./thTableRow.directive */ 222);
 
-__webpack_require__(/*! ./thSimpleTableDelegate.service */ 215);
+__webpack_require__(/*! ./thSimpleTableDelegate.service */ 213);
 
-__webpack_require__(/*! ./thTable.service */ 217);
+__webpack_require__(/*! ./thTable.service */ 215);
 
-__webpack_require__(/*! ./thTableDelegate.service */ 219);
+__webpack_require__(/*! ./thTableDelegate.service */ 217);
 
-__webpack_require__(/*! ./thTableHeader.service */ 221);
+__webpack_require__(/*! ./thTableHeader.service */ 219);
 
-__webpack_require__(/*! ./thTableFooter.service */ 220);
+__webpack_require__(/*! ./thTableFooter.service */ 218);
 
-__webpack_require__(/*! ./thTablePagination.service */ 223);
+__webpack_require__(/*! ./thTablePagination.service */ 221);
 
-__webpack_require__(/*! ./thTableSort.service */ 225);
+__webpack_require__(/*! ./thTableSort.service */ 223);
 
 
 /***/ }),
@@ -80536,9 +80625,9 @@ __webpack_require__(/*! ./thTableSort.service */ 225);
   \***************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thTabset.directive */ 227);
+__webpack_require__(/*! ./thTabset.directive */ 225);
 
-__webpack_require__(/*! ./thTab.directive */ 226);
+__webpack_require__(/*! ./thTab.directive */ 224);
 
 
 /***/ }),
@@ -80550,7 +80639,7 @@ __webpack_require__(/*! ./thTab.directive */ 226);
   \*****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thTextarea.directive */ 228);
+__webpack_require__(/*! ./thTextarea.directive */ 226);
 
 
 /***/ }),
@@ -80562,7 +80651,7 @@ __webpack_require__(/*! ./thTextarea.directive */ 228);
   \*****************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thTruncate.directive */ 229);
+__webpack_require__(/*! ./thTruncate.directive */ 227);
 
 
 /***/ }),
@@ -80574,7 +80663,7 @@ __webpack_require__(/*! ./thTruncate.directive */ 229);
   \******************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thViewModel.service */ 230);
+__webpack_require__(/*! ./thViewModel.service */ 228);
 
 
 /***/ }),
@@ -80586,7 +80675,7 @@ __webpack_require__(/*! ./thViewModel.service */ 230);
   \******************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thWithFocus.directive */ 231);
+__webpack_require__(/*! ./thWithFocus.directive */ 229);
 
 
 /***/ }),
@@ -80598,9 +80687,9 @@ __webpack_require__(/*! ./thWithFocus.directive */ 231);
   \******************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thWithLabel.directive */ 232);
+__webpack_require__(/*! ./thWithLabel.directive */ 230);
 
-__webpack_require__(/*! ./thWithSubtext.directive */ 233);
+__webpack_require__(/*! ./thWithSubtext.directive */ 231);
 
 
 /***/ }),
@@ -80612,9 +80701,9 @@ __webpack_require__(/*! ./thWithSubtext.directive */ 233);
   \*********************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thWithMessages.directive */ 235);
+__webpack_require__(/*! ./thWithMessages.directive */ 233);
 
-__webpack_require__(/*! ./thMessagesManager.service */ 234);
+__webpack_require__(/*! ./thMessagesManager.service */ 232);
 
 
 /***/ }),
@@ -80630,10 +80719,10 @@ __webpack_require__(/*! ./thMessagesManager.service */ 234);
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var angular = __webpack_require__(/*! angular */ 2);
-var utilities_service_1 = __webpack_require__(/*! ./utilities.service */ 236);
-var validator_service_1 = __webpack_require__(/*! ./validator.service */ 70);
-var data_source_service_1 = __webpack_require__(/*! ./data-source.service */ 68);
-var scheduler_data_source_service_1 = __webpack_require__(/*! ./scheduler-data-source.service */ 69);
+var utilities_service_1 = __webpack_require__(/*! ./utilities.service */ 234);
+var validator_service_1 = __webpack_require__(/*! ./validator.service */ 71);
+var data_source_service_1 = __webpack_require__(/*! ./data-source.service */ 69);
+var scheduler_data_source_service_1 = __webpack_require__(/*! ./scheduler-data-source.service */ 70);
 angular.module("ThemisComponents")
     .service("DataSource", data_source_service_1.default)
     .service("SchedulerDataSource", scheduler_data_source_service_1.default)
@@ -80654,7 +80743,7 @@ angular.module("ThemisComponents")
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var angular = __webpack_require__(/*! angular */ 2);
-var autocomplete_component_1 = __webpack_require__(/*! ./autocomplete.component */ 237);
+var autocomplete_component_1 = __webpack_require__(/*! ./autocomplete.component */ 235);
 angular.module("ThemisComponents")
     .component("thAutocomplete", autocomplete_component_1.default);
 
@@ -80672,10 +80761,10 @@ angular.module("ThemisComponents")
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var angular = __webpack_require__(/*! angular */ 2);
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.grid.js */ 59);
-var data_table_component_1 = __webpack_require__(/*! ./data-table.component */ 242);
-var data_table_service_1 = __webpack_require__(/*! ./data-table.service */ 243);
-var toolbar_component_1 = __webpack_require__(/*! ./toolbar/toolbar.component */ 244);
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.grid.js */ 60);
+var data_table_component_1 = __webpack_require__(/*! ./data-table.component */ 240);
+var data_table_service_1 = __webpack_require__(/*! ./data-table.service */ 241);
+var toolbar_component_1 = __webpack_require__(/*! ./toolbar/toolbar.component */ 242);
 angular.module("ThemisComponents")
     .component("thDataTable", data_table_component_1.DataTableComponent)
     .component("thDataTableToolbar", toolbar_component_1.ToolbarComponent)
@@ -80695,15 +80784,39 @@ angular.module("ThemisComponents")
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var angular = __webpack_require__(/*! angular */ 2);
-var thDatePicker_service_1 = __webpack_require__(/*! ./thDatePicker.service */ 246);
-__webpack_require__(/*! ../services/validator.service */ 70);
-__webpack_require__(/*! ./thDatePicker.component */ 245);
+var thDatePicker_service_1 = __webpack_require__(/*! ./thDatePicker.service */ 244);
+__webpack_require__(/*! ../services/validator.service */ 71);
+__webpack_require__(/*! ./thDatePicker.component */ 243);
 angular.module("ThemisComponents")
     .service("DatepickerService", thDatePicker_service_1.DatepickerService);
 
 
 /***/ }),
 /* 109 */
+/* unknown exports provided */
+/* all exports used */
+/*!***********************************!*\
+  !*** ./src/lib/thFilter/index.ts ***!
+  \***********************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var angular = __webpack_require__(/*! angular */ 2);
+__webpack_require__(/*! ./filters/ */ 245);
+__webpack_require__(/*! ./thCustomFilterRow.directive */ 190);
+__webpack_require__(/*! ./thCustomFilters.component */ 191);
+__webpack_require__(/*! ./thSearchRow.directive */ 192);
+__webpack_require__(/*! ./thStaticFilters.directive */ 193);
+__webpack_require__(/*! ./thCustomFilterConverter.service */ 188);
+var thFilter_component_1 = __webpack_require__(/*! ./thFilter.component */ 246);
+angular.module("ThemisComponents")
+    .component("thFilter", thFilter_component_1.default);
+
+
+/***/ }),
+/* 110 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************!*\
@@ -80723,7 +80836,7 @@ angular.module("ThemisComponents")
 
 
 /***/ }),
-/* 110 */
+/* 111 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************!*\
@@ -80741,7 +80854,7 @@ angular.module("ThemisComponents")
 
 
 /***/ }),
-/* 111 */
+/* 112 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************!*\
@@ -80753,8 +80866,8 @@ angular.module("ThemisComponents")
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var angular = __webpack_require__(/*! angular */ 2);
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.scheduler.js */ 137);
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.tooltip.js */ 64);
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.scheduler.js */ 138);
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.tooltip.js */ 65);
 var scheduler_component_1 = __webpack_require__(/*! ./scheduler.component */ 256);
 var calendar_entries_service_1 = __webpack_require__(/*! ./calendar-entries.service */ 253);
 var calendar_data_source_service_1 = __webpack_require__(/*! ./calendars/calendar-data-source.service */ 254);
@@ -80767,8 +80880,8 @@ angular.module("ThemisComponents")
 
 
 /***/ }),
-/* 112 */,
-/* 113 */
+/* 113 */,
+/* 114 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************************!*\
@@ -82359,7 +82472,7 @@ module.exports =
 
 
 /***/ }),
-/* 114 */
+/* 115 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -82459,14 +82572,14 @@ module.exports =
 /***/ 496:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo-drawing */ 23);
+	module.exports = __webpack_require__(/*! ./kendo-drawing */ 24);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 115 */
+/* 116 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -82539,7 +82652,7 @@ module.exports =
 /***/ 496:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo-drawing */ 23);
+	module.exports = __webpack_require__(/*! ./kendo-drawing */ 24);
 
 /***/ },
 
@@ -82710,14 +82823,14 @@ module.exports =
 /***/ 502:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./surface-tooltip */ 53);
+	module.exports = __webpack_require__(/*! ./surface-tooltip */ 54);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 116 */
+/* 117 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -83574,7 +83687,7 @@ module.exports =
 /***/ 588:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.list */ 24);
+	module.exports = __webpack_require__(/*! ./kendo.list */ 25);
 
 /***/ },
 
@@ -83588,7 +83701,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 117 */
+/* 118 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -85177,7 +85290,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 118 */
+/* 119 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -86033,21 +86146,21 @@ module.exports =
 /***/ 601:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.filtermenu */ 58);
+	module.exports = __webpack_require__(/*! ./kendo.filtermenu */ 59);
 
 /***/ },
 
 /***/ 602:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.menu */ 126);
+	module.exports = __webpack_require__(/*! ./kendo.menu */ 127);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 119 */
+/* 120 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -86293,7 +86406,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 120 */
+/* 121 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -86365,7 +86478,7 @@ module.exports =
 /***/ 588:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.list */ 24);
+	module.exports = __webpack_require__(/*! ./kendo.list */ 25);
 
 /***/ },
 
@@ -87371,7 +87484,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 121 */
+/* 122 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -87773,7 +87886,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 122 */
+/* 123 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -88125,7 +88238,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 123 */
+/* 124 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************!*\
@@ -88999,14 +89112,14 @@ module.exports =
 /***/ 676:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.timepicker */ 143);
+	module.exports = __webpack_require__(/*! ./kendo.timepicker */ 144);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 124 */
+/* 125 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************!*\
@@ -89590,14 +89703,14 @@ module.exports =
 /***/ 724:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.ooxml */ 62);
+	module.exports = __webpack_require__(/*! ./kendo.ooxml */ 63);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 125 */
+/* 126 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -90103,7 +90216,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 126 */
+/* 127 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -91758,7 +91871,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 127 */
+/* 128 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -91942,7 +92055,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 128 */
+/* 129 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************!*\
@@ -92021,7 +92134,7 @@ module.exports =
 /***/ 751:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.mobile.pane */ 31);
+	module.exports = __webpack_require__(/*! ./kendo.mobile.pane */ 32);
 
 /***/ },
 
@@ -92311,7 +92424,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 129 */
+/* 130 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -92529,7 +92642,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 130 */
+/* 131 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -92615,14 +92728,14 @@ module.exports =
 /***/ 614:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.fx */ 30);
+	module.exports = __webpack_require__(/*! ./kendo.fx */ 31);
 
 /***/ },
 
 /***/ 616:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.view */ 144);
+	module.exports = __webpack_require__(/*! ./kendo.view */ 145);
 
 /***/ },
 
@@ -93353,7 +93466,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 131 */
+/* 132 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************!*\
@@ -93871,7 +93984,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 132 */
+/* 133 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -94419,7 +94532,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 133 */
+/* 134 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -94748,7 +94861,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 134 */
+/* 135 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -95037,7 +95150,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 135 */
+/* 136 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************************!*\
@@ -95890,7 +96003,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 136 */
+/* 137 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************!*\
@@ -97924,7 +98037,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 137 */
+/* 138 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -97996,56 +98109,56 @@ module.exports =
 /***/ 578:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.dropdownlist */ 29);
+	module.exports = __webpack_require__(/*! ./kendo.dropdownlist */ 30);
 
 /***/ },
 
 /***/ 579:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.multiselect */ 61);
+	module.exports = __webpack_require__(/*! ./kendo.multiselect */ 62);
 
 /***/ },
 
 /***/ 692:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.window */ 66);
+	module.exports = __webpack_require__(/*! ./kendo.window */ 67);
 
 /***/ },
 
 /***/ 736:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.pdf */ 63);
+	module.exports = __webpack_require__(/*! ./kendo.pdf */ 64);
 
 /***/ },
 
 /***/ 740:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.datetimepicker */ 123);
+	module.exports = __webpack_require__(/*! ./kendo.datetimepicker */ 124);
 
 /***/ },
 
 /***/ 741:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.editable */ 57);
+	module.exports = __webpack_require__(/*! ./kendo.editable */ 58);
 
 /***/ },
 
 /***/ 750:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.mobile.actionsheet */ 60);
+	module.exports = __webpack_require__(/*! ./kendo.mobile.actionsheet */ 61);
 
 /***/ },
 
 /***/ 751:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.mobile.pane */ 31);
+	module.exports = __webpack_require__(/*! ./kendo.mobile.pane */ 32);
 
 /***/ },
 
@@ -102244,14 +102357,14 @@ module.exports =
 /***/ 820:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.scheduler.dayview */ 136);
+	module.exports = __webpack_require__(/*! ./kendo.scheduler.dayview */ 137);
 
 /***/ },
 
 /***/ 821:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.scheduler.recurrence */ 139);
+	module.exports = __webpack_require__(/*! ./kendo.scheduler.recurrence */ 140);
 
 /***/ },
 
@@ -102265,28 +102378,28 @@ module.exports =
 /***/ 823:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.scheduler.agendaview */ 135);
+	module.exports = __webpack_require__(/*! ./kendo.scheduler.agendaview */ 136);
 
 /***/ },
 
 /***/ 824:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.scheduler.monthview */ 138);
+	module.exports = __webpack_require__(/*! ./kendo.scheduler.monthview */ 139);
 
 /***/ },
 
 /***/ 825:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.scheduler.timelineview */ 140);
+	module.exports = __webpack_require__(/*! ./kendo.scheduler.timelineview */ 141);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 138 */
+/* 139 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************!*\
@@ -103739,7 +103852,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 139 */
+/* 140 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************************!*\
@@ -103811,7 +103924,7 @@ module.exports =
 /***/ 578:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.dropdownlist */ 29);
+	module.exports = __webpack_require__(/*! ./kendo.dropdownlist */ 30);
 
 /***/ },
 
@@ -103825,7 +103938,7 @@ module.exports =
 /***/ 688:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.numerictextbox */ 32);
+	module.exports = __webpack_require__(/*! ./kendo.numerictextbox */ 33);
 
 /***/ },
 
@@ -106710,7 +106823,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 140 */
+/* 141 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************************!*\
@@ -109195,7 +109308,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 141 */
+/* 142 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -109274,7 +109387,7 @@ module.exports =
 /***/ 598:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.userevents */ 33);
+	module.exports = __webpack_require__(/*! ./kendo.userevents */ 34);
 
 /***/ },
 
@@ -109712,7 +109825,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 142 */
+/* 143 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -110321,7 +110434,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 143 */
+/* 144 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -111330,7 +111443,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 144 */
+/* 145 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -111409,14 +111522,14 @@ module.exports =
 /***/ 614:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.fx */ 30);
+	module.exports = __webpack_require__(/*! ./kendo.fx */ 31);
 
 /***/ },
 
 /***/ 618:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./kendo.binder */ 28);
+	module.exports = __webpack_require__(/*! ./kendo.binder */ 29);
 
 /***/ },
 
@@ -111809,7 +111922,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 145 */
+/* 146 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -112037,14 +112150,14 @@ module.exports =
 /***/ 977:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(/*! ./core */ 67);
+	module.exports = __webpack_require__(/*! ./core */ 68);
 
 /***/ }
 
 /******/ });
 
 /***/ }),
-/* 146 */
+/* 147 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -112315,7 +112428,7 @@ module.exports =
 /******/ });
 
 /***/ }),
-/* 147 */
+/* 148 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -112377,7 +112490,7 @@ angular.module('ThemisComponents').component("thActionBar", {
 
 
 /***/ }),
-/* 148 */
+/* 149 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************************!*\
@@ -112492,7 +112605,7 @@ angular.module("ThemisComponents").factory("ActionBarDelegate", ["ViewModel", fu
 
 
 /***/ }),
-/* 149 */
+/* 150 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************************!*\
@@ -112502,7 +112615,7 @@ angular.module("ThemisComponents").factory("ActionBarDelegate", ["ViewModel", fu
 
 var pluralize;
 
-pluralize = __webpack_require__(/*! pluralize */ 17);
+pluralize = __webpack_require__(/*! pluralize */ 18);
 
 angular.module("ThemisComponents").directive("thActionBarBilling", function() {
   return {
@@ -112547,7 +112660,7 @@ angular.module("ThemisComponents").directive("thActionBarBilling", function() {
 
 
 /***/ }),
-/* 150 */
+/* 151 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************************************!*\
@@ -112883,7 +112996,7 @@ angular.module('ThemisComponents').factory('ActionBarBillingDelegate', ["ViewMod
 
 
 /***/ }),
-/* 151 */
+/* 152 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************************!*\
@@ -113176,7 +113289,7 @@ angular.module("ThemisComponents").factory("SelectableCollection", ["$rootScope"
 
 
 /***/ }),
-/* 152 */
+/* 153 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -113201,7 +113314,7 @@ angular.module('ThemisComponents').directive("thAlertAnchor", function() {
 
 
 /***/ }),
-/* 153 */
+/* 154 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -113259,7 +113372,7 @@ angular.module('ThemisComponents').factory('AlertManager', ["$timeout", function
 
 
 /***/ }),
-/* 154 */
+/* 155 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -113338,7 +113451,7 @@ angular.module("ThemisComponents").directive("thButton", function() {
 
 
 /***/ }),
-/* 155 */
+/* 156 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -113396,7 +113509,7 @@ angular.module('ThemisComponents').directive("thCheckbox", function() {
 
 
 /***/ }),
-/* 156 */
+/* 157 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -113417,7 +113530,7 @@ angular.module("ThemisComponents").directive("thCompile", ["$compile", function(
 
 
 /***/ }),
-/* 157 */
+/* 158 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************************!*\
@@ -113439,7 +113552,7 @@ angular.module('ThemisComponents').directive('thContentHeader', function() {
 
 
 /***/ }),
-/* 158 */
+/* 159 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************************!*\
@@ -113483,7 +113596,7 @@ angular.module('ThemisComponents').directive("thContextualMessageAnchor", ["Cont
 
 
 /***/ }),
-/* 159 */
+/* 160 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************************!*\
@@ -113528,7 +113641,7 @@ angular.module('ThemisComponents').factory('ContextualMessageManager', ["$timeou
 
 
 /***/ }),
-/* 160 */
+/* 161 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -113575,7 +113688,7 @@ angular.module('ThemisComponents').factory('thDefaults', function() {
 
 
 /***/ }),
-/* 161 */
+/* 162 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************************!*\
@@ -113675,7 +113788,7 @@ angular.module("ThemisComponents").directive("thDisclosureContent", ["Disclosure
 
 
 /***/ }),
-/* 162 */
+/* 163 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************************!*\
@@ -113733,7 +113846,7 @@ angular.module('ThemisComponents').factory('DisclosureManager', function() {
 
 
 /***/ }),
-/* 163 */
+/* 164 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************************!*\
@@ -113804,7 +113917,7 @@ angular.module("ThemisComponents").directive("thDisclosureToggle", ["DisclosureM
 
 
 /***/ }),
-/* 164 */
+/* 165 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -113823,7 +113936,7 @@ angular.module("ThemisComponents").directive("thDivider", function() {
 
 
 /***/ }),
-/* 165 */
+/* 166 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -113994,7 +114107,7 @@ angular.module("ThemisComponents").directive("thDropdown", function() {
 
 
 /***/ }),
-/* 166 */
+/* 167 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -114032,7 +114145,7 @@ angular.module("ThemisComponents").directive("thItem", function() {
 
 
 /***/ }),
-/* 167 */
+/* 168 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************!*\
@@ -114063,7 +114176,7 @@ angular.module("ThemisComponents").directive("thError", function() {
 
 
 /***/ }),
-/* 168 */
+/* 169 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************************************!*\
@@ -114128,7 +114241,7 @@ angular.module("ThemisComponents").factory("AutocompleteFilter", ["FilterBase", 
 
 
 /***/ }),
-/* 169 */
+/* 170 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************!*\
@@ -114136,13 +114249,13 @@ angular.module("ThemisComponents").factory("AutocompleteFilter", ["FilterBase", 
   \************************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./autocompleteFilter.service */ 168);
+__webpack_require__(/*! ./autocompleteFilter.service */ 169);
 
-__webpack_require__(/*! ./thFilter.autocomplete.directive */ 170);
+__webpack_require__(/*! ./thFilter.autocomplete.directive */ 171);
 
 
 /***/ }),
-/* 170 */
+/* 171 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************************************!*\
@@ -114211,7 +114324,7 @@ angular.module('ThemisComponents').directive('thFilterAutocomplete', ["Autocompl
 
 
 /***/ }),
-/* 171 */
+/* 172 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************************!*\
@@ -114292,7 +114405,7 @@ angular.module("ThemisComponents").factory("DateFilter", ["FilterBase", function
 
 
 /***/ }),
-/* 172 */
+/* 173 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -114300,13 +114413,13 @@ angular.module("ThemisComponents").factory("DateFilter", ["FilterBase", function
   \****************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./dateFilter.service */ 171);
+__webpack_require__(/*! ./dateFilter.service */ 172);
 
-__webpack_require__(/*! ./thFilter.date.directive */ 173);
+__webpack_require__(/*! ./thFilter.date.directive */ 174);
 
 
 /***/ }),
-/* 173 */
+/* 174 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************************!*\
@@ -114375,7 +114488,7 @@ angular.module("ThemisComponents").directive("thFilterDate", ["DateFilter", func
 
 
 /***/ }),
-/* 174 */
+/* 175 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************!*\
@@ -114408,93 +114521,7 @@ angular.module("ThemisComponents").factory("FilterBase", function() {
 
 
 /***/ }),
-/* 175 */
-/* unknown exports provided */
-/* all exports used */
-/*!***********************************************************!*\
-  !*** ./src/lib/thFilter/filters/filterSet.service.coffee ***!
-  \***********************************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-var debounce;
-
-debounce = __webpack_require__(/*! debounce */ 16);
-
-angular.module('ThemisComponents').factory('FilterSet', function() {
-  var FilterSet;
-  return FilterSet = function(options) {
-    var debouncedFilterChange, filterArray, onFilterChange, onInitialized;
-    if (options == null) {
-      options = {};
-    }
-    onFilterChange = options.onFilterChange, onInitialized = options.onInitialized;
-    if (!(onFilterChange instanceof Function)) {
-      throw new Error("FilterSet needs to be passed the following " + "function: onFilterChange: ->");
-    }
-    debouncedFilterChange = debounce(function() {
-      return onFilterChange();
-    }, 300);
-    filterArray = [];
-    filterArray.onFilterChange = debouncedFilterChange;
-    filterArray.onInitialized = onInitialized;
-    filterArray.remove = function(filterBase) {
-      var index;
-      index = this.indexOf(filterBase);
-      if (index !== -1) {
-        return this.splice(index, 1);
-      }
-    };
-    filterArray.getState = function() {
-      return this.reduce(function(paramsCollector, filter) {
-        var state;
-        if (state = filter.getState()) {
-          paramsCollector[filter.fieldIdentifier] = state;
-        }
-        return paramsCollector;
-      }, {});
-    };
-    filterArray.getMetadata = function() {
-      return this.reduce(function(paramsCollector, filter) {
-        var metadata;
-        if (metadata = filter.getMetadata()) {
-          paramsCollector[filter.fieldIdentifier] = metadata;
-        }
-        return paramsCollector;
-      }, {});
-    };
-    return filterArray;
-  };
-});
-
-
-/***/ }),
 /* 176 */
-/* unknown exports provided */
-/* all exports used */
-/*!***********************************************!*\
-  !*** ./src/lib/thFilter/filters/index.coffee ***!
-  \***********************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(/*! ./autocomplete/ */ 169);
-
-__webpack_require__(/*! ./date/ */ 172);
-
-__webpack_require__(/*! ./input/ */ 177);
-
-__webpack_require__(/*! ./number/ */ 180);
-
-__webpack_require__(/*! ./select/ */ 183);
-
-__webpack_require__(/*! ./time/ */ 186);
-
-__webpack_require__(/*! ./filterBase.service */ 174);
-
-__webpack_require__(/*! ./filterSet.service */ 175);
-
-
-/***/ }),
-/* 177 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -114502,13 +114529,13 @@ __webpack_require__(/*! ./filterSet.service */ 175);
   \*****************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./inputFilter.service */ 178);
+__webpack_require__(/*! ./inputFilter.service */ 177);
 
-__webpack_require__(/*! ./thFilter.input.directive */ 179);
+__webpack_require__(/*! ./thFilter.input.directive */ 178);
 
 
 /***/ }),
-/* 178 */
+/* 177 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************************!*\
@@ -114560,7 +114587,7 @@ angular.module("ThemisComponents").factory("InputFilter", ["FilterBase", functio
 
 
 /***/ }),
-/* 179 */
+/* 178 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************************!*\
@@ -114646,7 +114673,7 @@ angular.module("ThemisComponents").directive("thFilterInput", ["InputFilter", fu
 
 
 /***/ }),
-/* 180 */
+/* 179 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -114654,13 +114681,13 @@ angular.module("ThemisComponents").directive("thFilterInput", ["InputFilter", fu
   \******************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./numberFilter.service */ 181);
+__webpack_require__(/*! ./numberFilter.service */ 180);
 
-__webpack_require__(/*! ./thFilter.number.directive */ 182);
+__webpack_require__(/*! ./thFilter.number.directive */ 181);
 
 
 /***/ }),
-/* 181 */
+/* 180 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************************!*\
@@ -114733,7 +114760,7 @@ angular.module("ThemisComponents").factory("NumberFilter", ["FilterBase", functi
 
 
 /***/ }),
-/* 182 */
+/* 181 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************************!*\
@@ -114819,7 +114846,7 @@ angular.module("ThemisComponents").directive("thFilterNumber", ["NumberFilter", 
 
 
 /***/ }),
-/* 183 */
+/* 182 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -114827,13 +114854,13 @@ angular.module("ThemisComponents").directive("thFilterNumber", ["NumberFilter", 
   \******************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./selectFilter.service */ 184);
+__webpack_require__(/*! ./selectFilter.service */ 183);
 
-__webpack_require__(/*! ./thFilter.select.directive */ 185);
+__webpack_require__(/*! ./thFilter.select.directive */ 184);
 
 
 /***/ }),
-/* 184 */
+/* 183 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************************************************************!*\
@@ -114919,7 +114946,7 @@ angular.module("ThemisComponents").factory("SelectFilter", ["$http", "FilterBase
 
 
 /***/ }),
-/* 185 */
+/* 184 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************************!*\
@@ -114975,7 +115002,7 @@ angular.module('ThemisComponents').directive('thFilterSelect', ["SelectFilter", 
 
 
 /***/ }),
-/* 186 */
+/* 185 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -114983,13 +115010,13 @@ angular.module('ThemisComponents').directive('thFilterSelect', ["SelectFilter", 
   \****************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./timeFilter.service */ 188);
+__webpack_require__(/*! ./timeFilter.service */ 187);
 
-__webpack_require__(/*! ./thFilter.time.directive */ 187);
+__webpack_require__(/*! ./thFilter.time.directive */ 186);
 
 
 /***/ }),
-/* 187 */
+/* 186 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************************!*\
@@ -115099,7 +115126,7 @@ angular.module("ThemisComponents").directive("thFilterTime", ["TimeFilter", "$ti
 
 
 /***/ }),
-/* 188 */
+/* 187 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************************!*\
@@ -115194,7 +115221,7 @@ angular.module("ThemisComponents").factory("TimeFilter", ["FilterBase", function
 
 
 /***/ }),
-/* 189 */
+/* 188 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************************!*\
@@ -115218,7 +115245,7 @@ angular.module('ThemisComponents').factory('CustomFilterConverter', function() {
 
 
 /***/ }),
-/* 190 */
+/* 189 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************!*\
@@ -115315,7 +115342,7 @@ angular.module('ThemisComponents').controller('thCustomFilterRow.controller', ["
 
 
 /***/ }),
-/* 191 */
+/* 190 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************************!*\
@@ -115323,7 +115350,7 @@ angular.module('ThemisComponents').controller('thCustomFilterRow.controller', ["
   \*************************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./thCustomFilterRow.controller */ 190);
+__webpack_require__(/*! ./thCustomFilterRow.controller */ 189);
 
 angular.module("ThemisComponents").directive("thCustomFilterRow", function() {
   return {
@@ -115346,7 +115373,7 @@ angular.module("ThemisComponents").directive("thCustomFilterRow", function() {
 
 
 /***/ }),
-/* 192 */
+/* 191 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************!*\
@@ -115354,8 +115381,10 @@ angular.module("ThemisComponents").directive("thCustomFilterRow", function() {
   \***********************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-var CustomFilters,
+var CustomFilters, FilterSetFactory,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+
+FilterSetFactory = __webpack_require__(/*! ./filters/filterSet.service */ 16)["default"];
 
 CustomFilters = (function() {
   CustomFilters.$inject = ["CustomFilterConverter", "$http", "$timeout", "DataSource"];
@@ -115385,7 +115414,7 @@ CustomFilters = (function() {
     this.customFilterTypesDataSource = null;
     this.filterSet = this.thFilterCtrl.options.filterSet;
     this.showSearchHint = this.thFilterCtrl.options.showSearchHint;
-    if (!(this.filterSet instanceof Array)) {
+    if (!(this.filterSet instanceof FilterSetFactory)) {
       throw new Error("thCustomFilters: must specify 'filterSet'.");
     }
     if (!(this.customFilterTypes instanceof Array || (customFilterUrl != null))) {
@@ -115528,54 +115557,7 @@ angular.module("ThemisComponents").component("thCustomFilters", {
 
 
 /***/ }),
-/* 193 */
-/* unknown exports provided */
-/* all exports used */
-/*!****************************************************!*\
-  !*** ./src/lib/thFilter/thFilter.directive.coffee ***!
-  \****************************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-angular.module("ThemisComponents").directive("thFilter", ["FilterSet", "$q", function(FilterSet, $q) {
-  return {
-    restrict: "E",
-    scope: {
-      options: "="
-    },
-    bindToController: true,
-    transclude: true,
-    controllerAs: "thFilter",
-    template: __webpack_require__(/*! ./thFilter.template.html */ 284),
-    controller: ["$scope", "$element", function($scope, $element) {
-      this.initPromises = [];
-      this.filterSet = this.options.filterSet;
-      if (!(this.filterSet instanceof Array)) {
-        throw new Error("thFilter: options must specify 'filterSet'.");
-      }
-      this.registerInitPromise = function(promise) {
-        return this.initPromises.push(promise);
-      };
-      this.clearFilters = function() {
-        $scope.$broadcast("th.filters.clear");
-        return this.filterSet.onFilterChange();
-      };
-    }],
-    link: function(scope, element, attrs, thFilterController) {
-      scope.thFilter.isLoading = true;
-      return $q.when(Promise.all(scope.thFilter.initPromises), function() {
-        var base;
-        scope.thFilter.isLoading = false;
-        return typeof (base = scope.thFilter.filterSet).onInitialized === "function" ? base.onInitialized() : void 0;
-      }, function() {
-        return console.log('thFilter: Some filters were unable to load.');
-      });
-    }
-  };
-}]);
-
-
-/***/ }),
-/* 194 */
+/* 192 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -115583,21 +115565,25 @@ angular.module("ThemisComponents").directive("thFilter", ["FilterSet", "$q", fun
   \*******************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-angular.module('ThemisComponents').directive('thSearchRow', ["InputFilter", "$timeout", function(InputFilter, $timeout) {
+var FilterSetFactory;
+
+FilterSetFactory = __webpack_require__(/*! ./filters/filterSet.service */ 16)["default"];
+
+angular.module("ThemisComponents").directive("thSearchRow", ["InputFilter", "$timeout", function(InputFilter, $timeout) {
   return {
-    restrict: 'E',
+    restrict: "E",
     require: "^thFilter",
     scope: {
       options: "=",
       fieldIdentifier: "@?"
     },
     bindToController: true,
-    controllerAs: 'thSearchRow',
+    controllerAs: "thSearchRow",
     template: __webpack_require__(/*! ./thSearchRow.template.html */ 285),
     controller: ["$scope", function($scope) {
       this.queryFilterOptions = {
         fieldIdentifier: this.fieldIdentifier || "query",
-        placeholder: 'Enter search term...'
+        placeholder: "Enter search term..."
       };
     }],
     compile: function() {
@@ -115605,7 +115591,7 @@ angular.module('ThemisComponents').directive('thSearchRow', ["InputFilter", "$ti
         pre: function(scope, element, attrs, thFilterController) {
           var filterSet, initialState, ref;
           ref = thFilterController != null ? thFilterController.options : void 0, filterSet = ref.filterSet, initialState = ref.initialState;
-          if (!(filterSet instanceof Array)) {
+          if (!(filterSet instanceof FilterSetFactory)) {
             throw new Error("thSearchRow: must specify 'filterSet' attribute.");
           }
           scope.thSearchRow.filterSet = filterSet;
@@ -115623,7 +115609,7 @@ angular.module('ThemisComponents').directive('thSearchRow', ["InputFilter", "$ti
 
 
 /***/ }),
-/* 195 */
+/* 193 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************!*\
@@ -115631,7 +115617,11 @@ angular.module('ThemisComponents').directive('thSearchRow', ["InputFilter", "$ti
   \***********************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-angular.module("ThemisComponents").directive("thStaticFilters", ["FilterSet", "$timeout", function(FilterSet, $timeout) {
+var FilterSetFactory;
+
+FilterSetFactory = __webpack_require__(/*! ./filters/filterSet.service */ 16)["default"];
+
+angular.module("ThemisComponents").directive("thStaticFilters", ["$timeout", function($timeout) {
   return {
     restrict: "E",
     require: "^thFilter",
@@ -115647,13 +115637,13 @@ angular.module("ThemisComponents").directive("thStaticFilters", ["FilterSet", "$
         pre: function(scope, element, attrs, thFilterController) {
           var filterSet, initialState, ref, staticFilters;
           ref = thFilterController != null ? thFilterController.options : void 0, filterSet = ref.filterSet, staticFilters = ref.staticFilters, initialState = ref.initialState;
-          if (!(filterSet instanceof Array)) {
+          if (!(filterSet instanceof FilterSetFactory)) {
             throw new Error("thStaticFilters: options must specify 'filterSet'.");
           }
-          scope.thStaticFilters.filterSet = filterSet;
           if (!(staticFilters instanceof Array)) {
             throw new Error("thStaticFilters: options must specify 'staticFilters'.");
           }
+          scope.thStaticFilters.filterSet = filterSet;
           scope.thStaticFilters.staticFilters = [];
           staticFilters.forEach(function(item) {
             var state;
@@ -115676,7 +115666,7 @@ angular.module("ThemisComponents").directive("thStaticFilters", ["FilterSet", "$
 
 
 /***/ }),
-/* 196 */
+/* 194 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************!*\
@@ -115742,7 +115732,7 @@ angular.module('ThemisComponents').directive("thInput", ["Utilities", function(U
 
 
 /***/ }),
-/* 197 */
+/* 195 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************!*\
@@ -115752,9 +115742,9 @@ angular.module('ThemisComponents').directive("thInput", ["Utilities", function(U
 
 var LazyController, qs, uuid;
 
-uuid = __webpack_require__(/*! uuid */ 27);
+uuid = __webpack_require__(/*! uuid */ 28);
 
-qs = __webpack_require__(/*! qs */ 26);
+qs = __webpack_require__(/*! qs */ 27);
 
 LazyController = (function() {
 
@@ -115826,7 +115816,7 @@ angular.module('ThemisComponents').component("thLazy", {
 
 
 /***/ }),
-/* 198 */
+/* 196 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -115854,7 +115844,7 @@ angular.module('ThemisComponents').factory('LazyManager', function() {
 
 
 /***/ }),
-/* 199 */
+/* 197 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -115905,7 +115895,7 @@ angular.module('ThemisComponents').component("thMetaLoader", {
 
 
 /***/ }),
-/* 200 */
+/* 198 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -115956,7 +115946,7 @@ angular.module('ThemisComponents').directive("thLoader", function() {
 
 
 /***/ }),
-/* 201 */
+/* 199 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************!*\
@@ -115997,7 +115987,7 @@ angular.module("ThemisComponents").directive("thModal", function() {
 
 
 /***/ }),
-/* 202 */
+/* 200 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -116024,7 +116014,7 @@ angular.module("ThemisComponents").directive("thModalAnchor", function() {
 
 
 /***/ }),
-/* 203 */
+/* 201 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************!*\
@@ -116121,7 +116111,7 @@ angular.module("ThemisComponents").factory("ModalManager", ["$http", "$q", funct
 
 
 /***/ }),
-/* 204 */
+/* 202 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -116131,7 +116121,7 @@ angular.module("ThemisComponents").factory("ModalManager", ["$http", "$q", funct
 
 var plural;
 
-plural = __webpack_require__(/*! pluralize */ 17);
+plural = __webpack_require__(/*! pluralize */ 18);
 
 angular.module('ThemisComponents').filter("pluralize", function() {
   return function(string, count) {
@@ -116147,7 +116137,7 @@ angular.module('ThemisComponents').filter("pluralize", function() {
 
 
 /***/ }),
-/* 205 */
+/* 203 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************!*\
@@ -116292,7 +116282,7 @@ module.exports = function($compile, $timeout) {
 
 
 /***/ }),
-/* 206 */
+/* 204 */
 /* unknown exports provided */
 /* all exports used */
 /*!*******************************************************************!*\
@@ -116316,7 +116306,7 @@ angular.module("ThemisComponents").directive("thPopoverContent", ["PopoverManage
 
 
 /***/ }),
-/* 207 */
+/* 205 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************************!*\
@@ -116341,7 +116331,7 @@ angular.module('ThemisComponents').directive("thPopoverLegacy", ["PopoverManager
 
 
 /***/ }),
-/* 208 */
+/* 206 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************************!*\
@@ -116420,7 +116410,7 @@ angular.module('ThemisComponents').factory('PopoverManager', ["$compile", "$time
       return renderPopover();
     });
   };
-  addPopoverToTarget = __webpack_require__(/*! ./thAddPopover.helper */ 205)($compile, $timeout);
+  addPopoverToTarget = __webpack_require__(/*! ./thAddPopover.helper */ 203)($compile, $timeout);
   return {
     attachPopover: attachPopover,
     showPopover: showPopover,
@@ -116433,7 +116423,7 @@ angular.module('ThemisComponents').factory('PopoverManager', ["$compile", "$time
 
 
 /***/ }),
-/* 209 */
+/* 207 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************************!*\
@@ -116456,7 +116446,7 @@ angular.module("ThemisComponents").directive("thPopoverTarget", ["PopoverManager
 
 
 /***/ }),
-/* 210 */
+/* 208 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************************!*\
@@ -116486,7 +116476,7 @@ angular.module("ThemisComponents").directive("thPopoverUrl", ["$http", "PopoverM
 
 
 /***/ }),
-/* 211 */
+/* 209 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************************!*\
@@ -116516,7 +116506,7 @@ angular.module('ThemisComponents').directive("thRadioButton", function() {
 
 
 /***/ }),
-/* 212 */
+/* 210 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************!*\
@@ -116600,7 +116590,7 @@ angular.module('ThemisComponents').directive('thRadioGroup', function() {
 
 
 /***/ }),
-/* 213 */
+/* 211 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -116746,7 +116736,7 @@ angular.module('ThemisComponents').directive("thSelect", ["Utilities", function(
 
 
 /***/ }),
-/* 214 */
+/* 212 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -116791,7 +116781,7 @@ angular.module('ThemisComponents').directive("thSwitch", function() {
 
 
 /***/ }),
-/* 215 */
+/* 213 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************!*\
@@ -116935,7 +116925,7 @@ angular.module('ThemisComponents').factory('SimpleTableDelegate', ["TableDelegat
 
 
 /***/ }),
-/* 216 */
+/* 214 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************!*\
@@ -116945,7 +116935,7 @@ angular.module('ThemisComponents').factory('SimpleTableDelegate', ["TableDelegat
 
 var thTableKeyboardNavigation;
 
-thTableKeyboardNavigation = __webpack_require__(/*! ./thTableKeyboardNavigation */ 222);
+thTableKeyboardNavigation = __webpack_require__(/*! ./thTableKeyboardNavigation */ 220);
 
 angular.module("ThemisComponents").directive("thTable", ["$compile", "Table", function($compile, Table) {
   return {
@@ -117006,7 +116996,7 @@ angular.module("ThemisComponents").directive("thTable", ["$compile", "Table", fu
 
 
 /***/ }),
-/* 217 */
+/* 215 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************!*\
@@ -117089,7 +117079,7 @@ Table = function(options) {
 
 
 /***/ }),
-/* 218 */
+/* 216 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -117105,7 +117095,7 @@ angular.module('ThemisComponents').directive('thTableCell', function() {
 
 
 /***/ }),
-/* 219 */
+/* 217 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -117266,7 +117256,7 @@ angular.module("ThemisComponents").factory("TableDelegate", ["TablePagination", 
 
 
 /***/ }),
-/* 220 */
+/* 218 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -117300,7 +117290,7 @@ TableFooter = function(options) {
 
 
 /***/ }),
-/* 221 */
+/* 219 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -117373,7 +117363,7 @@ TableHeader = function(options) {
 
 
 /***/ }),
-/* 222 */
+/* 220 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -117562,7 +117552,7 @@ module.exports = function($element, $scope) {
 
 
 /***/ }),
-/* 223 */
+/* 221 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -117697,7 +117687,7 @@ angular.module('ThemisComponents').factory('TablePagination', ["$interpolate", f
 
 
 /***/ }),
-/* 224 */
+/* 222 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -117713,7 +117703,7 @@ angular.module('ThemisComponents').directive('thTableRow', function() {
 
 
 /***/ }),
-/* 225 */
+/* 223 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -117774,7 +117764,7 @@ TableSort = function() {
 
 
 /***/ }),
-/* 226 */
+/* 224 */
 /* unknown exports provided */
 /* all exports used */
 /*!*************************************************!*\
@@ -117817,7 +117807,7 @@ angular.module('ThemisComponents').directive("thTab", function() {
 
 
 /***/ }),
-/* 227 */
+/* 225 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************!*\
@@ -117994,7 +117984,7 @@ angular.module('ThemisComponents').directive("thTabset", function() {
 
 
 /***/ }),
-/* 228 */
+/* 226 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -118063,7 +118053,7 @@ angular.module('ThemisComponents').directive("thTextarea", ["Utilities", functio
 
 
 /***/ }),
-/* 229 */
+/* 227 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -118109,7 +118099,7 @@ angular.module('ThemisComponents').directive('thTruncate', function() {
 
 
 /***/ }),
-/* 230 */
+/* 228 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -118121,7 +118111,7 @@ var EventEmitter,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
 
-EventEmitter = __webpack_require__(/*! events */ 25);
+EventEmitter = __webpack_require__(/*! events */ 26);
 
 angular.module('ThemisComponents').factory('ViewModel', function() {
   var ViewModel;
@@ -118168,7 +118158,7 @@ angular.module('ThemisComponents').factory('ViewModel', function() {
 
 
 /***/ }),
-/* 231 */
+/* 229 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -118199,7 +118189,7 @@ angular.module("ThemisComponents").directive("withFocus", ["$timeout", function(
 
 
 /***/ }),
-/* 232 */
+/* 230 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -118304,7 +118294,7 @@ angular.module('ThemisComponents').directive("withLabel", function() {
 
 
 /***/ }),
-/* 233 */
+/* 231 */
 /* unknown exports provided */
 /* all exports used */
 /*!************************************************************!*\
@@ -118373,7 +118363,7 @@ angular.module("ThemisComponents").directive("withSubtext", function() {
 
 
 /***/ }),
-/* 234 */
+/* 232 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************************!*\
@@ -118434,7 +118424,7 @@ angular.module('ThemisComponents').factory('MessageService', function() {
 
 
 /***/ }),
-/* 235 */
+/* 233 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************************************************!*\
@@ -118489,7 +118479,7 @@ angular.module('ThemisComponents').directive("withMessages", ["$compile", "Messa
 
 
 /***/ }),
-/* 236 */
+/* 234 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************!*\
@@ -118537,7 +118527,7 @@ exports.default = Utilities;
 
 
 /***/ }),
-/* 237 */
+/* 235 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -118548,8 +118538,8 @@ exports.default = Utilities;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var autocomplete_factory_1 = __webpack_require__(/*! ./autocomplete.factory */ 238);
-var autocomplete_errors_1 = __webpack_require__(/*! ./autocomplete.errors */ 39);
+var autocomplete_factory_1 = __webpack_require__(/*! ./autocomplete.factory */ 236);
+var autocomplete_errors_1 = __webpack_require__(/*! ./autocomplete.errors */ 40);
 var AutocompleteController = (function () {
     /* @ngInject */
     AutocompleteController.$inject = ["$scope", "$element", "$timeout", "$attrs", "ValidatorService"];
@@ -118709,7 +118699,7 @@ exports.default = AutocompleteComponent;
 
 
 /***/ }),
-/* 238 */
+/* 236 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -118720,9 +118710,9 @@ exports.default = AutocompleteComponent;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var autocomplete_1 = __webpack_require__(/*! ./providers/autocomplete */ 239);
-var combo_box_autocomplete_1 = __webpack_require__(/*! ./providers/combo-box-autocomplete */ 240);
-var multi_select_autocomplete_1 = __webpack_require__(/*! ./providers/multi-select-autocomplete */ 241);
+var autocomplete_1 = __webpack_require__(/*! ./providers/autocomplete */ 237);
+var combo_box_autocomplete_1 = __webpack_require__(/*! ./providers/combo-box-autocomplete */ 238);
+var multi_select_autocomplete_1 = __webpack_require__(/*! ./providers/multi-select-autocomplete */ 239);
 var AutocompleteFactory = (function () {
     function AutocompleteFactory() {
     }
@@ -118743,7 +118733,7 @@ exports.default = AutocompleteFactory;
 
 
 /***/ }),
-/* 239 */
+/* 237 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -118764,8 +118754,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var autocomplete_abstract_1 = __webpack_require__(/*! ./autocomplete.abstract */ 40);
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.autocomplete.js */ 116);
+var autocomplete_abstract_1 = __webpack_require__(/*! ./autocomplete.abstract */ 41);
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.autocomplete.js */ 117);
 var Autocomplete = (function (_super) {
     __extends(Autocomplete, _super);
     function Autocomplete(config) {
@@ -118826,7 +118816,7 @@ exports.default = Autocomplete;
 
 
 /***/ }),
-/* 240 */
+/* 238 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************************!*\
@@ -118847,8 +118837,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var autocomplete_abstract_1 = __webpack_require__(/*! ./autocomplete.abstract */ 40);
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.combobox.js */ 120);
+var autocomplete_abstract_1 = __webpack_require__(/*! ./autocomplete.abstract */ 41);
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.combobox.js */ 121);
 var ComboBoxAutocomplete = (function (_super) {
     __extends(ComboBoxAutocomplete, _super);
     function ComboBoxAutocomplete(config) {
@@ -118907,7 +118897,7 @@ exports.default = ComboBoxAutocomplete;
 
 
 /***/ }),
-/* 241 */
+/* 239 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************************!*\
@@ -118928,9 +118918,9 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var autocomplete_abstract_1 = __webpack_require__(/*! ./autocomplete.abstract */ 40);
-var autocomplete_errors_1 = __webpack_require__(/*! ../autocomplete.errors */ 39);
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.multiselect.js */ 61);
+var autocomplete_abstract_1 = __webpack_require__(/*! ./autocomplete.abstract */ 41);
+var autocomplete_errors_1 = __webpack_require__(/*! ../autocomplete.errors */ 40);
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.multiselect.js */ 62);
 var MultiSelectAutocomplete = (function (_super) {
     __extends(MultiSelectAutocomplete, _super);
     function MultiSelectAutocomplete(config) {
@@ -118991,7 +118981,7 @@ exports.default = MultiSelectAutocomplete;
 
 
 /***/ }),
-/* 242 */
+/* 240 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************************************!*\
@@ -119097,7 +119087,7 @@ exports.DataTableComponent = DataTableComponent;
 
 
 /***/ }),
-/* 243 */
+/* 241 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************!*\
@@ -119109,7 +119099,7 @@ exports.DataTableComponent = DataTableComponent;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var angular = __webpack_require__(/*! angular */ 2);
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.grid.js */ 59);
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.grid.js */ 60);
 var selectAllBannerTemplate = __webpack_require__(/*! ./templates/select-all-banner.template.html */ 267);
 var pageCheckboxTemplate = __webpack_require__(/*! ./templates/page-checkbox.template.html */ 265);
 var rowCheckboxTemplate = __webpack_require__(/*! ./templates/row-checkbox.template.html */ 266);
@@ -119160,7 +119150,7 @@ exports.DataTableService = DataTableService;
 
 
 /***/ }),
-/* 244 */
+/* 242 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************************!*\
@@ -119185,6 +119175,7 @@ var ToolbarComponent = {
     transclude: {
         "bulk": "?bulkActions",
         "custom": "?customActions",
+        "filter": "?thFilter",
     },
     controller: Toolbar,
 };
@@ -119192,7 +119183,7 @@ exports.ToolbarComponent = ToolbarComponent;
 
 
 /***/ }),
-/* 245 */
+/* 243 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************!*\
@@ -119386,7 +119377,7 @@ angular.module("ThemisComponents").component("thDatePicker", {
 
 
 /***/ }),
-/* 246 */
+/* 244 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************************************!*\
@@ -119426,6 +119417,94 @@ exports.DatepickerService = DatepickerService;
 
 
 /***/ }),
+/* 245 */
+/* unknown exports provided */
+/* all exports used */
+/*!*******************************************!*\
+  !*** ./src/lib/thFilter/filters/index.ts ***!
+  \*******************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var angular = __webpack_require__(/*! angular */ 2);
+__webpack_require__(/*! ./autocomplete/ */ 170);
+__webpack_require__(/*! ./date/ */ 173);
+__webpack_require__(/*! ./input/ */ 176);
+__webpack_require__(/*! ./number/ */ 179);
+__webpack_require__(/*! ./select/ */ 182);
+__webpack_require__(/*! ./time/ */ 185);
+__webpack_require__(/*! ./filterBase.service */ 175);
+var filterSet_service_1 = __webpack_require__(/*! ./filterSet.service */ 16);
+angular.module("ThemisComponents")
+    .factory("FilterSet", function () { return filterSet_service_1.default; });
+
+
+/***/ }),
+/* 246 */
+/* unknown exports provided */
+/* all exports used */
+/*!************************************************!*\
+  !*** ./src/lib/thFilter/thFilter.component.ts ***!
+  \************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var filterSet_service_1 = __webpack_require__(/*! ./filters/filterSet.service */ 16);
+var template = __webpack_require__(/*! ./thFilter.template.html */ 284);
+var FilterController = (function () {
+    /* @ngInject */
+    FilterController.$inject = ["$scope", "$q"];
+    function FilterController($scope, $q) {
+        this.$scope = $scope;
+        this.$q = $q;
+        this.initPromises = [];
+    }
+    FilterController.prototype.$onInit = function () {
+        this.filterSet = this.options.filterSet;
+        if (this.filterSet instanceof filterSet_service_1.default === false) {
+            throw new Error("thFilter: options must specify 'filterSet'.");
+        }
+    };
+    FilterController.prototype.$postLink = function () {
+        var _this = this;
+        this.isLoading = true;
+        this.$q.when(Promise.all(this.initPromises))
+            .then(function () {
+            _this.isLoading = false;
+            if (typeof _this.filterSet.onInitialized === "function") {
+                _this.filterSet.onInitialized();
+            }
+        })
+            .catch(function () {
+            throw new Error("thFilter: Some filters were unable to load.");
+        });
+    };
+    FilterController.prototype.registerInitPromise = function (promise) {
+        this.initPromises.push(promise);
+    };
+    FilterController.prototype.clearFilters = function () {
+        this.$scope.$broadcast("th.filters.clear");
+        this.filterSet.onFilterChange();
+    };
+    return FilterController;
+}());
+var FilterComponent = {
+    bindings: {
+        options: "<",
+    },
+    controllerAs: "thFilter",
+    template: template,
+    transclude: true,
+    controller: FilterController,
+};
+exports.default = FilterComponent;
+
+
+/***/ }),
 /* 247 */
 /* unknown exports provided */
 /* all exports used */
@@ -119437,7 +119516,7 @@ exports.DatepickerService = DatepickerService;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var thGridFramework_service_1 = __webpack_require__(/*! ./thGridFramework.service */ 71);
+var thGridFramework_service_1 = __webpack_require__(/*! ./thGridFramework.service */ 72);
 var Column = (function () {
     /* @ngInject */
     Column.$inject = ["$element"];
@@ -119538,7 +119617,7 @@ exports.bootstrapCssClasses = bootstrapCssClasses;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var thGridFramework_service_1 = __webpack_require__(/*! ./thGridFramework.service */ 71);
+var thGridFramework_service_1 = __webpack_require__(/*! ./thGridFramework.service */ 72);
 var Row = (function () {
     /* @ngInject */
     Row.$inject = ["$element"];
@@ -119657,8 +119736,8 @@ exports.ModalTitlebarComponent = ModalTitlebarComponent;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var $ = __webpack_require__(/*! jquery */ 3);
-var debounce = __webpack_require__(/*! debounce */ 16);
-__webpack_require__(/*! @progress/kendo-ui/js/kendo.tooltip.js */ 64);
+var debounce = __webpack_require__(/*! debounce */ 17);
+__webpack_require__(/*! @progress/kendo-ui/js/kendo.tooltip.js */ 65);
 var template = __webpack_require__(/*! ./popover.template.html */ 294);
 var PopoverController = (function () {
     /* @ngInject */
@@ -119822,7 +119901,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var scheduler_data_source_service_1 = __webpack_require__(/*! ../services/scheduler-data-source.service */ 69);
+var scheduler_data_source_service_1 = __webpack_require__(/*! ../services/scheduler-data-source.service */ 70);
 var CalendarEntriesService = (function () {
     function CalendarEntriesService(options, calendarDataSource, verbUrls) {
         var _this = this;
@@ -120176,7 +120255,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var data_source_service_1 = __webpack_require__(/*! ../../services/data-source.service */ 68);
+var data_source_service_1 = __webpack_require__(/*! ../../services/data-source.service */ 69);
 var CalendarDataSource = (function () {
     function CalendarDataSource(options) {
         var _this = this;
@@ -120670,7 +120749,7 @@ module.exports = "<tr class=\"select-all-banner\" ng-show=\"$ctrl.showSelectAllB
   \***********************************************************/
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"bulk-actions-container\">\n  <!-- custom space -->\n  <div ng-transclude=\"bulk\"></div>\n\n  <div class=\"counter-container\" ng-if=\"$ctrl.dataTableCtrl.getSelectedSize()\">\n    <p>{{$ctrl.dataTableCtrl.getSelectedSize()}} selected</p>\n    <a href=\"#\" ng-click=\"$ctrl.dataTableCtrl.clearSelection()\">Clear</a>\n  </div>\n</div>\n\n<div class=\"tools-container\">\n  <!-- custom space -->\n  <div ng-transclude=\"custom\"></div>\n\n  <!-- common: search bar -->\n  <!-- common: filter toggle button -->\n</div>\n"
+module.exports = "<!-- Temporary filter transclusion spot -->\n<div ng-transclude=\"filter\"></div>\n\n<div class=\"bulk-actions-container\">\n  <!-- custom space -->\n  <div ng-transclude=\"bulk\"></div>\n\n  <div class=\"counter-container\" ng-if=\"$ctrl.dataTableCtrl.getSelectedSize()\">\n    <p>{{$ctrl.dataTableCtrl.getSelectedSize()}} selected</p>\n    <a href=\"#\" ng-click=\"$ctrl.dataTableCtrl.clearSelection()\">Clear</a>\n  </div>\n</div>\n\n<div class=\"tools-container\">\n  <!-- custom space -->\n  <div ng-transclude=\"custom\"></div>\n\n  <!-- common: search bar -->\n  <!-- common: filter toggle button -->\n</div>\n"
 
 /***/ }),
 /* 269 */
@@ -121126,15 +121205,15 @@ var angular, translations;
 
 angular = __webpack_require__(/*! angular */ 2);
 
-translations = __webpack_require__(/*! ../i18n/locale-en.json */ 74);
+translations = __webpack_require__(/*! ../i18n/locale-en.json */ 75);
 
 __webpack_require__(/*! @progress/kendo-ui/js/kendo.core.js */ 0);
 
-__webpack_require__(/*! ../vendor_overrides/@progress/kendo-ui/js/kendo.angular.js */ 113);
+__webpack_require__(/*! ../vendor_overrides/@progress/kendo-ui/js/kendo.angular.js */ 114);
 
-__webpack_require__(/*! ../polyfills/ */ 20);
+__webpack_require__(/*! ../polyfills/ */ 21);
 
-angular.module("ThemisComponents", [__webpack_require__(/*! angular-aria */ 18), __webpack_require__(/*! angular-messages */ 19), __webpack_require__(/*! angular-sanitize */ 21), __webpack_require__(/*! angular-translate */ 73), __webpack_require__(/*! angular-translate-loader-static-files */ 72), "kendo.directives", __webpack_require__(/*! ui-select */ 22)]).config([
+angular.module("ThemisComponents", [__webpack_require__(/*! angular-aria */ 19), __webpack_require__(/*! angular-messages */ 20), __webpack_require__(/*! angular-sanitize */ 22), __webpack_require__(/*! angular-translate */ 74), __webpack_require__(/*! angular-translate-loader-static-files */ 73), "kendo.directives", __webpack_require__(/*! ui-select */ 23)]).config([
   "$translateProvider", function($translateProvider) {
     return $translateProvider.translations("en", translations).preferredLanguage("en").useSanitizeValueStrategy("sanitize");
   }
@@ -121142,39 +121221,39 @@ angular.module("ThemisComponents", [__webpack_require__(/*! angular-aria */ 18),
 
 __webpack_require__(/*! ./services/ */ 105);
 
-__webpack_require__(/*! ./thActionBar/ */ 75);
+__webpack_require__(/*! ./thActionBar/ */ 76);
 
-__webpack_require__(/*! ./thActionBarBilling/ */ 76);
+__webpack_require__(/*! ./thActionBarBilling/ */ 77);
 
-__webpack_require__(/*! ./thAlert/ */ 77);
+__webpack_require__(/*! ./thAlert/ */ 78);
 
 __webpack_require__(/*! ./thAutocomplete/ */ 106);
 
-__webpack_require__(/*! ./thButton/ */ 78);
+__webpack_require__(/*! ./thButton/ */ 79);
 
-__webpack_require__(/*! ./thCheckbox/ */ 79);
+__webpack_require__(/*! ./thCheckbox/ */ 80);
 
-__webpack_require__(/*! ./thCompile/ */ 80);
+__webpack_require__(/*! ./thCompile/ */ 81);
 
-__webpack_require__(/*! ./thContentHeader/ */ 81);
+__webpack_require__(/*! ./thContentHeader/ */ 82);
 
-__webpack_require__(/*! ./thContextualMessage/ */ 82);
+__webpack_require__(/*! ./thContextualMessage/ */ 83);
 
 __webpack_require__(/*! ./thDataTable/ */ 107);
 
 __webpack_require__(/*! ./thDatePicker/ */ 108);
 
-__webpack_require__(/*! ./thDefaults/ */ 83);
+__webpack_require__(/*! ./thDefaults/ */ 84);
 
-__webpack_require__(/*! ./thDisclosure/ */ 84);
+__webpack_require__(/*! ./thDisclosure/ */ 85);
 
-__webpack_require__(/*! ./thDropdown/ */ 85);
+__webpack_require__(/*! ./thDropdown/ */ 86);
 
-__webpack_require__(/*! ./thError/ */ 86);
+__webpack_require__(/*! ./thError/ */ 87);
 
-__webpack_require__(/*! ./thFilter/ */ 87);
+__webpack_require__(/*! ./thFilter/ */ 109);
 
-__webpack_require__(/*! ./thGrid/ */ 109);
+__webpack_require__(/*! ./thGrid/ */ 110);
 
 __webpack_require__(/*! ./thInput/ */ 88);
 
@@ -121186,13 +121265,13 @@ __webpack_require__(/*! ./thModal/ */ 91);
 
 __webpack_require__(/*! ./thPlural/ */ 92);
 
-__webpack_require__(/*! ./thPopover/ */ 110);
+__webpack_require__(/*! ./thPopover/ */ 111);
 
 __webpack_require__(/*! ./thPopoverLegacy/ */ 93);
 
 __webpack_require__(/*! ./thRadioGroup/ */ 94);
 
-__webpack_require__(/*! ./thScheduler/ */ 111);
+__webpack_require__(/*! ./thScheduler/ */ 112);
 
 __webpack_require__(/*! ./thSelect/ */ 95);
 

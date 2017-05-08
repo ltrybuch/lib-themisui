@@ -17,20 +17,14 @@ describe "ThemisComponents: Directive: thFilter", ->
 
   describe "when filter set is undefined", ->
     it "should throw an error", ->
-      expect(-> compileDirective(validTemplate, {
-        options: {}
-      })).toThrow()
+      expect(-> compileDirective validTemplate, options: {}).toThrow()
 
   describe "#clearFilters", ->
     beforeEach ->
-      {@element} = compileDirective(validTemplate, {
-        options: {
-          filterSet: filterSet
-        }
-      })
+      {@element} = compileDirective validTemplate, options: {filterSet}
 
       @scope = angular.element(
-        @element[0].querySelector(".th-filter")
+        @element[0].querySelector ".th-filter"
       ).scope()
       controller = @scope.thFilter
 

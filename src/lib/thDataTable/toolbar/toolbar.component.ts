@@ -12,6 +12,7 @@ const ToolbarComponent: angular.IComponentOptions = {
   transclude: {
     "bulk": "?bulkActions",
     "custom": "?customActions",
+    "filter": "?thFilter",
   },
   controller: Toolbar,
 };

@@ -27,11 +27,11 @@ angular.module("thFilterDemo")
 
       fetchData: ({sortHeader}, updateData) =>
         filteredData = data
-        for filter in @filterSet
-          state = filter.getState()
+
+        for identifier, state of @filterSet.getState()
           if state?
             filteredData = filteredData.filter (item) ->
-              item[filter.fieldIdentifier] is state.value
+              item[identifier] is state.value
 
         sortedData = sort filteredData, sortHeader
         updateData {data: sortedData, totalItems: sortedData.length}

@@ -3,6 +3,9 @@ const xhook: any = require("xhook");
 
 // TODO: This probably needs sorting out to enforce functions that return
 let Utilities: any = {};
+type requestObj = { url: string, body?: string, method: string };
+type responseObj = { data?: { id?: number } };
+type responseCb = (url: string) => responseObj;
 
 /**
  * Take a request body (e.g. POST) data and place it on the response body
@@ -31,14 +34,14 @@ Utilities.copyRequestBodyToResponseBody = function(
  * The fakeResponse function allows you to intercept HTTP requests and stub their responses.
  *
  * @param urlPattern The pattern to match the HTTP request.
- * @param responseStub The new HTTP response.
+ * @param responseStub The new HTTP response or a callback that returns the new HTTP response.
  */
 const fakeResponse = function(
   urlPattern: RegExp,
-  responseStub: { data?: { id?: number } },
+  responseStub: responseObj | responseCb,
   method: string = "GET",
 ) {
-  xhook.before(function(request: { url: string, body?: string, method: string }) {
+  xhook.before(function(request: requestObj) {
     if (request.url.match(urlPattern) && request.method === method) {
       // show AJAX request console logs in browser, to help developers remember not to check Network tab
       if (window.location.pathname.indexOf("context") === -1) {
@@ -50,6 +53,8 @@ const fakeResponse = function(
         );
       }
 
+      let responseData = responseStub instanceof Function ? responseStub(request.url) : responseStub;
+
       /**
        * We do this to make sure the client gets back what it expects from the server
        * ...an identical object to which it sent.
@@ -57,7 +62,7 @@ const fakeResponse = function(
        * bears a different version of the object.
        */
       if (method === "POST" || method === "PATCH") {
-        responseStub = Utilities.copyRequestBodyToResponseBody(request.body);
+        responseData = Utilities.copyRequestBodyToResponseBody(request.body);
 
         // Emulate a server returning a new id for a created resource
         if (method === "POST") {
@@ -65,11 +70,11 @@ const fakeResponse = function(
            * Break the coupling to { data: { id: number } } structure
            * #coupled-to-clio
            */
-            responseStub.data.id = Math.floor(Math.random() * (1000 - 1)) + 1;
+            responseData.data.id = Math.floor(Math.random() * (1000 - 1)) + 1;
         }
       }
 
-      const jsonResponseText = JSON.stringify(responseStub);
+      const jsonResponseText = JSON.stringify(responseData);
       /**
        * We assign `data` AND `text` because some XHR requests are looking for one
        * or the other. #hacky-for-now

@@ -8351,12 +8351,24 @@ th-data-table-toolbar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  /**
+   * Uncomment me when the filter is moved into a dropdown
+   * height: 56px;
+   */
+  padding: 10px;
+  border: #B0BEC5;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 10px;
-  border: #B0BEC5;
-  background: #D7DEE2; }
+  background: #D7DEE2;
+  /**
+   * TODO: Remove me when the filter is moved into a dropdown
+   */
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  /**
+   * /TODO
+   */ }
   th-data-table-toolbar .bulk-actions-container, th-data-table-toolbar .tools-container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -8371,6 +8383,10 @@ th-data-table-toolbar {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center; }
+  th-data-table-toolbar [ng-transclude="filter"] {
+    width: 100%; }
+  th-data-table-toolbar th-filter {
+    min-height: 100px; }
 
 th-data-table {
   display: block; }
@@ -8395,9 +8411,6 @@ th-data-table {
     -webkit-box-ordinal-group: 4;
     -ms-flex-order: 3;
     order: 3; }
-
-th-data-table-toolbar {
-  height: 56px; }
 
 .k-compact .k-datepicker .k-input, .k-datepicker.k-compact .k-input {
   padding: 0.25rem 0.5rem; }

@@ -1,5 +1,7 @@
+FilterSetFactory = require("./filters/filterSet.service").default
+
 angular.module "ThemisComponents"
-.directive "thStaticFilters", (FilterSet, $timeout) ->
+.directive "thStaticFilters", ($timeout) ->
   restrict: "E"
   require: "^thFilter"
   scope:
@@ -16,12 +18,14 @@ angular.module "ThemisComponents"
         initialState
       } = thFilterController?.options
 
-      unless filterSet instanceof Array
+
+      unless filterSet instanceof FilterSetFactory
         throw new Error "thStaticFilters: options must specify 'filterSet'."
-      scope.thStaticFilters.filterSet = filterSet
 
       unless staticFilters instanceof Array
         throw new Error "thStaticFilters: options must specify 'staticFilters'."
+
+      scope.thStaticFilters.filterSet = filterSet
 
       scope.thStaticFilters.staticFilters = []
       staticFilters.forEach (item) ->

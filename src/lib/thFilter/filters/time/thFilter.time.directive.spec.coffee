@@ -57,7 +57,7 @@ describe "ThemisComponents: Directive: thFilterTime", ->
 
   it "should add filter to filter set", ->
     expect(filterSet.length).toBe 1
-    expect(filterSet[0]).toBe instanceof TimeFilter
+    expect(filterSet.get(0)).toBe instanceof TimeFilter
 
   describe "when initial value is specified", ->
     beforeEach ->
@@ -85,7 +85,7 @@ describe "ThemisComponents: Directive: thFilterTime", ->
       }
 
     it "should parse initial value", ->
-      expect(filterSet[0].getState()).toEqual @initialState
+      expect(filterSet.get(0).getState()).toEqual @initialState
 
   describe "#validateInput", ->
     beforeEach ->

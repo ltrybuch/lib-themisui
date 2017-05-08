@@ -1,3 +1,5 @@
+FilterSetFactory = require("./filters/filterSet.service").default
+
 class CustomFilters
   MAX_API_RESULTS = 200
 
@@ -17,7 +19,7 @@ class CustomFilters
     @filterSet = @thFilterCtrl.options.filterSet
     @showSearchHint = @thFilterCtrl.options.showSearchHint
 
-    unless @filterSet instanceof Array
+    unless @filterSet instanceof FilterSetFactory
       throw new Error "thCustomFilters: must specify 'filterSet'."
 
     unless @customFilterTypes instanceof Array or customFilterUrl?

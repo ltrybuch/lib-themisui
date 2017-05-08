@@ -1,13 +1,26 @@
 import * as faker from "faker";
+import * as moment from "moment";
 
 const staticColumns = [
   {
     field: "FirstName",
     title: "First Name",
+    minResizableWidth: 100,
   },
   {
     field: "LastName",
     title: "Last Name",
+    minResizableWidth: 100,
+  },
+  {
+    title: "Birthday",
+    template: (dataItem: { [field: string]: string }) => moment(dataItem.Birthday).format("MM/DD/YYYY"),
+    minResizableWidth: 80,
+  },
+  {
+    field: "Salary",
+    title: "Salary",
+    minResizableWidth: 60,
   },
 ];
 
@@ -43,6 +56,8 @@ for (let i = 0; i < fakeDataLength; i++) {
     id: i,
     FirstName: faker.name.firstName(),
     LastName: faker.name.lastName(),
+    Birthday: moment(faker.date.past()).startOf("date").format(),
+    Salary: parseInt(faker.finance.amount(75, 200), 10) * 1000,
   });
 }
 

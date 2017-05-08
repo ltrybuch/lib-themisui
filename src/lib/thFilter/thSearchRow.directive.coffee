@@ -1,17 +1,19 @@
-angular.module 'ThemisComponents'
-.directive 'thSearchRow', (InputFilter, $timeout) ->
-  restrict: 'E'
+FilterSetFactory = require("./filters/filterSet.service").default
+
+angular.module "ThemisComponents"
+.directive "thSearchRow", (InputFilter, $timeout) ->
+  restrict: "E"
   require: "^thFilter"
   scope:
     options: "="
     fieldIdentifier: "@?"
   bindToController: true
-  controllerAs: 'thSearchRow'
-  template: require './thSearchRow.template.html'
+  controllerAs: "thSearchRow"
+  template: require "./thSearchRow.template.html"
   controller: ($scope) ->
     @queryFilterOptions = {
       fieldIdentifier: @fieldIdentifier or "query"
-      placeholder: 'Enter search term...'
+      placeholder: "Enter search term..."
     }
 
     return
@@ -22,8 +24,9 @@ angular.module 'ThemisComponents'
         initialState
       } = thFilterController?.options
 
-      unless filterSet instanceof Array
+      unless filterSet instanceof FilterSetFactory
         throw new Error "thSearchRow: must specify 'filterSet' attribute."
+
       scope.thSearchRow.filterSet = filterSet
 
       scope.thSearchRow.initialState =

@@ -1,9 +1,13 @@
 th-data-table-toolbar {
   display: flex;
-  justify-content: space-between;
+  /**
+   * Uncomment me when the filter is moved into a dropdown
+   * height: 56px;
+   */
   padding: 10px;
 
   border: $table-border-color;
+  justify-content: space-between;
 
   background: $input-dark-background-color;
 
@@ -18,4 +22,20 @@ th-data-table-toolbar {
 
     align-items: center;
   }
+
+  /**
+   * TODO: Remove me when the filter is moved into a dropdown
+   */
+  flex-wrap: wrap;
+
+  [ng-transclude="filter"] {
+    width: 100%;
+  }
+
+  th-filter {
+    min-height: 100px;
+  }
+  /**
+   * /TODO
+   */
 }

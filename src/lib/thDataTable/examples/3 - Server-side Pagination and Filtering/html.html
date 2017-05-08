@@ -1,0 +1,17 @@
+<html ng-app="thDataTableDemo">
+  <body ng-controller="thDataTableDemoCtrl5 as demo">
+
+    <th-data-table
+      options="demo.dataTableOptions"
+      >
+      <th-data-table-toolbar>
+        <th-filter options="demo.filterOptions">
+          <th-static-filters></th-static-filters>
+          <th-custom-filters></th-custom-filters>
+          <th-search-row></th-search-row>
+        </th-filter>
+      </th-data-table-toolbar>
+    </th-data-table>
+
+  </body>
+</html>

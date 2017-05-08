@@ -3,7 +3,7 @@ import { staticColumns, fakeDataObj as expectedDataObj } from "../../tests/fixtu
 const rowActionsTemplate = require("./row-actions.template.html") as string;
 
 angular.module("thDataTableDemo")
-  .controller("thDataTableDemoCtrl6", function(DataSource) {
+  .controller("thDataTableDemoCtrl4", function(DataSource) {
     const actionsColumn = {
       // See here for all possible configurations for column (e.g. width):
       // http://docs.telerik.com/kendo-ui/api/javascript/ui/grid#configuration-columns
