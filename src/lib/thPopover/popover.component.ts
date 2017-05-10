@@ -134,7 +134,7 @@ const PopoverComponent: angular.IComponentOptions = {
   controller: PopoverController,
   bindings: {
     side: "@",
-    template: "@",
+    template: "<",
   },
   transclude: true,
 };

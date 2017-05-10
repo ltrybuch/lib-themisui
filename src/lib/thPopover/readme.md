@@ -7,11 +7,11 @@
 ### Example
 
 ```html
-<th-popover template="{{demo.template}}">
+<th-popover template="demo.template">
   <!-- Insert trigger element here -->
 </th-popover>
 
-<th-popover template="{{demo.template}}">
+<th-popover template="demo.template">
   <th-button>Filters</th-button>
 </th-popover>
 ```
