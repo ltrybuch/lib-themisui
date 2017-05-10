@@ -1,6 +1,6 @@
 # Popover
 
-<span class="badge orange">In Progress</span>
+<span class="badge green">Ready</span>
 
 `th-popover` is used to add overlays of content to any element for housing secondary information.
 

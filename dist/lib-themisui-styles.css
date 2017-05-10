@@ -7317,10 +7317,12 @@ th-autocomplete.ng-invalid .k-tooltip.k-tooltip-validation {
     bottom: 0;
     left: 0;
     margin: auto; }
-  .th-button:hover,
+  .th-button.pressed, .th-button:hover,
+  *[th-button].pressed,
   *[th-button]:hover {
     background-color: #004670; }
-    .th-button:hover:active,
+    .th-button.pressed:active, .th-button:hover:active,
+    *[th-button].pressed:active,
     *[th-button]:hover:active {
       background-color: #003c5f; }
   .th-button[disabled],
@@ -7331,10 +7333,12 @@ th-autocomplete.ng-invalid .k-tooltip.k-tooltip-validation {
   *[th-button].create {
     color: white;
     background-color: #339931; }
-    .th-button.create:hover,
+    .th-button.create.pressed, .th-button.create:hover,
+    *[th-button].create.pressed,
     *[th-button].create:hover {
       background-color: #0A6B0C; }
-      .th-button.create:hover:active,
+      .th-button.create.pressed:active, .th-button.create:hover:active,
+      *[th-button].create.pressed:active,
       *[th-button].create:hover:active {
         background-color: #095b0a; }
     .th-button.create[disabled],
@@ -7345,10 +7349,12 @@ th-autocomplete.ng-invalid .k-tooltip.k-tooltip-validation {
   *[th-button].destroy {
     color: white;
     background-color: #E41B28; }
-    .th-button.destroy:hover,
+    .th-button.destroy.pressed, .th-button.destroy:hover,
+    *[th-button].destroy.pressed,
     *[th-button].destroy:hover {
       background-color: #A40618; }
-      .th-button.destroy:hover:active,
+      .th-button.destroy.pressed:active, .th-button.destroy:hover:active,
+      *[th-button].destroy.pressed:active,
       *[th-button].destroy:hover:active {
         background-color: #8b0514; }
     .th-button.destroy[disabled],
@@ -7359,10 +7365,12 @@ th-autocomplete.ng-invalid .k-tooltip.k-tooltip-validation {
   *[th-button].secondary {
     color: #263238;
     background-color: #D7DEE2; }
-    .th-button.secondary:hover,
+    .th-button.secondary.pressed, .th-button.secondary:hover,
+    *[th-button].secondary.pressed,
     *[th-button].secondary:hover {
       background-color: #B0BEC5; }
-      .th-button.secondary:hover:active,
+      .th-button.secondary.pressed:active, .th-button.secondary:hover:active,
+      *[th-button].secondary.pressed:active,
       *[th-button].secondary:hover:active {
         background-color: #96a2a7; }
     .th-button.secondary[disabled],

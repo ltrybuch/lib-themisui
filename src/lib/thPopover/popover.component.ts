@@ -132,6 +132,7 @@ class PopoverController {
 const PopoverComponent: angular.IComponentOptions = {
   template,
   controller: PopoverController,
+  controllerAs: "popover",
   bindings: {
     side: "@",
     template: "<",

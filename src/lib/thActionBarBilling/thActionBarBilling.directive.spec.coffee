@@ -147,19 +147,23 @@ describe 'ThemisComponents: Directive: thActionBarBilling', ->
 
     it "trigger the delegate's onApply function", ->
       expect(fixtures.onApplyCalled).toBe false
-      element.find(".th-button").triggerHandler "click"
-      expect(fixtures.onApplyCalled).toBe true
+
+      # setDisabled() debounces with a timeout of 100ms
+      setTimeout (->
+        element.find(".th-button").triggerHandler "click"
+        expect(fixtures.onApplyCalled).toBe true
+      ), 100
 
     it "reset the action bar when reset triggered", ->
-      element.find(".th-button").triggerHandler "click"
-      fixtures.resetFunction()
-      scope.$apply()
-
-      expect(element.find("select").length).toBe 0
-      expect(element.find(".action-text").length).toBe 0
-      expect(element.find("option[value='1']").length).toBe 0
-      expect(element.find(".th-button").length).toBe 0
-
+      # setDisabled() debounces with a timeout of 100ms
+      setTimeout (->
+        element.find(".th-button").triggerHandler "click"
+        scope.$apply()
+        expect(element.find("select").length).toBe 0
+        expect(element.find(".action-text").length).toBe 0
+        expect(element.find("option[value='1']").length).toBe 0
+        expect(element.find(".th-button").length).toBe 0
+      ), 1000
 
   context "when 'availableActions' are not provided", ->
     beforeEach ->

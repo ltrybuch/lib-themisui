@@ -1,0 +1,18 @@
+<th-popover
+  template="button.menuTemplate"
+  side="{{button.menuSide}}"
+  >
+  <button
+    class="th-button menu-button {{button.type}}"
+    ng-disabled="button.ngDisabled"
+    aria-disabled="{{button.ngDisabled}}"
+    aria-label="{{button.ariaLabel}}"
+    aria-describedby="{{button.ariaDescribedby}}"
+    >
+    <span class="load-wrapper" ng-if="button.loading">
+      <th-loader theme="button.theme" size="mini"></th-loader>
+    </span>
+    <ng-transclude ng-class="button.loading ? 'hide' : 'show'"></ng-transclude>
+    <i class="fa fa-caret-down" aria-hidden="true"></i>
+  </button>
+</th-popover>

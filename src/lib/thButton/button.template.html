@@ -1,6 +1,9 @@
 <button
   class="th-button {{button.type}}"
+  ng-disabled="button.ngDisabled"
   aria-disabled="{{button.ngDisabled}}"
+  aria-label="{{button.ariaLabel}}"
+  aria-describedby="{{button.ariaDescribedby}}"
   >
   <span
     class="load-wrapper"
