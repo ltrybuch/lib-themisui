@@ -5,6 +5,7 @@ import CalendarInterface from "./calendar.interface";
 class CalendarDataSource implements CalendarDataSourceInterface {
   private _dataSource: kendo.data.DataSource;
   private _fetchPromise: Promise<number[]>;
+  private collection: CalendarInterface[];
   private colors = [
     {val: "#658cda"},
     {val: "#da6666"},
@@ -76,11 +77,24 @@ class CalendarDataSource implements CalendarDataSourceInterface {
     return this._dataSource;
   }
 
+  getDefaultCalendar(): CalendarInterface|Error {
+    if (this.collection.length === 0) { throw new Error("No calendars to find default from."); };
+
+    const defaultCalendar = this.collection.find((calendar) => {
+      return calendar.type === "UserCalendar" && calendar.permission === "owner";
+    });
+    if (defaultCalendar == null) {
+      console.warn("No default calendars declared, setting to first calendar found.");
+      return this.collection[0];
+    }
+    return defaultCalendar;
+  }
+
   private async getCalendars(): Promise<CalendarInterface[]> {
     await this._fetchPromise;
     const rawData = this._dataSource.data();
 
-    return rawData.map((calendar: kendo.data.DataSourceSchemaModel) => {
+    const calendars = rawData.map((calendar: kendo.data.DataSourceSchemaModel) => {
       return {
         id: calendar.id,
         name: calendar.name,
@@ -88,6 +102,9 @@ class CalendarDataSource implements CalendarDataSourceInterface {
         color: calendar.color,
       };
     });
+
+    this.collection = calendars;
+    return calendars;
   }
 
   async getIds(): Promise<number[]> {

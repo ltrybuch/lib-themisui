@@ -120549,23 +120549,39 @@ var CalendarDataSource = (function () {
     CalendarDataSource.prototype.getCalendarsDataSource = function () {
         return this._dataSource;
     };
+    CalendarDataSource.prototype.getDefaultCalendar = function () {
+        if (this.collection.length === 0) {
+            throw new Error("No calendars to find default from.");
+        }
+        ;
+        var defaultCalendar = this.collection.find(function (calendar) {
+            return calendar.type === "UserCalendar" && calendar.permission === "owner";
+        });
+        if (defaultCalendar == null) {
+            console.warn("No default calendars declared, setting to first calendar found.");
+            return this.collection[0];
+        }
+        return defaultCalendar;
+    };
     CalendarDataSource.prototype.getCalendars = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var rawData;
+            var rawData, calendars;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this._fetchPromise];
                     case 1:
                         _a.sent();
                         rawData = this._dataSource.data();
-                        return [2 /*return*/, rawData.map(function (calendar) {
-                                return {
-                                    id: calendar.id,
-                                    name: calendar.name,
-                                    visible: calendar.visible,
-                                    color: calendar.color,
-                                };
-                            })];
+                        calendars = rawData.map(function (calendar) {
+                            return {
+                                id: calendar.id,
+                                name: calendar.name,
+                                visible: calendar.visible,
+                                color: calendar.color,
+                            };
+                        });
+                        this.collection = calendars;
+                        return [2 /*return*/, calendars];
                 }
             });
         });

@@ -93,6 +93,46 @@ describe("ThemisComponents : thScheduler : CalendarDataSource", function() {
       });
     });
 
+    describe("#getDefaultCalendar", function() {
+      // TODO: Replace this with a decorator/spec helper for testing private members
+      const privateMember = "collection";
+
+      it("returns the default calendar, if it exists", function() {
+        const defaultCalendar = {
+          id: 1,
+          name: "Foo",
+          visible: true,
+          color: "#000000",
+          type: "UserCalendar",
+          permission: "owner",
+        };
+
+        calendarDataSource[privateMember] = [
+          defaultCalendar,
+          { id: 2, name: "Bar", visible: true, color: "#000000", type: "AdhocCalendar" },
+        ] as CalendarInterface[];
+
+        expect(calendarDataSource.getDefaultCalendar()).toEqual(defaultCalendar);
+      });
+
+      it("returns the first calendar found, if no default calendar exists", function() {
+        calendarDataSource[privateMember] = [
+          { id: 1, name: "Foo", visible: true, color: "#000000", type: "AdhocCalendar" },
+          { id: 2, name: "Bar", visible: true, color: "#000000", type: "AdhocCalendar" },
+        ] as CalendarInterface[];
+
+        expect(calendarDataSource.getDefaultCalendar()).toEqual(calendarDataSource[privateMember][0]);
+      });
+
+      it("throws an error if no calendars exist", function() {
+        calendarDataSource[privateMember] = [];
+
+        expect(function() {
+          calendarDataSource.getDefaultCalendar();
+        }).toThrow(new Error("No calendars to find default from."));
+      });
+    });
+
   });
 
 });
