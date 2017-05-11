@@ -10,7 +10,7 @@ function generateComponent(name: string) {
   const camelCasedName = Utilities.toCamelCase(name);
   const pascalCasedName = camelCasedName[0].toUpperCase() + camelCasedName.slice(1);
   const componentName = `th${pascalCasedName}`;
-  const templatePath = path.join("tools", "generators", "templates", "component");
+  const templatePath = path.join("tools", "generators", "cli", "templates", "component");
   const destinationPath = path.join("src", "lib", componentName);
 
   const templateFiles: types.fileInfo[] = glob.sync(path.join(templatePath, "**/*"))
