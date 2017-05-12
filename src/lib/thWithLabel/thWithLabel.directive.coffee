@@ -1,5 +1,5 @@
 angular.module('ThemisComponents')
-  .directive "withLabel", ->
+  .directive "withLabel", ($compile) ->
     restrict: "A"
     # Note: Post links run in reverse priority order. So set 'withLabel'
     # directive first and then run 'withMessages' after. Counterintiutive yes,
@@ -20,6 +20,14 @@ angular.module('ThemisComponents')
           wrappedRequiredLabel.removeClass("hide")
         else
           wrappedRequiredLabel.addClass("hide")
+
+      prependTooltipElement = ->
+        tooltipTemplate = attrs.withTooltip
+        scope.tooltipTemplate = tooltipTemplate
+        tooltip = """<th-tooltip template="tooltipTemplate"></th-tooltip>"""
+        tooltipEl = $compile(tooltip) scope
+
+        label.prepend tooltipEl
 
       adjustMarginForRadioInputs = (element) ->
         # Reduce margin-bottom for radio button groups.
@@ -60,6 +68,7 @@ angular.module('ThemisComponents')
         label.append "<span class='inline label-text'>#{attrs.withLabel}</span>"
         adjustMarginForRadioInputs elementObject.el
       else
+        prependTooltipElement() if attrs.withTooltip
         label.prepend "<div class='label-text'>#{attrs.withLabel}</div>"
       label.prepend """<span class='required-field'>required</span>"""
 

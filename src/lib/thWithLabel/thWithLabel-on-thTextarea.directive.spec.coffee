@@ -8,7 +8,7 @@ describe 'withLabel', ->
 
   beforeEach angular.mock.module "ThemisComponents"
 
-  context 'with th-textarea example', ->
+  context "with th-textarea example", ->
     beforeEach ->
       element = compileDirective("""<th-textarea with-label="name"></th-textarea>""").element
 

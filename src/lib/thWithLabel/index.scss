@@ -4,6 +4,10 @@ label.th-label {
   display: block;
   margin-bottom: 25px;
 
+  th-tooltip {
+    margin-left: 5px;
+  }
+
   &.th-checkbox-label {
     display: flex;
     align-items: center;
@@ -58,6 +62,7 @@ label.th-label {
   }
 
   .label-text {
+    display: inline-block;
     margin-bottom: 8px;
     font-weight: bold;
     color: $text-color;

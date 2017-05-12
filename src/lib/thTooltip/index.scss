@@ -1,0 +1,36 @@
+th-popover {
+  display: inline-block;
+
+  .popover-content {
+    position: relative;
+
+    .k-animation-container {
+      .k-tooltip {
+        box-sizing: border-box;
+
+        overflow: scroll;
+
+        .k-tooltip-content {
+          padding: 0;
+
+          color: $text-color;
+        }
+      }
+    }
+
+    // Override Kendo's inline positional styling
+    .k-animation-container[style] {
+      top: 0px!important;
+      left: 0px!important;
+
+      &.right-aligned-container {
+        right: 0px!important;
+        left: inherit!important;
+
+        .k-tooltip {
+          right: 0px;
+        }
+      }
+    }
+  }
+}
