@@ -119977,7 +119977,7 @@ var PopoverController = (function () {
             autoHide: false,
         };
         this.popoverTemplateContent = this.template;
-        this.side = this.side || "left";
+        this.side = this.$element.attr("side") || "left";
     }
     PopoverController.prototype.$onInit = function () {
         this.validateArgs();
@@ -119998,8 +119998,8 @@ var PopoverController = (function () {
             // it in the width calculation next time it's shown.
             $(popupElement).css({ "margin-right": "0px", "margin-left": "0px" });
         });
-        this.tooltipContainer.bind("show", function (e) {
-            _this.showPopover(e);
+        this.tooltipContainer.bind("show", function () {
+            _this.showPopover();
         });
         $(this.anchorElement).click(function () {
             _this.togglePopover();
@@ -120010,12 +120010,13 @@ var PopoverController = (function () {
             throw new Error("thPopover: You must provide the \"template\" parameter.");
         }
     };
-    PopoverController.prototype.showPopover = function (e) {
-        var popupElement = e.sender.popup.element[0];
+    PopoverController.prototype.showPopover = function () {
+        this.popupElement = $(this.$element).find(".k-tooltip");
         // Match margin for popup to that of the anchor element.
-        $(popupElement).css("margin-" + this.side, $(this.anchorElement).css("margin-" + this.side));
+        $(this.popupElement).css("margin-" + this.side, $(this.anchorElement).css("margin-" + this.side));
         // Add class to overwrite inline styles applied by Kendo.
         if (this.side === "right") {
+            $(this.popupElement).css("margin-left", "20px");
             $(this.$element).find(".popover-content .k-animation-container").addClass("right-aligned-container");
         }
     };
@@ -120045,21 +120046,20 @@ var PopoverController = (function () {
         });
         popupContent.append(popupElement.parentElement);
     };
-    PopoverController.prototype.calculateSize = function (popupElement) {
+    PopoverController.prototype.calculateSize = function () {
         var marginSize = 20;
-        var anchorElement = $(popupElement).data("kendoPopup").options.anchor[0];
-        var maxHeight = window.innerHeight - ($(anchorElement).offset().top + $(anchorElement).height() + marginSize);
+        var maxHeight = window.innerHeight - ($(this.anchorElement).offset().top + $(this.anchorElement).height() + marginSize);
         var maxWidth;
         if (this.side === "right") {
-            maxWidth = $(anchorElement).offset().left + $(anchorElement).width();
+            maxWidth = $(this.anchorElement).offset().left + $(this.anchorElement).width();
         }
         else {
-            maxWidth = window.innerWidth - ($(anchorElement).offset().left + marginSize);
+            maxWidth = window.innerWidth - ($(this.anchorElement).offset().left + marginSize);
         }
         return { maxWidth: maxWidth, maxHeight: maxHeight };
     };
     PopoverController.prototype.resizePopup = function (popupElement) {
-        var popupDimensions = this.calculateSize(popupElement);
+        var popupDimensions = this.calculateSize();
         $(popupElement.parentElement).css("max-width", popupDimensions.maxWidth + "px");
         $(popupElement).css("max-height", popupDimensions.maxHeight + "px");
     };

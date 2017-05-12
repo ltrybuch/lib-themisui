@@ -9,6 +9,7 @@ class PopoverController {
   private template: string;
   private tooltipContainer: any;
   private anchorElement: any;
+  private popupElement: any;
 
   tooltipOptions = {
     showOn: "click",
@@ -21,7 +22,7 @@ class PopoverController {
   constructor(
     private $element: angular.IAugmentedJQuery,
   ) {
-    this.side = this.side || "left";
+    this.side = this.$element.attr("side") || "left";
   }
 
   $onInit() {
@@ -47,8 +48,8 @@ class PopoverController {
       $(popupElement).css({"margin-right": "0px", "margin-left": "0px"});
     });
 
-    this.tooltipContainer.bind("show", (e: any) => {
-      this.showPopover(e);
+    this.tooltipContainer.bind("show", () => {
+      this.showPopover();
     });
 
     $(this.anchorElement).click(() => {
@@ -62,12 +63,14 @@ class PopoverController {
     }
   }
 
-  private showPopover(e: any) {
-    const popupElement = e.sender.popup.element[0];
+  public showPopover() {
+    this.popupElement = $(this.$element).find(".k-tooltip");
     // Match margin for popup to that of the anchor element.
-    $(popupElement).css("margin-" + this.side, $(this.anchorElement).css("margin-" + this.side));
+    $(this.popupElement).css("margin-" + this.side, $(this.anchorElement).css("margin-" + this.side));
+
     // Add class to overwrite inline styles applied by Kendo.
     if (this.side === "right") {
+      $(this.popupElement).css("margin-left", "20px");
       $(this.$element).find(".popover-content .k-animation-container").addClass("right-aligned-container");
     }
   }
@@ -100,23 +103,23 @@ class PopoverController {
     popupContent.append(popupElement.parentElement);
   }
 
-  private calculateSize(popupElement: HTMLElement) {
+  private calculateSize() {
     const marginSize = 20;
-    const anchorElement = $(popupElement).data("kendoPopup").options.anchor[0];
-    const maxHeight = window.innerHeight - ($(anchorElement).offset().top + $(anchorElement).height() + marginSize);
+    const maxHeight =
+      window.innerHeight - ($(this.anchorElement).offset().top + $(this.anchorElement).height() + marginSize);
     let maxWidth;
 
     if (this.side === "right") {
-      maxWidth = $(anchorElement).offset().left + $(anchorElement).width();
+      maxWidth = $(this.anchorElement).offset().left + $(this.anchorElement).width();
     } else {
-      maxWidth = window.innerWidth - ($(anchorElement).offset().left + marginSize);
+      maxWidth = window.innerWidth - ($(this.anchorElement).offset().left + marginSize);
     }
 
     return {maxWidth: maxWidth, maxHeight: maxHeight};
   }
 
   private resizePopup(popupElement: HTMLElement) {
-    const popupDimensions = this.calculateSize(popupElement);
+    const popupDimensions = this.calculateSize();
     $(popupElement.parentElement).css("max-width", popupDimensions.maxWidth + "px");
     $(popupElement).css("max-height", popupDimensions.maxHeight + "px");
   }
